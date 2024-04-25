@@ -30,11 +30,13 @@ none
 
 ## 2.1. Overview
 
-Player is a magician that explores dungeons. In these they fight slimes with 3 magic spells and maybe solve puzzles to get to the boss room, where they fight a boss.
+Player is a magician that explores dungeons. In these they fight slimes with 3 magic spells and maybe solve puzzles to get to the boss room, where they fight a boss.  
 There are 2 types of dungeons. Automatically generated ones and story dungeons, that are hand crafted. Furthermore, the player can choose to curse a dungeon which increases the difficulty by strengthening the enemies or weakening the player. Cursed dungeons give better rewards.
 By defeating the boss they can unlock new magic of the 3 different magic types.
+
 Players also get “augments” these are used instead of armor. They have between 1 and 3 effects. These effects can be simple stat increases or additional effects (like casting one Skill when another is cast or increasing damaging area).
 The player can wear a total of 5 augments at a time. Additional augments can be stored in an inventory. Slots are unlocked by playing story dungeons.
+
 Players can only change their load-out (active augments and spells) outside of dungeons in the home town. This is done since the difficulty of generated dungeons is determined by the amount of augments the player is currently using.
 The game is supposed to be finishable in under 2 hours. The idea is hence not to create a long game, but instead allow great replayability by having many different and interesting choices of playstyles and builds.
 
@@ -58,7 +60,7 @@ Camera follows the player
 #### State machine  
 A state is a subnode of the state machine. The state knows which state/node is currently active and redirects the process function to it.
 Use a “changestate” function to change the state.
-This state machine also handles animations.
+This state machine also handles animations.  
 Possible states:
 - idle
 - moving
@@ -67,39 +69,39 @@ Possible states:
 
 ### 2.2.2 How damage is applied
 
-A Damaging ability creates an area2D with the damage type and the damage value.
-If the Area2D intersects something, it will check if it has a damage component and then call the “take damage” function.
+A Damaging ability creates an area2D with the damage type and the damage value.  
+If the Area2D intersects something, it will check if it has a damage component and then call the “take damage” function.  
 In order to prevent the entities to damage themselves, layers or groups can be used.
 
 ### 2.2.3 Player movement
 
-Character moves with wasd.
-Character can dash by pressing spacebar. While dashing, the player has no hit box and thus cannot take damage.
-Player casts skills with 123. During casting, player cannot move, but cast times are small.
-All skills have the same player animation (player holds up staff), but if the cast time is slower, the animation plays slower. The spell comes out of the tip of the staff. Use color coding and different visuals to differentiate between the different spells
+Character moves with wasd.  
+Character can dash by pressing spacebar. While dashing, the player has no hit box and thus cannot take damage.  
+Player casts skills with 123. During casting, player cannot move, but cast times are small.  
+All skills have the same player animation (player holds up staff), but if the cast time is slower, the animation plays slower. The spell comes out of the tip of the staff. Use color coding and different visuals to differentiate between the different spells.
 
 ### 2.2.4 Player Skills
 
 The player can choose up to three skills:
-    1. For all base skills, a color coded circular projectile is shot from the tip of the staff in the direction of the mouse.
-    2. Sun:
-        1. Sunbeam: beam that debuffs (decrease attack and defence) all enemies in a straight line in one direction with a small diameter and long length, probably until the end of the screen.
-        2. Summon sun: spawn a sun at mouse location for a few seconds, enemies close to it take damage depending on how close they are to the sun.
-    3. Cosmic:
-        1. Moon light: ray of moonlight shines down on the player increasing their attack and defenses.
-        2. Star rain: multiple single projectiles spawn around the player with random offset and start homing to mouse position. On collision with enemy they do damage and despawn.
-    4. Dark:
-        1. Dark energy wave: pushes all enemies away from the player.
-        2. Black hole: creates a round black void at mouse position that pulls all enemies towards it, if they hit the black void they take massive damage.
+1. For all base skills, a color coded circular projectile is shot from the tip of the staff in the direction of the mouse.
+2. Sun:
+    1. Sunbeam: beam that debuffs (decrease attack and defence) all enemies in a straight line in one direction with a small diameter and long length, probably until the end of the screen.
+    2. Summon sun: spawn a sun at mouse location for a few seconds, enemies close to it take damage depending on how close they are to the sun.
+3. Cosmic:
+    1. Moon light: ray of moonlight shines down on the player increasing their attack and defenses.
+    2. Star rain: multiple single projectiles spawn around the player with random offset and start homing to mouse position. On collision with enemy they do damage and despawn.
+4. Dark:
+    1. Dark energy wave: pushes all enemies away from the player.
+    2. Black hole: creates a round black void at mouse position that pulls all enemies towards it, if they hit the black void they take massive damage.
 
 ### 2.2.5 Enemies
 
 Each Enemy only deals damage of one type. It will have high armor against this damage type and low armor against the type that it should be weak against.
 Use color coding to signal the type to the player
 Types of enemies:
-    1. Slimes (small and big)
-    2. mini bosses like unicorns
-    3. Big bosses (probably no time for this) with special designs and attacks
+1. Slimes (small and big)
+2. mini bosses like unicorns
+3. Big bosses (probably no time for this) with special designs and attacks
 Enemies are controlled via their state machine.
 Most will deal only melee damage. Hence they will track the player and once they are close attack him.
 Slimes will come in large groups. Use Group behaviors to simulate better movement (not all of them stand on top of each other, but instead keep distance).
