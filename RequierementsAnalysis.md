@@ -62,10 +62,10 @@ A state is a subnode of the state machine. The state knows which state/node is c
 Use a “changestate” function to change the state.
 This state machine also handles animations.  
 Possible states:
-- idle
-- moving
-- dash
-- attacking
+- Idle
+- Walking
+- Dashing
+- SpellCasting
 
 ### 2.2.2 How damage is applied
 
