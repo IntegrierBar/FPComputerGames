@@ -46,7 +46,7 @@ Camera follows the player
 
 ### 2.2.1 Components
 
-Health component  
+#### Health component  
 - Dictionary for armor values
    - armor is percent absorption. i.e. 40 armor means 40% of damage is absorbed
 - current health (float)
@@ -55,7 +55,7 @@ Health component
     - health = health - damage*(100-armor)/100
     - if health is 0 or less, emit signal, that object dies
 
-State machine  
+#### State machine  
 A state is a subnode of the state machine. The state knows which state/node is currently active and redirects the process function to it.
 Use a “changestate” function to change the state.
 This state machine also handles animations.
