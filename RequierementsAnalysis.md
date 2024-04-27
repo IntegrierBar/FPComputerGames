@@ -202,6 +202,18 @@ Upon dying the player has the choice to either retry the previously generated du
 If the player decides to leave the dungeon, they cannot try the same dungeon again. Instead, a new one will be generated.  
 The number of rooms in the dungeon is decided randomly from a distribution.  
 
+The curses of a cursed dungeon are randomly picked from a list and shown to the player beofre entering.  
+The player can reroll the curses up to 2 times.  
+If the player clears any generated dungeon, they get all rerolls back.
+
+##### Posible Curses
+
+- player cannot use skill 3
+- player can only use skill 1
+- monsters have 20/40/60/80/100 % more hp/damage
+- x % more monsters
+- dungeon contains 2 bosses in the final room
+
 ## 2.3. Nonfunctional requirements
 
 Use component based architecture if possible.
