@@ -179,10 +179,25 @@ More augment effects might have to be added or removed for balancing.
 ### 2.2.8 Dungeons
 
 We want 5 handcrafted story dungeons plus a handcrafted intro dungeon. Additional dungeons will be procedurally generated.  
-Dungeons are composed of a set of rooms which are connected through doors. Each room is an instance. In the last room of each dungeon is a boss.  
+Dungeons are composed of a set of rooms which are connected through doors. Each room is an instance. In the final room of each dungeon is a boss.  
+Dungeons are not linear. Instead the player is forced to find the boss room. However, only the boss has to be killed in order to clear a dungeon. Not every single room.  
+
+The the rooms out of which the dungeon is created are handcrafted and not randomly generated. There should be at least 5 different rooms.  
+The spawn locations for the enemies are also determined by hand. However not all possible spawn locations must also spawn enemies.  
+Since there are curses that spawn additional monsters each room, not all spawn locations must spawn an enemy.
+Instead whenever the room is first initialised the game will determine how many enemies should be spawned and then randomly pick the locations.
+
+Each room is its own instance.
+The player can go into another room by walking through a door of the room. 
+This will then load the next room instance.  
+The door leading to the boss room should be marked so that the player knows that by going through the door they will have to defeat the boss.
+
 The first time the player enters a room, a bunch of slimes are spawned. The player can only exit the room after killing all enemies within it.  
-The layout of the rooms does not need to be rectangular.  
+The player can also return to a room they have already been to and cleared.
+In that case no enemies are spawned and the player can immideately leave the room through any door.
 Dungeons can be left early. When dying or leaving a dungeon voluntarily all previous collected items remain in the player’s inventory. The dungeon then has to be started again from the beginning.
+
+
 
 #### 2.2.8.1 Intro Dungeon
 
@@ -205,6 +220,12 @@ The number of rooms in the dungeon is decided randomly from a distribution.
 The curses of a cursed dungeon are randomly picked from a list and shown to the player beofre entering.  
 The player can reroll the curses up to 2 times.  
 If the player clears any generated dungeon, they get all rerolls back.
+
+The dungeon layout is created using the possible rooms when the player first enteres the dungeon.  
+The layout is generated in a grid like pattern, where each room is one cell.  
+There should be at least 2 room between the entrance of the dungeon and the boss room.  
+Furthermore there should not be more then 10 rooms in total.
+
 
 ##### Posible Curses
 
