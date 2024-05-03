@@ -114,6 +114,24 @@ Ranged slimes shoot small projectiles in the direction of the player. If the pla
 Mele and ranged slimes differ in color brightness. Slimes are color coded to the element they belong to.
 Furthermore, there are small and large slimes, large slimes are rarer and have higher attack and hp values. Defence stats for all slimes are the same.
 
+Slimes have a detection radius and an attack radius.  
+If the player is inside the detection radius the slime moves towards them.  
+If the player is inside the attack radius this slime attacks the player.
+
+
+
+##### 2.2.5.1.1 State Machine
+
+Slimes have two states:
+1. *Moving*  If the player is outside the detection radius the slime randomly walks around slowly.  
+If the player is inside the detection radius the slime moves towards the player.  
+If the player is inside the attack range the slime switches to the attacking state.
+2. *Attacking" In this state the slam goes through the attacking motion.
+If it is a melee slime the slime will jump up aggressively and slam down damaging the player if they is to close.   
+If it is a ranged slime it will shoot a small projectile towards the player.  
+If the player leaves the attack radius the slime returns back to the moving state.
+
+
 #### 2.2.5.2 Unicorns
 
 Unicorns have different attack patterns:
