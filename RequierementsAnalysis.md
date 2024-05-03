@@ -123,10 +123,10 @@ If the player is inside the attack radius this slime attacks the player.
 ##### 2.2.5.1.1 State Machine
 
 Slimes have two states:
-1. *Moving*  If the player is outside the detection radius the slime randomly walks around slowly.  
+1. **Moving**  If the player is outside the detection radius the slime randomly walks around slowly.  
 If the player is inside the detection radius the slime moves towards the player.  
 If the player is inside the attack range the slime switches to the attacking state.
-2. *Attacking" In this state the slam goes through the attacking motion.
+2. **Attacking** In this state the slam goes through the attacking motion.
 If it is a melee slime the slime will jump up aggressively and slam down damaging the player if they is to close.   
 If it is a ranged slime it will shoot a small projectile towards the player.  
 If the player leaves the attack radius the slime returns back to the moving state.
