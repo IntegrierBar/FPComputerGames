@@ -5,11 +5,11 @@ https://stormboard.com/storm/1886510/The_Magic_Apprentice_game
 
 ## 1.1. Purpose of the system
 
-Having fun
+The purpose of the game is for the player to have fun. 
 
 ## 1.2. Scope of the system
 
-Video game using Godot 4
+The system is a video game developed with Godot 4 that allows the user to control a player character in order to kill monsters in dungeons and to improve their player characters strength through augments and additional skills. 
 
 ## 1.3. Objectives and success criteria of the project
 
@@ -17,7 +17,7 @@ The goal of this project is the creation of a single player RPG web game.
 
 ## 1.4. Definitions, acronyms, and abbreviations
 
-none
+PC: Player character
 
 ## 1.5. References
 
@@ -108,15 +108,15 @@ Slimes will come in large groups. Use Group behaviors to simulate better movemen
 
 #### 2.2.5.1 Slimes
 
-There are two different types of slimes, mele and ranged.
-Mele slimes move towards the player and once they are close to the player, they start attacking with their element by blobbing onto them. 
+There are two different types of slimes, melee and ranged.
+Melee slimes move towards the player and once they are close to the player, they start attacking with their element by blobbing onto them. 
 Ranged slimes shoot small projectiles in the direction of the player. If the player is out of their range, they move closer to them. Different attack patterns can be implemented if there is time.
-Mele and ranged slimes differ in color brightness. Slimes are color coded to the element they belong to.
+Melee and ranged slimes differ in color brightness. Slimes are color coded to the element they belong to.
 Furthermore, there are small and large slimes, large slimes are rarer and have higher attack and hp values. Defence stats for all slimes are the same.
 
 Slimes have a detection radius and an attack radius.  
 If the player is inside the detection radius the slime moves towards them.  
-If the player is inside the attack radius this slime attacks the player.
+If the player is inside the attack radius the slime attacks the player.
 
 
 
@@ -169,9 +169,9 @@ This means that there is no specific slot where an augment has to go. This will 
 The player has a total of 5 augment slots.  
 The first augment slot is unlocked after the intro dungeon.  
 Additional slots are unlocked by playing the story dungeons.  
-Augments can drop from regular enemies (low change) and are guaranteed to drop from bosses.  
+Augments can drop from regular enemies (low chance) and are guaranteed to drop from bosses.  
 Each augment will have 1, 2 or 3 effects (in case they are the same effect, they will stack). The amount of effects determines the quality of the augment. The effects are decided randomly by the game when the augment is dropped.  
-To allow build crafting for the player, it is possible to destroy one augment and the one of its effects onto another augment, overwriting one of its effects.  
+To allow build crafting for the player, it is possible to destroy one augment and to move one of its effects onto another augment, overwriting one of its previous effects.  
 The most effects will have percentage values. This means that effects of the same type will stack multiplicative.  
 
 #### 2.2.7.1 List of Effects
@@ -235,7 +235,7 @@ Upon dying the player has the choice to either retry the previously generated du
 If the player decides to leave the dungeon, they cannot try the same dungeon again. Instead, a new one will be generated.  
 The number of rooms in the dungeon is decided randomly from a distribution.  
 
-The curses of a cursed dungeon are randomly picked from a list and shown to the player beofre entering.  
+The curses of a cursed dungeon are randomly picked from a list and shown to the player before entering.  
 The player can reroll the curses up to 2 times.  
 If the player clears any generated dungeon, they get all rerolls back.
 
@@ -245,10 +245,11 @@ There should be at least 2 room between the entrance of the dungeon and the boss
 Furthermore there should not be more then 10 rooms in total.
 
 
-##### Posible Curses
+##### Possible Curses
 
 - player cannot use skill 3
 - player can only use skill 1
+- player takes x % more damage
 - monsters have 20/40/60/80/100 % more hp/damage
 - x % more monsters
 - dungeon contains 2 bosses in the final room
