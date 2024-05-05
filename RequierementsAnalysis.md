@@ -210,7 +210,7 @@ Furthermore, there are small and large slimes, large slimes are rarer and have h
 
 | **ID: 1**| **Title: Slime State Machine** |
 | --- | --- |
-| Description | Slimes have 3 states: <br> 1. **IDLE** If the PC is outside the  |
+| Description | Slimes have 3 states: <br> **IDLE** If the PC is outside the detection radius they randomly walk araound <br> **MOVING** If the PC is inside the detection radius but outside the attack radius the slime walks towards the PC <br> **ATTACKING** IF the PC is inside the attack radius the slime attacks the player |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
@@ -227,7 +227,14 @@ If it is a ranged slime it will shoot a small projectile towards the player.
 If the player leaves the attack radius the slime returns back to the moving state.
 
 
-#### 2.2.5.2 Unicorns
+#### 2.2.5.2 Bosses
+
+| **ID: 1**| **Title: Unicorns** |
+| --- | --- |
+| Description | The unicorn is the boss monster of the dungeons. It looks like a unicorn but is colored according to its element. <br> The unicorn has 3 different attacks that are chosen depending on the distance to the PC and by chance. <br> &nbsp; 1. Melee attack by stomping the ground before it if the PC is there. <br> &nbsp; 2. Charging towards the PC if they are further away. <br> &nbsp; 3. Shoot a beam from the horn towards the player  |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
 
 Unicorns have different attack patterns:
 
@@ -238,6 +245,8 @@ Unicorns have different attack patterns:
 If player is within a certain radius, only mele attack are used, otherwise one of the two ranged attacks is used at random.
 
 ### 2.2.6 Skill Tree
+
+TODO: ADD TO PLAYER SKILLS FURTHER ABOVE
 
 Each Element has its own small skill tree.  
 Skill points for each tree are earned by clearing dungeons of that type.  
