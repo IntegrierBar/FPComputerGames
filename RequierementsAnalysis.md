@@ -43,19 +43,10 @@ The game is supposed to be finishable in under 2 hours. The idea is hence not to
 
 ## 2.2. Functional requirements
 
-| **ID: 1**| **Title: Damage Types** |
-| --- | --- |
-| Description | The game has 3 magic types. These are: Sun (red), Cosmic (purple) and Dark (black). <br> Sun magic deals more damage vs Cosmic enemies, Cosmic more vs Dark enemies and Dark more vs Sun enemies <br> (Rock, Paper, Scissors pattern) |
-| Acceptance Criterion | Has to be implemented |
-| Notes | None |
+### 2.2.1 Entities 
 
+#### 2.2.1.1 Entity properties 
 
-<!--- 
-Sun, Cosmic, Dark. (Sun > Cosmic > Dark > Sun, like rock Paper scissors)
---->
-Camera follows the player TODO
-
-### 2.2.1 Components
 TODO Delete Components Chapter?
 
 | **ID: 2**| **Title: Health component** |
@@ -63,7 +54,6 @@ TODO Delete Components Chapter?
 | Description | Healt component will handel HP and damage calculatations for a target. <br> Containes the current HP of the entitiy and its armor values. <br> Armor values are between 0 and 100 and determine the percentage that is absorbed by the armor when taking damage. <br> The health component also containes a "take_damage" function that is called, when the target takes damage. <br> This function takes damage type and value as input. <br> If the HP of a entity reach 0 it dies. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | The damage calculation works like <br> health = health - damage*(100-armor)/100 |
-
 
 #### Health component  
 - Dictionary for armor values
@@ -75,6 +65,28 @@ TODO Delete Components Chapter?
     - if health is 0 or less, emit signal, that object dies
 
 
+TODO DELETE?
+A Damaging ability creates an area2D with the damage type and the damage value.  
+If the Area2D intersects something, it will check if it has a damage component and then call the “take damage” function.  
+In order to prevent the entities to damage themselves, layers or groups can be used.
+
+
+#### 2.2.1.2 Elements 
+
+| **ID: 1**| **Title: Damage Types** |
+| --- | --- |
+| Description | The game has 3 magic types. These are: Sun (red), Cosmic (purple) and Dark (black). <br> Sun magic deals more damage vs Cosmic enemies, Cosmic more vs Dark enemies and Dark more vs Sun enemies <br> (Rock, Paper, Scissors pattern) |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
+
+<!--- 
+Sun, Cosmic, Dark. (Sun > Cosmic > Dark > Sun, like rock Paper scissors)
+--->
+
+#### 2.2.1.3 Player character
+
+##### 2.2.1.3.1 PC control
 
 #### State machine  
 TODO: DELETE?
@@ -87,14 +99,6 @@ Possible states:
 - Dashing
 - SpellCasting
 
-### 2.2.2 How damage is applied
-TODO DELETE?
-A Damaging ability creates an area2D with the damage type and the damage value.  
-If the Area2D intersects something, it will check if it has a damage component and then call the “take damage” function.  
-In order to prevent the entities to damage themselves, layers or groups can be used.
-
-### 2.2.3 Player movement
-
 | **ID: 1**| **Title: PC Movement** |
 | --- | --- |
 | Description | PC moves with wasd. PC can dash with spacebar. While dashing, the PC cannot get hit. <br> PC casts skills with 123. During casting, player cannot move or dash. |
@@ -106,7 +110,10 @@ Character can dash by pressing spacebar. While dashing, the player has no hit bo
 Player casts skills with 123. During casting, player cannot move, but cast times are small.  
 All skills have the same player animation (player holds up staff), but if the cast time is slower, the animation plays slower. The spell comes out of the tip of the staff. Use color coding and different visuals to differentiate between the different spells.
 
-### 2.2.4 Player Skills
+##### 2.2.1.3.2 PC progression
+
+###### 2.2.1.3.2.1 PC skills
+
 The player can have up to 3 different skills selected.  
 Each element has 3 different skills. 
 A base skill, a supportive skill and an offensive skill.
@@ -168,7 +175,40 @@ The player can choose up to three skills:
     1. Dark energy wave: pushes all enemies away from the player.
     2. Black hole: creates a round black void at mouse position that pulls all enemies towards it, if they hit the black void they take massive damage.
 
-### 2.2.5 Enemies
+###### 2.2.1.3.2.2 Augments 
+
+Instead of a traditional armor and weapon system, we only use augments.  
+This means that there is no specific slot where an augment has to go. This will allow easy build crafting for the player.  
+The player has a total of 5 augment slots.  
+The first augment slot is unlocked after the intro dungeon.  
+Additional slots are unlocked by playing the story dungeons.  
+Augments can drop from regular enemies (low chance) and are guaranteed to drop from bosses.  
+Each augment will have 1, 2 or 3 effects (in case they are the same effect, they will stack). The amount of effects determines the quality of the augment. The effects are decided randomly by the game when the augment is dropped.  
+To allow build crafting for the player, it is possible to destroy one augment and to move one of its effects onto another augment, overwriting one of its previous effects.  
+The most effects will have percentage values. This means that effects of the same type will stack multiplicative.  
+
+#### List of Effects
+
+The effects of the augment are the following: (values are not fixed and can be changed to allow good balancing)
+
+- 10 additional armor of a type
+- 5 additional armor of all types
+- 10% more hp
+- 10% extra damage for one skill (one for each damaging ability)
+- 5% extra damage for one element
+- 1% life steal
+- 10% bigger radius for one skill (exists for “summon sun”, “black hole”)
+- 10% more stars for “star rain”
+- Upon casting spell x also cast spell y (specific spells will be determined during balancing)
+- Spell x explodes on impact with enemy (for directional skills only)
+- Plus 10 attack for all spells of one element (this way supportive spells can also deal damage)
+- 50% longer duration for skills that remain on field (“summon sun” and/or “black hole”) 
+- Plus 20 attack for skill in slot 1/2/3 
+
+More augment effects might have to be added or removed for balancing.
+
+
+#### 2.2.1.4 Enemies
 
 Each Enemy only deals damage of one type. It will have high armor against this damage type and low armor against the type that it should be weak against.
 Use color coding to signal the type to the player
@@ -180,7 +220,9 @@ Enemies are controlled via their state machine.
 Most will deal only melee damage. Hence they will track the player and once they are close attack him.
 Slimes will come in large groups. Use Group behaviors to simulate better movement (not all of them stand on top of each other, but instead keep distance).
 
-#### 2.2.5.1 Slimes
+
+##### 2.2.1.4.1 Slimes
+
 Slimes are of one element. They are colored according to this element, only deal damage with this element, have high armor against this element and low armor against the element which is strong against their element.  
 The difference between small and big slimes is the amount of HP they have and their Hitbox.
 
@@ -215,7 +257,7 @@ Furthermore, there are small and large slimes, large slimes are rarer and have h
 | Notes | None |
 
 
-##### 2.2.5.1.1 State Machine
+##### State Machine
 
 Slimes have two states:
 1. **Moving**  If the player is outside the detection radius the slime randomly walks around slowly.  
@@ -227,7 +269,7 @@ If it is a ranged slime it will shoot a small projectile towards the player.
 If the player leaves the attack radius the slime returns back to the moving state.
 
 
-#### 2.2.5.2 Bosses
+##### 2.2.1.4.2 Bosses
 
 | **ID: 1**| **Title: Unicorns** |
 | --- | --- |
@@ -244,7 +286,11 @@ Unicorns have different attack patterns:
 
 If player is within a certain radius, only mele attack are used, otherwise one of the two ranged attacks is used at random.
 
-### 2.2.6 Skill Tree
+### 2.2.2 Areas
+
+#### 2.2.2.1 Main Hub 
+
+##### 2.2.2.1.1 Skill tree
 
 TODO: ADD TO PLAYER SKILLS FURTHER ABOVE
 
@@ -266,39 +312,17 @@ Each Element has 3 spells. (Damage values shall be determined during development
 All skills have hidden upgrades that improve the skill and are only shown in the skill tree after the player unlocks them by fulfilling a certain condition, e.g., clearing a dungeon with only one spell unlocks an improved version of that spell.
 Further passive Skills (like damage increase or range increase) can be added as well, if there is time.
 
-### 2.2.7 Augments
+##### 2.2.2.1.2 Equipping
 
-Instead of a traditional armor and weapon system, we only use augments.  
-This means that there is no specific slot where an augment has to go. This will allow easy build crafting for the player.  
-The player has a total of 5 augment slots.  
-The first augment slot is unlocked after the intro dungeon.  
-Additional slots are unlocked by playing the story dungeons.  
-Augments can drop from regular enemies (low chance) and are guaranteed to drop from bosses.  
-Each augment will have 1, 2 or 3 effects (in case they are the same effect, they will stack). The amount of effects determines the quality of the augment. The effects are decided randomly by the game when the augment is dropped.  
-To allow build crafting for the player, it is possible to destroy one augment and to move one of its effects onto another augment, overwriting one of its previous effects.  
-The most effects will have percentage values. This means that effects of the same type will stack multiplicative.  
+##### 2.2.2.1.3 Fusing augments
 
-#### 2.2.7.1 List of Effects
+##### 2.2.2.1.4 Saving the game 
 
-The effects of the augment are the following: (values are not fixed and can be changed to allow good balancing)
+##### 2.2.2.1.5 Entering a dungeon
 
-- 10 additional armor of a type
-- 5 additional armor of all types
-- 10% more hp
-- 10% extra damage for one skill (one for each damaging ability)
-- 5% extra damage for one element
-- 1% life steal
-- 10% bigger radius for one skill (exists for “summon sun”, “black hole”)
-- 10% more stars for “star rain”
-- Upon casting spell x also cast spell y (specific spells will be determined during balancing)
-- Spell x explodes on impact with enemy (for directional skills only)
-- Plus 10 attack for all spells of one element (this way supportive spells can also deal damage)
-- 50% longer duration for skills that remain on field (“summon sun” and/or “black hole”) 
-- Plus 20 attack for skill in slot 1/2/3 
+#### 2.2.2.2 Dungeons 
 
-More augment effects might have to be added or removed for balancing.
-
-### 2.2.8 Dungeons
+Camera follows the player TODO
 
 We want 5 handcrafted story dungeons plus a handcrafted intro dungeon. Additional dungeons will be procedurally generated.  
 Dungeons are composed of a set of rooms which are connected through doors. Each room is an instance. In the final room of each dungeon is a boss.  
@@ -319,21 +343,26 @@ The player can also return to a room they have already been to and cleared.
 In that case no enemies are spawned and the player can immideately leave the room through any door.
 Dungeons can be left early. When dying or leaving a dungeon voluntarily all previous collected items remain in the player’s inventory. The dungeon then has to be started again from the beginning.
 
-
-
-#### 2.2.8.1 Intro Dungeon
+##### 2.2.2.2.1 Intro dungeon
 
 A shorter dungeon that serves as a tutorial for the game. Before entering the dungeon, the player chooses the element with which they want to start. The slimes inside the dungeon will change their element according to the players choice to teach the player about the strengths and weaknesses of their element.  
 At the end of the dungeon the boss is a large slime. All slimes before are small.
 
-#### 2.2.8.2 Story Dungeons
+##### 2.2.2.2.2 Story dungeon
 
 There are 5 story dungeons.  
 The bosses of the story dungeons 1 to 4 are unicorns. The last dungeon has a specially designed boss.
 
-#### 2.2.8.3 Generated Dungeons
+##### 2.2.2.2.3 Generated dungeons
 
 At the start of the generated dungeon, the player can choose which element the dungeon should have. This choice determines the element of the final boss and guarantees that at least 50% of all slimes in the dungeon are of this element.  
+
+##### 2.2.2.2.3.1 Generation
+
+##### 2.2.2.2.3.2 Rewards
+
+##### 2.2.2.2.3.3 Curses 
+
 Dungeons can be cursed before starting the dungeon. The dungeon will then be harder by strengthening enemies or weakening the player.  
 Upon dying the player has the choice to either retry the previously generated dungeon or to create a new one.  
 If the player decides to leave the dungeon, they cannot try the same dungeon again. Instead, a new one will be generated.  
@@ -357,6 +386,7 @@ Furthermore there should not be more then 10 rooms in total.
 - monsters have 20/40/60/80/100 % more hp/damage
 - x % more monsters
 - dungeon contains 2 bosses in the final room
+
 
 ## 2.3. Nonfunctional requirements
 
