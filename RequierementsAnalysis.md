@@ -18,6 +18,7 @@ The goal of this project is the creation of a single player RPG web game.
 ## 1.4. Definitions, acronyms, and abbreviations
 
 PC: Player character
+HP: Hit Points
 
 ## 1.5. References
 
@@ -42,11 +43,27 @@ The game is supposed to be finishable in under 2 hours. The idea is hence not to
 
 ## 2.2. Functional requirements
 
-Global Enum for damage types:
+| **ID: 1**| **Title: Damage Types** |
+| --- | --- |
+| Description | The game has 3 magic types. These are: Sun (red), Cosmic (purple) and Dark (black). <br> Sun magic deals more damage vs Cosmic enemies, Cosmic more vs Dark enemies and Dark more vs Sun enemies <br> (Rock, Paper, Scissors pattern) |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
+
+<!--- 
 Sun, Cosmic, Dark. (Sun > Cosmic > Dark > Sun, like rock Paper scissors)
-Camera follows the player
+--->
+Camera follows the player TODO
 
 ### 2.2.1 Components
+TODO Delete Components Chapter?
+
+| **ID: 2**| **Title: Health component** |
+| --- | --- |
+| Description | Healt component will handel HP and damage calculatations for a target. <br> Containes the current HP of the entitiy and its armor values. <br> armor values are between 0 and 100 and determine the percentage that is absorbed by the armor when taking damage. <br> The health component also containes a "take_damage" function that is called, when the target takes damage. <br> This function takes damage type and value as input. <br> If the HP of a entity reach 0 it dies |
+| Acceptance Criterion | Has to be implemented |
+| Notes | The damage calculation works like <br> health = health - damage*(100-armor)/100 |
+
 
 #### Health component  
 - Dictionary for armor values
@@ -57,7 +74,10 @@ Camera follows the player
     - health = health - damage*(100-armor)/100
     - if health is 0 or less, emit signal, that object dies
 
+
+
 #### State machine  
+TODO: DELETE?
 A state is a subnode of the state machine. The state knows which state/node is currently active and redirects the process function to it.
 Use a “changestate” function to change the state.
 This state machine also handles animations.  
@@ -68,12 +88,18 @@ Possible states:
 - SpellCasting
 
 ### 2.2.2 How damage is applied
-
+TODO DELETE?
 A Damaging ability creates an area2D with the damage type and the damage value.  
 If the Area2D intersects something, it will check if it has a damage component and then call the “take damage” function.  
 In order to prevent the entities to damage themselves, layers or groups can be used.
 
 ### 2.2.3 Player movement
+
+| **ID: 1**| **Title: PC Movement** |
+| --- | --- |
+| Description | PC moves with wasd. PC can dash with spacebar. While dashing, the PC cannot get hit. <br> PC casts skills with 123. During casting, player cannot move or dash. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
 
 Character moves with wasd.  
 Character can dash by pressing spacebar. While dashing, the player has no hit box and thus cannot take damage.  
@@ -81,6 +107,54 @@ Player casts skills with 123. During casting, player cannot move, but cast times
 All skills have the same player animation (player holds up staff), but if the cast time is slower, the animation plays slower. The spell comes out of the tip of the staff. Use color coding and different visuals to differentiate between the different spells.
 
 ### 2.2.4 Player Skills
+The player can have up to 3 different skills selected.  
+Each element has 3 different skills. 
+A base skill, a supportive skill and an offensive skill.
+
+
+| **ID: 1**| **Title: Base Skills** |
+| --- | --- |
+| Description | Each element has a base skill that consist of a colored circular projectile shot from PC in the direction of the mouse. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
+| **ID: 1**| **Title: Sun Beam** |
+| --- | --- |
+| Description | The supportive skill of the sun element. The PC emits a ray of ligth from the PC in the direction of the mouse. <br> Enemies hit deal reduced damage and have reduced armor. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
+| **ID: 1**| **Title: Summon Sun** |
+| --- | --- |
+| Description | PC spawns a sun at mouse location for a fiew seconds. Enemies close to it take damage depending on how close they are to the sun. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
+| **ID: 1**| **Title: Moon Light** |
+| --- | --- |
+| Description | A Ray of moonlight shines down on the player increasing their attack and defenses. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
+| **ID: 1**| **Title: Star Rain** |
+| --- | --- |
+| Description | Multiple single projectiles spawn around the PC with random offset and start homing to mouse position. <br> On collision with enemy they do damage and despawn. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
+| **ID: 1**| **Title: Dark Energy Wave** |
+| --- | --- |
+| Description | PC creates a black wave that pushes all enemies away from the PC |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
+| **ID: 1**| **Title: Black Hole** |
+| --- | --- |
+| Description | PC creates a round black void at mouse position that pulls all enemies towards it, if they hit the black void they take massive damage. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
+
 
 The player can choose up to three skills:
 1. For all base skills, a color coded circular projectile is shot from the tip of the staff in the direction of the mouse.
@@ -99,7 +173,7 @@ The player can choose up to three skills:
 Each Enemy only deals damage of one type. It will have high armor against this damage type and low armor against the type that it should be weak against.
 Use color coding to signal the type to the player
 Types of enemies:
-1. Slimes (small and big)
+1. Slimes (small and big, melee and ranged)
 2. mini bosses like unicorns
 3. Big bosses (probably no time for this) with special designs and attacks
 Enemies are controlled via their state machine.
@@ -107,6 +181,25 @@ Most will deal only melee damage. Hence they will track the player and once they
 Slimes will come in large groups. Use Group behaviors to simulate better movement (not all of them stand on top of each other, but instead keep distance).
 
 #### 2.2.5.1 Slimes
+Slimes are of one element. They are colored according to this element, only deal damage with this element, have high armor against this element and low armor against the element which is strong against their element.  
+The difference between small and big slimes is the amount of HP they have and their Hitbox.
+
+Slimes have a detection radius and an attack radius.  
+If the player is inside the detection radius the slime moves towards them.  
+If the player is inside the attack radius the slime attacks the player.
+
+| **ID: 1**| **Title: Melee Slime** |
+| --- | --- |
+| Description | Melee slimes move towards the PC and once they are very close to the PC, they perform their attack. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
+| **ID: 1**| **Title: Ranged Slime** |
+| --- | --- |
+| Description | Ranged slimes have a larger attack radius. When attacking, they shoot a small projectile towards the PC |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
 
 There are two different types of slimes, melee and ranged.
 Melee slimes move towards the player and once they are close to the player, they start attacking with their element by blobbing onto them. 
@@ -114,10 +207,12 @@ Ranged slimes shoot small projectiles in the direction of the player. If the pla
 Melee and ranged slimes differ in color brightness. Slimes are color coded to the element they belong to.
 Furthermore, there are small and large slimes, large slimes are rarer and have higher attack and hp values. Defence stats for all slimes are the same.
 
-Slimes have a detection radius and an attack radius.  
-If the player is inside the detection radius the slime moves towards them.  
-If the player is inside the attack radius the slime attacks the player.
 
+| **ID: 1**| **Title: Slime State Machine** |
+| --- | --- |
+| Description | Slimes have 3 states: <br> 1. **IDLE** If the PC is outside the  |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
 
 
 ##### 2.2.5.1.1 State Machine
