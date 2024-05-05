@@ -9,7 +9,7 @@ The purpose of the game is for the player to have fun.
 
 ## 1.2. Scope of the system
 
-The system is a video game developed with Godot 4 that allows the user to control a player character in order to kill monsters in dungeons and to improve their player characters strength through augments and additional skills. 
+The system is a video game developed with Godot 4 that allows the user to control a player character in order to kill monsters in dungeons and to improve their player characters strength through augments and unlocking skills. 
 
 ## 1.3. Objectives and success criteria of the project
 
@@ -17,8 +17,8 @@ The goal of this project is the creation of a single player RPG web game.
 
 ## 1.4. Definitions, acronyms, and abbreviations
 
-PC: Player character
-HP: Hit Points
+PC: Player character <br>
+HP: Hit Points, shows the current state of an entity (PC and enemies), are reduced when the entity is attacked. If the HP are reduced to 0, the entity dies. 
 
 ## 1.5. References
 
@@ -60,7 +60,7 @@ TODO Delete Components Chapter?
 
 | **ID: 2**| **Title: Health component** |
 | --- | --- |
-| Description | Healt component will handel HP and damage calculatations for a target. <br> Containes the current HP of the entitiy and its armor values. <br> armor values are between 0 and 100 and determine the percentage that is absorbed by the armor when taking damage. <br> The health component also containes a "take_damage" function that is called, when the target takes damage. <br> This function takes damage type and value as input. <br> If the HP of a entity reach 0 it dies |
+| Description | Healt component will handel HP and damage calculatations for a target. <br> Containes the current HP of the entitiy and its armor values. <br> Armor values are between 0 and 100 and determine the percentage that is absorbed by the armor when taking damage. <br> The health component also containes a "take_damage" function that is called, when the target takes damage. <br> This function takes damage type and value as input. <br> If the HP of a entity reach 0 it dies. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | The damage calculation works like <br> health = health - damage*(100-armor)/100 |
 
