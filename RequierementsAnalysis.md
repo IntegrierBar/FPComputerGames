@@ -18,7 +18,9 @@ The goal of this project is the creation of a single player RPG web game.
 ## 1.4. Definitions, acronyms, and abbreviations
 
 PC: Player character <br>
-HP: Hit Points, shows the current state of an entity (PC and enemies), are reduced when the entity is attacked. If the HP are reduced to 0, the entity dies. 
+HP: Hit Points, shows the current state of an entity (PC and enemies), are reduced when the entity is attacked. If the HP are reduced to 0, the entity dies. <br>
+Augment: item that can be equipped by the player for additional stats or effects, dropped by enemies. <br>
+Load-out: Equipped augments and magic skills that the player uses currently. Up to 3 magic skills and 5 augments can be equipped at a time. 
 
 ## 1.5. References
 
@@ -31,11 +33,11 @@ HP: Hit Points, shows the current state of an entity (PC and enemies), are reduc
 
 ## 2.1. Overview
 
-Player is a magician that explores dungeons. In these they fight slimes with 3 magic spells and maybe solve puzzles to get to the boss room, where they fight a boss.  
+Player is a magician that explores dungeons. In these they fight slimes with 3 magic spells to get to the boss room, where they fight a boss.  
 There are 2 types of dungeons. Automatically generated ones and story dungeons, that are hand crafted. Furthermore, the player can choose to curse a dungeon which increases the difficulty by strengthening the enemies or weakening the player. Cursed dungeons give better rewards.
-By defeating the boss they can unlock new magic of the 3 different magic types.
+By defeating the boss they can unlock new magic skills of the 3 different magic types.
 
-Players also get “augments” these are used instead of armor. They have between 1 and 3 effects. These effects can be simple stat increases or additional effects (like casting one Skill when another is cast or increasing damaging area).
+Players also get “augments” which are used instead of armor. They have between 1 and 3 effects. These effects can be simple stat increases or additional effects (like casting one Skill when another is cast or increasing damaging area).
 The player can wear a total of 5 augments at a time. Additional augments can be stored in an inventory. Slots are unlocked by playing story dungeons.
 
 Players can only change their load-out (active augments and spells) outside of dungeons in the home town. This is done since the difficulty of generated dungeons is determined by the amount of augments the player is currently using.
@@ -45,44 +47,46 @@ The game is supposed to be finishable in under 2 hours. The idea is hence not to
 
 ### 2.2.1 Entities 
 
+There are two types of entities, the PC and enemies. 
+
 #### 2.2.1.1 Entity properties 
 
-TODO Delete Components Chapter?
+All entities have the following properties: 
 
-| **ID: 2**| **Title: Health component** |
+| **ID: 2**| **Title: Max HP** |
 | --- | --- |
-| Description | Healt component will handel HP and damage calculatations for a target. <br> Containes the current HP of the entitiy and its armor values. <br> Armor values are between 0 and 100 and determine the percentage that is absorbed by the armor when taking damage. <br> The health component also containes a "take_damage" function that is called, when the target takes damage. <br> This function takes damage type and value as input. <br> If the HP of a entity reach 0 it dies. |
+| Description | Every entity has a max HP value that shows how much damage the entity can take before dying. |
 | Acceptance Criterion | Has to be implemented |
-| Notes | The damage calculation works like <br> health = health - damage*(100-armor)/100 |
+| Notes | |
 
-#### Health component  
-- Dictionary for armor values
-   - armor is percent absorption. i.e. 40 armor means 40% of damage is absorbed
-- current health (float)
-- take damage function
-    - takes damage type and value as input
-    - health = health - damage*(100-armor)/100
-    - if health is 0 or less, emit signal, that object dies
-
-
-TODO DELETE?
-A Damaging ability creates an area2D with the damage type and the damage value.  
-If the Area2D intersects something, it will check if it has a damage component and then call the “take damage” function.  
-In order to prevent the entities to damage themselves, layers or groups can be used.
-
-
-#### 2.2.1.2 Elements 
-
-| **ID: 1**| **Title: Damage Types** |
+| **ID: 2**| **Title: Current HP** |
 | --- | --- |
-| Description | The game has 3 magic types. These are: Sun (red), Cosmic (purple) and Dark (black). <br> Sun magic deals more damage vs Cosmic enemies, Cosmic more vs Dark enemies and Dark more vs Sun enemies <br> (Rock, Paper, Scissors pattern) |
+| Description | Every entity has a current HP value that shows how much damage the entity has already taken and can still take before dying. If the current HP value is smaller or equal to zero, the entity dies. |
 | Acceptance Criterion | Has to be implemented |
-| Notes | None |
+| Notes | The relation of current HP to max HP should be visible for the player for all entities on screen. |
+
+| **ID: 2**| **Title: Armor values** |
+| --- | --- |
+| Description | Every entity has three armor values for each of the three magic types in game. The armor type for a magic type determines how much the damage to the entity is reduced by an attack of that element (30 armor means 30% damage reduction). <br> If an entity has an armor value above 100, part of the damage is reflected back to the attacker. Example: Entity has 120 armor, attack makes 100 damage, then 20 damage is reflected back to the attacker, if the attacker has an armor value of 50, the attacker takes 10 damage. |
+| Acceptance Criterion | Damage of all types is applied correctly to entities depending on their armor values. |
+| Notes | The damage calculation works like <br> if armor <= 100: health = health - damage*(100-armor)/100 <br> Only PC should be able to reach over 100 armor through additional stats, enemies need at least one armor value below 30 unless they are buffed. |
+
+| **ID: 2**| **Title: Damaging skills** |
+| --- | --- |
+| Description | Every entity has one or more damaging skills. Every skill has a magic type and a base damage value. The base damage value can be modified under certain circumstances (curses for enemies, augments for the PC). A damaging skill only damages the opponent, that means the PC takes no damage from their own spells and enemy attacks only damage the PC. |
+| Acceptance Criterion | Damage from different skills of all magic types is applied correcly to PC and enemies for armor values of 0. |
+| Notes | The area in which a damaging skill applies damage to the opponent and the duration in which the opponent takes damage depends on the specific skill. |
 
 
-<!--- 
-Sun, Cosmic, Dark. (Sun > Cosmic > Dark > Sun, like rock Paper scissors)
---->
+
+#### 2.2.1.2 Magic types 
+
+There are three magic types in the game: Sun, Cosmic and Dark. Skills and enemies belonging to the different magic types are colour coded to allow differentiation by the player. The colours are Sun: yellow - red, Cosmic: blue - white, Dark: black - purple. The magic types work like in Rock, paper, scissors such that they have one other magic type that they are strong against and one against which they are weak. Their effectivity against themselves is in between. <br>
+The magic types are:
+- Sun, strong against Cosmic, weak against Dark
+- Cosmic, strong against Dark, weak against Sun
+- Dark, strong against Sun, weak against Cosmic
+
 
 #### 2.2.1.3 Player character
 
