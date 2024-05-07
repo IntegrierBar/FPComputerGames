@@ -78,7 +78,7 @@ All entities have the following properties:
 | Acceptance Criterion | Damage from different skills of all magic types is applied correctly to PC and enemies for armor values of 0. |
 | Notes | The area in which a damaging skill applies damage to the opponent and the duration in which the opponent takes damage depends on the specific skill. |
 
-| **ID: 2**| **Title: Speed** |
+| **ID: 2**| **Entity property: Speed** |
 | --- | --- |
 | Description | Every entity has a speed value that determines how quickly it can move across the game environment. This affects both the player character (PC) and enemies. |
 | Acceptance Criterion | Speed should be accurately reflected in the movement rate of entities in the game. |
@@ -249,68 +249,77 @@ Slimes will come in large groups. Use Group behaviors to simulate better movemen
 
 ##### 2.2.1.4.1 Slimes
 
-Slimes are of one element. They are colored according to this element, only deal damage with this element, have high armor against this element and low armor against the element which is strong against their element.  
-The difference between small and big slimes is the amount of HP they have and their Hitbox.
+Every slimes belongs to one magic type. They are colored according to this magic type, only deal damage aligned to this magic type, have high armor against the magic type their magic type is strong against and low armor against the magic type which their magic type is weak against.  
 
-Slimes have a detection radius and an attack radius.  
-If the player is inside the detection radius the slime moves towards them.  
-If the player is inside the attack radius the slime attacks the player.
+Slimes can have three possible states.
 
-| **ID: 1**| **Title: Melee Slime** |
+| **ID: 1**| **Slimes states: Idle** |
 | --- | --- |
-| Description | Melee slimes move towards the PC and once they are very close to the PC, they perform their attack. |
+| Description | If the PC is outside of the detection range of the slime, the slime is idle. It moves around randomly. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Title: Ranged Slime** |
+| **ID: 1**| **Slimes states: Moving** |
 | --- | --- |
-| Description | Ranged slimes have a larger attack radius. When attacking, they shoot a small projectile towards the PC |
+| Description | If the PC is inside of the detection range of the slime but outside of the attack range of the slime, the slime moves towards the PC until it is in attack range. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-
-There are two different types of slimes, melee and ranged.
-Melee slimes move towards the player and once they are close to the player, they start attacking with their element by blobbing onto them. 
-Ranged slimes shoot small projectiles in the direction of the player. If the player is out of their range, they move closer to them. Different attack patterns can be implemented if there is time.
-Melee and ranged slimes differ in color brightness. Slimes are color coded to the element they belong to.
-Furthermore, there are small and large slimes, large slimes are rarer and have higher attack and hp values. Defence stats for all slimes are the same.
-
-
-| **ID: 1**| **Title: Slime State Machine** |
+| **ID: 1**| **Slimes states: Attacking** |
 | --- | --- |
-| Description | Slimes have 3 states: <br> **IDLE** If the PC is outside the detection radius they randomly walk araound <br> **MOVING** If the PC is inside the detection radius but outside the attack radius the slime walks towards the PC <br> **ATTACKING** IF the PC is inside the attack radius the slime attacks the player |
+| Description | If the PC is inside of the attack range of the slime, the slime attacks the PC. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 
-##### State Machine
+Slimes can differ in two attributes. There are large and small slimes and there are melee and ranged slimes, making a total of 4 different slime types. 
+Large slimes have more HP and higher attack values than small slimes. Large slimes are rarer than small slimes and only appear in small group of up to 3 large slimes. They are often accompanied by several small slimes. 
+Ranged slimes have a larger attack range and have a different colour brightness than melee slimes. 
+The armor values of all slimes of one magic type are the same.
 
-Slimes have two states:
-1. **Moving**  If the player is outside the detection radius the slime randomly walks around slowly.  
-If the player is inside the detection radius the slime moves towards the player.  
-If the player is inside the attack range the slime switches to the attacking state.
-2. **Attacking** In this state the slam goes through the attacking motion.
-If it is a melee slime the slime will jump up aggressively and slam down damaging the player if they is to close.   
-If it is a ranged slime it will shoot a small projectile towards the player.  
-If the player leaves the attack radius the slime returns back to the moving state.
+| **ID: 1**| **Slime types: Melee Slime** |
+| --- | --- |
+| Description | Melee slimes move towards the PC and once they are very close to the PC, they jump against the PC for their attack. <br> Melee slimes can be large or small. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
+
+| **ID: 1**| **Slime types: Ranged Slime** |
+| --- | --- |
+| Description | Ranged slimes have a larger attack radius. When attacking, they shoot a small projectile in the direction of the PC. <br> Ranged slimes can be large or small. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
 
 
 ##### 2.2.1.4.2 Bosses
 
-| **ID: 1**| **Title: Unicorns** |
+The unicorn is the boss monster of the dungeons. It looks like a unicorn but is colored according to its magic type. <br>
+Unicorns have no attack and detection range since they can detect and attack the player from every position in the room. Unicorns have three different attacks. Unicorns have a melee attack radius. If the PC is inside of the melee attack radius, the unicorn uses the melee attack, otherwise it uses one of the ranged attacks at random.  <br>
+In between two attacks the unicorn remains idle for a short while to allow the player to attack the unicorn with their skills.
+
+| **ID: 1**| **Unicorn states: Charge attack** |
 | --- | --- |
-| Description | The unicorn is the boss monster of the dungeons. It looks like a unicorn but is colored according to its element. <br> The unicorn has 3 different attacks that are chosen depending on the distance to the PC and by chance. <br> &nbsp; 1. Melee attack by stomping the ground before it if the PC is there. <br> &nbsp; 2. Charging towards the PC if they are further away. <br> &nbsp; 3. Shoot a beam from the horn towards the player  |
+| Description | If the PC is outside of the melee radius of the unicorn, the unicorn can use a charged attack. The unicorn charges at the PC and deals a large amount of damage if the player is hit. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
+| **ID: 1**| **Unicorn states: Shooting attack** |
+| --- | --- |
+| Description | If the PC is outside of the melee radius of the unicorn, the unicorn can shoot a set of projectiles at the PC. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
 
-Unicorns have different attack patterns:
+| **ID: 1**| **Unicorn states: Stomping attack** |
+| --- | --- |
+| Description | If the PC is inside of the melee radius of the unicorn, the unicorn uses a stomping attack. The unicorn stomps on the ground before it and deals damage in an AOE. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
 
-- Charges at player, big damage if player is hit
-- Shoots projectiles at player
-- Mele attack by stomping on the player
+| **ID: 1**| **Unicorn states: Wait** |
+| --- | --- |
+| Description | After every attack, the unicorn remains idle for a short while in which it only moves around slowly. |
+| Acceptance Criterion | Has to be implemented |
+| Notes | None |
 
-If player is within a certain radius, only mele attack are used, otherwise one of the two ranged attacks is used at random.
 
 ### 2.2.2 Areas
 
