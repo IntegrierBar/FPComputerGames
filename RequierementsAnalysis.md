@@ -22,6 +22,10 @@ HP: Hit Points, shows the current state of an entity (PC and enemies), are reduc
 Augment: item that can be equipped by the player for additional stats or effects, dropped by enemies. <br>
 Load-out: Equipped augments and magic skills that the player uses currently. Up to 3 magic skills and 5 augments can be equipped at a time. 
 AOE: Area of effect, area in which a damaging skill effects enemies or the PC. 
+**Player Character (PC)**: This term refers to the character controlled by the player within the game. The player's decisions and actions dictate the character's behavior and progression.<br/>
+**Hit Points (HP)**: Represent the health or vitality of entities, such as player characters and enemies. Hit Points decrease when the entity takes damage. An entity is defeated or dies when its Hit Points reach zero.<br/>
+**Augment**: A type of item that can be equipped by the player to gain additional statistics or effects. Augments are typically obtained as drops from defeated enemies.<br/>
+**Load-out**: The combination of augments and magic skills a player currently equips. A player can equip up to five augments and three magic skills simultaneously.
 
 ## 1.5. References
 
@@ -35,10 +39,10 @@ AOE: Area of effect, area in which a damaging skill effects enemies or the PC.
 ## 2.1. Overview
 
 Player is a magician that explores dungeons. In these they fight slimes with 3 magic spells to get to the boss room, where they fight a boss.  
-There are 2 types of dungeons. Automatically generated ones and story dungeons, that are hand crafted. Furthermore, the player can choose to curse a dungeon which increases the difficulty by strengthening the enemies or weakening the player. Cursed dungeons give better rewards.
-By defeating the boss they can unlock new magic skills of the 3 different magic types.
+There are 2 types of dungeons. Automatically generated ones and story dungeons, that are hand crafted. Furthermore, the player can choose to curse a dungeon, which increases the difficulty by strengthening the enemies or weakening the player. Cursed dungeons give better rewards.
+By defeating the boss, the player can unlock new magic skills of the 3 different magic types.
 
-Players also get “augments” which are used instead of armor. They have between 1 and 3 effects. These effects can be simple stat increases or additional effects (like casting one Skill when another is cast or increasing damaging area).
+Players also get “augments”, which are used instead of armor. They have between 1 and 3 effects. These effects can be simple stat increases or additional effects (like casting one Skill when another is cast or increasing damaging area).
 The player can wear a total of 5 augments at a time. Additional augments can be stored in an inventory. Slots are unlocked by playing story dungeons.
 
 Players can only change their load-out (active augments and spells) outside of dungeons in the home town. This is done since the difficulty of generated dungeons is determined by the amount of augments the player is currently using.
@@ -75,9 +79,14 @@ All entities have the following properties:
 | **ID: 2**| **Entity property: Damaging skills** |
 | --- | --- |
 | Description | Every entity has one or more damaging skills. Every skill has a magic type and a base damage value. The base damage value can be modified under certain circumstances (curses for enemies, augments for the PC). A damaging skill only damages the opponent, that means the PC takes no damage from their own spells and enemy attacks only damage the PC. |
-| Acceptance Criterion | Damage from different skills of all magic types is applied correcly to PC and enemies for armor values of 0. |
+| Acceptance Criterion | Damage from different skills of all magic types is applied correctly to PC and enemies for armor values of 0. |
 | Notes | The area in which a damaging skill applies damage to the opponent and the duration in which the opponent takes damage depends on the specific skill. |
 
+| **ID: 2**| **Title: Speed** |
+| --- | --- |
+| Description | Every entity has a speed value that determines how quickly it can move across the game environment. This affects both the player character (PC) and enemies. |
+| Acceptance Criterion | Speed should be accurately reflected in the movement rate of entities in the game. |
+| Notes | Speed may be modified by certain augments or dungeon curses. |
 
 
 #### 2.2.1.2 Magic types 
