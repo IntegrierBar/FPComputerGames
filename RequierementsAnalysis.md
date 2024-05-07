@@ -17,15 +17,11 @@ The goal of this project is the creation of a single player RPG web game.
 
 ## 1.4. Definitions, acronyms, and abbreviations
 
-PC: Player character <br>
-HP: Hit Points, shows the current state of an entity (PC and enemies), are reduced when the entity is attacked. If the HP are reduced to 0, the entity dies. <br>
-Augment: item that can be equipped by the player for additional stats or effects, dropped by enemies. <br>
-Load-out: Equipped augments and magic skills that the player uses currently. Up to 3 magic skills and 5 augments can be equipped at a time. 
-AOE: Area of effect, area in which a damaging skill effects enemies or the PC. 
 **Player Character (PC)**: This term refers to the character controlled by the player within the game. The player's decisions and actions dictate the character's behavior and progression.<br/>
 **Hit Points (HP)**: Represent the health or vitality of entities, such as player characters and enemies. Hit Points decrease when the entity takes damage. An entity is defeated or dies when its Hit Points reach zero.<br/>
 **Augment**: A type of item that can be equipped by the player to gain additional statistics or effects. Augments are typically obtained as drops from defeated enemies.<br/>
-**Load-out**: The combination of augments and magic skills a player currently equips. A player can equip up to five augments and three magic skills simultaneously.
+**Load-out**: The combination of augments and magic skills a player currently equips. A player can equip up to five augments and three magic skills simultaneously. <br/>
+**Area of effect (AOE)**: Area in which a damaging skill effects enemies or the PC. 
 
 ## 1.5. References
 
