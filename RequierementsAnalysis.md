@@ -84,6 +84,13 @@ All entities have the following properties:
 | Acceptance Criterion | Speed should be accurately reflected in the movement rate of entities in the game. |
 | Notes | Speed may be modified by certain augments or dungeon curses. |
 
+| **ID: 2**| **Entity property: Invincibility Time** |
+| --- | --- |
+| Description | After taking damage, an entity becomes invincible for a short duration during which it cannot take further damage. This is to prevent rapid successive damage from multiple sources. |
+| Acceptance Criterion | Invincibility time is correctly applied after each instance of damage. |
+| Notes | The duration of invincibility should be short and consistent across all entities unless modified by specific augments or dungeon curses. |
+
+
 
 #### 2.2.1.2 Magic types 
 
@@ -370,7 +377,7 @@ Instead whenever the room is first initialised the game will determine how many 
 
 Each room is its own instance.
 The player can go into another room by walking through a door of the room. 
-This will then load the next room instance.  
+This will then load the next room instance. Direction is preserved, meaning if the player goes through the door on the left, the player will come out the door on the right in the next room, and vice versa for the other four directions.
 The door leading to the boss room should be marked so that the player knows that by going through the door they will have to defeat the boss.
 
 The first time the player enters a room, a bunch of slimes are spawned. The player can only exit the room after killing all enemies within it.  
