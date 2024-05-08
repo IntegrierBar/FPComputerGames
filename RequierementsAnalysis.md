@@ -281,7 +281,7 @@ Slimes can have three possible states.
 
 Slimes can differ in two attributes. There are large and small slimes and there are melee and ranged slimes, making a total of 4 different slime types. 
 Large slimes have more HP and higher attack values than small slimes. Large slimes are rarer than small slimes and only appear in small group of up to 3 large slimes. They are often accompanied by several small slimes. 
-Ranged slimes have a larger attack range and have a different colour brightness than melee slimes. 
+Ranged slimes have a larger attack range and have a different color brightness than melee slimes. 
 The armor values of all slimes of one magic type are the same.
 
 | **ID: 1**| **Slime types: Melee Slime** |
@@ -332,13 +332,15 @@ In between two attacks the unicorn remains idle for a short while to allow the p
 
 #### 2.2.2.1 Main Hub 
 
+The first area type is the main hub which is a menu that allows the player to modify their load-out. In this area no PC exists that can be moved. Instead there is a point-and-click visualisation of the magic school. Clicking on specific objects in the image opens the different menus needed to modify the load-out. 
+
 ##### 2.2.2.1.1 Skill tree
 
-TODO: ADD TO PLAYER SKILLS FURTHER ABOVE
-
-Each Element has its own small skill tree.  
+The skill tree is a menu where the player can unlock new skills and read the effects of the different skills. 
+Each magic type has its own small skill tree.  
+The base skill of each magic type is the basis of the skill tree and has to be unlocked before other skills of that magic type can be unlocked. 
 Skill points for each tree are earned by clearing dungeons of that type.  
-The player chooses an element at the beginning of a playthrough and unlocks with it the basic spell of that element for the intro dungeon. After completing the intro dungeon, the player automatically unlocks the basic spell of the element that his chosen element is weak against (e.g., player chooses sun and receives the basic dark spell after the intro dungeon).  
+The player chooses an element at the beginning of a playthrough and unlocks with it the basic spell of that element for the intro dungeon. After completing the intro dungeon, the player automatically unlocks the basic spell of the element that his chosen element is strong against (e.g., player chooses sun and receives the basic cosmic spell after the intro dungeon).  
 Each Element has 3 spells. (Damage values shall be determined during development to allow good balance)
 
 - One basic spell that just shoots a colored projectile (this is the first skill of every tree).
