@@ -466,65 +466,107 @@ Collision detection is integral to the gameplay, ensuring that players and enemi
 
 Use component based architecture if possible.
 
-Desired FPS: 60
+Desired FPS: 60 TODO Delete this
 
 Please include the coding style here, as well as the performance as the frame rate that is to be achieved % the requirements are written in such a way that they can also be checked - later this should also be checked explicitly in the results
 
+Coding Style: Adhere to the [GDScript style guide](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) and use a component-based architecture for improved maintainability, code reuse, and easier future expansion.
+
 ### 2.3.1. User interface and human factors
 
-Outside the dungeons the user can use the ui to choose their spells and augments and spent skill points. Furthermore, they can select a dungeon they want to enter.
+Outside the dungeons, the user interface will be fully controllable via mouse and keyboard for menu navigation, spell/augment selection, skill point allocation, and dungeon selection.
 
+Furthermore every menu has to be slectable with not more then 3 clicks.  
+And each action, like selecting a dungeon or merging two augments, has to be doable with less then 10.
+
+TODO delte rest here:
+Outside the dungeons the user can use the ui to choose their spells and augments and spent skill points. Furthermore, they can select a dungeon they want to enter.
 User interface is controlled via mouse and keyboard.
 
 ### 2.3.2. Documentation
 
+Every non-trivial function within the codebase will have clear comments explaining its purpose, parameters, and return values.
+
+A comprehensive user manual will be developed alongside the game to aid players.
+
+TODO REMOVE
 Every nontrivial function must have a comment above that explains the usage of this function.  
 Plus external documentation.
 
 ### 2.3.3. Hardware considerations
 
-For PCs that can run Godot 4 game engine.
+The game is intended for personal computers that meet the recomended system requirements to run the Godot 4 game engine effectively.  
+
+ - **CPU**: x86_64 CPU with SSE4.2 instructions, with 4 physical cores or more
+ - **GPU**: Dedicated graphics with full OpenGL 4.6 support or full Vulkan 1.2 support
+ - **RAM**: 8GB
+ - **OS**: Latest version of Firefox, Chrome, Edge, Safari, Opera or Windows 10 for native export
 
 ### 2.3.4. Performance characteristics
 
-60 FPS
+The game should maintain an average frame rate of at least 55 FPS at 1080p resolution with no more than 10% dips below 60 FPS during gameplay.
 
 ### 2.3.5. Error handling and extreme conditions
 
+All methods that can potentially encounter errors (e.g., missing file, invalid user input) will be explicitly marked with error handling code.
+
+Errors will be communicated to the player through clear on-screen messages. Additionally, a log file will record all encountered errors for debugging purposes.
+
+TODO REMOVE
 In order to avoid problems, every method that can run into an error or return an error value has to be explicitly marked and then whenever such a function it’s called the error has to be handled immediately.
 
 ### 2.3.6. Quality issues
 
- Todo
+The development process will involve thorough quality checks, including functionality testing, bug fixing, and performance optimization to ensure a polished gaming experience.
 
 ### 2.3.7. System modifications
 
- Todo
+No additional software installations will be required beyond the Godot 4 game engine itself.
 
 ### 2.3.8. Physical environment
 
-Run on a computer inside a browser.
+The game will run inside a modern browser supporting html5, javascript and webGL
 
 ### 2.3.9. Security issues
 
+Due to its single-player nature, the game will not implement any online features or user accounts, eliminating security concerns related to player data.
+
+The game will be restricted to reading and writing data within its designated folder, ensuring no security risks to the player's computer.
+
+
+TODO REMVOVE:
 Since the game will be a single player game hacking and accessing game data is irrelevant. If the player wants to cheat or change something in the game, they are free to do so as it does not affect anyone else.  
 Furthermore, the game should also only be allowed to read and write in the designated folder for the game and does not pose a security risk to the player’s computer.
 
 ### 2.3.10. Resource issues
 
- Todo
+The game's memory usage and disk space requirements will be optimized to ensure smooth performance on a wide range of PC hardware. Specific limitations will be determined during development based on testing.
 
 ## 2.4. Pseudo requirements
 
+The game should minimize visual clutter. 
+There is no need unneccessary visual effects if they do not add much to the enjoiment of the player.
+
+The game should also not contain large empty spaces devoid of any form of player interaction.
 
 ## 2.5. System models
 
 
 ### 2.5.1. Scenarios
 
+1. **Scenario** The player starts a new game. They are then asked to choose an element with wich they want to start.
+2. **Scenario** The PC enters a room in a dungeon. Close enemies then target the PC, forcing them to figth their way trough
+
 
 ### 2.5.2. Use case model
 
+ - **Use case:** Player unlocks a new skill
+    - **Precondition:** The PC has a skill point to spend in an element and an unlearned skill in that element
+    - **Steps:** 
+      1. The player selects the skils menu
+      2. The player selects the skill they want to unlock
+      3. They click unlock
+    - **Postcondition:** The PC has now learned the skill and can select it
 
 ### 2.5.3. Object model
 
