@@ -396,6 +396,36 @@ Furthermore there should not be more then 10 rooms in total.
 - x % more monsters
 - dungeon contains 2 bosses in the final room
 
+### 2.2.3 Tile-Based System and Collision Detection
+
+The game utilizes a tile-based system for both the macro-scale dungeon layouts connecting the different rooms, as well as for the in-room environment. Each room in the dungeon corresponds to a tile in a grid, ensuring structured navigation and interaction within the environment. This system facilitates the procedural generation of dungeons and supports a variety of room configurations.
+
+### 2.2.3.1 Macro-scale dungeon layouts
+
+- 
+
+### 2.2.3.2 In-room environment
+
+
+
+- set of predefined rooms, consisting of
+  - tiles
+  - enemy spawn points
+  - entry points
+  - exit points
+
+### 2.2.3.3 Collision Detection
+
+Collision detection is integral to the gameplay, ensuring that players and enemies interact with the environment and each other in a predictable manner. The game engine checks for collisions between entities (player, enemies) and environmental obstacles (walls, doors) to determine valid movements and interactions. This system is crucial for implementing gameplay mechanics such as combat, movement restrictions, and accessing different areas within the dungeons.
+
+### 2.2.3.3.1 Player-Enemy Collisions
+
+### 2.2.3.3.2 Player-Wall Collisions
+
+
+
+### 2.2.3.3.3 Enemy-Enemy Collisions
+
 
 ## 2.3. Nonfunctional requirements
 
