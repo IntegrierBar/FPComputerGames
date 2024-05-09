@@ -337,28 +337,72 @@ The first area type is the main hub which is a menu that allows the player to mo
 ##### 2.2.2.1.1 Skill tree
 
 The skill tree is a menu where the player can unlock new skills and read the effects of the different skills. 
-Each magic type has its own small skill tree.  
-The base skill of each magic type is the basis of the skill tree and has to be unlocked before other skills of that magic type can be unlocked. 
-Skill points for each tree are earned by clearing dungeons of that type.  
-The player chooses an element at the beginning of a playthrough and unlocks with it the basic spell of that element for the intro dungeon. After completing the intro dungeon, the player automatically unlocks the basic spell of the element that his chosen element is strong against (e.g., player chooses sun and receives the basic cosmic spell after the intro dungeon).  
-Each Element has 3 spells. (Damage values shall be determined during development to allow good balance)
+Each magic type has its own small skill tree. The base skill is the first skill of each skill tree. The supportive and offensive skills are the second layer of the skill trees. After the base skill is unlocked, the player cna decide whether they want to unlock the supportive or offensive skill first. <br>
+For description of the skill see section 2.2.1.3.2.1 PC skills.
 
-- One basic spell that just shoots a colored projectile (this is the first skill of every tree).
-- One supportive spell
-    - Sun: sunbeam (attack and defense debuff in a straight line with small diameter)
-    - Cosmic: Moon light (attack and defense buff)
-    - Dark: dark energy wave (pushes enemies away from player)
-- One offensive spell
-    - Sun: summon sun (aoe damage on location)
-    - Cosmic: Star rain (multiple stars erupt from staff and move towards target location. damaging the first enemy they collide with)
-    - Dark: black hole (aoe pulls enemies in)
+| **ID: 1**| **Skill tree: Unlocking the first skills** |
+| --- | --- |
+| Description | The player chooses a magic type in the beginning of the game which unlocks that magic types base skill. Upon completing the intro dungeon the base skill of a second magic type is unlocked automatically. The second magic type is the type that the chosen magic type is strong against. |
+| Acceptance Criterion | The correct base skills are unlocked after the player selects their magic type and after the completion of the intro dungeon. |
+| Notes | Example: Player chooses Sun, therefore the Cosmic base skill is unlocked after the intro dungeon, because Cosmic is strong aainst Dark, while Sun is weak against Dark. |
 
-All skills have hidden upgrades that improve the skill and are only shown in the skill tree after the player unlocks them by fulfilling a certain condition, e.g., clearing a dungeon with only one spell unlocks an improved version of that spell.
-Further passive Skills (like damage increase or range increase) can be added as well, if there is time.
+| **ID: 1**| **Skill tree: Unlocking criteria** |
+| --- | --- |
+| Description | The base skill of each magic type has to be unlocked before other skills of that magic type can be unlocked. |
+| Acceptance Criterion | Offensive and defensive skills of each element cannot be unlocked if the base skill is not unlocked. They can be unlocked if the player has the base skill unlocked. |
+| Notes | The player chooses a magic type in the beginning of the game which unlocks that magic types base skill. Upon completing the intro dungeon the base skill of a second magic type is unlocked automatically. |
+
+| **ID: 1**| **Skill tree: Unlocking skills** |
+| --- | --- |
+| Description | The player can use one skill point to unlock one new skill. Skill points are magic type specific, e.g. a Sun skill point can only be used to unlock a Sun skill. |
+| Acceptance Criterion | Skills are correctly unlocked by using skill points. |
+| Notes | Skill points of a magic type are earned by clearing dungeons of that type. Both story and generated dungeons have a magic type. |
+
+| **ID: 1**| **Skill tree: Skill descriptions** |
+| --- | --- |
+| Description | All skills in the skill tree have a description. If the skills are not unlocked yet, the requirements for unlocking the skill are additionally described. |
+| Acceptance Criterion | Descriptions are displayed correctly. |
+| Notes | None |
+
+| **ID: 1**| **Skill tree: Upgrading skills (Optional)** |
+| --- | --- |
+| Description | If the player fulfills the cirterion for a skill upgrade, the skill is upgraded automatically. |
+| Acceptance Criterion | Skills are upgraded correctly if the corresponding criterias are met. |
+| Notes | This is a low priority requirement and should only be implemented if there is time. <br> Planned unlocking criteria are clearing a dungeon with only one spell, which gives a version of the skill with better stats (more damage, buffs or debuffs). Additioanlly different criteria for each skill can give additional effects to the skills, e.g. Moon light gets an additional healing effect, slows or stuns for other spells. The properties and critera still need to be determined! <br> Upgrades are hidden in the skill tree until they are unlocked by the player. |
+
 
 ##### 2.2.2.1.2 Equipping
 
+The equipping menu allows the player to change the equipped augments and skills. In this menu, the skill slots with the currently equipped skills are displayed. Furhtermore, the augment slot with the currently equipped augments and the inventory with all not equipped augments are displayed.
+
+| **ID: 1**| **Equipping: Equipping skills** |
+| --- | --- |
+| Description | If the player click on one of their skill slots, they can select which skill to equip to this skill slot from all skills they have unlocked. The player also has the chance to clear the second and the third skill slot. If the player selects a skill that is already equipped to a different skill slot, the skills in the two slots are swapped. |
+| Acceptance Criterion | Unlocked skills can be equipped and swapped. |
+| Notes | The first skill slot cannot be cleared to prevent players from entering dungeons with no skills equipped.  |
+
+| **ID: 1**| **Equipping: Skill descriptions** |
+| --- | --- |
+| Description | If the player hovers the mouse over a skill, the skill name and description is displayed. |
+| Acceptance Criterion | Description is displayed correctly. |
+| Notes | None |
+
+| **ID: 1**| **Equipping: Equipping augments** |
+| --- | --- |
+| Description | The player can drag and drop augments from their inventory to the unlocked augment slots. If the player drags an augment to an augment slot that is not empty, the previously equipped augment is returned to the inventory. The effects of the equipped augments are applied to the PC. |
+| Acceptance Criterion | Augments can be correctly equipped to unlocked augment slots. |
+| Notes | None |
+
+| **ID: 1**| **Equipping: Augment descriptions** |
+| --- | --- |
+| Description | If the player hovers the mouse over an augment, the augment effects are displayed. If an augment slot is not unlocked yet, the criteria for unlocking the skill slot is displayed. |
+| Acceptance Criterion | Description is displayed correctly. |
+| Notes | None |
+
+
 ##### 2.2.2.1.3 Fusing augments
+
+
 
 ##### 2.2.2.1.4 Saving the game 
 
