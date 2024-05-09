@@ -476,7 +476,7 @@ Coding Style: Adhere to the [GDScript style guide](https://docs.godotengine.org/
 
 Outside the dungeons, the user interface will be fully controllable via mouse and keyboard for menu navigation, spell/augment selection, skill point allocation, and dungeon selection.
 
-Furthermore every menu has to be slectable with not more then 3 clicks.  
+Furthermore every menu has to be selectable with not more then 3 clicks.  
 And each action, like selecting a dungeon or merging two augments, has to be doable with less then 10.
 
 TODO delte rest here:
@@ -521,11 +521,13 @@ The development process will involve thorough quality checks, including function
 
 ### 2.3.7. System modifications
 
-No additional software installations will be required beyond the Godot 4 game engine itself.
+A modern browser has to be installed in order to play the web version of the game. 
+
+For the standalone version no additional software installations will be required beyond the game itself. 
 
 ### 2.3.8. Physical environment
 
-The game will run inside a modern browser supporting html5, javascript and webGL
+The game will run inside a modern browser supporting html5, javascript and webGL.
 
 ### 2.3.9. Security issues
 
@@ -545,7 +547,7 @@ The game's memory usage and disk space requirements will be optimized to ensure 
 ## 2.4. Pseudo requirements
 
 The game should minimize visual clutter. 
-There is no need unneccessary visual effects if they do not add much to the enjoiment of the player.
+There is no need for unneccessary visual effects if they do not add much to the enjoiment of the player.
 
 The game should also not contain large empty spaces devoid of any form of player interaction.
 
@@ -554,8 +556,8 @@ The game should also not contain large empty spaces devoid of any form of player
 
 ### 2.5.1. Scenarios
 
-1. **Scenario** The player starts a new game. They are then asked to choose an element with wich they want to start.
-2. **Scenario** The PC enters a room in a dungeon. Close enemies then target the PC, forcing them to figth their way trough
+1. **Scenario** The player starts a new game. They are then asked to choose an element with which they want to start.
+2. **Scenario** The PC enters a room in a dungeon. Close enemies then target the PC, forcing them to figth their way through.
 
 
 ### 2.5.2. Use case model
@@ -565,7 +567,7 @@ The game should also not contain large empty spaces devoid of any form of player
     - **Steps:** 
       1. The player selects the skils menu
       2. The player selects the skill they want to unlock
-      3. They click unlock
+      3. The player clicks unlock
     - **Postcondition:** The PC has now learned the skill and can select it
 
 ### 2.5.3. Object model
