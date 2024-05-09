@@ -68,7 +68,7 @@ All entities have the following properties:
 
 | **ID: 2**| **Entity property: Armor values** |
 | --- | --- |
-| Description | Every entity has three armor values for each of the three magic types in game. The armor type for a magic type determines how much the damage to the entity is reduced by an attack of that element (30 armor means 30% damage reduction). <br> If an entity has an armor value above 100, part of the damage is reflected back to the attacker. Example: Entity has 120 armor, attack makes 100 damage, then 20 damage is reflected back to the attacker, if the attacker has an armor value of 50, the attacker takes 10 damage. |
+| Description | Every entity has three armor values for each of the three magic types in game. The armor type for a magic type determines how much the damage to the entity is reduced by an attack of that magic type (30 armor means 30% damage reduction). <br> If an entity has an armor value above 100, part of the damage is reflected back to the attacker. Example: Entity has 120 armor, attack makes 100 damage, then 20 damage is reflected back to the attacker, if the attacker has an armor value of 50, the attacker takes 10 damage. |
 | Acceptance Criterion | Damage of all types is applied correctly to entities depending on their armor values. |
 | Notes | The damage calculation works like <br> if armor <= 100: health = health - damage*(100-armor)/100 <br> Only PC should be able to reach over 100 armor through additional stats, enemies need at least one armor value below 30 unless they are buffed. <br> Case where both entities have over 100 armor of the same type has to be covered nonetheless. In that case both entites take no damage of this magic type. |
 
@@ -148,13 +148,13 @@ The PC can have up to three different skills equipped.
 
 | **ID: 1**| **Skill: Base Skills** |
 | --- | --- |
-| Description | Each element has a base skill that consist of a colored circular projectile shot from PC in the direction of the mouse. |
+| Description | Each magic type has a base skill that consist of a colored circular projectile shot from PC in the direction of the mouse. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: 1**| **Skill: Sun Beam** |
 | --- | --- |
-| Description | The supportive skill of the sun element. The PC emits a ray of ligth from the PC in the direction of the mouse. <br> Enemies hit deal reduced damage and have reduced armor. |
+| Description | The supportive skill of the sun magic type. The PC emits a ray of ligth from the PC in the direction of the mouse. <br> Enemies hit deal reduced damage and have reduced armor. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
@@ -233,7 +233,7 @@ The effects of the augments are the following:
 - 10% more stars for “star rain”
 - Upon casting spell x also cast spell y (specific spells will be determined during balancing)
 - Spell x explodes on impact with enemy (for directional skills only, means damage is applied to all enemies in an AOE)
-- Plus 10 attack for all spells of one element (this way supportive spells can also deal damage)
+- Plus 10 attack for all spells of one magic type (this way supportive spells can also deal damage)
 - 50% longer duration for skills that remain on field (“summon sun” and/or “black hole”) 
 - Plus 20 attack for skill in slot 1/2/3 
 
@@ -349,7 +349,7 @@ For description of the skill see section 2.2.1.3.2.1 PC skills.
 | **ID: 1**| **Skill tree: Unlocking criteria** |
 | --- | --- |
 | Description | The base skill of each magic type has to be unlocked before other skills of that magic type can be unlocked. |
-| Acceptance Criterion | Offensive and defensive skills of each element cannot be unlocked if the base skill is not unlocked. They can be unlocked if the player has the base skill unlocked. |
+| Acceptance Criterion | Offensive and defensive skills of each magic type cannot be unlocked if the base skill is not unlocked. They can be unlocked if the player has the base skill unlocked. |
 | Notes | The player chooses a magic type in the beginning of the game which unlocks that magic types base skill. Upon completing the intro dungeon the base skill of a second magic type is unlocked automatically. |
 
 | **ID: 1**| **Skill tree: Unlocking skills** |
@@ -423,33 +423,62 @@ From the main hub, the player can leave the game and save the current game state
 
 ##### 2.2.2.1.5 Entering a dungeon
 
-The entering a dungeon menu allows the player to select which dungeon to enter next. First, the player decides whether they want to enter a story dungeon or a generated dungeon. The layout and magic type of the story dungeons is always predefined depending on the element the player chose in the beginning. If the player chooses to enter a generated dungeon, they have to select the magic type of the dungeon. Furthermore, they can curse the dungeon to make it more difficult but to gain more rewards. The curses are shown in the menu before entering the dungeon and can be rerolled twice. 
+The entering a dungeon menu allows the player to select which dungeon to enter next. First, the player decides whether they want to enter a story dungeon or a generated dungeon. The layout and magic type of the story dungeons is always predefined depending on the magic type the player chose in the beginning. If the player chooses to enter a generated dungeon, they have to select the magic type of the dungeon. Furthermore, they can curse the dungeon to make it more difficult but to gain more rewards. The curses are shown in the menu before entering the dungeon and can be rerolled twice. 
+
+| **ID: 1**| **Choosing a Dungeon** |
+| --- | --- |
+| Description | The player can decide whether to enter a story dungeon or a generated dungeon. If the player chooses to enter a generated dungeon, they have to select the magic type of the dungeon. Furthermore, the player can curse the dungeon. The curses are shown in the menu before entering the dungeon and can be rerolled twice. |
+| Acceptance Criterion | The dungeon type and all its modifications can be successfully determined. |
+| Notes | The layout and magic type of the story dungeons is always predefined depending on the magic type the player chose when starting the game. <br> Cursed dungeons are more difficult to clear but give better rewards. |
 
 | **ID: 1**| **Entering a Dungeon** |
 | --- | --- |
-| Description | Using the dungeon menu the player can enter a dungeon. <br> First the player can decide whether to enter a story dungeon or a generated dungeon. The layout and magic type of the story dungeons is always predefined depending on the element the player chose in the beginning. If the player chooses to enter a generated dungeon, they have to select the magic type of the dungeon. Furthermore, they can curse the dungeon to make it more difficult but to gain more rewards. The curses are shown in the menu before entering the dungeon and can be rerolled twice.  |
-| Acceptance Criterion |  |
+| Description | The player can enter the dungeon they selected from the entering a dungeon menu. |
+| Acceptance Criterion | Player succefully enters the right dungeon. |
 | Notes |  |
 
 #### 2.2.2.2 Dungeons 
 
+Dungeons are the areas of the game where the player can control the PC and combat enemies to gain rewards. Dungeons are composed of a number of rooms with slimes and a boss room at the end of the dungeon that contains at least one unicorn. The rooms are connected through doors which only open after all enemies in the room are killed.  
+Dungeons are not linear. Instead the player is forced to find the boss room. However, only the boss has to be killed in order to clear a dungeon, not every single room.  
+In the dungeons a camera is used to track the PC and enemy actions. The camera behaviour is different for different parts of the dungeon.
+
 | **ID: 1**| **Camera Movement in Regular Rooms** |
 | --- | --- |
 | Description | Inside the regular rooms inside a dungeon the camera tries to stay centered on the PC. <br> Movement of the PC is slowly copied in order to not have fast change of the view field. <br> Furthermore the camera is bounded on the walls of the room so that everything in the view field is usefull for the player. |
-| Acceptance Criterion | Camera works as described |
+| Acceptance Criterion | Camera works as described. |
 | Notes | None |
 
 | **ID: 1**| **Camera Movement in Boss Rooms** |
 | --- | --- |
-| Description | In the boss room the camera is fixed and more zoomed out in order to show the entire boss room at once. |
-| Acceptance Criterion | Camera works as described |
+| Description | In the boss room the camera is fixed and more zoomed out in order to always show the entire boss room at once. |
+| Acceptance Criterion | Camera works as described. |
 | Notes | None |
 
-Camera follows the player TODO
+| **ID: 1**| **Opening doors** |
+| --- | --- |
+| Description | The player can open doors that leas to other rooms of the dungeon by killing all enemies in the room. If a room has several doors forwards, all doors are unlocked at once when the last enemy is killed. |
+| Acceptance Criterion | Doors unlock when all enemies are dead and remain closed beforehand. |
+| Notes | None |
 
-We want 5 handcrafted story dungeons plus a handcrafted intro dungeon. Additional dungeons will be procedurally generated.  
-Dungeons are composed of a set of rooms which are connected through doors. Each room is an instance. In the final room of each dungeon is a boss.  
-Dungeons are not linear. Instead the player is forced to find the boss room. However, only the boss has to be killed in order to clear a dungeon. Not every single room.  
+| **ID: 1**| **Clearing the dungeon** |
+| --- | --- |
+| Description | When the player has killed all bosses in the boss room, an information about the success and the gained rewards is displayed for the player. When the player closes the information, he exits the dungeon automatically. |
+| Acceptance Criterion | Rewards are displayed correctly and player exits dungeon correctly. |
+| Notes | None |
+
+| **ID: 1**| **Leaving the dungeon early** |
+| --- | --- |
+| Description | The player can always leave the dungeon before clearing it. All rewards the player already has collected remain in the players inventory. |
+| Acceptance Criterion |  |
+| Notes | None |
+
+| **ID: 1**| **Boss room doors** |
+| --- | --- |
+| Description | The door to the boss room has to be visibly distinct from other, normal doors. |
+| Acceptance Criterion |  |
+| Notes | None |
+
 
 The the rooms out of which the dungeon is created are handcrafted and not randomly generated. There should be at least 5 different rooms.  
 The spawn locations for the enemies are also determined by hand. However not all possible spawn locations must also spawn enemies.  
@@ -459,7 +488,7 @@ Instead whenever the room is first initialised the game will determine how many 
 Each room is its own instance.
 The player can go into another room by walking through a door of the room. 
 This will then load the next room instance. Direction is preserved, meaning if the player goes through the door on the left, the player will come out the door on the right in the next room, and vice versa for the other four directions.
-The door leading to the boss room should be marked so that the player knows that by going through the door they will have to defeat the boss.
+The door leading to the boss room should be marked so that the player knows that by going through the door they will have to defeat the boss. There is always only one door that leads to the boss room.
 
 The first time the player enters a room, a bunch of slimes are spawned. The player can only exit the room after killing all enemies within it.  
 The player can also return to a room they have already been to and cleared.
@@ -468,58 +497,55 @@ Dungeons can be left early. When dying or leaving a dungeon voluntarily all prev
 
 ##### 2.2.2.2.1 Intro dungeon
 
-| **ID: 1**| **Entry of the Intro Dungeon** |
-| --- | --- |
-| Description | The intro dungeon is the first dungeon the PC enteres when starting a new game. It serves as a tutorial for the game. <br> Before the PC enteres the player has to choose an element with which they want to start. <br> The element of the enemies inside the dungeon will then be set to the element that is weak against the element the player chose. |
-| Acceptance Criterion | Works as described |
-| Notes | For example if the player chose Sun as their element, the dungeons enemies will all be of type Cosmic. |
+The intro dungeon is a handcrafted dungeon and the first dungeon the player has to clear. It serves as a tutorial for the basic mechanics and the magic types in the game. Because of this the magic types of the slimes in the dungeon change based on which magic type the player has chosen when starting the game. 
 
-| **ID: 1**| **Enemies of the Intro Dungeon** |
+| **ID: 1**| **Adapting the Intro Dungeon** |
 | --- | --- |
-| Description | The regual enemies of the rooms will only be small slimes. <br> The boss of the intro dungeon is a large slime |
-| Acceptance Criterion |  |
-| Notes |  |
+| Description | The magic types of the enemies inside the intro dungeon will be adapted according to the magic type the player has chosen. |
+| Acceptance Criterion | Intro dungeon is adapted correctly. |
+| Notes | The first enemies will have the type that the magic type is strong against. For example if the player chose Sun as their magic type, most the dungeons enemies will be of type Cosmic. Other enemies will teach the player about the weaknesses of their chosen magic type. |
 
 | **ID: 1**| **Layout of the Intro Dungeon** |
 | --- | --- |
-| Description | The intro dungeon consists of 4 rooms in a linear way. <br> The first room contains only melee slimes. <br> The second room contains only ranged slimes. <br> The third room has both melee and ranged slimes. <br> The fourth room is the boss room and contains one large melee slime. |
+| Description | The intro dungeon consists of 4 rooms in a linear way. <br> The first room contains only small melee slimes. <br> The second room contains only small ranged slimes. <br> The third room has both small melee and small ranged slimes. <br> The fourth room is the boss room and contains one large melee slime. |
 | Acceptance Criterion |  |
-| Notes |  |
+| Notes | Slimes have to correspond to different magic types to teach about strengths and weaknesses. <br> The layout might have to be adapted according to player feedback later. |
 
-A shorter dungeon that serves as a tutorial for the game. Before entering the dungeon, the player chooses the element with which they want to start. The slimes inside the dungeon will change their element according to the players choice to teach the player about the strengths and weaknesses of their element.  
-At the end of the dungeon the boss is a large slime. All slimes before are small.
 
 ##### 2.2.2.2.2 Story dungeon
 
+There are five story dungeons. The bosses of the story dungeons are unicorns. The magic type of the story dungeons depends on the magic type the player chose at the start of the game. The unicorns have the same magic type as the dungeon type.
+
 | **ID: 1**| **Layout of Story Dungeons** |
 | --- | --- |
-| Description | Each Story dungeon has a fixed layout that is handcrafted. The bosses of the story dungeons are unicorns. <br> Each story dungeon also has an element. At least 50% of all slimes are of this element and the boss is also of this element. This element is determined by the starting element the player chose at the start of the game. <br>  The first story dungeon will be the same element as the intro dungeon. For the other story dungeons the element is the element that is weak against the element of the previous story dungeon. |
+| Description | Each Story dungeon has a fixed layout that is handcrafted. The bosses of the story dungeons are unicorns. <br> Each story dungeon also has an magic type. At least 50% of all slimes are of this magic type and the boss is also of this magic type. This magic type is determined by the starting magic type the player chose at the start of the game. <br>  The first story dungeon will be the same magic type as the intro dungeon. For the other story dungeons the magic type is the magic type that is weak against the magic type of the previous story dungeon. The fourth story dungeon has two bosses and the fifth and last dungeon has three bosses, one of each magic type. |
 | Acceptance Criterion |  |
-| Notes | For example if the player chose Sun as starting element, then intro dungeon and the first story dungeon will be of type Cosmic. The second story dungeon will then be of type Dark, the third will be Sun, the fourth Cosmic and the fifth Dark. |
+| Notes | For example if the player chose Sun as starting magic type, then intro dungeon and the first story dungeon will be of type Cosmic. The second story dungeon will then be of type Dark, the third will be Sun, the fourth Cosmic and the fifth Dark. |
 
-There are 5 story dungeons.  
-The bosses of the story dungeons 1 to 4 are unicorns. The last dungeon has a specially designed boss.
 
 ##### 2.2.2.2.3 Generated dungeons
 
-At the start of the generated dungeon, the player can choose which element the dungeon should have. This choice determines the element of the final boss and guarantees that at least 50% of all slimes in the dungeon are of this element.  
+The player can enter additional generated dungeons for additional rewards to level up their character.  
+Before entering the generated dungeon, the player can choose which magic type the dungeon should have. This choice determines the magic type of the final boss and guarantees that at least 50% of all slimes in the dungeon are of this magic type.  
 
 TODO Überschriften rausnehmen, wenn es nicht mehr als nur einen Punkt beinhaltet?
 ##### 2.2.2.2.3.1 Generation
 
 | **ID: 1**| **Layout of Generated Dungeons** |
 | --- | --- |
-| Description | Every generated dungeon has between 5 and 10 rooms. These rooms are generated in a grid like pattern, where each room is one cell. <br> There should be at least 2 rooms between the entrance of the dungeon and the boss room. <br> The rooms themselfs are not randomly generated but randomly selected from a list of designed rooms. |
-| Acceptance Criterion |  |
+| Description | If the player decides to enter a generated dungeon, a dungeon is generated. Every generated dungeon has between 5 and 10 rooms. These rooms are generated in a grid like pattern, where each room is one cell. <br> There should be at least 2 rooms between the entrance of the dungeon and the boss room. <br> The rooms themselves are not randomly generated but randomly selected from a list of designed rooms. |
+| Acceptance Criterion | Dungeons can be generated correctly according to the criteria. |
 | Notes |  |
 
 | **ID: 1**| **Difficulty Scaling of Generated Dungeons** |
 | --- | --- |
-| Description | The amount of augment effects the player has equipt when entering the dungeon changes the difficutly of the dungeon. <br> The more augment effect, the more slimes spawn in each room and the stronger the slimes get (more HP and more damage) |
+| Description | When a player generates a generated dungeon, the amount of augment effects the player has equipped when generating the dungeon changes the difficutly of the dungeon. <br> The more augment effects are applied to the PC, the more slimes spawn in each room and the stronger the slimes get (more HP and more damage) |
 | Acceptance Criterion |  |
-| Notes | Exact numbers have to be determinied during developent to ensure good balance. |
+| Notes | Exact numbers have to be determinied during developent to ensure good balancing. |
 
 ##### 2.2.2.2.3.2 Rewards
+
+Clearing dungeons gives rewards to the players. 
 
 | **ID: 1**| **Skill Point Reward** |
 | --- | --- |
@@ -531,7 +557,7 @@ TODO Überschriften rausnehmen, wenn es nicht mehr als nur einen Punkt beinhalte
 | --- | --- |
 | Description | Killing the boss of a generated dungeon, and thus clearing the dungeon, also rewards one random augment. <br> The quality of the augment is determined by the difficulty of the dungeon. <br> If the dungeon was cursed the player is rewarded with an additional augment. |
 | Acceptance Criterion |  |
-| Notes |  |
+| Notes | Drop rates might have to be adjusted later. |
 
 ##### 2.2.2.2.3.3 Curses 
 
@@ -563,13 +589,11 @@ Furthermore there should not be more then 10 rooms in total.
 
 The game utilizes a tile-based system for both the macro-scale dungeon layouts connecting the different rooms, as well as for the in-room environment. Each room in the dungeon corresponds to a tile in a grid, ensuring structured navigation and interaction within the environment. This system facilitates the procedural generation of dungeons and supports a variety of room configurations.
 
-### 2.2.3.1 Macro-scale dungeon layouts
+#### 2.2.3.1 Macro-scale dungeon layouts
 
 - 
 
-### 2.2.3.2 In-room environment
-
-
+#### 2.2.3.2 In-room environment
 
 - set of predefined rooms, consisting of
   - tiles
@@ -577,26 +601,40 @@ The game utilizes a tile-based system for both the macro-scale dungeon layouts c
   - entry points
   - exit points
 
-### 2.2.3.3 Collision Detection
+#### 2.2.3.3 Collision Detection
 
 Collision detection is integral to the gameplay, ensuring that players and enemies interact with the environment and each other in a predictable manner. The game engine checks for collisions between entities (player, enemies) and environmental obstacles (walls, doors) to determine valid movements and interactions. This system is crucial for implementing gameplay mechanics such as combat, movement restrictions, and accessing different areas within the dungeons.
 
-### 2.2.3.3.1 Player-Enemy Collisions
+##### 2.2.3.3.1 Player-Enemy Collisions
 
-### 2.2.3.3.2 Player-Wall Collisions
+##### 2.2.3.3.2 Player-Wall Collisions
+
+##### 2.2.3.3.3 Enemy-Enemy Collisions
 
 
+### 2.2.4 Main menu
 
-### 2.2.3.3.3 Enemy-Enemy Collisions
+If the player opens the game, the main menu is the first interface the player can interact with. The player has several options for interacting with the main menu. 
 
+| **ID: 1**| **Main menu: New Game** |
+| --- | --- | 
+| Description | The player can start a new game from the main menu. When a new game is started, the player first has to decide with which magic type they want to start playing the game. |
+| Acceptance Criterion |  |
+| Notes | None |
+
+| **ID: 1**| **Main menu: Continue** |
+| --- | --- | 
+| Description | The player can continue playing the game from a previously saved game state. |
+| Acceptance Criterion | Loading saved game states works. |
+| Notes | None |
+
+| **ID: 1**| **Main menu: Settings** |
+| --- | --- | 
+| Description | The player can change settings such as music and sound volume, setting the resolution or toggling a fullscreen mode. The settings menu can be accessed through a sub-menu that appears when the player presses the esc-key from the main hub and from inside dungeons as well. |
+| Acceptance Criterion |  |
+| Notes | None |
 
 ## 2.3. Nonfunctional requirements
-
-Use component based architecture if possible.
-
-Desired FPS: 60 TODO Delete this
-
-Please include the coding style here, as well as the performance as the frame rate that is to be achieved % the requirements are written in such a way that they can also be checked - later this should also be checked explicitly in the results
 
 Coding Style: Adhere to the [GDScript style guide](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) and use a component-based architecture for improved maintainability, code reuse, and easier future expansion.
 
@@ -607,19 +645,11 @@ Outside the dungeons, the user interface will be fully controllable via mouse an
 Furthermore every menu has to be selectable with not more then 3 clicks.  
 And each action, like selecting a dungeon or merging two augments, has to be doable with less then 10.
 
-TODO delte rest here:
-Outside the dungeons the user can use the ui to choose their spells and augments and spent skill points. Furthermore, they can select a dungeon they want to enter.
-User interface is controlled via mouse and keyboard.
-
 ### 2.3.2. Documentation
 
 Every non-trivial function within the codebase will have clear comments explaining its purpose, parameters, and return values.
 
 A comprehensive user manual will be developed alongside the game to aid players.
-
-TODO REMOVE
-Every nontrivial function must have a comment above that explains the usage of this function.  
-Plus external documentation.
 
 ### 2.3.3. Hardware considerations
 
@@ -639,9 +669,6 @@ The game should maintain an average frame rate of at least 55 FPS at 1080p resol
 All methods that can potentially encounter errors (e.g., missing file, invalid user input) will be explicitly marked with error handling code.
 
 Errors will be communicated to the player through clear on-screen messages. Additionally, a log file will record all encountered errors for debugging purposes.
-
-TODO REMOVE
-In order to avoid problems, every method that can run into an error or return an error value has to be explicitly marked and then whenever such a function it’s called the error has to be handled immediately.
 
 ### 2.3.6. Quality issues
 
@@ -663,11 +690,6 @@ Due to its single-player nature, the game will not implement any online features
 
 The game will be restricted to reading and writing data within its designated folder, ensuring no security risks to the player's computer.
 
-
-TODO REMVOVE:
-Since the game will be a single player game hacking and accessing game data is irrelevant. If the player wants to cheat or change something in the game, they are free to do so as it does not affect anyone else.  
-Furthermore, the game should also only be allowed to read and write in the designated folder for the game and does not pose a security risk to the player’s computer.
-
 ### 2.3.10. Resource issues
 
 The game's memory usage and disk space requirements will be optimized to ensure smooth performance on a wide range of PC hardware. Specific limitations will be determined during development based on testing.
@@ -684,14 +706,14 @@ The game should also not contain large empty spaces devoid of any form of player
 
 ### 2.5.1. Scenarios
 
-1. **Scenario** The player starts a new game. They are then asked to choose an element with which they want to start.
+1. **Scenario** The player starts a new game. They are then asked to choose an magic type with which they want to start.
 2. **Scenario** The PC enters a room in a dungeon. Close enemies then target the PC, forcing them to figth their way through.
 
 
 ### 2.5.2. Use case model
 
  - **Use case:** Player unlocks a new skill
-    - **Precondition:** The PC has a skill point to spend in an element and an unlearned skill in that element
+    - **Precondition:** The PC has a skill point to spend in an magic type and an unlearned skill in that magic type
     - **Steps:** 
       1. The player selects the skils menu
       2. The player selects the skill they want to unlock
