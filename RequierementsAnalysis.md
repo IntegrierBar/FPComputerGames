@@ -142,7 +142,7 @@ While playing the game, the player can unlock new skills. The player also unlock
 
 Every PC skill belongs to one magic type and does damage of that magic type. 
 Each magic type has three different skills: a base skill, a supportive skill and an offensive skill.
-All nine skills have upgraded versions which are automiatically unlocked if the player fulfills a predefined criteria. 
+All nine skills have upgraded versions, which are automatically unlocked when the player fulfills a predefined criteria. 
 The PC can have up to three different skills equipped.  
 
 
@@ -192,8 +192,8 @@ The PC can have up to three different skills equipped.
 ###### 2.2.1.3.2.2 Augments 
 
 Instead of a traditional armor and weapon system, the game uses augments to enhance the PC by giving additional effects and stats. 
-There are a  total of 5 augment slots which can be unlocked. Every augment can be equipped to every unlocked augment slot. 
-This will allow easy build crafting for the player.  <br>
+A maximum of 5 augment slots can be unlocked, with each augment being equipable to any unlocked slot.
+This feature will facilitate the player's ability to craft their own unique builds.  <br>
 
 | **ID: 1**| **Augments: Equipping augments** |
 | --- | --- |
@@ -256,7 +256,7 @@ Slimes will come in large groups. Use Group behaviors to simulate better movemen
 
 ##### 2.2.1.4.1 Slimes
 
-Every slimes belongs to one magic type. They are colored according to this magic type, only deal damage aligned to this magic type, have high armor against the magic type their magic type is strong against and low armor against the magic type which their magic type is weak against.  
+Each slime is associated with a specific magic type. They are visually represented by the color corresponding to their magic type. Slimes only inflict damage aligned with their magic type, and their armor is strong against the magic type they are associated with and weak against the magic type they are not associated with.
 
 Slimes can have three possible states.
 
@@ -278,9 +278,15 @@ Slimes can have three possible states.
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
+| **ID: 1**| **Unicorn states: Death** |
+| --- | --- |
+| Description | When the slime's health reaches 0, it transitions to a death state. In this state, the slime stops all actions and animations, and after a short delay, it disappears from the game world. |
+| Acceptance Criterion | The slime must correctly transition to the death state when its health is depleted, and it should no longer be able to perform any actions or affect the game. |
+| Notes | Ensure that the transition to the death state is smooth and that the slime's disappearance is visually clear to the player. |
+
 
 Slimes can differ in two attributes. There are large and small slimes and there are melee and ranged slimes, making a total of 4 different slime types. 
-Large slimes have more HP and higher attack values than small slimes. Large slimes are rarer than small slimes and only appear in small group of up to 3 large slimes. They are often accompanied by several small slimes. 
+Large slimes have more HP and higher attack values than small slimes. Large slimes are rarer than small slimes and only appear in small groups of up to 3 large slimes. They are often accompanied by several small slimes. 
 Ranged slimes have a larger attack range and have a different color brightness than melee slimes. 
 The armor values of all slimes of one magic type are the same.
 
@@ -295,7 +301,6 @@ The armor values of all slimes of one magic type are the same.
 | Description | Ranged slimes have a larger attack radius. When attacking, they shoot a small projectile in the direction of the PC. <br> Ranged slimes can be large or small. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
-
 
 ##### 2.2.1.4.2 Bosses
 
@@ -317,7 +322,7 @@ In between two attacks the unicorn remains idle for a short while to allow the p
 
 | **ID: 1**| **Unicorn states: Stomping attack** |
 | --- | --- |
-| Description | If the PC is inside of the melee radius of the unicorn, the unicorn uses a stomping attack. The unicorn stomps on the ground before it and deals damage in an AOE. |
+| Description | If the PC is inside of the melee radius of the unicorn, the unicorn uses a stomping attack. The unicorn stomps on the ground in front of it and deals damage in an AOE. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
@@ -327,6 +332,11 @@ In between two attacks the unicorn remains idle for a short while to allow the p
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
+| **ID: 1**| **Unicorn states: Death** |
+| --- | --- |
+| Description | When the unicorn's health reaches 0, it transitions to a death state. In this state, the unicorn stops all actions and animations, and after a short delay, it disappears from the game world. |
+| Acceptance Criterion | The unicorn must correctly transition to the death state when its health is depleted, and it should no longer be able to perform any actions or affect the game. |
+| Notes | Ensure that the transition to the death state is smooth and that the unicorn's disappearance is visually clear to the player. |
 
 ### 2.2.2 Areas
 
@@ -728,6 +738,39 @@ The game should also not contain large empty spaces devoid of any form of player
 
 #### 2.5.3.2. Class diagrams
 
+#### 2.5.3.3. State machines
+
+- **Slime state machine**
+
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Moving: PC in detection range but outside attack range
+    Moving --> Attacking: PC in attack range
+    Attacking --> Idle: PC leaves attack range
+    Idle --> Death: Health reaches 0
+    Moving --> Death: Health reaches 0
+    Attacking --> Death: Health reaches 0
+    Death --> [*]
+```
+
+- **Unicorn state machine**
+
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> ChargeAttack: PC outside melee radius
+    Idle --> ShootingAttack: PC outside melee radius
+    Idle --> StompingAttack: PC inside melee radius
+    ChargeAttack --> Idle
+    ShootingAttack --> Idle
+    StompingAttack --> Idle
+    Idle --> Death: Health reaches 0
+    ChargeAttack --> Death: Health reaches 0
+    ShootingAttack --> Death: Health reaches 0
+    StompingAttack --> Death: Health reaches 0
+    Death --> [*]
+```
 
 ### 2.5.4. Dynamic models
 
