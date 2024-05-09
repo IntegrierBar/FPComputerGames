@@ -402,11 +402,28 @@ The equipping menu allows the player to change the equipped augments and skills.
 
 ##### 2.2.2.1.3 Fusing augments
 
+The fusing augments menu allows the player to modify their augments. To fuse, the player has to choose two augments. The effect from one of the augment can be moved over to the second augment, which destoys the first augment. An effect from the second augment is overwritten with the new effect from the first augment. The player selects both the effect that is to be transferred and the effect that is overwritten. 
 
+| **ID: 1**| **Fusing: Fusing augments** |
+| --- | --- |
+| Description | The player can select two augments to fuse them. For this they select an effect on the one augment that is transfered to the other augment and an effect on the other augment that is to be overwritten. The augment with the first process is destroyed in the process. |
+| Acceptance Criterion | Augments can be fused correctly. |
+| Notes | The number of effects that an augment has cannot be changed by fusing augments. An augment that is dropped with only one effect cannot gain a second effect through fusing. |
 
 ##### 2.2.2.1.4 Saving the game 
 
+From the main hub, the player can leave the game and save the current game state beforehand. 
+
+| **ID: 1**| **Saving: Saving the game** |
+| --- | --- |
+| Description | The player can save the current game state. |
+| Acceptance Criterion | The current game state is saved. |
+| Notes | TODO: Do we allow different saved game states of one play through? Or is the ols game state automatically overwritten when saving? |
+
+
 ##### 2.2.2.1.5 Entering a dungeon
+
+The entering a dungeon menu allows the player to select which dungeon to enter next. First, the player decides whether they want to enter a story dungeon or a generated dungeon. The layout and magic type of the story dungeons is always predefined depending on the element the player chose in the beginning. If the player chooses to enter a generated dungeon, they have to select the magic type of the dungeon. Furthermore, they can curse the dungeon to make it more difficult but to gain more rewards. The curses are shown in the menu before entering the dungeon and can be rerolled twice. 
 
 #### 2.2.2.2 Dungeons 
 
