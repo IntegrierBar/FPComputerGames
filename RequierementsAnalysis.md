@@ -425,7 +425,25 @@ From the main hub, the player can leave the game and save the current game state
 
 The entering a dungeon menu allows the player to select which dungeon to enter next. First, the player decides whether they want to enter a story dungeon or a generated dungeon. The layout and magic type of the story dungeons is always predefined depending on the element the player chose in the beginning. If the player chooses to enter a generated dungeon, they have to select the magic type of the dungeon. Furthermore, they can curse the dungeon to make it more difficult but to gain more rewards. The curses are shown in the menu before entering the dungeon and can be rerolled twice. 
 
+| **ID: 1**| **Entering a Dungeon** |
+| --- | --- |
+| Description | Using the dungeon menu the player can enter a dungeon. <br> First the player can decide whether to enter a story dungeon or a generated dungeon. The layout and magic type of the story dungeons is always predefined depending on the element the player chose in the beginning. If the player chooses to enter a generated dungeon, they have to select the magic type of the dungeon. Furthermore, they can curse the dungeon to make it more difficult but to gain more rewards. The curses are shown in the menu before entering the dungeon and can be rerolled twice.  |
+| Acceptance Criterion |  |
+| Notes |  |
+
 #### 2.2.2.2 Dungeons 
+
+| **ID: 1**| **Camera Movement in Regular Rooms** |
+| --- | --- |
+| Description | Inside the regular rooms inside a dungeon the camera tries to stay centered on the PC. <br> Movement of the PC is slowly copied in order to not have fast change of the view field. <br> Furthermore the camera is bounded on the walls of the room so that everything in the view field is usefull for the player. |
+| Acceptance Criterion | Camera works as described |
+| Notes | None |
+
+| **ID: 1**| **Camera Movement in Boss Rooms** |
+| --- | --- |
+| Description | In the boss room the camera is fixed and more zoomed out in order to show the entire boss room at once. |
+| Acceptance Criterion | Camera works as described |
+| Notes | None |
 
 Camera follows the player TODO
 
@@ -450,10 +468,34 @@ Dungeons can be left early. When dying or leaving a dungeon voluntarily all prev
 
 ##### 2.2.2.2.1 Intro dungeon
 
+| **ID: 1**| **Entry of the Intro Dungeon** |
+| --- | --- |
+| Description | The intro dungeon is the first dungeon the PC enteres when starting a new game. It serves as a tutorial for the game. <br> Before the PC enteres the player has to choose an element with which they want to start. <br> The element of the enemies inside the dungeon will then be set to the element that is weak against the element the player chose. |
+| Acceptance Criterion | Works as described |
+| Notes | For example if the player chose Sun as their element, the dungeons enemies will all be of type Cosmic. |
+
+| **ID: 1**| **Enemies of the Intro Dungeon** |
+| --- | --- |
+| Description | The regual enemies of the rooms will only be small slimes. <br> The boss of the intro dungeon is a large slime |
+| Acceptance Criterion |  |
+| Notes |  |
+
+| **ID: 1**| **Layout of the Intro Dungeon** |
+| --- | --- |
+| Description | The intro dungeon consists of 4 rooms in a linear way. <br> The first room contains only melee slimes. <br> The second room contains only ranged slimes. <br> The third room has both melee and ranged slimes. <br> The fourth room is the boss room and contains one large melee slime. |
+| Acceptance Criterion |  |
+| Notes |  |
+
 A shorter dungeon that serves as a tutorial for the game. Before entering the dungeon, the player chooses the element with which they want to start. The slimes inside the dungeon will change their element according to the players choice to teach the player about the strengths and weaknesses of their element.  
 At the end of the dungeon the boss is a large slime. All slimes before are small.
 
 ##### 2.2.2.2.2 Story dungeon
+
+| **ID: 1**| **Layout of Story Dungeons** |
+| --- | --- |
+| Description | Each Story dungeon has a fixed layout that is handcrafted. The bosses of the story dungeons are unicorns. <br> Each story dungeon also has an element. At least 50% of all slimes are of this element and the boss is also of this element. This element is determined by the starting element the player chose at the start of the game. <br>  The first story dungeon will be the same element as the intro dungeon. For the other story dungeons the element is the element that is weak against the element of the previous story dungeon. |
+| Acceptance Criterion |  |
+| Notes | For example if the player chose Sun as starting element, then intro dungeon and the first story dungeon will be of type Cosmic. The second story dungeon will then be of type Dark, the third will be Sun, the fourth Cosmic and the fifth Dark. |
 
 There are 5 story dungeons.  
 The bosses of the story dungeons 1 to 4 are unicorns. The last dungeon has a specially designed boss.
@@ -462,9 +504,34 @@ The bosses of the story dungeons 1 to 4 are unicorns. The last dungeon has a spe
 
 At the start of the generated dungeon, the player can choose which element the dungeon should have. This choice determines the element of the final boss and guarantees that at least 50% of all slimes in the dungeon are of this element.  
 
+TODO Überschriften rausnehmen, wenn es nicht mehr als nur einen Punkt beinhaltet?
 ##### 2.2.2.2.3.1 Generation
 
+| **ID: 1**| **Layout of Generated Dungeons** |
+| --- | --- |
+| Description | Every generated dungeon has between 5 and 10 rooms. These rooms are generated in a grid like pattern, where each room is one cell. <br> There should be at least 2 rooms between the entrance of the dungeon and the boss room. <br> The rooms themselfs are not randomly generated but randomly selected from a list of designed rooms. |
+| Acceptance Criterion |  |
+| Notes |  |
+
+| **ID: 1**| **Difficulty Scaling of Generated Dungeons** |
+| --- | --- |
+| Description | The amount of augment effects the player has equipt when entering the dungeon changes the difficutly of the dungeon. <br> The more augment effect, the more slimes spawn in each room and the stronger the slimes get (more HP and more damage) |
+| Acceptance Criterion |  |
+| Notes | Exact numbers have to be determinied during developent to ensure good balance. |
+
 ##### 2.2.2.2.3.2 Rewards
+
+| **ID: 1**| **Skill Point Reward** |
+| --- | --- |
+| Description | Killing the boss of a generated dungeon, and thus clearing the dungeon, rewards one skill point of the type of the dungeon.|
+| Acceptance Criterion |  |
+| Notes |  |
+
+| **ID: 1**| **Augment Reward** |
+| --- | --- |
+| Description | Killing the boss of a generated dungeon, and thus clearing the dungeon, also rewards one random augment. <br> The quality of the augment is determined by the difficulty of the dungeon. <br> If the dungeon was cursed the player is rewarded with an additional augment. |
+| Acceptance Criterion |  |
+| Notes |  |
 
 ##### 2.2.2.2.3.3 Curses 
 
