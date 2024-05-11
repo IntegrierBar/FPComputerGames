@@ -37,7 +37,7 @@ The goal of this project is the creation of a single player RPG web game.
 
 ## 2.1. Overview
 
-Player is a magician that explores dungeons. In these they fight slimes with 3 magic spells to get to the boss room, where they fight a boss.  
+The PC is a magician that explores dungeons. In these they fight slimes with 3 magic spells to get to the boss room, where they fight a boss.  
 There are 2 types of dungeons. Automatically generated ones and story dungeons, that are hand crafted. Furthermore, the player can choose to curse a dungeon, which increases the difficulty by strengthening the enemies or weakening the player. Cursed dungeons give better rewards.
 By defeating the boss, the player can unlock new magic skills of the 3 different magic types.
 
