@@ -3,6 +3,9 @@
 Small game
 https://stormboard.com/storm/1886510/The_Magic_Apprentice_game
 
+https://miro.com/app/board/uXjVKP9G-OI=/
+
+
 ## 1.1. Purpose of the system
 
 The purpose of the game is for the player to have fun. 
