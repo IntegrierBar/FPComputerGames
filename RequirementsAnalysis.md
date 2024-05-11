@@ -475,6 +475,12 @@ In the dungeons a camera is used to track the PC and enemy actions. The camera b
 | Acceptance Criterion | Doors unlock when all enemies are dead and remain closed beforehand. |
 | Notes | None |
 
+| **ID: 1**| **Boss room door** |
+| --- | --- |
+| Description | The door to the boss room has to be visibly distinct from other, normal doors. There is only one door to the boss room. |
+| Acceptance Criterion |  |
+| Notes | Since the player leaves the dungeon automatically after defeating the boss, and cannot leave the boss room once they entered it, they should know they are about to enter into the boss room. |
+
 | **ID: 1**| **Clearing the dungeon** |
 | --- | --- |
 | Description | When the player has killed all bosses in the boss room, an information about the success and the gained rewards is displayed for the player. When the player closes the information, they exit the dungeon automatically. |
@@ -500,12 +506,6 @@ In the dungeons a camera is used to track the PC and enemy actions. The camera b
 | Acceptance Criterion |  |
 | Notes | Except for story dungeons, players cannot retry the same dungeon again. If the player enters a generated dungeon again, a new one is generated.  |
 
-| **ID: 1**| **Boss room doors** |
-| --- | --- |
-| Description | The door to the boss room has to be visibly distinct from other, normal doors. |
-| Acceptance Criterion |  |
-| Notes | None |
-
 
 The rooms out of which the dungeon is created are handcrafted and not randomly generated. There should be at least 5 different rooms.  
 The spawn locations for the enemies are also determined by hand. However not all possible spawn locations must also spawn enemies.  
@@ -515,7 +515,6 @@ Instead whenever the room is first initialised the game will determine how many 
 Each room is its own instance.
 The player can go into another room by walking through a door of the room. 
 This will then load the next room instance. Direction is preserved, meaning if the player goes through the door on the left, the player will come out the door on the right in the next room, and vice versa for the other four directions.
-The door leading to the boss room should be marked so that the player knows that by going through the door they will have to defeat the boss. There is always only one door that leads to the boss room.
 
 The first time the player enters a room, a bunch of slimes are spawned. The player can only exit the room after killing all enemies within it.  
 The player can also return to a room they have already been to and cleared.
@@ -631,34 +630,38 @@ If the player decides to leave the dungeon, they cannot try the same dungeon aga
 - x % more monsters
 - dungeon contains 2 bosses in the final room
 
-### 2.2.3 Tile-Based System and Collision Detection
+##### 2.2.2.2.4 Tile-Based System and Collision Detection
 
 The game utilizes a tile-based system for both the macro-scale dungeon layouts connecting the different rooms, as well as for the in-room environment. Each room in the dungeon corresponds to a tile in a grid, ensuring structured navigation and interaction within the environment. This system facilitates the procedural generation of dungeons and supports a variety of room configurations.
 
-#### 2.2.3.1 Macro-scale dungeon layouts
+##### 2.2.2.2.4.1 Macro-scale dungeon layouts
 
-- 
+Dungeons are composed of 5 to 10 rooms (with the exception of the intro dungeon, which is shorter). They have one entry room, one boss room and normal rooms. The entry room has to be on one side of the macro-scale layout of the dungeon and there have to be at least 2 rooms between the entry room and the boss room. <br>
+The rooms in the dungeon correspond to tiles in a grid, wherein all neighboring tiles have doors to connect the rooms. The only exeption to this is the boss room. Even if the boss room has several neighboring tiles, the door to the boss room is only in one normal room. <br>
+All rooms are similiar enough in size that the tiles that represent rooms can be quadratic, with four possible neighboring tiles. 
 
-#### 2.2.3.2 In-room environment
+##### 2.2.2.2.4.2 In-room environment
 
 - set of predefined rooms, consisting of
   - tiles
   - enemy spawn points
-  - entry points
-  - exit points
+  - entry point (one per dungeon)
+  - exit points (TODO: does this refer to doors between rooms or points from where the dungeon is left?)
 
-#### 2.2.3.3 Collision Detection
+##### 2.2.2.2.4.3 Collision Detection
 
 Collision detection is integral to the gameplay, ensuring that players and enemies interact with the environment and each other in a predictable manner. The game engine checks for collisions between entities (player, enemies) and environmental obstacles (walls, doors) to determine valid movements and interactions. This system is crucial for implementing gameplay mechanics such as combat, movement restrictions, and accessing different areas within the dungeons.
 
-##### 2.2.3.3.1 Player-Enemy Collisions
+##### 2.2.2.2.4.3.1 Player-Enemy Collisions
 
-##### 2.2.3.3.2 Player-Wall Collisions
+##### 2.2.2.2.4.3.2 Player-Wall Collisions
 
-##### 2.2.3.3.3 Enemy-Enemy Collisions
+##### 2.2.2.2.4.3.3 Enemy-Enemy Collisions
 
 
-### 2.2.4 Main menu
+### 2.2.3 Main menu and Tutorials
+
+#### 2.2.3.1 Main menu
 
 If the player opens the game, the main menu is the first interface the player can interact with. The player has several options for interacting with the main menu. 
 
@@ -680,6 +683,24 @@ If the player opens the game, the main menu is the first interface the player ca
 | Acceptance Criterion |  |
 | Notes | None |
 
+| **ID: 1**| **Main menu: Exit** |
+| --- | --- | 
+| Description | The player can exit the game. In the standalone version of the game, the game closes itself. |
+| Acceptance Criterion | Exit closes the game. |
+| Notes | None |
+
+#### 2.2.3.2 Tutorials
+
+Tutorials are a set of explanatory texts that describe the features of the game. Tutorials exist for player movement (walking, dashing, spell casting), enemies (magic types and enemy types), the skill tree and the fusing of augments for example.
+
+| **ID: 1**| **Tutorials** |
+| --- | --- | 
+| Description | When a player encounters a new game mechanic for the first time, a text is displayed for the player that explains the mechanic. |
+| Acceptance Criterion | Tutorials are displayed at the correct times.  |
+| Notes | When possible, the tutorial is interactive. |
+
+
+
 ## 2.3. Nonfunctional requirements
 
 Coding Style: Adhere to the [GDScript style guide](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) and use a component-based architecture for improved maintainability, code reuse, and easier future expansion.
@@ -699,7 +720,7 @@ A comprehensive user manual will be developed alongside the game to aid players.
 
 ### 2.3.3. Hardware considerations
 
-The game is intended for personal computers that meet the recomended system requirements to run the Godot 4 game engine effectively.  
+The game is intended for personal computers that meet the recommended system requirements to run the Godot 4 game engine effectively.  
 
  - **CPU**: x86_64 CPU with SSE4.2 instructions, with 4 physical cores or more
  - **GPU**: Dedicated graphics with full OpenGL 4.6 support or full Vulkan 1.2 support
