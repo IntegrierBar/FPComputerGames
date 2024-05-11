@@ -126,15 +126,15 @@ The PC is controled by the player via keyboard and mouse movements. The PC has f
 
 | **ID: 2**| **PC state: Dashing** |
 | --- | --- |
-| Description | If the player presses the space bar, the PC dashes in the direction of the current mouse position. TODO: elaborate here. How does dashing work exactly? |
+| Description | If the player presses the space bar, the PC moves with increased speed in the direction of the current mouse position for a predefined length. While dashing, the player cannot be hit. |
 | Acceptance Criterion | PC dashes in the correct direction when the space bar is pressed. |
 | Notes | None |
 
 | **ID: 2**| **PC state: SpellCasting** |
 | --- | --- |
-| Description | If the player presses one of the keys 1,2 or 3, the PC casts a spell/uses a PC skill and a spell casting animation is shown. All PC skills that require a position or direction to be cast take the current mouse position for the position or direction.  |
-| Acceptance Criterion | PC is in SpellCasting state if inout 1,2 and 3 is given. |
-| Notes | Only one spell can be cast at a time. Input that is given while the player casts (spell cast animation plays) a spell is (TODO!) buffered and executed after the animation is done./disregarded by the system. <br> All skills use the same spell cast animation. Cast times should generally be short (less than 1 second). Slower cast times are achieved by playing the spell cast animation slower. |
+| Description | If the player presses one of the keys 1, 2 or 3, the PC casts a spell/uses a PC skill and a spell casting animation is shown. All PC skills that require a position or direction to be cast take the current mouse position for the position or direction.  |
+| Acceptance Criterion | PC is in SpellCasting state if inout 1, 2 and 3 is given. |
+| Notes | Only one spell can be cast at a time. <br> All skills use the same spell cast animation. Cast times should generally be short (less than 1 second). Slower cast times are achieved by playing the spell cast animation slower. |
 
 
 ##### 2.2.1.3.2 PC progression
@@ -181,7 +181,7 @@ The PC can have up to three different skills equipped.
 
 | **ID: 1**| **Skill: Dark Energy Wave** |
 | --- | --- |
-| Description | PC creates a black wave that pushes all enemies away from the PC. The wave pushes away all enemies in the same room as the PC, independently of the distance to the PC. |
+| Description | PC creates a black wave that pushes all enemies away from the PC by a predefined distance. The wave pushes away all enemies in the same room as the PC, independently of the distance to the PC. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
@@ -212,7 +212,7 @@ This feature will facilitate the player's ability to craft their own unique buil
 
 | **ID: 1**| **Augments: Obtaining augments** |
 | --- | --- |
-| Description | When the PC kills an enemy there is a chance to obtain an augment. Slimes have a low chance of dropping augments and are more likely to drop low quality augments. Bosses are guaranteed to drop augments and can drop several augments according to a distribution. Augments dropped by bosses also have a higher chance to be high quality augments. If an enemy drops an augment, the PC obtains the augment automatically. |
+| Description | When the PC kills an enemy there is a chance to obtain an augment. Slimes have a low chance of dropping augments and are more likely to drop low quality augments. Bosses are guaranteed to drop one augments and have a chance to drop a second augment in not-cursed dungeons. Augments dropped by bosses also have a higher chance to be high quality augments. If an enemy drops an augment, the PC obtains the augment automatically. |
 | Acceptance Criterion | Enemies drop augments with the correct chances and the PC obtains the augments when they are dropped. |
 | Notes | Every enemy has a chance bigger than zero to drop every possible existing augment. |
 
@@ -253,35 +253,36 @@ There are two types of enemies:
 2. Unicorn bosses
 
 Enemies are controlled via their state machine.
-Most will deal only melee damage. Hence they will track the player and once they are close attack him.
-Slimes will come in large groups. Use Group behaviors to simulate better movement (not all of them stand on top of each other, but instead keep distance).
+Most will deal only melee damage. Hence they will track the PC and once they are close attack them.
+Slimes will come in large groups. Group behavior is used to simulate better movement so not all of them stand on top of each other, but instead keep distance from one another.
 
 
 ##### 2.2.1.4.1 Slimes
 
-Each slime is associated with a specific magic type. They are visually represented by the color corresponding to their magic type. Slimes only inflict damage aligned with their magic type, and their armor is strong against the magic type they are associated with and weak against the magic type they are not associated with.
+Each slime is associated with a specific magic type. They are visually represented by the color corresponding to their magic type. Slimes only inflict damage aligned with their magic type, and their armor is strong against the magic type that their magic type is strong against and weak against the magic type that their magic type is weak against. The armor against their own magic type is inbetween. 
+Example: A Sun slime could have the following armor values: Sun armor: 30, Cosmic armor: 50, Dark armor: 10 (values might change).
 
 Slimes can have three possible states.
 
-| **ID: 1**| **Slimes states: Idle** |
+| **ID: 1**| **Slime states: Idle** |
 | --- | --- |
 | Description | If the PC is outside of the detection range of the slime, the slime is idle. It moves around randomly. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Slimes states: Moving** |
+| **ID: 1**| **Slime states: Moving** |
 | --- | --- |
 | Description | If the PC is inside of the detection range of the slime but outside of the attack range of the slime, the slime moves towards the PC until it is in attack range. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Slimes states: Attacking** |
+| **ID: 1**| **Slime states: Attacking** |
 | --- | --- |
 | Description | If the PC is inside of the attack range of the slime, the slime attacks the PC. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Unicorn states: Death** |
+| **ID: 1**| **Slime states: Death** |
 | --- | --- |
 | Description | When the slime's health reaches 0, it transitions to a death state. In this state, the slime stops all actions and animations, and after a short delay, it disappears from the game world. |
 | Acceptance Criterion | The slime must correctly transition to the death state when its health is depleted, and it should no longer be able to perform any actions or affect the game. |
@@ -350,14 +351,14 @@ The first area type is the main hub which is a menu that allows the player to mo
 ##### 2.2.2.1.1 Skill tree
 
 The skill tree is a menu where the player can unlock new skills and read the effects of the different skills. 
-Each magic type has its own small skill tree. The base skill is the first skill of each skill tree. The supportive and offensive skills are the second layer of the skill trees. After the base skill is unlocked, the player cna decide whether they want to unlock the supportive or offensive skill first. <br>
+Each magic type has its own small skill tree. The base skill is the first skill of each skill tree. The supportive and offensive skills are the second layer of the skill trees. After the base skill is unlocked, the player can decide whether they want to unlock the supportive or offensive skill first. <br>
 For description of the skill see section 2.2.1.3.2.1 PC skills.
 
-| **ID: 1**| **Skill tree: Unlocking the first skills** |
+| **ID: 1**| **Skill tree: Unlocking the first skill** |
 | --- | --- |
-| Description | The player chooses a magic type in the beginning of the game which unlocks that magic types base skill. Upon completing the intro dungeon the base skill of a second magic type is unlocked automatically. The second magic type is the type that the chosen magic type is strong against. |
-| Acceptance Criterion | The correct base skills are unlocked after the player selects their magic type and after the completion of the intro dungeon. |
-| Notes | Example: Player chooses Sun, therefore the Cosmic base skill is unlocked after the intro dungeon, because Cosmic is strong aainst Dark, while Sun is weak against Dark. |
+| Description | The player chooses a magic type in the beginning of the game which unlocks that magic types base skill. |
+| Acceptance Criterion | The correct base skills are unlocked after the player selects their magic type. |
+| Notes | None |
 
 | **ID: 1**| **Skill tree: Unlocking criteria** |
 | --- | --- |
@@ -386,7 +387,7 @@ For description of the skill see section 2.2.1.3.2.1 PC skills.
 
 ##### 2.2.2.1.2 Equipping
 
-The equipping menu allows the player to change the equipped augments and skills. In this menu, the skill slots with the currently equipped skills are displayed. Furhtermore, the augment slot with the currently equipped augments and the inventory with all not equipped augments are displayed.
+The equipping menu allows the player to change the equipped augments and skills. In this menu, the skill slots with the currently equipped skills are displayed. Furthermore, the augment slot with the currently equipped augments and the inventory with all not equipped augments are displayed.
 
 | **ID: 1**| **Equipping: Equipping skills** |
 | --- | --- |
@@ -431,7 +432,7 @@ From the main hub, the player can leave the game and save the current game state
 | --- | --- |
 | Description | The player can save the current game state. |
 | Acceptance Criterion | The current game state is saved. |
-| Notes | TODO: Do we allow different saved game states of one play through? Or is the ols game state automatically overwritten when saving? |
+| Notes | None |
 
 
 ##### 2.2.2.1.5 Entering a dungeon
@@ -470,21 +471,34 @@ In the dungeons a camera is used to track the PC and enemy actions. The camera b
 
 | **ID: 1**| **Opening doors** |
 | --- | --- |
-| Description | The player can open doors that leas to other rooms of the dungeon by killing all enemies in the room. If a room has several doors forwards, all doors are unlocked at once when the last enemy is killed. |
+| Description | The player can open doors that leads to other rooms of the dungeon by killing all enemies in the room. If a room has several doors forwards, all doors are unlocked at once when the last enemy is killed. |
 | Acceptance Criterion | Doors unlock when all enemies are dead and remain closed beforehand. |
 | Notes | None |
 
 | **ID: 1**| **Clearing the dungeon** |
 | --- | --- |
-| Description | When the player has killed all bosses in the boss room, an information about the success and the gained rewards is displayed for the player. When the player closes the information, he exits the dungeon automatically. |
+| Description | When the player has killed all bosses in the boss room, an information about the success and the gained rewards is displayed for the player. When the player closes the information, they exit the dungeon automatically. |
 | Acceptance Criterion | Rewards are displayed correctly and player exits dungeon correctly. |
 | Notes | None |
+
+| **ID: 1**| **Pausing the dungeon** |
+| --- | --- |
+| Description | When the esc-key is pressed by the player a menu is opened and the game is paused. |
+| Acceptance Criterion |  |
+| Notes | From the pause menu the player can go to the settings menu or leave the dungeon early. |
+
 
 | **ID: 1**| **Leaving the dungeon early** |
 | --- | --- |
 | Description | The player can always leave the dungeon before clearing it. All rewards the player already has collected remain in the players inventory. |
 | Acceptance Criterion |  |
 | Notes | None |
+
+| **ID: 1**| **Dying in the dungeon** |
+| --- | --- |
+| Description | If the player dies in a dungeon, all rewards the player already earned remain in their inventory an the player is returned to the main hub. |
+| Acceptance Criterion |  |
+| Notes | Except for story dungeons, players cannot retry the same dungeon again. If the player enters a generated dungeon again, a new one is generated.  |
 
 | **ID: 1**| **Boss room doors** |
 | --- | --- |
@@ -493,7 +507,7 @@ In the dungeons a camera is used to track the PC and enemy actions. The camera b
 | Notes | None |
 
 
-The the rooms out of which the dungeon is created are handcrafted and not randomly generated. There should be at least 5 different rooms.  
+The rooms out of which the dungeon is created are handcrafted and not randomly generated. There should be at least 5 different rooms.  
 The spawn locations for the enemies are also determined by hand. However not all possible spawn locations must also spawn enemies.  
 Since there are curses that spawn additional monsters each room, not all spawn locations must spawn an enemy.
 Instead whenever the room is first initialised the game will determine how many enemies should be spawned and then randomly pick the locations.
@@ -506,11 +520,12 @@ The door leading to the boss room should be marked so that the player knows that
 The first time the player enters a room, a bunch of slimes are spawned. The player can only exit the room after killing all enemies within it.  
 The player can also return to a room they have already been to and cleared.
 In that case no enemies are spawned and the player can immideately leave the room through any door.
-Dungeons can be left early. When dying or leaving a dungeon voluntarily all previous collected items remain in the player’s inventory. The dungeon then has to be started again from the beginning.
+
 
 ##### 2.2.2.2.1 Intro dungeon
 
-The intro dungeon is a handcrafted dungeon and the first dungeon the player has to clear. It serves as a tutorial for the basic mechanics and the magic types in the game. Because of this the magic types of the slimes in the dungeon change based on which magic type the player has chosen when starting the game. 
+The intro dungeon is a handcrafted dungeon and the first dungeon the player has to clear. It serves as a tutorial for the basic mechanics and the magic types in the game. Because of this the magic types of the slimes in the dungeon change based on which magic type the player has chosen when starting the game. <br>
+The magic type of the intro dungeon is the type that the chosen magic type of the player is strong against, e.g., the player chose Sun, then the intro dungeon is of type Cosmic. When the player completes the intro dungeon, they receive a skill point of that magic type, in the example, a Cosmic skill point. This is teaching the player how to interact with the skill tree after clearing the intro dungeon.
 
 | **ID: 1**| **Adapting the Intro Dungeon** |
 | --- | --- |
@@ -541,8 +556,18 @@ There are five story dungeons. The bosses of the story dungeons are unicorns. Th
 The player can enter additional generated dungeons for additional rewards to level up their character.  
 Before entering the generated dungeon, the player can choose which magic type the dungeon should have. This choice determines the magic type of the final boss and guarantees that at least 50% of all slimes in the dungeon are of this magic type.  
 
-TODO Überschriften rausnehmen, wenn es nicht mehr als nur einen Punkt beinhaltet?
 ##### 2.2.2.2.3.1 Generation
+
+The dungeon layout is created using the possible rooms when the player first enteres the dungeon.  
+The layout is generated in a grid like pattern, where each room is one cell.  
+There should be at least 2 room between the entrance of the dungeon and the boss room.  
+Furthermore there should not be more then 10 rooms in total.
+
+| **ID: 1**| **Generating a Generated Dungeons** |
+| --- | --- |
+| Description | When a player enters a generated dungeon, a new dungeon is generated. |
+| Acceptance Criterion | TODO |
+| Notes | There is no option to return to a previously generated dungeon if the player failed to clear the dungeon successfully. |
 
 | **ID: 1**| **Layout of Generated Dungeons** |
 | --- | --- |
@@ -552,9 +577,9 @@ TODO Überschriften rausnehmen, wenn es nicht mehr als nur einen Punkt beinhalte
 
 | **ID: 1**| **Difficulty Scaling of Generated Dungeons** |
 | --- | --- |
-| Description | When a player generates a generated dungeon, the amount of augment effects the player has equipped when generating the dungeon changes the difficutly of the dungeon. <br> The more augment effects are applied to the PC, the more slimes spawn in each room and the stronger the slimes get (more HP and more damage) |
-| Acceptance Criterion |  |
-| Notes | Exact numbers have to be determinied during developent to ensure good balancing. |
+| Description | When a player generates a generated dungeon, the amount of augment effects the player has equipped when generating the dungeon changes the difficutly of the dungeon. <br> The more augment effects are applied to the PC, the more slimes spawn in each room and the stronger the slimes are (more HP and more damage). |
+| Acceptance Criterion | Dungeon difficulty is adapted to augment effect amount correctly. |
+| Notes | This allows for the player to lower the difficulty of the dungeons if the dungeons are otherwise too difficult. Exact numbers have to be determinied during developent to ensure good balancing. |
 
 ##### 2.2.2.2.3.2 Rewards
 
@@ -568,7 +593,7 @@ Clearing dungeons gives rewards to the players.
 
 | **ID: 1**| **Augment Reward** |
 | --- | --- |
-| Description | Killing the boss of a generated dungeon, and thus clearing the dungeon, also rewards one random augment. <br> The quality of the augment is determined by the difficulty of the dungeon. <br> If the dungeon was cursed the player is rewarded with an additional augment. |
+| Description | Killing the boss of a generated dungeon, and thus clearing the dungeon, the player is rewarded with one random augment guaranteed. There is a chance for a second augments. <br> The quality of the augment is influenced by the difficulty of the dungeon. <br> If the dungeon was cursed the player is rewarded with two augments guaranteed, with a chance for an additional third augment. |
 | Acceptance Criterion |  |
 | Notes | Drop rates might have to be adjusted later. |
 
@@ -577,16 +602,24 @@ Clearing dungeons gives rewards to the players.
 Dungeons can be cursed before starting the dungeon. The dungeon will then be harder by strengthening enemies or weakening the player.  
 Upon dying the player has the choice to either retry the previously generated dungeon or to create a new one.  
 If the player decides to leave the dungeon, they cannot try the same dungeon again. Instead, a new one will be generated.  
-The number of rooms in the dungeon is decided randomly from a distribution.  
 
-The curses of a cursed dungeon are randomly picked from a list and shown to the player before entering.  
-The player can reroll the curses up to 2 times.  
-If the player clears any generated dungeon, they get all rerolls back.
+| **ID: 1**| **Curse Selection** |
+| --- | --- |
+| Description | When the player curses a dungeon, a set of curses is drawn randomly from a list of curses. The player can view the current set of curses. The player can reroll the curses twice to obtain new sets of curses. If the player fails to clear a dungeon, the curses are not changed. |
+| Acceptance Criterion | Curses are drawn and can be rerolled correctly. |
+| Notes | Upon rerolling the player cannot return to the previous set of curses. |
 
-The dungeon layout is created using the possible rooms when the player first enteres the dungeon.  
-The layout is generated in a grid like pattern, where each room is one cell.  
-There should be at least 2 room between the entrance of the dungeon and the boss room.  
-Furthermore there should not be more then 10 rooms in total.
+| **ID: 1**| **Regaining rerolls** |
+| --- | --- |
+| Description | When the player clears any generated dungeon, the number of rerolls is updated to two again. If the player fails to clear a cursed dungeon and dies, one reroll is restored to the player. |
+| Acceptance Criterion | Rerolls are restored correctly. |
+| Notes | None |
+
+| **ID: 1**| **Generating a cursed dungeon** |
+| --- | --- |
+| Description | When the player enters a cursed dungeon, a new dungeon is generated. The curses applied to the dungeon are the last drawn set of curses. |
+| Acceptance Criterion | Cursed dungeons are generated with the correct curses. |
+| Notes | If the player fails to clear a dungeon, the curses are not changed for the next dungeon unless the player rerolls them, but a new dungeon with different rooms and spawn points is generated. |
 
 
 ##### Possible Curses
