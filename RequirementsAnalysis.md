@@ -797,6 +797,25 @@ The game should also not contain large empty spaces devoid of any form of player
 
 #### 2.5.3.3. State machines
 
+
+- **Player character state machine**
+
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Walking: WASD keys pressed
+    Walking --> Idle: WASD keys released
+    Dashing --> Idle: Dash ends
+    Idle --> SpellCasting: Keys 1, 2, or 3 pressed
+    SpellCasting --> Idle: Spell cast ends
+    Walking --> Dashing: Space bar pressed
+    Walking --> SpellCasting: Keys 1, 2, or 3 pressed
+    Idle --> [*]: Health reaches 0
+    Walking --> [*]: Health reaches 0
+    Dashing --> [*]: Health reaches 0
+    SpellCasting --> [*]: Health reaches 0
+```
+
 - **Slime state machine**
 
 ```mermaid
