@@ -648,16 +648,28 @@ All rooms are similiar enough in size that the tiles that represent rooms can be
   - entry point (one per dungeon)
   - exit points (TODO: does this refer to doors between rooms or points from where the dungeon is left?)
 
+The tilemap consists of three layers:
+- **Background**: The first layer is the background layer. This layer is the layer the non-interactable background tiles are on.
+- **Middleground**: The second layer is the middleground layer. This layer is the layer that the walls, doors and other obstacles are on.
+- **Foreground**: The third layer is the foreground layer. This layer is for decorational or special interactable tiles.
+
+Entities such as the player, enemies, augments are visually placed between the middleground and the foreground layer, however they are not treated as tiles.
+
 ##### 2.2.2.2.4.3 Collision Detection
 
 Collision detection is integral to the gameplay, ensuring that players and enemies interact with the environment and each other in a predictable manner. The game engine checks for collisions between entities (player, enemies) and environmental obstacles (walls, doors) to determine valid movements and interactions. This system is crucial for implementing gameplay mechanics such as combat, movement restrictions, and accessing different areas within the dungeons.
 
 ##### 2.2.2.2.4.3.1 Player-Enemy Collisions
 
-##### 2.2.2.2.4.3.2 Player-Wall Collisions
+The player and enemies can pass through each other, with damage applied to the overlapping entities as necessary.
+
+##### 2.2.2.2.4.3.2 Player-Wall and Enemy-Wall Collisions
+
+The player and enemies can not pass through walls.
 
 ##### 2.2.2.2.4.3.3 Enemy-Enemy Collisions
 
+Enemies should not pass through each other, however the interaction can be defined a bit loose, such as a repelling force when enemies overlap, pushing them away from each other.
 
 ### 2.2.3 Main menu and Tutorials
 
