@@ -795,6 +795,54 @@ The game should also not contain large empty spaces devoid of any form of player
 
 #### 2.5.3.2. Class diagrams
 
+```mermaid
+classDiagram
+    class MagicType {
+        Cosmic
+        Dark
+        Sun
+    }
+    class Player {
+        -int maxHP
+        -int currentHP
+        -int armorValues[3]
+        -int speed
+        -const float invincibilityDuration
+        -float invincibilityTimer
+        -bool invincible
+        -Skill[] skills
+        -Augment[] augments
+        +_ready()
+        +_process(dt)
+        +_process_input(event)
+        +move(direction)
+        +dash(direction)
+        +castSpell(spellIndex, targetPosition)
+        +takeDamage(amount, type)
+        +checkInvincibility()
+    }
+    class Skill {
+        -String name
+        -MagicType magicType
+        -int baseDamage
+        -bool isUpgraded
+        -const float castDuration
+        -float castTimer
+        -bool isCasting
+        +_process(dt)
+        +cast(targetPosition)
+    }
+    class Augment {
+        -String name
+        -String description
+    }
+    Node2D <|-- KinematicBody2D
+    KinematicBody2D <|-- Player
+    Player "1" -- "*" Skill : has >
+    Player "1" -- "*" Augment : has >
+```
+
+
 #### 2.5.3.3. State machines
 
 
