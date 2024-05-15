@@ -8,7 +8,8 @@ These are the main scenes of the architecture.
     - Picture
     - Buttons
 
-The main menu shows the buttons for New Game, continue, Settings and Exit.
+The main menu shows the buttons for New Game, Continue, Settings and Exit.
+TODO: Settings Menu is needed as well
 
 
 ## Main Game
@@ -23,7 +24,7 @@ Once the game is loaded (either by loading a save file or starting a new game) t
 When the player is outside the dungeons, the DungeonHandler and the player are invisible and don't to anything, while the HomeScene/UI is the only thing visible. <br>
 When inside a Dungeon, The HomeScene/UI is invisible and the Player and the DungeonHandler together with the dungeon as a child of the DungeonHandler are visible. <br>
 
-This layout has the advantage that the player is constantly loaded. Making sure that player data is always correct. <br>
+This layout has the advantage that the player is constantly loaded, making sure that player data is always correct. <br>
 We also do not need any scene transitions and loading screens, since the main thing we need to do is change visibility and add or remove the scene for the current room as a child of DungeonHandler.
 
 
@@ -32,6 +33,8 @@ We also do not need any scene transitions and loading screens, since the main th
 These are the scenes used in other scenes.
 
 ## Entities
+
+#TODO: All entities need a death state, also add to requirements document
 
 ### Player 
 
@@ -48,6 +51,7 @@ These are the scenes used in other scenes.
 
 The Player scene contains the entire player with all their data.
 The state machine of the player is implemented 
+TODO: The spells need to go somewhere here as well, right?
 
 ### Slime
 
@@ -99,9 +103,9 @@ When initialized the room will spawn monsters if it was loaded the first time, o
 ## Components
 
 These are Nodes that contain important functionality. 
-They are designed in a way such that adding the node to an object ads the functionality to the object. 
+They are designed in a way such that adding the node to an object adds the functionality to the object. 
 
-For example a HealthComponent contains all neccessary data for an object to have hp and take damage. <br>
+For example a HealthComponent contains all necessary data for an object to have hp and take damage. <br>
 Adding a HealthComponent to any entity such as a slime, the player but also a chest or a wall, makes it so the entity can take damage and be destroyed.
 
 ### HealthComponent
@@ -115,7 +119,7 @@ Member functions:
 - take_damage()
 
 
-TODO do we want this, or should we just put it in the character2d skripts of PC, slime and boss? // I think we should use HealthComponent in order to keep project more modular (David)
+TODO do we want this, or should we just put it in the character2d skripts of PC, slime and boss? // I think we should use HealthComponent in order to keep project more modular (David) I agree (Katrin)
 
 See [here](https://www.youtube.com/watch?v=74y6zWZfQKk) for an introduction.
 
@@ -170,7 +174,7 @@ Every augment contains a list of 1-3 augment effects.
 
 ### Augment Effect
 
-TOOD I think it might be smart to separate these augment and augment effect, then augment class only needs an array with 1-3 augment effect // Remore this if everyone agrees with this
+TOOD I think it might be smart to separate these augment and augment effect, then augment class only needs an array with 1-3 augment effect // Remove this if everyone agrees with this
 
 Every individual augment effect is a class that derives of the base augment effect class. <br>
 This base class defines functions that are called whenever the augment gets equiped or unequiped.
