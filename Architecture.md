@@ -14,6 +14,7 @@ The main menu shows the buttons for New Game, continue, Settings and Exit.
 ## Main Game
 
 - Root
+    - Camera
     - Player
     - DungeonHandler
     - HomeScene/UI
@@ -43,28 +44,35 @@ These are the scenes used in other scenes.
         - Dashing
         - SpellCasting
     - MovementComponent
+    - HealthComponent
 
 The Player scene contains the entire player with all their data.
 The state machine of the player is implemented 
 
 ### Slime
 
-- SLime
+- Slime
     - AnimatedSprite
     - StateMachine
         - Idle
         - Moving
         - Attacking
     - MovementComponent
+    - HealthComponent
+
+Will need 4 different slime scenes for the 4 different types (melee, ranged and small, big), but each will be structured the same way
 
 ### Unicorn
 
 - Unicorn
+    - AnimatedSprite
     - StateMachine
         - Idle
         - StompingAttack
         - ChargeAttack
         - ShootingAttack
+    - MovementComponent
+    - HealthComponent
 
 ## Dungeon Handler
 
@@ -73,6 +81,17 @@ The state machine of the player is implemented
         - Structure
         - Slime1
         - Slime2
+
+The dungeon handler generates the layout of the dungeon and loads/unloads the individual rooms whenever the player enters a new room.
+It is also responsible to position the player at the correct door inside each room.
+
+### Dungeon Room
+
+- Room
+    - Structures (doors, walls)
+    - entities (slimes/unicorns)
+
+When initialized the room will spawn monsters if it was loaded the first time, otherwise it does not create entities.
 
 
 # MISC
@@ -87,7 +106,16 @@ Adding a HealthComponent to any entity such as a slime, the player but also a ch
 
 ### HealthComponent
 
-TODO do we want this
+Member variables:
+- armor_values
+- max_hp
+- current_hp
+
+Member functions:
+- take_damage()
+
+
+TODO do we want this, or should we just put it in the character2d skripts of PC, slime and boss? // I think we should use HealthComponent in order to keep project more modular (David)
 
 See [here](https://www.youtube.com/watch?v=74y6zWZfQKk) for an introduction.
 
@@ -110,7 +138,7 @@ Or [alternatively](https://www.youtube.com/watch?v=ow_Lum-Agbs)
 
 ### MovementComponent
 
-TODO we could consider scrapping this and just making different walking states for player and AI
+TODO we could consider scrapping this and just making different walking states for player and AI // I think we should do that (David)
 
 This component devines movement behavoiur of an entity. 
 For the player this consist of getting the player input.
@@ -128,7 +156,7 @@ This class is used as an input for the take damage functions.<br>
 It contains:
 - magic type
 - damage value
-- reference to attacked
+- reference to who attacked
 - potenitally stuff related to curses and augments
 
 The advantage of making a class and not just passing the values themself is that it allows great extendability with regards to new functionality.
@@ -138,8 +166,15 @@ The advantage of making a class and not just passing the values themself is that
 
 ### Augment
 
-TODO maybe resource is bettter for this then class?
+Every augment contains a list of 1-3 augment effects.
 
 ### Augment Effect
 
-TOOD I think it might be smart to separate these augment and augment effect, then augment class only needs an array with 1-3 augment effect
+TOOD I think it might be smart to separate these augment and augment effect, then augment class only needs an array with 1-3 augment effect // Remore this if everyone agrees with this
+
+Every individual augment effect is a class that derives of the base augment effect class. <br>
+This base class defines functions that are called whenever the augment gets equiped or unequiped.
+
+### Curse Effect
+
+Works the same as augment effect.
