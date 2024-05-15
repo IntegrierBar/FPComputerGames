@@ -136,6 +136,12 @@ The PC is controled by the player via keyboard and mouse movements. The PC has f
 | Acceptance Criterion | PC is in SpellCasting state if inout 1, 2 and 3 is given. |
 | Notes | Only one spell can be cast at a time. <br> All skills use the same spell cast animation. Cast times should generally be short (less than 1 second). Slower cast times are achieved by playing the spell cast animation slower. |
 
+| **ID: 2**| **PC state: Death** |
+| --- | --- |
+| Description | When the PC's health reaches 0, it transitions to a death state. The player is informed about the PC's death before returning to the main hub. |
+| Acceptance Criterion | The PC must correctly transition to the death state when its health is depleted and the player can no longer control the PC's actions. |
+| Notes | After the death animation of the PC, a death screen should be shown. |
+
 
 ##### 2.2.1.3.2 PC progression
 
@@ -870,10 +876,15 @@ stateDiagram-v2
     SpellCasting --> Idle: Spell cast ends
     Walking --> Dashing: Space bar pressed
     Walking --> SpellCasting: Keys 1, 2, or 3 pressed
-    Idle --> [*]: Health reaches 0
-    Walking --> [*]: Health reaches 0
-    Dashing --> [*]: Health reaches 0
-    SpellCasting --> [*]: Health reaches 0
+    Idle --> Death: Health reaches 0
+    Walking --> Death: Health reaches 0
+    Dashing --> Death: Health reaches 0
+    SpellCasting --> Death: Health reaches 0
+    Idle --> [*]: Exiting dungeon
+    Walking --> [*]: Exiting dungeon
+    Dashing --> [*]: Exiting dungeon
+    SpellCasting --> [*]: Exiting dungeon
+    Death --> [*]: Exiting dungeon
 ```
 
 - **Slime state machine**
