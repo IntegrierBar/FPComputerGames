@@ -57,37 +57,37 @@ There are two types of entities, the PC and enemies.
 
 All entities have the following properties: 
 
-| **ID: 2**| **Entity property: Max HP** |
+| **ID: EP1**| **Entity property: Max HP** |
 | --- | --- |
 | Description | Every entity has a max HP value that shows how much damage the entity can take before dying. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | |
 
-| **ID: 2**| **Entity property: Current HP** |
+| **ID: EP2**| **Entity property: Current HP** |
 | --- | --- |
 | Description | Every entity has a current HP value that shows how much damage the entity has already taken and can still take before dying. If the current HP value is smaller or equal to zero, the entity dies. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | The relation of current HP to max HP should be visible for the player for all entities on screen. |
 
-| **ID: 2**| **Entity property: Armor values** |
+| **ID: EP3**| **Entity property: Armor values** |
 | --- | --- |
 | Description | Every entity has three armor values for each of the three magic types in game. The armor type for a magic type determines how much the damage to the entity is reduced by an attack of that magic type (30 armor means 30% damage reduction). <br> If an entity has an armor value above 100, part of the damage is reflected back to the attacker. Example: Entity has 120 armor, attack makes 100 damage, then 20 damage is reflected back to the attacker, if the attacker has an armor value of 50, the attacker takes 10 damage. |
 | Acceptance Criterion | Damage of all types is applied correctly to entities depending on their armor values. |
 | Notes | The damage calculation works like <br> if armor <= 100: health = health - damage*(100-armor)/100 <br> Only PC should be able to reach over 100 armor through additional stats, enemies need at least one armor value below 30 unless they are buffed. <br> Case where both entities have over 100 armor of the same type has to be covered nonetheless. In that case both entites take no damage of this magic type. |
 
-| **ID: 2**| **Entity property: Damaging skills** |
+| **ID: EP4**| **Entity property: Damaging skills** |
 | --- | --- |
 | Description | Every entity has one or more damaging skills. Every skill has a magic type and a base damage value. The base damage value can be modified under certain circumstances (curses for enemies, augments for the PC). A damaging skill only damages the opponent, that means the PC takes no damage from their own spells and enemy attacks only damage the PC. |
 | Acceptance Criterion | Damage from different skills of all magic types is applied correctly to PC and enemies for armor values of 0. |
 | Notes | The area in which a damaging skill applies damage to the opponent and the duration in which the opponent takes damage depends on the specific skill. |
 
-| **ID: 2**| **Entity property: Speed** |
+| **ID: EP5**| **Entity property: Speed** |
 | --- | --- |
 | Description | Every entity has a speed value that determines how quickly it can move across the game environment. This affects both the player character (PC) and enemies. |
 | Acceptance Criterion | Speed should be accurately reflected in the movement rate of entities in the game. |
 | Notes | Speed may be modified by certain augments or dungeon curses. |
 
-| **ID: 2**| **Entity property: Invincibility Time** |
+| **ID: EP6**| **Entity property: Invincibility Time** |
 | --- | --- |
 | Description | After taking damage, an entity becomes invincible for a short duration during which it cannot take further damage. This is to prevent rapid successive damage from multiple sources. |
 | Acceptance Criterion | Invincibility time is correctly applied after each instance of damage. |
@@ -112,31 +112,31 @@ The PC is the figure the player controls while playing the game. The PC is a wiz
 
 The PC is controled by the player via keyboard and mouse movements. The PC has four states which are described in the following. 
 
-| **ID: 2**| **PC state: Idle** |
+| **ID: EPC1**| **PC state: Idle** |
 | --- | --- |
 | Description | If the player does not enter any input for the PC, the PC remains idle and does not move. An idle animation is shown. |
 | Acceptance Criterion | PC is in idle state if no input is given. |
 | Notes | None |
 
-| **ID: 2**| **PC state: Walking** |
+| **ID: EPC2**| **PC state: Walking** |
 | --- | --- |
 | Description | If the player uses the WASD keys, the PC moves as long as the keys are pressed. The PC can walk in 8 directions: left, right, top and bottom and the diagonal directions inbetween. A specific walking animation for each direction is shown. |
 | Acceptance Criterion | PC walks correctly if WASD is given as input. |
 | Notes | Diagonal walking is achieved by pressing two keys at once and should not be faster than straight walking. |
 
-| **ID: 2**| **PC state: Dashing** |
+| **ID: EPC3**| **PC state: Dashing** |
 | --- | --- |
 | Description | If the player presses the space bar, the PC moves with increased speed in the direction of the current mouse position for a predefined length. While dashing, the player cannot be hit. |
 | Acceptance Criterion | PC dashes in the correct direction when the space bar is pressed. |
 | Notes | None |
 
-| **ID: 2**| **PC state: SpellCasting** |
+| **ID: EPC4**| **PC state: SpellCasting** |
 | --- | --- |
 | Description | If the player presses one of the keys 1, 2 or 3, the PC casts a spell/uses a PC skill and a spell casting animation is shown. All PC skills that require a position or direction to be cast take the current mouse position for the position or direction.  |
 | Acceptance Criterion | PC is in SpellCasting state if inout 1, 2 and 3 is given. |
 | Notes | Only one spell can be cast at a time. <br> All skills use the same spell cast animation. Cast times should generally be short (less than 1 second). Slower cast times are achieved by playing the spell cast animation slower. |
 
-| **ID: 2**| **PC state: Death** |
+| **ID: EPC5**| **PC state: Death** |
 | --- | --- |
 | Description | When the PC's health reaches 0, it transitions to a death state. The player is informed about the PC's death before returning to the main hub. |
 | Acceptance Criterion | The PC must correctly transition to the death state when its health is depleted and the player can no longer control the PC's actions. |
@@ -155,43 +155,43 @@ All nine skills have upgraded versions, which are automatically unlocked when th
 The PC can have up to three different skills equipped.  
 
 
-| **ID: 1**| **Skill: Base Skills** |
+| **ID: EPS1**| **Skill: Base Skills** |
 | --- | --- |
 | Description | Each magic type has a base skill that consist of a colored circular projectile shot from PC in the direction of the mouse. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Skill: Sun Beam** |
+| **ID: EPS2**| **Skill: Sun Beam** |
 | --- | --- |
 | Description | The supportive skill of the sun magic type. The PC emits a ray of ligth from the PC in the direction of the mouse. <br> Enemies hit deal reduced damage and have reduced armor. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Skill: Summon Sun** |
+| **ID: EPS3**| **Skill: Summon Sun** |
 | --- | --- |
 | Description | PC spawns a sun at mouse location for a few seconds. Enemies close to it take damage depending on how close they are to the sun. The center of the sun deals the most damage. Enemies take damage at predefined intervals as long as they are inside the AOE.|
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Skill: Moon Light** |
+| **ID: EPS4**| **Skill: Moon Light** |
 | --- | --- |
 | Description | A Ray of moonlight shines down on the player increasing the attack value of all their equipped skills and the armor values for all magic types. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Skill: Star Rain** |
+| **ID: EPS5**| **Skill: Star Rain** |
 | --- | --- |
 | Description | Multiple single projectiles spawn around the PC with random offset and start homing to mouse position. <br> On collision with enemy they do damage and despawn. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Skill: Dark Energy Wave** |
+| **ID: EPS6**| **Skill: Dark Energy Wave** |
 | --- | --- |
 | Description | PC creates a black wave that pushes all enemies away from the PC by a predefined distance. The wave pushes away all enemies in the same room as the PC, independently of the distance to the PC. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Skill: Black Hole** |
+| **ID: EPS7**| **Skill: Black Hole** |
 | --- | --- |
 | Description | PC creates a round black void at mouse position that pulls all enemies towards it, if they hit the black void they take massive damage. |
 | Acceptance Criterion | Has to be implemented |
@@ -204,19 +204,19 @@ Instead of a traditional armor and weapon system, the game uses augments to enha
 A maximum of 5 augment slots can be unlocked, with each augment being equipable to any unlocked slot.
 This feature will facilitate the player's ability to craft their own unique builds.  <br>
 
-| **ID: 1**| **Augments: Equipping augments** |
+| **ID: EPA1**| **Augments: Equipping augments** |
 | --- | --- |
 | Description | The player can equip augments to their unlocked augment slots. Every augment can only be equipped to one slot at a time. The augment effects are then applied to the PC. |
 | Acceptance Criterion | Augments can be equipped and the effects are applied to the PC correctly. |
 | Notes | None |
 
-| **ID: 1**| **Augments: Unlocking augment slots** |
+| **ID: EPA2**| **Augments: Unlocking augment slots** |
 | --- | --- |
 | Description | When the player completes the intro dungeon, the first augment slot is unlocked. <br> When the player clears each further story dungeon, one additional augment slot is unlocked. There are a total of 5 augment slots maximally. |
 | Acceptance Criterion | Augment slots are unlocked correctly. |
 | Notes | None |
 
-| **ID: 1**| **Augments: Obtaining augments** |
+| **ID: EPA3**| **Augments: Obtaining augments** |
 | --- | --- |
 | Description | When the PC kills an enemy there is a chance to obtain an augment. Slimes have a low chance of dropping augments and are more likely to drop low quality augments. Bosses are guaranteed to drop one augments and have a chance to drop a second augment in not-cursed dungeons. Augments dropped by bosses also have a higher chance to be high quality augments. If an enemy drops an augment, the PC obtains the augment automatically. |
 | Acceptance Criterion | Enemies drop augments with the correct chances and the PC obtains the augments when they are dropped. |
@@ -270,25 +270,25 @@ Example: A Sun slime could have the following armor values: Sun armor: 30, Cosmi
 
 Slimes can have three possible states.
 
-| **ID: 1**| **Slime states: Idle** |
+| **ID: ES1**| **Slime states: Idle** |
 | --- | --- |
 | Description | If the PC is outside of the detection range of the slime, the slime is idle. It moves around randomly. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Slime states: Moving** |
+| **ID: ES2**| **Slime states: Moving** |
 | --- | --- |
 | Description | If the PC is inside of the detection range of the slime but outside of the attack range of the slime, the slime moves towards the PC until it is in attack range. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Slime states: Attacking** |
+| **ID: ES3**| **Slime states: Attacking** |
 | --- | --- |
 | Description | If the PC is inside of the attack range of the slime, the slime attacks the PC. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Slime states: Death** |
+| **ID: ES4**| **Slime states: Death** |
 | --- | --- |
 | Description | When the slime's health reaches 0, it transitions to a death state. In this state, the slime stops all actions and animations, and after a short delay, it disappears from the game world. |
 | Acceptance Criterion | The slime must correctly transition to the death state when its health is depleted, and it should no longer be able to perform any actions or affect the game. |
@@ -300,13 +300,13 @@ Large slimes have more HP and higher attack values than small slimes. Large slim
 Ranged slimes have a larger attack range and have a different color brightness than melee slimes. 
 The armor values of all slimes of one magic type are the same.
 
-| **ID: 1**| **Slime types: Melee Slime** |
+| **ID: ES5**| **Slime types: Melee Slime** |
 | --- | --- |
 | Description | Melee slimes move towards the PC and once they are very close to the PC, they jump against the PC for their attack. <br> Melee slimes can be large or small. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Slime types: Ranged Slime** |
+| **ID: ES6**| **Slime types: Ranged Slime** |
 | --- | --- |
 | Description | Ranged slimes have a larger attack radius. When attacking, they shoot a small projectile in the direction of the PC. <br> Ranged slimes can be large or small. |
 | Acceptance Criterion | Has to be implemented |
@@ -318,31 +318,31 @@ The unicorn is the boss monster of the dungeons. It looks like a unicorn but is 
 Unicorns have no attack and detection range since they can detect and attack the player from every position in the room. Unicorns have three different attacks. Unicorns have a melee attack radius. If the PC is inside of the melee attack radius, the unicorn uses the melee attack, otherwise it uses one of the ranged attacks at random.  <br>
 In between two attacks the unicorn remains idle for a short while to allow the player to attack the unicorn with their skills.
 
-| **ID: 1**| **Unicorn states: Charge attack** |
+| **ID: EB1**| **Unicorn states: Charge attack** |
 | --- | --- |
 | Description | If the PC is outside of the melee radius of the unicorn, the unicorn can use a charged attack. The unicorn charges at the PC and deals a large amount of damage if the player is hit. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Unicorn states: Shooting attack** |
+| **ID: EB2**| **Unicorn states: Shooting attack** |
 | --- | --- |
 | Description | If the PC is outside of the melee radius of the unicorn, the unicorn can shoot a set of projectiles at the PC. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Unicorn states: Stomping attack** |
+| **ID: EB3**| **Unicorn states: Stomping attack** |
 | --- | --- |
 | Description | If the PC is inside of the melee radius of the unicorn, the unicorn uses a stomping attack. The unicorn stomps on the ground in front of it and deals damage in an AOE. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Unicorn states: Wait** |
+| **ID: EB4**| **Unicorn states: Wait** |
 | --- | --- |
 | Description | After every attack, the unicorn remains idle for a short while in which it only moves around slowly. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: 1**| **Unicorn states: Death** |
+| **ID: EB5**| **Unicorn states: Death** |
 | --- | --- |
 | Description | When the unicorn's health reaches 0, it transitions to a death state. In this state, the unicorn stops all actions and animations, and after a short delay, it disappears from the game world. |
 | Acceptance Criterion | The unicorn must correctly transition to the death state when its health is depleted, and it should no longer be able to perform any actions or affect the game. |
@@ -360,31 +360,31 @@ The skill tree is a menu where the player can unlock new skills and read the eff
 Each magic type has its own small skill tree. The base skill is the first skill of each skill tree. The supportive and offensive skills are the second layer of the skill trees. After the base skill is unlocked, the player can decide whether they want to unlock the supportive or offensive skill first. <br>
 For description of the skill see section 2.2.1.3.2.1 PC skills.
 
-| **ID: 1**| **Skill tree: Unlocking the first skill** |
+| **ID: AST1**| **Skill tree: Unlocking the first skill** |
 | --- | --- |
 | Description | The player chooses a magic type in the beginning of the game which unlocks that magic types base skill. |
 | Acceptance Criterion | The correct base skills are unlocked after the player selects their magic type. |
 | Notes | None |
 
-| **ID: 1**| **Skill tree: Unlocking criteria** |
+| **ID: AST2**| **Skill tree: Unlocking criteria** |
 | --- | --- |
 | Description | The base skill of each magic type has to be unlocked before other skills of that magic type can be unlocked. |
 | Acceptance Criterion | Offensive and defensive skills of each magic type cannot be unlocked if the base skill is not unlocked. They can be unlocked if the player has the base skill unlocked. |
 | Notes | The player chooses a magic type in the beginning of the game which unlocks that magic types base skill. Upon completing the intro dungeon the base skill of a second magic type is unlocked automatically. |
 
-| **ID: 1**| **Skill tree: Unlocking skills** |
+| **ID: AST3**| **Skill tree: Unlocking skills** |
 | --- | --- |
 | Description | The player can use one skill point to unlock one new skill. Skill points are magic type specific, e.g. a Sun skill point can only be used to unlock a Sun skill. |
 | Acceptance Criterion | Skills are correctly unlocked by using skill points. |
 | Notes | Skill points of a magic type are earned by clearing dungeons of that type. Both story and generated dungeons have a magic type. |
 
-| **ID: 1**| **Skill tree: Skill descriptions** |
+| **ID: AST4**| **Skill tree: Skill descriptions** |
 | --- | --- |
 | Description | All skills in the skill tree have a description. If the skills are not unlocked yet, the requirements for unlocking the skill are additionally described. |
 | Acceptance Criterion | Descriptions are displayed correctly. |
 | Notes | None |
 
-| **ID: 1**| **Skill tree: Upgrading skills (Optional)** |
+| **ID: AST5**| **Skill tree: Upgrading skills (Optional)** |
 | --- | --- |
 | Description | If the player fulfills the cirterion for a skill upgrade, the skill is upgraded automatically. |
 | Acceptance Criterion | Skills are upgraded correctly if the corresponding criterias are met. |
@@ -395,25 +395,25 @@ For description of the skill see section 2.2.1.3.2.1 PC skills.
 
 The equipping menu allows the player to change the equipped augments and skills. In this menu, the skill slots with the currently equipped skills are displayed. Furthermore, the augment slot with the currently equipped augments and the inventory with all not equipped augments are displayed.
 
-| **ID: 1**| **Equipping: Equipping skills** |
+| **ID: AE1**| **Equipping: Equipping skills** |
 | --- | --- |
 | Description | If the player click on one of their skill slots, they can select which skill to equip to this skill slot from all skills they have unlocked. The player also has the chance to clear the second and the third skill slot. If the player selects a skill that is already equipped to a different skill slot, the skills in the two slots are swapped. |
 | Acceptance Criterion | Unlocked skills can be equipped and swapped. |
 | Notes | The first skill slot cannot be cleared to prevent players from entering dungeons with no skills equipped.  |
 
-| **ID: 1**| **Equipping: Skill descriptions** |
+| **ID: AE2**| **Equipping: Skill descriptions** |
 | --- | --- |
 | Description | If the player hovers the mouse over a skill, the skill name and description is displayed. |
 | Acceptance Criterion | Description is displayed correctly. |
 | Notes | None |
 
-| **ID: 1**| **Equipping: Equipping augments** |
+| **ID: AE3**| **Equipping: Equipping augments** |
 | --- | --- |
 | Description | The player can drag and drop augments from their inventory to the unlocked augment slots. If the player drags an augment to an augment slot that is not empty, the previously equipped augment is returned to the inventory. The effects of the equipped augments are applied to the PC. |
 | Acceptance Criterion | Augments can be correctly equipped to unlocked augment slots. |
 | Notes | None |
 
-| **ID: 1**| **Equipping: Augment descriptions** |
+| **ID: AE4**| **Equipping: Augment descriptions** |
 | --- | --- |
 | Description | If the player hovers the mouse over an augment, the augment effects are displayed. If an augment slot is not unlocked yet, the criteria for unlocking the skill slot is displayed. |
 | Acceptance Criterion | Description is displayed correctly. |
@@ -424,7 +424,7 @@ The equipping menu allows the player to change the equipped augments and skills.
 
 The fusing augments menu allows the player to modify their augments. To fuse, the player has to choose two augments. The effect from one of the augment can be moved over to the second augment, which destoys the first augment. An effect from the second augment is overwritten with the new effect from the first augment. The player selects both the effect that is to be transferred and the effect that is overwritten. 
 
-| **ID: 1**| **Fusing: Fusing augments** |
+| **ID: AFA1**| **Fusing: Fusing augments** |
 | --- | --- |
 | Description | The player can select two augments to fuse them. For this they select an effect on the one augment that is transfered to the other augment and an effect on the other augment that is to be overwritten. The augment with the first process is destroyed in the process. |
 | Acceptance Criterion | Augments can be fused correctly. |
@@ -434,7 +434,7 @@ The fusing augments menu allows the player to modify their augments. To fuse, th
 
 From the main hub, the player can leave the game and save the current game state beforehand. 
 
-| **ID: 1**| **Saving: Saving the game** |
+| **ID: AS1**| **Saving: Saving the game** |
 | --- | --- |
 | Description | The player can save the current game state. |
 | Acceptance Criterion | The current game state is saved. |
@@ -445,13 +445,13 @@ From the main hub, the player can leave the game and save the current game state
 
 The entering a dungeon menu allows the player to select which dungeon to enter next. First, the player decides whether they want to enter a story dungeon or a generated dungeon. The layout and magic type of the story dungeons is always predefined depending on the magic type the player chose in the beginning. If the player chooses to enter a generated dungeon, they have to select the magic type of the dungeon. Furthermore, they can curse the dungeon to make it more difficult but to gain more rewards. The curses are shown in the menu before entering the dungeon and can be rerolled twice. 
 
-| **ID: 1**| **Choosing a Dungeon** |
+| **ID: AED1**| **Choosing a Dungeon** |
 | --- | --- |
 | Description | The player can decide whether to enter a story dungeon or a generated dungeon. If the player chooses to enter a generated dungeon, they have to select the magic type of the dungeon. Furthermore, the player can curse the dungeon. The curses are shown in the menu before entering the dungeon and can be rerolled twice. |
 | Acceptance Criterion | The dungeon type and all its modifications can be successfully determined. |
 | Notes | The layout and magic type of the story dungeons is always predefined depending on the magic type the player chose when starting the game. <br> Cursed dungeons are more difficult to clear but give better rewards. |
 
-| **ID: 1**| **Entering a Dungeon** |
+| **ID: AED2**| **Entering a Dungeon** |
 | --- | --- |
 | Description | The player can enter the dungeon they selected from the entering a dungeon menu. |
 | Acceptance Criterion | Player succefully enters the right dungeon. |
@@ -463,50 +463,50 @@ Dungeons are the areas of the game where the player can control the PC and comba
 Dungeons are not linear. Instead the player is forced to find the boss room. However, only the boss has to be killed in order to clear a dungeon, not every single room.  
 In the dungeons a camera is used to track the PC and enemy actions. The camera behaviour is different for different parts of the dungeon.
 
-| **ID: 1**| **Camera Movement in Regular Rooms** |
+| **ID: D1**| **Camera Movement in Regular Rooms** |
 | --- | --- |
 | Description | Inside the regular rooms inside a dungeon the camera tries to stay centered on the PC. <br> Movement of the PC is slowly copied in order to not have fast change of the view field. <br> Furthermore the camera is bounded on the walls of the room so that everything in the view field is usefull for the player. |
 | Acceptance Criterion | Camera works as described. |
 | Notes | None |
 
-| **ID: 1**| **Camera Movement in Boss Rooms** |
+| **ID: D2**| **Camera Movement in Boss Rooms** |
 | --- | --- |
 | Description | In the boss room the camera is fixed and more zoomed out in order to always show the entire boss room at once. |
 | Acceptance Criterion | Camera works as described. |
 | Notes | None |
 
-| **ID: 1**| **Opening doors** |
+| **ID: D3**| **Opening doors** |
 | --- | --- |
 | Description | The player can open doors that leads to other rooms of the dungeon by killing all enemies in the room. If a room has several doors forwards, all doors are unlocked at once when the last enemy is killed. |
 | Acceptance Criterion | Doors unlock when all enemies are dead and remain closed beforehand. |
 | Notes | None |
 
-| **ID: 1**| **Boss room door** |
+| **ID: D4**| **Boss room door** |
 | --- | --- |
 | Description | The door to the boss room has to be visibly distinct from other, normal doors. There is only one door to the boss room. |
 | Acceptance Criterion |  |
 | Notes | Since the player leaves the dungeon automatically after defeating the boss, and cannot leave the boss room once they entered it, they should know they are about to enter into the boss room. |
 
-| **ID: 1**| **Clearing the dungeon** |
+| **ID: D5**| **Clearing the dungeon** |
 | --- | --- |
 | Description | When the player has killed all bosses in the boss room, an information about the success and the gained rewards is displayed for the player. When the player closes the information, they exit the dungeon automatically. |
 | Acceptance Criterion | Rewards are displayed correctly and player exits dungeon correctly. |
 | Notes | None |
 
-| **ID: 1**| **Pausing the dungeon** |
+| **ID: D6**| **Pausing the dungeon** |
 | --- | --- |
 | Description | When the esc-key is pressed by the player a menu is opened and the game is paused. |
 | Acceptance Criterion |  |
 | Notes | From the pause menu the player can go to the settings menu or leave the dungeon early. |
 
 
-| **ID: 1**| **Leaving the dungeon early** |
+| **ID: D7**| **Leaving the dungeon early** |
 | --- | --- |
 | Description | The player can always leave the dungeon before clearing it. All rewards the player already has collected remain in the players inventory. |
 | Acceptance Criterion |  |
 | Notes | None |
 
-| **ID: 1**| **Dying in the dungeon** |
+| **ID: D8**| **Dying in the dungeon** |
 | --- | --- |
 | Description | If the player dies in a dungeon, all rewards the player already earned remain in their inventory an the player is returned to the main hub. |
 | Acceptance Criterion |  |
@@ -532,13 +532,13 @@ In that case no enemies are spawned and the player can immideately leave the roo
 The intro dungeon is a handcrafted dungeon and the first dungeon the player has to clear. It serves as a tutorial for the basic mechanics and the magic types in the game. Because of this the magic types of the slimes in the dungeon change based on which magic type the player has chosen when starting the game. <br>
 The magic type of the intro dungeon is the type that the chosen magic type of the player is strong against, e.g., the player chose Sun, then the intro dungeon is of type Cosmic. When the player completes the intro dungeon, they receive a skill point of that magic type, in the example, a Cosmic skill point. This is teaching the player how to interact with the skill tree after clearing the intro dungeon.
 
-| **ID: 1**| **Adapting the Intro Dungeon** |
+| **ID: DI1**| **Adapting the Intro Dungeon** |
 | --- | --- |
 | Description | The magic types of the enemies inside the intro dungeon will be adapted according to the magic type the player has chosen. |
 | Acceptance Criterion | Intro dungeon is adapted correctly. |
 | Notes | The first enemies will have the type that the magic type is strong against. For example if the player chose Sun as their magic type, most the dungeons enemies will be of type Cosmic. Other enemies will teach the player about the weaknesses of their chosen magic type. |
 
-| **ID: 1**| **Layout of the Intro Dungeon** |
+| **ID: DI2**| **Layout of the Intro Dungeon** |
 | --- | --- |
 | Description | The intro dungeon consists of 4 rooms in a linear way. <br> The first room contains only small melee slimes. <br> The second room contains only small ranged slimes. <br> The third room has both small melee and small ranged slimes. <br> The fourth room is the boss room and contains one large melee slime. |
 | Acceptance Criterion |  |
@@ -549,7 +549,7 @@ The magic type of the intro dungeon is the type that the chosen magic type of th
 
 There are five story dungeons. The bosses of the story dungeons are unicorns. The magic type of the story dungeons depends on the magic type the player chose at the start of the game. The unicorns have the same magic type as the dungeon type.
 
-| **ID: 1**| **Layout of Story Dungeons** |
+| **ID: DS1**| **Layout of Story Dungeons** |
 | --- | --- |
 | Description | Each Story dungeon has a fixed layout that is handcrafted. The bosses of the story dungeons are unicorns. <br> Each story dungeon also has an magic type. At least 50% of all slimes are of this magic type and the boss is also of this magic type. This magic type is determined by the starting magic type the player chose at the start of the game. <br>  The first story dungeon will be the same magic type as the intro dungeon. For the other story dungeons the magic type is the magic type that is weak against the magic type of the previous story dungeon. The fourth story dungeon has two bosses and the fifth and last dungeon has three bosses, one of each magic type. |
 | Acceptance Criterion |  |
@@ -568,19 +568,19 @@ The layout is generated in a grid like pattern, where each room is one cell.
 There should be at least 2 room between the entrance of the dungeon and the boss room.  
 Furthermore there should not be more then 10 rooms in total.
 
-| **ID: 1**| **Generating a Generated Dungeons** |
+| **ID: DGG1**| **Generating a Generated Dungeons** |
 | --- | --- |
 | Description | When a player enters a generated dungeon, a new dungeon is generated. |
 | Acceptance Criterion | TODO |
 | Notes | There is no option to return to a previously generated dungeon if the player failed to clear the dungeon successfully. |
 
-| **ID: 1**| **Layout of Generated Dungeons** |
+| **ID: DGG2**| **Layout of Generated Dungeons** |
 | --- | --- |
 | Description | If the player decides to enter a generated dungeon, a dungeon is generated. Every generated dungeon has between 5 and 10 rooms. These rooms are generated in a grid like pattern, where each room is one cell. <br> There should be at least 2 rooms between the entrance of the dungeon and the boss room. <br> The rooms themselves are not randomly generated but randomly selected from a list of designed rooms. |
 | Acceptance Criterion | Dungeons can be generated correctly according to the criteria. |
 | Notes |  |
 
-| **ID: 1**| **Difficulty Scaling of Generated Dungeons** |
+| **ID: DGG3**| **Difficulty Scaling of Generated Dungeons** |
 | --- | --- |
 | Description | When a player generates a generated dungeon, the amount of augment effects the player has equipped when generating the dungeon changes the difficutly of the dungeon. <br> The more augment effects are applied to the PC, the more slimes spawn in each room and the stronger the slimes are (more HP and more damage). |
 | Acceptance Criterion | Dungeon difficulty is adapted to augment effect amount correctly. |
@@ -590,13 +590,13 @@ Furthermore there should not be more then 10 rooms in total.
 
 Clearing dungeons gives rewards to the players. 
 
-| **ID: 1**| **Skill Point Reward** |
+| **ID: DGR1**| **Skill Point Reward** |
 | --- | --- |
 | Description | Killing the boss of a generated dungeon, and thus clearing the dungeon, rewards one skill point of the type of the dungeon.|
 | Acceptance Criterion |  |
 | Notes |  |
 
-| **ID: 1**| **Augment Reward** |
+| **ID: DGR2**| **Augment Reward** |
 | --- | --- |
 | Description | Killing the boss of a generated dungeon, and thus clearing the dungeon, the player is rewarded with one random augment guaranteed. There is a chance for a second augments. <br> The quality of the augment is influenced by the difficulty of the dungeon. <br> If the dungeon was cursed the player is rewarded with two augments guaranteed, with a chance for an additional third augment. |
 | Acceptance Criterion |  |
@@ -608,19 +608,19 @@ Dungeons can be cursed before starting the dungeon. The dungeon will then be har
 Upon dying the player has the choice to either retry the previously generated dungeon or to create a new one.  
 If the player decides to leave the dungeon, they cannot try the same dungeon again. Instead, a new one will be generated.  
 
-| **ID: 1**| **Curse Selection** |
+| **ID: DGC1**| **Curse Selection** |
 | --- | --- |
 | Description | When the player curses a dungeon, a set of curses is drawn randomly from a list of curses. The player can view the current set of curses. The player can reroll the curses twice to obtain new sets of curses. If the player fails to clear a dungeon, the curses are not changed. |
 | Acceptance Criterion | Curses are drawn and can be rerolled correctly. |
 | Notes | Upon rerolling the player cannot return to the previous set of curses. |
 
-| **ID: 1**| **Regaining rerolls** |
+| **ID: DGC2**| **Regaining rerolls** |
 | --- | --- |
 | Description | When the player clears any generated dungeon, the number of rerolls is updated to two again. If the player fails to clear a cursed dungeon and dies, one reroll is restored to the player. |
 | Acceptance Criterion | Rerolls are restored correctly. |
 | Notes | None |
 
-| **ID: 1**| **Generating a cursed dungeon** |
+| **ID: DGC3**| **Generating a cursed dungeon** |
 | --- | --- |
 | Description | When the player enters a cursed dungeon, a new dungeon is generated. The curses applied to the dungeon are the last drawn set of curses. |
 | Acceptance Criterion | Cursed dungeons are generated with the correct curses. |
@@ -683,25 +683,25 @@ Enemies should not pass through each other, however the interaction can be defin
 
 If the player opens the game, the main menu is the first interface the player can interact with. The player has several options for interacting with the main menu. 
 
-| **ID: 1**| **Main menu: New Game** |
+| **ID: MM1**| **Main menu: New Game** |
 | --- | --- | 
 | Description | The player can start a new game from the main menu. When a new game is started, the player first has to decide with which magic type they want to start playing the game. |
 | Acceptance Criterion |  |
 | Notes | None |
 
-| **ID: 1**| **Main menu: Continue** |
+| **ID: MM2**| **Main menu: Continue** |
 | --- | --- | 
 | Description | The player can continue playing the game from a previously saved game state. |
 | Acceptance Criterion | Loading saved game states works. |
 | Notes | None |
 
-| **ID: 1**| **Main menu: Settings** |
+| **ID: MM3**| **Main menu: Settings** |
 | --- | --- | 
 | Description | The player can change settings such as music and sound volume, setting the resolution or toggling a fullscreen mode. The settings menu can be accessed through a sub-menu that appears when the player presses the esc-key from the main hub and from inside dungeons as well. |
 | Acceptance Criterion |  |
 | Notes | None |
 
-| **ID: 1**| **Main menu: Exit** |
+| **ID: MM4**| **Main menu: Exit** |
 | --- | --- | 
 | Description | The player can exit the game. In the standalone version of the game, the game closes itself. |
 | Acceptance Criterion | Exit closes the game. |
@@ -711,7 +711,7 @@ If the player opens the game, the main menu is the first interface the player ca
 
 Tutorials are a set of explanatory texts that describe the features of the game. Tutorials exist for player movement (walking, dashing, spell casting), enemies (magic types and enemy types), the skill tree and the fusing of augments for example.
 
-| **ID: 1**| **Tutorials** |
+| **ID: T1**| **Tutorials** |
 | --- | --- | 
 | Description | When a player encounters a new game mechanic for the first time, a text is displayed for the player that explains the mechanic. |
 | Acceptance Criterion | Tutorials are displayed at the correct times.  |
