@@ -8,9 +8,12 @@ These are the main scenes of the architecture.
     - Picture
     - Buttons
 
-The main menu shows the buttons for New Game, Continue, Settings and Exit.
-TODO: Settings Menu is needed as well
+The main menu shows the buttons for New Game, Continue, Settings and Exit.a
 
+### Settings Menu
+
+- SettingsMenu
+    - Buttons
 
 ## Main Game
 
@@ -46,12 +49,12 @@ These are the scenes used in other scenes.
         - Moving
         - Dashing
         - SpellCasting
+        - Death
     - MovementComponent
     - HealthComponent
 
 The Player scene contains the entire player with all their data.
 The state machine of the player is implemented 
-TODO: The spells need to go somewhere here as well, right?
 
 ### Slime
 
@@ -61,6 +64,7 @@ TODO: The spells need to go somewhere here as well, right?
         - Idle
         - Moving
         - Attacking
+        - Death
     - MovementComponent
     - HealthComponent
 
@@ -75,6 +79,7 @@ Will need 4 different slime scenes for the 4 different types (melee, ranged and 
         - StompingAttack
         - ChargeAttack
         - ShootingAttack
+        - Death
     - MovementComponent
     - HealthComponent
 
@@ -118,9 +123,6 @@ Member variables:
 Member functions:
 - take_damage()
 
-
-TODO do we want this, or should we just put it in the character2d skripts of PC, slime and boss? // I think we should use HealthComponent in order to keep project more modular (David) I agree (Katrin)
-
 See [here](https://www.youtube.com/watch?v=74y6zWZfQKk) for an introduction.
 
 ### StateMachine
@@ -142,7 +144,7 @@ Or [alternatively](https://www.youtube.com/watch?v=ow_Lum-Agbs)
 
 ### MovementComponent
 
-TODO we could consider scrapping this and just making different walking states for player and AI // I think we should do that (David)
+TODO we could consider scrapping this and just making different walking states for player and AI // I think we should do that (David) I agree with this (Katrin)
 
 This component devines movement behavoiur of an entity. 
 For the player this consist of getting the player input.
@@ -173,8 +175,6 @@ The advantage of making a class and not just passing the values themself is that
 Every augment contains a list of 1-3 augment effects.
 
 ### Augment Effect
-
-TOOD I think it might be smart to separate these augment and augment effect, then augment class only needs an array with 1-3 augment effect // Remove this if everyone agrees with this
 
 Every individual augment effect is a class that derives of the base augment effect class. <br>
 This base class defines functions that are called whenever the augment gets equiped or unequiped.
