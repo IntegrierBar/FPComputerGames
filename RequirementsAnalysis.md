@@ -1,3 +1,5 @@
+# The Magic Apprentice
+
 # 1. Introduction
 
 Small game
