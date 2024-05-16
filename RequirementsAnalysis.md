@@ -732,6 +732,8 @@ And each action, like selecting a dungeon or merging two augments, has to be doa
 
 Every non-trivial function within the codebase will have clear comments explaining its purpose, parameters, and return values.
 
+We will use the [Godot internal documentation feature](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_documentation_comments.html) in order to automatically generate the documentation.
+
 A comprehensive user manual will be developed alongside the game to aid players.
 
 ### 2.3.3. Hardware considerations
