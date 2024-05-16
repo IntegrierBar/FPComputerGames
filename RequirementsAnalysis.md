@@ -863,6 +863,163 @@ classDiagram
 ```
 
 
+New class diagram with less details
+
+```mermaid
+classDiagram
+    direction TB
+
+    Node2D <|-- CharacterBody2D
+
+    class MagicType {
+        <<enumeration>>
+        SUN
+        DARK
+        COSMIC
+    }
+
+    class Attack {
+        magicType
+        damageValue
+        referenceToAttacker
+    }
+    %%note for Attack "used to send damage data to HealthComponent"
+
+    class StateMachine {
+
+    }
+    Node2D <|-- StateMachine
+    StateMachine *-- State : currentState
+
+
+    class State {
+        process()
+        physicsProcess()
+    }
+    Node2D <|-- State
+    State o-- State : transitions
+
+    class MovingPlayer {
+        speed
+    }
+    State <|-- MovingPlayer
+
+    class Idle {
+    }
+    State <|-- Idle
+
+    class Dashing {
+        dashSpeed
+    }
+    State <|-- Dashing
+
+    class Death {
+    }
+    State <|-- Death
+
+    class SpellcastingPlayer {
+    }
+    State <|-- SpellcastingPlayer
+    %%SpellcastingPlayer o-- "3" Skill
+
+    class MovingSlime {
+        speed
+    }
+    State <|-- MovingSlime
+
+    class AttackingSlime {
+    }
+    State <|-- AttackingSlime
+
+    class AttackingUnicorn {
+    }
+    State <|-- AttackingUnicorn
+
+    class HealthComponent {
+        armor
+        float maxHP
+        float currentHP
+        float invincibilityDuration
+        bool invincible
+        takeDamage(Attack damage)
+        heal(amount)
+    }
+    Node2D <|-- HealthComponent
+
+    class Player {
+    }
+    CharacterBody2D <|-- Player
+    Player "1" -- "1..3" Skill : active
+    Player "1" o-- "0..5" Augment : active
+    Player *-- StateMachine
+    Player *-- HealthComponent
+    Player *-- Inventory
+    
+    class Skill {
+        String name
+        MagicType magicType
+        int baseDamage
+        bool isUpgraded
+        const float castDuration
+        _process(dt)
+        cast(targetPosition)
+    }
+
+    class Augment {
+        String name
+        fuse(AugmentEffect effect, int index)
+    }
+
+    class AugmentEffect {
+        name
+        onEquip()
+        onUnequip()
+    }
+    Augment "1" o-- "1..3" AugmentEffect
+
+    class CurseEffect {
+        name
+    }
+
+    class Slime {
+
+    }
+    CharacterBody2D <|-- Slime
+    Slime *-- StateMachine
+    Slime *-- HealthComponent
+
+    class Unicorn {
+
+    }
+    CharacterBody2D <|-- Unicorn
+    Unicorn *-- StateMachine
+    Unicorn *-- HealthComponent
+
+    class DungeonRoom {
+        bool cleared
+    }
+    Node2D <|-- DungeonRoom
+    DungeonRoom "1" *-- "0..*" Slime : inside
+    DungeonRoom "1" *-- "0..*" Unicorn : inside
+    
+    class DungeonHandler {
+        Layout
+        switchRoom()
+    }
+    Node2D <|-- DungeonHandler
+    DungeonHandler o-- DungeonRoom : currentRoom
+    DungeonHandler o-- "0..*" CurseEffect : active curses
+
+    class Inventory {
+
+    }
+    Node2D <|-- Inventory
+    Inventory o-- "0..*" Augment : inactive
+    Inventory o-- "0..*" Skill : unlocked
+```
+
+
+
 #### 2.5.3.3. State machines
 
 
@@ -871,19 +1028,19 @@ classDiagram
 ```mermaid
 stateDiagram-v2
     [*] --> Idle
-    Idle --> Walking: WASD keys pressed
-    Walking --> Idle: WASD keys released
+    Idle --> Moving: WASD keys pressed
+    Moving --> Idle: WASD keys released
     Dashing --> Idle: Dash ends
     Idle --> SpellCasting: Keys 1, 2, or 3 pressed
     SpellCasting --> Idle: Spell cast ends
-    Walking --> Dashing: Space bar pressed
-    Walking --> SpellCasting: Keys 1, 2, or 3 pressed
+    Moving --> Dashing: Space bar pressed
+    Moving --> SpellCasting: Keys 1, 2, or 3 pressed
     Idle --> Death: Health reaches 0
-    Walking --> Death: Health reaches 0
+    Moving --> Death: Health reaches 0
     Dashing --> Death: Health reaches 0
     SpellCasting --> Death: Health reaches 0
     Idle --> [*]: Exiting dungeon
-    Walking --> [*]: Exiting dungeon
+    Moving --> [*]: Exiting dungeon
     Dashing --> [*]: Exiting dungeon
     SpellCasting --> [*]: Exiting dungeon
     Death --> [*]: Exiting dungeon

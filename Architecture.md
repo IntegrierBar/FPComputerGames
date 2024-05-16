@@ -122,6 +122,7 @@ Member variables:
 
 Member functions:
 - take_damage()
+- heal()
 
 See [here](https://www.youtube.com/watch?v=74y6zWZfQKk) for an introduction.
 
