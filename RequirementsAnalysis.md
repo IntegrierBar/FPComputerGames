@@ -1,10 +1,5 @@
 # 1. Introduction
 
-Small game
-https://stormboard.com/storm/1886510/The_Magic_Apprentice_game
-
-https://miro.com/app/board/uXjVKP9G-OI=/
-
 
 ## 1.1. Purpose of the system
 
@@ -29,6 +24,8 @@ The goal of this project is the creation of a single player RPG web game.
 ## 1.5. References
 
 We use [Miro Board](https://miro.com/app/board/uXjVKP9G-OI=/?share_link_id=678922601932) for story boards of the game.
+
+An old version can be found on [stormboard](https://stormboard.com/storm/1886510/The_Magic_Apprentice_game)
 
 ## 1.6. Overview
 
