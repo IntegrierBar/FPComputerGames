@@ -28,6 +28,7 @@ The goal of this project is the creation of a single player RPG web game.
 
 ## 1.5. References
 
+We use [Miro Board](https://miro.com/app/board/uXjVKP9G-OI=/?share_link_id=678922601932) for story boards of the game.
 
 ## 1.6. Overview
 
