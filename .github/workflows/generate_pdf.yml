@@ -1,0 +1,35 @@
+name: Generate PDF
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Mermaid CLI
+      run: npm install -g @mermaid-js/mermaid-cli
+
+    - name: Install Pandoc
+      run: sudo apt-get install pandoc
+
+    - name: Run script to generate PDF
+      run: bash ./extract_and_to_pdf.sh RequirementsAnalysis.md
+
+    - name: Upload PDF
+      uses: actions/upload-artifact@v2
+      with:
+        name: RequirementsAnalysis-PDF
+        path: ./pdfs/RequirementsAnalysis.pdf

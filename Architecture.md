@@ -4,16 +4,58 @@ These are the main scenes of the architecture.
 
 ## Main Menu
 
+This is the main menu where the user can start a new game, continue a game, change settings and exit the game.
+
 - MainMenu
     - Picture
-    - Buttons
-
-The main menu shows the buttons for New Game, Continue, Settings and Exit.a
-
-### Settings Menu
-
+    - New Game Button
+    - Continue Button
+    - Settings Button
+    - Exit Button
 - SettingsMenu
-    - Buttons
+    - Sound Volume Slider
+    - Music Volume Slider
+    - Resolution Dropdown
+    - Fullscreen Toggle
+
+## Fusing Augment Screen
+
+This screen allows players to combine augments to create more powerful versions or different effects.
+
+- FusingAugmentScreen
+    - Title: "Augment Fusion"
+    - AugmentSlot1
+        - AugmentIcon
+        - AugmentDetails
+    - AugmentSlot2
+        - AugmentIcon
+        - AugmentDetails
+    - FuseButton
+        - Text: "Fuse Augments"
+    - ResultPreview
+        - ResultIcon
+        - ResultDetails
+    - ConfirmButton
+        - Text: "Confirm Fusion"
+    - CancelButton
+        - Text: "Cancel"
+
+### Node Descriptions
+
+- **AugmentSlot1/AugmentSlot2**: These slots hold the augments that the player selects for fusion. Each slot displays an icon and details of the augment.
+- **FuseButton**: When clicked, this button initiates the fusion process and displays a preview of the resulting augment in the ResultPreview area.
+- **ResultPreview**: Shows what the new augment will look like after fusion, including its potential effects and stats.
+- **ConfirmButton**: Confirms the fusion, applying the changes and updating the player's augment inventory.
+- **CancelButton**: Allows the player to back out of the fusion process without making changes.
+
+### Interaction Flow
+
+1. The player places augments into AugmentSlot1 and AugmentSlot2.
+2. The player clicks the FuseButton to see what the fused augment will look like in the ResultPreview.
+3. If satisfied, the player clicks ConfirmButton to complete the fusion, or CancelButton to abort the process.
+
+This screen is designed to be intuitive and provide immediate feedback, making the fusion process engaging and straightforward.
+
 
 ## Main Game
 
@@ -147,9 +189,9 @@ Or [alternatively](https://www.youtube.com/watch?v=ow_Lum-Agbs)
 
 TODO we could consider scrapping this and just making different walking states for player and AI // I think we should do that (David) I agree with this (Katrin)
 
-This component devines movement behavoiur of an entity. 
+This component defines movement behavoiur of an entity. 
 For the player this consist of getting the player input.
-For enemies, this constits of an AI skript.
+For enemies, this consists of an AI script.
 
 Having this as a separete component to the statemachine, allows us to have the same walking state for both player and enemies.
 
