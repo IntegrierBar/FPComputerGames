@@ -958,10 +958,10 @@ classDiagram
     class Skill {
         String name
         MagicType magicType
-        int baseDamage
+        float baseDamage
+        float damage
         bool isUpgraded
         const float castDuration
-        _process(dt)
         cast(targetPosition)
     }
 
