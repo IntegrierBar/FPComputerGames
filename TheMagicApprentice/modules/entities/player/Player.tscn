@@ -250,9 +250,8 @@ collision_mask = 4
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_m52gx")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("parent", "starting_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_wq5or")
-parent = NodePath("..")
 starting_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "dash_state", "spellcasting_state")]

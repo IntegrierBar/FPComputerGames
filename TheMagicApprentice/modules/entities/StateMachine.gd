@@ -1,7 +1,7 @@
 extends Node
 
 
-@export var parent: CharacterBody2D
+#@export var parent: CharacterBody2D
 #@export var animation_tree: AnimationTree
 
 @export var starting_state: State

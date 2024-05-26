@@ -26,3 +26,6 @@ func take_damage(attack: Attack) -> void:
 	current_HP -= attack.damage * (1. - armor[attack.type]/100.)
 	if current_HP <= 0:
 		emit_signal("death")
+
+func heal(value: float) -> void:
+	current_HP = min(MAX_HP, current_HP + value)

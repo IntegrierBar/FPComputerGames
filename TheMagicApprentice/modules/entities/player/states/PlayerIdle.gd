@@ -7,7 +7,6 @@ extends State
 
 func enter() -> void:
 	super()
-	parent.velocity = Vector2.ZERO
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("dash"):
