@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://b2co4oqqaroq"]
+
+[ext_resource type="Script" path="res://modules/entities/slimes/MeleeSlime.gd" id="1_53ryq"]
+[ext_resource type="Texture2D" uid="uid://bpmu0kjq7kncb" path="res://example_assets/character_sprites/NPC_test.png" id="1_aog1k"]
+[ext_resource type="PackedScene" uid="uid://bmh3tdfmmvwk8" path="res://modules/entities/HealthComponent.tscn" id="2_0lt57"]
+[ext_resource type="Script" path="res://modules/entities/StateMachine.gd" id="3_byx5j"]
+[ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeIdle.gd" id="4_0tc7m"]
+[ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeMove.gd" id="5_goym0"]
+[ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeAttacking.gd" id="7_8c7fh"]
+[ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeDeath.gd" id="8_wr7ht"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qv2xl"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ba01"]
+radius = 7.0
+height = 22.0
+
+[node name="MeleeSlime" type="CharacterBody2D"]
+script = ExtResource("1_53ryq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aog1k")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_qv2xl")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_0lt57")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
+shape = SubResource("CapsuleShape2D_8ba01")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("3_byx5j")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_0tc7m")
+
+[node name="Moving" type="Node" parent="StateMachine"]
+script = ExtResource("5_goym0")
+
+[node name="Attacking" type="Node" parent="StateMachine"]
+script = ExtResource("7_8c7fh")
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("8_wr7ht")

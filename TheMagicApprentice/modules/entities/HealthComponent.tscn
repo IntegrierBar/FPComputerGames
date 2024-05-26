@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmh3tdfmmvwk8"]
+
+[ext_resource type="Script" path="res://modules/entities/HealthComponent.gd" id="1_p2xs5"]
+
+[node name="HealthComponent" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_p2xs5")
