@@ -216,8 +216,8 @@ radius = 4.0
 height = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m52gx"]
-radius = 7.0
-height = 24.0
+radius = 6.0
+height = 22.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_y46rj")

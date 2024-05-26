@@ -12,7 +12,7 @@ var parameters = ParameterFactory.named_parameters(
 		[123., {Enums.MagicType.SUN: 50., Enums.MagicType.COSMIC: 20., Enums.MagicType.DARK: 0.}, 30., Enums.MagicType.SUN, 123. - 15., 100.], # armor SUN
 		[50., {Enums.MagicType.SUN: 40., Enums.MagicType.COSMIC: 20., Enums.MagicType.DARK: 10.}, 10., Enums.MagicType.COSMIC, 50. - 8., 100.], # armor COSMIC
 		[10., {Enums.MagicType.SUN: 120., Enums.MagicType.COSMIC: 30., Enums.MagicType.DARK: 90.}, 5., Enums.MagicType.DARK, 10. - 0.5, 100.], # armor DARK
-		[10., {Enums.MagicType.SUN: 120., Enums.MagicType.COSMIC: 30., Enums.MagicType.DARK: 90.}, 100., Enums.MagicType.SUN, 10., 100. - 20.], # reflect damage
+		[10., {Enums.MagicType.SUN: 120., Enums.MagicType.COSMIC: 30., Enums.MagicType.DARK: 90.}, 100., Enums.MagicType.SUN, 10., 100. - 10.], # reflect damage
 	]
 )
 
@@ -21,11 +21,14 @@ func before_each():
 	_health_component = HealthComponent.new()
 	_attacker = HealthComponent.new()
 	_attacker.MAX_HP = 100.
-	_attacker.armor = {Enums.MagicType.SUN: 0., Enums.MagicType.COSMIC: 0., Enums.MagicType.DARK: 0.}
+	_attacker.armor = {Enums.MagicType.SUN: 50., Enums.MagicType.COSMIC: 50., Enums.MagicType.DARK: 50.}
 	add_child_autofree(_attacker)
+
 
 func after_each():
 	_health_component.free()
+	_attacker.free()
+
 
 func test_take_damage_function(params = use_parameters(parameters)):
 	_health_component.MAX_HP = params.MAX_HP

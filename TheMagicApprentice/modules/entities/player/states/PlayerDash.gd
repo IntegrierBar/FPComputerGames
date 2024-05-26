@@ -4,8 +4,8 @@ extends State
 @export var idle_state: State
 @export var move_state: State
 
-@export var SPEED: float = 100
-@export var DASH_TIME: float = 0.5
+@export var SPEED: float = 400
+@export var DASH_TIME: float = 0.3
 
 var time_left: float = 0
 var direction: Vector2 = Vector2.ZERO
