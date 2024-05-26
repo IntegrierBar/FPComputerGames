@@ -16,11 +16,12 @@ signal death
 
 func take_damage(attack: Attack) -> void:
 	if armor[attack.type] > 100.:
-		var reflected_damage = Attack.new()
-		reflected_damage.damage = attack.damage * (armor[attack.type]/100. - 1.)
-		reflected_damage.type = attack.type
-		reflected_damage.attacker = get_parent()
-		attack.attacker.take_damage(reflected_damage) # TODO need to think how we call take_damage function
+		if attack.attacker:	# check if attacker is not null
+			var reflected_damage = Attack.new()
+			reflected_damage.damage = attack.damage * (armor[attack.type]/100. - 1.)
+			reflected_damage.type = attack.type
+			reflected_damage.attacker = get_parent()
+			attack.attacker.take_damage(reflected_damage) # can simply call take_damage function since we just get the reference to the HealthComponent.
 		return
 	
 	current_HP -= attack.damage * (1. - armor[attack.type]/100.)
