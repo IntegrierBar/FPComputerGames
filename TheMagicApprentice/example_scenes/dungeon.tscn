@@ -8,7 +8,7 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_laiss")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_laiss")]
 position = Vector2(-39, 113)
 scale = Vector2(1, 1)
 
