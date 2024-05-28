@@ -11,6 +11,8 @@ extends State
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("dash"):
 		return dash_state
+	if event.is_action_pressed("cast"):
+		return spellcasting_state
 	return null
 
 func process_physics(delta: float) -> State:	

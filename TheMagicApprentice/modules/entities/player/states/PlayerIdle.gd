@@ -11,6 +11,8 @@ func enter() -> void:
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("dash"):
 		return dash_state
+	if event.is_action_pressed("cast"):
+		return spellcasting_state
 	if Input.get_vector("left", "right", "up", "down") != Vector2.ZERO:
 		return move_state
 	return null

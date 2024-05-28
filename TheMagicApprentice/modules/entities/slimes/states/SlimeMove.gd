@@ -15,19 +15,19 @@ func _ready():
 
 
 func process_physics(delta: float) -> State:	
-	
-	var vector_to_player: Vector2 = player.position - parent.position
-	
-	# if we can attack the player, change to attack state
-	if vector_to_player.length() <= parent.attack_range:
-		return attack_state
-	
-	# if the player moves outside the view range, change back to idle state
-	if vector_to_player.length() > parent.view_range:
-		return idle_state
-	
-	# else move towards the player
-	parent.velocity = vector_to_player.normalized() * SPEED * delta
-	parent.move_and_slide()
+	if player:
+		var vector_to_player: Vector2 = player.position - parent.position
+		
+		# if we can attack the player, change to attack state
+		if vector_to_player.length() <= parent.attack_range:
+			return attack_state
+		
+		# if the player moves outside the view range, change back to idle state
+		if vector_to_player.length() > parent.view_range:
+			return idle_state
+		
+		# else move towards the player
+		parent.velocity = vector_to_player.normalized() * SPEED * delta
+		parent.move_and_slide()
 	
 	return null

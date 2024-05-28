@@ -15,6 +15,12 @@ func enter() -> void:
 	direction = Input.get_vector("left", "right", "up", "down")
 	time_left = DASH_TIME
 	parent.velocity = direction * SPEED
+	$"../../HealthComponent/HitBox".disabled = true
+
+
+func exit() -> void:
+	$"../../HealthComponent/HitBox".disabled = false
+
 
 func process_physics(delta: float) -> State:
 	if time_left <= 0:
@@ -26,3 +32,4 @@ func process_physics(delta: float) -> State:
 	parent.move_and_slide()
 	
 	return null
+

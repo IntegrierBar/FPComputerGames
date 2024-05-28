@@ -24,5 +24,11 @@ func process_physics(delta: float) -> State:
 
 func attack() -> void:
 	# play attack animation and create attack
-	time_left = 2
-	pass
+	time_left = 1
+	for area in $"../../DamagaArea".get_overlapping_areas():
+		if area is HealthComponent:
+			var value = Attack.new()
+			value.damage = 50
+			value.type = Enums.MagicType.SUN
+			value.attacker = $"../../HealthComponent"
+			area.take_damage(value)
