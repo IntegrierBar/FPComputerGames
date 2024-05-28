@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://di86xctjf2pag"]
+
+[ext_resource type="PackedScene" uid="uid://dkibfwq50tq4t" path="res://modules/entities/player/Player.tscn" id="1_laiss"]
+[ext_resource type="PackedScene" uid="uid://d3wat8d841e8b" path="res://modules/rooms/TestRoom.tscn" id="2_vcakm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_laiss")]
+scale = Vector2(1, 1)
+
+[node name="TestRoom" parent="." instance=ExtResource("2_vcakm")]
