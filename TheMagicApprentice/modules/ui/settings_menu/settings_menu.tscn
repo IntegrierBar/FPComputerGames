@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://da65tmwqdoi0s"]
+[gd_scene load_steps=5 format=3 uid="uid://da65tmwqdoi0s"]
 
 [ext_resource type="Script" path="res://modules/ui/settings_menu/settings_menu.gd" id="1_eqet6"]
 [ext_resource type="FontVariation" uid="uid://d27tfu7bo18pg" path="res://example_assets/font/PressStartP2.tres" id="1_mjdgp"]
+[ext_resource type="Script" path="res://modules/ui/AudioControl.gd" id="3_35wgj"]
+[ext_resource type="Script" path="res://modules/ui/ButtonPlus.gd" id="3_oq5kx"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -39,9 +41,11 @@ theme_override_constants/separation = 30
 
 [node name="Separater" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="SettingsTitle" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("1_mjdgp")
 theme_override_font_sizes/font_size = 40
 text = "Settings"
@@ -49,9 +53,11 @@ horizontal_alignment = 1
 
 [node name="Separator2" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="SoundVolumeControl" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="SoundVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/SoundVolumeControl"]
 layout_mode = 2
@@ -64,11 +70,14 @@ custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
-max_value = 200.0
-value = 200.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_35wgj")
+bus_name = "sfx"
 
 [node name="MusicVolumeControl" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="MusicVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/MusicVolumeControl"]
 layout_mode = 2
@@ -81,11 +90,15 @@ custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
-max_value = 200.0
-value = 200.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("3_35wgj")
+bus_name = "Music"
 
 [node name="FullscreenControl" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/FullscreenControl"]
 layout_mode = 2
@@ -93,16 +106,18 @@ theme_override_fonts/font = ExtResource("1_mjdgp")
 theme_override_font_sizes/font_size = 30
 text = "Fullscreen"
 
-[node name="MusicVolumeSlider" type="CheckBox" parent="MarginContainer/VBoxContainer/FullscreenControl"]
+[node name="FullscreenCheck" type="CheckBox" parent="MarginContainer/VBoxContainer/FullscreenControl"]
 layout_mode = 2
 size_flags_horizontal = 10
 
 [node name="Separator3" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 3
 
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 50)
@@ -111,5 +126,7 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_mjdgp")
 theme_override_font_sizes/font_size = 30
 text = "Exit"
+script = ExtResource("3_oq5kx")
 
+[connection signal="toggled" from="MarginContainer/VBoxContainer/FullscreenControl/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
