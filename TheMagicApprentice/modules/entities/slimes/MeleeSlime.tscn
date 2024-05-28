@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2co4oqqaroq"]
+[gd_scene load_steps=12 format=3 uid="uid://b2co4oqqaroq"]
 
 [ext_resource type="Script" path="res://modules/entities/slimes/MeleeSlime.gd" id="1_53ryq"]
 [ext_resource type="Texture2D" uid="uid://bpmu0kjq7kncb" path="res://example_assets/character_sprites/NPC_test.png" id="1_aog1k"]
@@ -17,6 +17,8 @@ height = 12.0
 radius = 7.0
 height = 22.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mwynd"]
+
 [node name="MeleeSlime" type="CharacterBody2D"]
 script = ExtResource("1_53ryq")
 
@@ -34,9 +36,10 @@ shape = SubResource("CapsuleShape2D_qv2xl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
 shape = SubResource("CapsuleShape2D_8ba01")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state", "death_state")]
 script = ExtResource("3_byx5j")
 starting_state = NodePath("Idle")
+death_state = NodePath("Death")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_0tc7m")
@@ -49,3 +52,13 @@ script = ExtResource("7_8c7fh")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("8_wr7ht")
+
+[node name="DamagaArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagaArea"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_mwynd")
+
+[connection signal="death" from="HealthComponent" to="StateMachine" method="_on_health_component_death"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bykhs33focipd"]
+
+[ext_resource type="Script" path="res://modules/entities/player/spells/BasicSpell.gd" id="1_dpm07"]
+[ext_resource type="Texture2D" uid="uid://dtt8avcf7dsh2" path="res://icon.svg" id="2_y83ng"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6necs"]
+radius = 65.0077
+
+[node name="BasicSpell" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_dpm07")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6necs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_y83ng")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

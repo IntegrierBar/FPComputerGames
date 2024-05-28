@@ -5,6 +5,7 @@ extends Node
 #@export var animation_tree: AnimationTree
 
 @export var starting_state: State
+@export var death_state: State
 
 var current_state: State
 
@@ -42,3 +43,7 @@ func process_frame(delta: float) -> void:
 	var new_state = current_state.process_frame(delta)
 	if new_state:
 		change_state(new_state)
+
+
+func _on_health_component_death():
+	change_state(death_state)
