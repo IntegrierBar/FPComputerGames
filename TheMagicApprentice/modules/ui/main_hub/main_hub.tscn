@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu8xj2fgk4gv7"]
+[gd_scene load_steps=3 format=3 uid="uid://bu8xj2fgk4gv7"]
 
 [ext_resource type="Script" path="res://modules/ui/main_hub/main_hub.gd" id="1_a6me6"]
+[ext_resource type="Script" path="res://modules/ui/ButtonPlus.gd" id="2_ctaus"]
 
 [node name="MainHub" type="Control"]
 layout_mode = 3
@@ -25,6 +26,7 @@ layout_mode = 1
 offset_right = 112.0
 offset_bottom = 59.0
 text = "Exit"
+script = ExtResource("2_ctaus")
 
 [node name="DungeonButton" type="Button" parent="."]
 layout_mode = 0
@@ -33,5 +35,6 @@ offset_top = 231.0
 offset_right = 1050.0
 offset_bottom = 413.0
 text = "Dungeon"
+script = ExtResource("2_ctaus")
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
