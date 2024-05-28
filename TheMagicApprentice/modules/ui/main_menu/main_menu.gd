@@ -6,8 +6,9 @@ func _on_new_game_button_pressed():
 	print("New game")
 
 
+# Once a dungeon exists, this has to be changed to Root and Main hub needs to be the one that is visible
 func _on_continue_button_pressed():
-	print("Continue")
+	get_tree().change_scene_to_file("res://modules/ui/main_hub/main_hub.tscn")
 
 
 # Note: the settings menu is rendered after the main menu and therefore visisble

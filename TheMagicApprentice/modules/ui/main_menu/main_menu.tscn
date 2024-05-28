@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdi5rwcxbapcj"]
+[gd_scene load_steps=4 format=3 uid="uid://bdi5rwcxbapcj"]
 
 [ext_resource type="FontVariation" uid="uid://d27tfu7bo18pg" path="res://example_assets/font/PressStartP2.tres" id="1_bboak"]
 [ext_resource type="Script" path="res://modules/ui/main_menu/main_menu.gd" id="1_feh00"]
+[ext_resource type="Script" path="res://modules/ui/ButtonPlus.gd" id="3_6hl10"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -74,6 +75,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_bboak")
 theme_override_font_sizes/font_size = 20
 text = "New Game"
+script = ExtResource("3_6hl10")
 
 [node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 40)
@@ -81,6 +83,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_bboak")
 theme_override_font_sizes/font_size = 20
 text = "Continue"
+script = ExtResource("3_6hl10")
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 40)
@@ -88,6 +91,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_bboak")
 theme_override_font_sizes/font_size = 20
 text = "Settings"
+script = ExtResource("3_6hl10")
 
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 40)
@@ -95,6 +99,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_bboak")
 theme_override_font_sizes/font_size = 20
 text = "Exit"
+script = ExtResource("3_6hl10")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
