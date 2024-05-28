@@ -282,4 +282,7 @@ dash_state = NodePath("../Dashing")
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("8_rqc6w")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.53, 2.53)
+
 [connection signal="death" from="HealthComponent" to="StateMachine" method="_on_health_component_death"]
