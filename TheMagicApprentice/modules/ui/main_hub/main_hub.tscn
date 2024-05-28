@@ -38,3 +38,4 @@ text = "Dungeon"
 script = ExtResource("2_ctaus")
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="DungeonButton" to="." method="_on_dungeon_button_pressed"]

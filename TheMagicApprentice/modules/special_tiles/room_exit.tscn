@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://da5fv1av3fyy8"]
+
+[ext_resource type="Script" path="res://modules/special_tiles/RoomExit.gd" id="1_t0tub"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqmsu"]
+radius = 5.0
+
+[node name="RoomExit" type="Area2D"]
+position = Vector2(120, 9)
+script = ExtResource("1_t0tub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kqmsu")

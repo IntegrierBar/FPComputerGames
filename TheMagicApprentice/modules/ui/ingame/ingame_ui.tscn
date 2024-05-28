@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhn7vroge7the"]
+
+[ext_resource type="Script" path="res://modules/ui/ingame/ingame_ui.gd" id="1_xbu70"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_xbu70")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 600.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 979.0
+offset_top = 32.0
+offset_right = 1107.0
+offset_bottom = 104.0
+text = "Pause"
