@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://qvx6d63g1slh"]
+
+[ext_resource type="Script" path="res://modules/handlers/DungeonHandler.gd" id="1_61h3q"]
+
+[node name="DungeonHandler" type="Node2D"]
+
+[node name="DungeonHandler" type="Node" parent="."]
+script = ExtResource("1_61h3q")

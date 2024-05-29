@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3wat8d841e8b"]
+[gd_scene load_steps=5 format=3 uid="uid://d3wat8d841e8b"]
 
 [ext_resource type="Texture2D" uid="uid://gu5esd2ijmin" path="res://example_assets/tilesets_world/cave.png" id="1_wipbs"]
+[ext_resource type="PackedScene" uid="uid://da5fv1av3fyy8" path="res://modules/special_tiles/room_exit.tscn" id="2_u2c0x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6hi0f"]
 texture = ExtResource("1_wipbs")
@@ -391,3 +392,5 @@ layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(-262142, 458752, 5, -196606, 458752, 6, -262141, 524288, 5, -196605, 524288, 6, 7, 0, 4)
 layer_2/name = "Foreground"
 layer_2/tile_data = PackedInt32Array()
+
+[node name="RoomExit" parent="." instance=ExtResource("2_u2c0x")]

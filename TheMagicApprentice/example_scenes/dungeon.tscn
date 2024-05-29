@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://di86xctjf2pag"]
 
 [ext_resource type="PackedScene" uid="uid://dkibfwq50tq4t" path="res://modules/entities/player/Player.tscn" id="1_laiss"]
-[ext_resource type="PackedScene" uid="uid://d3wat8d841e8b" path="res://modules/rooms/TestRoom.tscn" id="2_vcakm"]
+[ext_resource type="PackedScene" uid="uid://d3wat8d841e8b" path="res://modules/rooms/TestRoom1.tscn" id="2_vcakm"]
 [ext_resource type="PackedScene" uid="uid://dhn7vroge7the" path="res://modules/ui/ingame/ingame_ui.tscn" id="3_cq1sh"]
 [ext_resource type="PackedScene" uid="uid://b2co4oqqaroq" path="res://modules/entities/slimes/MeleeSlime.tscn" id="4_aldm1"]
-[ext_resource type="PackedScene" uid="uid://da5fv1av3fyy8" path="res://modules/special_tiles/room_exit.tscn" id="5_wy33c"]
+[ext_resource type="Script" path="res://modules/handlers/DungeonHandler.gd" id="5_bx603"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,11 +12,12 @@
 position = Vector2(-39, 113)
 scale = Vector2(1, 1)
 
-[node name="TestRoom" parent="." instance=ExtResource("2_vcakm")]
+[node name="TestRoom1" parent="." instance=ExtResource("2_vcakm")]
 
 [node name="UI" parent="." instance=ExtResource("3_cq1sh")]
 
 [node name="MeleeSlime" parent="." instance=ExtResource("4_aldm1")]
 position = Vector2(-54, -47)
 
-[node name="RoomExit" parent="." instance=ExtResource("5_wy33c")]
+[node name="DungeonHandler" type="Node" parent="."]
+script = ExtResource("5_bx603")
