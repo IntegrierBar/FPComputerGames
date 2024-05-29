@@ -3,7 +3,7 @@ extends State
 @export var move_state: State
 @export var attack_state: State
 
-@export var SPEED: float = 50
+@export var SPEED: float = 20
 
 var player
 
@@ -24,7 +24,7 @@ func process_physics(delta: float) -> State:
 			return move_state
 	
 	# else do random walk TODO
-	parent.velocity += Vector2(randf_range(-1, 1), randf_range(-1, 1)) * delta * SPEED
+	parent.velocity += Vector2(randf_range(-1, 1), randf_range(-1, 1)) * SPEED
 	
 	parent.velocity = parent.velocity.clamp(Vector2(-SPEED, -SPEED), Vector2(SPEED, SPEED))
 	parent.move_and_slide()

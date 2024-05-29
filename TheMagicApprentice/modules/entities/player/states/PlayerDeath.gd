@@ -1,4 +1,5 @@
 extends State
 
 func enter() -> void:
-	parent.queue_free()
+	print("player died")
+	get_tree().paused = true

@@ -3,7 +3,7 @@ extends State
 @export var idle_state: State
 @export var attack_state: State
 
-@export var SPEED: float = 100
+@export var SPEED: float = 50
 
 var player
 
@@ -27,7 +27,7 @@ func process_physics(delta: float) -> State:
 			return idle_state
 		
 		# else move towards the player
-		parent.velocity = vector_to_player.normalized() * SPEED * delta
+		parent.velocity = vector_to_player.normalized() * SPEED
 		parent.move_and_slide()
 	
 	return null

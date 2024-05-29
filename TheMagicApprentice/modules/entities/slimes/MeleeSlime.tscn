@@ -18,6 +18,7 @@ radius = 7.0
 height = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mwynd"]
+radius = 18.0
 
 [node name="MeleeSlime" type="CharacterBody2D"]
 script = ExtResource("1_53ryq")
@@ -41,14 +42,19 @@ script = ExtResource("3_byx5j")
 starting_state = NodePath("Idle")
 death_state = NodePath("Death")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "attack_state")]
 script = ExtResource("4_0tc7m")
+move_state = NodePath("../Moving")
+attack_state = NodePath("../Attacking")
 
-[node name="Moving" type="Node" parent="StateMachine"]
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack_state")]
 script = ExtResource("5_goym0")
+idle_state = NodePath("../Idle")
+attack_state = NodePath("../Attacking")
 
-[node name="Attacking" type="Node" parent="StateMachine"]
+[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("7_8c7fh")
+idle_state = NodePath("../Idle")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("8_wr7ht")

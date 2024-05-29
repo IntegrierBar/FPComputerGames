@@ -5,10 +5,10 @@ extends CharacterBody2D
 @onready var state_machine = $StateMachine
 
 ## If the player is closer then this, then the slime can see the player and moves towards him
-@export var view_range: float = 500.
+@export var view_range: float = 100.
 
 ## If the player is closer then this, then the slime can attack the player
-@export var attack_range: float = 20.
+@export var attack_range: float = 10.
 
 
 

@@ -15,6 +15,7 @@ signal death
 }
 
 func take_damage(attack: Attack) -> void:
+	print("taking damage:" + str(attack.damage))
 	if armor[attack.type] > 100.:
 		if attack.attacker:	# check if attacker is not null
 			var reflected_damage = Attack.new()
