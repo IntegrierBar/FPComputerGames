@@ -11,10 +11,12 @@ anchors_preset = 0
 offset_right = 800.0
 offset_bottom = 600.0
 
-[node name="Button" type="Button" parent="Control"]
+[node name="PauseButton" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 979.0
 offset_top = 32.0
 offset_right = 1107.0
 offset_bottom = 104.0
 text = "Pause"
+
+[connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]

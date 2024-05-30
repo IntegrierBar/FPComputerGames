@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://b42y2uere03lu" path="res://example_assets/music/game-title.ogg" id="1_05q2s"]
 
 [node name="BgMusic" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
