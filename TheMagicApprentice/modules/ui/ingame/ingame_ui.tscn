@@ -1,22 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhn7vroge7the"]
+[gd_scene load_steps=5 format=3 uid="uid://dhn7vroge7the"]
 
 [ext_resource type="Script" path="res://modules/ui/ingame/ingame_ui.gd" id="1_xbu70"]
+[ext_resource type="Texture2D" uid="uid://dw7fjara6abxy" path="res://example_assets/progressbar/under_inverted.png" id="2_trmkk"]
+[ext_resource type="Texture2D" uid="uid://cqxuvlxqecpcv" path="res://example_assets/progressbar/progress.png" id="3_wu1bc"]
+[ext_resource type="Script" path="res://modules/ui/ingame/PlayerHealthBar.gd" id="4_mvav6"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_xbu70")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 800.0
-offset_bottom = 600.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
 
 [node name="PauseButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 979.0
-offset_top = 32.0
-offset_right = 1107.0
-offset_bottom = 104.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_bottom = 72.0
+grow_horizontal = 0
 text = "Pause"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
+process_mode = 3
+layout_mode = 0
+offset_left = 39.0
+offset_top = 34.0
+offset_right = 119.0
+offset_bottom = 43.0
+scale = Vector2(4, 4)
+value = 100.0
+texture_under = ExtResource("2_trmkk")
+texture_progress = ExtResource("3_wu1bc")
+texture_progress_offset = Vector2(8, 2)
+script = ExtResource("4_mvav6")
 
 [connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
