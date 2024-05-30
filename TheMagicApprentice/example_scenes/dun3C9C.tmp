@@ -17,3 +17,4 @@ scale = Vector2(1, 1)
 position = Vector2(-54, -47)
 
 [node name="UI" parent="." instance=ExtResource("3_cq1sh")]
+process_mode = 3
