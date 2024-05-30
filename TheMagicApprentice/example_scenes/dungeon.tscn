@@ -13,7 +13,9 @@ scale = Vector2(1, 1)
 
 [node name="TestRoom1" parent="." instance=ExtResource("2_vcakm")]
 
-[node name="UI" parent="." instance=ExtResource("3_cq1sh")]
-
 [node name="MeleeSlime" parent="." instance=ExtResource("4_aldm1")]
 position = Vector2(-54, -47)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("3_cq1sh")]
