@@ -12,7 +12,6 @@ enum TimeUnit {
 	YEAR   = 7
 }
 
-
 const SECONDS_PER_MINUTE:int = 60
 const MINUTES_PER_HOUR:int = 60
 const HOURS_PER_DAY:int = 24
@@ -78,7 +77,7 @@ static func elapsed(p_time_ms :int) -> String:
 
 @warning_ignore("integer_division")
 # create from epoch timestamp in ms
-func _init(time :int):
+func _init(time :int) -> void:
 	_time = time
 	_hour  =  (time / MILLIS_PER_HOUR) % 24
 	_minute =  (time / MILLIS_PER_MINUTE) % 60

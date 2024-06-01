@@ -2,10 +2,16 @@ using Godot;
 using System;
 
 
-[GlobalClass]
-public partial class Attack : Node
+public partial class Attack
 {
-    public float damage;
-    public Enums.MagicType magicType;
-    public Node2D attacker;
+    public double damage;
+    public MagicType magicType;
+    public HealthComponent attacker;
+
+    public Attack(double damageValue, MagicType type, HealthComponent attackerNode)
+    {
+        damage = damageValue;
+        magicType = type;
+        attacker = attackerNode;
+    }
 }

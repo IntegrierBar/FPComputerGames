@@ -14,10 +14,6 @@ config/name="TheMagicApprentice"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Enums="*res://modules/enums.cs"
-
 [dotnet]
 
 project/assembly_name="TheMagicApprentice"
@@ -25,3 +21,8 @@ project/assembly_name="TheMagicApprentice"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+
+[gdunit4]
+
+settings/test/test_discovery=true
+ui/inspector/tree_view_mode=1
