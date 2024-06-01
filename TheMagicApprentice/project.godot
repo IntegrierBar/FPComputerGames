@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="TheMagicApprentice"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Enums="*res://modules/enums.cs"
 
 [dotnet]
 
@@ -20,4 +24,4 @@ project/assembly_name="TheMagicApprentice"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
