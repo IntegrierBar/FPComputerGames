@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfafpfmqm8u17"]
+
+[ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
+[ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_33xnx")
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_oqun1")]
