@@ -7,12 +7,8 @@ public partial class HealthComponent : Area2D
 	[Signal]
 	public delegate void DeathEventHandler();
 
-	[ExportCategory("Main Category")]
 	[Export]
-	public int test = 0;
-
-	[Export]
-	public double MaxHP = 100;
+	private double MaxHP = 100;
 	private double CurrentHP {get; set;}
 
 	private Dictionary<MagicType, double> Armor;
