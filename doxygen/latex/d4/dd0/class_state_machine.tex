@@ -1,0 +1,68 @@
+\doxysection{State\+Machine Class Reference}
+\hypertarget{class_state_machine}{}\label{class_state_machine}\index{StateMachine@{StateMachine}}
+Inheritance diagram for State\+Machine\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d4/dd0/class_state_machine}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_state_machine_a127f5c8d96f0c95d9565dd2c61498833}{Init}} (Character\+Body2D parent, Animation\+Player animation\+Player)
+\item 
+void \mbox{\hyperlink{class_state_machine_a39d4f171ea0bb163dd0d8387fbc388ca}{Process\+Input}} (Input\+Event @event)
+\item 
+void \mbox{\hyperlink{class_state_machine_a05fda3fdeb61112b66d7fff275e099bc}{Process\+Frame}} (double delta)
+\item 
+void \mbox{\hyperlink{class_state_machine_aa8309fee857e70238be3ff2fe55689f6}{Process\+Physics}} (double delta)
+\item 
+\mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_state_machine_a57b1c813842d5243c69323e38314df47}{Get\+State}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_state_machine_a8ed3459ddc5880bd2b70606ed6e9f705}\label{class_state_machine_a8ed3459ddc5880bd2b70606ed6e9f705} 
+\mbox{\hyperlink{class_state}{State}} {\bfseries Starting\+State}
+\begin{DoxyCompactList}\small\item\em Reference to the \doxylink{class_state}{State} in which we start the game. \end{DoxyCompactList}\item 
+\Hypertarget{class_state_machine_a7c972e57120ec44b778348c9ffd4a141}\label{class_state_machine_a7c972e57120ec44b778348c9ffd4a141} 
+\mbox{\hyperlink{class_state}{State}} {\bfseries Death\+State}
+\begin{DoxyCompactList}\small\item\em Reference to tthe \doxylink{class_death}{Death} state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_state_machine_a57b1c813842d5243c69323e38314df47}\index{StateMachine@{StateMachine}!GetState@{GetState}}
+\index{GetState@{GetState}!StateMachine@{StateMachine}}
+\doxysubsubsection{\texorpdfstring{GetState()}{GetState()}}
+{\footnotesize\ttfamily \label{class_state_machine_a57b1c813842d5243c69323e38314df47} 
+\mbox{\hyperlink{class_state}{State}} State\+Machine.\+Get\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter for current\+State. Is only used for testing \Hypertarget{class_state_machine_a127f5c8d96f0c95d9565dd2c61498833}\index{StateMachine@{StateMachine}!Init@{Init}}
+\index{Init@{Init}!StateMachine@{StateMachine}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_state_machine_a127f5c8d96f0c95d9565dd2c61498833} 
+void State\+Machine.\+Init (\begin{DoxyParamCaption}\item[{Character\+Body2D}]{parent}{, }\item[{Animation\+Player}]{animation\+Player}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Initialise all states by setting their Parent and Animations members and changes into the Starting\+State \Hypertarget{class_state_machine_a05fda3fdeb61112b66d7fff275e099bc}\index{StateMachine@{StateMachine}!ProcessFrame@{ProcessFrame}}
+\index{ProcessFrame@{ProcessFrame}!StateMachine@{StateMachine}}
+\doxysubsubsection{\texorpdfstring{ProcessFrame()}{ProcessFrame()}}
+{\footnotesize\ttfamily \label{class_state_machine_a05fda3fdeb61112b66d7fff275e099bc} 
+void State\+Machine.\+Process\+Frame (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+direct the \+\_\+\+Process from the entity to the current state \Hypertarget{class_state_machine_a39d4f171ea0bb163dd0d8387fbc388ca}\index{StateMachine@{StateMachine}!ProcessInput@{ProcessInput}}
+\index{ProcessInput@{ProcessInput}!StateMachine@{StateMachine}}
+\doxysubsubsection{\texorpdfstring{ProcessInput()}{ProcessInput()}}
+{\footnotesize\ttfamily \label{class_state_machine_a39d4f171ea0bb163dd0d8387fbc388ca} 
+void State\+Machine.\+Process\+Input (\begin{DoxyParamCaption}\item[{Input\+Event @}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+direct the input from the entity to the current state \Hypertarget{class_state_machine_aa8309fee857e70238be3ff2fe55689f6}\index{StateMachine@{StateMachine}!ProcessPhysics@{ProcessPhysics}}
+\index{ProcessPhysics@{ProcessPhysics}!StateMachine@{StateMachine}}
+\doxysubsubsection{\texorpdfstring{ProcessPhysics()}{ProcessPhysics()}}
+{\footnotesize\ttfamily \label{class_state_machine_aa8309fee857e70238be3ff2fe55689f6} 
+void State\+Machine.\+Process\+Physics (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+direct the \+\_\+\+Physics\+Process from the entity to the current state 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/State\+Machine.\+cs\end{DoxyCompactItemize}

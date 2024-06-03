@@ -1,4 +1,4 @@
-//namespace Tests;
+namespace Tests;
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -6,8 +6,13 @@ using GdUnit4;
 using Godot;
 using static GdUnit4.Assertions;
 
+
+/**
+Unit tests for the HealthComponent
+Tests the TakeDamage function
+*/
 [TestSuite]
-public class HealthComponenTest
+public class TestHealthComponent
 {    
     private HealthComponent _target;
     private HealthComponent _attackingNode;
@@ -26,7 +31,7 @@ public class HealthComponenTest
         _target.Death += () => died = true; // Add custom method to check if Death Signal got emitted
     }
 
-/*
+    /*
     [TestCase]
     public void StringToLower() 
     {

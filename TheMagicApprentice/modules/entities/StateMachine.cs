@@ -3,16 +3,19 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
 using System.Linq;
 
+
 public partial class StateMachine : Node
 {
 	[Export]
-	public State StartingState;
+	public State StartingState; ///< Reference to the State in which we start the game
 	[Export]
-	public State DeathState;
+	public State DeathState; ///< Reference to tthe Death state
 
-	private State _currentState;
+	private State _currentState; ///< Reference to the state in which we currently are
 	
-	/// Initialise all states by setting their Parent and Animations members and changing into the current state
+	/**
+	Initialise all states by setting their Parent and Animations members and changes into the StartingState
+	*/
 	public void Init(CharacterBody2D parent, AnimationPlayer animationPlayer)
 	{
 		foreach (State state in GetChildren().Where(x => x is State).Cast<State>())
@@ -23,7 +26,9 @@ public partial class StateMachine : Node
 		ChangeState(StartingState);
 	}
 
-	/// Change from _currentState to newState
+	/**
+	Change from _currentState to newState
+	*/
 	private void ChangeState(State newState)
 	{
 		if (_currentState is not null)
@@ -34,7 +39,9 @@ public partial class StateMachine : Node
 		_currentState.Enter();
 	}
 
-	/// direct the input from the entity to the current state
+	/**
+	direct the input from the entity to the current state
+	*/
 	public void ProcessInput(InputEvent @event)
 	{
 		State newState = _currentState.ProcessInput(@event);
@@ -44,7 +51,9 @@ public partial class StateMachine : Node
 		}
 	}
 
-	/// direct the _Process from the entity to the current state
+	/**
+	direct the _Process from the entity to the current state
+	*/
 	public void ProcessFrame(double delta)
 	{
 		State newState = _currentState.ProcessFrame(delta);
@@ -54,7 +63,9 @@ public partial class StateMachine : Node
 		}
 	}
 
-	/// direct the _PhysicsProcess from the entity to the current state
+	/**
+	direct the _PhysicsProcess from the entity to the current state
+	*/
 	public void ProcessPhysics(double delta)
 	{
 		State newState = _currentState.ProcessPhysics(delta);
@@ -62,5 +73,13 @@ public partial class StateMachine : Node
 		{
 			ChangeState(newState);
 		}
+	}
+
+	/**
+	Getter for currentState. Is only used for testing
+	*/
+	public State GetState()
+	{
+		return _currentState;
 	}
 }

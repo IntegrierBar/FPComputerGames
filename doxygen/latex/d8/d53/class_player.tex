@@ -1,0 +1,60 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+Inheritance diagram for Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d8/d53/class_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_player_ae192a478a80f0e93e01339d62cdd6f6d}{\+\_\+\+Ready}} ()
+\item 
+override void \mbox{\hyperlink{class_player_a81db5dd46c343160498d29f6fa42d611}{\+\_\+\+Process}} (double delta)
+\item 
+override void \mbox{\hyperlink{class_player_a58bb8488c42d336b1ba8b3f796ba67f0}{\+\_\+\+Physics\+Process}} (double delta)
+\item 
+override void \mbox{\hyperlink{class_player_af1f380bc0ff1a7f3a3679e62c3ecda3d}{\+\_\+\+Unhandled\+Input}} (Input\+Event @event)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_player_ab485081de7af343c708cad2253c34cb8}\label{class_player_ab485081de7af343c708cad2253c34cb8} 
+\mbox{\hyperlink{class_state_machine}{State\+Machine}} {\bfseries State\+Machine}
+\begin{DoxyCompactList}\small\item\em Reference to the state machine of the player charackter. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_a343fb1371365e58eb9c641928d41237a}\label{class_player_a343fb1371365e58eb9c641928d41237a} 
+Animation\+Player {\bfseries Animation\+Player}
+\begin{DoxyCompactList}\small\item\em Reference to the animation player of the player charackter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a58bb8488c42d336b1ba8b3f796ba67f0}\index{Player@{Player}!\_PhysicsProcess@{\_PhysicsProcess}}
+\index{\_PhysicsProcess@{\_PhysicsProcess}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{\_PhysicsProcess()}{\_PhysicsProcess()}}
+{\footnotesize\ttfamily \label{class_player_a58bb8488c42d336b1ba8b3f796ba67f0} 
+override void Player.\+\_\+\+Physics\+Process (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Is called every physics update We simply forward the call to the state machine \Hypertarget{class_player_a81db5dd46c343160498d29f6fa42d611}\index{Player@{Player}!\_Process@{\_Process}}
+\index{\_Process@{\_Process}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{\_Process()}{\_Process()}}
+{\footnotesize\ttfamily \label{class_player_a81db5dd46c343160498d29f6fa42d611} 
+override void Player.\+\_\+\+Process (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Is called every frame We simply forward the call to the state machine \Hypertarget{class_player_ae192a478a80f0e93e01339d62cdd6f6d}\index{Player@{Player}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_player_ae192a478a80f0e93e01339d62cdd6f6d} 
+override void Player.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Is called when the player charackter enters the scene tree. Checks if the references to the state machine and the animation player are valid and then sends them to the state machine so that all states get the references \Hypertarget{class_player_af1f380bc0ff1a7f3a3679e62c3ecda3d}\index{Player@{Player}!\_UnhandledInput@{\_UnhandledInput}}
+\index{\_UnhandledInput@{\_UnhandledInput}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{\_UnhandledInput()}{\_UnhandledInput()}}
+{\footnotesize\ttfamily \label{class_player_af1f380bc0ff1a7f3a3679e62c3ecda3d} 
+override void Player.\+\_\+\+Unhandled\+Input (\begin{DoxyParamCaption}\item[{Input\+Event @}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Is called whenever any Input from the user is unhandled We simply forward the call to the state machine 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/player/Player.\+cs\end{DoxyCompactItemize}
