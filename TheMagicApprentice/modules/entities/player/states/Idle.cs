@@ -19,7 +19,13 @@ public partial class Idle : State
 
     public override State ProcessInput(InputEvent @event)
     {
-        return base.ProcessInput(@event);
+        //GD.Print("called input method");
+        if (Input.GetVector("left", "right", "up", "down") != Vector2.Zero)
+        {
+            //GD.Print("returned Moving");
+            return Moving;
+        }
+        return null;
     }
 
 

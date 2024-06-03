@@ -74,4 +74,12 @@ public partial class StateMachine : Node
 			ChangeState(newState);
 		}
 	}
+
+	/**
+	Getter for currentState. Is only used for testing
+	*/
+	public State GetState()
+	{
+		return _currentState;
+	}
 }

@@ -15,4 +15,14 @@ public partial class Moving : State
     public State Dashing;
     [Export]
     public State SpellCasting;
+
+    public override State ProcessPhysics(double delta)
+    {
+        if (Input.GetVector("left", "right", "up", "down") == Vector2.Zero)
+        {
+            //GD.Print("returned Idle from Moving");
+            return Idle;
+        }
+        return null;
+    }
 }

@@ -20,6 +20,19 @@ public partial class Player : CharacterBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		//GD.Print(" Process called");
 		StateMachine.ProcessFrame(delta);
 	}
+
+	public override void _PhysicsProcess(double delta)
+	{
+		//GD.Print("Physics Process called");
+		StateMachine.ProcessPhysics(delta);
+	}
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        //base._UnhandledInput(@event);
+		StateMachine.ProcessInput(@event);
+    }
 }

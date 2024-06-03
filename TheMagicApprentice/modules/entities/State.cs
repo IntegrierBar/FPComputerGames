@@ -38,7 +38,5 @@ public partial class State : Node
 	/**
 	Called in ProcessFrame. Is resposible for playing the correct animation for the state
 	*/
-	public virtual void UpdateAnimations() {
-		GD.Print("OLD function");
-	}
+	public virtual void UpdateAnimations() {}
 }
