@@ -4,10 +4,14 @@ using System;
 [GlobalClass]
 public partial class State : Node
 {
-	/// Reference to the parent of the scene, i.e. the entity that this state machine belongs to.
+	/**
+	Reference to the parent of the scene, i.e. the entity that this state machine belongs to.
+	*/
 	public CharacterBody2D Parent;
 
-	/// Reference to the AnimationPlayer of the entity
+	/**
+	Reference to the AnimationPlayer of the entity
+	*/
 	public AnimationPlayer Animations;
 
 
@@ -31,7 +35,9 @@ public partial class State : Node
 		return null;
 	}
 
-	/// called in ProcessFrame. Is resposible for playing the correct animation for the state
+	/**
+	Called in ProcessFrame. Is resposible for playing the correct animation for the state
+	*/
 	public virtual void UpdateAnimations() {
 		GD.Print("OLD function");
 	}

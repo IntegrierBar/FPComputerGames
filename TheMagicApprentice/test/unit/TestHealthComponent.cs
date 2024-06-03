@@ -6,6 +6,11 @@ using GdUnit4;
 using Godot;
 using static GdUnit4.Assertions;
 
+
+/**
+Unit tests for the HealthComponent
+Tests the TakeDamage function
+*/
 [TestSuite]
 public class TestHealthComponent
 {    

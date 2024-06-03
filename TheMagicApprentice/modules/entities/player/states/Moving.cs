@@ -3,7 +3,9 @@ using System;
 
 public partial class Moving : State
 {
-    /// References to all states we can transition into
+    /**
+    References to all states we can transition into
+    */
     [ExportGroup("States")]
     [Export]
     public State Idle;

@@ -2,6 +2,9 @@ using Godot;
 using System;
 
 
+/**
+Basic class that encapsulates everything responsible for an attack
+*/
 public partial class Attack
 {
     public double damage;

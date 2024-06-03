@@ -45,7 +45,9 @@ public partial class HealthComponent : Area2D
 		}
 	}
 
-	/// Setter for MaxHP. Also automatically resets CurrentHP since this function is only called outside dungeon
+	/**
+	Setter for MaxHP. Also automatically resets CurrentHP since this function is only called outside dungeon
+	*/
 	public void SetMaxHP(double newMaxHP)
 	{
 		System.Diagnostics.Debug.Assert(newMaxHP > 0);
@@ -53,7 +55,9 @@ public partial class HealthComponent : Area2D
 		CurrentHP = MaxHP;
 	}
 
-	/// Setter for Armor
+	/**
+	Setter for Armor
+	*/
 	public void SetArmor(double armorSun, double armorCosmic, double armorDark)
 	{
 		Armor = new Dictionary<MagicType, double>
@@ -64,7 +68,9 @@ public partial class HealthComponent : Area2D
 		};
 	}
 
-	/// Getter for CurrentHP. Is only used by tests
+	/**
+	Getter for CurrentHP. Is only used by tests
+	*/
 	public double GetCurrentHP()
 	{
 		return CurrentHP;

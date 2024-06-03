@@ -13,7 +13,9 @@ public partial class StateMachine : Node
 
 	private State _currentState;
 	
-	/// Initialise all states by setting their Parent and Animations members and changing into the current state
+	/**
+	Initialise all states by setting their Parent and Animations members and changing into the current state
+	*/
 	public void Init(CharacterBody2D parent, AnimationPlayer animationPlayer)
 	{
 		foreach (State state in GetChildren().Where(x => x is State).Cast<State>())
@@ -24,7 +26,9 @@ public partial class StateMachine : Node
 		ChangeState(StartingState);
 	}
 
-	/// Change from _currentState to newState
+	/**
+	Change from _currentState to newState
+	*/
 	private void ChangeState(State newState)
 	{
 		if (_currentState is not null)
@@ -35,7 +39,9 @@ public partial class StateMachine : Node
 		_currentState.Enter();
 	}
 
-	/// direct the input from the entity to the current state
+	/**
+	direct the input from the entity to the current state
+	*/
 	public void ProcessInput(InputEvent @event)
 	{
 		State newState = _currentState.ProcessInput(@event);
@@ -45,7 +51,9 @@ public partial class StateMachine : Node
 		}
 	}
 
-	/// direct the _Process from the entity to the current state
+	/**
+	direct the _Process from the entity to the current state
+	*/
 	public void ProcessFrame(double delta)
 	{
 		State newState = _currentState.ProcessFrame(delta);
@@ -55,7 +63,9 @@ public partial class StateMachine : Node
 		}
 	}
 
-	/// direct the _PhysicsProcess from the entity to the current state
+	/**
+	direct the _PhysicsProcess from the entity to the current state
+	*/
 	public void ProcessPhysics(double delta)
 	{
 		State newState = _currentState.ProcessPhysics(delta);
