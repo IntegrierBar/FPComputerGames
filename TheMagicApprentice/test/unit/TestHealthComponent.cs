@@ -1,4 +1,4 @@
-//namespace Tests;
+namespace Tests;
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -7,7 +7,7 @@ using Godot;
 using static GdUnit4.Assertions;
 
 [TestSuite]
-public class HealthComponenTest
+public class TestHealthComponent
 {    
     private HealthComponent _target;
     private HealthComponent _attackingNode;

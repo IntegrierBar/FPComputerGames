@@ -1,12 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=9 format=3 uid="uid://cfafpfmqm8u17"]
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
 [ext_resource type="PackedScene" uid="uid://jbflxvnkddjv" path="res://modules/entities/state_Machine.tscn" id="3_wgqpl"]
+[ext_resource type="Script" path="res://modules/entities/player/states/Idle.cs" id="4_tph16"]
+[ext_resource type="Script" path="res://modules/entities/player/states/Moving.cs" id="5_156b2"]
+[ext_resource type="Script" path="res://modules/entities/player/states/Dashing.cs" id="6_b8k76"]
+[ext_resource type="Script" path="res://modules/entities/player/states/SpellCasting.cs" id="7_3o7s1"]
+[ext_resource type="Script" path="res://modules/entities/player/states/Death.cs" id="8_mcwkb"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
 script = ExtResource("1_33xnx")
+StateMachine = NodePath("StateMachine")
+AnimationPlayer = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_oqun1")]
 
-[node name="StateMachine" parent="." instance=ExtResource("3_wgqpl")]
+[node name="StateMachine" parent="." node_paths=PackedStringArray("StartingState", "DeathState") instance=ExtResource("3_wgqpl")]
+StartingState = NodePath("Idle")
+DeathState = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("Moving", "Dashing", "SpellCasting")]
+script = ExtResource("4_tph16")
+Moving = NodePath("../Moving")
+Dashing = NodePath("../Dashing")
+SpellCasting = NodePath("../SpellCasting")
+
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle", "Dashing", "SpellCasting")]
+script = ExtResource("5_156b2")
+Idle = NodePath("../Idle")
+Dashing = NodePath("../Dashing")
+SpellCasting = NodePath("../SpellCasting")
+
+[node name="Dashing" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle", "Moving", "SpellCasting")]
+script = ExtResource("6_b8k76")
+Idle = NodePath("../Idle")
+Moving = NodePath("../Moving")
+SpellCasting = NodePath("../SpellCasting")
+
+[node name="SpellCasting" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle", "Moving", "Dashing")]
+script = ExtResource("7_3o7s1")
+Idle = NodePath("../Idle")
+Moving = NodePath("../Moving")
+Dashing = NodePath("../Dashing")
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("8_mcwkb")

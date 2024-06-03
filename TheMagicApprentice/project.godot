@@ -26,3 +26,4 @@ enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
 
 settings/test/test_discovery=true
 ui/inspector/tree_view_mode=1
+ui/toolbar/run_overall=true

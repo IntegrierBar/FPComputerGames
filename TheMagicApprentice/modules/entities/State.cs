@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public partial class State : Node
 {
 	/// Reference to the parent of the scene, i.e. the entity that this state machine belongs to.
@@ -31,5 +32,7 @@ public partial class State : Node
 	}
 
 	/// called in ProcessFrame. Is resposible for playing the correct animation for the state
-	public virtual void UpdateAnimations() {}
+	public virtual void UpdateAnimations() {
+		GD.Print("OLD function");
+	}
 }
