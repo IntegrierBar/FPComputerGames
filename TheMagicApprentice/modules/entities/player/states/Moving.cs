@@ -4,19 +4,18 @@ using System;
 public partial class Moving : State
 {
     [Export]
-    public double SPEED = 100;
-    /**
-    References to all states we can transition into
-    */
+    public double SPEED = 100; ///< Movement speed 
+    
+    
     [ExportGroup("States")]
     [Export]
-    public State Idle;
+    public State Idle; ///< Reference to Idle state 
     //[Export]
     //public State Moving;
     [Export]
-    public State Dashing;
+    public State Dashing; ///< Reference to Dashing state
     [Export]
-    public State SpellCasting;
+    public State SpellCasting; ///< Reference to SpellCasting state 
 
 
     public override State ProcessInput(InputEvent @event)
@@ -31,6 +30,7 @@ public partial class Moving : State
         }
         return base.ProcessInput(@event);
     }
+
 
     public override State ProcessPhysics(double delta)
     {

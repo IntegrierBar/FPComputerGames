@@ -1,0 +1,76 @@
+\doxysection{Moving Class Reference}
+\hypertarget{class_moving}{}\label{class_moving}\index{Moving@{Moving}}
+Inheritance diagram for Moving\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{de/dfa/class_moving}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_moving_a208501750955b2fccb0bdb2adecfc765}{Process\+Input}} (Input\+Event @event)
+\item 
+override \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_moving_a8b62476b569f44b0803d7766b99c0650}{Process\+Physics}} (double delta)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_state_ab9ff526b7a0b992ae01dd9c9ece5a882}{Enter}} ()
+\item 
+virtual void \mbox{\hyperlink{class_state_ae384c5d8253cc8671290231c84fdb703}{Exit}} ()
+\item 
+virtual \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_state_adab2ce69b1aa448a362799d1d494b200}{Process\+Frame}} (double delta)
+\item 
+virtual void \mbox{\hyperlink{class_state_aaba9e1d832609aad7324eb2b26c2fbb4}{Update\+Animations}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_moving_a72e5caf6c2395529080dda186ca1cf91}\label{class_moving_a72e5caf6c2395529080dda186ca1cf91} 
+double {\bfseries SPEED} = 100
+\begin{DoxyCompactList}\small\item\em Movement speed. \end{DoxyCompactList}\item 
+\Hypertarget{class_moving_a124f9d1693eae4d3ce2634c26704d03f}\label{class_moving_a124f9d1693eae4d3ce2634c26704d03f} 
+\mbox{\hyperlink{class_state}{State}} {\bfseries Idle}
+\begin{DoxyCompactList}\small\item\em Reference to \doxylink{class_idle}{Idle} state. \end{DoxyCompactList}\item 
+\Hypertarget{class_moving_a9e341b5e1ec31df4cabd09e862827dea}\label{class_moving_a9e341b5e1ec31df4cabd09e862827dea} 
+\mbox{\hyperlink{class_state}{State}} {\bfseries Dashing}
+\begin{DoxyCompactList}\small\item\em Reference to \doxylink{class_dashing}{Dashing} state. \end{DoxyCompactList}\item 
+\Hypertarget{class_moving_a39540afe02ea4d9e99d78d9a7a6cb4c2}\label{class_moving_a39540afe02ea4d9e99d78d9a7a6cb4c2} 
+\mbox{\hyperlink{class_state}{State}} {\bfseries Spell\+Casting}
+\begin{DoxyCompactList}\small\item\em Reference to \doxylink{class_spell_casting}{Spell\+Casting} state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+Character\+Body2D {\bfseries Parent}
+\begin{DoxyCompactList}\small\item\em Reference to the parent of the scene, i.\+e. the entity that this state machine belongs to. \end{DoxyCompactList}\item 
+Animation\+Player {\bfseries Animations}
+\begin{DoxyCompactList}\small\item\em Reference to the Animation\+Player of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_moving_a208501750955b2fccb0bdb2adecfc765}\index{Moving@{Moving}!ProcessInput@{ProcessInput}}
+\index{ProcessInput@{ProcessInput}!Moving@{Moving}}
+\doxysubsubsection{\texorpdfstring{ProcessInput()}{ProcessInput()}}
+{\footnotesize\ttfamily \label{class_moving_a208501750955b2fccb0bdb2adecfc765} 
+override \mbox{\hyperlink{class_state}{State}} Moving.\+Process\+Input (\begin{DoxyParamCaption}\item[{Input\+Event @}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+If the state is the current state this function gets called whenever there is an unhandled input 
+
+Reimplemented from \mbox{\hyperlink{class_state_a7d099d7bdc79e52b367a486029481883}{State}}.
+
+\Hypertarget{class_moving_a8b62476b569f44b0803d7766b99c0650}\index{Moving@{Moving}!ProcessPhysics@{ProcessPhysics}}
+\index{ProcessPhysics@{ProcessPhysics}!Moving@{Moving}}
+\doxysubsubsection{\texorpdfstring{ProcessPhysics()}{ProcessPhysics()}}
+{\footnotesize\ttfamily \label{class_moving_a8b62476b569f44b0803d7766b99c0650} 
+override \mbox{\hyperlink{class_state}{State}} Moving.\+Process\+Physics (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+If the state is the current state this function gets called every physics update 
+
+Reimplemented from \mbox{\hyperlink{class_state_a9c4d232b2b843d9703828c9020c6fc8a}{State}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/player/states/Moving.\+cs\end{DoxyCompactItemize}

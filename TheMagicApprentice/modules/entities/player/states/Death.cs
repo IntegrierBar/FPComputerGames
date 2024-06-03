@@ -4,9 +4,10 @@ using System;
 public partial class Death : State
 {
     [Export]
-    public double DeathAnimationTime = 1.0;
-    private double _timeLeft = 0.0;
+    public double DeathAnimationTime = 1.0; ///< Duration of the death animation 
+    private double _timeLeft = 0.0; 
 
+    
     public override void Enter()
     {
         //Animations.Play("death");

@@ -25,7 +25,7 @@ public partial class TestPlayer
     }
 
 	/**
-	Test what happens, when
+	Test the transitions between states
 	*/
     [TestCase]
     public async Task TestStateMachineStateTransistionsAsync()

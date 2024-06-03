@@ -1,22 +1,24 @@
 using Godot;
 using System;
 
+/**
+Dash state of the player charackter.
+During dashing the hitbox of the player is disabled
+*/
 public partial class Dashing : State
 {
     [Export]
-    public CollisionShape2D HitBox;
+    public CollisionShape2D HitBox; ///< Reference of the HitBox of the player 
     [Export]
-    public double SPEED = 400;
+    public double SPEED = 400; ///< Speed of the dash
     [Export]
-    public double DASH_TIME = 0.3;
+    public double DASH_TIME = 0.3; ///< Duration of the dash 
     private double _timeLeft = 0;
 
-    /**
-    References to all states we can transition into
-    */
+    
     [ExportGroup("States")]
     [Export]
-    public State Idle;
+    public State Idle; ///< Reference to the Idle state
     //[Export]
     //public State Moving;
     //[Export]

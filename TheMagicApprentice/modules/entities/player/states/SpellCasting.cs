@@ -3,13 +3,11 @@ using System;
 
 public partial class SpellCasting : State
 {
-    private double _timeLeft = 0.0;
-    /**
-    References to all states we can transition into
-    */
+    private double _timeLeft = 0.0; ///< Varaible to track how long we remain in this state
+
     [ExportGroup("States")]
     [Export]
-    public State Idle;
+    public State Idle; ///< Reference to the Idle state
     //[Export]
     //public State Moving;
     //[Export]
@@ -17,7 +15,12 @@ public partial class SpellCasting : State
     //[Export]
     //public State SpellCasting;
 
-
+    
+    /*!
+    Get the correct spell by checking whether spell1, spell2 or spell3 was cast.
+    Then cast it and set the time left to the duration given by the spell.
+    TODO: Spells are not yet implemented so this does nothing.
+    */
     public override void Enter()
     {
         base.Enter();

@@ -5,27 +5,32 @@ using System.Collections.Generic;
 public partial class HealthComponent : Area2D
 {
 	[Signal]
-	public delegate void DeathEventHandler();
+	public delegate void DeathEventHandler(); ///< Signal that gets emitted if the entities health reaches 0 
 
 	[Export]
-	private double MaxHP = 100;
-	private double CurrentHP {get; set;}
+	private double MaxHP = 100; ///< Maximum HP of the entity 
+	private double _currentHP; ///< current HP of the entitiy 
 
-	private Dictionary<MagicType, double> Armor;
-	// Called when the node enters the scene tree for the first time.
+	private Dictionary<MagicType, double> Armor = new Dictionary<MagicType, double> {
+			{MagicType.SUN, 0},
+			{MagicType.COSMIC, 0},
+			{MagicType.DARK, 0},
+		}; ///< Armor of the entity 
+
+
+	/**
+	During initialization we set the currentHP to the MaxHP
+	*/
 	public override void _Ready()
 	{
-		CurrentHP = MaxHP;
-
-		Armor = new Dictionary<MagicType, double>
-		{
-			{MagicType.SUN, 30},
-			{MagicType.COSMIC, 30},
-			{MagicType.DARK, 30},
-		};
+		_currentHP = MaxHP;
 	}
 
 	
+	/**
+	Gets called whenever the hitbox of the Healthcomponent collides with a hurtbox.
+	Processes the Attack and if currentHP reaches zero emits the signal Death.
+	*/
 	public void TakeDamage(Attack attack)
 	{
 		if (Armor[attack.magicType] > 100.0)
@@ -38,8 +43,8 @@ public partial class HealthComponent : Area2D
 			return;
 		}
 
-		CurrentHP -= attack.damage * (1.0 - Armor[attack.magicType]/100.0);
-		if (CurrentHP <= 0.0)
+		_currentHP -= attack.damage * (1.0 - Armor[attack.magicType]/100.0);
+		if (_currentHP <= 0.0)
 		{
 			EmitSignal(SignalName.Death);
 		}
@@ -52,7 +57,7 @@ public partial class HealthComponent : Area2D
 	{
 		System.Diagnostics.Debug.Assert(newMaxHP > 0);
 		MaxHP = newMaxHP;
-		CurrentHP = MaxHP;
+		_currentHP = MaxHP;
 	}
 
 	/**
@@ -73,6 +78,6 @@ public partial class HealthComponent : Area2D
 	*/
 	public double GetCurrentHP()
 	{
-		return CurrentHP;
+		return _currentHP;
 	}
 }

@@ -31,7 +31,7 @@ public class TestHealthComponent
         _target.Death += () => died = true; // Add custom method to check if Death Signal got emitted
     }
 
-/*
+    /*
     [TestCase]
     public void StringToLower() 
     {

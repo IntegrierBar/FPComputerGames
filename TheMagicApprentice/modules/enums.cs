@@ -1,8 +1,11 @@
 using Godot;
 using System;
 
-/**
-Global Enum for the Magic Type
+/*!
+\enum MagicType
+\brief Global Enum for the Magic Type
+
+The different types are SUN, COSMIC DARK.
 */
 public enum MagicType
 {

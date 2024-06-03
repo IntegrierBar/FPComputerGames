@@ -1,0 +1,89 @@
+\doxysection{Dashing Class Reference}
+\hypertarget{class_dashing}{}\label{class_dashing}\index{Dashing@{Dashing}}
+Inheritance diagram for Dashing\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d8/dce/class_dashing}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_dashing_a02e1cab6e160d4b0534385d3a64980e6}{Enter}} ()
+\item 
+override void \mbox{\hyperlink{class_dashing_a87297ffd045097fe0bbb0f3107b31e4d}{Exit}} ()
+\item 
+override \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_dashing_a08cfb04947f2a041542110fd6d07d657}{Process\+Physics}} (double delta)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_state_a7d099d7bdc79e52b367a486029481883}{Process\+Input}} (Input\+Event @event)
+\item 
+virtual \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_state_adab2ce69b1aa448a362799d1d494b200}{Process\+Frame}} (double delta)
+\item 
+virtual void \mbox{\hyperlink{class_state_aaba9e1d832609aad7324eb2b26c2fbb4}{Update\+Animations}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_dashing_a1f782568307f7f39999f993794e95a99}\label{class_dashing_a1f782568307f7f39999f993794e95a99} 
+Collision\+Shape2D {\bfseries Hit\+Box}
+\begin{DoxyCompactList}\small\item\em Reference of the Hit\+Box of the player. \end{DoxyCompactList}\item 
+\Hypertarget{class_dashing_a9722e1c2f702a45f1f29e79cdc217b7a}\label{class_dashing_a9722e1c2f702a45f1f29e79cdc217b7a} 
+double {\bfseries SPEED} = 400
+\begin{DoxyCompactList}\small\item\em Speed of the dash. \end{DoxyCompactList}\item 
+\Hypertarget{class_dashing_a8aa50b7be805d4bf3ee7552afd22727e}\label{class_dashing_a8aa50b7be805d4bf3ee7552afd22727e} 
+double {\bfseries DASH\+\_\+\+TIME} = 0.\+3
+\begin{DoxyCompactList}\small\item\em Duration of the dash. \end{DoxyCompactList}\item 
+\Hypertarget{class_dashing_afe69a07ec3460f3c918674f1ffa77287}\label{class_dashing_afe69a07ec3460f3c918674f1ffa77287} 
+\mbox{\hyperlink{class_state}{State}} {\bfseries Idle}
+\begin{DoxyCompactList}\small\item\em Reference to the \doxylink{class_idle}{Idle} state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+Character\+Body2D {\bfseries Parent}
+\begin{DoxyCompactList}\small\item\em Reference to the parent of the scene, i.\+e. the entity that this state machine belongs to. \end{DoxyCompactList}\item 
+Animation\+Player {\bfseries Animations}
+\begin{DoxyCompactList}\small\item\em Reference to the Animation\+Player of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Dash state of the player charackter. During dashing the hitbox of the player is disabled 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dashing_a02e1cab6e160d4b0534385d3a64980e6}\index{Dashing@{Dashing}!Enter@{Enter}}
+\index{Enter@{Enter}!Dashing@{Dashing}}
+\doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}
+{\footnotesize\ttfamily \label{class_dashing_a02e1cab6e160d4b0534385d3a64980e6} 
+override void Dashing.\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Called everytime we enter the state 
+
+Reimplemented from \mbox{\hyperlink{class_state_ab9ff526b7a0b992ae01dd9c9ece5a882}{State}}.
+
+\Hypertarget{class_dashing_a87297ffd045097fe0bbb0f3107b31e4d}\index{Dashing@{Dashing}!Exit@{Exit}}
+\index{Exit@{Exit}!Dashing@{Dashing}}
+\doxysubsubsection{\texorpdfstring{Exit()}{Exit()}}
+{\footnotesize\ttfamily \label{class_dashing_a87297ffd045097fe0bbb0f3107b31e4d} 
+override void Dashing.\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Called everytime we exit the state 
+
+Reimplemented from \mbox{\hyperlink{class_state_ae384c5d8253cc8671290231c84fdb703}{State}}.
+
+\Hypertarget{class_dashing_a08cfb04947f2a041542110fd6d07d657}\index{Dashing@{Dashing}!ProcessPhysics@{ProcessPhysics}}
+\index{ProcessPhysics@{ProcessPhysics}!Dashing@{Dashing}}
+\doxysubsubsection{\texorpdfstring{ProcessPhysics()}{ProcessPhysics()}}
+{\footnotesize\ttfamily \label{class_dashing_a08cfb04947f2a041542110fd6d07d657} 
+override \mbox{\hyperlink{class_state}{State}} Dashing.\+Process\+Physics (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+If the state is the current state this function gets called every physics update 
+
+Reimplemented from \mbox{\hyperlink{class_state_a9c4d232b2b843d9703828c9020c6fc8a}{State}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/player/states/Dashing.\+cs\end{DoxyCompactItemize}

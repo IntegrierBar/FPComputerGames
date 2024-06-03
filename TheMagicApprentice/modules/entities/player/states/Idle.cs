@@ -3,18 +3,15 @@ using System;
 
 public partial class Idle : State
 {
-    /**
-    References to all states we can transition into
-    */
     [ExportGroup("States")]
     //[Export]
     //public State Idle;
     [Export]
-    public State Moving;
+    public State Moving; ///< Reference to Moving state
     [Export]
-    public State Dashing;
+    public State Dashing; ///< Reference to Dashing state 
     [Export]
-    public State SpellCasting;
+    public State SpellCasting; ///< Reference to SpellCasting state 
 
 
     public override State ProcessPhysics(double delta)

@@ -7,14 +7,14 @@ using System.Linq;
 public partial class StateMachine : Node
 {
 	[Export]
-	public State StartingState;
+	public State StartingState; ///< Reference to the State in which we start the game
 	[Export]
-	public State DeathState;
+	public State DeathState; ///< Reference to tthe Death state
 
-	private State _currentState;
+	private State _currentState; ///< Reference to the state in which we currently are
 	
 	/**
-	Initialise all states by setting their Parent and Animations members and changing into the current state
+	Initialise all states by setting their Parent and Animations members and changes into the StartingState
 	*/
 	public void Init(CharacterBody2D parent, AnimationPlayer animationPlayer)
 	{
