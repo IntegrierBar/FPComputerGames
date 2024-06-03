@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=10 format=3 uid="uid://cfafpfmqm8u17"]
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://modules/entities/player/states/SpellCasting.cs" id="7_3o7s1"]
 [ext_resource type="Script" path="res://modules/entities/player/states/Death.cs" id="8_mcwkb"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iaoro"]
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
 script = ExtResource("1_33xnx")
 StateMachine = NodePath("StateMachine")
@@ -17,6 +19,9 @@ AnimationPlayer = NodePath("AnimationPlayer")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_oqun1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
+shape = SubResource("CapsuleShape2D_iaoro")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("StartingState", "DeathState") instance=ExtResource("3_wgqpl")]
 StartingState = NodePath("Idle")
@@ -34,17 +39,14 @@ Idle = NodePath("../Idle")
 Dashing = NodePath("../Dashing")
 SpellCasting = NodePath("../SpellCasting")
 
-[node name="Dashing" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle", "Moving", "SpellCasting")]
+[node name="Dashing" type="Node" parent="StateMachine" node_paths=PackedStringArray("HitBox", "Idle")]
 script = ExtResource("6_b8k76")
+HitBox = NodePath("../../HealthComponent/CollisionShape2D")
 Idle = NodePath("../Idle")
-Moving = NodePath("../Moving")
-SpellCasting = NodePath("../SpellCasting")
 
-[node name="SpellCasting" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle", "Moving", "Dashing")]
+[node name="SpellCasting" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle")]
 script = ExtResource("7_3o7s1")
 Idle = NodePath("../Idle")
-Moving = NodePath("../Moving")
-Dashing = NodePath("../Dashing")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("8_mcwkb")

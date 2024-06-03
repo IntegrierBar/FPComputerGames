@@ -17,13 +17,21 @@ public partial class Idle : State
     public State SpellCasting;
 
 
-    public override State ProcessInput(InputEvent @event)
+    public override State ProcessPhysics(double delta)
     {
-        //GD.Print("called input method");
+        // we out these checks into then Physics process function in order to take care of the case 
+        // that we exit spellcasting or dashing state while pressing another movement button.
         if (Input.GetVector("left", "right", "up", "down") != Vector2.Zero)
         {
-            //GD.Print("returned Moving");
             return Moving;
+        }
+        if (Input.IsActionPressed("dash"))
+        {
+            return Dashing;
+        }
+        if (@Input.IsActionPressed("cast"))
+        {
+            return SpellCasting;
         }
         return null;
     }
