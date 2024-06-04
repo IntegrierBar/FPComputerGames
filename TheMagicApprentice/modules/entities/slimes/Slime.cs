@@ -46,12 +46,24 @@ public partial class Slime : CharacterBody2D
 
 	/**
 	Allows to set the properties of the slime. 
-	This should be called whenever a new slime is added to a scene. 
+	This needs be called whenever a new slime is added to a scene. 
+	Set magic type, slime size and slime attack range of the slime. 
+	Furthermore the position of the slime in the dungeon is set here. 
+	If the slime size is large, the collision shapes of the slime are scaled up. 
+	The default collision shapes fit the small slime.
 	*/
-	public void SetSlimeProperties(MagicType magicType, SlimeSize slimeSize, SlimeAttackRange slimeAttackRange)
+	public void SetSlimeProperties(MagicType magicType, SlimeSize slimeSize, SlimeAttackRange slimeAttackRange, Vector2 slimePosition)
 	{
 		_magicType = magicType;
 		_slimeSize = slimeSize;
 		_slimeAttackRange = slimeAttackRange;
+		Position = slimePosition;
+
+		if (slimeSize == SlimeSize.LARGE) // Scale the collision shapes for the large slimes 
+		{
+			Vector2 scale = new Vector2((float)1.5, (float)1.5); // TODO: correct scale factor has to be determined after the sprite of the large slime has been made, this is just a dummy value
+			GetNode<CollisionShape2D>("%CollisionShapeSlime").Scale = scale;
+			GetNode<CollisionShape2D>("%HitBoxSlime").Scale = scale;
+		}
 	}
 }
