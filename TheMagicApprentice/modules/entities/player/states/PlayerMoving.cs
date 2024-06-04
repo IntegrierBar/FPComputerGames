@@ -46,4 +46,32 @@ public partial class PlayerMoving : State
         
         return null;
     }
+
+    /**
+    Change the animation depending on the current movement of the player
+    */
+    public override void UpdateAnimations()
+    {
+        base.UpdateAnimations();
+
+        string animationName = "walk_"; 
+        if (Parent.Velocity.X > 0)
+        {
+            animationName += "right";
+        }
+        else if (Parent.Velocity.X < 0)
+        {
+            animationName += "left";
+        }
+        else if (Parent.Velocity.Y < 0) // Note: Up in godot is negative y axis
+        {
+            animationName += "up";
+        }
+        else
+        {
+            animationName += "down";
+        }
+
+        Animations.Play(animationName);
+    }
 }

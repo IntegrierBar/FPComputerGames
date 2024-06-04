@@ -26,6 +26,9 @@ public partial class PlayerDashing : State
     //[Export]
     //public State SpellCasting;
 
+    /**
+    When entering the dash state we disable the Hitbox and set the Velocity of the Player 
+    */
     public override void Enter()
     {
         base.Enter();
@@ -35,6 +38,9 @@ public partial class PlayerDashing : State
         HitBox.Disabled = true;
     }
 
+    /**
+    When exiting the dash state we enable the Hitbox again
+    */
     public override void Exit()
     {
         HitBox.Disabled = false;
@@ -53,5 +59,33 @@ public partial class PlayerDashing : State
         Parent.MoveAndSlide();
 
         return base.ProcessPhysics(delta);
+    }
+
+    /**
+    Change the animation depending on the current movement of the player
+    */
+    public override void UpdateAnimations()
+    {
+        base.UpdateAnimations();
+
+        string animationName = "dash_"; 
+        if (Parent.Velocity.X > 0)
+        {
+            animationName += "right";
+        }
+        else if (Parent.Velocity.X < 0)
+        {
+            animationName += "left";
+        }
+        else if (Parent.Velocity.Y < 0)
+        {
+            animationName += "up";
+        }
+        else
+        {
+            animationName += "down";
+        }
+
+        Animations.Play(animationName);
     }
 }

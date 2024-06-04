@@ -48,8 +48,8 @@ public partial class PlayerSpellCasting : State
         // otherwise cast the spell and get spellcasting time from it
         spell.cast(Parent.Position, Parent.GetLocalMousePosition());
         */
-        _timeLeft = 1.0;
-        //Animations.Play("cast");
+        _timeLeft = 0.6;
+        Animations.Play("cast");
     }
 
 
