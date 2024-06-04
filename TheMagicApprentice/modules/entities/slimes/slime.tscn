@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://16e1fc62e66t"]
+
+[ext_resource type="Script" path="res://modules/entities/slimes/Slime.cs" id="1_llbif"]
+[ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="2_oictg"]
+[ext_resource type="PackedScene" uid="uid://jbflxvnkddjv" path="res://modules/entities/state_Machine.tscn" id="3_y1f0k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dxkmx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xw0ru"]
+
+[node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
+script = ExtResource("1_llbif")
+StateMachine = NodePath("StateMachine")
+AnimationPlayer = NodePath("AnimationPlayer")
+
+[node name="CollisionShapeSlime" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_dxkmx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_oictg")]
+
+[node name="HitBoxSlime" type="CollisionShape2D" parent="HealthComponent"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_xw0ru")
+
+[node name="StateMachine" parent="." instance=ExtResource("3_y1f0k")]
