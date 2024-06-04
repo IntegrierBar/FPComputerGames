@@ -14,6 +14,16 @@ public partial class PlayerIdle : State
     public State SpellCasting; ///< Reference to SpellCasting state 
 
 
+    /**
+    Play idle animation when we enter this state
+    */
+    public override void Enter()
+    {
+        base.Enter();
+        Animations.Play("idle");
+    }
+
+
     public override State ProcessPhysics(double delta)
     {
         // we out these checks into then Physics process function in order to take care of the case 
@@ -31,11 +41,5 @@ public partial class PlayerIdle : State
             return SpellCasting;
         }
         return null;
-    }
-
-
-    public override void UpdateAnimations()
-    {
-        
     }
 }
