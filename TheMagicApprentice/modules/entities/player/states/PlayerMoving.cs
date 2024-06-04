@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Moving : State
+public partial class PlayerMoving : State
 {
     [Export]
     public double SPEED = 100; ///< Movement speed 

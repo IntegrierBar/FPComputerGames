@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
 [ext_resource type="PackedScene" uid="uid://jbflxvnkddjv" path="res://modules/entities/state_Machine.tscn" id="3_wgqpl"]
-[ext_resource type="Script" path="res://modules/entities/player/states/Idle.cs" id="4_tph16"]
-[ext_resource type="Script" path="res://modules/entities/player/states/Moving.cs" id="5_156b2"]
-[ext_resource type="Script" path="res://modules/entities/player/states/Dashing.cs" id="6_b8k76"]
-[ext_resource type="Script" path="res://modules/entities/player/states/SpellCasting.cs" id="7_3o7s1"]
-[ext_resource type="Script" path="res://modules/entities/player/states/Death.cs" id="8_mcwkb"]
+[ext_resource type="Script" path="res://modules/entities/player/states/PlayerIdle.cs" id="4_43jy3"]
+[ext_resource type="Script" path="res://modules/entities/player/states/PlayerMoving.cs" id="5_jyanl"]
+[ext_resource type="Script" path="res://modules/entities/player/states/PlayerDashing.cs" id="6_g5tpb"]
+[ext_resource type="Script" path="res://modules/entities/player/states/PlayerSpellCasting.cs" id="7_xwtn5"]
+[ext_resource type="Script" path="res://modules/entities/player/states/PlayerDeath.cs" id="8_1165l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iaoro"]
 
@@ -25,28 +25,28 @@ shape = SubResource("CapsuleShape2D_iaoro")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("StartingState", "DeathState") instance=ExtResource("3_wgqpl")]
 StartingState = NodePath("Idle")
-DeathState = NodePath("Idle")
+DeathState = NodePath("Death")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("Moving", "Dashing", "SpellCasting")]
-script = ExtResource("4_tph16")
+script = ExtResource("4_43jy3")
 Moving = NodePath("../Moving")
 Dashing = NodePath("../Dashing")
 SpellCasting = NodePath("../SpellCasting")
 
 [node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle", "Dashing", "SpellCasting")]
-script = ExtResource("5_156b2")
+script = ExtResource("5_jyanl")
 Idle = NodePath("../Idle")
 Dashing = NodePath("../Dashing")
 SpellCasting = NodePath("../SpellCasting")
 
 [node name="Dashing" type="Node" parent="StateMachine" node_paths=PackedStringArray("HitBox", "Idle")]
-script = ExtResource("6_b8k76")
+script = ExtResource("6_g5tpb")
 HitBox = NodePath("../../HealthComponent/CollisionShape2D")
 Idle = NodePath("../Idle")
 
 [node name="SpellCasting" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle")]
-script = ExtResource("7_3o7s1")
+script = ExtResource("7_xwtn5")
 Idle = NodePath("../Idle")
 
 [node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource("8_mcwkb")
+script = ExtResource("8_1165l")

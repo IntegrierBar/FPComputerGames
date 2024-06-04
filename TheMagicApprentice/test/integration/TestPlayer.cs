@@ -34,7 +34,7 @@ public partial class TestPlayer
 
         AssertBool(stateMachine is not null).IsTrue();  // assert that stateMachine is not null
 
-        AssertObject(stateMachine.GetState()).IsInstanceOf<Idle>();  // check if starting state is Idle
+        AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerIdle>();  // check if starting state is Idle
 
 
 		// Use SimulateKeyPress and SimulateKeyRelease in order to do manually decide when key is released.
@@ -48,54 +48,54 @@ public partial class TestPlayer
 		// Check transitions from Idle to all other states /////////////////////////////////////////////////////////////////////////////////////////////////
 		_player.SimulateKeyPress(Key.A);
 		await _player.SimulateFrames(1, 100);
-		AssertObject(stateMachine.GetState()).IsInstanceOf<Moving>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerMoving>();
 		// stop movement and check that we are back in Idle state
 		_player.SimulateKeyRelease(Key.A);
 		await _player.SimulateFrames(1, 100);
-		AssertObject(stateMachine.GetState()).IsInstanceOf<Idle>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerIdle>();
 
 		// transition to dash state and back
 		_player.SimulateKeyPress(Key.Space);
 		await _player.SimulateFrames(1, 100);
-		AssertObject(stateMachine.GetState()).IsInstanceOf<Dashing>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerDashing>();
 		_player.SimulateKeyRelease(Key.Space);
 		await _player.SimulateFrames(10, 200);	// TODO if dash is longer then 2 seconds, need to change numbers here
-		AssertObject(stateMachine.GetState()).IsInstanceOf<Idle>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerIdle>();
 
 		// transition to spellcast state and back
 		_player.SimulateKeyPress(Key.Key1);
 		await _player.SimulateFrames(1, 100);
-		AssertObject(stateMachine.GetState()).IsInstanceOf<SpellCasting>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerSpellCasting>();
 		_player.SimulateKeyRelease(Key.Key1);
 		await _player.SimulateFrames(10, 200); // TODO if attack is longer then 2 seconds, need to change numbers here
-		AssertObject(stateMachine.GetState()).IsInstanceOf<Idle>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerIdle>();
 
 
 		// Check transitions from Moving to all other states /////////////////////////////////////////////////////////////////////////////////////////////////
 		// first switch to MovementState by manually 
 		_player.SimulateKeyPress(Key.A);
 		await _player.SimulateFrames(1, 100);
-		AssertObject(stateMachine.GetState()).IsInstanceOf<Moving>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerMoving>();
 		
 		// transition to dash state and back
 		_player.SimulateKeyPress(Key.Space);
 		await _player.SimulateFrames(1, 100);
-		AssertObject(stateMachine.GetState()).IsInstanceOf<Dashing>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerDashing>();
 		_player.SimulateKeyRelease(Key.Space);
 		await _player.SimulateFrames(10, 200);	// TODO if dash is longer then 2 seconds, need to change numbers here
-		AssertObject(stateMachine.GetState()).IsInstanceOf<Moving>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerMoving>();
 
 		// transition to spellcast state and back
 		_player.SimulateKeyPress(Key.Key1);
 		await _player.SimulateFrames(1, 100);
-		AssertObject(stateMachine.GetState()).IsInstanceOf<SpellCasting>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerSpellCasting>();
 		_player.SimulateKeyRelease(Key.Key1);
 		await _player.SimulateFrames(10, 200); // TODO if attack is longer then 2 seconds, need to change numbers here
-		AssertObject(stateMachine.GetState()).IsInstanceOf<Moving>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerMoving>();
 
 		// release A key, go to Idle again
 		_player.SimulateKeyRelease(Key.A);
 		await _player.SimulateFrames(1, 100);
-		AssertObject(stateMachine.GetState()).IsInstanceOf<Idle>();
+		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerIdle>();
     }
 }

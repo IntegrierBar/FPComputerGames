@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Idle : State
+public partial class PlayerIdle : State
 {
     [ExportGroup("States")]
     //[Export]

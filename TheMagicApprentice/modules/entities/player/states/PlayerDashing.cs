@@ -5,7 +5,7 @@ using System;
 Dash state of the player charackter.
 During dashing the hitbox of the player is disabled
 */
-public partial class Dashing : State
+public partial class PlayerDashing : State
 {
     [Export]
     public CollisionShape2D HitBox; ///< Reference of the HitBox of the player 

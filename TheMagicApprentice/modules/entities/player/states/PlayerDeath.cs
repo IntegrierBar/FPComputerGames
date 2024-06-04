@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Death : State
+public partial class PlayerDeath : State
 {
     [Export]
     public double DeathAnimationTime = 1.0; ///< Duration of the death animation 

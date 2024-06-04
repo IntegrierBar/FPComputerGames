@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class SpellCasting : State
+public partial class PlayerSpellCasting : State
 {
     private double _timeLeft = 0.0; ///< Varaible to track how long we remain in this state
 
