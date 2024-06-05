@@ -66,4 +66,62 @@ public partial class Slime : CharacterBody2D
 			GetNode<CollisionShape2D>("%HitBoxSlime").Scale = scale;
 		}
 	}
+
+	/**
+	Getter for magic type of a slime.
+	Currently used for the animations/state machine, since they need to know which type of slime they are.
+	*/
+	public String GetMagicTypeAsString()
+	{
+		if (_magicType == MagicType.SUN)
+		{
+			return "sun";
+		}
+		else if (_magicType == MagicType.COSMIC)
+		{
+			return "cosmic";
+		}
+		else if (_magicType == MagicType.DARK)
+		{
+			return "dark";
+		}
+		GD.Print("Slime has no magic type!");
+		return null;
+	}
+
+	/**
+	Getter for slime size.
+	Will be used for the animations/state machine, since they need to know which type of slime they are.
+	*/
+	public String GetSlimeSizeAsString()
+	{
+		if (_slimeSize == SlimeSize.LARGE)
+		{
+			return "large";
+		}
+		if (_slimeSize == SlimeSize.SMALL)
+		{
+			return "small";
+		}
+		GD.Print("Slime has no size!");
+		return null;
+	}
+
+	/**
+	Getter for slime attack range.
+	will be used for the animations/state machine, since they need to know which type of slime they are.
+	*/
+	public String GetSlimeAttackRangeAsString()
+	{
+		if (_slimeAttackRange == SlimeAttackRange.MELEE)
+		{
+			return "melee";
+		}
+		if (_slimeAttackRange == SlimeAttackRange.RANGED)
+		{
+			return "ranged";
+		}
+		GD.Print("Slime has no attack range!");
+		return null;
+	}
 }
