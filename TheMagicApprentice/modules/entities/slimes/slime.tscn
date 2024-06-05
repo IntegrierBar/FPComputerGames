@@ -222,7 +222,8 @@ libraries = {
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_xw0ru")
 
-[node name="StateMachine" parent="." instance=ExtResource("3_y1f0k")]
+[node name="StateMachine" parent="." node_paths=PackedStringArray("DeathState") instance=ExtResource("3_y1f0k")]
+DeathState = NodePath("Death")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("5_h7751")
