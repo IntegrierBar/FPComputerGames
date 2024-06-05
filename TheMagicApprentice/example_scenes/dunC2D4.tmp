@@ -13,7 +13,7 @@
 position = Vector2(-40, 93)
 scale = Vector2(1, 1)
 
-[node name="TestRoom1" parent="." groups=["room"] instance=ExtResource("2_vcakm")]
+[node name="TestRoom1" parent="." instance=ExtResource("2_vcakm")]
 
 [node name="MeleeSlime" parent="." instance=ExtResource("4_aldm1")]
 position = Vector2(-54, -47)

@@ -145,7 +145,7 @@ Or [alternatively](https://www.youtube.com/watch?v=ow_Lum-Agbs)
 
 ### MovementComponent
 
-TODO we could consider scrapping this and just making different walking states for player and AI // I think we should do that (David) I agree with this (Katrin)
+TODO we could consider scrapping this and just making different walking states for player and AI // I think we currshould do that (David) I agree with this (Katrin)
 
 This component devines movement behavoiur of an entity. 
 For the player this consist of getting the player input.

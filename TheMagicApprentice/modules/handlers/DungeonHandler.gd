@@ -1,5 +1,7 @@
 extends Node2D
 
+signal dungeon_generated
+
 const MIN_ROOMS = 5
 const MAX_ROOMS = 10
 const MIN_DISTANCE_TO_BOSS = 2
@@ -7,8 +9,10 @@ const GRID_SIZE = 2 * MAX_ROOMS + 1
 
 var dungeon_layout = []
 var entrance_pos = Vector2()
+@export var player_pos = Vector2()
 var boss_pos = Vector2()
 var num_rooms = 0
+
 
 func _ready():
 	dungeon_layout = []
@@ -22,8 +26,8 @@ func _ready():
 
 func regenerate():
 	generate_dungeon_layout()
-	queue_redraw()
-	update_info_label()
+	player_pos = entrance_pos
+	dungeon_generated.emit(Enums.DungeonEvent.GENERATED)
 
 
 func generate_dungeon_layout():
@@ -72,22 +76,15 @@ func generate_dungeon_layout():
 
 		boss_pos = current_pos
 
-func _draw():
-	var cell_size = 20
-	for i in range(GRID_SIZE):
-		for j in range(GRID_SIZE):
-			var pos = Vector2(i, j)
-			var color = Color()
-			if pos == entrance_pos:
-				color = Color(0, 1, 0)  # Green for start room
-			elif pos == boss_pos:
-				color = Color(1, 0, 0)  # Red for boss room
-			else:
-				color = Color(1, 1, 1) if dungeon_layout[i][j] else Color(0, 0, 0)
-			draw_rect(Rect2(i * cell_size, j * cell_size, cell_size, cell_size), color)
-
-func update_info_label():
-	var info_label = $UI/Control/InfoLabel
-	info_label.text = "Start Room: (%d, %d)\nBoss Room: (%d, %d)\nMax Number of Rooms: %d\nNumber of Rooms: %d" % [
-		entrance_pos.x, entrance_pos.y, boss_pos.x, boss_pos.y, MAX_ROOMS, num_rooms
-	]
+# Helper method to get possible directions based on the current position in the layout
+func get_possible_directions(pos: Vector2) -> Array:
+	var directions = []
+	if pos.x > 0 and not dungeon_layout[pos.x - 1][pos.y]:
+		directions.append(Enums.Direction.LEFT)  # Move left
+	if pos.x < GRID_SIZE - 1 and not dungeon_layout[pos.x + 1][pos.y]:
+		directions.append(Enums.Direction.RIGHT)  # Move right
+	if pos.y > 0 and not dungeon_layout[pos.x][pos.y - 1]:
+		directions.append(Enums.Direction.UP)  # Move up
+	if pos.y < GRID_SIZE - 1 and not dungeon_layout[pos.x][pos.y + 1]:
+		directions.append(Enums.Direction.DOWN)  # Move down
+	return directions
