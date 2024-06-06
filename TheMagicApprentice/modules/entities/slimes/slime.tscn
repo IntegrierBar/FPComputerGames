@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="2_oictg"]
 [ext_resource type="PackedScene" uid="uid://jbflxvnkddjv" path="res://modules/entities/state_Machine.tscn" id="3_y1f0k"]
 [ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeIdle.cs" id="5_h7751"]
-[ext_resource type="Script" path="res://modules/entities/slimes/states/SlimesMoving.cs" id="6_h4pmw"]
+[ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeMoving.cs" id="6_nb7wg"]
 [ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeAttacking.cs" id="7_v13uh"]
 [ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeDeath.cs" id="8_hom1h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dxkmx"]
+radius = 16.0312
 
 [sub_resource type="Animation" id="Animation_jgsi0"]
 length = 0.8
@@ -25,108 +26,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [67, 68, 69, 70]
-}
-
-[sub_resource type="Animation" id="Animation_02133"]
-resource_name = "sun_idle"
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [56, 57, 58, 59]
-}
-
-[sub_resource type="Animation" id="Animation_sdrrf"]
-resource_name = "dark_idle"
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [45, 46, 47, 48]
-}
-
-[sub_resource type="Animation" id="Animation_mnhrw"]
-resource_name = "cosmic_idle"
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 3, 4]
-}
-
-[sub_resource type="Animation" id="Animation_4gywp"]
-resource_name = "sun_jump"
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [60, 61, 62, 63]
-}
-
-[sub_resource type="Animation" id="Animation_mfxvr"]
-resource_name = "cosmic_jump"
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [5, 6, 7, 8]
-}
-
-[sub_resource type="Animation" id="Animation_nb1p1"]
-resource_name = "dark_jump"
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [49, 50, 51, 52]
 }
 
 [sub_resource type="Animation" id="Animation_7qvhe"]
@@ -146,6 +45,40 @@ tracks/0/keys = {
 "values": [0, 6, 9]
 }
 
+[sub_resource type="Animation" id="Animation_mnhrw"]
+resource_name = "cosmic_idle"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_mfxvr"]
+resource_name = "cosmic_jump"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+
 [sub_resource type="Animation" id="Animation_ria3g"]
 resource_name = "dark_death"
 length = 0.6
@@ -161,6 +94,40 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 50, 53]
+}
+
+[sub_resource type="Animation" id="Animation_sdrrf"]
+resource_name = "dark_idle"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [45, 46, 47, 48]
+}
+
+[sub_resource type="Animation" id="Animation_nb1p1"]
+resource_name = "dark_jump"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [49, 50, 51, 52]
 }
 
 [sub_resource type="Animation" id="Animation_2f8sh"]
@@ -180,6 +147,40 @@ tracks/0/keys = {
 "values": [0, 61, 64]
 }
 
+[sub_resource type="Animation" id="Animation_02133"]
+resource_name = "sun_idle"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [56, 57, 58, 59]
+}
+
+[sub_resource type="Animation" id="Animation_4gywp"]
+resource_name = "sun_jump"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hoo7p"]
 _data = {
 "RESET": SubResource("Animation_jgsi0"),
@@ -195,14 +196,17 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xw0ru"]
+radius = 18.0
 
 [node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
+position = Vector2(219, 117)
 script = ExtResource("1_llbif")
 StateMachine = NodePath("StateMachine")
 AnimationPlayer = NodePath("AnimationPlayer")
 
 [node name="CollisionShapeSlime" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(-6, 13)
 shape = SubResource("CircleShape2D_dxkmx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -220,19 +224,27 @@ libraries = {
 
 [node name="HitBoxSlime" type="CollisionShape2D" parent="HealthComponent"]
 unique_name_in_owner = true
+position = Vector2(-4, 14)
 shape = SubResource("CircleShape2D_xw0ru")
 
-[node name="StateMachine" parent="." node_paths=PackedStringArray("DeathState") instance=ExtResource("3_y1f0k")]
+[node name="StateMachine" parent="." node_paths=PackedStringArray("StartingState", "DeathState") instance=ExtResource("3_y1f0k")]
+StartingState = NodePath("Idle")
 DeathState = NodePath("Death")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("Moving", "Attacking")]
 script = ExtResource("5_h7751")
+Moving = NodePath("../Moving")
+Attacking = NodePath("../Attacking")
 
-[node name="Moving" type="Node" parent="StateMachine"]
-script = ExtResource("6_h4pmw")
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle", "Attacking")]
+script = ExtResource("6_nb7wg")
+Idle = NodePath("../Idle")
+Attacking = NodePath("../Attacking")
 
-[node name="Attacking" type="Node" parent="StateMachine"]
+[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("Moving", "Idle")]
 script = ExtResource("7_v13uh")
+Moving = NodePath("../Moving")
+Idle = NodePath("../Idle")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("8_hom1h")

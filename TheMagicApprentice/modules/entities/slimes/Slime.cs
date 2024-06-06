@@ -5,15 +5,22 @@ public partial class Slime : CharacterBody2D
 {
 	[Export]
 	public StateMachine StateMachine; ///< Reference to the state machine of the slime
-
 	[Export]
 	public AnimationPlayer AnimationPlayer; ///< Reference to the animation player of the slime
 
+	[Export]
+	public float ViewRange = 100; ///< Range in which slimes can detect the PC (currently the same for melee and ranged, but this can be changed)
+	[Export]
+	public float AttackRangeMelee = 10; ///< Range from which a melee slime can attack the PC
+	[Export]
+	public float AttackRangeRanged = 50; ///< Range from which a ranged slime can attack the PC
+
 	private MagicType _magicType; ///< Defines the slimes magic type
-
 	private SlimeSize _slimeSize; ///< Defines the slimes size
-
 	private SlimeAttackRange _slimeAttackRange; ///< Defines whether the slime is melee or ranged
+
+	private float _viewRange; ///< View range of this slime
+	private float _attackRangeF; ///< Attack range of this slime
 
 	/**
 	Is called when the slime enters the scene tree.
@@ -51,6 +58,7 @@ public partial class Slime : CharacterBody2D
 	Furthermore the position of the slime in the dungeon is set here. 
 	If the slime size is large, the collision shapes of the slime are scaled up. 
 	The default collision shapes fit the small slime.
+	Also set view range and attack range for the slime.
 	*/
 	public void SetSlimeProperties(MagicType magicType, SlimeSize slimeSize, SlimeAttackRange slimeAttackRange, Vector2 slimePosition)
 	{
@@ -58,12 +66,22 @@ public partial class Slime : CharacterBody2D
 		_slimeSize = slimeSize;
 		_slimeAttackRange = slimeAttackRange;
 		Position = slimePosition;
+		_viewRange = ViewRange; // Note: if view range should be different for melee and ranged slimes later, this has to go into the if-else part 
 
 		if (slimeSize == SlimeSize.LARGE) // Scale the collision shapes for the large slimes 
 		{
 			Vector2 scale = new Vector2((float)1.5, (float)1.5); // TODO: correct scale factor has to be determined after the sprite of the large slime has been made, this is just a dummy value
 			GetNode<CollisionShape2D>("%CollisionShapeSlime").Scale = scale;
 			GetNode<CollisionShape2D>("%HitBoxSlime").Scale = scale;
+		}
+
+		if (slimeAttackRange == SlimeAttackRange.MELEE) // set attack range of the slime depending on their attack range type
+		{
+			_attackRangeF = AttackRangeMelee;
+		}
+		else
+		{
+			_attackRangeF = AttackRangeRanged;
 		}
 	}
 
@@ -123,5 +141,22 @@ public partial class Slime : CharacterBody2D
 		}
 		GD.Print("Slime has no attack range!");
 		return null;
+	}
+
+	/**
+	Getter for view range of the slime.
+	*/
+	public float GetViewRange()
+	{
+		return _viewRange;
+	}
+
+	/**
+	Getter for attack range of the slime.
+	Using this function ensures that the correct attack range is returned for every slime independent of their attack range type.
+	*/
+	public float GetAttackRangeF()
+	{
+		return _attackRangeF;
 	}
 }
