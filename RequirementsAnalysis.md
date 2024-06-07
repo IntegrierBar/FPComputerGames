@@ -656,7 +656,7 @@ The game utilizes a tile-based system for both the macro-scale dungeon layouts c
 | **ID: DGE1**| **In-room Environment** |
 | --- | --- |
 | Description | The in-room environment consists of a set of predefined rooms, including tiles, enemy spawn points, entry point (one per dungeon), and exit points. The tilemap consists of three layers: Background (non-interactable background tiles), Middleground (walls, doors, and other obstacles), and Foreground (decorational or special interactable tiles). Entities such as the player, enemies, and augments are visually placed between the middleground and the foreground layer, however, they are not treated as tiles. |
-| Acceptance Criterion | Rooms are generated with the correct environment layers and entity placements. |
+| Acceptance Criterion | Rooms have the correct environment layers and entity placements. |
 | Notes | Clarify if exit points refer to doors between rooms or points from where the dungeon is left. |
 
 ##### 2.2.2.2.4.3 Collision Detection

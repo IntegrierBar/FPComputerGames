@@ -45,9 +45,9 @@ public partial class Player : CharacterBody2D
 	Is called whenever any Input from the user is unhandled
 	We simply forward the call to the state machine
 	*/
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        //base._UnhandledInput(@event);
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		//base._UnhandledInput(@event);
 		StateMachine.ProcessInput(@event);
-    }
+	}
 }
