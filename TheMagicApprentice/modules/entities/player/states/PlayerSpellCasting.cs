@@ -15,7 +15,7 @@ public partial class PlayerSpellCasting : State
     //[Export]
     //public State SpellCasting;
 
-    
+
     /*!
     Get the correct spell by checking whether spell1, spell2 or spell3 was cast.
     Then cast it and set the time left to the duration given by the spell.

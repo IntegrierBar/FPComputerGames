@@ -5,8 +5,8 @@ public partial class PlayerMoving : State
 {
     [Export]
     public double SPEED = 100; ///< Movement speed 
-    
-    
+
+
     [ExportGroup("States")]
     [Export]
     public State Idle; ///< Reference to Idle state 
@@ -43,7 +43,7 @@ public partial class PlayerMoving : State
 
         Parent.Velocity = (float)SPEED * direction;
         Parent.MoveAndSlide();
-        
+
         return null;
     }
 
@@ -54,7 +54,7 @@ public partial class PlayerMoving : State
     {
         base.UpdateAnimations();
 
-        string animationName = "walk_"; 
+        string animationName = "walk_";
         if (Parent.Velocity.X > 0)
         {
             animationName += "right";

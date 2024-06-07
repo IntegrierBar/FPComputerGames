@@ -9,9 +9,9 @@ The different types are SUN, COSMIC DARK.
 */
 public enum MagicType
 {
-	SUN,
-	COSMIC,
-	DARK,
+    SUN,
+    COSMIC,
+    DARK,
 }
 
 /*!
@@ -22,8 +22,8 @@ The different types are LARGE and SMALL.
 */
 public enum SlimeSize
 {
-	LARGE,
-	SMALL,
+    LARGE,
+    SMALL,
 }
 
 /*!
@@ -34,6 +34,6 @@ The different types are MELEE and RANGED.
 */
 public enum SlimeAttackRange
 {
-	MELEE,
-	RANGED,
+    MELEE,
+    RANGED,
 }

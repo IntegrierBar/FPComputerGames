@@ -13,7 +13,7 @@ Tests the TakeDamage function
 */
 [TestSuite]
 public class TestHealthComponent
-{    
+{
     private HealthComponent _target;
     private HealthComponent _attackingNode;
 
@@ -49,8 +49,8 @@ public class TestHealthComponent
     [TestCase(50.0, 40.0, 20.0, 10.0, 10.0, MagicType.COSMIC, 50.0 - 8.0, 100.0, TestName = "Armor Cosmic")]
     [TestCase(10.0, 120.0, 30.0, 90.0, 5.0, MagicType.DARK, 10.0 - 0.5, 100.0, TestName = "Armor Dark")]
     [TestCase(10.0, 120.0, 30.0, 90.0, 100.0, MagicType.SUN, 10.0, 100.0 - 10.0, TestName = "Test Reflection")]
-    [TestCase(10.0, 0.0, 30.0, 90.0, 10.0, MagicType.SUN, 10.0-10.0, 100.0, TestName = "Death Emitted when Health=0")]
-    [TestCase(10.0, 0.0, 30.0, 90.0, 20.0, MagicType.SUN, 10.0-20.0, 100.0, TestName = "Death Emitted when Health<0")]
+    [TestCase(10.0, 0.0, 30.0, 90.0, 10.0, MagicType.SUN, 10.0 - 10.0, 100.0, TestName = "Death Emitted when Health=0")]
+    [TestCase(10.0, 0.0, 30.0, 90.0, 20.0, MagicType.SUN, 10.0 - 20.0, 100.0, TestName = "Death Emitted when Health<0")]
     public void TestTakeDamageFunctionAsync(double maxHP, double armorSun, double armorCosmic, double armorDark, double damage, MagicType magicType, double resultHP, double attackerHP)
     {
         Attack attack = new Attack(damage, magicType, _attackingNode);
@@ -59,11 +59,11 @@ public class TestHealthComponent
 
         _target.TakeDamage(attack);
 
-        
+
         // IMPORTANT!!!!!!!!!!!!!!! DO NOT USE .Equals!!!!!! instead us .IsEqual!!!!!!!!!!!!!
         AssertThat(_target.GetCurrentHP()).IsEqual(resultHP);
         AssertThat(_attackingNode.GetCurrentHP()).IsEqual(attackerHP);
 
-        AssertBool(died).IsEqual(resultHP<=0);
+        AssertBool(died).IsEqual(resultHP <= 0);
     }
 }

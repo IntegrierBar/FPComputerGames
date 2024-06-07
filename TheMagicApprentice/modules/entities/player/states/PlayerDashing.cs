@@ -15,7 +15,7 @@ public partial class PlayerDashing : State
     public double DASH_TIME = 0.3; ///< Duration of the dash 
     private double _timeLeft = 0;
 
-    
+
     [ExportGroup("States")]
     [Export]
     public State Idle; ///< Reference to the Idle state
@@ -68,7 +68,7 @@ public partial class PlayerDashing : State
     {
         base.UpdateAnimations();
 
-        string animationName = "dash_"; 
+        string animationName = "dash_";
         if (Parent.Velocity.X > 0)
         {
             animationName += "right";
