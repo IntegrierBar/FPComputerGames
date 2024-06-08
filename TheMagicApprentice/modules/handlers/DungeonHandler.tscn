@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0weg7j30kopm"]
+
+[ext_resource type="Script" path="res://modules/handlers/DungeonHandler.cs" id="1_rirwv"]
+[ext_resource type="Script" path="res://modules/handlers/Camera2D.cs" id="2_a6qwq"]
+[ext_resource type="Texture2D" uid="uid://c1gj4ote7mhx4" path="res://assets/DampDungeons/Tiles/DungeonDecorations.png" id="2_w243q"]
+
+[node name="DungeonHandler" type="Node2D"]
+script = ExtResource("1_rirwv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.96, 0.96)
+script = ExtResource("2_a6qwq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_w243q")

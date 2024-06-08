@@ -571,7 +571,7 @@ Furthermore there should not be more then 10 rooms in total.
 | **ID: DGG1**| **Generating a Generated Dungeons** |
 | --- | --- |
 | Description | When a player enters a generated dungeon, a new dungeon is generated. |
-| Acceptance Criterion | TODO |
+| Acceptance Criterion | The dungeon is generated with a layout that meets the specified criteria, including the number of rooms, grid pattern, and room selection. |
 | Notes | There is no option to return to a previously generated dungeon if the player failed to clear the dungeon successfully. |
 
 | **ID: DGG2**| **Layout of Generated Dungeons** |
