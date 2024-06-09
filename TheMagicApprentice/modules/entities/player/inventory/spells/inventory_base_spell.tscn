@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cijmx6f7tq608"]
+
+[ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryBaseSpell.cs" id="1_1alpl"]
+
+[node name="InventoryBaseSpell" type="Node"]
+script = ExtResource("1_1alpl")
