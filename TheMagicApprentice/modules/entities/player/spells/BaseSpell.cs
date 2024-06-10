@@ -36,7 +36,7 @@ public partial class BaseSpell : Area2D
 			}
 			case MagicType.COSMIC:
 			{
-				sprite.Modulate = new Color("PURPLE");
+				sprite.Modulate = new Color("BLUE");
 				break;
 			}
 			default:
@@ -67,6 +67,7 @@ public partial class BaseSpell : Area2D
 			// once the spell has hit something we delete it
 			QueueFree();
 		}
+		// TODO: Spell should also disappear when hitting a wall
 	}
 
 

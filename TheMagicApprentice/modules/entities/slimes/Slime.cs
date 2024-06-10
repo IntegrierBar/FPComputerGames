@@ -15,12 +15,16 @@ public partial class Slime : CharacterBody2D
 	[Export]
 	public float AttackRangeRanged = 50; ///< Range from which a ranged slime can attack the PC
 
+	[Export]
+	public float BaseDamage = 10;
+
 	private MagicType _magicType; ///< Defines the slimes magic type
 	private SlimeSize _slimeSize; ///< Defines the slimes size
 	private SlimeAttackRange _slimeAttackRange; ///< Defines whether the slime is melee or ranged
 
 	private float _viewRange; ///< View range of this slime
 	private float _attackRangeF; ///< Attack range of this slime
+	private float _damageValue; ///< Damage the slime applies when attacking
 
 	/**
 	Is called when the slime enters the scene tree.
@@ -62,6 +66,8 @@ public partial class Slime : CharacterBody2D
 	*/
 	public void SetSlimeProperties(MagicType magicType, SlimeSize slimeSize, SlimeAttackRange slimeAttackRange, Vector2 slimePosition)
 	{
+		_damageValue = BaseDamage;
+
 		_magicType = magicType;
 		_slimeSize = slimeSize;
 		_slimeAttackRange = slimeAttackRange;
@@ -87,6 +93,14 @@ public partial class Slime : CharacterBody2D
 
 	/**
 	Getter for magic type of a slime.
+	*/
+	public MagicType GetMagicType()
+	{
+		return _magicType;
+	}
+
+	/**
+	Getter for magic type of a slime, converted to a string.
 	Currently used for the animations/state machine, since they need to know which type of slime they are.
 	*/
 	public String GetMagicTypeAsString()
@@ -108,7 +122,7 @@ public partial class Slime : CharacterBody2D
 	}
 
 	/**
-	Getter for slime size.
+	Getter for slime size, converted to a string.
 	Will be used for the animations/state machine, since they need to know which type of slime they are.
 	*/
 	public String GetSlimeSizeAsString()
@@ -126,7 +140,7 @@ public partial class Slime : CharacterBody2D
 	}
 
 	/**
-	Getter for slime attack range.
+	Getter for slime attack range, converted to a string.
 	will be used for the animations/state machine, since they need to know which type of slime they are.
 	*/
 	public String GetSlimeAttackRangeAsString()
@@ -158,5 +172,10 @@ public partial class Slime : CharacterBody2D
 	public float GetAttackRangeF()
 	{
 		return _attackRangeF;
+	}
+
+	public float GetDamageValue()
+	{
+		return _damageValue;
 	}
 }
