@@ -224,7 +224,8 @@ height = 10.0
 radius = 6.0
 height = 20.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer") groups=["player"]]
+position = Vector2(60, 26)
 script = ExtResource("1_33xnx")
 StateMachine = NodePath("StateMachine")
 AnimationPlayer = NodePath("AnimationPlayer")
