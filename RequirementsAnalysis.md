@@ -642,46 +642,61 @@ The game utilizes a tile-based system for both the macro-scale dungeon layouts c
 
 ##### 2.2.2.2.4.1 Macro-scale dungeon layouts
 
-Dungeons are composed of 5 to 10 rooms (with the exception of the intro dungeon, which is shorter). They have one entry room, one boss room and normal rooms. The entry room has to be on one side of the macro-scale layout of the dungeon and there have to be at least 2 rooms between the entry room and the boss room. <br>
-The rooms in the dungeon correspond to tiles in a grid, wherein all neighboring tiles have doors to connect the rooms. The only exeption to this is the boss room. Even if the boss room has several neighboring tiles, the door to the boss room is only in one normal room. <br>
-All rooms are similiar enough in size that the tiles that represent rooms can be quadratic, with four possible neighboring tiles. 
+
+##### 2.2.2.2.4.1 Macro-scale dungeon layouts
+
+| **ID: DGL1**| **Dungeon Layout** |
+| --- | --- |
+| Description | Dungeons are composed of 5 to 10 rooms (with the exception of the intro dungeon, which is shorter). They have one entry room, one boss room, and normal rooms. The entry room has to be on one side of the macro-scale layout of the dungeon and there have to be at least 2 rooms between the entry room and the boss room. The rooms in the dungeon correspond to tiles in a grid, wherein all neighboring tiles have doors to connect the rooms. The only exception to this is the boss room. Even if the boss room has several neighboring tiles, the door to the boss room is only in one normal room. All rooms are similar enough in size that the tiles that represent rooms can be quadratic, with four possible neighboring tiles. |
+| Acceptance Criterion | Dungeons are generated with the correct layout and room connections. |
+| Notes | None |
 
 ##### 2.2.2.2.4.2 In-room environment
 
-- set of predefined rooms, consisting of
-  - tiles
-  - enemy spawn points
-  - entry point (one per dungeon)
-  - exit points (TODO: does this refer to doors between rooms or points from where the dungeon is left?)
-
-The tilemap consists of three layers:
-- **Background**: The first layer is the background layer. This layer is the layer the non-interactable background tiles are on.
-- **Middleground**: The second layer is the middleground layer. This layer is the layer that the walls, doors and other obstacles are on.
-- **Foreground**: The third layer is the foreground layer. This layer is for decorational or special interactable tiles.
-
-Entities such as the player, enemies, augments are visually placed between the middleground and the foreground layer, however they are not treated as tiles.
+| **ID: DGE1**| **In-room Environment** |
+| --- | --- |
+| Description | The in-room environment consists of a set of predefined rooms, including tiles, enemy spawn points, entry point (one per dungeon), and exit points. The tilemap consists of three layers: Background (non-interactable background tiles), Middleground (walls, doors, and other obstacles), and Foreground (decorational or special interactable tiles). Entities such as the player, enemies, and augments are visually placed between the middleground and the foreground layer, however, they are not treated as tiles. |
+| Acceptance Criterion | Rooms are generated with the correct environment layers and entity placements. |
+| Notes | Clarify if exit points refer to doors between rooms or points from where the dungeon is left. |
 
 ##### 2.2.2.2.4.3 Collision Detection
 
-Collision detection is integral to the gameplay, ensuring that players and enemies interact with the environment and each other in a predictable manner. The game engine checks for collisions between entities (player, enemies) and environmental obstacles (walls, doors) to determine valid movements and interactions. This system is crucial for implementing gameplay mechanics such as combat, movement restrictions, and accessing different areas within the dungeons.
+| **ID: CDC1**| **Collision Detection** |
+| --- | --- |
+| Description | Collision detection ensures that players and enemies interact with the environment and each other in a predictable manner. The game engine checks for collisions between entities (player, enemies) and environmental obstacles (walls, doors) to determine valid movements and interactions. This system is crucial for implementing gameplay mechanics such as combat, movement restrictions, and accessing different areas within the dungeons. |
+| Acceptance Criterion | Collision detection works correctly for all entities and environmental obstacles. |
+| Notes | None |
 
 ##### 2.2.2.2.4.3.1 Player-Enemy Collisions
 
-The player and enemies can pass through each other, with damage applied to the overlapping entities as necessary.
+| **ID: CDC2**| **Player-Enemy Collisions** |
+| --- | --- |
+| Description | The player and enemies can pass through each other, with damage applied to the overlapping entities as necessary. |
+| Acceptance Criterion | Player-enemy collisions result in correct damage application. |
+| Notes | None |
 
 ##### 2.2.2.2.4.3.2 Player-Wall and Enemy-Wall Collisions
 
-The player and enemies can not pass through walls.
+| **ID: CDC3**| **Player-Wall and Enemy-Wall Collisions** |
+| --- | --- |
+| Description | The player and enemies cannot pass through walls. |
+| Acceptance Criterion | Player and enemies are correctly blocked by walls. |
+| Notes | None |
 
 ##### 2.2.2.2.4.3.3 Enemy-Enemy Collisions
 
-Enemies should not pass through each other, however the interaction can be defined a bit loose, such as a repelling force when enemies overlap, pushing them away from each other.
+| **ID: CDC4**| **Enemy-Enemy Collisions** |
+| --- | --- |
+| Description | Enemies should not pass through each other. A repelling force is applied when enemies overlap, pushing them away from each other. |
+| Acceptance Criterion | Enemies repel each other correctly when they overlap. |
+| Notes | Interaction can be defined loosely. |
 
 ### 2.2.3 Main menu and Tutorials
 
 #### 2.2.3.1 Main menu
 
-If the player opens the game, the main menu is the first interface the player can interact with. The player has several options for interacting with the main menu. 
+If the player opens the game, the main menu is the first interface the player can interact with. The player has 
+several options for interacting with the main menu.
 
 | **ID: MM1**| **Main menu: New Game** |
 | --- | --- | 
