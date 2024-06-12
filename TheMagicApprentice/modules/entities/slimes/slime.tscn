@@ -239,6 +239,8 @@ DeathState = NodePath("Death")
 script = ExtResource("5_h7751")
 Moving = NodePath("../Moving")
 Attacking = NodePath("../Attacking")
+IdleAnimationDuration = 1.0
+JumpAnimationDuration = 1.0
 
 [node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle", "Attacking")]
 script = ExtResource("6_nb7wg")

@@ -13,7 +13,6 @@ public partial class SlimeAttacking : State
 	private Node _player;
 	private Attack _attack; 
 	
-	// Called when the node enters the scene tree for the first time.
 	/**
 	Sets player and constructs an attack that is given to the MeleeAttackHurtBox so that it can do damage when attacking the PC
 	*/
@@ -108,6 +107,7 @@ public partial class SlimeAttacking : State
 	private void BuildAttack()
 	{
 		_attack.attacker = Parent.GetNode<HealthComponent>("HealthComponent");
+		GD.Print("HealthComp: " + Parent.GetNode<HealthComponent>("HealthComponent"));
 		_attack.damage = (Parent as Slime).GetDamageValue();
 		_attack.magicType = (Parent as Slime).GetMagicType();
 	}
