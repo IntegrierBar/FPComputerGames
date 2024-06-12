@@ -247,10 +247,10 @@ script = ExtResource("6_nb7wg")
 Idle = NodePath("../Idle")
 Attacking = NodePath("../Attacking")
 
-[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("Moving", "Idle")]
+[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("Moving", "_healthComponent")]
 script = ExtResource("7_v13uh")
 Moving = NodePath("../Moving")
-Idle = NodePath("../Idle")
+_healthComponent = NodePath("../../HealthComponent")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("8_hom1h")

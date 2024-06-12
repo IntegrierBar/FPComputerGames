@@ -18,28 +18,23 @@ public partial class SlimeIdle : State
 	[Export]
 	public double JumpAnimationDuration; ///< duration of the jump/move animation
 
-	private Node _player;
+	private Player _player;
 
-	private double _timeLeft; ///< time left in which the slime either remains in one position, or jumps around randomly
-	private bool _idleAtSamePosition; ///< is true when the slime stays in one position and false for random walk, changes from true to false whenever timeLeft reaches zero
-	private Vector2 _direction; ///< direction in which the slime moves during its random walk
-	
+	private double _timeLeft = 0.0; ///< time left in which the slime either remains in one position, or jumps around randomly
+	private bool _idleAtSamePosition = true; ///< is true when the slime stays in one position and false for random walk, changes from true to false whenever timeLeft reaches zero
+	// Setting _idleatSamePosition to true means it will get set to false in the first physics process 
+	// and the slime starts jumping around.
 
 	/**
-    Set player. Also set timeLeft to zero so that a new idle loop starts. 
-	Setting _idleatSamePosition to true means it will get set to false in the first physics process 
-	and the slime starts jumping around. 
-    */
+    Set player. 
+	*/
 	public override void _Ready()
 	{
-		_player = GetTree().GetFirstNodeInGroup("player");
+		_player = GetTree().GetFirstNodeInGroup("player") as Player;
 		if (_player is null)
 		{
 			GD.Print("No player found!");
 		}
-
-		_timeLeft = 0.0;
-		_idleAtSamePosition = true;
 	}
 
 	/**
@@ -67,7 +62,8 @@ public partial class SlimeIdle : State
 		_timeLeft -= delta;
 		if (_timeLeft <= 0.0)
 		{
-			ChangeRandomWalk();	
+			Vector2 new_direction = ChangeRandomWalk();
+			Parent.Velocity = new_direction * SPEED; // update the slimes velocity
 		}
 		Parent.MoveAndSlide();
 		return null;
@@ -79,11 +75,10 @@ public partial class SlimeIdle : State
 	Change _idleAtSamePsoition first to update what the slime is doing now.
 	Generate an integer between 0 and 5 that is later multiplied by the animation duration to ensure 
 	that the changes in movements of the idle slime do not happen in the middle of animations.
-	Set timeLeft in the current state and set the direction accordingly, (0,0) if the slime stays at 
-	the same position. 
-	Afterwards, update the slimes velocity.
+	Set timeLeft in the current state and generate a reandom directio if the slime should move.
+	Return the direction or (0,0) if the slime stays at the same position. 
     */
-	private void ChangeRandomWalk()
+	public Vector2 ChangeRandomWalk()
 	{
 		var random = new RandomNumberGenerator(); // necessary for generating some random numbers
 
@@ -93,14 +88,13 @@ public partial class SlimeIdle : State
 		if (_idleAtSamePosition) // idle stationary
 		{
 			_timeLeft = (double)times * IdleAnimationDuration; // timeLeft is always a multiple of the animation duration
-			_direction = new Vector2(0.0f, 0.0f); // direction is set to zero so that the slime does not move
+			return new Vector2(0.0f, 0.0f); // direction is set to zero so that the slime does not move
 		}
 		else
 		{
 			_timeLeft = (double)times * JumpAnimationDuration; // timeLeft is always a multiple of the animation duration
-			_direction = new Vector2(random.RandfRange(-1, 1), random.RandfRange(-1, 1)).Normalized(); // set a random direction and normalise
+			return new Vector2(random.RandfRange(-1, 1), random.RandfRange(-1, 1)).Normalized(); // set a random direction and normalise
 		}
-		Parent.Velocity = _direction * SPEED; // update the slimes velocity
 	}
 
 	/**
@@ -120,4 +114,12 @@ public partial class SlimeIdle : State
 		}
         base.UpdateAnimations();
     }
+
+	/**
+    Getter for time left. Currently not used.
+	*/
+	public double GetTimeLeft()
+	{
+		return _timeLeft;
+	}
 }

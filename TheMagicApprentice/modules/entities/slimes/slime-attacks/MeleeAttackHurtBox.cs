@@ -8,7 +8,7 @@ public partial class MeleeAttackHurtBox : Area2D
 
     /**
 	Monitoring is set to false so that the collisions from slime and PC only damage the PC if the slime is in the Attacking state.
-    Monitoring is toggled on the SlimeAttacking state. 
+    Monitoring is toggled on in the SlimeAttacking state. 
 	*/
     public override void _Ready()
     {
@@ -32,7 +32,7 @@ public partial class MeleeAttackHurtBox : Area2D
     }
 
     /**
-	Attack is currently set from the Attacking state in the ready function. 
+	Attack is currently set from the Attacking state in the ranged attack function, so right before the attack is made.
 	*/
     public void SetAttack(Attack attack)
     {
