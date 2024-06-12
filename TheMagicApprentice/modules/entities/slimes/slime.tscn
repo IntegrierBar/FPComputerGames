@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://16e1fc62e66t"]
+[gd_scene load_steps=24 format=3 uid="uid://16e1fc62e66t"]
 
 [ext_resource type="Script" path="res://modules/entities/slimes/Slime.cs" id="1_llbif"]
 [ext_resource type="Texture2D" uid="uid://pi2gqnphaq76" path="res://modules/entities/slimes/Slime_cropped.png" id="2_aql0x"]
@@ -8,9 +8,10 @@
 [ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeMoving.cs" id="6_nb7wg"]
 [ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeAttacking.cs" id="7_v13uh"]
 [ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeDeath.cs" id="8_hom1h"]
+[ext_resource type="PackedScene" uid="uid://c7on4tuqslrab" path="res://modules/entities/slimes/slime-attacks/MeleeAttackHurtBox.tscn" id="9_ilfwi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dxkmx"]
-radius = 16.0312
+radius = 18.0
 
 [sub_resource type="Animation" id="Animation_jgsi0"]
 length = 0.8
@@ -198,6 +199,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_xw0ru"]
 radius = 18.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jp6e4"]
+radius = 18.0
+
 [node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
 position = Vector2(219, 117)
 script = ExtResource("1_llbif")
@@ -206,7 +210,7 @@ AnimationPlayer = NodePath("AnimationPlayer")
 
 [node name="CollisionShapeSlime" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-6, 13)
+position = Vector2(-3, 14)
 shape = SubResource("CircleShape2D_dxkmx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -224,7 +228,7 @@ libraries = {
 
 [node name="HitBoxSlime" type="CollisionShape2D" parent="HealthComponent"]
 unique_name_in_owner = true
-position = Vector2(-4, 14)
+position = Vector2(-3, 14)
 shape = SubResource("CircleShape2D_xw0ru")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("StartingState", "DeathState") instance=ExtResource("3_y1f0k")]
@@ -235,16 +239,26 @@ DeathState = NodePath("Death")
 script = ExtResource("5_h7751")
 Moving = NodePath("../Moving")
 Attacking = NodePath("../Attacking")
+IdleAnimationDuration = 1.0
+JumpAnimationDuration = 1.0
 
 [node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle", "Attacking")]
 script = ExtResource("6_nb7wg")
 Idle = NodePath("../Idle")
 Attacking = NodePath("../Attacking")
 
-[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("Moving", "Idle")]
+[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("Moving", "_healthComponent")]
 script = ExtResource("7_v13uh")
 Moving = NodePath("../Moving")
-Idle = NodePath("../Idle")
+_healthComponent = NodePath("../../HealthComponent")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("8_hom1h")
+
+[node name="MeleeAttackHurtBox" parent="." instance=ExtResource("9_ilfwi")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeAttackHurtBox"]
+position = Vector2(-3, 14)
+shape = SubResource("CircleShape2D_jp6e4")
