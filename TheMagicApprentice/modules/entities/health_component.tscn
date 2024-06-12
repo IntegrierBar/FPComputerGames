@@ -3,4 +3,6 @@
 [ext_resource type="Script" path="res://modules/entities/HealthComponent.cs" id="1_qec1o"]
 
 [node name="HealthComponent" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_qec1o")
