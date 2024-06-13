@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://by7jetksgyl4p"]
+
+[ext_resource type="Script" path="res://modules/rooms/RoomExit.cs" id="1_mn2il"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywmld"]
+
+[node name="RoomExit" type="Area2D"]
+position = Vector2(408, -22)
+script = ExtResource("1_mn2il")
+TargetRoom = "Room2"
+Direction = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ywmld")

@@ -37,3 +37,26 @@ public enum SlimeAttackRange
 	MELEE,
 	RANGED,
 }
+
+public enum Direction
+{
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
+}
+
+public class DirectionHelper
+{
+    public static Direction GetOppositeDirection(Direction direction)
+    {
+        return direction switch
+        {
+            Direction.UP => Direction.DOWN,
+            Direction.DOWN => Direction.UP,
+            Direction.LEFT => Direction.RIGHT,
+            Direction.RIGHT => Direction.LEFT,
+            _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null),
+        };
+    }
+}

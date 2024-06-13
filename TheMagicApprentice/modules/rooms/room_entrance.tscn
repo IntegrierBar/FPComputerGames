@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://drm2iwrvix1y1"]
+
+[ext_resource type="Script" path="res://modules/rooms/RoomEntrance.cs" id="1_jyvtf"]
+
+[node name="RoomEntrance" type="Node2D"]
+position = Vector2(408, 16)
+script = ExtResource("1_jyvtf")
+Direction = 3

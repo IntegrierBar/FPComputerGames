@@ -1,126 +1,75 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 
-public partial class DungeonHandler : Node2D
+public partial class DungeonHandler : Node
 {
-	private const int MIN_ROOMS = 5;
-	private const int MAX_ROOMS = 10;
-	private const int GRID_SIZE = 2 * MAX_ROOMS + 1;
+	private Dictionary<string, PackedScene> rooms = new Dictionary<string, PackedScene>
+	{
+		{ "Room1", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room1.tscn") },
+		{ "Room2", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room2.tscn") }
+	};
 
-	private bool[,] dungeonLayout;
-	private Vector2 entrancePos;
-	private Vector2 bossPos;
-	private int numRooms;
+	private Node currentRoom; ///< Reference to the current room node
+	private Node2D player; ///< Reference to the player node
+	private Node roomHandler; ///< Reference to the room handler node
 
+	/**
+	 * Called when the node is added to the scene.
+	 * Initializes the player and room handler, and loads the initial room.
+	 */
 	public override void _Ready()
 	{
-		dungeonLayout = new bool[GRID_SIZE, GRID_SIZE];
-		GD.Print("Test");
-		Regenerate();
+		GD.Print("Tree", GetTree());
+		player = GetTree().GetNodesInGroup("player")[0] as Node2D;
+		roomHandler = GetTree().GetNodesInGroup("room_handler")[0];
+		LoadRoom("Room1", Direction.RIGHT);
 	}
 
-	public void Regenerate()
+	/**
+	 * Loads a room by name and sets the player's position based on the entrance direction.
+	 * 
+	 * @param roomName The name of the room to load.
+	 * @param enterDirection The direction from which the player enters the room.
+	 */
+	private void LoadRoom(string roomName, Direction enterDirection)
 	{
-		GenerateDungeonLayout();
-		QueueRedraw();
-		UpdateInfoLabel();
-	}
-
-	private void GenerateDungeonLayout()
-	{
-		// Start Generation Here
-		GD.Print("Dungeon Generation Started");
-
-		numRooms = new Random().Next(MIN_ROOMS, MAX_ROOMS + 1);
-		entrancePos = new Vector2(GRID_SIZE / 2, GRID_SIZE / 2);
-		bossPos = entrancePos;
-
-		while (Math.Abs(entrancePos.x - bossPos.x) + Math.Abs(entrancePos.y - bossPos.y) < MIN_DISTANCE_TO_BOSS + 1)
+		if (currentRoom != null)
 		{
-			for (int i = 0; i < GRID_SIZE; i++)
-			{
-				for (int j = 0; j < GRID_SIZE; j++)
-				{
-					dungeonLayout[i, j] = false;
-				}
-			}
-
-			dungeonLayout[(int)entrancePos.x, (int)entrancePos.y] = true;
-
-			List<Vector2> visitedTiles = new List<Vector2> { entrancePos };
-			Vector2 currentPos = entrancePos;
-
-			for (int i = 0; i < numRooms - 1; i++)
-			{
-				List<Vector2> directions = new List<Vector2>
-				{
-					new Vector2(1, 0),
-					new Vector2(-1, 0),
-					new Vector2(0, 1),
-					new Vector2(0, -1)
-				};
-
-				directions.Shuffle();
-
-				bool moved = false;
-				foreach (Vector2 direction in directions)
-				{
-					nextPos = currentPos + direction;
-					nextPos.x = Mathf.Clamp(nextPos.x, 0, GRID_SIZE - 1);
-					nextPos.y = Mathf.Clamp(nextPos.y, 0, GRID_SIZE - 1);
-
-					if (!dungeonLayout[(int)nextPos.x, (int)nextPos.y])
-					{
-						dungeonLayout[(int)nextPos.x, (int)nextPos.y] = true;
-						visitedTiles.Add(nextPos);
-						currentPos = nextPos;
-						moved = true;
-						break;
-					}
-				}
-
-				if (!moved)
-				{
-					currentPos = visitedTiles[new Random().Next(visitedTiles.Count)];
-				}
-			}
-
-			bossPos = currentPos;
+			currentRoom.Free();  // Remove the current room
 		}
-	}
 
-	public override void _Draw()
-	{
-		int cellSize = 20;
-		for (int i = 0; i < GRID_SIZE; i++)
+		// Load the new room
+		currentRoom = rooms[roomName].Instantiate();
+		AddChild(currentRoom);
+
+		// Initialize the new room (e.g., spawn enemies)
+		roomHandler.Call("InitializeRoom");
+
+		// Connect door signals in the new room
+		foreach (Node child in currentRoom.GetChildren())
 		{
-			for (int j = 0; j < GRID_SIZE; j++)
+			if (child is RoomExit door)
 			{
-				Vector2 pos = new Vector2(i, j);
-				Color color = new Color();
-
-				if (pos == entrancePos)
-				{
-					color = new Color(0, 1, 0);
-				}
-				else if (pos == bossPos)
-				{
-					color = new Color(1, 0, 0);
-				}
-				else
-				{
-					color = dungeonLayout[i, j] ? new Color(1, 1, 1) : new Color(0, 0, 0);
-				}
-
-				DrawRect(new Rect2(i * cellSize, j * cellSize, cellSize, cellSize), color);
+				door.PlayerEnteredDoor += OnPlayerEnteredDoor;
+			}
+			if (child is RoomEntrance entrance && entrance.Direction == enterDirection)
+			{
+				player.Position = entrance.Position;
 			}
 		}
 	}
 
-	private void UpdateInfoLabel()
+	/**
+	 * Callback for when the player enters a door. The DungeonHandler then loads a new room depending on the direction the player entered the exit.
+	 * 
+	 * @param targetRoom The name of the target room to load.
+	 * @param direction The direction from which the player entered the door.
+	 */
+	private void OnPlayerEnteredDoor(string targetRoom, Direction direction)
 	{
-		Label infoLabel = GetNode<Label>("UI/Control/InfoLabel");
-		infoLabel.Text = $"Start Room: ({entrancePos.x}, {entrancePos.y})\nBoss Room: ({bossPos.x}, {bossPos.y})\nMax Number of Rooms: {MAX_ROOMS}\nNumber of Rooms: {numRooms}";
+		GD.Print("Player entered door ", targetRoom, direction);
+		GD.Print("Player position: ", player.Position);
+		LoadRoom(targetRoom, DirectionHelper.GetOppositeDirection(direction));
+		GD.Print("Player position: ", player.Position);
 	}
 }
