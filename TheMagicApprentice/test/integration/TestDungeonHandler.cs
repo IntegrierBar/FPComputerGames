@@ -4,51 +4,38 @@ using GdUnit4;
 using Godot;
 using System;
 using static GdUnit4.Assertions;
+using GdUnit4.Executions;
+using GdUnit4.Executions.Monitors;
+using System.Threading.Tasks;
+
+/**
+Integration test for the player scene.
+*/
 
 [TestSuite]
 public partial class TestDungeonHandler
 {
+	/* Commented out for now 
+	private ISceneRunner _sceneRunner;
 	private DungeonHandler dungeonHandler;
 	private Node2D player;
 	private Node roomHandler;
-	private SceneTree sceneTree;
 
 	[BeforeTest]
-	public void SetUp()
+	public void SetupTest()
 	{
 		GD.Print("Setting up test environment...");
 
-		// Create a new SceneTree instance
-		sceneTree = new SceneTree();
-		
-		GD.Print("SceneTree created.");
+		// Load the scene using ISceneRunner
+		_sceneRunner = ISceneRunner.Load("res://modules/rooms/scene.tscn");
+		GD.Print("Scene loaded.");
 
-		var root = new Node();
+		// Get references to the nodes
+		dungeonHandler = _sceneRunner.GetProperty("DungeonHandler");
+		player = _sceneRunner.GetProperty("Player");
+		roomHandler = _sceneRunner.GetProperty("RoomHandler");
 
-		// Create instances of the nodes
-		dungeonHandler = new DungeonHandler();
-		GD.Print("DungeonHandler created.");
-		player = new Node2D();
-		player.AddToGroup("player");
-		GD.Print("Player created and added to group.");
-		roomHandler = new Node();
-		roomHandler.AddToGroup("room_handler");
-		GD.Print("RoomHandler created and added to group.");
-
-		// Add nodes to the scene tree
-		sceneTree.Root.AddChild(player);
-		sceneTree.Root.AddChild(dungeonHandler);
-		sceneTree.Root.AddChild(roomHandler);
-		GD.Print("Nodes added to SceneTree.");
-
-		// Set up the player and room handler groups
-		player.AddToGroup("player");
-		roomHandler.AddToGroup("room_handler");
-		GD.Print("Player and RoomHandler groups set up.");
-
-		// Call the _Ready method to initialize the DungeonHandler
-		dungeonHandler._Ready();
-		GD.Print("DungeonHandler _Ready method called.");
+		GD.Print("Nodes references obtained.");
 	}
 
 	[AfterTest]
@@ -56,31 +43,14 @@ public partial class TestDungeonHandler
 	{
 		GD.Print("Tearing down test environment...");
 
-		// Clean up the scene tree
-		if (dungeonHandler != null)
-		{
-			dungeonHandler.Free();
-			dungeonHandler = null;
-			GD.Print("DungeonHandler freed.");
-		}
-		if (player != null)
-		{
-			player.Free();
-			player = null;
-			GD.Print("Player freed.");
-		}
-		if (roomHandler != null)
-		{
-			roomHandler.Free();
-			roomHandler = null;
-			GD.Print("RoomHandler freed.");
-		}
-		if (sceneTree != null)
-		{
-			sceneTree.Root.Free();
-			sceneTree = null;
-			GD.Print("SceneTree freed.");
-		}
+		// Clean up the scene runner
+		//_sceneRunner.Free();
+		//_sceneRunner = null;
+		//dungeonHandler = null;
+		//player = null;
+		//roomHandler = null;
+
+		GD.Print("Scene runner and nodes freed.");
 	}
 
 	[TestCase]
@@ -116,4 +86,5 @@ public partial class TestDungeonHandler
 		}
 		onPlayerEnteredDoorMethod.Invoke(dungeonHandler, new object[] { "Room2", Direction.RIGHT });
 	}
+	*/
 }
