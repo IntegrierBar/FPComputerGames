@@ -27,6 +27,8 @@ public partial class SlimeAttacking : State
 
     public override void Enter()
     {
+		UpdateAnimations();
+
 		String slimeAttackRange = (Parent as Slime).GetSlimeAttackRangeAsString();
 		if (slimeAttackRange == "ranged")
 		{
@@ -46,7 +48,8 @@ public partial class SlimeAttacking : State
     /**
 	Once the attack animation is done, return to the Moving state and set monitoring of the melee attack 
 	hurt box to false so that the slime does not damage the player if they are colliding.
-	*/    public override State ProcessPhysics(double delta)
+	*/    
+	public override State ProcessPhysics(double delta)
 	{
 		_timeLeft -= delta;
         if (_timeLeft <= 0.0)
@@ -58,28 +61,31 @@ public partial class SlimeAttacking : State
 	}
 
 	/**
-	Plays attack animation and executes the attack of the ranged slime.
-	Constructs an attack that is given to the ranged projectile to do damage. 
-	Ranged slimes do not move during its attack animation.
-	Attacking spawns a projectile that flies to the position of the PC.
+	Plays attack animation.
+	Currently only slime magic type is considered.
 	*/
-	private void AttackRanged()
-	{
-		_timeLeft = 1; // duration of ranged attack animation
-
-		Attack attack = BuildAttack(); // Builds an attack that can be used by the projectile to do damage
-
+    public override void UpdateAnimations()
+    {
 		String animation_name = (Parent as Slime).GetMagicTypeAsString() + "_jump"; // TODO: String name has to e adapted once there are different animations for melee and ranged attacks
 		Animations.Play(animation_name);
 
+        base.UpdateAnimations();
+    }
+
+    /**
+	Executes the attack of the ranged slime.
+	Constructs an attack that is given to the ranged projectile to do damage. 
+	Ranged slimes do not move during its attack animation.
+	Attacking calls a function that spawns a projectile that flies to the position of the PC.
+	*/
+    private void AttackRanged()
+	{
+		_timeLeft = 1; // duration of ranged attack animation
+
 		// NOTE: In the real animation, the projectile might not be send at the beginning of the attack animation. 
-		// This part then needs to be handled differently.
-		Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
-		PackedScene scene = GD.Load<PackedScene>("res://modules/entities/slimes/slime-attacks/RangedAttack.tscn");
-		RangedAttack ranged_attack = scene.Instantiate() as RangedAttack;
-		GetTree().Root.AddChild(ranged_attack); // TODO In the future they schoudl not be added to root but to dungeon so that they get deleted when teh dungeon gets deleted
-		ranged_attack.Init(attack, vector_to_player);
-		ranged_attack.Position = (Parent as Slime).Position;
+		// The function then has to be called in a different position
+		Attack attack = BuildAttack(); // Builds an attack that can be used by the projectile to do damage
+		SpawnRangedAttack(attack);
 	}
 
 	/**
@@ -91,9 +97,6 @@ public partial class SlimeAttacking : State
 	private void AttackMelee()
 	{
 		_timeLeft = 1; // duration of melee attack animation
-
-		String animation_name = (Parent as Slime).GetMagicTypeAsString() + "_jump"; // TODO: String name has to e adapted once there are different animations for melee and ranged attacks
-		Animations.Play(animation_name);
 
 		Parent.GetNode<MeleeAttackHurtBox>("MeleeAttackHurtBox").Monitoring = true;
 
@@ -116,5 +119,20 @@ public partial class SlimeAttacking : State
 	 	MagicType magicType = (Parent as Slime).GetMagicType();
 		Attack attack = new Attack(damage, magicType, _healthComponent);
 		return attack;
+	}
+
+	/**
+	Spawns the projectile for a ranged attack.
+	Sets the necessary parameters for the ranged attack.
+	*/
+	private void SpawnRangedAttack(Attack attack)
+	{
+		PackedScene scene = GD.Load<PackedScene>("res://modules/entities/slimes/slime-attacks/RangedAttack.tscn");
+		RangedAttack ranged_attack = scene.Instantiate() as RangedAttack;
+		GetTree().Root.AddChild(ranged_attack);
+
+		Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
+		ranged_attack.Init(attack, vector_to_player);
+		ranged_attack.Position = (Parent as Slime).Position;
 	}
 }

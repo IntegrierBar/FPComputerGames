@@ -46,17 +46,20 @@ public partial class SlimeIdle : State
     */
 	public override State ProcessPhysics(double delta)
 	{
-		if (_player is not null)
+		if (_player is null)
 		{
-			Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
-			if (vector_to_player.Length() <= (Parent as Slime).GetAttackRangeF())
-			{
-				return Attacking;
-			}
-			if (vector_to_player.Length() <= (Parent as Slime).GetViewRange())
-			{
-				return Moving;
-			}
+			return null;
+		}
+
+		Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
+
+		if (IsPlayerInAttackRange(vector_to_player))
+		{
+			return Attacking;
+		}
+		if (IsPlayerInViewrange(vector_to_player))
+		{
+			return Moving;
 		}
 
 		_timeLeft -= delta;
@@ -66,6 +69,7 @@ public partial class SlimeIdle : State
 			Parent.Velocity = new_direction * SPEED; // update the slimes velocity
 		}
 		Parent.MoveAndSlide();
+		UpdateAnimations();
 		return null;
 	}
 
@@ -114,6 +118,22 @@ public partial class SlimeIdle : State
 		}
         base.UpdateAnimations();
     }
+
+	/**
+	Calculates vector from slime to player and finds out if the player is within the slimes attack range
+	*/
+	private bool IsPlayerInAttackRange(Vector2 vector_to_player)
+	{
+		return vector_to_player.Length() <= (Parent as Slime).GetAttackRangeF();
+	}
+
+	/**
+	Calculates vector from slime to player and finds out if the player is within the slimes view range
+	*/
+	private bool IsPlayerInViewrange(Vector2 vector_to_player)
+	{
+		return vector_to_player.Length() <= (Parent as Slime).GetViewRange();
+	}
 
 	/**
     Getter for time left. Currently not used.

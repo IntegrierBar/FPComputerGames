@@ -228,9 +228,8 @@ libraries = {
 
 [node name="HitBoxSlime" type="CollisionShape2D" parent="HealthComponent"]
 unique_name_in_owner = true
-position = Vector2(-3, 14)
+position = Vector2(-4, 14)
 shape = SubResource("CircleShape2D_xw0ru")
-metadata/_edit_lock_ = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("StartingState", "DeathState") instance=ExtResource("3_y1f0k")]
 StartingState = NodePath("Idle")
@@ -257,10 +256,9 @@ _healthComponent = NodePath("../../HealthComponent")
 script = ExtResource("8_hom1h")
 
 [node name="MeleeAttackHurtBox" parent="." instance=ExtResource("9_ilfwi")]
-collision_layer = 0
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeAttackHurtBox"]
+visible = false
 position = Vector2(-5, 15)
 shape = SubResource("CircleShape2D_jp6e4")
 
