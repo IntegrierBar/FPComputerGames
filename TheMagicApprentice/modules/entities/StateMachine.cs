@@ -82,4 +82,9 @@ public partial class StateMachine : Node
 	{
 		return _currentState;
 	}
+
+	public void OnDeath()
+	{
+		ChangeState(DeathState);
+	}
 }

@@ -77,6 +77,7 @@ public partial class SlimeAttacking : State
 		Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
 		PackedScene scene = GD.Load<PackedScene>("res://modules/entities/slimes/slime-attacks/RangedAttack.tscn");
 		RangedAttack ranged_attack = scene.Instantiate() as RangedAttack;
+		GetTree().Root.AddChild(ranged_attack); // TODO In the future they schoudl not be added to root but to dungeon so that they get deleted when teh dungeon gets deleted
 		ranged_attack.Init(attack, vector_to_player);
 		ranged_attack.Position = (Parent as Slime).Position;
 	}

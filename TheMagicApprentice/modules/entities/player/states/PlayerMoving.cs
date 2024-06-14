@@ -44,6 +44,7 @@ public partial class PlayerMoving : State
         Parent.Velocity = (float)SPEED * direction;
         Parent.MoveAndSlide();
         
+        UpdateAnimations();
         return null;
     }
 

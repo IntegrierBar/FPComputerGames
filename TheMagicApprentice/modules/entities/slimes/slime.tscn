@@ -200,7 +200,7 @@ _data = {
 radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jp6e4"]
-radius = 18.0
+radius = 24.0
 
 [node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
 position = Vector2(219, 117)
@@ -230,6 +230,7 @@ libraries = {
 unique_name_in_owner = true
 position = Vector2(-3, 14)
 shape = SubResource("CircleShape2D_xw0ru")
+metadata/_edit_lock_ = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("StartingState", "DeathState") instance=ExtResource("3_y1f0k")]
 StartingState = NodePath("Idle")
@@ -260,5 +261,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeAttackHurtBox"]
-position = Vector2(-3, 14)
+position = Vector2(-5, 15)
 shape = SubResource("CircleShape2D_jp6e4")
+
+[connection signal="Death" from="HealthComponent" to="StateMachine" method="OnDeath"]

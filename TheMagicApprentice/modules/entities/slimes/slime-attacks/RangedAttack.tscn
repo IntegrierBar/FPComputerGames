@@ -12,8 +12,11 @@ collision_mask = 2
 script = ExtResource("1_7mkfd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
 texture = ExtResource("1_nc647")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(4, 0)
 shape = SubResource("CircleShape2D_pptpn")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]
