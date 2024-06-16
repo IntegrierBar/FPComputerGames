@@ -6,7 +6,12 @@ public partial class RangedAttack : Area2D
     private Attack _attack;	///< Contains damage, type and caster reference for damage calculation
 	private Vector2 _direction; ///< Direction in which to attack moves
 
-	public float SPEED = 400; ///< Speed of the attack. Do not set too high or evading might be too difficult
+	private double _maxLifeTimeSeconds;
+
+	[Export]
+	public float SPEED = 100; ///< Speed of the attack. Do not set too high or evading might be too difficult
+	[Export]
+	public double MaxLifeTimeInSeconds = 5;
 
 	/**
 	Set attack and direction which are given to the Init function. 
@@ -16,10 +21,11 @@ public partial class RangedAttack : Area2D
 	*/
     public void Init(Attack attack, Vector2 direction)
     {
+		_maxLifeTimeSeconds = MaxLifeTimeInSeconds;
         _attack = attack;
 		_direction = direction.Normalized();
 
-		LookAt(GlobalPosition + direction); // makes attack look in the correct direction TODO: check that it is the correct direction, otherwise the texture has to be rotated
+		LookAt(GlobalPosition + direction); // makes attack look in the correct direction 
 
         Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
 		switch (_attack.magicType) // change colour of the sprite depending on the magic type
@@ -45,10 +51,17 @@ public partial class RangedAttack : Area2D
 
 	/**
 	Change position of the projectile.
+	Count down the max life time of the projectile and remove the projectile once the time is up
 	*/
     public override void _PhysicsProcess(double delta)
     {
         Position += (float)delta * SPEED * _direction;
+
+		_maxLifeTimeSeconds -= delta;
+		if (_maxLifeTimeSeconds <= 0.0)
+		{
+			QueueFree();
+		}
     }
 
     /**
@@ -57,6 +70,8 @@ public partial class RangedAttack : Area2D
 	*/
     public void OnAreaEntered(Area2D area)
 	{
+		GD.Print("hit area");
+		GD.Print(area);
 		if (area is HealthComponent healthComponent) // check if area is a health component and if true cast it as a healthcomponent under the name healthComponent
 		{
 			healthComponent.TakeDamage(_attack);

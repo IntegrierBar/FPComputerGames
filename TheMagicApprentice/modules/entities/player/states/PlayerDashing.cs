@@ -57,6 +57,7 @@ public partial class PlayerDashing : State
         }
 
         Parent.MoveAndSlide();
+        UpdateAnimations();
 
         return base.ProcessPhysics(delta);
     }

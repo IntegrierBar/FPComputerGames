@@ -12,14 +12,20 @@ public partial class BaseSpell : Area2D
 {
 	private Attack _attack;	///< Contains damage, type and caster reference for damage calculation
 	private Vector2 _direction; ///< Direction in which to spell moves
+	private double _maxLifeTimeSeconds;
 
 	public float SPEED = 600; ///< Speed of the spell. Do not set to high or else it might not hit enemies
+
+	[Export]
+	public double MaxLifeTimeInSeconds = 5;
 
 	/**
 	Call after instantiating the base spell scene in order to set the Attack of the spell and change the color.
 	*/
 	public void Init(Attack attack, Vector2 direction)
 	{
+		_maxLifeTimeSeconds = MaxLifeTimeInSeconds;
+
 		_attack = attack;
 		_direction = direction.Normalized();
 
@@ -47,10 +53,19 @@ public partial class BaseSpell : Area2D
 		}
 	}
 
-
+	/**
+	Change position of the spell.
+	Count down the max life time of the spell and remove the spell once the time is up
+	*/
     public override void _PhysicsProcess(double delta)
     {
         Position += (float)delta * SPEED * _direction;
+
+		_maxLifeTimeSeconds -= delta;
+		if (_maxLifeTimeSeconds <= 0.0)
+		{
+			QueueFree();
+		}
     }
 
 
@@ -60,10 +75,14 @@ public partial class BaseSpell : Area2D
 	*/
     public void OnAreaEntered(Area2D area)
 	{
+		GD.Print("hit area");
+		GD.Print(area);
 		if (area is HealthComponent healthComponent) // check if area is a health component and if true cast it as a healthcomponent under the name healthComponent
 		{
 			healthComponent.TakeDamage(_attack);
-
+			GD.Print("dealt Damage");
+			GD.Print(_attack.damage);
+			GD.Print(healthComponent.GetCurrentHP());
 			// once the spell has hit something we delete it
 			QueueFree();
 		}

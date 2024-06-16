@@ -200,13 +200,17 @@ _data = {
 radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jp6e4"]
-radius = 18.0
+radius = 24.0
 
 [node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
 position = Vector2(219, 117)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_llbif")
 StateMachine = NodePath("StateMachine")
 AnimationPlayer = NodePath("AnimationPlayer")
+ViewRange = 150.0
+AttackRangeMelee = 40.0
+AttackRangeRanged = 80.0
 
 [node name="CollisionShapeSlime" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
@@ -225,10 +229,11 @@ libraries = {
 }
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_oictg")]
+unique_name_in_owner = true
 
 [node name="HitBoxSlime" type="CollisionShape2D" parent="HealthComponent"]
 unique_name_in_owner = true
-position = Vector2(-3, 14)
+position = Vector2(-4, 14)
 shape = SubResource("CircleShape2D_xw0ru")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("StartingState", "DeathState") instance=ExtResource("3_y1f0k")]
@@ -256,9 +261,10 @@ _healthComponent = NodePath("../../HealthComponent")
 script = ExtResource("8_hom1h")
 
 [node name="MeleeAttackHurtBox" parent="." instance=ExtResource("9_ilfwi")]
-collision_layer = 0
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeAttackHurtBox"]
-position = Vector2(-3, 14)
+visible = false
+position = Vector2(-5, 15)
 shape = SubResource("CircleShape2D_jp6e4")
+
+[connection signal="Death" from="HealthComponent" to="StateMachine" method="OnDeath"]

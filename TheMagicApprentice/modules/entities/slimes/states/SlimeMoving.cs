@@ -26,32 +26,68 @@ public partial class SlimeMoving : State
 		}
 	}
 
-	/**
+    public override void Enter()
+    {
+		UpdateAnimations();
+        base.Enter();
+    }
+
+    /**
 	Calculate distance to player to find out whether the state should be changed.
 	If the slime remains in Moving, move towards the player and play the jump/move animation.
 	*/
-	public override State ProcessPhysics(double delta)
+    public override State ProcessPhysics(double delta)
 	{
-		if (_player is not null)
+		if (_player is null)
 		{
-			Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
-			if (vector_to_player.Length() <= (Parent as Slime).GetAttackRangeF()) // if player is within attack range, go to Attacking state
-			{
-				return Attacking;
-			}
-			if (vector_to_player.Length() > (Parent as Slime).GetViewRange()) // if player is out of view range, go to idle state
-			{
-				return Idle;
-			}
-
-			// if slime remains in Moving state, move towards the player
-			Parent.Velocity = vector_to_player.Normalized() * SPEED;
-			Parent.MoveAndSlide();
-			
-			// play jump/move animation. If animation is already playing, the animation is NOT started again from the beginning
-			String animation_name = (Parent as Slime).GetMagicTypeAsString() + "_jump";
-			Animations.Play(animation_name);
+			return null;
 		}
+
+		Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
+
+		if (IsPlayerInAttackRange(vector_to_player)) // if player is within attack range, go to Attacking state
+		{
+			return Attacking;
+		}
+		if (!IsPlayerInViewrange(vector_to_player)) // if player is out of view range, go to idle state
+		{
+			return Idle;
+		}
+
+		// if slime remains in Moving state, move towards the player
+		Parent.Velocity = vector_to_player.Normalized() * SPEED;
+		Parent.MoveAndSlide();
+		
 		return null;
+	}
+
+	/**
+	Calculates vector from slime to player and finds out if the player is within the slimes attack range
+	*/
+	private bool IsPlayerInAttackRange(Vector2 vector_to_player)
+	{
+		return vector_to_player.Length() <= (Parent as Slime).GetAttackRangeValue();
+	}
+
+	/**
+	Calculates vector from slime to player and finds out if the player is within the slimes view range
+	*/
+	private bool IsPlayerInViewrange(Vector2 vector_to_player)
+	{
+		return vector_to_player.Length() <= (Parent as Slime).GetViewRange();
+	}
+
+	/**
+	play jump/move animation. Animation name has to be constructed from the slimes properties. 
+	Currently used properties: magic type. 
+	If animation is already playing, the animation is NOT started again from the beginning.
+	*/
+	public override void UpdateAnimations()
+	{
+		string slimeMagicType = EntityTypeHelper.GetMagicTypeAsString((Parent as Slime).GetMagicType());
+		String animation_name = slimeMagicType + "_jump";
+		Animations.Play(animation_name);
+
+		base.UpdateAnimations();
 	}
 }

@@ -36,7 +36,6 @@ public partial class State : Node
 	*/
 	public virtual State ProcessFrame(double delta)
 	{
-		UpdateAnimations();
 		return null;
 	}
 

@@ -25,11 +25,15 @@ public partial class SlimeIdle : State
 	// Setting _idleatSamePosition to true means it will get set to false in the first physics process 
 	// and the slime starts jumping around.
 
+	private RandomNumberGenerator random;
+
 	/**
-    Set player. 
+    Set player and random number generator for the random walk.
 	*/
 	public override void _Ready()
 	{
+		random = new RandomNumberGenerator(); // necessary for generating some random numbers
+
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
 		if (_player is null)
 		{
@@ -46,17 +50,20 @@ public partial class SlimeIdle : State
     */
 	public override State ProcessPhysics(double delta)
 	{
-		if (_player is not null)
+		if (_player is null)
 		{
-			Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
-			if (vector_to_player.Length() <= (Parent as Slime).GetAttackRangeF())
-			{
-				return Attacking;
-			}
-			if (vector_to_player.Length() <= (Parent as Slime).GetViewRange())
-			{
-				return Moving;
-			}
+			return null;
+		}
+
+		Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
+
+		if (IsPlayerInAttackRange(vector_to_player))
+		{
+			return Attacking;
+		}
+		if (IsPlayerInViewrange(vector_to_player))
+		{
+			return Moving;
 		}
 
 		_timeLeft -= delta;
@@ -73,17 +80,17 @@ public partial class SlimeIdle : State
     Changes action of the slime from staying idle in one place to randomly walking in one direction 
 	or the other way around. 
 	Change _idleAtSamePsoition first to update what the slime is doing now.
+	Upadates animations afterwards to fit the new state.
 	Generate an integer between 0 and 5 that is later multiplied by the animation duration to ensure 
 	that the changes in movements of the idle slime do not happen in the middle of animations.
-	Set timeLeft in the current state and generate a reandom directio if the slime should move.
+	Set timeLeft in the current state and generate a random direction if the slime should move.
 	Return the direction or (0,0) if the slime stays at the same position. 
     */
 	public Vector2 ChangeRandomWalk()
 	{
-		var random = new RandomNumberGenerator(); // necessary for generating some random numbers
-
 		uint times = GD.Randi() % 5; // using an integer to ensure that changes of idle state type don't happen during an animation
 		_idleAtSamePosition = !_idleAtSamePosition; // change idle state type, true means idle stationary, false means walking in a direction
+		UpdateAnimations();
 
 		if (_idleAtSamePosition) // idle stationary
 		{
@@ -102,24 +109,34 @@ public partial class SlimeIdle : State
     */
     public override void UpdateAnimations()
     {
+		string slimeMagicType = EntityTypeHelper.GetMagicTypeAsString((Parent as Slime).GetMagicType());
+
 		if (_idleAtSamePosition)
 		{
-			String animation_name = (Parent as Slime).GetMagicTypeAsString() + "_idle";
+			String animation_name = slimeMagicType + "_idle";
 			Animations.Play(animation_name);
 		}
 		else
 		{
-			String animation_name = (Parent as Slime).GetMagicTypeAsString() + "_jump";
+			String animation_name = slimeMagicType + "_jump";
 			Animations.Play(animation_name);
 		}
         base.UpdateAnimations();
     }
 
 	/**
-    Getter for time left. Currently not used.
+	Calculates vector from slime to player and finds out if the player is within the slimes attack range
 	*/
-	public double GetTimeLeft()
+	private bool IsPlayerInAttackRange(Vector2 vector_to_player)
 	{
-		return _timeLeft;
+		return vector_to_player.Length() <= (Parent as Slime).GetAttackRangeValue();
+	}
+
+	/**
+	Calculates vector from slime to player and finds out if the player is within the slimes view range
+	*/
+	private bool IsPlayerInViewrange(Vector2 vector_to_player)
+	{
+		return vector_to_player.Length() <= (Parent as Slime).GetViewRange();
 	}
 }
