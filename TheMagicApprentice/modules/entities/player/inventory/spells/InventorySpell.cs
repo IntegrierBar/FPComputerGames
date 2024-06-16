@@ -9,8 +9,8 @@ Base class for all spells inside the inventory
 public partial class InventorySpell : Node
 {
 	[Export]
-	public double BaseDamage = 10; ///< base damage of the skill
-	public double Damage = 10; ///< actual damage of the spell
+	public double BaseDamage = 30; ///< base damage of the skill
+	public double Damage = 30; ///< actual damage of the spell
 	[Export]
 	public MagicType MagicType = MagicType.SUN; ///< Magic type of the spell
 	[Export]

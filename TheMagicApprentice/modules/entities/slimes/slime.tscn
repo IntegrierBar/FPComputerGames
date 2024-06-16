@@ -229,6 +229,7 @@ libraries = {
 }
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_oictg")]
+unique_name_in_owner = true
 
 [node name="HitBoxSlime" type="CollisionShape2D" parent="HealthComponent"]
 unique_name_in_owner = true

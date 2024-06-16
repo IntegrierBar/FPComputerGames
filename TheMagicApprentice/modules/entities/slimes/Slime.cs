@@ -69,6 +69,7 @@ public partial class Slime : CharacterBody2D
 		_damageValue = BaseDamage;
 
 		_magicType = magicType;
+		SetArmorValues(magicType);
 		_slimeSize = slimeSize;
 		_slimeAttackRange = slimeAttackRange;
 		Position = slimePosition;
@@ -88,6 +89,34 @@ public partial class Slime : CharacterBody2D
 		else
 		{
 			_attackRangeValue = AttackRangeRanged;
+		}
+	}
+
+	private void SetArmorValues(MagicType magicType)
+	{
+		double armorSun;
+		double armorCosmic;
+		double armorDark;
+		if (magicType == MagicType.SUN)
+		{
+			armorSun = 25;
+			armorCosmic = 40;
+			armorDark = 10;
+			GetNode<HealthComponent>("%HealthComponent").SetArmor(armorSun, armorCosmic, armorDark);
+		}
+		if (magicType == MagicType.COSMIC)
+		{
+			armorSun = 10;
+			armorCosmic = 25;
+			armorDark = 40;
+			GetNode<HealthComponent>("%HealthComponent").SetArmor(armorSun, armorCosmic, armorDark);
+		}
+		else // magic type dark
+		{
+			armorSun = 40;
+			armorCosmic = 10;
+			armorDark = 25;
+			GetNode<HealthComponent>("%HealthComponent").SetArmor(armorSun, armorCosmic, armorDark);
 		}
 	}
 
