@@ -8,13 +8,14 @@ public partial class SlimeDeath : State
     private double _timeLeft = 0.0; 
 
     /**
-	Set duration of death animation and play death animation
+	Set duration of death animation and play death animation.
+    Call function to ensure that slime cannot be hit by attacks once it entered the death state.
 	*/
 	public override void Enter()
     {
         _timeLeft = DeathAnimationTime;
 		UpdateAnimations();
-        CallDeferred("DisableBoxes");
+        CallDeferred("DisableBoxes"); // has to be called deferred because the function should not be executed during a calculation
 		
         base.Enter();
     }
@@ -38,7 +39,8 @@ public partial class SlimeDeath : State
 	*/
     public override void UpdateAnimations()
     {
-        string animationName = (Parent as Slime).GetMagicTypeAsString() + "_death"; // TODO: when animations also consider size and attack range, this part has to be changed!
+        string slimeMagicType = EntityTypeHelper.GetMagicTypeAsString((Parent as Slime).GetMagicType());
+        string animationName = slimeMagicType + "_death"; // TODO: when animations also consider size and attack range, this part has to be changed!
 		Animations.Play(animationName);
 
         base.UpdateAnimations();
@@ -46,6 +48,7 @@ public partial class SlimeDeath : State
 
     /**
     Disable hit- and collision box of the slime upon death. 
+    Has to be called deferred to avoid errors with collision calculations.
     */
     private void DisableBoxes()
     {

@@ -23,7 +23,7 @@ public partial class Slime : CharacterBody2D
 	private SlimeAttackRange _slimeAttackRange; ///< Defines whether the slime is melee or ranged
 
 	private float _viewRange; ///< View range of this slime
-	private float _attackRangeF; ///< Attack range of this slime
+	private float _attackRangeValue; ///< Attack range of this slime
 	private float _damageValue; ///< Damage the slime applies when attacking
 
 	/**
@@ -83,11 +83,11 @@ public partial class Slime : CharacterBody2D
 
 		if (slimeAttackRange == SlimeAttackRange.MELEE) // set attack range of the slime depending on their attack range type
 		{
-			_attackRangeF = AttackRangeMelee;
+			_attackRangeValue = AttackRangeMelee;
 		}
 		else
 		{
-			_attackRangeF = AttackRangeRanged;
+			_attackRangeValue = AttackRangeRanged;
 		}
 	}
 
@@ -100,61 +100,19 @@ public partial class Slime : CharacterBody2D
 	}
 
 	/**
-	Getter for magic type of a slime, converted to a string.
-	Currently used for the animations/state machine, since they need to know which type of slime they are.
+	Getter for attack range type of a slime.
 	*/
-	public String GetMagicTypeAsString()
+	public SlimeAttackRange GetSlimeAttackRange()
 	{
-		if (_magicType == MagicType.SUN)
-		{
-			return "sun";
-		}
-		else if (_magicType == MagicType.COSMIC)
-		{
-			return "cosmic";
-		}
-		else if (_magicType == MagicType.DARK)
-		{
-			return "dark";
-		}
-		GD.Print("Slime has no magic type!");
-		return null;
+		return _slimeAttackRange;
 	}
 
 	/**
-	Getter for slime size, converted to a string.
-	Will be used for the animations/state machine, since they need to know which type of slime they are.
+	Getter for size of a slime.
 	*/
-	public String GetSlimeSizeAsString()
+	public SlimeSize GetSlimeSize()
 	{
-		if (_slimeSize == SlimeSize.LARGE)
-		{
-			return "large";
-		}
-		if (_slimeSize == SlimeSize.SMALL)
-		{
-			return "small";
-		}
-		GD.Print("Slime has no size!");
-		return null;
-	}
-
-	/**
-	Getter for slime attack range, converted to a string.
-	will be used for the animations/state machine, since they need to know which type of slime they are.
-	*/
-	public String GetSlimeAttackRangeAsString()
-	{
-		if (_slimeAttackRange == SlimeAttackRange.MELEE)
-		{
-			return "melee";
-		}
-		if (_slimeAttackRange == SlimeAttackRange.RANGED)
-		{
-			return "ranged";
-		}
-		GD.Print("Slime has no attack range!");
-		return null;
+		return _slimeSize;
 	}
 
 	/**
@@ -169,9 +127,9 @@ public partial class Slime : CharacterBody2D
 	Getter for attack range of the slime.
 	Using this function ensures that the correct attack range is returned for every slime independent of their attack range type.
 	*/
-	public float GetAttackRangeF()
+	public float GetAttackRangeValue()
 	{
-		return _attackRangeF;
+		return _attackRangeValue;
 	}
 
 	public float GetDamageValue()

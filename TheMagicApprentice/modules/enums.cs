@@ -46,6 +46,50 @@ public enum Direction
 	RIGHT,
 }
 
+public class EntityTypeHelper
+{
+    /**
+	Takes a magic type and returns it as a string, where all letters are lowercase.
+    This is the way the magic types are written in e.g. the animation names.
+	*/
+    public static String GetMagicTypeAsString(MagicType magicType)
+    {
+        return magicType switch
+        {
+            MagicType.SUN => "sun",
+            MagicType.COSMIC => "cosmic",
+            MagicType.DARK => "dark",
+            _ => throw new ArgumentOutOfRangeException(nameof(magicType), magicType, null),
+        };
+    }
+
+    /**
+	Takes a slime attack range and returns it as a string, where all letters are lowercase.
+    This is the way the slime attack range should be written in e.g. the animation names.
+	*/
+    public static String GetSlimeAttackRangeAsString(SlimeAttackRange slimeAttackRange)
+    {
+        if (slimeAttackRange == SlimeAttackRange.RANGED)
+        {
+            return "ranged";
+        }
+        return "melee";
+    }
+
+    /**
+	Takes a slime size and returns it as a string, where all letters are lowercase.
+    This is the way the slime size should be written in e.g. the animation names.
+	*/
+    public static String GetSlimeSizeAsString(SlimeSize slimeSize)
+    {
+        if (slimeSize == SlimeSize.LARGE)
+        {
+            return "large";
+        }
+        return "small";
+    }
+}
+
 public class DirectionHelper
 {
     public static Direction GetOppositeDirection(Direction direction)

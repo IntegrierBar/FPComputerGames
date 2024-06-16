@@ -26,11 +26,17 @@ public partial class SlimeMoving : State
 		}
 	}
 
-	/**
+    public override void Enter()
+    {
+		UpdateAnimations();
+        base.Enter();
+    }
+
+    /**
 	Calculate distance to player to find out whether the state should be changed.
 	If the slime remains in Moving, move towards the player and play the jump/move animation.
 	*/
-	public override State ProcessPhysics(double delta)
+    public override State ProcessPhysics(double delta)
 	{
 		if (_player is null)
 		{
@@ -52,8 +58,6 @@ public partial class SlimeMoving : State
 		Parent.Velocity = vector_to_player.Normalized() * SPEED;
 		Parent.MoveAndSlide();
 		
-		UpdateAnimations();
-		
 		return null;
 	}
 
@@ -62,7 +66,7 @@ public partial class SlimeMoving : State
 	*/
 	private bool IsPlayerInAttackRange(Vector2 vector_to_player)
 	{
-		return vector_to_player.Length() <= (Parent as Slime).GetAttackRangeF();
+		return vector_to_player.Length() <= (Parent as Slime).GetAttackRangeValue();
 	}
 
 	/**
@@ -80,7 +84,8 @@ public partial class SlimeMoving : State
 	*/
 	public override void UpdateAnimations()
 	{
-		String animation_name = (Parent as Slime).GetMagicTypeAsString() + "_jump";
+		string slimeMagicType = EntityTypeHelper.GetMagicTypeAsString((Parent as Slime).GetMagicType());
+		String animation_name = slimeMagicType + "_jump";
 		Animations.Play(animation_name);
 
 		base.UpdateAnimations();

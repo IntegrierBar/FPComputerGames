@@ -6,7 +6,12 @@ public partial class RangedAttack : Area2D
     private Attack _attack;	///< Contains damage, type and caster reference for damage calculation
 	private Vector2 _direction; ///< Direction in which to attack moves
 
+	private double _maxLifeTimeSeconds;
+
+	[Export]
 	public float SPEED = 100; ///< Speed of the attack. Do not set too high or evading might be too difficult
+	[Export]
+	public double MaxLifeTimeInSeconds = 5;
 
 	/**
 	Set attack and direction which are given to the Init function. 
@@ -16,6 +21,7 @@ public partial class RangedAttack : Area2D
 	*/
     public void Init(Attack attack, Vector2 direction)
     {
+		_maxLifeTimeSeconds = MaxLifeTimeInSeconds;
         _attack = attack;
 		_direction = direction.Normalized();
 
@@ -45,10 +51,17 @@ public partial class RangedAttack : Area2D
 
 	/**
 	Change position of the projectile.
+	Count down the max life time of the projectile and remove the projectile once the time is up
 	*/
     public override void _PhysicsProcess(double delta)
     {
         Position += (float)delta * SPEED * _direction;
+
+		_maxLifeTimeSeconds -= delta;
+		if (_maxLifeTimeSeconds <= 0.0)
+		{
+			QueueFree();
+		}
     }
 
     /**
