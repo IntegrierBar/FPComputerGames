@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx1isxkncyeh0"]
+
+[ext_resource type="PackedScene" uid="uid://cfafpfmqm8u17" path="res://modules/entities/player/player.tscn" id="1_khfie"]
+[ext_resource type="PackedScene" uid="uid://b0weg7j30kopm" path="res://modules/handlers/DungeonHandler.tscn" id="2_6wnd0"]
+[ext_resource type="Script" path="res://modules/handlers/RoomHandler.cs" id="3_cd7gp"]
+
+[node name="MainGame" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_khfie")]
+z_index = 5
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+
+[node name="DungeonHandler" parent="." instance=ExtResource("2_6wnd0")]
+
+[node name="RoomHandler" type="Node" parent="DungeonHandler" groups=["room_handler"]]
+script = ExtResource("3_cd7gp")
