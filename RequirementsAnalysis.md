@@ -268,29 +268,29 @@ Slimes will come in large groups. Group behavior is used to simulate better move
 Each slime is associated with a specific magic type. They are visually represented by the color corresponding to their magic type. Slimes only inflict damage aligned with their magic type, and their armor is strong against the magic type that their magic type is strong against and weak against the magic type that their magic type is weak against. The armor against their own magic type is inbetween. 
 Example: A Sun slime could have the following armor values: Sun armor: 30, Cosmic armor: 50, Dark armor: 10 (values might change).
 
-Slimes can have three possible states.
+Slimes can have four possible states.
 
 | **ID: ES1**| **Slime states: Idle** |
 | --- | --- |
-| Description | If the PC is outside of the detection range of the slime, the slime is idle. It moves around randomly. |
-| Acceptance Criterion | Has to be implemented |
+| Description | If the PC is outside of the detection range of the slime, the slime is idle. It changes between two behaviours, first it remains in one position for a random time period of up to 5 seconds and afterwards it moves on a straight line into a random direction for up to 5 seconds. This behaviour loops until the slime either dies (enters Death state) or gets close enough to the player that it changes to Moving or Attacking state. The idle animation and the moving animation used in this state are in the slimes folder. |
+| Acceptance Criterion | If the PC is outside of the view range of the slime, the slime behaves like described. |
 | Notes | None |
 
 | **ID: ES2**| **Slime states: Moving** |
 | --- | --- |
-| Description | If the PC is inside of the detection range of the slime but outside of the attack range of the slime, the slime moves towards the PC until it is in attack range. |
-| Acceptance Criterion | Has to be implemented |
+| Description | If the PC is inside of the view range of the slime but outside of the attack range of the slime, the slime moves towards the PC until it is in attack range. If the PC is inside the attack range of the slime, the slime transitions to the Attacking state. If the PC moves out of the view range of the slime (e.g. by dashing), the slime returns to the Idle state. If the slimes health points reach zero, the slime enters the Death state. While in the Moving state, a moving animation is played. The moving animation used in this state is in the slimes folder. |
+| Acceptance Criterion | The slime moves towards the PC while the PC is in the slimes view range but not inside of its attack range. |
 | Notes | None |
 
 | **ID: ES3**| **Slime states: Attacking** |
 | --- | --- |
-| Description | If the PC is inside of the attack range of the slime, the slime attacks the PC. |
-| Acceptance Criterion | Has to be implemented |
+| Description | If the PC is inside of the attack range of the slime, the slime attacks the PC. After the attack is completed, the slime returns to the Moving state. If the slimes health points reach zero, the slime enters the Death state. While in the Attacking state, an attacking animation is played. The attack animation used in this state is in the slimes folder. |
+| Acceptance Criterion | IF the PC is inside the attack range of the slime, the slime attacks the PC. |
 | Notes | None |
 
 | **ID: ES4**| **Slime states: Death** |
 | --- | --- |
-| Description | When the slime's health reaches 0, it transitions to a death state. In this state, the slime stops all actions and animations, and after a short delay, it disappears from the game world. |
+| Description | When the slime's health reaches 0, it transitions to the death state. In this state, the slime stops all actions and does no longer interact with other game objects, and after a short delay in which the death animation is played, it disappears from the game world. The death animation used in this state is in the slimes folder. |
 | Acceptance Criterion | The slime must correctly transition to the death state when its health is depleted, and it should no longer be able to perform any actions or affect the game. |
 | Notes | Ensure that the transition to the death state is smooth and that the slime's disappearance is visually clear to the player. |
 
@@ -302,14 +302,32 @@ The armor values of all slimes of one magic type are the same.
 
 | **ID: ES5**| **Slime types: Melee Slime** |
 | --- | --- |
-| Description | Melee slimes move towards the PC and once they are very close to the PC, they jump against the PC for their attack. <br> Melee slimes can be large or small. |
-| Acceptance Criterion | Has to be implemented |
+| Description | Melee slimes move towards the PC and once they are very close to the PC, they jump to the position of the PC for their attack. They deal damage to the PC if they collide with the PC during their attack. <br> Melee slimes can be large or small. <br> Melee slimes can be differentiated from ranged slimes by a difference in color brightness. Melee slimes have a brighter colour than ranged slimes. |
+| Acceptance Criterion | Slimes exist that can attack and damage the player as described and are visually distinct from ranged slimes. |
 | Notes | None |
 
 | **ID: ES6**| **Slime types: Ranged Slime** |
 | --- | --- |
-| Description | Ranged slimes have a larger attack radius. When attacking, they shoot a small projectile in the direction of the PC. <br> Ranged slimes can be large or small. |
-| Acceptance Criterion | Has to be implemented |
+| Description | Ranged slimes have a larger attack radius. When attacking, they shoot a small projectile from their position in the direction the PC is currently located. The projectile flies on a straight line until it hits either the PC or an object that has at least medium height (e.g. a wall, a stack of boxes, etc., objects that would not qualify are small things that lie on the ground) <br> Ranged slimes can be large or small. <br> Ranged slimes can be differentiated from melee slimes by a difference in color brightness. Ranged slimes have a darker colour than melee slimes. |
+| Acceptance Criterion | Slimes exist that can attack and damage the player as described and are visually distinct from melee slimes. |
+| Notes | None |
+
+| **ID: ES7**| **Slime types: Small Slime** |
+| --- | --- |
+| Description | Small slimes are the default slime type. Depending on their type, they show the attributes described in the other requirements. <br> Small slimes can be melee or ranged. |
+| Acceptance Criterion | Small slimes can be created. |
+| Notes | None |
+
+| **ID: ES8**| **Slime types: Large Slime** |
+| --- | --- |
+| Description | Large slimes are larger than small slimes and have more HP and larger attack values than small slimes. <br> Large slimes can be ranged or melee. |
+| Acceptance Criterion | Large slimes can be created and they have more HP and larger attack values. |
+| Notes | None |
+
+| **ID: ES9**| **Slime types: Sun, cosmic and dark Slime** |
+| --- | --- |
+| Description | All slimes have one of the three magic types: sun, cosmic or dark. All attacks of a slime deal damage of the magic type the slime belongs to. The slimes magic type is indicated to the player by the colour of the slime. Sun slimes are yellow to red, cosmic slimes are blue to white and dark slimes are purple to black. The magic type of a slime determines its armor values against the different magic types. All slimes of a magic type (melee and ranged, small and large) have the same armor values for all magic types unless the armor values are changed by a curse. |
+| Acceptance Criterion | Slimes of all three magic types can be created and they only deal damage aligned with the magic type they belong to. |
 | Notes | None |
 
 ##### 2.2.1.4.2 Bosses
