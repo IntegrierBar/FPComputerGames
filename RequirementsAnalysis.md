@@ -158,46 +158,47 @@ Each magic type has three different skills: a basic skill, a supportive skill an
 All nine skills have upgraded versions, which are automatically unlocked when the player fulfills a predefined criteria. 
 The PC can have up to three different skills equipped.  
 
+Each skill has a damage, magic type, a duration for how long it lasts and a cooldown.
 
 | **ID: EPS1**| **Skill: Basic Skills** |
 | --- | --- |
-| Description | Each magic type has a basic skill that consist of a colored circular projectile shot from PC in the direction of the mouse. |
+| Description | Each magic type has a basic skill that consist of a colored circular projectile shot from PC in the direction of the mouse. If the projectile hits an enemy, the enemy is dealt the damage of the skill and the projectile despawns. <br> If the projectile hits a wall or structure it alsow despawn. |
 | Acceptance Criterion | Has to be implemented |
-| Notes | None |
+| Notes | The color of the projectile is the color of the magic type it belongs to. |
 
 | **ID: EPS2**| **Skill: Sun Beam** |
 | --- | --- |
-| Description | The supportive skill of the sun magic type. The PC emits a ray of ligth from the PC in the direction of the mouse. <br> Enemies hit deal reduced damage and have reduced armor. |
+| Description | The supportive skill of the sun magic type. The PC emits a ray of yellow ligth from the PC in the direction of the mouse. <br> Enemies hit deal reduced damage and have reduced armor until they are killed. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: EPS3**| **Skill: Summon Sun** |
 | --- | --- |
-| Description | PC spawns a sun at mouse location for a few seconds. Enemies close to it take damage depending on how close they are to the sun. The center of the sun deals the most damage. Enemies take damage at predefined intervals as long as they are inside the AOE.|
+| Description | PC spawns a yellow circular object that looks like a sun at the mouse location that lasts for a few seconds. Enemies close to it take damage depending on how close they are to the center. The closer they are, the more damage they take. Enemies take damage at predefined intervals as long as they are inside the AOE.|
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: EPS4**| **Skill: Moon Light** |
 | --- | --- |
-| Description | A Ray of moonlight shines down on the player increasing the attack value of all their equipped skills and the armor values for all magic types. |
+| Description | A visualization of a light grey ray of moonlight is shown around the PC. The PC now has increased attack damage for all their equipped skills and increased armor values for all magic types for a few seconds. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: EPS5**| **Skill: Star Rain** |
 | --- | --- |
-| Description | Multiple single projectiles spawn around the PC with random offset and start homing to mouse position. <br> On collision with enemy they do damage and despawn. |
+| Description | Multiple blue circular projectiles spawn randomly around the PC and start moving towards the mouse position. <br> On collision with enemy they apply their damage and despawn. On collision with a wall or structure they despawn. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: EPS6**| **Skill: Dark Energy Wave** |
 | --- | --- |
-| Description | PC creates a black wave that pushes all enemies away from the PC by a predefined distance. The wave pushes away all enemies in the same room as the PC, independently of the distance to the PC. |
+| Description | PC creates a black wave centered around the PC, moving away from them with predefined speed, that pushes all enemies away from the PC by a predefined distance. The wave pushes away all enemies in the same room as the PC, independently of the distance to the PC. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: EPS7**| **Skill: Black Hole** |
 | --- | --- |
-| Description | PC creates a round black void at mouse position that pulls all enemies towards it, if they hit the black void they take massive damage. |
+| Description | PC creates a round black circular shape at mouse position that pulls all enemies towards it using gravity, if they hit the black circle the enemies take damage. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
