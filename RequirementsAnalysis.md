@@ -59,31 +59,31 @@ All entities have the following properties:
 
 | **ID: EP1**| **Entity property: Max HP** |
 | --- | --- |
-| Description | Every entity has a max HP value that shows how much damage the entity can take before dying. |
+| Description | Every entity has a max HP floating point value that shows how much damage the entity can take before dying. |
 | Acceptance Criterion | Has to be implemented |
-| Notes | |
+| Notes | The max HP of every entity has to be greater than 0 and less than infinity |
 
 | **ID: EP2**| **Entity property: Current HP** |
 | --- | --- |
-| Description | Every entity has a current HP value that shows how much damage the entity has already taken and can still take before dying. If the current HP value is smaller or equal to zero, the entity dies. |
+| Description | Every entity has a current HP floating point value that shows how much damage the entity has already taken and can still take before dying. If the current HP value is smaller or equal to zero, the entity dies. |
 | Acceptance Criterion | Has to be implemented |
-| Notes | The relation of current HP to max HP should be visible for the player for all entities on screen. |
+| Notes | The relation of current HP to max HP should be visible for the player for all entities on screen. <br> The current HP always has to be less or equal to the max HP. Contrary to the max HP it is allowed to be negative. |
 
 | **ID: EP3**| **Entity property: Armor values** |
 | --- | --- |
-| Description | Every entity has three armor values for each of the three magic types in game. The armor type for a magic type determines how much the damage to the entity is reduced by an attack of that magic type (30 armor means 30% damage reduction). <br> If an entity has an armor value above 100, part of the damage is reflected back to the attacker. Example: Entity has 120 armor, attack makes 100 damage, then 20 damage is reflected back to the attacker, if the attacker has an armor value of 50, the attacker takes 10 damage. |
+| Description | Every entity has three armor floating point values for each of the three magic types in game. The armor type for a magic type determines how much the damage to the entity is reduced by an attack of that magic type (30 armor means 30% damage reduction). <br> If an entity has an armor value above 100, part of the damage is reflected back to the attacker. Example: Entity has 120 armor, attack makes 100 damage, then 20 damage is reflected back to the attacker, if the attacker has an armor value of 50, the attacker takes 10 damage. |
 | Acceptance Criterion | Damage of all types is applied correctly to entities depending on their armor values. |
 | Notes | The damage calculation works like <br> if armor <= 100: health = health - damage*(100-armor)/100 <br> Only PC should be able to reach over 100 armor through additional stats, enemies need at least one armor value below 30 unless they are buffed. <br> Case where both entities have over 100 armor of the same type has to be covered nonetheless. In that case both entites take no damage of this magic type. |
 
 | **ID: EP4**| **Entity property: Damaging skills** |
 | --- | --- |
-| Description | Every entity has one or more damaging skills. Every skill has a magic type and a base damage value. The base damage value can be modified under certain circumstances (curses for enemies, augments for the PC). A damaging skill only damages the opponent, that means the PC takes no damage from their own spells and enemy attacks only damage the PC. |
+| Description | Every entity has one or more damaging skills. Every skill has a magic type and a base damage loating point value. The base damage value can be modified under certain circumstances (curses for enemies, augments for the PC). A damaging skill only damages the opponent, that means the PC takes no damage from their own spells and enemy attacks only damage the PC. |
 | Acceptance Criterion | Damage from different skills of all magic types is applied correctly to PC and enemies for armor values of 0. |
 | Notes | The area in which a damaging skill applies damage to the opponent and the duration in which the opponent takes damage depends on the specific skill. |
 
 | **ID: EP5**| **Entity property: Speed** |
 | --- | --- |
-| Description | Every entity has a speed value that determines how quickly it can move across the game environment. This affects both the player character (PC) and enemies. |
+| Description | Every entity has a speed floating point value that determines how quickly it can move across the game environment. This affects both the player character (PC) and enemies. |
 | Acceptance Criterion | Speed should be accurately reflected in the movement rate of entities in the game. |
 | Notes | Speed may be modified by certain augments or dungeon curses. |
 
@@ -91,7 +91,7 @@ All entities have the following properties:
 | --- | --- |
 | Description | After taking damage, an entity becomes invincible for a short duration during which it cannot take further damage. This is to prevent rapid successive damage from multiple sources. |
 | Acceptance Criterion | Invincibility time is correctly applied after each instance of damage. |
-| Notes | The duration of invincibility should be short and consistent across all entities unless modified by specific augments or dungeon curses. |
+| Notes | The duration of invincibility should be short and consistent across all entities unless modified by specific augments or dungeon curses. <br> The invincibility time has to be between 0 and 10 seconds. |
 
 
 
@@ -110,30 +110,34 @@ The PC is the figure the player controls while playing the game. The PC is a wiz
 
 ##### 2.2.1.3.1 PC control
 
-The PC is controled by the player via keyboard and mouse movements. The PC has four states which are described in the following. 
+The PC is controled by the player via keyboard and mouse movements. 
+A visualization of the state machine can be found [here](#2533-state-machines).
+The PC has four states which are described in the following. 
+
+The PC starts in the **Idle** state.
 
 | **ID: EPC1**| **PC state: Idle** |
 | --- | --- |
-| Description | If the player does not enter any input for the PC, the PC remains idle and does not move. An idle animation is shown. |
+| Description | If the player does not press the buttons relevant for movement, spellcasting or dashing, the PC remains idle and does not move. The idle animation specified in the sprite sheet is shown. |
 | Acceptance Criterion | PC is in idle state if no input is given. |
 | Notes | None |
 
-| **ID: EPC2**| **PC state: Walking** |
+| **ID: EPC2**| **PC state: Moving** |
 | --- | --- |
-| Description | If the player uses the WASD keys, the PC moves as long as the keys are pressed. The PC can walk in 8 directions: left, right, top and bottom and the diagonal directions inbetween. A specific walking animation for each direction is shown. |
+| Description | If the player uses the `WASD` keys, the PC moves as long as the keys are pressed. The specific walking animation for each direction from the sprite sheet is shown. |
 | Acceptance Criterion | PC walks correctly if WASD is given as input. |
-| Notes | Diagonal walking is achieved by pressing two keys at once and should not be faster than straight walking. |
+| Notes | In order to get the direction of movement, the key `W` is mapped to the vector $(0, -1)$ (note that Godot uses inverted y-Axis), `A` to $(-1, 0)$, `S` to $(0, 1)$, `D` to $(1, 0)$. Then all vectors for which the buttons are pressed are added up and the result is then normalized to give the direction vector. <br> The speed of movement has to be greater than 0 and less then speed of light. |
 
 | **ID: EPC3**| **PC state: Dashing** |
 | --- | --- |
-| Description | If the player presses the space bar, the PC moves with increased speed in the direction of the current mouse position for a predefined length. While dashing, the player cannot be hit. |
+| Description | If the player presses the space bar while inside **Idle** or **Moving** state, the PC moves with increased speed in the direction of the current movement for a predefined length. While dashing, the player cannot be hit. |
 | Acceptance Criterion | PC dashes in the correct direction when the space bar is pressed. |
-| Notes | None |
+| Notes | The dashing speed has to be at least 20% greater then movement speed, but less than light speed. |
 
 | **ID: EPC4**| **PC state: SpellCasting** |
 | --- | --- |
-| Description | If the player presses one of the keys 1, 2 or 3, the PC casts a spell/uses a PC skill and a spell casting animation is shown. All PC skills that require a position or direction to be cast take the current mouse position for the position or direction.  |
-| Acceptance Criterion | PC is in SpellCasting state if inout 1, 2 and 3 is given. |
+| Description | If the player presses one of the spellcasting keys 1, 2 or 3 while inside **Idle** or **Moving** state, the PC casts a spell/uses a [PC skill](#221321-pc-skills) and the spell casting animation from the sprite sheet is shown. All PC skills get the current position of the PC and the position of the mouse as values to be used.  |
+| Acceptance Criterion | PC is in SpellCasting state if input 1, 2 and 3 is given. |
 | Notes | Only one spell can be cast at a time. <br> All skills use the same spell cast animation. Cast times should generally be short (less than 1 second). Slower cast times are achieved by playing the spell cast animation slower. |
 
 | **ID: EPC5**| **PC state: Death** |
@@ -150,50 +154,51 @@ While playing the game, the player can unlock new skills. The player also unlock
 ###### 2.2.1.3.2.1 PC skills
 
 Every PC skill belongs to one magic type and does damage of that magic type. 
-Each magic type has three different skills: a base skill, a supportive skill and an offensive skill.
+Each magic type has three different skills: a basic skill, a supportive skill and an offensive skill.
 All nine skills have upgraded versions, which are automatically unlocked when the player fulfills a predefined criteria. 
 The PC can have up to three different skills equipped.  
 
+Each skill has a damage, magic type, a duration for how long it lasts and a cooldown.
 
-| **ID: EPS1**| **Skill: Base Skills** |
+| **ID: EPS1**| **Skill: Basic Skills** |
 | --- | --- |
-| Description | Each magic type has a base skill that consist of a colored circular projectile shot from PC in the direction of the mouse. |
+| Description | Each magic type has a basic skill that consist of a colored circular projectile shot from PC in the direction of the mouse. If the projectile hits an enemy, the enemy is dealt the damage of the skill and the projectile despawns. <br> If the projectile hits a wall or structure it alsow despawn. |
 | Acceptance Criterion | Has to be implemented |
-| Notes | None |
+| Notes | The color of the projectile is the color of the magic type it belongs to. |
 
 | **ID: EPS2**| **Skill: Sun Beam** |
 | --- | --- |
-| Description | The supportive skill of the sun magic type. The PC emits a ray of ligth from the PC in the direction of the mouse. <br> Enemies hit deal reduced damage and have reduced armor. |
+| Description | The supportive skill of the sun magic type. The PC emits a ray of yellow ligth from the PC in the direction of the mouse. <br> Enemies hit deal reduced damage and have reduced armor until they are killed. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: EPS3**| **Skill: Summon Sun** |
 | --- | --- |
-| Description | PC spawns a sun at mouse location for a few seconds. Enemies close to it take damage depending on how close they are to the sun. The center of the sun deals the most damage. Enemies take damage at predefined intervals as long as they are inside the AOE.|
+| Description | PC spawns a yellow circular object that looks like a sun at the mouse location that lasts for a few seconds. Enemies close to it take damage depending on how close they are to the center. The closer they are, the more damage they take. Enemies take damage at predefined intervals as long as they are inside the AOE.|
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: EPS4**| **Skill: Moon Light** |
 | --- | --- |
-| Description | A Ray of moonlight shines down on the player increasing the attack value of all their equipped skills and the armor values for all magic types. |
+| Description | A visualization of a light grey ray of moonlight is shown around the PC. The PC now has increased attack damage for all their equipped skills and increased armor values for all magic types for a few seconds. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: EPS5**| **Skill: Star Rain** |
 | --- | --- |
-| Description | Multiple single projectiles spawn around the PC with random offset and start homing to mouse position. <br> On collision with enemy they do damage and despawn. |
+| Description | Multiple blue circular projectiles spawn randomly around the PC and start moving towards the mouse position. <br> On collision with enemy they apply their damage and despawn. On collision with a wall or structure they despawn. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: EPS6**| **Skill: Dark Energy Wave** |
 | --- | --- |
-| Description | PC creates a black wave that pushes all enemies away from the PC by a predefined distance. The wave pushes away all enemies in the same room as the PC, independently of the distance to the PC. |
+| Description | PC creates a black wave centered around the PC, moving away from them with predefined speed, that pushes all enemies away from the PC by a predefined distance. The wave pushes away all enemies in the same room as the PC, independently of the distance to the PC. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: EPS7**| **Skill: Black Hole** |
 | --- | --- |
-| Description | PC creates a round black void at mouse position that pulls all enemies towards it, if they hit the black void they take massive damage. |
+| Description | PC creates a round black circular shape at mouse position that pulls all enemies towards it using gravity, if they hit the black circle the enemies take damage. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
