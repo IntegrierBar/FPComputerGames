@@ -12,7 +12,8 @@ public partial class RoomHandler : Node
 		{ "Room2", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room2.tscn") }
 	};
 
-	private Node currentRoom; ///< Reference to the current room node
+	private Node currentRoom; ///< Reference to the current room node. Has to contain a "TileMap" node.
+	private TileMap currentTileMap; ///< Reference to the current tile map node
 	private Node2D player; ///< Reference to the player node
 	private Node roomHandler; ///< Reference to the room handler node
 
@@ -43,6 +44,8 @@ public partial class RoomHandler : Node
 
 		// Load the new room
 		currentRoom = rooms[roomName].Instantiate();
+		currentTileMap = currentRoom.GetNode<TileMap>("TileMap");
+		System.Diagnostics.Debug.Assert(currentTileMap is not null);
 		AddChild(currentRoom);
 
 		// Connect door signals in the new room
@@ -76,8 +79,28 @@ public partial class RoomHandler : Node
 		GD.Print("Player position: ", player.Position);
 	}
 	
+	/**
+	 * Initializes the current room and emits a signal when the room is initialized.
+	 */
 	private void InitializeRoom()
 	{
 		EmitSignal(SignalName.RoomInitialized);
+	}
+
+	/**
+	 * Gets the current room bounds in real-world coordinates.
+	 * 
+	 * @return The current room bounds in real-world coordinates.
+	 */
+	public Rect2 GetCurrentRoomBounds()
+	{
+		Rect2 tileBounds = currentTileMap.GetUsedRect();
+		Vector2 cellSize = currentTileMap.TileSet.TileSize;
+
+		// Convert tile bounds to real-world coordinates
+		Vector2 realPosition = tileBounds.Position * cellSize;
+		Vector2 realSize = tileBounds.Size * cellSize;
+
+		return new Rect2(realPosition, realSize);
 	}
 }
