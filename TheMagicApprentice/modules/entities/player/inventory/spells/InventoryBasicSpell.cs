@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class InventoryBaseSpell : InventorySpell
+public partial class InventoryBasicSpell : InventorySpell
 {
     /**
 	Create the base spell of the correct type
@@ -11,7 +11,7 @@ public partial class InventoryBaseSpell : InventorySpell
         base.Cast(casterPosition, targetPosition);
 
 		// instanciate the spell and cast it to the correct class
-		BaseSpell spell = _spellScene.Instantiate() as BaseSpell;
+		BasicSpell spell = _spellScene.Instantiate() as BasicSpell;
 		System.Diagnostics.Debug.Assert(spell is not null); // check that it is not null
 
 		GetTree().Root.AddChild(spell);

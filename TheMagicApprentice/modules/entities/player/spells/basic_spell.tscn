@@ -1,21 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://bg4jmwx6relk0"]
 
-[ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/base_spell.png" id="1_g5n1d"]
-[ext_resource type="Script" path="res://modules/entities/player/spells/BaseSpell.cs" id="1_gk7pa"]
+[ext_resource type="Script" path="res://modules/entities/player/spells/BasicSpell.cs" id="1_p4fnx"]
+[ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/basic_spell.png" id="2_2rdec"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_82ati"]
 radius = 16.0312
 
-[node name="BaseSpell" type="Area2D"]
+[node name="BasicSpell" type="Area2D"]
 scale = Vector2(0.25, 0.25)
 collision_layer = 0
 collision_mask = 4
-script = ExtResource("1_gk7pa")
+script = ExtResource("1_p4fnx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_82ati")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_g5n1d")
+texture = ExtResource("2_2rdec")
 
 [connection signal="area_entered" from="." to="." method="OnAreaEntered"]
