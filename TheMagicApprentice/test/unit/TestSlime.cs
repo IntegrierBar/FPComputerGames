@@ -18,6 +18,7 @@ public class TestSlime
     public void SetupTest()
 	{
 		_slimeIdle = AutoFree(new SlimeIdle());
+		_slimeIdle.CreateRNG();
 		_slimeIdle.SPEED = 20;
 		_slimeIdle.IdleAnimationDuration = 1.0;
 		_slimeIdle.JumpAnimationDuration = 1.0;

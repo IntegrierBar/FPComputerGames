@@ -71,6 +71,7 @@ public partial class SlimeIdle : State
 		{
 			Vector2 new_direction = ChangeRandomWalk();
 			Parent.Velocity = new_direction * SPEED; // update the slimes velocity
+			UpdateAnimations();
 		}
 		Parent.MoveAndSlide();
 		return null;
@@ -90,7 +91,6 @@ public partial class SlimeIdle : State
 	{
 		uint times = GD.Randi() % 5; // using an integer to ensure that changes of idle state type don't happen during an animation
 		_idleAtSamePosition = !_idleAtSamePosition; // change idle state type, true means idle stationary, false means walking in a direction
-		UpdateAnimations();
 
 		if (_idleAtSamePosition) // idle stationary
 		{
@@ -138,5 +138,14 @@ public partial class SlimeIdle : State
 	private bool IsPlayerInViewrange(Vector2 vector_to_player)
 	{
 		return vector_to_player.Length() <= (Parent as Slime).GetViewRange();
+	}
+
+	/**
+	This function is only needed for the test and should not be called in any other situation. 
+	random is normally initialised in Ready but that function cannot be called for the test because it leads to crashes.
+	*/
+	public void CreateRNG()
+	{
+		random = new RandomNumberGenerator();
 	}
 }
