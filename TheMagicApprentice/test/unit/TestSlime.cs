@@ -14,7 +14,7 @@ public class TestSlime
 {
 	private SlimeIdle _slimeIdle;
 
-	 [BeforeTest]
+	[BeforeTest]
     public void SetupTest()
 	{
 		_slimeIdle = AutoFree(new SlimeIdle());

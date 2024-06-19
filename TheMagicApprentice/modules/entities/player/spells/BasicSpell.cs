@@ -8,24 +8,19 @@ Setting the element will also change the color.
 
 Note that since we use an Area2D which we manually move, if the spells moves ultra fast it can move over the enemies and thus miss them.
 */
-public partial class BaseSpell : Area2D
+public partial class BasicSpell : Spell
 {
 	private Attack _attack;	///< Contains damage, type and caster reference for damage calculation
 	private Vector2 _direction; ///< Direction in which to spell moves
-	private double _maxLifeTimeSeconds;
 
 	public float SPEED = 600; ///< Speed of the spell. Do not set to high or else it might not hit enemies
 
-	[Export]
-	public double MaxLifeTimeInSeconds = 5;
 
 	/**
 	Call after instantiating the base spell scene in order to set the Attack of the spell and change the color.
 	*/
-	public void Init(Attack attack, Vector2 direction)
+	public override void Init(Attack attack, Vector2 direction)
 	{
-		_maxLifeTimeSeconds = MaxLifeTimeInSeconds;
-
 		_attack = attack;
 		_direction = direction.Normalized();
 
@@ -59,13 +54,8 @@ public partial class BaseSpell : Area2D
 	*/
     public override void _PhysicsProcess(double delta)
     {
+		base._PhysicsProcess(delta);
         Position += (float)delta * SPEED * _direction;
-
-		_maxLifeTimeSeconds -= delta;
-		if (_maxLifeTimeSeconds <= 0.0)
-		{
-			QueueFree();
-		}
     }
 
 
