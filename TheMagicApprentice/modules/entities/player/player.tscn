@@ -282,9 +282,6 @@ Idle = NodePath("../Idle")
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("8_1165l")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3.195, 3.195)
-
 [node name="PrelimInventory" type="Node" parent="."]
 
 [node name="SunBaseSpell" parent="PrelimInventory" node_paths=PackedStringArray("Caster") groups=["spell1"] instance=ExtResource("10_ryvk1")]
