@@ -9,6 +9,9 @@ Every spell inherits this class.
 [GlobalClass]
 public partial class Spell : Area2D
 {
+	protected Attack _attack;	///< Contains damage, type and caster reference for damage calculation
+
+
 	[Export]
 	public double MaxLifeTimeInSeconds = 5.0; ///< How long the spell exists at maximum until it is removed from the world
 	public double _timeLeftUntilDeletion; ///< Time left until deletion
@@ -24,7 +27,7 @@ public partial class Spell : Area2D
 	/**
 	Every Spell has to overide this method as it is used to initialize the spell on creation
 	*/
-	public virtual void Init(Attack attack, Vector2 direction) {}
+	public virtual void Init(Attack attack, Vector2 playerPosition, Vector2 targetPosition) {}
 
     /**
 	If the spell has reached its maximal duration, we delete it

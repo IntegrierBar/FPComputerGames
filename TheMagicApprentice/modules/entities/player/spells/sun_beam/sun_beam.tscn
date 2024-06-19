@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3hs40r4yyuwr"]
+
+[ext_resource type="Script" path="res://modules/entities/player/spells/sun_beam/SunBeam.cs" id="1_iu6rn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xw77j"]
+radius = 19.0
+height = 900.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v6xar"]
+
+[node name="SunBeam" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_iu6rn")
+MaxLifeTimeInSeconds = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(460, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xw77j")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(1, 1, 0, 0.670588)
+position = Vector2(462, -0.499997)
+scale = Vector2(904, 19.5)
+mesh = SubResource("CapsuleMesh_v6xar")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]

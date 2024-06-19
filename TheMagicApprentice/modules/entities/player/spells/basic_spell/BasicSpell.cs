@@ -10,7 +10,6 @@ Note that since we use an Area2D which we manually move, if the spells moves ult
 */
 public partial class BasicSpell : Spell
 {
-	private Attack _attack;	///< Contains damage, type and caster reference for damage calculation
 	private Vector2 _direction; ///< Direction in which to spell moves
 
 	public float SPEED = 600; ///< Speed of the spell. Do not set to high or else it might not hit enemies
@@ -19,12 +18,13 @@ public partial class BasicSpell : Spell
 	/**
 	Call after instantiating the base spell scene in order to set the Attack of the spell and change the color.
 	*/
-	public override void Init(Attack attack, Vector2 direction)
+	public override void Init(Attack attack, Vector2 playerPosition, Vector2 targetPosition)
 	{
+		Position = playerPosition;
 		_attack = attack;
-		_direction = direction.Normalized();
+		_direction = (targetPosition-playerPosition).Normalized();
 
-		LookAt(GlobalPosition + direction); // make spell look in the correct direction
+		LookAt(targetPosition); // make spell look in the correct direction
 
 		// change the color depending on the magic type
 		Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
