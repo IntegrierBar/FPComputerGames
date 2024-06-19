@@ -17,4 +17,11 @@ public partial class Attack
         magicType = type;
         attacker = attackerNode;
     }
+
+    /**
+    Copy constructor
+    */
+    public Attack(Attack attack)
+        : this(attack.damage, attack.magicType, attack.attacker)
+    {}
 }

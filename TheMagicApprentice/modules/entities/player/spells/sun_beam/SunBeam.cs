@@ -2,6 +2,10 @@ using Godot;
 using System;
 using System.Linq;
 
+
+/**
+The spell object of the spell sun beam
+*/
 public partial class SunBeam : Spell
 {
 	public override void Init(Attack attack, Vector2 playerPosition, Vector2 targetPosition) 
@@ -9,16 +13,13 @@ public partial class SunBeam : Spell
 		base.Init(attack, playerPosition, targetPosition);
 
 		Position = playerPosition;
-		_attack = attack;
 
 		LookAt(targetPosition); // make spell look in the correct direction
-		GD.Print("init");
-		GD.Print("damage = ");
-		GD.Print(_attack.damage);
 	}
 	
 
-	public void OnAreaEntered(Area2D area)
+/*
+	public override void OnAreaEntered(Area2D area)
 	{
 		GD.Print("hit area");
 		GD.Print(area);
@@ -32,4 +33,5 @@ public partial class SunBeam : Spell
 			//QueueFree();
 		}
 	}
+*/
 }

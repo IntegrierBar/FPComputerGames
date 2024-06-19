@@ -24,5 +24,3 @@ modulate = Color(1, 1, 0, 0.670588)
 position = Vector2(462, -0.499997)
 scale = Vector2(904, 19.5)
 mesh = SubResource("CapsuleMesh_v6xar")
-
-[connection signal="area_entered" from="." to="." method="OnAreaEntered"]
