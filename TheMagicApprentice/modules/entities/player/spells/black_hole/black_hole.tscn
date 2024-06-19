@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://u23ysmqaadgq"]
+
+[ext_resource type="Script" path="res://modules/entities/player/spells/black_hole/BlackHole.cs" id="1_fllgi"]
+[ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/basic_spell/basic_spell.png" id="2_g11ut"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vqlg"]
+radius = 41.7612
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cd5bd"]
+radius = 344.013
+
+[node name="BlackHole" type="Area2D"]
+script = ExtResource("1_fllgi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6vqlg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.0383972, 0.0383972, 0.0383972, 1)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_g11ut")
+
+[node name="GravityArea" type="Area2D" parent="."]
+gravity_space_override = 1
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityArea"]
+shape = SubResource("CircleShape2D_cd5bd")

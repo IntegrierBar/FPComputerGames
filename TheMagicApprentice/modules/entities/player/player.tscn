@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=27 format=3 uid="uid://cfafpfmqm8u17"]
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://modules/entities/player/states/PlayerSpellCasting.cs" id="7_xwtn5"]
 [ext_resource type="Script" path="res://modules/entities/player/states/PlayerDeath.cs" id="8_1165l"]
 [ext_resource type="PackedScene" uid="uid://cijmx6f7tq608" path="res://modules/entities/player/inventory/spells/inventory_base_spell.tscn" id="10_ryvk1"]
+[ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventorySunBeam.cs" id="11_vykfj"]
+[ext_resource type="PackedScene" uid="uid://d3hs40r4yyuwr" path="res://modules/entities/player/spells/sun_beam/sun_beam.tscn" id="12_7hmjo"]
 
 [sub_resource type="Animation" id="Animation_3syv3"]
 length = 0.001
@@ -284,13 +286,19 @@ script = ExtResource("8_1165l")
 
 [node name="PrelimInventory" type="Node" parent="."]
 
-[node name="SunBaseSpell" parent="PrelimInventory" node_paths=PackedStringArray("Caster") groups=["spell1"] instance=ExtResource("10_ryvk1")]
-Caster = NodePath("../../HealthComponent")
+[node name="SunBaseSpell" parent="PrelimInventory" node_paths=PackedStringArray("PlayerHealthComponent") groups=["spell1"] instance=ExtResource("10_ryvk1")]
+PlayerHealthComponent = NodePath("../../HealthComponent")
 
-[node name="CosmicBaseSpell" parent="PrelimInventory" node_paths=PackedStringArray("Caster") groups=["spell2"] instance=ExtResource("10_ryvk1")]
+[node name="CosmicBaseSpell" parent="PrelimInventory" node_paths=PackedStringArray("PlayerHealthComponent") groups=["spell2"] instance=ExtResource("10_ryvk1")]
 MagicType = 1
-Caster = NodePath("../../HealthComponent")
+PlayerHealthComponent = NodePath("../../HealthComponent")
 
-[node name="DarkBaseSpell" parent="PrelimInventory" node_paths=PackedStringArray("Caster") groups=["spell3"] instance=ExtResource("10_ryvk1")]
+[node name="DarkBaseSpell" parent="PrelimInventory" node_paths=PackedStringArray("PlayerHealthComponent") instance=ExtResource("10_ryvk1")]
 MagicType = 2
-Caster = NodePath("../../HealthComponent")
+PlayerHealthComponent = NodePath("../../HealthComponent")
+
+[node name="InventorySpell" type="Node" parent="PrelimInventory" node_paths=PackedStringArray("PlayerHealthComponent") groups=["spell3"]]
+script = ExtResource("11_vykfj")
+BaseDamage = 10.0
+PlayerHealthComponent = NodePath("../../HealthComponent")
+_spellScene = ExtResource("12_7hmjo")

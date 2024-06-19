@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0v4b5ja0wumo"]
+
+[ext_resource type="Script" path="res://modules/entities/player/spells/star_rain/Star.cs" id="1_tj5l4"]
+[ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/basic_spell/basic_spell.png" id="2_cjge1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kyivp"]
+radius = 4.0
+
+[node name="Star" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_tj5l4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kyivp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.185319, 3.08037e-06, 0.994769, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_cjge1")

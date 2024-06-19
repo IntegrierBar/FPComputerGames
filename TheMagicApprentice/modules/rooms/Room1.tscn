@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://b681yvye1u31p"]
+[gd_scene load_steps=13 format=3 uid="uid://b681yvye1u31p"]
 
+[ext_resource type="Script" path="res://modules/rooms/Room1.cs" id="1_awb0v"]
 [ext_resource type="Texture2D" uid="uid://bitu50gllk7cp" path="res://assets/DampDungeons/Tiles/Dungeon_WallsAndFloors.png" id="1_ks23j"]
 [ext_resource type="Texture2D" uid="uid://c1gj4ote7mhx4" path="res://assets/DampDungeons/Tiles/DungeonDecorations.png" id="2_u8mvj"]
 [ext_resource type="Texture2D" uid="uid://cr72s0x6n0r1o" path="res://assets/DampDungeons/Tiles/Dungeon_Autotiles.png" id="3_o0b7k"]
@@ -2230,6 +2231,7 @@ sources/2 = SubResource("TileSetAtlasSource_55dok")
 sources/3 = SubResource("TileSetAtlasSource_hfh5q")
 
 [node name="Room" type="Node2D"]
+script = ExtResource("1_awb0v")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8dlfw")

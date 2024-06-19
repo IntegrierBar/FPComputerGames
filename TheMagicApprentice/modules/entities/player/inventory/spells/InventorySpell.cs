@@ -10,20 +10,27 @@ public partial class InventorySpell : Node
 {
 	[Export]
 	public double BaseDamage = 30; ///< base damage of the skill
-	public double Damage = 30; ///< actual damage of the spell
+	public double Damage; ///< actual damage of the spell
 	[Export]
 	public MagicType MagicType = MagicType.SUN; ///< Magic type of the spell
 	[Export]
-	public HealthComponent Caster; ///< Reference to the caster (i.e. the player)
+	public HealthComponent PlayerHealthComponent; ///< Reference to the caster (i.e. the player)
 
 
 	[Export]
 	protected PackedScene _spellScene; // Packed Scene of the spells actual scene
 
-	/**
+
+    public override void _Ready()
+    {
+        base._Ready();
+		Damage = BaseDamage;
+    }
+
+    /**
 	Casts the spell by instanciating the scene and initializing the spell
 	*/
-	public virtual void Cast(Vector2 casterPosition, Vector2 targetPosition) {}
+    public virtual void Cast(Vector2 casterPosition, Vector2 targetPosition) {}
 
 	/**
 	Equips the spell by adding it to the correct group
