@@ -465,8 +465,8 @@ In the dungeons a camera is used to track the PC and enemy actions. The camera b
 
 | **ID: D1**| **Camera Movement in Regular Rooms** |
 | --- | --- |
-| Description | Inside the regular rooms inside a dungeon the camera tries to stay centered on the PC. <br> Movement of the PC is slowly copied in order to not have fast change of the view field. <br> Furthermore the camera is bounded on the walls of the room so that everything in the view field is usefull for the player. |
-| Acceptance Criterion | Camera works as described. |
+| Description | In regular dungeon rooms, the camera centers on the PC, smoothly tracking its movement to prevent sudden changes in the view field. Additionally, the camera is bounded by the room's walls, ensuring that everything in view is relevant to the player. |
+| Acceptance Criterion | Camera works as described. Smooth movement is implemented using linear interpolation between the PC's and the camera's position. To prevent very slow camera movement, linear interpolation is only used when it would move the Camera more than 1px times the current delta.|
 | Notes | None |
 
 | **ID: D2**| **Camera Movement in Boss Rooms** |

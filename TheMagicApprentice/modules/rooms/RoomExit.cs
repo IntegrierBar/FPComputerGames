@@ -32,7 +32,12 @@ public partial class RoomExit : Area2D
 		if (body.Name == "Player")
 		{
 			GD.Print("PlayerExit detected. Sending signal.");
-			EmitSignal(SignalName.PlayerEnteredDoor, TargetRoom, (int) Direction);
+			CallDeferred(nameof(EmitPlayerEnteredDoorSignal));
 		}
+	}
+
+	private void EmitPlayerEnteredDoorSignal()
+	{
+		EmitSignal(nameof(PlayerEnteredDoor), TargetRoom, (int)Direction);
 	}
 }

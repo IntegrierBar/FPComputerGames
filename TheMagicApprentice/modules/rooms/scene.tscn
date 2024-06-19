@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwn2korp36tq5"]
 
-[ext_resource type="Script" path="res://modules/handlers/DungeonHandler.cs" id="2_ftdge"]
 [ext_resource type="PackedScene" uid="uid://cfafpfmqm8u17" path="res://modules/entities/player/player.tscn" id="2_osu8u"]
 [ext_resource type="Script" path="res://modules/handlers/RoomHandler.cs" id="3_duage"]
+[ext_resource type="Script" path="res://modules/entities/player/CameraController.cs" id="4_rvdn5"]
 
 [node name="Scene" type="Node2D"]
 
@@ -11,7 +11,12 @@ z_index = 1
 position = Vector2(0, 0)
 
 [node name="DungeonHandler" type="Node" parent="." groups=["dungeon_handler"]]
-script = ExtResource("2_ftdge")
 
 [node name="RoomHandler" type="Node" parent="." groups=["room_handler"]]
 script = ExtResource("3_duage")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+script = ExtResource("4_rvdn5")
+SmoothingFactor = 5.0
+MinDelta = 0.3

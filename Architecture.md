@@ -21,6 +21,7 @@ The main menu shows the buttons for New Game, Continue, Settings and Exit.a
     - Camera
     - Player
     - DungeonHandler
+    - RoomHandler
     - HomeScene/UI
 
 Once the game is loaded (either by loading a save file or starting a new game) the game always has this scene layout. <br>
@@ -86,19 +87,19 @@ Will need 4 different slime scenes for the 4 different types (melee, ranged and 
 ## Dungeon Handler
 
 - DungeonHandler
-    - Room
-        - Structure
-        - Slime1
-        - Slime2
+   
 
 The dungeon handler generates the layout of the dungeon and loads/unloads the individual rooms whenever the player enters a new room.
 It is also responsible to position the player at the correct door inside each room.
 
 ### Dungeon Room
 
-- Room
-    - Structures (doors, walls)
-    - entities (slimes/unicorns)
+ - Room
+    - TileMap (three layers: background, middle and foreground)
+    - RoomExit (one for each possible exit direction)
+    - RoomEntrance (one for each possible enter direction)
+    - EnemySpawn (multiple)
+    - Entities (Slime1, Slime2)
 
 When initialized the room will spawn monsters if it was loaded the first time, otherwise it does not create entities.
 
