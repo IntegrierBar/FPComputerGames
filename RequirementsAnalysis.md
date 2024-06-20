@@ -61,7 +61,7 @@ All entities have the following properties:
 | --- | --- |
 | Description | Every entity has a max HP floating point value that shows how much damage the entity can take before dying. |
 | Acceptance Criterion | Has to be implemented |
-| Notes | The max HP of every entity has to be greater than 0 and less than infinity |
+| Notes | The max HP of every entity has to be greater than 0 and less than infinity. |
 
 | **ID: EP2**| **Entity property: Current HP** |
 | --- | --- |
@@ -77,7 +77,7 @@ All entities have the following properties:
 
 | **ID: EP4**| **Entity property: Damaging skills** |
 | --- | --- |
-| Description | Every entity has one or more damaging skills. Every skill has a magic type and a base damage loating point value. The base damage value can be modified under certain circumstances (curses for enemies, augments for the PC). A damaging skill only damages the opponent, that means the PC takes no damage from their own spells and enemy attacks only damage the PC. |
+| Description | Every entity has one or more damaging skills. Every skill has a magic type and a base damage floating point value. The base damage value can be modified under certain circumstances (curses for enemies, augments and buffing skill for the PC). A damaging skill only damages the opponent, that means the PC takes no damage from their own spells and enemy attacks only damage the PC. |
 | Acceptance Criterion | Damage from different skills of all magic types is applied correctly to PC and enemies for armor values of 0. |
 | Notes | The area in which a damaging skill applies damage to the opponent and the duration in which the opponent takes damage depends on the specific skill. |
 
@@ -126,7 +126,7 @@ The PC starts in the **Idle** state.
 | --- | --- |
 | Description | If the player uses the `WASD` keys, the PC moves as long as the keys are pressed. The specific walking animation for each direction from the sprite sheet is shown. |
 | Acceptance Criterion | PC walks correctly if WASD is given as input. |
-| Notes | In order to get the direction of movement, the key `W` is mapped to the vector $(0, -1)$ (note that Godot uses inverted y-Axis), `A` to $(-1, 0)$, `S` to $(0, 1)$, `D` to $(1, 0)$. Then all vectors for which the buttons are pressed are added up and the result is then normalized to give the direction vector. <br> The speed of movement has to be greater than 0 and less then speed of light. |
+| Notes | In order to get the direction of movement, the key `W` is mapped to the vector $(0, -1)$ (note that Godot uses inverted y-Axis), `A` to $(-1, 0)$, `S` to $(0, 1)$, `D` to $(1, 0)$. Then all vectors for which the buttons are pressed are added up and the result is then normalized to give the direction vector. <br> The speed of movement has to be greater than 0 and less than the speed of light. |
 
 | **ID: EPC3**| **PC state: Dashing** |
 | --- | --- |
@@ -142,7 +142,7 @@ The PC starts in the **Idle** state.
 
 | **ID: EPC5**| **PC state: Death** |
 | --- | --- |
-| Description | When the PC's health reaches 0, it transitions to a death state. The player is informed about the PC's death before returning to the main hub. |
+| Description | When the PC's health reaches 0, they transition to a death state. The player is informed about the PC's death before returning to the main hub. |
 | Acceptance Criterion | The PC must correctly transition to the death state when its health is depleted and the player can no longer control the PC's actions. |
 | Notes | After the death animation of the PC, a death screen should be shown. |
 
@@ -274,33 +274,34 @@ Each slime is associated with a specific magic type. They are visually represent
 Example: A Sun slime could have the following armor values: Sun armor: 30, Cosmic armor: 50, Dark armor: 10 (values might change).
 
 Slimes can have four possible states.
+The slime always starts in the **Idle** state.
 
 | **ID: ES1**| **Slime states: Idle** |
 | --- | --- |
-| Description | If the PC is outside of the detection range of the slime, the slime is idle. It changes between two behaviours, first it remains in one position for a random time period of up to 5 seconds and afterwards it moves on a straight line into a random direction for up to 5 seconds. This behaviour loops until the slime either dies (enters Death state) or gets close enough to the player that it changes to Moving or Attacking state. The idle animation and the moving animation used in this state are in the slimes folder. |
+| Description | If the PC is outside of the detection range of the slime, the slime is idle. It changes between two behaviours, first it remains in one position for a random time period of up to 5 seconds and afterwards it moves on a straight line into a random direction for a random time period of up to 5 seconds. This behaviour loops until the slime either dies (enters **Death** state) or gets close enough to the player that it changes to **Moving** or **Attacking** state. The idle animation and the moving animation used in this state are in the slimes sprite sheet and depend on the slimes magic type, attack range and size. |
 | Acceptance Criterion | If the PC is outside of the view range of the slime, the slime behaves like described. |
 | Notes | None |
 
 | **ID: ES2**| **Slime states: Moving** |
 | --- | --- |
-| Description | If the PC is inside of the view range of the slime but outside of the attack range of the slime, the slime moves towards the PC until it is in attack range. If the PC is inside the attack range of the slime, the slime transitions to the Attacking state. If the PC moves out of the view range of the slime (e.g. by dashing), the slime returns to the Idle state. If the slimes health points reach zero, the slime enters the Death state. While in the Moving state, a moving animation is played. The moving animation used in this state is in the slimes folder. |
+| Description | If the PC is inside of the view range of the slime but outside of the attack range of the slime, the slime moves towards the PC until it is in attack range. If the PC is inside the attack range of the slime, the slime transitions to the **Attacking** state. If the PC moves out of the view range of the slime (e.g. by dashing), the slime returns to the **Idle** state. If the slimes health points reach zero, the slime enters the **Death** state. While in the Moving state, a moving animation is played. The moving animation used in this state is in the slimes sprite sheet and depends on the slimes magic type, attack range and size. |
 | Acceptance Criterion | The slime moves towards the PC while the PC is in the slimes view range but not inside of its attack range. |
 | Notes | None |
 
 | **ID: ES3**| **Slime states: Attacking** |
 | --- | --- |
-| Description | If the PC is inside of the attack range of the slime, the slime attacks the PC. After the attack is completed, the slime returns to the Moving state. If the slimes health points reach zero, the slime enters the Death state. While in the Attacking state, an attacking animation is played. The attack animation used in this state is in the slimes folder. |
+| Description | If the PC is inside of the attack range of the slime, the slime attacks the PC. After the attack is completed, the slime returns to the **Moving** state. If the slimes health points reach zero, the slime enters the **Death** state. While in the Attacking state, an attacking animation is played. The attack animation used in this state is in the slimes sprite sheet and depends on the slimes magic type, attack range and size. |
 | Acceptance Criterion | IF the PC is inside the attack range of the slime, the slime attacks the PC. |
 | Notes | None |
 
 | **ID: ES4**| **Slime states: Death** |
 | --- | --- |
-| Description | When the slime's health reaches 0, it transitions to the death state. In this state, the slime stops all actions and does no longer interact with other game objects, and after a short delay in which the death animation is played, it disappears from the game world. The death animation used in this state is in the slimes folder. |
+| Description | When the slime's health reaches 0, it transitions to the death state. In this state, the slime stops all actions and does no longer interact with other game objects, and after a short delay in which the death animation is played, it disappears from the game world. The death animation used in this state is in the slimes sprite sheet and depend on the slimes magic type, attack range and size. |
 | Acceptance Criterion | The slime must correctly transition to the death state when its health is depleted, and it should no longer be able to perform any actions or affect the game. |
 | Notes | Ensure that the transition to the death state is smooth and that the slime's disappearance is visually clear to the player. |
 
 
-Slimes can differ in two attributes. There are large and small slimes and there are melee and ranged slimes, making a total of 4 different slime types. 
+Slimes can differ in three attributes. Apart from the three magic types, there are large and small slimes and there are melee and ranged slimes, making a total of 4 different slime types for each magic type. 
 Large slimes have more HP and higher attack values than small slimes. Large slimes are rarer than small slimes and only appear in small groups of up to 3 large slimes. They are often accompanied by several small slimes. 
 Ranged slimes have a larger attack range and have a different color brightness than melee slimes. 
 The armor values of all slimes of one magic type are the same.
@@ -327,17 +328,17 @@ The armor values of all slimes of one magic type are the same.
 | --- | --- |
 | Description | Large slimes are larger than small slimes and have more HP and larger attack values than small slimes. <br> Large slimes can be ranged or melee. |
 | Acceptance Criterion | Large slimes can be created and they have more HP and larger attack values. |
-| Notes | None |
+| Notes | Large slimes should be rarer than small slimes and only appear in small groups of up to 3 large slimes. They should often accompanied by several small slimes. |
 
 | **ID: ES9**| **Slime types: Sun, cosmic and dark Slime** |
 | --- | --- |
-| Description | All slimes have one of the three magic types: sun, cosmic or dark. All attacks of a slime deal damage of the magic type the slime belongs to. The slimes magic type is indicated to the player by the colour of the slime. Sun slimes are yellow to red, cosmic slimes are blue to white and dark slimes are purple to black. The magic type of a slime determines its armor values against the different magic types. All slimes of a magic type (melee and ranged, small and large) have the same armor values for all magic types unless the armor values are changed by a curse. |
+| Description | All slimes have one of the three magic types: sun, cosmic or dark. All attacks of a slime deal damage of the magic type the slime belongs to. The slimes magic type is indicated to the player by the colour of the slime. Sun slimes are yellow to red, cosmic slimes are blue to white and dark slimes are purple to black. The magic type of a slime determines its armor values against the different magic types. All slimes of a magic type (melee and ranged, small and large) have the same armor values for all magic types unless the armor values are changed by a curse or a PC skill. |
 | Acceptance Criterion | Slimes of all three magic types can be created and they only deal damage aligned with the magic type they belong to. |
 | Notes | None |
 
 ##### 2.2.1.4.2 Bosses
 
-The unicorn is the boss monster of the dungeons. It looks like a unicorn but is colored according to its magic type. <br>
+The unicorn is the boss monster of the dungeons. It looks like a unicorn but is coloured according to its magic type. <br>
 Unicorns have no attack and detection range since they can detect and attack the player from every position in the room. Unicorns have three different attacks. Unicorns have a melee attack radius. If the PC is inside of the melee attack radius, the unicorn uses the melee attack, otherwise it uses one of the ranged attacks at random.  <br>
 In between two attacks the unicorn remains idle for a short while to allow the player to attack the unicorn with their skills.
 
@@ -1091,7 +1092,7 @@ stateDiagram-v2
     [*] --> Idle
     Idle --> Moving: PC in detection range but outside attack range
     Moving --> Attacking: PC in attack range
-    Attacking --> Idle: PC leaves attack range
+    Attacking --> Moving: Slime has performed an attack
     Idle --> Death: Health reaches 0
     Moving --> Death: Health reaches 0
     Attacking --> Death: Health reaches 0
