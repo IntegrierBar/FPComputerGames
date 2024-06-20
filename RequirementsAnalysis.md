@@ -22,6 +22,7 @@ The goal of this project is the creation of a single player RPG web game.
 **Augment**: A type of item that can be equipped by the player to gain additional statistics or effects. Augments are typically obtained as drops from defeated enemies.<br/>
 **Load-out**: The combination of augments and magic skills a player currently equips. A player can equip up to five augments and three magic skills simultaneously. <br/>
 **Area of effect (AOE)**: Area in which a damaging skill effects enemies or the PC. 
+**Dungeon**: A dungeon is an area within the game where the player can control the Player Character (PC) and combat enemies to gain rewards. Dungeons are composed as a 2D-grid of multiple rooms.
 
 ## 1.5. References
 

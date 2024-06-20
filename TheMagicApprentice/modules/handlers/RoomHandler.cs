@@ -1,25 +1,16 @@
 using Godot;
 using System.Collections.Generic;
 
+
+
 public partial class RoomHandler : Node
 {
 	[Signal]
 	public delegate void RoomInitializedEventHandler(); ///< Signal emitted after a new room is loaded.
 	
-	private Dictionary<string, PackedScene> rooms = new Dictionary<string, PackedScene>
-	{
-		{ "Room1", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room1.tscn") },
-		{ "Room2", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room2.tscn") },
-		{ "Room3", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room3.tscn") }
-	};
-	
-	[Export]
-	public string StartingRoom { get; set; }
-	
-	private Node currentRoom; ///< Reference to the current room node. Has to contain a "TileMap" node.
+	public Node currentRoom { private set; get; } ///< Reference to the current room node. Has to contain a "TileMap" node.
 	private TileMap currentTileMap; ///< Reference to the current tile map node
-	private Node2D player; ///< Reference to the player node
-	private Node roomHandler; ///< Reference to the room handler node
+	private CharacterBody2D player; ///< Reference to the player node
 
 	/**
 	 * Called when the node is added to the scene.
@@ -27,16 +18,8 @@ public partial class RoomHandler : Node
 	 */
 	public override void _Ready()
 	{
-		GD.Print("Tree", GetTree());
-		player = GetTree().GetNodesInGroup("player")[0] as Node2D;
-		roomHandler = GetTree().GetNodesInGroup("room_handler")[0];
-
-		foreach (var room in rooms)
-		{
-			System.Diagnostics.Debug.Assert(room.Value != null, $"Room {room.Key} failed to load.");
-		}
-
-		LoadRoom(StartingRoom, Direction.RIGHT);
+		player = GetTree().GetNodesInGroup("player")[0] as CharacterBody2D;
+		System.Diagnostics.Debug.Assert(player != null);
 	}
 
 	/**
@@ -45,55 +28,53 @@ public partial class RoomHandler : Node
 	 * @param roomName The name of the room to load.
 	 * @param enterDirection The direction from which the player enters the room.
 	 */
-	private void LoadRoom(string roomName, Direction enterDirection)
+	public void LoadRoom(string scenePath, Direction enterDirection)
 	{
+		if(player == null)
+		{
+			player = GetTree().GetNodesInGroup("player")[0] as CharacterBody2D;	
+		}
 		if (currentRoom != null)
 		{
 			currentRoom.QueueFree();  // Remove the current room
 		}
 
 		// Load the new room
-		currentRoom = rooms[roomName].Instantiate();
+		currentRoom = ResourceLoader.Load<PackedScene>(scenePath).Instantiate();
 		currentTileMap = currentRoom.GetNode<TileMap>("TileMap");
-		System.Diagnostics.Debug.Assert(currentTileMap is not null);
+		System.Diagnostics.Debug.Assert(currentTileMap is not null, "TileMap node not found in the room scene.");
 		AddChild(currentRoom);
-
-		// Connect door signals in the new room
-		foreach (Node child in currentRoom.GetChildren())
-		{
-			if (child is RoomExit door)
-			{
-				door.PlayerEnteredDoor += OnPlayerEnteredDoor;
-			}
-			if (child is RoomEntrance entrance && entrance.Direction == enterDirection)
-			{
-				player.Position = entrance.Position;
-			}
-		}
 		
 		// Initialize the new room (e.g., spawn enemies)
-		InitializeRoom();
-	}
-
-	/**
-	 * Callback for when the player enters a door. The DungeonHandler then loads a new room depending on the direction the player entered the exit.
-	 * 
-	 * @param targetRoom The name of the target room to load.
-	 * @param direction The direction from which the player entered the door.
-	 */
-	private void OnPlayerEnteredDoor(string targetRoom, Direction direction)
-	{
-		GD.Print("Player entered door ", targetRoom, direction);
-		GD.Print("Player position: ", player.Position);
-		LoadRoom(targetRoom, DirectionHelper.GetOppositeDirection(direction));
-		GD.Print("Player position: ", player.Position);
+		InitializeRoom(enterDirection);
 	}
 	
 	/**
 	 * Initializes the current room and emits a signal when the room is initialized.
 	 */
-	private void InitializeRoom()
+	private void InitializeRoom(Direction enterDirection)
 	{
+		// Set player position based on entrance
+		foreach (Node child in currentRoom.GetChildren())
+		{
+			if (child is RoomEntrance entrance && entrance.Direction == enterDirection)
+			{
+				player.Position = entrance.Position;
+				break;
+			}
+		}
+
+		GetTree().CreateTimer(0.1f).Timeout += () =>
+		{
+			foreach (Node child in currentRoom.GetChildren())
+			{
+				if (child is RoomExit exit)
+				{
+					exit.RegisterExit();
+				}
+			}
+		};
+
 		EmitSignal(SignalName.RoomInitialized);
 	}
 

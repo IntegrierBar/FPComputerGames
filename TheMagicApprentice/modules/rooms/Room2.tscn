@@ -2235,5 +2235,4 @@ Direction = 2
 
 [node name="RoomExit" parent="." instance=ExtResource("6_ed0jh")]
 position = Vector2(-360, -6)
-TargetRoom = "Room1"
 Direction = 2
