@@ -9,9 +9,13 @@ public partial class RoomHandler : Node
 	private Dictionary<string, PackedScene> rooms = new Dictionary<string, PackedScene>
 	{
 		{ "Room1", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room1.tscn") },
-		{ "Room2", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room2.tscn") }
+		{ "Room2", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room2.tscn") },
+		{ "Room3", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room3.tscn") }
 	};
-
+	
+	[Export]
+	public string StartingRoom { get; set; }
+	
 	private Node currentRoom; ///< Reference to the current room node. Has to contain a "TileMap" node.
 	private TileMap currentTileMap; ///< Reference to the current tile map node
 	private Node2D player; ///< Reference to the player node
@@ -26,7 +30,13 @@ public partial class RoomHandler : Node
 		GD.Print("Tree", GetTree());
 		player = GetTree().GetNodesInGroup("player")[0] as Node2D;
 		roomHandler = GetTree().GetNodesInGroup("room_handler")[0];
-		LoadRoom("Room1", Direction.RIGHT);
+
+		foreach (var room in rooms)
+		{
+			System.Diagnostics.Debug.Assert(room.Value != null, $"Room {room.Key} failed to load.");
+		}
+
+		LoadRoom(StartingRoom, Direction.RIGHT);
 	}
 
 	/**
