@@ -40,7 +40,7 @@ public partial class DungeonHandler : Node
 			dungeonLayout = new Dictionary<Vector2I, Room>();
 
 			// Set the entrance position
-			dungeonLayout[entrancePos] = new Room(RoomType.Entry, "res://modules/rooms/Room3.tscn");
+			dungeonLayout[entrancePos] = new Room(RoomType.Entry, GetRandomRoomScene());
 
 			// Generate the rest of the rooms
 			List<Vector2I> visitedTiles = new List<Vector2I> { entrancePos };
@@ -63,7 +63,7 @@ public partial class DungeonHandler : Node
 					nextPos.Y = Math.Clamp(nextPos.Y, 0, GridSize.Y - 1);
 					if (!dungeonLayout.ContainsKey(nextPos))
 					{
-						dungeonLayout[nextPos] = new Room(RoomType.Normal, "res://modules/rooms/Room3.tscn");
+						dungeonLayout[nextPos] = new Room(RoomType.Normal, GetRandomRoomScene());
 						visitedTiles.Add(nextPos);
 						currentPos = nextPos;
 						moved = true;
@@ -82,7 +82,12 @@ public partial class DungeonHandler : Node
 		}
 
 		// Set the boss position
-		dungeonLayout[bossPos] = new Room(RoomType.Boss, "res://modules/rooms/Room3.tscn");
+		dungeonLayout[bossPos] = new Room(RoomType.Boss, GetRandomRoomScene());
+	}
+
+	private string GetRandomRoomScene()
+	{
+		return GD.Randi() % 2 == 0 ? "res://modules/rooms/Room3.tscn" : "res://modules/rooms/Room4.tscn";
 	}
 
 	private void LoadRoom(Vector2I position, Direction enterDirection)
