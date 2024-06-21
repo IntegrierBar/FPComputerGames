@@ -18,7 +18,7 @@ public partial class RoomHandler : Node
 	 */
 	public override void _Ready()
 	{
-		player = GetTree().GetNodesInGroup("player")[0] as CharacterBody2D;
+		player = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;
 		System.Diagnostics.Debug.Assert(player != null);
 	}
 
@@ -32,7 +32,7 @@ public partial class RoomHandler : Node
 	{
 		if(player == null)
 		{
-			player = GetTree().GetNodesInGroup("player")[0] as CharacterBody2D;	
+			player = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;	
 		}
 		if (currentRoom != null)
 		{

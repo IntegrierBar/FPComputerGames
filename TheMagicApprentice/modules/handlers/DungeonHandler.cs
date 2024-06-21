@@ -18,8 +18,8 @@ public partial class DungeonHandler : Node
 
 	public override void _Ready()
 	{
-		player = GetTree().GetNodesInGroup("player")[0] as CharacterBody2D;
-		roomHandler = GetTree().GetNodesInGroup("room_handler")[0] as RoomHandler;
+		player = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;
+		roomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
 		GenerateDungeon();
 		LoadRoom(currentRoomPosition, Direction.DOWN);
 	}

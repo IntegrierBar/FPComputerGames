@@ -20,7 +20,7 @@ public partial class Minimap : Control
 	/// </summary>
 	public override void _Ready()
 	{
-		dungeonHandler = GetTree().GetNodesInGroup("dungeon_handler")[0] as DungeonHandler;
+		dungeonHandler = GetTree().GetFirstNodeInGroup("dungeon_handler") as DungeonHandler;
 		dungeonLayout = dungeonHandler.GetDungeonLayout();
 		currentRoomPosition = dungeonHandler.GetCurrentRoomPosition();
 	}
