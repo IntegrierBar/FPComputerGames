@@ -37,7 +37,6 @@ public partial class PlayerMoving : State
         Vector2 direction = Input.GetVector("left", "right", "up", "down");
         if (direction == Vector2.Zero)
         {
-            //GD.Print("returned Idle from Moving");
             return Idle;
         }
 
