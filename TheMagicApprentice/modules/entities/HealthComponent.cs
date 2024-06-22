@@ -8,6 +8,9 @@ public partial class HealthComponent : Area2D
 	public delegate void DeathEventHandler(); ///< Signal that gets emitted if the entities health reaches 0 
 
 	[Export]
+	public Healthbar healthbar;
+
+	[Export]
 	private double MaxHP = 100; ///< Maximum HP of the entity 
 	private double _currentHP; ///< current HP of the entitiy 
 
@@ -24,6 +27,8 @@ public partial class HealthComponent : Area2D
 	public override void _Ready()
 	{
 		_currentHP = MaxHP;
+
+		healthbar?.InitHealthbar(MaxHP);
 	}
 
 	
@@ -44,6 +49,9 @@ public partial class HealthComponent : Area2D
 		}
 
 		_currentHP -= attack.damage * (1.0 - Armor[attack.magicType]/100.0);
+		
+		healthbar?.SetHealthPoints(_currentHP);
+
 		if (_currentHP <= 0.0)
 		{
 			EmitSignal(SignalName.Death);
@@ -58,6 +66,7 @@ public partial class HealthComponent : Area2D
 		System.Diagnostics.Debug.Assert(newMaxHP > 0);
 		MaxHP = newMaxHP;
 		_currentHP = MaxHP;
+		healthbar?.InitHealthbar(MaxHP);
 	}
 
 	/**

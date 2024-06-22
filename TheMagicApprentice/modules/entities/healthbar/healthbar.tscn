@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cn1w2e52gvu08" path="res://modules/entities/healthbar/under.png" id="1_gtcbk"]
 [ext_resource type="Texture2D" uid="uid://5qskkaj5tj36" path="res://modules/entities/healthbar/damagebar.png" id="2_a1n04"]
-[ext_resource type="Texture2D" uid="uid://cy75vk0oieq7l" path="res://modules/entities/healthbar/progress.png" id="2_crr0e"]
-[ext_resource type="Script" path="res://modules/entities/healthbar/healthbar.cs" id="3_1bupn"]
+[ext_resource type="Script" path="res://modules/entities/healthbar/Healthbar.cs" id="3_fjvyl"]
+[ext_resource type="Texture2D" uid="uid://cmbk681mheglb" path="res://modules/entities/healthbar/progress_blue.png" id="4_ofwn2"]
 
 [node name="Damagebar" type="TextureProgressBar"]
 offset_left = 3.0
@@ -15,7 +15,7 @@ stretch_margin_left = 5
 texture_under = ExtResource("1_gtcbk")
 texture_progress = ExtResource("2_a1n04")
 texture_progress_offset = Vector2(8, 2)
-script = ExtResource("3_1bupn")
+script = ExtResource("3_fjvyl")
 
 [node name="Healthbar" type="TextureProgressBar" parent="."]
 layout_mode = 1
@@ -25,5 +25,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 value = 45.0
-texture_progress = ExtResource("2_crr0e")
+texture_progress = ExtResource("4_ofwn2")
 texture_progress_offset = Vector2(8, 2)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]

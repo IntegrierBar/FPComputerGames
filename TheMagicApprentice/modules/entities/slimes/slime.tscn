@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://16e1fc62e66t"]
+[gd_scene load_steps=25 format=3 uid="uid://16e1fc62e66t"]
 
 [ext_resource type="Script" path="res://modules/entities/slimes/Slime.cs" id="1_llbif"]
 [ext_resource type="Texture2D" uid="uid://pi2gqnphaq76" path="res://modules/entities/slimes/Slime_cropped.png" id="2_aql0x"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeAttacking.cs" id="7_v13uh"]
 [ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeDeath.cs" id="8_hom1h"]
 [ext_resource type="PackedScene" uid="uid://c7on4tuqslrab" path="res://modules/entities/slimes/slime-attacks/MeleeAttackHurtBox.tscn" id="9_ilfwi"]
+[ext_resource type="PackedScene" uid="uid://cqcik8bgxyjjc" path="res://modules/entities/healthbar/healthbar.tscn" id="10_weiag"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dxkmx"]
 radius = 18.0
@@ -228,13 +229,20 @@ libraries = {
 "": SubResource("AnimationLibrary_hoo7p")
 }
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_oictg")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("healthbar") instance=ExtResource("2_oictg")]
 unique_name_in_owner = true
+healthbar = NodePath("Damagebar")
 
 [node name="HitBoxSlime" type="CollisionShape2D" parent="HealthComponent"]
 unique_name_in_owner = true
 position = Vector2(-4, 14)
 shape = SubResource("CircleShape2D_xw0ru")
+
+[node name="Damagebar" parent="HealthComponent" instance=ExtResource("10_weiag")]
+offset_left = -44.0
+offset_top = -22.0
+offset_right = 36.0
+offset_bottom = -13.0
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("StartingState", "DeathState") instance=ExtResource("3_y1f0k")]
 StartingState = NodePath("Idle")
