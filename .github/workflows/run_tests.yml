@@ -18,8 +18,8 @@ jobs:
           version: 'v4.2.5'
           paths: |
             res://tests/unit
+            res://tests/integration
           #project_dir: './TheMagicApprentice/'
           project_dir: './TheMagicApprentice/'
           publish-report: true
-          timout: 5
           report-name: 'test_report'
