@@ -1,0 +1,19 @@
+name: .NET format
+
+on: [pull_request, push]
+
+jobs:
+  dotnet-format:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Format
+      run: dotnet format --verify-no-changes --verbosity diagnostic
