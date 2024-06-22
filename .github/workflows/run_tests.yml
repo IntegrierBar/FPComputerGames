@@ -19,6 +19,6 @@ jobs:
             res://tests/unit
           #project_dir: './TheMagicApprentice/'
           project_dir: './TheMagicApprentice/'
-          publish-report: false
+          publish-report: true
           timout: 5
           report-name: test_report
