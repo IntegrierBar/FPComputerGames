@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cn1w2e52gvu08" path="res://modules/entities/healthbar/under.png" id="1_gtcbk"]
 [ext_resource type="Texture2D" uid="uid://5qskkaj5tj36" path="res://modules/entities/healthbar/damagebar.png" id="2_a1n04"]
-[ext_resource type="Script" path="res://modules/entities/healthbar/Healthbar2.cs" id="3_fjvyl"]
+[ext_resource type="Script" path="res://modules/entities/healthbar/Healthbar.cs" id="3_fjvyl"]
 [ext_resource type="Texture2D" uid="uid://cmbk681mheglb" path="res://modules/entities/healthbar/progress_blue.png" id="4_ofwn2"]
 
 [node name="Damagebar" type="TextureProgressBar"]
