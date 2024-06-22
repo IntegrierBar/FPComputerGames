@@ -8,10 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: MikeSchulze/gdUnit4-action@v1
+        with:
+          lfs: true
+      - uses: MikeSchulze/gdUnit4-action@v1.1.1
         with:
           godot-version: '4.2.2'
-          #project_dir: './TheMagicApprentice/'
-          paths: 'res://TheMagicApprentice/tests/unit/'
           godot-net: true
-          upload-report: false
+          version: 'v4.2.5'
+          paths: |
+            res://tests/unit
+          #project_dir: './TheMagicApprentice/'
+          project_dir: './TheMagicApprentice/'
+          publish-report: false
+          timout: 5
+          report-name: test_report
