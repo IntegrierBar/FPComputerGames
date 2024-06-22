@@ -1,6 +1,10 @@
 using Godot;
 using System;
 
+
+/**
+Health bar skript
+*/
 public partial class Healthbar : TextureProgressBar
 {
 	private TextureProgressBar _healthbar;
