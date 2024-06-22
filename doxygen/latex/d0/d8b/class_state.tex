@@ -3,7 +3,7 @@
 Inheritance diagram for State\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{d0/d8b/class_state}
+\includegraphics[height=11.000000cm]{d0/d8b/class_state}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -41,7 +41,7 @@ virtual void State.\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\
 
 Called everytime we enter the state 
 
-Reimplemented in \mbox{\hyperlink{class_dashing_a02e1cab6e160d4b0534385d3a64980e6}{Dashing}}, \mbox{\hyperlink{class_death_a98b600036e1ffdae8830021ae2ccb61e}{Death}}, and \mbox{\hyperlink{class_spell_casting_a290251c732a217fd35174ed0f1b9049f}{Spell\+Casting}}.
+Reimplemented in \mbox{\hyperlink{class_player_dashing_a80880e71431c6d8a76c51f8f7f8cb88d}{Player\+Dashing}}, \mbox{\hyperlink{class_player_death_a7740e464a493cb3a83f47068c15b4cdf}{Player\+Death}}, \mbox{\hyperlink{class_player_idle_a6032563645a9f9d1dd8dcb19d11316da}{Player\+Idle}}, \mbox{\hyperlink{class_player_spell_casting_a5612e80d4223e3b0ee844da14e256fbb}{Player\+Spell\+Casting}}, \mbox{\hyperlink{class_slime_attacking_af64f37136c4d168adedeae73aeb741d9}{Slime\+Attacking}}, \mbox{\hyperlink{class_slime_death_a3e3d85dc1e76de3dd5f5fa2f75b6aec5}{Slime\+Death}}, and \mbox{\hyperlink{class_slime_moving_ae3152b6bdea2150e938025b3cd52d408}{Slime\+Moving}}.
 
 \Hypertarget{class_state_ae384c5d8253cc8671290231c84fdb703}\index{State@{State}!Exit@{Exit}}
 \index{Exit@{Exit}!State@{State}}
@@ -51,7 +51,7 @@ virtual void State.\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\h
 
 Called everytime we exit the state 
 
-Reimplemented in \mbox{\hyperlink{class_dashing_a87297ffd045097fe0bbb0f3107b31e4d}{Dashing}}.
+Reimplemented in \mbox{\hyperlink{class_player_dashing_a774406415ed8a7a99d2f040aa992849f}{Player\+Dashing}}.
 
 \Hypertarget{class_state_adab2ce69b1aa448a362799d1d494b200}\index{State@{State}!ProcessFrame@{ProcessFrame}}
 \index{ProcessFrame@{ProcessFrame}!State@{State}}
@@ -67,7 +67,7 @@ virtual \mbox{\hyperlink{class_state}{State}} State.\+Process\+Input (\begin{Dox
 
 If the state is the current state this function gets called whenever there is an unhandled input 
 
-Reimplemented in \mbox{\hyperlink{class_moving_a208501750955b2fccb0bdb2adecfc765}{Moving}}.
+Reimplemented in \mbox{\hyperlink{class_player_moving_a9c8c617a97f89bb6d0c4a638a08e4909}{Player\+Moving}}.
 
 \Hypertarget{class_state_a9c4d232b2b843d9703828c9020c6fc8a}\index{State@{State}!ProcessPhysics@{ProcessPhysics}}
 \index{ProcessPhysics@{ProcessPhysics}!State@{State}}
@@ -77,7 +77,7 @@ virtual \mbox{\hyperlink{class_state}{State}} State.\+Process\+Physics (\begin{D
 
 If the state is the current state this function gets called every physics update 
 
-Reimplemented in \mbox{\hyperlink{class_dashing_a08cfb04947f2a041542110fd6d07d657}{Dashing}}, \mbox{\hyperlink{class_death_aaa3022e08a6b8c91bafbc43665d716fb}{Death}}, \mbox{\hyperlink{class_idle_a9a81ddf1ab1e2d3dbde9e4a8e1fd2188}{Idle}}, \mbox{\hyperlink{class_moving_a8b62476b569f44b0803d7766b99c0650}{Moving}}, and \mbox{\hyperlink{class_spell_casting_aeea0918ebb60d6740168de81f03ddee5}{Spell\+Casting}}.
+Reimplemented in \mbox{\hyperlink{class_player_dashing_ad904965c030ec98d3a1aa5e650f11d31}{Player\+Dashing}}, \mbox{\hyperlink{class_player_death_a692a44ccbf5b6d8f3925018a259193e0}{Player\+Death}}, \mbox{\hyperlink{class_player_idle_a0a0154ef758fea34cd1452ea7aede9e8}{Player\+Idle}}, \mbox{\hyperlink{class_player_moving_abf8a11ad1c2d785e5be942847874e5af}{Player\+Moving}}, \mbox{\hyperlink{class_player_spell_casting_aa65094abea51885e8683a2dee540f812}{Player\+Spell\+Casting}}, \mbox{\hyperlink{class_slime_attacking_a79822555f6809f6a2fface053095e526}{Slime\+Attacking}}, \mbox{\hyperlink{class_slime_death_a92a660dc00e5187299780d5a2a17eb76}{Slime\+Death}}, \mbox{\hyperlink{class_slime_idle_adcbc621a550ae12a6d1fade90f73926e}{Slime\+Idle}}, and \mbox{\hyperlink{class_slime_moving_a8778a20a6ec5420b399a2c5a5c701eaf}{Slime\+Moving}}.
 
 \Hypertarget{class_state_aaba9e1d832609aad7324eb2b26c2fbb4}\index{State@{State}!UpdateAnimations@{UpdateAnimations}}
 \index{UpdateAnimations@{UpdateAnimations}!State@{State}}
@@ -87,7 +87,7 @@ virtual void State.\+Update\+Animations (\begin{DoxyParamCaption}{}{}\end{DoxyPa
 
 Called in Process\+Frame. Is resposible for playing the correct animation for the state 
 
-Reimplemented in \mbox{\hyperlink{class_idle_a3b3def3700f47341d7b89081044ff5ee}{Idle}}.
+Reimplemented in \mbox{\hyperlink{class_player_dashing_a8a51000583cf0ff1c678b79ed037e63c}{Player\+Dashing}}, \mbox{\hyperlink{class_player_moving_abac98f296d0d9fc8b0fa3bf55cd7e2f4}{Player\+Moving}}, \mbox{\hyperlink{class_slime_attacking_ac523bd42cd73dbdaa906a4530a7297cc}{Slime\+Attacking}}, \mbox{\hyperlink{class_slime_death_ab90ed30a3df0548ee312224eb7189b26}{Slime\+Death}}, \mbox{\hyperlink{class_slime_idle_a64dbec559f5f05302e2fa1901621c0e8}{Slime\+Idle}}, and \mbox{\hyperlink{class_slime_moving_ad2355fd27541fed99839e55c8ad20090}{Slime\+Moving}}.
 
 
 

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['license_20mit_0',['The MIT License (MIT)',['../d9/d78/md__the_magic_apprentice_2addons_2gut_2_l_i_c_e_n_s_e.html',1,'']]]
+  ['healthcomponent_0',['HealthComponent',['../d1/da7/class_health_component.html',1,'']]],
+  ['hitbox_1',['HitBox',['../d2/df1/class_player_dashing.html#a9afe377d00fe92c495760633a9450734',1,'PlayerDashing']]]
 ];

@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 133.333328
+%%BoundingBox: 0 0 500 866.141724
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,13 +19,13 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 3.750000 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 0.577273 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
-/rows 3 def
-/cols 5 def
+/rows 11 def
+/cols 2 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
 
@@ -175,11 +175,15 @@ boxfont setfont
 1 boundaspect scale
 (State) cw
 (Node) cw
-(Dashing) cw
-(Death) cw
-(Idle) cw
-(Moving) cw
-(SpellCasting) cw
+(PlayerDashing) cw
+(PlayerDeath) cw
+(PlayerIdle) cw
+(PlayerMoving) cw
+(PlayerSpellCasting) cw
+(SlimeAttacking) cw
+(SlimeDeath) cw
+(SlimeIdle) cw
+(SlimeMoving) cw
 /boxwidth boxwidth marginwidth 2 mul add def
 /xspacing boxwidth distx add def
 /yspacing boxheight disty add def
@@ -191,31 +195,43 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (State) 2.000000 1.000000 box
- (Node) 2.000000 2.000000 box
- (Dashing) 0.000000 0.000000 box
- (Death) 1.000000 0.000000 box
- (Idle) 2.000000 0.000000 box
- (Moving) 3.000000 0.000000 box
- (SpellCasting) 4.000000 0.000000 box
+ (State) 0.000000 9.000000 box
+ (Node) 0.000000 10.000000 box
+ (PlayerDashing) 1.000000 8.000000 box
+ (PlayerDeath) 1.000000 7.000000 box
+ (PlayerIdle) 1.000000 6.000000 box
+ (PlayerMoving) 1.000000 5.000000 box
+ (PlayerSpellCasting) 1.000000 4.000000 box
+ (SlimeAttacking) 1.000000 3.000000 box
+ (SlimeDeath) 1.000000 2.000000 box
+ (SlimeIdle) 1.000000 1.000000 box
+ (SlimeMoving) 1.000000 0.000000 box
 
 % ----- relations -----
 
 solid
-0 2.000000 1.000000 out
+0 0.000000 9.000000 out
 solid
-1 2.000000 2.000000 in
+1 0.000000 10.000000 in
 solid
-1 2.000000 0.250000 out
+1 0.000000 8.250000 out
 solid
-0.000000 4.000000 1.000000 conn
+0 0.000000 8.500000 hedge
 solid
-0 0.000000 0.750000 in
+0 0.000000 7.500000 hedge
 solid
-0 1.000000 0.750000 in
+0 0.000000 6.500000 hedge
 solid
-0 2.000000 0.750000 in
+0 0.000000 5.500000 hedge
 solid
-0 3.000000 0.750000 in
+0 0.000000 4.500000 hedge
 solid
-0 4.000000 0.750000 in
+0 0.000000 3.500000 hedge
+solid
+0 0.000000 2.500000 hedge
+solid
+0 0.000000 1.500000 hedge
+solid
+0 0.000000 0.500000 hedge
+solid
+0.000000 9.000000 0.500000 vedge

@@ -1,0 +1,74 @@
+\doxysection{Inventory\+Spell Class Reference}
+\hypertarget{class_inventory_spell}{}\label{class_inventory_spell}\index{InventorySpell@{InventorySpell}}
+Inheritance diagram for Inventory\+Spell\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d0/d1e/class_inventory_spell}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_inventory_spell_a983611d1b7aa666a4ed57afa9bf74a77}\label{class_inventory_spell_a983611d1b7aa666a4ed57afa9bf74a77} 
+override void {\bfseries \+\_\+\+Ready} ()
+\item 
+virtual void \mbox{\hyperlink{class_inventory_spell_a86e9e91c3f70d8cfa663dc20431df73f}{Cast}} (Vector2 caster\+Position, Vector2 target\+Position)
+\item 
+virtual void \mbox{\hyperlink{class_inventory_spell_a0ba498924fe9ba16834fbe2e8502b41b}{Equip}} (int slot)
+\item 
+virtual void \mbox{\hyperlink{class_inventory_spell_afec21b5066020b7af54c93f4b9581fca}{Un\+Equip}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_inventory_spell_aa61295861a8e253fd668704e8e9d7c46}\label{class_inventory_spell_aa61295861a8e253fd668704e8e9d7c46} 
+double {\bfseries Base\+Damage} = 30
+\begin{DoxyCompactList}\small\item\em base damage of the skill \end{DoxyCompactList}\item 
+\Hypertarget{class_inventory_spell_a572509ba9ee492591e6aa9e77ba79d8b}\label{class_inventory_spell_a572509ba9ee492591e6aa9e77ba79d8b} 
+double {\bfseries Damage}
+\begin{DoxyCompactList}\small\item\em actual damage of the spell \end{DoxyCompactList}\item 
+\Hypertarget{class_inventory_spell_ab3fc577ffdd33f88071ef722bd64c22a}\label{class_inventory_spell_ab3fc577ffdd33f88071ef722bd64c22a} 
+Magic\+Type {\bfseries Magic\+Type} = Magic\+Type.\+SUN
+\begin{DoxyCompactList}\small\item\em Magic type of the spell. \end{DoxyCompactList}\item 
+\Hypertarget{class_inventory_spell_a4361604551aa2e3b7b3d6e88b92975d9}\label{class_inventory_spell_a4361604551aa2e3b7b3d6e88b92975d9} 
+\mbox{\hyperlink{class_health_component}{Health\+Component}} {\bfseries Player\+Health\+Component}
+\begin{DoxyCompactList}\small\item\em Reference to the caster (i.\+e. the player) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_inventory_spell_ab828155cd1b38a204e742beb4b38799a}\label{class_inventory_spell_ab828155cd1b38a204e742beb4b38799a} 
+Packed\+Scene {\bfseries \+\_\+spell\+Scene}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for all spells inside the inventory 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_inventory_spell_a86e9e91c3f70d8cfa663dc20431df73f}\index{InventorySpell@{InventorySpell}!Cast@{Cast}}
+\index{Cast@{Cast}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{Cast()}{Cast()}}
+{\footnotesize\ttfamily \label{class_inventory_spell_a86e9e91c3f70d8cfa663dc20431df73f} 
+virtual void Inventory\+Spell.\+Cast (\begin{DoxyParamCaption}\item[{Vector2}]{caster\+Position}{, }\item[{Vector2}]{target\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Casts the spell by instanciating the scene and initializing the spell 
+
+Reimplemented in \mbox{\hyperlink{class_inventory_basic_spell_ad39ead79f1d28f22d1ecedf51069b641}{Inventory\+Basic\+Spell}}, and \mbox{\hyperlink{class_inventory_sun_beam_a0587c35e309d67cf36e2d70ed423a199}{Inventory\+Sun\+Beam}}.
+
+\Hypertarget{class_inventory_spell_a0ba498924fe9ba16834fbe2e8502b41b}\index{InventorySpell@{InventorySpell}!Equip@{Equip}}
+\index{Equip@{Equip}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{Equip()}{Equip()}}
+{\footnotesize\ttfamily \label{class_inventory_spell_a0ba498924fe9ba16834fbe2e8502b41b} 
+virtual void Inventory\+Spell.\+Equip (\begin{DoxyParamCaption}\item[{int}]{slot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Equips the spell by adding it to the correct group \Hypertarget{class_inventory_spell_afec21b5066020b7af54c93f4b9581fca}\index{InventorySpell@{InventorySpell}!UnEquip@{UnEquip}}
+\index{UnEquip@{UnEquip}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{UnEquip()}{UnEquip()}}
+{\footnotesize\ttfamily \label{class_inventory_spell_afec21b5066020b7af54c93f4b9581fca} 
+virtual void Inventory\+Spell.\+Un\+Equip (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Unequip the spell by removing it from all spell groups 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/player/inventory/spells/Inventory\+Spell.\+cs\end{DoxyCompactItemize}

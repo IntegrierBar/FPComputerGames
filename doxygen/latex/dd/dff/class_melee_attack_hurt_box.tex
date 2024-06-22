@@ -1,0 +1,52 @@
+\doxysection{Melee\+Attack\+Hurt\+Box Class Reference}
+\hypertarget{class_melee_attack_hurt_box}{}\label{class_melee_attack_hurt_box}\index{MeleeAttackHurtBox@{MeleeAttackHurtBox}}
+Inheritance diagram for Melee\+Attack\+Hurt\+Box\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dd/dff/class_melee_attack_hurt_box}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_melee_attack_hurt_box_aad4391b511aa5177e1732e005f13fd36}{\+\_\+\+Ready}} ()
+\item 
+\Hypertarget{class_melee_attack_hurt_box_aa94401898d680ea5c2145f5e5c246828}\label{class_melee_attack_hurt_box_aa94401898d680ea5c2145f5e5c246828} 
+override void {\bfseries \+\_\+\+Physics\+Process} (double delta)
+\item 
+void \mbox{\hyperlink{class_melee_attack_hurt_box_a853a2a5985c7874ee4d9057e191b2c76}{On\+Area\+Entered}} (Area2D area)
+\item 
+void \mbox{\hyperlink{class_melee_attack_hurt_box_a843ba26fa1133464c7dfbc0733ae424c}{Set\+Attack}} (\mbox{\hyperlink{class_attack}{Attack}} attack)
+\item 
+\Hypertarget{class_melee_attack_hurt_box_a91ebc2381dd6da633ffcce5df45fd52b}\label{class_melee_attack_hurt_box_a91ebc2381dd6da633ffcce5df45fd52b} 
+void {\bfseries Start\+Attack} (\mbox{\hyperlink{class_attack}{Attack}} attack, double time\+Left)
+\item 
+\Hypertarget{class_melee_attack_hurt_box_a70d8d9a9a442e7fc8973e7f379961d63}\label{class_melee_attack_hurt_box_a70d8d9a9a442e7fc8973e7f379961d63} 
+void {\bfseries End\+Attack} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_melee_attack_hurt_box_aad4391b511aa5177e1732e005f13fd36}\index{MeleeAttackHurtBox@{MeleeAttackHurtBox}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!MeleeAttackHurtBox@{MeleeAttackHurtBox}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_melee_attack_hurt_box_aad4391b511aa5177e1732e005f13fd36} 
+override void Melee\+Attack\+Hurt\+Box.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Monitoring is set to false so that the collisions from slime and PC only damage the PC if the slime is in the Attacking state. Monitoring is toggled on in the \doxylink{class_slime_attacking}{Slime\+Attacking} state. \Hypertarget{class_melee_attack_hurt_box_a853a2a5985c7874ee4d9057e191b2c76}\index{MeleeAttackHurtBox@{MeleeAttackHurtBox}!OnAreaEntered@{OnAreaEntered}}
+\index{OnAreaEntered@{OnAreaEntered}!MeleeAttackHurtBox@{MeleeAttackHurtBox}}
+\doxysubsubsection{\texorpdfstring{OnAreaEntered()}{OnAreaEntered()}}
+{\footnotesize\ttfamily \label{class_melee_attack_hurt_box_a853a2a5985c7874ee4d9057e191b2c76} 
+void Melee\+Attack\+Hurt\+Box.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{Area2D}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+The slime should only be able to detect collisions with the PC. If the slime collides with the PC, the damage function is called. Afterwards Monitoring is set to false again to prevent the player from taking damage from the same attack a second time. If the slime does not hit the PC, monitoring is turned of in the \doxylink{class_slime_attacking}{Slime\+Attacking} state again. \Hypertarget{class_melee_attack_hurt_box_a843ba26fa1133464c7dfbc0733ae424c}\index{MeleeAttackHurtBox@{MeleeAttackHurtBox}!SetAttack@{SetAttack}}
+\index{SetAttack@{SetAttack}!MeleeAttackHurtBox@{MeleeAttackHurtBox}}
+\doxysubsubsection{\texorpdfstring{SetAttack()}{SetAttack()}}
+{\footnotesize\ttfamily \label{class_melee_attack_hurt_box_a843ba26fa1133464c7dfbc0733ae424c} 
+void Melee\+Attack\+Hurt\+Box.\+Set\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_attack}{Attack}}}]{attack}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{class_attack}{Attack} is currently set from the Attacking state in the ranged attack function, so right before the attack is made. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/slimes/slime-\/attacks/Melee\+Attack\+Hurt\+Box.\+cs\end{DoxyCompactItemize}

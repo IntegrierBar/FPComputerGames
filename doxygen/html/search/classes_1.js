@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['dashing_0',['Dashing',['../d8/dce/class_dashing.html',1,'']]],
-  ['death_1',['Death',['../d6/db9/class_death.html',1,'']]]
+  ['basicspell_0',['BasicSpell',['../d6/df9/class_basic_spell.html',1,'']]],
+  ['blackhole_1',['BlackHole',['../db/d1b/class_black_hole.html',1,'']]]
 ];

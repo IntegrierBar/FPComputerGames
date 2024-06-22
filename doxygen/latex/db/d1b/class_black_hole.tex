@@ -1,0 +1,58 @@
+\doxysection{Black\+Hole Class Reference}
+\hypertarget{class_black_hole}{}\label{class_black_hole}\index{BlackHole@{BlackHole}}
+Inheritance diagram for Black\+Hole\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{db/d1b/class_black_hole}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_black_hole_adae99251074986a4d7a9979c7cc683ed}{Init}} (\mbox{\hyperlink{class_attack}{Attack}} attack, Vector2 player\+Position, Vector2 target\+Position)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_spell}{Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_spell_a684f403add55c8d9e10f7c76fa0faa23}{\+\_\+\+Ready}} ()
+\item 
+override void \mbox{\hyperlink{class_spell_a2741a6b003367c7399bdbb5774847f1d}{\+\_\+\+Physics\+Process}} (double delta)
+\item 
+virtual void \mbox{\hyperlink{class_spell_a5530a0ad9b822ce8e3f3ee2d0d7eca9b}{On\+Area\+Entered}} (Area2D area)
+\item 
+double \mbox{\hyperlink{class_spell_ad61d19b3d1cf06364672446a4445f125}{Get\+Time\+Until\+Deleteion}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_spell}{Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+double {\bfseries Max\+Life\+Time\+In\+Seconds} = 5.\+0
+\begin{DoxyCompactList}\small\item\em How long the spell exists at maximum until it is removed from the world. \end{DoxyCompactList}\item 
+double {\bfseries \+\_\+time\+Left\+Until\+Deletion}
+\begin{DoxyCompactList}\small\item\em Time left until deletion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_spell}{Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_attack}{Attack}} {\bfseries \+\_\+attack}
+\begin{DoxyCompactList}\small\item\em Contains damage, type and caster reference for damage calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The spell object of the spell black hole 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_black_hole_adae99251074986a4d7a9979c7cc683ed}\index{BlackHole@{BlackHole}!Init@{Init}}
+\index{Init@{Init}!BlackHole@{BlackHole}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_black_hole_adae99251074986a4d7a9979c7cc683ed} 
+override void Black\+Hole.\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_attack}{Attack}}}]{attack}{, }\item[{Vector2}]{player\+Position}{, }\item[{Vector2}]{target\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Every \doxylink{class_spell}{Spell} has to overide this method as it is used to initialize the spell on creation 
+
+Reimplemented from \mbox{\hyperlink{class_spell_a4b3330b53bc8349e53b4e759ee18bd9a}{Spell}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/player/spells/black\+\_\+hole/Black\+Hole.\+cs\end{DoxyCompactItemize}
