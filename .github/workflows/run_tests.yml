@@ -21,4 +21,4 @@ jobs:
           project_dir: './TheMagicApprentice/'
           publish-report: true
           timout: 5
-          report-name: test_report
+          report-name: 'test_report'
