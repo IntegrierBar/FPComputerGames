@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 public partial class PlayerSpellCasting : State
 {
@@ -16,7 +17,7 @@ public partial class PlayerSpellCasting : State
     //[Export]
     //public State SpellCasting;
 
-    
+
     /*!
     Get the correct spell by checking whether spell1, spell2 or spell3 was cast.
     Then cast it and set the time left to the duration given by the spell.
@@ -38,7 +39,7 @@ public partial class PlayerSpellCasting : State
         {
             spells = GetTree().GetNodesInGroup("spell3");
         }
-        
+
         // if the spell is null, then we can imideately exit since that means we just tried to cast a spell that does not exist
         if (spells is null || spells.Count == 0)
         {
@@ -46,11 +47,11 @@ public partial class PlayerSpellCasting : State
             return;
         }
         // otherwise cast the spell and get spellcasting time from it
-        foreach (InventorySpell spell in spells)
+        foreach (InventorySpell spell in spells.OfType<InventorySpell>())
         {
             spell.Cast(Parent.Position, Parent.GetGlobalMousePosition());
         }
-        
+
         _timeLeft = 0.2;
         Animations.Play("cast");
     }
