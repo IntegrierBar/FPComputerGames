@@ -1,0 +1,84 @@
+\doxysection{Star Class Reference}
+\hypertarget{class_star}{}\label{class_star}\index{Star@{Star}}
+Inheritance diagram for Star\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d7/d8d/class_star}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_star_ace6a0fff162bae73764cccbb05ceba3b}{Init}} (\mbox{\hyperlink{class_attack}{Attack}} attack, Vector2 player\+Position, Vector2 target\+Position)
+\item 
+override void \mbox{\hyperlink{class_star_a6ea47e6a7e5d80c0038dcc5e7cff41a8}{\+\_\+\+Physics\+Process}} (double delta)
+\item 
+override void \mbox{\hyperlink{class_star_a986fa1e414df0421929346fb9796481c}{On\+Area\+Entered}} (Area2D area)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_spell}{Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_spell_a684f403add55c8d9e10f7c76fa0faa23}{\+\_\+\+Ready}} ()
+\item 
+override void \mbox{\hyperlink{class_spell_a2741a6b003367c7399bdbb5774847f1d}{\+\_\+\+Physics\+Process}} (double delta)
+\item 
+double \mbox{\hyperlink{class_spell_ad61d19b3d1cf06364672446a4445f125}{Get\+Time\+Until\+Deleteion}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_star_a472f35a7a288bd91e8359244c8927a20}\label{class_star_a472f35a7a288bd91e8359244c8927a20} 
+float {\bfseries SPEED} = 500
+\begin{DoxyCompactList}\small\item\em Speed of the spell. Do not set to high or else it might not hit enemies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_spell}{Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+double {\bfseries Max\+Life\+Time\+In\+Seconds} = 5.\+0
+\begin{DoxyCompactList}\small\item\em How long the spell exists at maximum until it is removed from the world. \end{DoxyCompactList}\item 
+double {\bfseries \+\_\+time\+Left\+Until\+Deletion}
+\begin{DoxyCompactList}\small\item\em Time left until deletion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_spell}{Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_attack}{Attack}} {\bfseries \+\_\+attack}
+\begin{DoxyCompactList}\small\item\em Contains damage, type and caster reference for damage calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class of the individual \doxylink{class_star}{Star} of the spell star rain
+
+On creation gets a random offset from the player and moves towards the mouse position at cast time 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_star_a6ea47e6a7e5d80c0038dcc5e7cff41a8}\index{Star@{Star}!\_PhysicsProcess@{\_PhysicsProcess}}
+\index{\_PhysicsProcess@{\_PhysicsProcess}!Star@{Star}}
+\doxysubsubsection{\texorpdfstring{\_PhysicsProcess()}{\_PhysicsProcess()}}
+{\footnotesize\ttfamily \label{class_star_a6ea47e6a7e5d80c0038dcc5e7cff41a8} 
+override void Star.\+\_\+\+Physics\+Process (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Change position of the spell. Count down the max life time of the spell and remove the spell once the time is up \Hypertarget{class_star_ace6a0fff162bae73764cccbb05ceba3b}\index{Star@{Star}!Init@{Init}}
+\index{Init@{Init}!Star@{Star}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_star_ace6a0fff162bae73764cccbb05ceba3b} 
+override void Star.\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_attack}{Attack}}}]{attack}{, }\item[{Vector2}]{player\+Position}{, }\item[{Vector2}]{target\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Similar to \doxylink{class_basic_spell}{Basic\+Spell} but add a random offset to the starting position 
+
+Reimplemented from \mbox{\hyperlink{class_spell_a4b3330b53bc8349e53b4e759ee18bd9a}{Spell}}.
+
+\Hypertarget{class_star_a986fa1e414df0421929346fb9796481c}\index{Star@{Star}!OnAreaEntered@{OnAreaEntered}}
+\index{OnAreaEntered@{OnAreaEntered}!Star@{Star}}
+\doxysubsubsection{\texorpdfstring{OnAreaEntered()}{OnAreaEntered()}}
+{\footnotesize\ttfamily \label{class_star_a986fa1e414df0421929346fb9796481c} 
+override void Star.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{Area2D}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Gets called when the spell hits a Health component. Since the spells mask layer is set to the enemies layer, it cannot hit the player 
+
+Reimplemented from \mbox{\hyperlink{class_spell_a5530a0ad9b822ce8e3f3ee2d0d7eca9b}{Spell}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/player/spells/star\+\_\+rain/Star.\+cs\end{DoxyCompactItemize}

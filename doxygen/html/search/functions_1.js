@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deatheventhandler_0',['DeathEventHandler',['../d1/da7/class_health_component.html#a56f525f9dea8b5228348558db5d1549c',1,'HealthComponent']]]
+  ['attack_0',['Attack',['../d9/db7/class_attack.html#abdbc55f7a8a842cc3710a27488ea1506',1,'Attack']]]
 ];

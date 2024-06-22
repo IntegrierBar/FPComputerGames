@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['player_0',['Player',['../d8/d53/class_player.html',1,'']]]
+  ['healthcomponent_0',['HealthComponent',['../d1/da7/class_health_component.html',1,'']]]
 ];

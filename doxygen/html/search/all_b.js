@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['takedamage_0',['TakeDamage',['../d1/da7/class_health_component.html#ae49d3bdc650b428d9e326a08637361f5',1,'HealthComponent']]],
-  ['testhealthcomponent_1',['TestHealthComponent',['../db/d1c/class_tests_1_1_test_health_component.html',1,'Tests']]],
-  ['testplayer_2',['TestPlayer',['../d4/dd2/class_tests_1_1_test_player.html',1,'Tests']]],
-  ['testplayerstates_3',['TestPlayerStates',['../dc/de9/class_tests_1_1_test_player_states.html',1,'Tests']]],
-  ['tests_4',['Tests',['../de/d0d/namespace_tests.html',1,'']]],
-  ['teststatemachinestatetransistionsasync_5',['TestStateMachineStateTransistionsAsync',['../d4/dd2/class_tests_1_1_test_player.html#a413f929b756c20d1df7539ee9b5ff545',1,'Tests::TestPlayer']]],
-  ['the_20mit_20license_20mit_6',['The MIT License (MIT)',['../d9/d78/md__the_magic_apprentice_2addons_2gut_2_l_i_c_e_n_s_e.html',1,'']]]
+  ['magictype_0',['MagicType',['../d0/d1e/class_inventory_spell.html#ab3fc577ffdd33f88071ef722bd64c22a',1,'InventorySpell']]],
+  ['magictype_1',['magicType',['../d9/db7/class_attack.html#a7b2377112afe5134ff73a67e6aa338fd',1,'Attack']]],
+  ['maxlifetimeinseconds_2',['MaxLifeTimeInSeconds',['../d8/d0d/class_spell.html#a29ef662c6d505751adfcce7bc3350b56',1,'Spell']]],
+  ['meleeattackhurtbox_3',['MeleeAttackHurtBox',['../dd/dff/class_melee_attack_hurt_box.html',1,'']]],
+  ['mindelta_4',['MinDelta',['../d4/d3e/class_camera_controller.html#a7e6685b1f9a942764e1daa6e883d9b6c',1,'CameraController']]],
+  ['mit_5',['The MIT License (MIT)',['../d9/d78/md__the_magic_apprentice_2addons_2gut_2_l_i_c_e_n_s_e.html',1,'']]],
+  ['mit_20license_20mit_6',['The MIT License (MIT)',['../d9/d78/md__the_magic_apprentice_2addons_2gut_2_l_i_c_e_n_s_e.html',1,'']]],
+  ['moonlight_7',['MoonLight',['../df/d1e/class_moon_light.html',1,'']]],
+  ['moving_8',['Moving',['../d3/d9d/class_player_idle.html#a8c6a78091ec76b0ca8dbf62c9a65ace4',1,'PlayerIdle.Moving'],['../dc/d44/class_slime_attacking.html#a7e86dfed07c0f97b829c1bbaa8d1a0d2',1,'SlimeAttacking.Moving'],['../d2/d94/class_slime_idle.html#a5f8481913fbb5813da6fffe5b8c147ae',1,'SlimeIdle.Moving']]]
 ];

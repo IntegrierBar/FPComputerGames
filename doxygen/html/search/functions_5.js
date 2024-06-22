@@ -1,6 +1,15 @@
 var searchData=
 [
-  ['processframe_0',['ProcessFrame',['../d0/d8b/class_state.html#adab2ce69b1aa448a362799d1d494b200',1,'State.ProcessFrame()'],['../d4/dd0/class_state_machine.html#a05fda3fdeb61112b66d7fff275e099bc',1,'StateMachine.ProcessFrame()']]],
-  ['processinput_1',['ProcessInput',['../de/dfa/class_moving.html#a208501750955b2fccb0bdb2adecfc765',1,'Moving.ProcessInput()'],['../d0/d8b/class_state.html#a7d099d7bdc79e52b367a486029481883',1,'State.ProcessInput()'],['../d4/dd0/class_state_machine.html#a39d4f171ea0bb163dd0d8387fbc388ca',1,'StateMachine.ProcessInput()']]],
-  ['processphysics_2',['ProcessPhysics',['../d8/dce/class_dashing.html#a08cfb04947f2a041542110fd6d07d657',1,'Dashing.ProcessPhysics()'],['../d6/db9/class_death.html#aaa3022e08a6b8c91bafbc43665d716fb',1,'Death.ProcessPhysics()'],['../d3/d15/class_idle.html#a9a81ddf1ab1e2d3dbde9e4a8e1fd2188',1,'Idle.ProcessPhysics()'],['../de/dfa/class_moving.html#a8b62476b569f44b0803d7766b99c0650',1,'Moving.ProcessPhysics()'],['../d9/d70/class_spell_casting.html#aeea0918ebb60d6740168de81f03ddee5',1,'SpellCasting.ProcessPhysics()'],['../d0/d8b/class_state.html#a9c4d232b2b843d9703828c9020c6fc8a',1,'State.ProcessPhysics()'],['../d4/dd0/class_state_machine.html#aa8309fee857e70238be3ff2fe55689f6',1,'StateMachine.ProcessPhysics()']]]
+  ['getattackrangevalue_0',['GetAttackRangeValue',['../d3/db0/class_slime.html#a724343d1bc5336ff76373405988b1e5c',1,'Slime']]],
+  ['getcurrenthp_1',['GetCurrentHP',['../d1/da7/class_health_component.html#aada915aafdc0413280d46cef51ff7cd8',1,'HealthComponent']]],
+  ['getcurrentroombounds_2',['GetCurrentRoomBounds',['../d5/dc9/class_room_handler.html#a966dc77b20fc246b36f96859b23a09e3',1,'RoomHandler']]],
+  ['getmagictype_3',['GetMagicType',['../d3/db0/class_slime.html#a8b8d75b665a9d074e1eb64dd60f6400c',1,'Slime']]],
+  ['getmagictypeasstring_4',['GetMagicTypeAsString',['../d0/d12/class_entity_type_helper.html#ae99c431b7ec6bc7bad9cc7b3fe96b7c4',1,'EntityTypeHelper']]],
+  ['getslimeattackrange_5',['GetSlimeAttackRange',['../d3/db0/class_slime.html#a3c8b3641d538d49942c34e3dda89b973',1,'Slime']]],
+  ['getslimeattackrangeasstring_6',['GetSlimeAttackRangeAsString',['../d0/d12/class_entity_type_helper.html#ace0116f3a9d8f2e789f18394a7ef8e5d',1,'EntityTypeHelper']]],
+  ['getslimesize_7',['GetSlimeSize',['../d3/db0/class_slime.html#a219c3ecb5d3217fbfaf2aadc819d5de2',1,'Slime']]],
+  ['getslimesizeasstring_8',['GetSlimeSizeAsString',['../d0/d12/class_entity_type_helper.html#ac617eb289fc04b0678eb979f8c9b8fe7',1,'EntityTypeHelper']]],
+  ['getstate_9',['GetState',['../d4/dd0/class_state_machine.html#a57b1c813842d5243c69323e38314df47',1,'StateMachine']]],
+  ['gettimeuntildeleteion_10',['GetTimeUntilDeleteion',['../d8/d0d/class_spell.html#ad61d19b3d1cf06364672446a4445f125',1,'Spell']]],
+  ['getviewrange_11',['GetViewRange',['../d3/db0/class_slime.html#a7fa3e1c4ce6bb0d47f23446b0cc5979a',1,'Slime']]]
 ];
