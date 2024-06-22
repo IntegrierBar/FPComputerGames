@@ -1,0 +1,18 @@
+name: Run_Tests
+
+on: pull_request
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: MikeSchulze/gdUnit4-action@v1
+        with:
+          godot-version: '4.2.2'
+          project_dir: './TheMagicApprentice/'
+          paths: 'res://tests'
+          godot-net: true
+          report-name: 'test-result'
