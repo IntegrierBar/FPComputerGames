@@ -1,3 +1,4 @@
+# Runs all GDUnit4 tests
 name: Run_Tests
 
 on: [pull_request]
