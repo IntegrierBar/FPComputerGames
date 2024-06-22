@@ -3,17 +3,19 @@ name: .NET format
 on: [pull_request, push]
 
 jobs:
-  dotnet-format:
-
+  build-and-format:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+    - uses: actions/checkout@v2
+
+    - name: Setup.NET
+      uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 8.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Format
-      run: dotnet format --verify-no-changes --verbosity diagnostic
+        dotnet-version: '8.0.x' # Specify the version of.NET you're targeting
+
+    - name: Install dotnet-format
+      run: dotnet tool install --global dotnet-format 
+      
+    - name: Run dotnet format
+      run: dotnet format "TheMagicApprentice/TheMagicApprentice.csproj" --verify-no-changes --verbosity diagnostic
