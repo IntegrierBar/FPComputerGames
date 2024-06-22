@@ -1,12 +1,11 @@
 name: Run_Tests
 
-on: pull_request
+on: [pull_request, push]
 
 jobs:
   build:
-
+    name: Run All Tests
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - uses: MikeSchulze/gdUnit4-action@v1
