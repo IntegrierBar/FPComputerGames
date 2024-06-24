@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=29 format=3 uid="uid://cfafpfmqm8u17"]
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
@@ -9,9 +9,11 @@
 [ext_resource type="Script" path="res://modules/entities/player/states/PlayerDashing.cs" id="6_g5tpb"]
 [ext_resource type="Script" path="res://modules/entities/player/states/PlayerSpellCasting.cs" id="7_xwtn5"]
 [ext_resource type="Script" path="res://modules/entities/player/states/PlayerDeath.cs" id="8_1165l"]
-[ext_resource type="PackedScene" uid="uid://cijmx6f7tq608" path="res://modules/entities/player/inventory/spells/inventory_base_spell.tscn" id="10_ryvk1"]
-[ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventorySunBeam.cs" id="11_vykfj"]
-[ext_resource type="PackedScene" uid="uid://d3hs40r4yyuwr" path="res://modules/entities/player/spells/sun_beam/sun_beam.tscn" id="12_7hmjo"]
+[ext_resource type="PackedScene" uid="uid://cauv7k1n531by" path="res://modules/entities/player/inventory/spell_inventory.tscn" id="10_cknrl"]
+[ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryBasicSpell.cs" id="11_wf06i"]
+[ext_resource type="PackedScene" uid="uid://bg4jmwx6relk0" path="res://modules/entities/player/spells/basic_spell/basic_spell.tscn" id="12_oqin6"]
+[ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventorySunBeam.cs" id="13_drg8x"]
+[ext_resource type="PackedScene" uid="uid://d3hs40r4yyuwr" path="res://modules/entities/player/spells/sun_beam/sun_beam.tscn" id="14_qxs2i"]
 
 [sub_resource type="Animation" id="Animation_3syv3"]
 length = 0.001
@@ -226,7 +228,6 @@ radius = 6.0
 height = 20.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer") groups=["player"]]
-position = Vector2(60, 26)
 script = ExtResource("1_33xnx")
 StateMachine = NodePath("StateMachine")
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -284,21 +285,29 @@ Idle = NodePath("../Idle")
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("8_1165l")
 
-[node name="PrelimInventory" type="Node" parent="."]
+[node name="SpellInventory" parent="." instance=ExtResource("10_cknrl")]
 
-[node name="SunBaseSpell" parent="PrelimInventory" node_paths=PackedStringArray("PlayerHealthComponent") groups=["spell1"] instance=ExtResource("10_ryvk1")]
-PlayerHealthComponent = NodePath("../../HealthComponent")
+[node name="Spells" type="Node" parent="."]
 
-[node name="CosmicBaseSpell" parent="PrelimInventory" node_paths=PackedStringArray("PlayerHealthComponent") groups=["spell2"] instance=ExtResource("10_ryvk1")]
+[node name="SunBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell1"]]
+script = ExtResource("11_wf06i")
+_playerHealthComponent = NodePath("../../HealthComponent")
+_spellScene = ExtResource("12_oqin6")
+
+[node name="CosmicBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
+script = ExtResource("11_wf06i")
 MagicType = 1
-PlayerHealthComponent = NodePath("../../HealthComponent")
+_playerHealthComponent = NodePath("../../HealthComponent")
+_spellScene = ExtResource("12_oqin6")
 
-[node name="DarkBaseSpell" parent="PrelimInventory" node_paths=PackedStringArray("PlayerHealthComponent") instance=ExtResource("10_ryvk1")]
+[node name="DarkBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+script = ExtResource("11_wf06i")
 MagicType = 2
-PlayerHealthComponent = NodePath("../../HealthComponent")
+_playerHealthComponent = NodePath("../../HealthComponent")
+_spellScene = ExtResource("12_oqin6")
 
-[node name="InventorySpell" type="Node" parent="PrelimInventory" node_paths=PackedStringArray("PlayerHealthComponent") groups=["spell3"]]
-script = ExtResource("11_vykfj")
-BaseDamage = 10.0
-PlayerHealthComponent = NodePath("../../HealthComponent")
-_spellScene = ExtResource("12_7hmjo")
+[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
+script = ExtResource("13_drg8x")
+CastTime = 0.7
+_playerHealthComponent = NodePath("../../HealthComponent")
+_spellScene = ExtResource("14_qxs2i")

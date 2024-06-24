@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2jf0xsxnluhx"]
-
-[ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventorySpell.cs" id="1_ftewr"]
-
-[node name="InventorySpell" type="Node"]
-script = ExtResource("1_ftewr")

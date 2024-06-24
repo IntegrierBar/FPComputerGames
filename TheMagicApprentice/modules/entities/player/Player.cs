@@ -16,8 +16,8 @@ public partial class Player : CharacterBody2D
 	*/
 	public override void _Ready()
 	{
-		System.Diagnostics.Debug.Assert(StateMachine is not null);
-		System.Diagnostics.Debug.Assert(AnimationPlayer is not null);
+		System.Diagnostics.Debug.Assert(StateMachine is not null, "StateMachine in Player is null");
+		System.Diagnostics.Debug.Assert(AnimationPlayer is not null, "AnimationPlayer in Player is null");
 		StateMachine.Init(this, AnimationPlayer);
 	}
 

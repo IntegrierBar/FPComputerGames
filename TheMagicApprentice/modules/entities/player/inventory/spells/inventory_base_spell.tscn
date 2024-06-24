@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cijmx6f7tq608"]
+[gd_scene load_steps=3 format=3 uid="uid://bwtuurvg2o565"]
 
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryBasicSpell.cs" id="1_nnkf8"]
 [ext_resource type="PackedScene" uid="uid://bg4jmwx6relk0" path="res://modules/entities/player/spells/basic_spell/basic_spell.tscn" id="2_yhw12"]

@@ -3,22 +3,12 @@ using System;
 
 public partial class InventorySunBeam : InventorySpell
 {
-	/**
-	Create the base spell of the correct type
-	*/
-    public override void Cast(Vector2 playerPosition, Vector2 targetPosition)
+    /**
+    Additionaly to base class also adds itself to the Sun Beam Spell Group
+    */
+    public override void _Ready()
     {
-        base.Cast(playerPosition, targetPosition);
-
-		// instanciate the spell and cast it to the correct class
-		SunBeam spell = _spellScene.Instantiate() as SunBeam;
-		System.Diagnostics.Debug.Assert(spell is not null); // check that it is not null
-
-
-        Attack attack = new Attack(Damage, MagicType, PlayerHealthComponent);
-        spell.Init(attack, playerPosition, targetPosition);
-        GetTree().Root.AddChild(spell);
-        //spell.Position = playerPosition;
-
+        base._Ready();
+        AddToGroup(Globals.SunBeamSpellGroup);
     }
 }
