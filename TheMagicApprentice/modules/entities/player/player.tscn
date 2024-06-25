@@ -295,8 +295,6 @@ Idle = NodePath("../Idle")
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("8_1165l")
 
-[node name="SpellInventory" parent="." instance=ExtResource("10_cknrl")]
-
 [node name="Spells" type="Node" parent="."]
 
 [node name="SunBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell1"]]
@@ -316,7 +314,7 @@ MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
 script = ExtResource("13_drg8x")
 CastTime = 0.7
 _playerHealthComponent = NodePath("../../HealthComponent")
@@ -333,8 +331,9 @@ MagicType = 1
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("18_gloak")
 
-[node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
 script = ExtResource("19_ho7hk")
+BaseDamage = 5.0
 MagicType = 1
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("20_l7up7")
@@ -351,3 +350,5 @@ script = ExtResource("23_jr77b")
 MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("24_h76h0")
+
+[node name="SpellInventory" parent="." instance=ExtResource("10_cknrl")]
