@@ -351,4 +351,7 @@ MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("24_h76h0")
 
-[node name="SpellInventory" parent="." instance=ExtResource("10_cknrl")]
+[node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="SpellInventory" parent="UI" instance=ExtResource("10_cknrl")]
