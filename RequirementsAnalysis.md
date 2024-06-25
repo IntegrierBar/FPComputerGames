@@ -67,7 +67,7 @@ All entities have the following properties:
 | --- | --- |
 | Description | Every entity has a current HP floating point value that shows how much damage the entity has already taken and can still take before dying. If the current HP value is smaller or equal to zero, the entity dies. |
 | Acceptance Criterion | Has to be implemented |
-| Notes | The relation of current HP to max HP should be visible for the player for all entities on screen. <br> The current HP always has to be less or equal to the max HP. Contrary to the max HP it is allowed to be negative. |
+| Notes | The relation of current HP to max HP should be visible for the player for all entities on screen through healthbars. <br> The current HP always has to be less or equal to the max HP. Contrary to the max HP it is allowed to be negative. |
 
 | **ID: EP3**| **Entity property: Armor values** |
 | --- | --- |
