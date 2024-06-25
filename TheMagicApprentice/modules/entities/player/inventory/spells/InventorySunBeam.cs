@@ -1,6 +1,9 @@
 using Godot;
 using System;
 
+/**
+Class for the Node responsible for summoning the Sun Beam Spell
+*/
 public partial class InventorySunBeam : InventorySpell
 {
     /**

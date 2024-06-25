@@ -10,7 +10,10 @@ radius = 41.7612
 radius = 344.013
 
 [node name="BlackHole" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_fllgi")
+MaxLifeTimeInSeconds = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6vqlg")
@@ -21,10 +24,14 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_g11ut")
 
 [node name="GravityArea" type="Area2D" parent="."]
-gravity_space_override = 1
+collision_layer = 0
+collision_mask = 7
+gravity_space_override = 3
 gravity_point = true
+gravity_point_unit_distance = 78.019
 gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
+gravity = 4096.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityArea"]
 shape = SubResource("CircleShape2D_cd5bd")

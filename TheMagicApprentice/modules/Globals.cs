@@ -21,7 +21,13 @@ public static class Globals
 
     // The spell groups to acces the individual InventorySpell
     public const string SunBasicSpellGroup = "sun_basic_spell"; ///< string name of the group containing the Sun Basic Spell
-    public const string CosmicBasicSpellGroup = "cosmic_basic_spell"; ///< string name of the group containing the Sun Basic Spell
-    public const string DarkBasicSpellGroup = "dark_basic_spell"; ///< string name of the group containing the Sun Basic Spell
-    public const string SunBeamSpellGroup = "dark_basic_spell"; ///< string name of the group containing the Sun Beam Spell
+    public const string CosmicBasicSpellGroup = "cosmic_basic_spell"; ///< string name of the group containing the Cosmic Basic Spell
+    public const string DarkBasicSpellGroup = "dark_basic_spell"; ///< string name of the group containing the Dark Basic Spell
+    public const string SunBeamSpellGroup = "sun_beam_spell"; ///< string name of the group containing the Sun Beam Spell
+    public const string SummonSunSpellGroup = "summon_sun_spell"; ///< string name of the group containing the Summon Sun Spell
+    public const string MoonLightSpellGroup = "moon_light_spell"; ///< string name of the group containing the Moon Light Spell
+    public const string StarRainSpellGroup = "star_rain_spell"; ///< string name of the group containing the Star Rain Spell
+    public const string DarkEnergyWaveSpellGroup = "dark_energy_wave_spell"; ///< string name of the group containing the Dark Energy Wave Spell
+    public const string BlackHoleSpellGroup = "black_hole_spell"; ///< string name of the group containing the Black Hole Spell
+
 }

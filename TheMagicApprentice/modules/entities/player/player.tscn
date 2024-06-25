@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=39 format=3 uid="uid://cfafpfmqm8u17"]
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
@@ -14,6 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://bg4jmwx6relk0" path="res://modules/entities/player/spells/basic_spell/basic_spell.tscn" id="12_oqin6"]
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventorySunBeam.cs" id="13_drg8x"]
 [ext_resource type="PackedScene" uid="uid://d3hs40r4yyuwr" path="res://modules/entities/player/spells/sun_beam/sun_beam.tscn" id="14_qxs2i"]
+[ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventorySummonSun.cs" id="15_xfoyc"]
+[ext_resource type="PackedScene" uid="uid://n7hccfofkm8k" path="res://modules/entities/player/spells/summon_sun/sun.tscn" id="16_7jeko"]
+[ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryMoonLight.cs" id="16_il1wm"]
+[ext_resource type="PackedScene" uid="uid://bg322q6tu80w8" path="res://modules/entities/player/spells/moon_light/moon_light.tscn" id="18_gloak"]
+[ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryStarRain.cs" id="19_ho7hk"]
+[ext_resource type="PackedScene" uid="uid://d0v4b5ja0wumo" path="res://modules/entities/player/spells/star_rain/star.tscn" id="20_l7up7"]
+[ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryDarkEnergyWave.cs" id="21_68wfp"]
+[ext_resource type="PackedScene" uid="uid://dqpjsl8ux75jq" path="res://modules/entities/player/spells/dark_energy_wave/dark_energy_wave.tscn" id="22_vkran"]
+[ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryBlackHole.cs" id="23_jr77b"]
+[ext_resource type="PackedScene" uid="uid://u23ysmqaadgq" path="res://modules/entities/player/spells/black_hole/black_hole.tscn" id="24_h76h0"]
 
 [sub_resource type="Animation" id="Animation_3syv3"]
 length = 0.001
@@ -294,7 +304,7 @@ script = ExtResource("11_wf06i")
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="CosmicBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
+[node name="CosmicBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("11_wf06i")
 MagicType = 1
 _playerHealthComponent = NodePath("../../HealthComponent")
@@ -306,8 +316,38 @@ MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
+[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("13_drg8x")
 CastTime = 0.7
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("14_qxs2i")
+
+[node name="SummonSun" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+script = ExtResource("15_xfoyc")
+_playerHealthComponent = NodePath("../../HealthComponent")
+_spellScene = ExtResource("16_7jeko")
+
+[node name="MoonLight" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+script = ExtResource("16_il1wm")
+MagicType = 1
+_playerHealthComponent = NodePath("../../HealthComponent")
+_spellScene = ExtResource("18_gloak")
+
+[node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+script = ExtResource("19_ho7hk")
+MagicType = 1
+_playerHealthComponent = NodePath("../../HealthComponent")
+_spellScene = ExtResource("20_l7up7")
+
+[node name="DarkEnergyWave" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+script = ExtResource("21_68wfp")
+BaseDamage = 5.0
+MagicType = 2
+_playerHealthComponent = NodePath("../../HealthComponent")
+_spellScene = ExtResource("22_vkran")
+
+[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+script = ExtResource("23_jr77b")
+MagicType = 2
+_playerHealthComponent = NodePath("../../HealthComponent")
+_spellScene = ExtResource("24_h76h0")
