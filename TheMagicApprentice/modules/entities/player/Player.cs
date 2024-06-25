@@ -16,8 +16,8 @@ public partial class Player : CharacterBody2D
 	*/
 	public override void _Ready()
 	{
-		System.Diagnostics.Debug.Assert(StateMachine is not null);
-		System.Diagnostics.Debug.Assert(AnimationPlayer is not null);
+		System.Diagnostics.Debug.Assert(StateMachine is not null, "StateMachine in Player is null");
+		System.Diagnostics.Debug.Assert(AnimationPlayer is not null, "AnimationPlayer in Player is null");
 		StateMachine.Init(this, AnimationPlayer);
 	}
 
@@ -27,7 +27,6 @@ public partial class Player : CharacterBody2D
 	*/
 	public override void _Process(double delta)
 	{
-		//GD.Print(" Process called");
 		StateMachine.ProcessFrame(delta);
 	}
 
@@ -37,7 +36,6 @@ public partial class Player : CharacterBody2D
 	*/
 	public override void _PhysicsProcess(double delta)
 	{
-		//GD.Print("Physics Process called");
 		StateMachine.ProcessPhysics(delta);
 	}
 
@@ -47,7 +45,6 @@ public partial class Player : CharacterBody2D
 	*/
 	public override void _UnhandledInput(InputEvent @event)
 	{
-		//base._UnhandledInput(@event);
 		StateMachine.ProcessInput(@event);
 	}
 }

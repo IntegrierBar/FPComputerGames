@@ -46,7 +46,7 @@ public enum Direction
 	RIGHT,
 }
 
-public class EntityTypeHelper
+public static class EntityTypeHelper
 {
     /**
 	Takes a magic type and returns it as a string, where all letters are lowercase.
@@ -90,7 +90,7 @@ public class EntityTypeHelper
     }
 }
 
-public class DirectionHelper
+public static class DirectionHelper
 {
     public static Direction GetOppositeDirection(Direction direction)
     {

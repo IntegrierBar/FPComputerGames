@@ -31,19 +31,6 @@ public class TestHealthComponent
         _target.Death += () => died = true; // Add custom method to check if Death Signal got emitted
     }
 
-    /*
-    [TestCase]
-    public void StringToLower() 
-    {
-        AssertString("AbcD".ToLower()).IsEqual("abcd");
-    }
-
-    [TestCase]
-    public void FailTest() 
-    {
-        AssertThat(false).IsTrue();
-    }*/
-
     [TestCase(100.0, 0.0, 0.0, 0.0, 10.0, MagicType.SUN, 90.0, 100.0, TestName = "No Armor")]
     [TestCase(123.0, 50.0, 20.0, 0.0, 30.0, MagicType.SUN, 123.0 - 15.0, 100.0, TestName = "Armor Sun")]
     [TestCase(50.0, 40.0, 20.0, 10.0, 10.0, MagicType.COSMIC, 50.0 - 8.0, 100.0, TestName = "Armor Cosmic")]

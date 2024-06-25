@@ -28,7 +28,7 @@ public partial class Sun : Spell
 		{
 			if (area is HealthComponent healthComponent)
 			{
-				double distanceToEnemySquared = (Position - healthComponent.Position).LengthSquared(); // use squared distance since that is what physics dictate
+				double distanceToEnemySquared = (Position - healthComponent.GlobalPosition).LengthSquared(); // use squared distance since that is what physics dictate
 				healthComponent.TakeDamage(CalculateAttack(distanceToEnemySquared));
 			}
 		}
@@ -48,4 +48,12 @@ public partial class Sun : Spell
 		attack.damage /=  distanceToEnemySquared;
 		return attack;
 	}
+
+	/**
+	Override OnAreaEntered to make it empty since we do not want to use it.
+	All Damage is applied in _PhysicsProcess
+	*/
+    public override void OnAreaEntered(Area2D area)
+    {
+    }
 }

@@ -7,6 +7,7 @@
 radius = 16.0312
 
 [node name="BasicSpell" type="Area2D"]
+modulate = Color(1, 1, 1, 0.784314)
 scale = Vector2(0.25, 0.25)
 collision_layer = 0
 collision_mask = 4

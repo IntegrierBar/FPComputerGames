@@ -1,6 +1,8 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 public partial class PlayerSpellCasting : State
 {
@@ -16,7 +18,7 @@ public partial class PlayerSpellCasting : State
     //[Export]
     //public State SpellCasting;
 
-    
+
     /*!
     Get the correct spell by checking whether spell1, spell2 or spell3 was cast.
     Then cast it and set the time left to the duration given by the spell.
@@ -25,33 +27,34 @@ public partial class PlayerSpellCasting : State
     public override void Enter()
     {
         base.Enter();
-        Godot.Collections.Array<Node> spells = null;
+        IEnumerable<InventorySpell> spells = null;
         if (Input.IsActionPressed("spell1"))
         {
-            spells = GetTree().GetNodesInGroup("spell1");
+            spells = GetTree().GetNodesInGroup("spell1").OfType<InventorySpell>();
         }
         else if (Input.IsActionPressed("spell2"))
         {
-            spells = GetTree().GetNodesInGroup("spell2");
+            spells = GetTree().GetNodesInGroup("spell2").OfType<InventorySpell>();
         }
         else if (Input.IsActionPressed("spell3"))
         {
-            spells = GetTree().GetNodesInGroup("spell3");
+            spells = GetTree().GetNodesInGroup("spell3").OfType<InventorySpell>();
         }
-        
+
         // if the spell is null, then we can imideately exit since that means we just tried to cast a spell that does not exist
-        if (spells is null || spells.Count == 0)
+        if (spells is null || !spells.Any())
         {
             _timeLeft = 0.0;
             return;
         }
-        // otherwise cast the spell and get spellcasting time from it
-        foreach (InventorySpell spell in spells)
+        
+        // otherwise cast all spells
+        foreach (InventorySpell spell in spells.OfType<InventorySpell>())
         {
             spell.Cast(Parent.Position, Parent.GetGlobalMousePosition());
         }
-        
-        _timeLeft = 0.2;
+        // finally retrieve the CastTime from the first spell which is always the main spell
+        _timeLeft = spells.First().CastTime;
         Animations.Play("cast");
     }
 
