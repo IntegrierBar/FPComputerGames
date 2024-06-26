@@ -1,62 +1,133 @@
 using Godot;
+using System;
 using System.Collections.Generic;
 
 public partial class DungeonHandler : Node
 {
-	private Dictionary<string, PackedScene> rooms = new Dictionary<string, PackedScene>
-	{
-		{ "Room1", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room1.tscn") },
-		{ "Room2", (PackedScene)ResourceLoader.Load("res://modules/rooms/Room2.tscn") }
-	};
+	[Export]
+	public int MinRooms = 5;
+	[Export]
+	public int MaxRooms = 10;
+	
+	public Vector2I GridSize => new Vector2I(2 * MaxRooms + 1, 2 * MaxRooms + 1);
 
-	private Node currentRoom; ///< Reference to the current room node
-	private Node2D player; ///< Reference to the player node
-	private Node roomHandler; ///< Reference to the room handler node
+	private Dictionary<Vector2I, Room> dungeonLayout = new Dictionary<Vector2I, Room>();
+	private Vector2I currentRoomPosition;
+	private RoomHandler roomHandler;
+	private Node2D player;
 
-	/**
-	 * Called when the node is added to the scene.
-	 * Initializes the player and room handler, and loads the initial room.
-	 */
 	public override void _Ready()
 	{
-		GD.Print("Tree", GetTree());
-		player = GetTree().GetNodesInGroup("player")[0] as Node2D;
-		roomHandler = GetTree().GetNodesInGroup("room_handler")[0];
-		LoadRoom("Room1", Direction.RIGHT);
+		player = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;
+		roomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
+		GenerateDungeon();
+		LoadRoom(currentRoomPosition, Direction.DOWN);
 	}
 
-	/**
-	 * Loads a room by name and sets the player's position based on the entrance direction.
-	 * 
-	 * @param roomName The name of the room to load.
-	 * @param enterDirection The direction from which the player enters the room.
-	 */
-	private void LoadRoom(string roomName, Direction enterDirection)
+	private void GenerateDungeon()
 	{
-		if (currentRoom != null)
+		dungeonLayout.Clear();
+
+		int roomCount = GD.RandRange(MinRooms, MaxRooms);
+		Vector2I entrancePos = new Vector2I(GridSize.X / 2, GridSize.Y / 2);
+		Vector2I bossPos = entrancePos;
+		currentRoomPosition = entrancePos;
+		
+
+		while (Math.Abs(entrancePos.X - bossPos.X) + Math.Abs(entrancePos.Y - bossPos.Y) < 4)
 		{
-			currentRoom.Free();  // Remove the current room
+			// Clear the current dungeon layout
+			dungeonLayout = new Dictionary<Vector2I, Room>();
+
+			// Set the entrance position
+			dungeonLayout[entrancePos] = new Room(RoomType.Entry, GetRandomRoomScene());
+
+			// Generate the rest of the rooms
+			List<Vector2I> visitedTiles = new List<Vector2I> { entrancePos };
+			Vector2I currentPos = entrancePos;
+			for (int i = 0; i < roomCount - 1; i++)
+			{
+				Godot.Collections.Array directions = new Godot.Collections.Array{
+					new Vector2I(1, 0),  // Move right
+					new Vector2I(-1, 0), // Move left
+					new Vector2I(0, 1),  // Move down
+					new Vector2I(0, -1)  // Move up
+				};
+				directions.Shuffle();
+
+				bool moved = false;
+				foreach (Vector2I direction in directions)
+				{
+					Vector2I nextPos = currentPos + direction;
+					nextPos.X = Math.Clamp(nextPos.X, 0, GridSize.X - 1);
+					nextPos.Y = Math.Clamp(nextPos.Y, 0, GridSize.Y - 1);
+					if (!dungeonLayout.ContainsKey(nextPos))
+					{
+						dungeonLayout[nextPos] = new Room(RoomType.Normal, GetRandomRoomScene());
+						visitedTiles.Add(nextPos);
+						currentPos = nextPos;
+						moved = true;
+						break;
+					}
+				}
+
+				if (!moved)
+				{
+					// If no move was possible, pick a random visited tile and try again
+					currentPos = visitedTiles[(int) GD.Randi() % visitedTiles.Count];
+				}
+			}
+
+			bossPos = currentPos;
 		}
 
-		// Load the new room
-		currentRoom = rooms[roomName].Instantiate();
-		AddChild(currentRoom);
+		// Set the boss position
+		dungeonLayout[bossPos] = new Room(RoomType.Boss, GetRandomRoomScene());
+	}
 
-		// Initialize the new room (e.g., spawn enemies)
-		roomHandler.Call("InitializeRoom");
+	private string GetRandomRoomScene()
+	{
+		return GD.Randi() % 2 == 0 ? "res://modules/rooms/Room3.tscn" : "res://modules/rooms/Room4.tscn";
+	}
 
-		// Connect door signals in the new room
-		foreach (Node child in currentRoom.GetChildren())
+	private void LoadRoom(Vector2I position, Direction enterDirection)
+	{
+		if (!dungeonLayout.ContainsKey(position))
 		{
-			if (child is RoomExit door)
+			GD.PrintErr($"Attempted to load non-existent room at position {position}");
+			return;
+		}
+
+		Room room = dungeonLayout[position];
+
+		roomHandler.LoadRoom(room.ScenePath, enterDirection);
+		room.IsVisited = true;
+		dungeonLayout[position] = room;  // Update the room in the dictionary
+		currentRoomPosition = position;
+
+		// Connect to RoomExit signals in the new room
+		ConnectRoomExitSignals();
+	}
+
+	private void ConnectRoomExitSignals()
+	{
+		foreach (Node child in roomHandler.currentRoom.GetChildren())
+		{
+			if (child is RoomExit exit)
 			{
-				door.PlayerEnteredDoor += OnPlayerEnteredDoor;
-			}
-			if (child is RoomEntrance entrance && entrance.Direction == enterDirection)
-			{
-				player.Position = entrance.Position;
+				exit.PlayerEnteredDoor += OnPlayerEnteredDoor;
 			}
 		}
+	}
+
+	private Direction CalculateEnterDirection(Vector2I newPosition)
+	{
+		Vector2I delta = newPosition - currentRoomPosition;
+		if (delta.X > 0) return Direction.LEFT;
+		if (delta.X < 0) return Direction.RIGHT;
+		if (delta.Y > 0) return Direction.UP;
+		if (delta.Y < 0) return Direction.DOWN;
+		return Direction.RIGHT;  // Default direction if same position
 	}
 
 	/**
@@ -65,11 +136,42 @@ public partial class DungeonHandler : Node
 	 * @param targetRoom The name of the target room to load.
 	 * @param direction The direction from which the player entered the door.
 	 */
-	private void OnPlayerEnteredDoor(string targetRoom, Direction direction)
+	private void OnPlayerEnteredDoor(Direction direction)
 	{
-		GD.Print("Player entered door ", targetRoom, direction);
-		GD.Print("Player position: ", player.Position);
-		LoadRoom(targetRoom, DirectionHelper.GetOppositeDirection(direction));
-		GD.Print("Player position: ", player.Position);
+		GD.Print("Current pos", currentRoomPosition);
+		Vector2I newPosition = CalculateNewPosition(direction);
+		GD.Print("New pos", newPosition);
+
+		if (dungeonLayout.ContainsKey(newPosition))
+		{
+			LoadRoom(newPosition, DirectionHelper.GetOppositeDirection(direction));
+		}
+		else
+		{
+			GD.PrintErr($"No room exists in direction {direction} from current room");
+		}
+	}
+
+	private Vector2I CalculateNewPosition(Direction direction)
+	{
+		Vector2I newPosition = currentRoomPosition;
+		switch (direction)
+		{
+			case Direction.UP: newPosition.Y--; break;
+			case Direction.DOWN: newPosition.Y++; break;
+			case Direction.LEFT: newPosition.X--; break;
+			case Direction.RIGHT: newPosition.X++; break;
+		}
+		return newPosition;
+	}
+	
+	public Vector2I GetCurrentRoomPosition()
+	{
+		return currentRoomPosition;
+	}
+	
+	public Dictionary<Vector2I, Room> GetDungeonLayout()
+	{
+		return dungeonLayout;
 	}
 }

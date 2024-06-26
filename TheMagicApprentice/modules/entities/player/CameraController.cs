@@ -32,8 +32,8 @@ public partial class CameraController : Camera2D
 	 */
 	public override void _Ready()
 	{
-		Player = GetTree().GetNodesInGroup("player")[0] as Node2D;
-		RoomHandler = GetTree().GetNodesInGroup("room_handler")[0] as RoomHandler;
+		Player = GetTree().GetFirstNodeInGroup("player") as Node2D;
+		RoomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
 		JumpToTarget();
 		System.Diagnostics.Debug.Assert(Player is not null);
 		RoomHandler.RoomInitialized += JumpToTarget;
