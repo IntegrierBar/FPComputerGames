@@ -22,6 +22,7 @@ public partial class CameraController : Camera2D
 
 	private Node2D Player;
 	private RoomHandler RoomHandler;
+	private float StartZoom;
 
 	private Vector2 targetPosition => CalculateTargetPosition();
 
@@ -32,21 +33,41 @@ public partial class CameraController : Camera2D
 	 */
 	public override void _Ready()
 	{
+		StartZoom = Zoom.X;
 		Player = GetTree().GetFirstNodeInGroup("player") as Node2D;
 		RoomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
 		JumpToTarget();
 		System.Diagnostics.Debug.Assert(Player is not null);
+		System.Diagnostics.Debug.Assert(RoomHandler is not null);
 		RoomHandler.RoomInitialized += JumpToTarget;
 	}
 
 	/**
 	 * @brief Called every frame. 'delta' is the elapsed time since the previous frame.
 	 * 
-	 * Updates the camera position based on the player's position and the room bounds.
+	 * Updates the camera position based on the player's position and the current roomtype.
 	 * 
 	 * @param delta The elapsed time since the previous frame.
 	 */
 	public override void _Process(double delta)
+	{
+		System.Diagnostics.Debug.Assert(RoomHandler is not null && RoomHandler.CurrentRoom is not null);
+		switch(RoomHandler.CurrentRoom.Type) {
+			case RoomType.Normal:
+				ProcessNormalRoom(delta);
+				break;
+			case RoomType.Boss:
+				ProcessBossRoom(delta);
+				break;
+		}
+	}
+
+	/**
+	 * @brief Processes the camera movement in a normal room.
+	 * 
+	 * @param delta The elapsed time since the previous frame.
+	 */
+	private void ProcessNormalRoom(double delta)
 	{
 		Vector2 difference = targetPosition - Position;
 
@@ -61,6 +82,33 @@ public partial class CameraController : Camera2D
 				Mathf.Lerp(Position.Y, targetPosition.Y, (float)delta * SmoothingFactor)
 			);
 		}
+	}
+
+	/**
+	 * @brief Processes the camera movement in a boss room.
+	 * 
+	 * @param delta The elapsed time since the previous frame.
+	 */
+	private void ProcessBossRoom(double delta)
+	{
+		Vector2 roomCenter = RoomHandler.GetCurrentRoomBounds().GetCenter();
+		Position = Position.Lerp(roomCenter, (float)delta * SmoothingFactor);
+		//Zoom = Vector2.One * GetBossRoomZoom();
+	}
+
+	/**
+	 * @brief Calculates the zoom level for the camera in a boss room based on the room bounds.
+	 * 
+	 * @return The zoom level for the camera in a boss room.
+	 */
+	private float GetBossRoomZoom()
+	{
+		Rect2 roomBounds = RoomHandler.GetCurrentRoomBounds();
+		Vector2 roomSize = roomBounds.Size;
+		Vector2 viewportSize = GetViewportRect().Size;
+		float zoomX = viewportSize.X / roomSize.X;
+		float zoomY = viewportSize.Y / roomSize.Y;
+		return Mathf.Min(zoomX, zoomY);
 	}
 
 	/**
@@ -86,7 +134,16 @@ public partial class CameraController : Camera2D
 	 */
 	private void JumpToTarget()
 	{
-		Position = CalculateTargetPosition();
+		switch(RoomHandler.CurrentRoom.Type) {
+			case RoomType.Normal:
+				Zoom = Vector2.One * StartZoom;
+				Position = CalculateTargetPosition();
+				break;
+			case RoomType.Boss:
+				Zoom = Vector2.One * GetBossRoomZoom();
+				Position = RoomHandler.GetCurrentRoomBounds().GetCenter();
+				break;
+		}
 	}
 
 	/**

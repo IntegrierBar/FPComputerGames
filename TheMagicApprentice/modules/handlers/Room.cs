@@ -1,10 +1,8 @@
 
 public enum RoomType
 {
-    Entry,
     Normal,
-    Boss,
-    Treasure
+    Boss
 }
 
 public class Room

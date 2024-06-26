@@ -8,7 +8,8 @@ public partial class RoomHandler : Node
 	[Signal]
 	public delegate void RoomInitializedEventHandler(); ///< Signal emitted after a new room is loaded.
 	
-	public Node currentRoom { private set; get; } ///< Reference to the current room node. Has to contain a "TileMap" node.
+	public Room CurrentRoom { private set; get; } ///< Reference to the current room object.
+	public Node CurrentRoomNode { private set; get; } ///< Reference to the current room node. Has to contain a "TileMap" node.
 	private TileMap currentTileMap; ///< Reference to the current tile map node
 	private CharacterBody2D player; ///< Reference to the player node
 
@@ -28,22 +29,23 @@ public partial class RoomHandler : Node
 	 * @param roomName The name of the room to load.
 	 * @param enterDirection The direction from which the player enters the room.
 	 */
-	public void LoadRoom(string scenePath, Direction enterDirection)
+	public void LoadRoom(Room room, Direction enterDirection)
 	{
 		if(player == null)
 		{
 			player = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;	
 		}
-		if (currentRoom != null)
+		if (CurrentRoom != null)
 		{
-			currentRoom.QueueFree();  // Remove the current room
+			CurrentRoomNode.QueueFree();  // Remove the current room
 		}
 
 		// Load the new room
-		currentRoom = ResourceLoader.Load<PackedScene>(scenePath).Instantiate();
-		currentTileMap = currentRoom.GetNode<TileMap>("TileMap");
+		CurrentRoom = room;
+		CurrentRoomNode = ResourceLoader.Load<PackedScene>(room.ScenePath).Instantiate();
+		currentTileMap = CurrentRoomNode.GetNode<TileMap>("TileMap");
 		System.Diagnostics.Debug.Assert(currentTileMap is not null, "TileMap node not found in the room scene.");
-		AddChild(currentRoom);
+		AddChild(CurrentRoomNode);
 		
 		// Initialize the new room (e.g., spawn enemies)
 		InitializeRoom(enterDirection);
@@ -55,7 +57,7 @@ public partial class RoomHandler : Node
 	private void InitializeRoom(Direction enterDirection)
 	{
 		// Set player position based on entrance
-		foreach (Node child in currentRoom.GetChildren())
+		foreach (Node child in CurrentRoomNode.GetChildren())
 		{
 			if (child is RoomEntrance entrance && entrance.Direction == enterDirection)
 			{
@@ -66,7 +68,7 @@ public partial class RoomHandler : Node
 
 		GetTree().CreateTimer(0.1f).Timeout += () =>
 		{
-			foreach (Node child in currentRoom.GetChildren())
+			foreach (Node child in CurrentRoomNode.GetChildren())
 			{
 				if (child is RoomExit exit)
 				{

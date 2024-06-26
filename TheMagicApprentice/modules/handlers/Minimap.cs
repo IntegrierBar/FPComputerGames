@@ -41,7 +41,7 @@ public partial class Minimap : Control
 	public override void _Draw()
 	{
 		// Draw black background
-		DrawRect(new Rect2(Vector2.Zero, new Vector2(CellSize.X * dungeonHandler.GridSize.X, CellSize.Y * dungeonHandler.GridSize.Y)), Colors.Black);
+		DrawRect(new Rect2(Vector2.Zero, new Vector2(CellSize.X * dungeonHandler.GetGridSize().X, CellSize.Y * dungeonHandler.GetGridSize().Y)), Colors.Black);
 
 		foreach (var kvp in dungeonLayout)
 		{
@@ -49,9 +49,13 @@ public partial class Minimap : Control
 			Room room = kvp.Value;
 
 			Color roomColor = room.IsVisited ? Colors.White : Colors.Gray;
+			if (room.Type == RoomType.Boss)
+			{
+				roomColor = Colors.Red;
+			}
 			if (gridPosition == currentRoomPosition)
 			{
-				roomColor = Colors.Red; // Highlight the current room
+				roomColor = Colors.Yellow; // Highlight the current room
 			}
 
 			Vector2 drawPosition = new Vector2(gridPosition.X * CellSize.X, gridPosition.Y * CellSize.Y);
