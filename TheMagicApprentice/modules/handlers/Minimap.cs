@@ -55,7 +55,7 @@ public partial class Minimap : Control
 			}
 			if (gridPosition == currentRoomPosition)
 			{
-				roomColor = Colors.Yellow; // Highlight the current room
+				roomColor = Colors.Blue;
 			}
 
 			Vector2 drawPosition = new Vector2(gridPosition.X * CellSize.X, gridPosition.Y * CellSize.Y);

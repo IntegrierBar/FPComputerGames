@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ceycm4dgskcja"]
+[gd_scene load_steps=15 format=3 uid="uid://ceycm4dgskcja"]
 
 [ext_resource type="Texture2D" uid="uid://bitu50gllk7cp" path="res://assets/DampDungeons/Tiles/Dungeon_WallsAndFloors.png" id="1_2ywd6"]
 [ext_resource type="Texture2D" uid="uid://c1gj4ote7mhx4" path="res://assets/DampDungeons/Tiles/DungeonDecorations.png" id="2_beuqv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://orlbke5p22fw" path="res://assets/DampDungeons/Tiles/Dungeon_WaterAnimation.png" id="4_vw6f1"]
 [ext_resource type="PackedScene" uid="uid://drm2iwrvix1y1" path="res://modules/rooms/room_entrance.tscn" id="5_c8mq0"]
 [ext_resource type="PackedScene" uid="uid://by7jetksgyl4p" path="res://modules/rooms/room_exit.tscn" id="6_xbt55"]
+[ext_resource type="Script" path="res://modules/rooms/EnemySpawn.cs" id="7_fcpl2"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_8qlfg"]
 tile_data = PackedInt32Array(0, 131072, 9, 65536, 131072, 10, 131072, 131072, 11, 196608, 131072, 12, 1, 65536, 13, 65537, 65536, 14, 131073, 65536, 15, 2, 65536, 13, 65538, 65536, 14, 131074, 65536, 15, 3, 65536, 13, 65539, 65536, 14, 131075, 196608, 15, 4, 196608, 9, 65540, 196608, 10, 131076, 196608, 11, 196612, 196608, 12, 65541, 65536, 13, 131077, 262144, 14, 196613, 65536, 15, 65542, 1, 8, 131078, 1, 9, 196614, 1, 10, 65543, 65537, 8, 131079, 65537, 9, 196615, 1703937, 9, 65544, 131073, 8, 131080, 131073, 9, 196616, 1769473, 9, 65545, 196609, 8, 131081, 196609, 9, 196617, 196609, 10, 65546, 65536, 13, 131082, 65536, 14, 196618, 65536, 15, 11, 131072, 9, 65547, 131072, 10, 131083, 131072, 11, 196619, 131072, 12, 12, 327680, 13, 65548, 327680, 14, 131084, 327680, 15, 13, 65536, 13, 65549, 65536, 14, 131085, 65536, 15, 14, 65536, 13, 65550, 65536, 14, 131086, 65536, 15, 15, 196608, 9, 65551, 196608, 10, 131087, 196608, 11, 196623, 196608, 12)
@@ -2257,7 +2258,8 @@ position = Vector2(-423, -103)
 Direction = 2
 
 [node name="RoomExit Up" parent="." instance=ExtResource("6_xbt55")]
-position = Vector2(-118, -248)
+z_index = 650
+position = Vector2(-120, -248)
 Direction = 0
 
 [node name="RoomExit Right" parent="." instance=ExtResource("6_xbt55")]
@@ -2266,3 +2268,27 @@ position = Vector2(105, -8)
 [node name="RoomExit Down" parent="." instance=ExtResource("6_xbt55")]
 position = Vector2(-215, 137)
 Direction = 1
+
+[node name="EnemySpawn 1" type="Node2D" parent="."]
+position = Vector2(-327, -156)
+script = ExtResource("7_fcpl2")
+
+[node name="EnemySpawn 2" type="Node2D" parent="."]
+position = Vector2(-174, -159)
+script = ExtResource("7_fcpl2")
+
+[node name="EnemySpawn 3" type="Node2D" parent="."]
+position = Vector2(-16, -150)
+script = ExtResource("7_fcpl2")
+
+[node name="EnemySpawn 4" type="Node2D" parent="."]
+position = Vector2(-319, -64)
+script = ExtResource("7_fcpl2")
+
+[node name="EnemySpawn 5" type="Node2D" parent="."]
+position = Vector2(-1, -65)
+script = ExtResource("7_fcpl2")
+
+[node name="EnemySpawn 6" type="Node2D" parent="."]
+position = Vector2(0, 68)
+script = ExtResource("7_fcpl2")

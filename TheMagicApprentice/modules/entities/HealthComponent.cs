@@ -15,10 +15,10 @@ public partial class HealthComponent : Area2D
 	private double _currentHP; ///< current HP of the entitiy 
 
 	private Dictionary<MagicType, double> Armor = new Dictionary<MagicType, double> {
-			{MagicType.SUN, 0},
-			{MagicType.COSMIC, 0},
-			{MagicType.DARK, 0},
-		}; ///< Armor of the entity 
+		{MagicType.SUN, 0},
+		{MagicType.COSMIC, 0},
+		{MagicType.DARK, 0},
+	}; ///< Armor of the entity 
 
 
 	/**
@@ -38,6 +38,9 @@ public partial class HealthComponent : Area2D
 	*/
 	public void TakeDamage(Attack attack)
 	{
+		if(_currentHP <= 0.0)
+			return;
+
 		if (Armor[attack.magicType] > 100.0)
 		{
 			if (attack.attacker is not null)

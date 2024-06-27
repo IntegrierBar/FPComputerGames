@@ -538,18 +538,35 @@ In the dungeons a camera is used to track the PC and enemy actions. The camera b
 | Notes | Except for story dungeons, players cannot retry the same dungeon again. If the player enters a generated dungeon again, a new one is generated.  |
 
 
-The rooms out of which the dungeon is created are handcrafted and not randomly generated. There should be at least 5 different rooms.  
-The spawn locations for the enemies are also determined by hand. However not all possible spawn locations must also spawn enemies.  
-Since there are curses that spawn additional monsters each room, not all spawn locations must spawn an enemy.
-Instead whenever the room is first initialised the game will determine how many enemies should be spawned and then randomly pick the locations.
+| **ID: D9**| **Handcrafted Rooms** |
+| --- | --- |
+| Description | The rooms out of which the dungeon is created are handcrafted and not randomly generated. There should be at least 5 different rooms. |
+| Acceptance Criterion | At least 5 different handcrafted rooms are available. |
+| Notes | None |
 
-Each room is its own instance.
-The player can go into another room by walking through a door of the room. 
-This will then load the next room instance. Direction is preserved, meaning if the player goes through the door on the left, the player will come out the door on the right in the next room, and vice versa for the other four directions.
+| **ID: D10**| **Enemy Spawn Locations** |
+| --- | --- |
+| Description | The spawn locations for the enemies are determined by hand. However, not all possible spawn locations must spawn enemies. Since there are curses that spawn additional monsters in each room, not all spawn locations must spawn an enemy. Instead, whenever the room is first initialized, the game will determine how many enemies should be spawned and then randomly pick the locations. |
+| Acceptance Criterion | Enemy spawn locations are determined as described. |
+| Notes | None |
 
-The first time the player enters a room, a bunch of slimes are spawned. The player can only exit the room after killing all enemies within it.  
-The player can also return to a room they have already been to and cleared.
-In that case no enemies are spawned and the player can immideately leave the room through any door.
+| **ID: D11**| **Room Instances** |
+| --- | --- |
+| Description | Each room is its own instance. The player can go into another room by walking through a door of the room. This will then load the next room instance. Direction is preserved, meaning if the player goes through the door on the left, the player will come out the door on the right in the next room, and vice versa for the other four directions. |
+| Acceptance Criterion | Room instances and direction preservation work as described. |
+| Notes | None |
+
+| **ID: D12**| **First Time Room Entry** |
+| --- | --- |
+| Description | The first time the player enters a room, three slimes are spawned. The type of slime is randomly selected from the available types. The player can only exit the room after killing all enemies within it. |
+| Acceptance Criterion | Slimes spawn correctly on first entry and the player can only exit after killing all enemies. |
+| Notes | None |
+
+| **ID: D13**| **Returning to Cleared Rooms** |
+| --- | --- |
+| Description | The player can also return to a room they have already been to and cleared. In that case, no enemies are spawned and the player can immediately leave the room through any door. |
+| Acceptance Criterion | Returning to cleared rooms works as described. |
+| Notes | None |
 
 
 ##### 2.2.2.2.1 Intro dungeon

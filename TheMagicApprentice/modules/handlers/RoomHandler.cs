@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using System.Collections.Generic;
 
 
@@ -7,11 +8,14 @@ public partial class RoomHandler : Node
 {
 	[Signal]
 	public delegate void RoomInitializedEventHandler(); ///< Signal emitted after a new room is loaded.
+	[Export]
+	public int EnemyCount { get; set; } = 3; ///< Number of enemies to spawn in each room.
 	
 	public Room CurrentRoom { private set; get; } ///< Reference to the current room object.
 	public Node CurrentRoomNode { private set; get; } ///< Reference to the current room node. Has to contain a "TileMap" node.
 	private TileMap currentTileMap; ///< Reference to the current tile map node
 	private CharacterBody2D player; ///< Reference to the player node
+	private int enemyCount = 0; ///< Number of enemies in the current room
 
 	/**
 	 * Called when the node is added to the scene.
@@ -66,6 +70,61 @@ public partial class RoomHandler : Node
 			}
 		}
 
+		if(CurrentRoom.IsCleared)
+			EnableRoomExits();
+
+		if(!CurrentRoom.IsCleared)
+			SpawnEnemies();
+
+		EmitSignal(SignalName.RoomInitialized);
+	}
+
+	/**
+	 * Spawns enemies based on the nodes that inherit from the EnemySpawn class.
+	 */
+	private void SpawnEnemies()
+	{
+		var enemySpawns = new List<EnemySpawn>();
+		foreach (Node child in CurrentRoomNode.GetChildren())
+		{
+			if (child is EnemySpawn spawn)
+			{
+				enemySpawns.Add(spawn);
+			}
+		}
+
+		var random = new Random();
+		for (int i = 0; i < EnemyCount && enemySpawns.Count > 0; i++)
+		{
+			int index = random.Next(enemySpawns.Count);
+			Node2D enemy = enemySpawns[index].Spawn();
+			if (enemy.GetNode("HealthComponent") is HealthComponent healthComponent)
+			{
+				healthComponent.Death += EnemyDied;
+			}
+			enemySpawns.RemoveAt(index);
+		}
+		enemyCount = EnemyCount;
+		GD.Print("Enemy count: " + enemyCount);
+	}
+
+	/**
+	 * Called when an enemy dies. Once all enemies are dead, the room is cleared and the room exits are enabled.
+	 */
+	private void EnemyDied()
+	{
+		enemyCount--;
+		GD.Print("Enemy died. Count: " + enemyCount);
+		if(enemyCount == 0) {
+			CurrentRoom.IsCleared = true;
+			EnableRoomExits();
+		}
+	}
+	/**
+	* Enables the Rooms Exits.
+	*/
+	private void EnableRoomExits()
+	{
 		GetTree().CreateTimer(0.1f).Timeout += () =>
 		{
 			foreach (Node child in CurrentRoomNode.GetChildren())
@@ -76,8 +135,6 @@ public partial class RoomHandler : Node
 				}
 			}
 		};
-
-		EmitSignal(SignalName.RoomInitialized);
 	}
 
 	/**
