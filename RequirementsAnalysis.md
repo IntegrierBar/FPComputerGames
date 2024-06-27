@@ -918,6 +918,20 @@ classDiagram
         COSMIC
     }
 
+    class RoomType {
+        <<enumeration>>
+        NORMAL
+        BOSS
+    }
+
+    class Direction {
+        <<enumeration>>
+        UP
+        DOWN
+        LEFT
+        RIGHT
+    }
+
     class Attack {
         magicType
         damageValue
@@ -1035,20 +1049,58 @@ classDiagram
     Unicorn *-- StateMachine
     Unicorn *-- HealthComponent
 
-    class DungeonRoom {
-        bool cleared
+    class Room {
+        RoomType Type
+        string ScenePath
+        bool IsVisited
     }
-    Node2D <|-- DungeonRoom
-    DungeonRoom "1" *-- "0..*" Slime : inside
-    DungeonRoom "1" *-- "0..*" Unicorn : inside
-    
+
+    class Dungeon {
+        Dictionary<Vector2I, Room> Layout
+        Vector2I CurrentRoomPosition
+        Vector2I EntrancePosition
+        Vector2I BossPosition
+        int MinRooms
+        int MaxRooms
+        Vector2I GridSize
+        Generate()
+    }
+
     class DungeonHandler {
-        Layout
-        switchRoom()
+        int MinRooms
+        int MaxRooms
+        LoadRoom(Vector2I position, Direction enterDirection)
+        Vector2I GetCurrentRoomPosition()
+        Vector2 GetGridSize()
+        Dictionary<Vector2I, Room> GetDungeonLayout()
     }
-    Node2D <|-- DungeonHandler
-    DungeonHandler o-- DungeonRoom : currentRoom
-    DungeonHandler o-- "0..*" CurseEffect : active curses
+    Node <|-- DungeonHandler
+    DungeonHandler *-- Dungeon
+    DungeonHandler o-- RoomHandler
+
+    class RoomHandler {
+        Room CurrentRoom
+        Node CurrentRoomNode
+        TileMap currentTileMap
+        CharacterBody2D player
+        LoadRoom(Room room, Direction enterDirection)
+        Rect2 GetCurrentRoomBounds()
+    }
+    Node <|-- RoomHandler
+    RoomHandler --> Room : manages
+
+    class CameraController {
+        float SmoothingFactor
+        float MinDelta
+        float StartZoom
+        ProcessNormalRoom(double delta)
+        ProcessBossRoom(double delta)
+        Vector2 CalculateTargetPosition()
+        JumpToTarget()
+        Rect2 GetCameraRect()
+    }
+    Camera2D <|-- CameraController
+    CameraController --> RoomHandler : uses
 
     class Inventory {
 
@@ -1057,7 +1109,6 @@ classDiagram
     Inventory o-- "0..*" Augment : inactive
     Inventory o-- "0..*" Skill : unlocked
 ```
-
 
 
 #### 2.5.3.3. State machines
