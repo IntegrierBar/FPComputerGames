@@ -17,8 +17,8 @@ public partial class DungeonHandler : Node
 	{
 		player = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;
 		roomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
-		dungeon = new Dungeon(MinRooms, MaxRooms);
-		dungeon.Generate();
+		//dungeon = new Dungeon(MinRooms, MaxRooms);
+		dungeon = new Dungeon(Dungeons.IntroDungeon);
 		LoadRoom(dungeon.CurrentRoomPosition, Direction.DOWN);
 	}
 

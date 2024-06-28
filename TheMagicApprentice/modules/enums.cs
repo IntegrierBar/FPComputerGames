@@ -64,6 +64,14 @@ public static class EntityTypeHelper
     }
 
     /**
+    Returns a random magic type.
+    */
+    public static MagicType GetRandomMagicType()
+    {
+        return (MagicType)GD.RandRange(0, 2);
+    }
+
+    /**
 	Takes a slime attack range and returns it as a string, where all letters are lowercase.
     This is the way the slime attack range should be written in e.g. the animation names.
 	*/
