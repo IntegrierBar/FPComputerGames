@@ -15,11 +15,8 @@ Integration test for the player scene.
 [TestSuite]
 public partial class TestDungeonHandler
 {
-	/* Commented out for now 
 	private ISceneRunner _sceneRunner;
 	private DungeonHandler dungeonHandler;
-	private Node2D player;
-	private Node roomHandler;
 
 	[BeforeTest]
 	public void SetupTest()
@@ -27,15 +24,11 @@ public partial class TestDungeonHandler
 		GD.Print("Setting up test environment...");
 
 		// Load the scene using ISceneRunner
-		_sceneRunner = ISceneRunner.Load("res://modules/rooms/scene.tscn");
+		_sceneRunner = ISceneRunner.Load("res://main_game.tscn");
 		GD.Print("Scene loaded.");
 
 		// Get references to the nodes
-		dungeonHandler = _sceneRunner.GetProperty("DungeonHandler");
-		player = _sceneRunner.GetProperty("Player");
-		roomHandler = _sceneRunner.GetProperty("RoomHandler");
-
-		GD.Print("Nodes references obtained.");
+		dungeonHandler = _sceneRunner.FindChild("DungeonHandler") as DungeonHandler;
 	}
 
 	[AfterTest]
@@ -44,11 +37,8 @@ public partial class TestDungeonHandler
 		GD.Print("Tearing down test environment...");
 
 		// Clean up the scene runner
-		//_sceneRunner.Free();
-		//_sceneRunner = null;
-		//dungeonHandler = null;
-		//player = null;
-		//roomHandler = null;
+		_sceneRunner = null;
+		dungeonHandler = null;
 
 		GD.Print("Scene runner and nodes freed.");
 	}
@@ -56,35 +46,36 @@ public partial class TestDungeonHandler
 	[TestCase]
 	public void TestLoadRoom()
 	{
-		GD.Print("Running TestLoadRoom...");
+		dungeonHandler.LoadDungeon(Dungeons.IntroDungeon);
+		
+		AssertThat(dungeonHandler.GetCurrentRoomPosition()).IsEqual(new Vector2I(0, 0));
 
-		// Use reflection to call the private method
 		var loadRoomMethod = typeof(DungeonHandler).GetMethod("LoadRoom", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 		if (loadRoomMethod == null)
 		{
 			GD.PrintErr("LoadRoom method not found.");
 			return;
 		}
-		loadRoomMethod.Invoke(dungeonHandler, new object[] { "Room2", Direction.LEFT });
+		loadRoomMethod.Invoke(dungeonHandler, new object[] { new Vector2I(0, 1), Direction.DOWN });
 
-		// Assert
-		AssertThat(dungeonHandler.GetNode("Room1")).IsNotNull();
-		AssertThat(player.Position).IsEqual(new Vector2(-359, 36)); // Assuming entrance position is (0, 0)
+		AssertThat(dungeonHandler.GetCurrentRoomPosition()).IsEqual(new Vector2I(0, 1));
 	}
 
 	[TestCase]
 	public void TestOnPlayerEnteredDoor()
 	{
-		GD.Print("Running TestOnPlayerEnteredDoor...");
+		dungeonHandler.LoadDungeon(Dungeons.IntroDungeon);
+		
+		AssertThat(dungeonHandler.GetCurrentRoomPosition()).IsEqual(new Vector2I(0, 0));
 
-		// Use reflection to call the private method
 		var onPlayerEnteredDoorMethod = typeof(DungeonHandler).GetMethod("OnPlayerEnteredDoor", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 		if (onPlayerEnteredDoorMethod == null)
 		{
 			GD.PrintErr("OnPlayerEnteredDoor method not found.");
 			return;
 		}
-		onPlayerEnteredDoorMethod.Invoke(dungeonHandler, new object[] { "Room2", Direction.RIGHT });
+		onPlayerEnteredDoorMethod.Invoke(dungeonHandler, new object[] { Direction.DOWN });
+
+		AssertThat(dungeonHandler.GetCurrentRoomPosition()).IsEqual(new Vector2I(0, 1));
 	}
-	*/
 }
