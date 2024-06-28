@@ -112,7 +112,7 @@ The PC is the figure the player controls while playing the game. The PC is a wiz
 
 The PC is controled by the player via keyboard and mouse movements. 
 A visualization of the state machine can be found [here](#2533-state-machines).
-The PC has four states which are described in the following. 
+The PC has five states which are described in the following. 
 
 The PC starts in the **Idle** state.
 
@@ -162,7 +162,7 @@ Each skill has a damage, magic type, a duration for how long it lasts and a cool
 
 | **ID: EPS1**| **Skill: Basic Skills** |
 | --- | --- |
-| Description | Each magic type has a basic skill that consist of a colored circular projectile shot from PC in the direction of the mouse. If the projectile hits an enemy, the enemy is dealt the damage of the skill and the projectile despawns. <br> If the projectile hits a wall or structure it alsow despawn. |
+| Description | Each magic type has a basic skill that consist of a colored circular projectile shot from PC in the direction of the mouse. If the projectile hits an enemy, the enemy is dealt the damage of the skill and the projectile despawns. <br> If the projectile hits a wall or structure it also despawns. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | The color of the projectile is the color of the magic type it belongs to. |
 
@@ -180,7 +180,7 @@ Each skill has a damage, magic type, a duration for how long it lasts and a cool
 
 | **ID: EPS4**| **Skill: Moon Light** |
 | --- | --- |
-| Description | A visualization of a light grey ray of moonlight is shown around the PC. The PC now has increased attack damage for all their equipped skills and increased armor values for all magic types for a few seconds. |
+| Description | A visualization of a light silver ray of moonlight is shown around the PC. The PC now has increased attack damage for all their equipped skills and increased armor values for all magic types for a few seconds. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
