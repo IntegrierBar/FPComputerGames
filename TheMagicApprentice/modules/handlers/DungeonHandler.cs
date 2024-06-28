@@ -2,17 +2,29 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+/**
+ * \class DungeonHandler
+ * \brief Manages the dungeon layout, room transitions, and player movement between rooms.
+ *
+ * This class is responsible for handling the overall structure of the dungeon,
+ * including loading rooms, managing room transitions, and keeping track of the
+ * player's position within the dungeon.
+ */
 public partial class DungeonHandler : Node
 {
 	[Export]
-	public int MinRooms = 5;
+	public int MinRooms = 5; ///< Minimum number of rooms in the dungeon.
 	[Export]
-	public int MaxRooms = 10;
+	public int MaxRooms = 10; ///< Maximum number of rooms in the dungeon.
 	
-	private Dungeon dungeon;
-	private RoomHandler roomHandler;
-	private Node2D player;
+	private Dungeon dungeon; ///< The current dungeon instance.
+	private RoomHandler roomHandler; ///< Reference to the RoomHandler node.
+	private Node2D player; ///< Reference to the player node.
 
+	/**
+	 * Called when the node enters the scene tree for the first time.
+	 * Initializes the dungeon, player, and room handler, and loads the initial room.
+	 */
 	public override void _Ready()
 	{
 		player = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;
@@ -22,6 +34,12 @@ public partial class DungeonHandler : Node
 		LoadRoom(dungeon.CurrentRoomPosition, Direction.DOWN);
 	}
 
+	/**
+	 * Loads a room at the specified position and sets the player's entrance direction.
+	 * 
+	 * @param position The position of the room in the dungeon layout.
+	 * @param enterDirection The direction from which the player enters the room.
+	 */
 	private void LoadRoom(Vector2I position, Direction enterDirection)
 	{
 		if (!dungeon.Layout.ContainsKey(position))
@@ -40,6 +58,9 @@ public partial class DungeonHandler : Node
 		ConnectRoomExitSignals();
 	}
 
+	/**
+	 * Connects signals for room exits in the current room.
+	 */
 	private void ConnectRoomExitSignals()
 	{
 		foreach (Node child in roomHandler.CurrentRoomNode.GetChildren())
@@ -51,6 +72,12 @@ public partial class DungeonHandler : Node
 		}
 	}
 
+	/**
+	 * Calculates the direction from which the player enters a new room.
+	 * 
+	 * @param newPosition The position of the new room.
+	 * @return The direction from which the player enters the new room.
+	 */
 	private Direction CalculateEnterDirection(Vector2I newPosition)
 	{
 		Vector2I delta = newPosition - dungeon.CurrentRoomPosition;
@@ -61,6 +88,11 @@ public partial class DungeonHandler : Node
 		return Direction.RIGHT;  // Default direction if same position
 	}
 
+	/**
+	 * Handles the player entering a door to transition to a new room.
+	 * 
+	 * @param direction The direction of the door the player entered.
+	 */
 	private void OnPlayerEnteredDoor(Direction direction)
 	{
 		Vector2I newPosition = CalculateNewPosition(direction);
@@ -75,6 +107,12 @@ public partial class DungeonHandler : Node
 		}
 	}
 
+	/**
+	 * Calculates the new position in the dungeon layout based on the direction of movement out of the current room.
+	 * 
+	 * @param direction The direction of movement.
+	 * @return The new position in the dungeon layout.
+	 */
 	private Vector2I CalculateNewPosition(Direction direction)
 	{
 		Vector2I newPosition = dungeon.CurrentRoomPosition;
@@ -88,16 +126,31 @@ public partial class DungeonHandler : Node
 		return newPosition;
 	}
 	
+	/**
+	 * Gets the current room position in the dungeon layout.
+	 * 
+	 * @return The current room position.
+	 */
 	public Vector2I GetCurrentRoomPosition()
 	{
 		return dungeon.CurrentRoomPosition;
 	}
 
+	/**
+	 * Gets the grid size of the dungeon.
+	 * 
+	 * @return The grid size of the dungeon.
+	 */
 	public Vector2 GetGridSize()
 	{
 		return dungeon.GridSize;
 	}
 	
+	/**
+	 * Gets the entire dungeon layout.
+	 * 
+	 * @return A dictionary representing the dungeon layout.
+	 */
 	public Dictionary<Vector2I, Room> GetDungeonLayout()
 	{
 		return dungeon.Layout;
