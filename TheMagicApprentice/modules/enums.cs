@@ -111,4 +111,24 @@ public static class DirectionHelper
             _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null),
         };
     }
+
+    /**
+	 * Calculates the new position in a grid based on the direction of movement.
+	 * 
+     * @param position The current position in the grid.
+	 * @param direction The direction of movement.
+	 * @return The new position in the grid.
+	 */
+	public static Vector2I CalculateNewPosition(Vector2I position, Direction direction)
+	{
+		Vector2I newPosition = position;
+		switch (direction)
+		{
+			case Direction.UP: newPosition.Y--; break;
+			case Direction.DOWN: newPosition.Y++; break;
+			case Direction.LEFT: newPosition.X--; break;
+			case Direction.RIGHT: newPosition.X++; break;
+		}
+		return newPosition;
+	}
 }

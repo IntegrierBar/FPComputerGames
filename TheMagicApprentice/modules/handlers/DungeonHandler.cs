@@ -17,9 +17,9 @@ public partial class DungeonHandler : Node
 	[Export]
 	public int MaxRooms = 10; ///< Maximum number of rooms in the dungeon.
 	
-	private Dungeon dungeon; ///< The current dungeon instance.
-	private RoomHandler roomHandler; ///< Reference to the RoomHandler node.
-	private Node2D player; ///< Reference to the player node.
+	private Dungeon Dungeon; ///< The current dungeon instance.
+	private RoomHandler RoomHandler; ///< Reference to the RoomHandler node.
+	private Node2D Player; ///< Reference to the player node.
 
 	/**
 	 * Called when the node enters the scene tree for the first time.
@@ -27,11 +27,20 @@ public partial class DungeonHandler : Node
 	 */
 	public override void _Ready()
 	{
-		player = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;
-		roomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
-		//dungeon = new Dungeon(MinRooms, MaxRooms);
-		dungeon = new Dungeon(Dungeons.IntroDungeon);
-		LoadRoom(dungeon.CurrentRoomPosition, Direction.DOWN);
+		Player = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;
+		RoomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
+		LoadDungeon(Dungeons.StoryDungeons[1]);
+	}
+
+	/**
+	 * Loads a dungeon.
+	 *
+	 * @param dungeon The dungeon to load.
+	 */
+	public void LoadDungeon(Dungeon dungeon)
+	{
+		Dungeon = new Dungeon(dungeon);
+		LoadRoom(Dungeon.CurrentRoomPosition, Direction.DOWN);
 	}
 
 	/**
@@ -42,18 +51,18 @@ public partial class DungeonHandler : Node
 	 */
 	private void LoadRoom(Vector2I position, Direction enterDirection)
 	{
-		if (!dungeon.Layout.ContainsKey(position))
+		if (!Dungeon.Layout.ContainsKey(position))
 		{
 			GD.PrintErr($"Attempted to load non-existent room at position {position}");
 			return;
 		}
 
-		Room room = dungeon.Layout[position];
+		Room room = Dungeon.Layout[position];
 
-		roomHandler.LoadRoom(room, enterDirection);
+		RoomHandler.LoadRoom(room, enterDirection);
 		room.IsVisited = true;
-		dungeon.Layout[position] = room;  // Update the room in the dictionary
-		dungeon.CurrentRoomPosition = position;
+		Dungeon.Layout[position] = room;  // Update the room in the dictionary
+		Dungeon.CurrentRoomPosition = position;
 
 		ConnectRoomExitSignals();
 	}
@@ -63,7 +72,7 @@ public partial class DungeonHandler : Node
 	 */
 	private void ConnectRoomExitSignals()
 	{
-		foreach (Node child in roomHandler.CurrentRoomNode.GetChildren())
+		foreach (Node child in RoomHandler.CurrentRoomNode.GetChildren())
 		{
 			if (child is RoomExit exit)
 			{
@@ -80,7 +89,7 @@ public partial class DungeonHandler : Node
 	 */
 	private Direction CalculateEnterDirection(Vector2I newPosition)
 	{
-		Vector2I delta = newPosition - dungeon.CurrentRoomPosition;
+		Vector2I delta = newPosition - Dungeon.CurrentRoomPosition;
 		if (delta.X > 0) return Direction.LEFT;
 		if (delta.X < 0) return Direction.RIGHT;
 		if (delta.Y > 0) return Direction.UP;
@@ -95,9 +104,9 @@ public partial class DungeonHandler : Node
 	 */
 	private void OnPlayerEnteredDoor(Direction direction)
 	{
-		Vector2I newPosition = CalculateNewPosition(direction);
+		Vector2I newPosition = DirectionHelper.CalculateNewPosition(Dungeon.CurrentRoomPosition, direction);
 		
-		if (dungeon.Layout.ContainsKey(newPosition))
+		if (Dungeon.Layout.ContainsKey(newPosition))
 		{
 			LoadRoom(newPosition, DirectionHelper.GetOppositeDirection(direction));
 		}
@@ -105,25 +114,6 @@ public partial class DungeonHandler : Node
 		{
 			GD.PrintErr($"No room exists in direction {direction} from current room");
 		}
-	}
-
-	/**
-	 * Calculates the new position in the dungeon layout based on the direction of movement out of the current room.
-	 * 
-	 * @param direction The direction of movement.
-	 * @return The new position in the dungeon layout.
-	 */
-	private Vector2I CalculateNewPosition(Direction direction)
-	{
-		Vector2I newPosition = dungeon.CurrentRoomPosition;
-		switch (direction)
-		{
-			case Direction.UP: newPosition.Y--; break;
-			case Direction.DOWN: newPosition.Y++; break;
-			case Direction.LEFT: newPosition.X--; break;
-			case Direction.RIGHT: newPosition.X++; break;
-		}
-		return newPosition;
 	}
 	
 	/**
@@ -133,7 +123,7 @@ public partial class DungeonHandler : Node
 	 */
 	public Vector2I GetCurrentRoomPosition()
 	{
-		return dungeon.CurrentRoomPosition;
+		return Dungeon.CurrentRoomPosition;
 	}
 
 	/**
@@ -143,7 +133,7 @@ public partial class DungeonHandler : Node
 	 */
 	public Vector2 GetGridSize()
 	{
-		return dungeon.GridSize;
+		return Dungeon.GridSize;
 	}
 	
 	/**
@@ -153,6 +143,6 @@ public partial class DungeonHandler : Node
 	 */
 	public Dictionary<Vector2I, Room> GetDungeonLayout()
 	{
-		return dungeon.Layout;
+		return Dungeon.Layout;
 	}
 }

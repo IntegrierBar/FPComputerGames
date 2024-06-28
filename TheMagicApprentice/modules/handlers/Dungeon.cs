@@ -57,7 +57,6 @@ public class Dungeon
     */
     public Dungeon(Dungeon dungeon)
     {
-        GD.Print(dungeon.EntrancePosition);
         Layout = dungeon.Layout;
         EntrancePosition = dungeon.EntrancePosition;
         CurrentRoomPosition = EntrancePosition;
