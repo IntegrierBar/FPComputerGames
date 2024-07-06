@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cauv7k1n531by"]
+[gd_scene load_steps=7 format=3 uid="uid://cauv7k1n531by"]
 
 [ext_resource type="Script" path="res://modules/entities/player/inventory/SpellInventory.cs" id="1_f0cmj"]
+[ext_resource type="Theme" uid="uid://b5xmy0ocd4tfb" path="res://assets/themes/ingame_inventory_theme.tres" id="1_qb6us"]
 [ext_resource type="PackedScene" uid="uid://bojweh18kways" path="res://modules/entities/player/inventory/UI_spell_box.tscn" id="2_0hlwc"]
+[ext_resource type="Texture2D" uid="uid://bigsga6igu58y" path="res://modules/entities/player/inventory/spell_icons/sun_basic_spell.png" id="4_e7go7"]
+[ext_resource type="Texture2D" uid="uid://ek035vhcmnxn" path="res://modules/entities/player/inventory/spell_icons/star_rain.png" id="5_8phs2"]
+[ext_resource type="Texture2D" uid="uid://biry3omfnf4kg" path="res://modules/entities/player/inventory/spell_icons/sun_beam.png" id="6_cwwwy"]
 
 [node name="SpellInventory" type="Control"]
 layout_mode = 3
@@ -10,15 +14,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_qb6us")
 script = ExtResource("1_f0cmj")
 
-[node name="SpellBox" parent="." instance=ExtResource("2_0hlwc")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
-offset_left = -21.0
+anchor_bottom = 1.0
+offset_left = -73.0
 offset_top = -42.0
-offset_right = 21.0
+offset_right = 73.0
+grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="SpellBox1" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_0hlwc")]
+layout_mode = 2
+StartingTexture = ExtResource("4_e7go7")
+
+[node name="SpellBox2" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_0hlwc")]
+layout_mode = 2
+StartingTexture = ExtResource("5_8phs2")
+
+[node name="SpellBox3" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_0hlwc")]
+layout_mode = 2
+StartingTexture = ExtResource("6_cwwwy")

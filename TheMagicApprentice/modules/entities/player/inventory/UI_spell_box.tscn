@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bojweh18kways"]
+[gd_scene load_steps=4 format=3 uid="uid://bojweh18kways"]
 
 [ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/basic_spell/basic_spell.png" id="1_8nwtf"]
+[ext_resource type="Theme" uid="uid://b5xmy0ocd4tfb" path="res://assets/themes/ingame_inventory_theme.tres" id="1_qpgbb"]
+[ext_resource type="Script" path="res://modules/entities/player/inventory/UISpellBox.cs" id="2_j6fxh"]
 
-[node name="SpellBox" type="MarginContainer"]
+[node name="SpellBox" type="PanelContainer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -13,10 +15,8 @@ offset_top = -42.0
 offset_right = 21.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme = ExtResource("1_qpgbb")
+script = ExtResource("2_j6fxh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
