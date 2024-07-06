@@ -28,17 +28,21 @@ public partial class PlayerSpellCasting : State
     {
         base.Enter();
         IEnumerable<InventorySpell> spells = null;
+        UISpellSlot uISpellBox = null;
         if (Input.IsActionPressed("spell1"))
         {
             spells = GetTree().GetNodesInGroup("spell1").OfType<InventorySpell>();
+            uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot1) as UISpellSlot;
         }
         else if (Input.IsActionPressed("spell2"))
         {
             spells = GetTree().GetNodesInGroup("spell2").OfType<InventorySpell>();
+            uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot2) as UISpellSlot;
         }
         else if (Input.IsActionPressed("spell3"))
         {
             spells = GetTree().GetNodesInGroup("spell3").OfType<InventorySpell>();
+            uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot3) as UISpellSlot;
         }
 
         // if the spell is null, then we can imideately exit since that means we just tried to cast a spell that does not exist
@@ -47,15 +51,46 @@ public partial class PlayerSpellCasting : State
             _timeLeft = 0.0;
             return;
         }
+
+        System.Diagnostics.Debug.Assert(uISpellBox is not null, "uISpellBox is null in PlayerSpellCasting");
         
         // otherwise cast all spells
-        foreach (InventorySpell spell in spells.OfType<InventorySpell>())
+        foreach (InventorySpell spell in spells)
         {
             spell.Cast(Parent.Position, Parent.GetGlobalMousePosition());
         }
         // finally retrieve the CastTime from the first spell which is always the main spell
         _timeLeft = spells.First().CastTime;
+
+        uISpellBox.Cast(spells.First().CoolDown); // show in UI that spell was cast
         Animations.Play("cast");
+    }
+
+    public override bool CanEnter()
+    {
+        IEnumerable<InventorySpell> spells = null;
+        UISpellSlot uISpellBox = null;
+        if (Input.IsActionPressed("spell1"))
+        {
+            spells = GetTree().GetNodesInGroup("spell1").OfType<InventorySpell>();
+            uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot1) as UISpellSlot;
+        }
+        else if (Input.IsActionPressed("spell2"))
+        {
+            spells = GetTree().GetNodesInGroup("spell2").OfType<InventorySpell>();
+            uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot2) as UISpellSlot;
+        }
+        else if (Input.IsActionPressed("spell3"))
+        {
+            spells = GetTree().GetNodesInGroup("spell3").OfType<InventorySpell>();
+            uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot3) as UISpellSlot;
+        }
+
+        if (spells is null || !spells.Any() || uISpellBox.IsOnCooldown())
+        {
+            return false;
+        }
+        return true;
     }
 
 

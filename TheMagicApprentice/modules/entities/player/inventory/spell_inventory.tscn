@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://modules/entities/player/inventory/SpellInventory.cs" id="1_f0cmj"]
 [ext_resource type="Theme" uid="uid://b5xmy0ocd4tfb" path="res://assets/themes/ingame_inventory_theme.tres" id="1_qb6us"]
-[ext_resource type="PackedScene" uid="uid://bojweh18kways" path="res://modules/entities/player/inventory/UI_spell_box.tscn" id="2_0hlwc"]
+[ext_resource type="PackedScene" uid="uid://bojweh18kways" path="res://modules/entities/player/inventory/UI_spell_slot.tscn" id="3_n3my7"]
 [ext_resource type="Texture2D" uid="uid://bigsga6igu58y" path="res://modules/entities/player/inventory/spell_icons/sun_basic_spell.png" id="4_e7go7"]
 [ext_resource type="Texture2D" uid="uid://ek035vhcmnxn" path="res://modules/entities/player/inventory/spell_icons/star_rain.png" id="5_8phs2"]
 [ext_resource type="Texture2D" uid="uid://biry3omfnf4kg" path="res://modules/entities/player/inventory/spell_icons/sun_beam.png" id="6_cwwwy"]
@@ -37,14 +37,14 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="SpellBox1" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_0hlwc")]
+[node name="SpellSlot1" parent="MarginContainer/HBoxContainer" groups=["spell_slot1"] instance=ExtResource("3_n3my7")]
 layout_mode = 2
 StartingTexture = ExtResource("4_e7go7")
 
-[node name="SpellBox2" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_0hlwc")]
+[node name="SpellSlot2" parent="MarginContainer/HBoxContainer" groups=["spell_slot2"] instance=ExtResource("3_n3my7")]
 layout_mode = 2
 StartingTexture = ExtResource("5_8phs2")
 
-[node name="SpellBox3" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_0hlwc")]
+[node name="SpellSlot3" parent="MarginContainer/HBoxContainer" groups=["spell_slot3"] instance=ExtResource("3_n3my7")]
 layout_mode = 2
 StartingTexture = ExtResource("6_cwwwy")

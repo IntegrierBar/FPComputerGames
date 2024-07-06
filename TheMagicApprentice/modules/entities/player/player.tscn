@@ -333,6 +333,7 @@ _spellScene = ExtResource("18_gloak")
 
 [node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
 script = ExtResource("19_ho7hk")
+CoolDown = 5.0
 BaseDamage = 5.0
 MagicType = 1
 _playerHealthComponent = NodePath("../../HealthComponent")
