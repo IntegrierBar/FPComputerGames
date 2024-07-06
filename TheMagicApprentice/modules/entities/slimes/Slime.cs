@@ -163,6 +163,11 @@ public partial class Slime : CharacterBody2D
 
 	public float GetDamageValue()
 	{
-		return _damageValue;
+		float damageMultiplier = 1.0f;
+		if (CurseHandler.IsActive(Curse.MONSTER_BUFF))
+		{
+			damageMultiplier = 1.1f;
+		}
+		return _damageValue * damageMultiplier;
 	}
 }

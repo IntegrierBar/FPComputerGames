@@ -32,9 +32,17 @@ public partial class PlayerSpellCasting : State
         {
             spells = GetTree().GetNodesInGroup("spell1").OfType<InventorySpell>();
         }
+        else if (CurseHandler.IsActive(Curse.SKILL_1_ONLY))
+        {
+            spells = null;
+        }
         else if (Input.IsActionPressed("spell2"))
         {
             spells = GetTree().GetNodesInGroup("spell2").OfType<InventorySpell>();
+        }
+        else if (CurseHandler.IsActive(Curse.SKILL_3_DISABLED))
+        {
+            spells = null;
         }
         else if (Input.IsActionPressed("spell3"))
         {

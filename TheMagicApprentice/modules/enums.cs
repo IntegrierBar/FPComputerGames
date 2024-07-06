@@ -38,6 +38,28 @@ public enum SlimeAttackRange
 	RANGED,
 }
 
+/*!
+\enum Curse
+\brief Global Enum for the curses
+
+The different types are MONSTER_HP_INCREASE.
+*/
+public enum Curse
+{
+    SKILL_3_DISABLED,
+    SKILL_1_ONLY,
+    MORE_VULNERABLE,
+	MONSTER_BUFF,
+    MORE_MONSTERS,
+    TWO_BOSSES
+}
+
+/*!
+\enum Direction
+\brief Global Enum for the direction of movement
+
+The different types are UP, DOWN, LEFT, RIGHT.
+*/
 public enum Direction
 {
 	UP,
@@ -61,6 +83,14 @@ public static class EntityTypeHelper
             MagicType.DARK => "dark",
             _ => throw new ArgumentOutOfRangeException(nameof(magicType), magicType, null),
         };
+    }
+
+    /**
+    Returns a random magic type.
+    */
+    public static MagicType GetRandomMagicType()
+    {
+        return (MagicType)GD.RandRange(0, 2);
     }
 
     /**
@@ -103,4 +133,24 @@ public static class DirectionHelper
             _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null),
         };
     }
+
+    /**
+	 * Calculates the new position in a grid based on the direction of movement.
+	 * 
+     * @param position The current position in the grid.
+	 * @param direction The direction of movement.
+	 * @return The new position in the grid.
+	 */
+	public static Vector2I CalculateNewPosition(Vector2I position, Direction direction)
+	{
+		Vector2I newPosition = position;
+		switch (direction)
+		{
+			case Direction.UP: newPosition.Y--; break;
+			case Direction.DOWN: newPosition.Y++; break;
+			case Direction.LEFT: newPosition.X--; break;
+			case Direction.RIGHT: newPosition.X++; break;
+		}
+		return newPosition;
+	}
 }
