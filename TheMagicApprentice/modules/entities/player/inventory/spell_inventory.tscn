@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cauv7k1n531by"]
+[gd_scene load_steps=3 format=3 uid="uid://cauv7k1n531by"]
 
 [ext_resource type="Script" path="res://modules/entities/player/inventory/SpellInventory.cs" id="1_f0cmj"]
+[ext_resource type="PackedScene" uid="uid://bojweh18kways" path="res://modules/entities/player/inventory/UI_spell_box.tscn" id="2_0hlwc"]
 
 [node name="SpellInventory" type="Control"]
 layout_mode = 3
@@ -10,3 +11,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f0cmj")
+
+[node name="SpellBox" parent="." instance=ExtResource("2_0hlwc")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = -42.0
+offset_right = 21.0
+grow_vertical = 0
