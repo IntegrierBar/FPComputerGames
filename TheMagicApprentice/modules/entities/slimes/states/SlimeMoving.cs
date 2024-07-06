@@ -43,7 +43,7 @@ public partial class SlimeMoving : State
 			return null;
 		}
 
-		Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
+		Vector2 vector_to_player = _player.GlobalPosition - Parent.GlobalPosition;
 
 		if (IsPlayerInAttackRange(vector_to_player)) // if player is within attack range, go to Attacking state
 		{
