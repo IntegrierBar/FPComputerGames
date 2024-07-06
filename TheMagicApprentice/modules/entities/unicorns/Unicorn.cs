@@ -9,7 +9,7 @@ public partial class Unicorn : CharacterBody2D
 	public AnimationPlayer AnimationPlayer; ///< Reference to the animation player of the unicorn
 
 	[Export]
-	public float MeleeAttackRange = 10; ///< If the PC is inside of this radius, the unicorn performs a melee attack
+	public float MeleeAttackRange = 50; ///< If the PC is inside of this radius, the unicorn performs a melee attack
 
 	private MagicType _magicType; ///< Magic type of the unicorn
 
