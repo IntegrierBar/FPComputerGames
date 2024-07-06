@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class ShootingAttack : State
+public partial class UnicornShootingAttack : State
 {
 	[ExportGroup("States")]
     [Export]

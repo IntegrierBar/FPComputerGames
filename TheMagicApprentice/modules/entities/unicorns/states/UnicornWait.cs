@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Wait : State
+public partial class UnicornWait : State
 {
 	[ExportGroup("States")]
     [Export]
@@ -67,7 +67,7 @@ public partial class Wait : State
 		{
 			return null;
 		}
-		Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
+		Vector2 vector_to_player = (_player as CharacterBody2D).GlobalPosition - Parent.GlobalPosition;
 
 		_timeLeft -= delta;
 

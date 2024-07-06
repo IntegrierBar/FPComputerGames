@@ -110,7 +110,7 @@ public partial class SlimeAttacking : State
 		Attack attack = BuildAttack();
 		Parent.GetNode<MeleeAttackHurtBox>("MeleeAttackHurtBox").StartAttack(attack, _timeLeft);
 
-		Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
+		Vector2 vector_to_player = _player.GlobalPosition - Parent.GlobalPosition;
 		Parent.Velocity = new Vector2 (vector_to_player[0] / (float)_timeLeft, vector_to_player[1] / (float)_timeLeft); // Ensures that the slime always exactly moves the distance towards the player when attacking
 	}
 
@@ -136,7 +136,7 @@ public partial class SlimeAttacking : State
 		RangedAttack ranged_attack = scene.Instantiate() as RangedAttack;
 		GetTree().Root.AddChild(ranged_attack);
 
-		Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
+		Vector2 vector_to_player = _player.GlobalPosition - Parent.GlobalPosition;
 		ranged_attack.Init(attack, vector_to_player);
 		ranged_attack.Position = (Parent as Slime).Position;
 	}

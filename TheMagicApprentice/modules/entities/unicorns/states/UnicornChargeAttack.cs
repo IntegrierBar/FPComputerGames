@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class ChargeAttack : State
+public partial class UnicornChargeAttack : State
 {
 	[ExportGroup("States")]
     [Export]
@@ -30,8 +30,7 @@ public partial class ChargeAttack : State
     */
 	public override void Enter()
     {
-		float chargeTime = DetermineChargeTimeAndSetDirection();
-		_timeLeft = chargeTime;
+		_timeLeft = DetermineChargeTimeAndSetDirection();
 		UpdateAnimations();
 		EnableChargedAttackHitbox();
         base.Enter();
@@ -72,10 +71,10 @@ public partial class ChargeAttack : State
 		}
 
 		// player is not null from here on
-		Vector2 vector_to_player = (_player as CharacterBody2D).Position - Parent.Position;
+		Vector2 vector_to_player = _player.GlobalPosition - Parent.GlobalPosition;
 		Parent.Velocity = vector_to_player.Normalized() * CHARGESPEED;
 		// duration calculation follows afterwards and has to be added later
-		return 3;
+		return vector_to_player.Length() / CHARGESPEED * 1.1f;
 	}
 
 	private void EnableChargedAttackHitbox()
