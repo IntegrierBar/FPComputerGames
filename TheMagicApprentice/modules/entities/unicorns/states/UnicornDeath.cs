@@ -5,7 +5,7 @@ public partial class UnicornDeath : State
 {
 	[Export]
     public double DeathAnimationTime = 1.0; ///< Duration of the death animation 
-    private double _timeLeft = 0.0; 
+    private double _timeLeft = 0.0; ///< time left in the death state
 
 	 /**
 	Set duration of death animation and play death animation.
@@ -22,14 +22,15 @@ public partial class UnicornDeath : State
 
 	/**
 	Once the duration of the death animation has passed, remove the unicorn from the scene tree.
+    A signal or a funciton have to be called then, to tell the dungeon that it was successfully cleared.
 	*/
     public override State ProcessPhysics(double delta)
     {
-        _timeLeft -= delta;
+        _timeLeft -= delta; // count down time left in death state
         if (_timeLeft <= 0)
         {
-            Parent.QueueFree();
-			DungeonCleared();
+            Parent.QueueFree(); // when the time is up remove the unicorn from the scene tree
+			DungeonCleared(); // This is a dummy function that does nothing yet. But the signal to the dungeon for succesfully clearing the dungeon should go here
         }
         return base.ProcessPhysics(delta);
     }
@@ -45,7 +46,11 @@ public partial class UnicornDeath : State
         base.UpdateAnimations();
     }
 
-
+    /**
+    Dummy function that does nothing yet. At this position, the dungeon should be informed that the player
+    has succesfully cleared the dungeon and the player can be returned to the main hub. Might be 
+    implemented as a signal later, which would make this function obsolete. 
+    */
 	private void DungeonCleared()
 	{
 		// There should probably be a signal here, that informs the dungeon that it has been cleared and

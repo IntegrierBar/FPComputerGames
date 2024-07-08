@@ -7,11 +7,11 @@ public partial class UnicornStompingAttack : State
     [Export]
     public State Wait; ///< Reference to Wait state
 
+	[Export]
+	public double StompingAnimationDuration; ///< Duration of the stomping attack animation. 
+
 	private Player _player; ///< reference to the player
 	private double _timeLeft = 0.0; ///< time left in which the unicorn remains in the stomping attack state
-
-	[Export]
-	public double StompingAnimationDuration;
 
 	/**
     Set player so that the distance or direction to the player can be determined later. 
@@ -19,10 +19,7 @@ public partial class UnicornStompingAttack : State
 	public override void _Ready()
 	{
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
-		if (_player is null)
-		{
-			GD.Print("No player found!");
-		}
+		System.Diagnostics.Debug.Assert(_player is not null, "UnicornStompingAttack has not found a player!");
 	}
 
 	/**
@@ -43,10 +40,10 @@ public partial class UnicornStompingAttack : State
     */
 	public override State ProcessPhysics(double delta)
 	{
-		_timeLeft -= delta;
+		_timeLeft -= delta; // count down time left in stomping attack state
 		if (_timeLeft <= 0)
 		{
-			return Wait;
+			return Wait; // if the time in the stomping attack state is over, return to the Wait state
 		}
 		return null;
 	}

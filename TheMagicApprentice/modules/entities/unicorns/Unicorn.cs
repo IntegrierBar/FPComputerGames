@@ -19,8 +19,8 @@ public partial class Unicorn : CharacterBody2D
 	*/
 	public override void _Ready()
 	{
-		System.Diagnostics.Debug.Assert(StateMachine is not null);
-		System.Diagnostics.Debug.Assert(AnimationPlayer is not null);
+		System.Diagnostics.Debug.Assert(StateMachine is not null, "StateMachine in Unicorn is null");
+		System.Diagnostics.Debug.Assert(AnimationPlayer is not null, "AnimationPlayer in Unicorn is null");
 		StateMachine.Init(this, AnimationPlayer);
 	}
 
@@ -42,6 +42,10 @@ public partial class Unicorn : CharacterBody2D
 		StateMachine.ProcessPhysics(delta);
 	}
 
+	/**
+	Sets properties of the unicorn: Magic type and initial position.
+	The armor values of the unicorn are set depending on the magic type of the unicorn. 
+	*/
 	public void SetUnicornProperties(MagicType magicType, Vector2 unicornPosition)
 	{
 		_magicType = magicType;
@@ -49,6 +53,11 @@ public partial class Unicorn : CharacterBody2D
 		Position = unicornPosition;
 	}
 
+	/**
+	Set armor values of the unicorn depending on the magic type of the unicorn. 
+	The unicorn has an armor of 50 against the magic type it is strong against, an armor value of 30 
+	against its own magic type and an armor value of 5 against the magic type it is weak against. 
+	*/
 	private void SetArmorValues(MagicType magicType)
 	{
 		double armorSun;
@@ -77,6 +86,9 @@ public partial class Unicorn : CharacterBody2D
 		}
 	}
 
+	/**
+	Getter for magic type of the unicorn.
+	*/
 	public MagicType GetMagicType()
 	{
 		return _magicType;

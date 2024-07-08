@@ -8,7 +8,7 @@ public partial class UnicornShootingAttack : State
     public State Wait; ///< Reference to Wait state
 
 	[Export]
-	public double ShootingAnimationDuration;
+	public double ShootingAnimationDuration; ///< Duration of the shooting attack animation
 
 	private Player _player; ///< reference to the player
 	private double _timeLeft = 0.0; ///< time left in which the unicorn remains in the charge attack state
@@ -19,10 +19,7 @@ public partial class UnicornShootingAttack : State
 	public override void _Ready()
 	{
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
-		if (_player is null)
-		{
-			GD.Print("No player found!");
-		}
+		System.Diagnostics.Debug.Assert(_player is not null, "UnicornShootingAttack has not found a player!");
 	}
 
 	/**
@@ -43,10 +40,10 @@ public partial class UnicornShootingAttack : State
     */
 	public override State ProcessPhysics(double delta)
 	{
-		_timeLeft -= delta;
+		_timeLeft -= delta; // count down time left in the shooting attack state
 		if (_timeLeft <= 0)
 		{
-			return Wait;
+			return Wait; // if the time is up return to the wait state
 		}
 		return null;
 	}

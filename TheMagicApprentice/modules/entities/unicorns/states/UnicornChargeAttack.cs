@@ -8,7 +8,7 @@ public partial class UnicornChargeAttack : State
     public State Wait; ///< Reference to Wait state
 
 	[Export]
-	public float CHARGESPEED = 300;
+	public float CHARGESPEED = 300; ///< Speed with which the unicorn charges at the player
 
 	private Player _player; ///< reference to the player
 	private double _timeLeft = 0.0; ///< time left in which the unicorn remains in the charge attack state
@@ -19,10 +19,7 @@ public partial class UnicornChargeAttack : State
 	public override void _Ready()
 	{
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
-		if (_player is null)
-		{
-			GD.Print("No player found!");
-		}
+		System.Diagnostics.Debug.Assert(_player is not null, "UnicornChargeAttack has not found a player!");
 	}
 
 	/**
@@ -42,17 +39,20 @@ public partial class UnicornChargeAttack : State
 	*/
     public override void Exit()
     {
-		Parent.Velocity = new Vector2(0.0f, 0.0f);
+		Parent.Velocity = new Vector2(0.0f, 0.0f); // set velocity back to zero when leaving the state
         base.Exit();
     }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	/**
+    Count down the time left in the Charge Attack state. When the time left has reached zero, 
+	return to the wait state. 
+    */
 	public override State ProcessPhysics(double delta)
 	{
-		_timeLeft -= delta;
+		_timeLeft -= delta; // count down time left in charge attack state
 		if (_timeLeft <= 0)
 		{
-			return Wait;
+			return Wait; // if the time is up return to the wait state
 		}
 		Parent.MoveAndSlide();
 		return null;
@@ -77,6 +77,10 @@ public partial class UnicornChargeAttack : State
 		return vector_to_player.Length() / CHARGESPEED * 1.1f;
 	}
 
+	/**
+    This function should handle the hit box needed for the charge attack to damage the player. 
+	Implementation will be done later.
+    */
 	private void EnableChargedAttackHitbox()
 	{
 		// This is where the damage part of the charged attack should be later on. Implementation will follow.

@@ -5,7 +5,7 @@ public partial class SlimeDeath : State
 {
 	 [Export]
     public double DeathAnimationTime = 0.6; ///< Duration of the death animation 
-    private double _timeLeft = 0.0; 
+    private double _timeLeft = 0.0; ///< time left in death state
 
     /**
 	Set duration of death animation and play death animation.
@@ -25,10 +25,10 @@ public partial class SlimeDeath : State
 	*/
     public override State ProcessPhysics(double delta)
     {
-        _timeLeft -= delta;
+        _timeLeft -= delta; // count down time left in death state
         if (_timeLeft <= 0)
         {
-            Parent.QueueFree();
+            Parent.QueueFree(); // if the time is up, remove the slime from the scene tree
         }
         return base.ProcessPhysics(delta);
     }

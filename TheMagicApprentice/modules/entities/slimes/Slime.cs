@@ -32,8 +32,8 @@ public partial class Slime : CharacterBody2D
 	*/
 	public override void _Ready()
 	{
-		System.Diagnostics.Debug.Assert(StateMachine is not null);
-		System.Diagnostics.Debug.Assert(AnimationPlayer is not null);
+		System.Diagnostics.Debug.Assert(StateMachine is not null, "StateMachine in Slime is null");
+		System.Diagnostics.Debug.Assert(AnimationPlayer is not null, "AnimationPlayer in Slime is null");
 		StateMachine.Init(this, AnimationPlayer);
 	}
 
@@ -92,6 +92,11 @@ public partial class Slime : CharacterBody2D
 		}
 	}
 
+	/**
+	Set armor values of the slime depending on the magic type of the slime. 
+	The slime has an armor of 40 against the magic type it is strong against, an armor value of 25 
+	against its own magic type and an armor value of 10 against the magic type it is weak against. 
+	*/
 	private void SetArmorValues(MagicType magicType)
 	{
 		double armorSun;
@@ -160,6 +165,10 @@ public partial class Slime : CharacterBody2D
 	{
 		return _attackRangeValue;
 	}
+
+	/**
+	Getter for damage value of the slime.
+	*/
 
 	public float GetDamageValue()
 	{

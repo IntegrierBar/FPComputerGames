@@ -12,7 +12,7 @@ public partial class SlimeMoving : State
 	[Export]
 	public float SPEED = 50; ///< Speed of the slime when it moves towards the player
 
-	private Player _player;
+	private Player _player; ///< reference to the player
 	
 	/**
 	Set player.
@@ -20,12 +20,12 @@ public partial class SlimeMoving : State
 	public override void _Ready()
 	{
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
-		if (_player is null)
-		{
-			GD.Print("No player found!");
-		}
+		System.Diagnostics.Debug.Assert(_player is not null, "SlimeMoving has not found a player!");
 	}
 
+	/**
+	Update animations when entering the state. 
+	*/
     public override void Enter()
     {
 		UpdateAnimations();

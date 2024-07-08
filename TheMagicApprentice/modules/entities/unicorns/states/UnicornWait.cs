@@ -27,10 +27,7 @@ public partial class UnicornWait : State
 	public override void _Ready()
 	{
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
-		if (_player is null)
-		{
-			GD.Print("No player found!");
-		}
+		System.Diagnostics.Debug.Assert(_player is not null, "UnicornWait has not found a player!");
 	}
 
 	/**
@@ -69,15 +66,14 @@ public partial class UnicornWait : State
 		}
 		Vector2 vector_to_player = (_player as CharacterBody2D).GlobalPosition - Parent.GlobalPosition;
 
-		_timeLeft -= delta;
+		_timeLeft -= delta; // count down time left in the wait state
 
 		if (_timeLeft <= 0) // if the time in the wait state is over, transition to the next attack
 		{
-			State nextAttackState = SelectNextAttack(vector_to_player);
-			return nextAttackState;
+			return SelectNextAttack(vector_to_player);  // choose the next attack based on the distance to the player
 		}
 
-		// The unicorn is still in the wait state
+		// The unicorn is still in the wait state 
 		Parent.Velocity = vector_to_player.Normalized() * SPEED; // unicorn moves towards the player (at a very slow speed)
 		Parent.MoveAndSlide();
 		return null;
