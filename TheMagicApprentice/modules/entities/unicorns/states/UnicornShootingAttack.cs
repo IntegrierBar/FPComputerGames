@@ -13,6 +13,9 @@ public partial class UnicornShootingAttack : State
 	private Player _player; ///< reference to the player
 	private double _timeLeft = 0.0; ///< time left in which the unicorn remains in the charge attack state
 
+	[Export]
+	private HealthComponent _healthComponent; ///< Reference to Health component of the unicorn
+
 	/**
     Set player so that the distance to the player can be determined later. 
     */

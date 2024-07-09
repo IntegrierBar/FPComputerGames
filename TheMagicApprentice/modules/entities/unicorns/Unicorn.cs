@@ -11,7 +11,11 @@ public partial class Unicorn : CharacterBody2D
 	[Export]
 	public float MeleeAttackRange = 50; ///< If the PC is inside of this radius, the unicorn performs a melee attack
 
+	[Export]
+	public float BaseDamage = 25;
+
 	private MagicType _magicType; ///< Magic type of the unicorn
+	private float _damageValue;
 
 	/**
 	Is called when the unicorn enters the scene tree.
@@ -43,11 +47,13 @@ public partial class Unicorn : CharacterBody2D
 	}
 
 	/**
-	Sets properties of the unicorn: Magic type and initial position.
+	Sets properties of the unicorn: Magic type, initial position and base damage.
+	Modifications of the base damage could be done here. 
 	The armor values of the unicorn are set depending on the magic type of the unicorn. 
 	*/
 	public void SetUnicornProperties(MagicType magicType, Vector2 unicornPosition)
 	{
+		_damageValue = BaseDamage;
 		_magicType = magicType;
 		SetArmorValues(magicType);
 		Position = unicornPosition;
@@ -92,5 +98,13 @@ public partial class Unicorn : CharacterBody2D
 	public MagicType GetMagicType()
 	{
 		return _magicType;
+	}
+
+	/**
+	Getter for damage value of the unicorn.
+	*/
+	public float GetDamageValue()
+	{
+		return _damageValue;
 	}
 }

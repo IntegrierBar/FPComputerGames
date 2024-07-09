@@ -119,7 +119,7 @@ public partial class SlimeAttacking : State
 	{
 		double damage = (Parent as Slime).GetDamageValue();
 	 	MagicType magicType = (Parent as Slime).GetMagicType();
-		Attack attack = new Attack(damage, magicType, _healthComponent);
+		Attack attack = new(damage, magicType, _healthComponent);
 		return attack;
 	}
 

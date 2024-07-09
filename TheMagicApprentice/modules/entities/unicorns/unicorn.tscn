@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dom7xfancttur"]
+[gd_scene load_steps=17 format=3 uid="uid://dom7xfancttur"]
 
 [ext_resource type="Texture2D" uid="uid://bpjlbco62ohco" path="res://assets/Unicorns/Unicorn_dark.png.png" id="1_fw332"]
 [ext_resource type="Script" path="res://modules/entities/unicorns/Unicorn.cs" id="1_uvms1"]
@@ -9,12 +9,22 @@
 [ext_resource type="Script" path="res://modules/entities/unicorns/states/UnicornShootingAttack.cs" id="7_qwsr7"]
 [ext_resource type="Script" path="res://modules/entities/unicorns/states/UnicornStompingAttack.cs" id="8_5d1p3"]
 [ext_resource type="Script" path="res://modules/entities/unicorns/states/UnicornDeath.cs" id="9_i1ral"]
+[ext_resource type="PackedScene" uid="uid://ip1vdxk6q8g1" path="res://modules/entities/unicorns/unicorn-attacks/HurtBoxChargeAttack.tscn" id="10_cusfu"]
+[ext_resource type="PackedScene" uid="uid://cw411rnqw88ih" path="res://modules/entities/unicorns/unicorn-attacks/HurtBoxStompingAttack.tscn" id="11_ma7dc"]
+[ext_resource type="Script" path="res://modules/entities/unicorns/unicorn-attacks/HurtBoxStompingAttack.cs" id="12_3pgv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4174d"]
 size = Vector2(26, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hy6lo"]
 size = Vector2(26, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unm7j"]
+size = Vector2(28, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x0lvx"]
+radius = 11.0
+height = 43.9998
 
 [node name="Unicorn" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
 position = Vector2(54, 33)
@@ -50,17 +60,40 @@ ChargeAttack = NodePath("../ChargeAttack")
 ShootingAttack = NodePath("../ShootingAttack")
 StompingAttack = NodePath("../StompingAttack")
 
-[node name="ChargeAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait")]
+[node name="ChargeAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait", "_healthComponent")]
 script = ExtResource("6_x8tb2")
 Wait = NodePath("../Wait")
+_healthComponent = NodePath("../../HealthComponent")
 
-[node name="ShootingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait")]
+[node name="ShootingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait", "_healthComponent")]
 script = ExtResource("7_qwsr7")
 Wait = NodePath("../Wait")
+ShootingAnimationDuration = 1.0
+_healthComponent = NodePath("../../HealthComponent")
 
-[node name="StompingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait")]
+[node name="StompingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait", "_healthComponent")]
 script = ExtResource("8_5d1p3")
 Wait = NodePath("../Wait")
+StompingAnimationDuration = 1.0
+_healthComponent = NodePath("../../HealthComponent")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("9_i1ral")
+
+[node name="UnicornAttacks" type="Node" parent="."]
+
+[node name="HurtBoxChargeAttack" parent="UnicornAttacks" instance=ExtResource("10_cusfu")]
+
+[node name="CollisionShapeChargeAttack" type="CollisionShape2D" parent="UnicornAttacks/HurtBoxChargeAttack"]
+position = Vector2(54, 39)
+shape = SubResource("RectangleShape2D_unm7j")
+disabled = true
+
+[node name="HurtBoxStompingAttack" parent="UnicornAttacks" instance=ExtResource("11_ma7dc")]
+script = ExtResource("12_3pgv2")
+
+[node name="CollisionShapeStompingAttack" type="CollisionShape2D" parent="UnicornAttacks/HurtBoxStompingAttack"]
+position = Vector2(47, 48)
+rotation = -1.57379
+shape = SubResource("CapsuleShape2D_x0lvx")
+disabled = true

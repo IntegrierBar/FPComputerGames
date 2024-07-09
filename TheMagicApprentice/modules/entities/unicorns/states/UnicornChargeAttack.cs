@@ -13,6 +13,9 @@ public partial class UnicornChargeAttack : State
 	private Player _player; ///< reference to the player
 	private double _timeLeft = 0.0; ///< time left in which the unicorn remains in the charge attack state
 
+	[Export]
+	private HealthComponent _healthComponent; ///< Reference to Health component of the unicorn
+
 	/**
     Set player so that the distance to the player can be determined later. 
     */
@@ -29,7 +32,7 @@ public partial class UnicornChargeAttack : State
     {
 		_timeLeft = DetermineChargeTimeAndSetDirection();
 		UpdateAnimations();
-		EnableChargedAttackHitbox();
+		EnableChargedAttackHurtbox();
         base.Enter();
     }
 
@@ -54,7 +57,9 @@ public partial class UnicornChargeAttack : State
 		{
 			return Wait; // if the time is up return to the wait state
 		}
-		Parent.MoveAndSlide();
+		Parent.MoveAndSlide(); 
+		// TODO: When charging the unicorn should only stop when encountering a wall, if the player is 
+		// in the way, they should either be thrown to the side or pushed along. Check if this does that.
 		return null;
 	}
 
@@ -78,12 +83,25 @@ public partial class UnicornChargeAttack : State
 	}
 
 	/**
-    This function should handle the hit box needed for the charge attack to damage the player. 
-	Implementation will be done later.
+    This function enables the hurtbox used for damaging the player with a charged attack.
+	Note: when the unicorn gets different charge attack animations, it might also need different hurtboxes
+	to fit with the visuals
     */
-	private void EnableChargedAttackHitbox()
+	private void EnableChargedAttackHurtbox()
 	{
-		// This is where the damage part of the charged attack should be later on. Implementation will follow.
+		Parent.GetNode<MeleeAttackHurtBox>("HurtBoxChargeAttack").StartAttack(BuildAttack(), _timeLeft);
+	}
+
+	/**
+	Sets parameters of the unicorn attack. 
+	Damage modifiers can also be added here. 
+	*/
+	private Attack BuildAttack()
+	{
+		double damage = (Parent as Unicorn).GetDamageValue();
+	 	MagicType magicType = (Parent as Slime).GetMagicType();
+		Attack attack = new(damage, magicType, _healthComponent);
+		return attack;
 	}
 
 	/**
