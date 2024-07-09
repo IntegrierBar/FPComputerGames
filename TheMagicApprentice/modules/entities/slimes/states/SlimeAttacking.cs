@@ -135,6 +135,6 @@ public partial class SlimeAttacking : State
 
 		Vector2 vector_to_player = _player.GlobalPosition - Parent.GlobalPosition;
 		ranged_attack.Init(attack, vector_to_player); // initialise the ranged attack with the build attack and the direction from the slime towards the player
-		ranged_attack.Position = (Parent as Slime).Position; // ranged attack spawns at the position of the slime
+		ranged_attack.Position = Parent.Position; // ranged attack spawns at the position of the slime
 	}
 }

@@ -25,14 +25,14 @@ public partial class SlimeIdle : State
 	// Setting _idleatSamePosition to true means it will get set to false in the first physics process 
 	// and the slime starts jumping around.
 
-	private RandomNumberGenerator random;
+	private RandomNumberGenerator _random;
 
 	/**
     Set player and random number generator for the random walk.
 	*/
 	public override void _Ready()
 	{
-		random = new RandomNumberGenerator(); // necessary for generating some random numbers
+		_random = new RandomNumberGenerator(); // necessary for generating some random numbers
 
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
 		System.Diagnostics.Debug.Assert(_player is not null, "SlimeIdle has not found a player!");
@@ -97,7 +97,7 @@ public partial class SlimeIdle : State
 		else
 		{
 			_timeLeft = (double)times * JumpAnimationDuration; // timeLeft is always a multiple of the animation duration
-			return new Vector2(random.RandfRange(-1, 1), random.RandfRange(-1, 1)).Normalized(); // set a random direction and normalise
+			return new Vector2(_random.RandfRange(-1, 1), _random.RandfRange(-1, 1)).Normalized(); // set a random direction and normalise
 		}
 	}
 
@@ -143,6 +143,6 @@ public partial class SlimeIdle : State
 	*/
 	public void CreateRNG()
 	{
-		random = new RandomNumberGenerator();
+		_random = new RandomNumberGenerator();
 	}
 }

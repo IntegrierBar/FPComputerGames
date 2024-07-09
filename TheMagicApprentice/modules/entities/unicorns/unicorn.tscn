@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://modules/entities/unicorns/states/UnicornDeath.cs" id="9_i1ral"]
 [ext_resource type="PackedScene" uid="uid://ip1vdxk6q8g1" path="res://modules/entities/unicorns/unicorn-attacks/HurtBoxChargeAttack.tscn" id="10_cusfu"]
 [ext_resource type="PackedScene" uid="uid://cw411rnqw88ih" path="res://modules/entities/unicorns/unicorn-attacks/HurtBoxStompingAttack.tscn" id="11_ma7dc"]
-[ext_resource type="Script" path="res://modules/entities/unicorns/unicorn-attacks/HurtBoxStompingAttack.cs" id="12_3pgv2"]
+[ext_resource type="PackedScene" uid="uid://dtrv3jmk71a5l" path="res://modules/entities/unicorns/unicorn-attacks/ShootingAttackProjectileHandler.tscn" id="12_7hsri"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4174d"]
 size = Vector2(26, 25)
@@ -90,10 +90,11 @@ shape = SubResource("RectangleShape2D_unm7j")
 disabled = true
 
 [node name="HurtBoxStompingAttack" parent="UnicornAttacks" instance=ExtResource("11_ma7dc")]
-script = ExtResource("12_3pgv2")
 
 [node name="CollisionShapeStompingAttack" type="CollisionShape2D" parent="UnicornAttacks/HurtBoxStompingAttack"]
 position = Vector2(47, 48)
 rotation = -1.57379
 shape = SubResource("CapsuleShape2D_x0lvx")
 disabled = true
+
+[node name="ShootingAttackProjectileHandler" parent="UnicornAttacks" instance=ExtResource("12_7hsri")]

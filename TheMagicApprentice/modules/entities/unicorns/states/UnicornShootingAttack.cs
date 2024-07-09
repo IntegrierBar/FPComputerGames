@@ -65,12 +65,25 @@ public partial class UnicornShootingAttack : State
     }
 
 	/**
-    This function should handle the spawning of the projectiles, make sure, that the projectiles
+    TODO: This function should handle the spawning of the projectiles, make sure, that the projectiles
 	move in the correct direction and ensure that they damage the player when hitting them.
 	Implementation will be done later.
     */
 	private void ShootProjectiles()
 	{
-		// this is where the shooting attack projectiles are spawned. Implementation will follow.
+		Vector2 unicorn_position = Parent.Position; // since the unicorn does not move during the shooting attack, giving the current position is sufficient
+		Parent.GetNode<ShootingAttackProjectileHandler>("ShootingAttackProjectileHandler").StartShootingAttack(BuildAttack(), unicorn_position);
+	}
+
+	/**
+	Sets parameters of the unicorns attack. 
+	Damage modifiers can (should!) also be added here. 
+	*/
+	private Attack BuildAttack()
+	{
+		double damage = (Parent as Slime).GetDamageValue();
+	 	MagicType magicType = (Parent as Slime).GetMagicType();
+		Attack attack = new(damage, magicType, _healthComponent);
+		return attack;
 	}
 }
