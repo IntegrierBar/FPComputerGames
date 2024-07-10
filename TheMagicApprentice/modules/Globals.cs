@@ -38,4 +38,46 @@ public static class Globals
     public const string SpellSlot1 = "spell_slot1";
     public const string SpellSlot2 = "spell_slot2";
     public const string SpellSlot3 = "spell_slot3";
+
+
+    /**
+    Converts the enum SpellName to the string group names
+    */
+    public static string GetGroupNameOfSpell(SpellName spell) => spell switch
+    {
+        SpellName.SunBasic => SunBasicSpellGroup,
+        SpellName.CosmicBasic => CosmicBasicSpellGroup,
+        SpellName.DarkBasic => DarkBasicSpellGroup,
+        SpellName.SunBeam => SunBeamSpellGroup,
+        SpellName.SummonSun => SummonSunSpellGroup,
+        SpellName.MoonLight => MoonLightSpellGroup,
+        SpellName.StarRain => StarRainSpellGroup,
+        SpellName.DarkEnergyWave => DarkEnergyWaveSpellGroup,
+        SpellName.BlackHole => BlackHoleSpellGroup,
+        _ => "", // Need to have a default value to make C# happy
+    };
+
+
+    /**
+    Returns the group name of the spells of the MagicType
+    */
+    public static string GetGroupNameOfSpellsOfType(MagicType magicType) => magicType switch
+    {
+        MagicType.SUN => SunSpellGroup,
+        MagicType.COSMIC => CosmicSpellGroup,
+        MagicType.DARK => DarkSpellGroup,
+        _ => "", // Need to have a default value to make C# happy
+    };
+
+    /**
+    Returns the group name of the spellslot
+    */
+    public static string GetGroupNameOfSpellsInSlot(uint slot) => slot switch
+    {
+        0 => Spell1,
+        1 => Spell2,
+        2 => Spell3,
+        _ => "", // Need to have a default value to make C# happy
+    };
+
 }

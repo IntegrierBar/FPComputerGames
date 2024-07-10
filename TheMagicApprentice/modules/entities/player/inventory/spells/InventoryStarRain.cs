@@ -10,7 +10,7 @@ public partial class InventoryStarRain : InventorySpell
 {
 	private bool _casting = false; ///< true if the node is currently spawning 
 	[Export]
-	public int AmountStarsToSpawn = 10; ///< How many stars are created 
+	public double AmountStarsToSpawn = 10; ///< How many stars are created. Uses double instead of int to allow easy manipulation from augments
 	private int _starsLeftToSpawn;	///< Variable to track how many stars still have to be spawned
 
 	private Vector2 _playerPosition;	///< Saves the player position when the spell is cast, so that all Stars get the same info
@@ -30,7 +30,8 @@ public partial class InventoryStarRain : InventorySpell
     {
         _playerPosition = playerPosition;
 		_targetPosition = targetPosition;
-		_starsLeftToSpawn = AmountStarsToSpawn;
+		_starsLeftToSpawn = (int)Math.Round(AmountStarsToSpawn); // Round up when calculating how many stars to spawn
+        GD.Print(_starsLeftToSpawn);
     }
 
     public override void _PhysicsProcess(double delta)

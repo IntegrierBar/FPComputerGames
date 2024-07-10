@@ -51,47 +51,80 @@ public partial class Player : CharacterBody2D
 		StateMachine.ProcessInput(@event);
 	}
 
+	/**
+	Equips an Augment at slot
+	*/
 	public void EquipAugmentInSlot(Augment augment, uint slot)
 	{
 		System.Diagnostics.Debug.Assert(slot < 5, "slot index is larger then 4");
 
-		if (_activeAugments[slot] is not null)
-		{
-			_activeAugments[slot].UnEquip(GetTree());
-		}
+		UnEquipAllAugments();
+		ResetSpells();
 		_activeAugments[slot] = augment;
-
-		ApplyAugmentEffects();
-		GD.Print(_activeAugments);
+		EquipAllAugments();
 	}
 
+	/**
+	Remove an augment from a slot by equipping null in the slot
+	*/
 	public void UnEquipAugmentFromSlot(uint slot)
 	{
 		EquipAugmentInSlot(null, slot);
 	}
 
 	/**
-	Reapplies and recalculates all augment effect
+	Calls Equip on all Augments
 	*/
-	private void ApplyAugmentEffects()
+	private void EquipAllAugments()
 	{
-		// first unequip all augments
+		foreach (Augment augment in _activeAugments)
+		{
+			augment?.Equip(GetTree());
+		}
+	}
+
+	/**
+	Calls UnEquip on all Augments
+	*/
+	private void UnEquipAllAugments()
+	{
 		foreach (Augment augment in _activeAugments)
 		{
 			augment?.UnEquip(GetTree());
 		}
+	}
 
+	/**
+	Resets the damage of all spells and recalculates which spells are cast
+	*/
+	private void ResetSpells()
+	{
 		// then reset all spell damages
 		foreach (InventorySpell inventorySpell in GetTree().GetNodesInGroup(Globals.InventorySpellGroup).OfType<InventorySpell>())
 		{
 			inventorySpell.ResetDamage();
 		}
 
-		// finally equip all augment
-		foreach (Augment augment in _activeAugments)
-		{
-			augment?.Equip(GetTree());
-		}
+		// This is a little bit ugly, but it works
+		// loop over all spell groups, keep the first spell and remove all others
+        foreach (var spellGroup in new string[3] {Globals.Spell1, Globals.Spell2, Globals.Spell3})
+        {
+            var spellsInSpellGroup = GetTree().GetNodesInGroup(spellGroup);
+			for (int i = 1; i < spellsInSpellGroup.Count; i++) // start index at 1 since we want to keep the first node
+			{
+				spellsInSpellGroup[i].RemoveFromGroup(spellGroup); // remove from the spell Group
+			}
+        }
+	}
+
+	/**
+	Recalculates all augment effects
+	*/
+	public void RecalculateAugmentEffects()
+	{
+		UnEquipAllAugments();
+		ResetSpells();
+		EquipAllAugments();
 	}
 
 
@@ -99,6 +132,7 @@ public partial class Player : CharacterBody2D
 	{
 		Augment augment = new Augment();
 		augment._augmentEffects[0] = new PercentDamageForOneSpell();
+		augment._augmentEffects[1] = new AdditionalStars();
 
 		EquipAugmentInSlot(augment, 0);
 	}

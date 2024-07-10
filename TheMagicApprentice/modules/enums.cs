@@ -153,25 +153,4 @@ public static class DirectionHelper
 }
 
 
-/**
-Helper Class for the Spell enum
-*/
-public static class SpellNameHelper
-{
-    /**
-    Converts the enum SpellName to the string group names
-    */
-    public static string GetGroupNameOfSpell(SpellName spell) => spell switch
-    {
-        SpellName.SunBasic => Globals.SunBasicSpellGroup,
-        SpellName.CosmicBasic => Globals.CosmicBasicSpellGroup,
-        SpellName.DarkBasic => Globals.DarkBasicSpellGroup,
-        SpellName.SunBeam => Globals.SunBeamSpellGroup,
-        SpellName.SummonSun => Globals.SummonSunSpellGroup,
-        SpellName.MoonLight => Globals.MoonLightSpellGroup,
-        SpellName.StarRain => Globals.StarRainSpellGroup,
-        SpellName.DarkEnergyWave => Globals.DarkEnergyWaveSpellGroup,
-        SpellName.BlackHole => Globals.BlackHoleSpellGroup,
-        _ => "", // Need to have a default value to make C# happy
-    };
-}
+

@@ -14,7 +14,7 @@ public partial class PercentDamageForOneSpell : AugmentEffect
 
     public override void Equip(SceneTree sceneTree)
     {
-        InventorySpell spell = sceneTree.GetFirstNodeInGroup(SpellNameHelper.GetGroupNameOfSpell(_spellName)) as InventorySpell;
+        InventorySpell spell = sceneTree.GetFirstNodeInGroup(Globals.GetGroupNameOfSpell(_spellName)) as InventorySpell;
         System.Diagnostics.Debug.Assert(spell is not null, "spell name is wrong");
         spell.Damage *= _damageIncreaseFaktor;
     }
