@@ -73,6 +73,14 @@ public partial class HealthComponent : Area2D
 	}
 
 	/**
+	Getter for MaxHP
+	*/
+	public double GetMaxHP()
+	{
+		return MaxHP;
+	}
+
+	/**
 	Setter for Armor
 	*/
 	public void SetArmor(double armorSun, double armorCosmic, double armorDark)
@@ -91,5 +99,14 @@ public partial class HealthComponent : Area2D
 	public double GetCurrentHP()
 	{
 		return _currentHP;
+	}
+
+
+	/**
+	Modify the armor for one element by addition
+	*/
+	public void ModifyArmor(MagicType magicType, double flatArmorChange)
+	{
+		Armor[magicType] += flatArmorChange;
 	}
 }

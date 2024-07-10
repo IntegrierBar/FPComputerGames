@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class Player : CharacterBody2D
 {
@@ -8,6 +9,8 @@ public partial class Player : CharacterBody2D
 
 	[Export]
 	public AnimationPlayer AnimationPlayer; ///< Reference to the animation player of the player charackter
+
+	private Augment[] _activeAugments = new Augment[5]; ///< Array of the 5 active augmentc
 
 
 	/**
@@ -46,5 +49,57 @@ public partial class Player : CharacterBody2D
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		StateMachine.ProcessInput(@event);
+	}
+
+	public void EquipAugmentInSlot(Augment augment, uint slot)
+	{
+		System.Diagnostics.Debug.Assert(slot < 5, "slot index is larger then 4");
+
+		if (_activeAugments[slot] is not null)
+		{
+			_activeAugments[slot].UnEquip(GetTree());
+		}
+		_activeAugments[slot] = augment;
+
+		ApplyAugmentEffects();
+		GD.Print(_activeAugments);
+	}
+
+	public void UnEquipAugmentFromSlot(uint slot)
+	{
+		EquipAugmentInSlot(null, slot);
+	}
+
+	/**
+	Reapplies and recalculates all augment effect
+	*/
+	private void ApplyAugmentEffects()
+	{
+		// first unequip all augments
+		foreach (Augment augment in _activeAugments)
+		{
+			augment?.UnEquip(GetTree());
+		}
+
+		// then reset all spell damages
+		foreach (InventorySpell inventorySpell in GetTree().GetNodesInGroup(Globals.InventorySpellGroup).OfType<InventorySpell>())
+		{
+			inventorySpell.ResetDamage();
+		}
+
+		// finally equip all augment
+		foreach (Augment augment in _activeAugments)
+		{
+			augment?.Equip(GetTree());
+		}
+	}
+
+
+	public void TestEquip()
+	{
+		Augment augment = new Augment();
+		augment._augmentEffects[0] = new PercentDamageForOneSpell();
+
+		EquipAugmentInSlot(augment, 0);
 	}
 }

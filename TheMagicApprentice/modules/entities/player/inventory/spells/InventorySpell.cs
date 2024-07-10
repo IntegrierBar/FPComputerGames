@@ -53,6 +53,8 @@ public partial class InventorySpell : Node
 				AddToGroup(Globals.DarkSpellGroup);
 				break;
 		}
+
+		AddToGroup(Globals.InventorySpellGroup);
     }
 
 

@@ -8,6 +8,9 @@ public static class Globals
 {
     public const string PlayerGroup = "player"; ///< string name of the group for player
 
+    // group for all InventorySpells
+    public const string InventorySpellGroup = "inventory_spell";  ///< string name of the group that contains all inventory spells
+
     // the groups for the different spell slots
     public const string Spell1 = "spell1";  ///< string name of the group that contains the spells for slot one
     public const string Spell2 = "spell2";  ///< string name of the group that contains the spells for slot tow

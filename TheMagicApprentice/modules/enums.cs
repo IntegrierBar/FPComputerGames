@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Security.Cryptography;
 
 /*!
 \enum MagicType
@@ -44,6 +45,24 @@ public enum Direction
 	DOWN,
 	LEFT,
 	RIGHT,
+}
+
+/*!
+\enum SpellName
+\brief Global Enum for all spell names
+This Enum is mostly used by the augments so that we don't have to use strings
+*/
+public enum SpellName
+{
+    SunBasic,
+    CosmicBasic,
+    DarkBasic,
+    SunBeam,
+    SummonSun,
+    MoonLight,
+    StarRain,
+    DarkEnergyWave,
+    BlackHole,
 }
 
 public static class EntityTypeHelper
@@ -131,4 +150,28 @@ public static class DirectionHelper
 		}
 		return newPosition;
 	}
+}
+
+
+/**
+Helper Class for the Spell enum
+*/
+public static class SpellNameHelper
+{
+    /**
+    Converts the enum SpellName to the string group names
+    */
+    public static string GetGroupNameOfSpell(SpellName spell) => spell switch
+    {
+        SpellName.SunBasic => Globals.SunBasicSpellGroup,
+        SpellName.CosmicBasic => Globals.CosmicBasicSpellGroup,
+        SpellName.DarkBasic => Globals.DarkBasicSpellGroup,
+        SpellName.SunBeam => Globals.SunBeamSpellGroup,
+        SpellName.SummonSun => Globals.SummonSunSpellGroup,
+        SpellName.MoonLight => Globals.MoonLightSpellGroup,
+        SpellName.StarRain => Globals.StarRainSpellGroup,
+        SpellName.DarkEnergyWave => Globals.DarkEnergyWaveSpellGroup,
+        SpellName.BlackHole => Globals.BlackHoleSpellGroup,
+        _ => "", // Need to have a default value to make C# happy
+    };
 }
