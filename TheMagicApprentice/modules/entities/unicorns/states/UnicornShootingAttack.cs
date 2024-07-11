@@ -81,8 +81,8 @@ public partial class UnicornShootingAttack : State
 	*/
 	private Attack BuildAttack()
 	{
-		double damage = (Parent as Slime).GetDamageValue();
-	 	MagicType magicType = (Parent as Slime).GetMagicType();
+		double damage = (Parent as Unicorn).GetDamageValue();
+	 	MagicType magicType = (Parent as Unicorn).GetMagicType();
 		Attack attack = new(damage, magicType, _healthComponent);
 		return attack;
 	}

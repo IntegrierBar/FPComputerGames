@@ -68,13 +68,14 @@ _healthComponent = NodePath("../../HealthComponent")
 [node name="ShootingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait", "_healthComponent")]
 script = ExtResource("7_qwsr7")
 Wait = NodePath("../Wait")
-ShootingAnimationDuration = 1.0
+ShootingAnimationDuration = 2.0
 _healthComponent = NodePath("../../HealthComponent")
 
 [node name="StompingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait", "_healthComponent")]
 script = ExtResource("8_5d1p3")
 Wait = NodePath("../Wait")
 StompingAnimationDuration = 1.0
+StompingDelayTime = 0.5
 _healthComponent = NodePath("../../HealthComponent")
 
 [node name="Death" type="Node" parent="StateMachine"]
@@ -82,19 +83,21 @@ script = ExtResource("9_i1ral")
 
 [node name="UnicornAttacks" type="Node" parent="."]
 
-[node name="HurtBoxChargeAttack" parent="UnicornAttacks" instance=ExtResource("10_cusfu")]
+[node name="HurtBoxChargeAttack" parent="." instance=ExtResource("10_cusfu")]
+position = Vector2(-54, -33)
 
-[node name="CollisionShapeChargeAttack" type="CollisionShape2D" parent="UnicornAttacks/HurtBoxChargeAttack"]
+[node name="CollisionShapeChargeAttack" type="CollisionShape2D" parent="HurtBoxChargeAttack"]
 position = Vector2(54, 39)
 shape = SubResource("RectangleShape2D_unm7j")
 disabled = true
 
-[node name="HurtBoxStompingAttack" parent="UnicornAttacks" instance=ExtResource("11_ma7dc")]
+[node name="HurtBoxStompingAttack" parent="." instance=ExtResource("11_ma7dc")]
+position = Vector2(-54, -33)
 
-[node name="CollisionShapeStompingAttack" type="CollisionShape2D" parent="UnicornAttacks/HurtBoxStompingAttack"]
+[node name="CollisionShapeStompingAttack" type="CollisionShape2D" parent="HurtBoxStompingAttack"]
 position = Vector2(47, 48)
 rotation = -1.57379
 shape = SubResource("CapsuleShape2D_x0lvx")
 disabled = true
 
-[node name="ShootingAttackProjectileHandler" parent="UnicornAttacks" instance=ExtResource("12_7hsri")]
+[node name="ShootingAttackProjectileHandler" parent="." instance=ExtResource("12_7hsri")]

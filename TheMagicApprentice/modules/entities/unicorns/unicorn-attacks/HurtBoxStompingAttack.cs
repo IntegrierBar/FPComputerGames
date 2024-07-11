@@ -82,6 +82,7 @@ public partial class HurtBoxStompingAttack : Area2D
     {
         Monitoring = enabled;
         SetPhysicsProcess(enabled);
+        GetNode<CollisionShape2D>("CollisionShapeStompingAttack").Disabled = !enabled;
     }
 
     /**

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://6ouqddhhoys7"]
+
+[ext_resource type="PackedScene" uid="uid://cjs5mgblqc5iq" path="res://modules/rooms/TestBossRoom.tscn" id="1_enk6f"]
+[ext_resource type="PackedScene" uid="uid://cfafpfmqm8u17" path="res://modules/entities/player/player.tscn" id="2_82lbh"]
+[ext_resource type="PackedScene" uid="uid://dom7xfancttur" path="res://modules/entities/unicorns/unicorn.tscn" id="3_o6gxk"]
+
+[node name="TestUnicorn" type="Node2D"]
+
+[node name="Room" parent="." instance=ExtResource("1_enk6f")]
+
+[node name="Player" parent="." instance=ExtResource("2_82lbh")]
+position = Vector2(0, -1)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 1)
+
+[node name="Unicorn" parent="." instance=ExtResource("3_o6gxk")]

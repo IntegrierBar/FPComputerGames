@@ -95,11 +95,11 @@ public partial class UnicornWait : State
 		}
 		
 		// the player is outside of the melee attack range
-		uint randomNumber0or1 = GD.Randi() % 2; // use a random number to decide which of the two ranged attacks is going to be used
-		if (randomNumber0or1 == 0)
-		{
-			return ChargeAttack;
-		}
+		//uint randomNumber0or1 = GD.Randi() % 2; // use a random number to decide which of the two ranged attacks is going to be used
+		//if (randomNumber0or1 == 0)
+		//{
+		//	return ChargeAttack;
+		//}
 		else
 		{
 			return ShootingAttack;

@@ -5,17 +5,18 @@ public partial class ShootingAttackProjectile : Area2D
 {
     
     [Export]
-	public float SPEED = 100; ///< Speed of the attack. Do not set too high or evading might be too difficult
+	public float SPEED = 200; ///< Speed of the attack. Do not set too high or evading might be too difficult
 	[Export]
-	public double MaxLifeTimeInSeconds = 5;
+	public double MaxLifeTimeInSeconds = 10;
     [Export]
-    public double HomingTimer = 1;
+    public double HomingTimer = 1.0;
 
     private Attack _attack;	///< Contains damage, type and caster reference for damage calculation
     private Vector2 _direction; ///< Direction in which to attack moves
 
     private double _maxLifeTimeSeconds;
     private double _homingTimer;
+    private float _accelerationSpeed = 1200;
 
     private Player _player;
 
@@ -47,7 +48,9 @@ public partial class ShootingAttackProjectile : Area2D
         _homingTimer -= delta;
         if (_homingTimer > 0)
         {
-            // continuously change the direction of the projectile such that it describes an arc and phases in the direction of the player when the time is up.
+            Vector2 velocity = _direction * SPEED;
+            velocity += (_player.GlobalPosition-GlobalPosition).Normalized() * _accelerationSpeed * (float)delta;
+            _direction = velocity.Normalized();
         } 
         Position += (float)delta * SPEED * _direction;
         LookAt(GlobalPosition + _direction); // makes attack look in the correct direction
