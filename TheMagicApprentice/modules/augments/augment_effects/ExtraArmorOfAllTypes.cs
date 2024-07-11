@@ -5,10 +5,11 @@ using System;
 /**
 AugmentEffect to increase the armor of all types
 */
+[GlobalClass]
 public partial class ExtraArmorofAllTypes : AugmentEffect
 {
     [Export]
-    private double _extraArmor = 5;
+    private double _extraArmor = 5; ///< How much extra armor gets added to the player
 
     /**
     Get the players Healthcomponent and modify it

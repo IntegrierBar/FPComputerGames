@@ -1,18 +1,13 @@
 using Godot;
 using System;
 
-
-/**
-AugmentEffect to increase the radius of a spell
-*/
-[GlobalClass]
-public partial class IncreasedRadiusOfSpell : OnCastAugmentEffect
+public partial class IncreaseDurationOfSpell : OnCastAugmentEffect
 {
     [Export]
     private SpellName _spellName = SpellName.BlackHole; ///< Which spell gets effected by the AugmentEffect
 
     [Export]
-    private float _sizeIncreaseFactor = 2.1f; ///< factor by how much the size of the spell increases
+    private float _durationIncreaseFactor = 2.5f; ///< factor by how much the size of the spell increases
 
     /**
     Adds itself to the OnCastAugment List of the correct Inventory spell
@@ -24,10 +19,10 @@ public partial class IncreasedRadiusOfSpell : OnCastAugmentEffect
     }
 
     /**
-    Increases the size of the spell
+    Increases the duration of the spell
     */
     public override void OnCast(Spell spell)
     {
-        spell.Scale *= _sizeIncreaseFactor;
+        spell._timeLeftUntilDeletion *= _durationIncreaseFactor;
     }
 }

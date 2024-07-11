@@ -314,7 +314,7 @@ MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
+[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("13_drg8x")
 CastTime = 0.7
 _playerHealthComponent = NodePath("../../HealthComponent")
@@ -346,7 +346,7 @@ MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("22_vkran")
 
-[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
 script = ExtResource("23_jr77b")
 MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")

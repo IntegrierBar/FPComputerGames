@@ -7,6 +7,7 @@ The Augment class
 Every augment is a resource using this script
 Each Augment can have up to 3 Augment effects
 */
+[GlobalClass]
 public partial class Augment : Resource
 {
     public AugmentEffect[] _augmentEffects = new AugmentEffect[3];

@@ -5,13 +5,14 @@ using System;
 /**
 AugmentEffect to increase the Armor of one magic type
 */
+[GlobalClass]
 public partial class ExtraArmorOfType : AugmentEffect
 {
     [Export]
-    private MagicType _magicType = MagicType.SUN;
+    private MagicType _magicType = MagicType.SUN; ///< Type of armor we want to effect
 
     [Export]
-    private double _extraArmor = 10;
+    private double _extraArmor = 10; ///< How much armor gets added
 
     /**
     Get the players Healthcomponent and modify it

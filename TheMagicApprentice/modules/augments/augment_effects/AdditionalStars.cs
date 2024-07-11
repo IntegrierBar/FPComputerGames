@@ -5,10 +5,11 @@ using System;
 /**
 AugmentEffect to increase the amount of stars spawned by StarRain by a faktor
 */
+[GlobalClass]
 public partial class AdditionalStars : AugmentEffect
 {
     [Export]
-    private double _factor = 1.1;
+    private double _factor = 1.1; ///< multiplicative factor of how many more stars get spawned
 
     /**
     Change the static member AmountStarsToSpawn of InventoryStarRain

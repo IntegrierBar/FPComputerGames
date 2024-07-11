@@ -4,13 +4,14 @@ using System;
 /**
 AugmentEffect to increase the damage for one skill by _damageIncreaseFaktor
 */
+[GlobalClass]
 public partial class PercentDamageForOneSpell : AugmentEffect
 {
     [Export]
-    private SpellName _spellName = SpellName.SunBasic;
+    private SpellName _spellName = SpellName.SunBasic; ///< Name of the spell to get extra damage
 
     [Export]
-    private double _damageIncreaseFaktor = 1.1;
+    private double _damageIncreaseFaktor = 1.1; ///< factor of the damage increase
 
     public override void Equip(SceneTree sceneTree)
     {

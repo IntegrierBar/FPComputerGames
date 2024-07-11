@@ -99,10 +99,11 @@ public partial class Player : CharacterBody2D
 	*/
 	private void ResetSpells()
 	{
-		// then reset all spell damages
+		// then reset all spell damages and remove the OnCastAugments
 		foreach (InventorySpell inventorySpell in GetTree().GetNodesInGroup(Globals.InventorySpellGroup).OfType<InventorySpell>())
 		{
 			inventorySpell.ResetDamage();
+			inventorySpell.ClearOnCastAugmentEffects();
 		}
 
 		// This is a little bit ugly, but it works
@@ -131,8 +132,8 @@ public partial class Player : CharacterBody2D
 	public void TestEquip()
 	{
 		Augment augment = new Augment();
-		augment._augmentEffects[0] = new PercentDamageForOneSpell();
-		augment._augmentEffects[1] = new AdditionalStars();
+		augment._augmentEffects[0] = new IncreasedRadiusOfSpell();
+		augment._augmentEffects[1] = new IncreaseDurationOfSpell();
 
 		EquipAugmentInSlot(augment, 0);
 	}

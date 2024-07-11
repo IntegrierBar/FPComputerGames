@@ -5,10 +5,11 @@ using System;
 /**
 AugmentEffect to increase the HP of player by percentage
 */
+[GlobalClass]
 public partial class HPIncreaseAugmentEffect : AugmentEffect
 {
     [Export]
-    private double _HPIncreaseFaktor = 1.1;
+    private double _HPIncreaseFaktor = 1.1; ///< Factor by how much the HP gets increased
 
     /**
     Get the players Healthcomponent and modify it

@@ -6,6 +6,7 @@ using System;
 AugmentEffect to cast one spell, when casting another.
 The UnEquiping is handled in the player class
 */
+[GlobalClass]
 public partial class CastAdditionalSpell : AugmentEffect
 {
     [Export]

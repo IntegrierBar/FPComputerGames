@@ -3,15 +3,17 @@ using System;
 using System.Linq;
 
 /**
-AugmentEffect to increase the damage of all spells in slot _slot by a flat amount
+AugmentEffect to increase the damage of all spells in slot _slot by a flat amount.
+(Uses all spells currently in the spell group)
 */
+[GlobalClass]
 public partial class FlatDamageForSpellSlot : AugmentEffect
 {
     [Export]
-    private uint _slot = 0;
+    private uint _slot = 0; ///< Index of which slot gets changed
 
     [Export]
-    private double _flatDamageIncrease = 20;
+    private double _flatDamageIncrease = 20; ///< The flat increase of the spelldamage
 
     public override void Equip(SceneTree sceneTree)
     {
