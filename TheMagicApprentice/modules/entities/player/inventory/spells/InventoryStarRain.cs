@@ -31,7 +31,6 @@ public partial class InventoryStarRain : InventorySpell
         _playerPosition = playerPosition;
 		_targetPosition = targetPosition;
 		_starsLeftToSpawn = (int)Math.Round(AmountStarsToSpawn); // Round up when calculating how many stars to spawn
-        GD.Print(_starsLeftToSpawn);
     }
 
     public override void _PhysicsProcess(double delta)

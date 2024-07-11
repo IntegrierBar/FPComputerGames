@@ -71,6 +71,7 @@ public static class Globals
 
     /**
     Returns the group name of the spellslot
+    (Currently the uint slot starts at 1 put the spellslots start at 1 so its a bit awkward)
     */
     public static string GetGroupNameOfSpellsInSlot(uint slot) => slot switch
     {

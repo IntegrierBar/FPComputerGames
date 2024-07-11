@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="IncreasedRadiusOfSpell" load_steps=2 format=3 uid="uid://dom1pb1guis24"]
+
+[ext_resource type="Script" path="res://modules/augments/augment_effects/IncreasedRadiusOfSpell.cs" id="1_0g23a"]
+
+[resource]
+script = ExtResource("1_0g23a")
+_spellName = 8
+_sizeIncreaseFactor = 1.1

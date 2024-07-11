@@ -12,7 +12,7 @@ public partial class IncreasedRadiusOfSpell : OnCastAugmentEffect
     private SpellName _spellName = SpellName.BlackHole; ///< Which spell gets effected by the AugmentEffect
 
     [Export]
-    private float _sizeIncreaseFactor = 2.1f; ///< factor by how much the size of the spell increases
+    private float _sizeIncreaseFactor = 1.1f; ///< factor by how much the size of the spell increases
 
     /**
     Adds itself to the OnCastAugment List of the correct Inventory spell

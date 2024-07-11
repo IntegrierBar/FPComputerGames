@@ -10,7 +10,7 @@ Each Augment can have up to 3 Augment effects
 [GlobalClass]
 public partial class Augment : Resource
 {
-    public AugmentEffect[] _augmentEffects = new AugmentEffect[3];
+    public AugmentEffect[] _augmentEffects = new AugmentEffect[3]; // Array of the AugmentEffects
 
     public void Equip(SceneTree sceneTree)
     {

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FlatDamageForSpellSlot" load_steps=2 format=3 uid="uid://cq3y3mlsjg55b"]
+
+[ext_resource type="Script" path="res://modules/augments/augment_effects/FlatDamageForSpellSlot.cs" id="1_63xsc"]
+
+[resource]
+script = ExtResource("1_63xsc")
+_slot = 1
+_flatDamageIncrease = 20.0

@@ -128,12 +128,10 @@ public partial class Player : CharacterBody2D
 		EquipAllAugments();
 	}
 
-
+	// small test function to test augment generation
 	public void TestEquip()
 	{
-		Augment augment = new Augment();
-		augment._augmentEffects[0] = new IncreasedRadiusOfSpell();
-		augment._augmentEffects[1] = new IncreaseDurationOfSpell();
+		Augment augment = AugmentManager.Instance.CreateRandomAugment(3);
 
 		EquipAugmentInSlot(augment, 0);
 	}
