@@ -106,4 +106,12 @@ public partial class InventorySpell : Node
 	{
 		_onCastAugmentEffects = new List<OnCastAugmentEffect>();
 	}
+
+	/**
+	Getter for OnCastAugmentEffects. Used by tests only
+	*/
+	public List<OnCastAugmentEffect> GetOnCastAugmentEffects()
+	{
+		return _onCastAugmentEffects;
+	}
 }

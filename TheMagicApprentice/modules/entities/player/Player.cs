@@ -54,9 +54,12 @@ public partial class Player : CharacterBody2D
 	/**
 	Equips an Augment at slot
 	*/
-	public void EquipAugmentInSlot(Augment augment, uint slot)
+	public void EquipAugmentInSlot(Augment augment, int slot)
 	{
 		System.Diagnostics.Debug.Assert(slot < 5, "slot index is larger then 4");
+
+		slot = Math.Clamp(slot, 0, 4); // clamp slot
+
 
 		UnEquipAllAugments();
 		ResetSpells();
@@ -67,7 +70,7 @@ public partial class Player : CharacterBody2D
 	/**
 	Remove an augment from a slot by equipping null in the slot
 	*/
-	public void UnEquipAugmentFromSlot(uint slot)
+	public void UnEquipAugmentFromSlot(int slot)
 	{
 		EquipAugmentInSlot(null, slot);
 	}

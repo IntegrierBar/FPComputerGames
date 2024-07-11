@@ -101,6 +101,14 @@ public partial class HealthComponent : Area2D
 		return _currentHP;
 	}
 
+	/**
+	Returns the armor of the MagicType. Is only used by tests
+	*/
+	public double GetArmorOfType(MagicType type)
+	{
+		return Armor[type];
+	}
+
 
 	/**
 	Modify the armor for one element by addition

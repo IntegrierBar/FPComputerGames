@@ -14,7 +14,7 @@ public partial class AugmentManager : Node
 
 	public static AugmentManager Instance { get; private set; }
 
-	private List<AugmentEffect> _augmentEffects;
+	private List<AugmentEffect> _augmentEffects = new();
 
 	private static Random _random = new();
 	
@@ -31,7 +31,7 @@ public partial class AugmentManager : Node
 	/**
 	Automaticaly creates a random augment with amountAugmentEffects randomly selected AugmentEffects
 
-	@param amountAugmentEffects has to be between 1 and 3
+	@param amountAugmentEffects should be between 1 and 3. If it is larger then 3 it will instead use 3 and if it is 0 then it will return an augment without effects
 	*/
 	public Augment CreateRandomAugment(uint amountAugmentEffects)
 	{
@@ -39,7 +39,7 @@ public partial class AugmentManager : Node
 		System.Diagnostics.Debug.Assert(amountAugmentEffects > 0, "amountAugmentEffects is 0");
 
 		Augment augment = new Augment();
-		for (int i = 0; i < amountAugmentEffects; i++)
+		for (int i = 0; i < Math.Min(amountAugmentEffects, 3); i++) // use Math.Min to make sure we
 		{
 			augment._augmentEffects[i] = SelectRandomAugmentEffect();
 		}
@@ -78,7 +78,6 @@ public partial class AugmentManager : Node
 				{
 					_augmentEffects.Add( GD.Load<AugmentEffect>(folderPath + fileName) );
 				}
-				GD.Print(fileName);
 				fileName = directory.GetNext();
 			}
 		}
@@ -87,4 +86,13 @@ public partial class AugmentManager : Node
 			GD.Print("Could not open augment effect directory. Maybe wrong name?");
 		}
     }
+
+
+	/**
+	Getter for AugmentEffects. Is only used by tests
+	*/
+	public List<AugmentEffect> GetAugmentEffects()
+	{
+		return _augmentEffects;
+	}
 }
