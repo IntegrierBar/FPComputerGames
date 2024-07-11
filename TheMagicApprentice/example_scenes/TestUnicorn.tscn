@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://6ouqddhhoys7"]
+[gd_scene load_steps=4 format=3 uid="uid://ce70igljjvppx"]
 
-[ext_resource type="PackedScene" uid="uid://cjs5mgblqc5iq" path="res://modules/rooms/TestBossRoom.tscn" id="1_enk6f"]
+[ext_resource type="PackedScene" path="res://modules/rooms/TestBossRoom.tscn" id="1_enk6f"]
 [ext_resource type="PackedScene" uid="uid://cfafpfmqm8u17" path="res://modules/entities/player/player.tscn" id="2_82lbh"]
 [ext_resource type="PackedScene" uid="uid://dom7xfancttur" path="res://modules/entities/unicorns/unicorn.tscn" id="3_o6gxk"]
 
