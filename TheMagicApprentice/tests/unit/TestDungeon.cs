@@ -17,7 +17,7 @@ public partial class TestDungeon
 		AssertThat(dungeon.MinRooms).IsEqual(5);
 		AssertThat(dungeon.MaxRooms).IsEqual(10);
 		AssertThat(dungeon.Layout).IsNotNull();
-		AssertThat(dungeon.Layout.Count).IsEqual(0);
+		AssertThat(dungeon.Layout.Count).IsGreaterEqual(5);
 	}
 
 	[TestCase]
@@ -49,6 +49,43 @@ public partial class TestDungeon
 	}
 
 	[TestCase]
+	public void TestDungeonInitializationFromLayout()
+	{
+		// Create a sample layout
+		Dictionary<Vector2I, Room> layout = new Dictionary<Vector2I, Room>
+		{
+			{ new Vector2I(0, 0), new Room(RoomType.Normal, "res://modules/rooms/Room3.tscn") },
+			{ new Vector2I(0, 1), new Room(RoomType.Normal, "res://modules/rooms/Room4.tscn") },
+			{ new Vector2I(1, 1), new Room(RoomType.Boss, "res://modules/rooms/Room3.tscn") }
+		};
+		Vector2I entrancePosition = new Vector2I(0, 0);
+		Vector2I bossPosition = new Vector2I(1, 1);
+		Vector2I gridSize = new Vector2I(2, 2);
+		MagicType magicType = MagicType.COSMIC;
+
+		// Create a dungeon using the layout constructor
+		Dungeon dungeon = new Dungeon(layout, entrancePosition, bossPosition, gridSize, magicType);
+
+		// Verify that the dungeon properties match the input
+		AssertThat(dungeon.Layout).IsEqual(layout);
+		AssertThat(dungeon.EntrancePosition).IsEqual(entrancePosition);
+		AssertThat(dungeon.BossPosition).IsEqual(bossPosition);
+		AssertThat(dungeon.GridSize).IsEqual(gridSize);
+		AssertThat(dungeon.MagicType).IsEqual(magicType);
+
+		// Verify that the current room position is set to the entrance
+		AssertThat(dungeon.CurrentRoomPosition).Equals(entrancePosition);
+
+		// Check if all rooms in the layout are present in the dungeon
+		foreach (var kvp in layout)
+		{
+			AssertThat(dungeon.Layout.ContainsKey(kvp.Key)).IsTrue();
+			AssertThat(dungeon.Layout[kvp.Key].Type).IsEqual(kvp.Value.Type);
+			AssertThat(dungeon.Layout[kvp.Key].ScenePath).IsEqual(kvp.Value.ScenePath);
+		}
+	}
+
+	[TestCase]
 	public void TestMultipleDungeonGenerations()
 	{
 		Dungeon dungeon = new Dungeon(5, 10);
@@ -68,6 +105,6 @@ public partial class TestDungeon
 	private string GetLayoutHash(Dictionary<Vector2I, Room> layout)
 	{
 		var sortedPositions = layout.Keys.OrderBy(pos => pos.X).ThenBy(pos => pos.Y);
-		return string.Join(",", sortedPositions.Select(pos => $"{pos.X},{pos.Y}"));
+		return string.Join(",", sortedPositions.Select(pos => $"{pos.X},{pos.Y},{layout[pos].Type},{layout[pos].ScenePath}"));
 	}
 }

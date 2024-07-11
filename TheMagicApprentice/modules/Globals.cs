@@ -30,4 +30,9 @@ public static class Globals
     public const string DarkEnergyWaveSpellGroup = "dark_energy_wave_spell"; ///< string name of the group containing the Dark Energy Wave Spell
     public const string BlackHoleSpellGroup = "black_hole_spell"; ///< string name of the group containing the Black Hole Spell
 
+
+    // Groups for the spell slot of the UI
+    public const string SpellSlot1 = "spell_slot1";
+    public const string SpellSlot2 = "spell_slot2";
+    public const string SpellSlot3 = "spell_slot3";
 }

@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://dom7xfancttur"]
+
+[ext_resource type="Texture2D" uid="uid://bpjlbco62ohco" path="res://assets/Unicorns/Unicorn_dark.png.png" id="1_fw332"]
+[ext_resource type="Script" path="res://modules/entities/unicorns/Unicorn.cs" id="1_uvms1"]
+[ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="2_eddt6"]
+[ext_resource type="PackedScene" uid="uid://jbflxvnkddjv" path="res://modules/entities/state_Machine.tscn" id="4_3hbvh"]
+[ext_resource type="Script" path="res://modules/entities/unicorns/states/UnicornWait.cs" id="5_pkwrw"]
+[ext_resource type="Script" path="res://modules/entities/unicorns/states/UnicornChargeAttack.cs" id="6_x8tb2"]
+[ext_resource type="Script" path="res://modules/entities/unicorns/states/UnicornShootingAttack.cs" id="7_qwsr7"]
+[ext_resource type="Script" path="res://modules/entities/unicorns/states/UnicornStompingAttack.cs" id="8_5d1p3"]
+[ext_resource type="Script" path="res://modules/entities/unicorns/states/UnicornDeath.cs" id="9_i1ral"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4174d"]
+size = Vector2(26, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hy6lo"]
+size = Vector2(26, 25)
+
+[node name="Unicorn" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
+position = Vector2(54, 33)
+script = ExtResource("1_uvms1")
+StateMachine = NodePath("StateMachine")
+AnimationPlayer = NodePath("AnimationPlayer")
+
+[node name="CollisionShapeUnicorn" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_4174d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("1_fw332")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_eddt6")]
+
+[node name="HitBoxUnicorn" type="CollisionShape2D" parent="HealthComponent"]
+unique_name_in_owner = true
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_hy6lo")
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("StartingState", "DeathState") instance=ExtResource("4_3hbvh")]
+StartingState = NodePath("Wait")
+DeathState = NodePath("Death")
+
+[node name="Wait" type="Node" parent="StateMachine" node_paths=PackedStringArray("ChargeAttack", "ShootingAttack", "StompingAttack")]
+script = ExtResource("5_pkwrw")
+ChargeAttack = NodePath("../ChargeAttack")
+ShootingAttack = NodePath("../ShootingAttack")
+StompingAttack = NodePath("../StompingAttack")
+
+[node name="ChargeAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait")]
+script = ExtResource("6_x8tb2")
+Wait = NodePath("../Wait")
+
+[node name="ShootingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait")]
+script = ExtResource("7_qwsr7")
+Wait = NodePath("../Wait")
+
+[node name="StompingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait")]
+script = ExtResource("8_5d1p3")
+Wait = NodePath("../Wait")
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("9_i1ral")

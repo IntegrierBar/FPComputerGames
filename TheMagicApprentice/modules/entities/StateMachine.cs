@@ -31,6 +31,12 @@ public partial class StateMachine : Node
 	*/
 	private void ChangeState(State newState)
 	{
+		// If we cannot enter the new state, do nothing
+		if (!newState.CanEnter())
+		{
+			return;
+		}
+
 		if (_currentState is not null)
 		{
 			_currentState.Exit();

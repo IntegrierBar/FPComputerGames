@@ -10,6 +10,14 @@ public partial class State : Node
 	
 	public AnimationPlayer Animations; ///<	Reference to the AnimationPlayer of the entity 
 
+	/**
+	Called before we enter the state.
+	Checks if we are allowed to enter the state
+	*/
+	public virtual bool CanEnter()
+	{
+		return true;
+	}
 
 	/**
 	Called everytime we enter the state

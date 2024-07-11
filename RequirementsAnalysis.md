@@ -113,7 +113,7 @@ The PC is the figure the player controls while playing the game. The PC is a wiz
 
 The PC is controled by the player via keyboard and mouse movements. 
 A visualization of the state machine can be found [here](#2533-state-machines).
-The PC has four states which are described in the following. 
+The PC has five states which are described in the following. 
 
 The PC starts in the **Idle** state.
 
@@ -163,7 +163,7 @@ Each skill has a damage, magic type, a duration for how long it lasts and a cool
 
 | **ID: EPS1**| **Skill: Basic Skills** |
 | --- | --- |
-| Description | Each magic type has a basic skill that consist of a colored circular projectile shot from PC in the direction of the mouse. If the projectile hits an enemy, the enemy is dealt the damage of the skill and the projectile despawns. <br> If the projectile hits a wall or structure it alsow despawn. |
+| Description | Each magic type has a basic skill that consist of a colored circular projectile shot from PC in the direction of the mouse. If the projectile hits an enemy, the enemy is dealt the damage of the skill and the projectile despawns. <br> If the projectile hits a wall or structure it also despawns. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | The color of the projectile is the color of the magic type it belongs to. |
 
@@ -181,7 +181,7 @@ Each skill has a damage, magic type, a duration for how long it lasts and a cool
 
 | **ID: EPS4**| **Skill: Moon Light** |
 | --- | --- |
-| Description | A visualization of a light grey ray of moonlight is shown around the PC. The PC now has increased attack damage for all their equipped skills and increased armor values for all magic types for a few seconds. |
+| Description | A visualization of a light silver ray of moonlight is shown around the PC. The PC now has increased attack damage for all their equipped skills and increased armor values for all magic types for a few seconds. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
@@ -341,37 +341,45 @@ The armor values of all slimes of one magic type are the same.
 
 The unicorn is the boss monster of the dungeons. It looks like a unicorn but is coloured according to its magic type. <br>
 Unicorns have no attack and detection range since they can detect and attack the player from every position in the room. Unicorns have three different attacks. Unicorns have a melee attack radius. If the PC is inside of the melee attack radius, the unicorn uses the melee attack, otherwise it uses one of the ranged attacks at random.  <br>
-In between two attacks the unicorn remains idle for a short while to allow the player to attack the unicorn with their skills.
+In between two attacks the unicorn remains idle for a short while to allow the player to attack the unicorn with their skills. <br>
+The unicorns are controlled by a state machine. The initial state of the state machine is the **Wait** state. 
 
-| **ID: EB1**| **Unicorn states: Charge attack** |
+| **ID: EB1**| **Unicorn** |
 | --- | --- |
-| Description | If the PC is outside of the melee radius of the unicorn, the unicorn can use a charged attack. The unicorn charges at the PC and deals a large amount of damage if the player is hit. |
+| Description | Unicorns are the boss monsters of the dungeons and are in the last room of the dungeon. There are three different types of unicorns, one for each of the three magic types. Unicorns have no detection range or attack range. They can detect and attack the PC from any position when they are in the same room. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
-| **ID: EB2**| **Unicorn states: Shooting attack** |
+| **ID: EB2**| **Unicorn states: Wait** |
 | --- | --- |
-| Description | If the PC is outside of the melee radius of the unicorn, the unicorn can shoot a set of projectiles at the PC. |
-| Acceptance Criterion | Has to be implemented |
+| Description | The Wait state is the initial state of the unicorn. The unicorn remains in the wait state for a short while, for something between 1 and 5 seconds (has to be tested out to see what works well). While in the wait state, the unicorn moves towards the position of the player slowly (speed is greatly reduced). <br> At the end of the wait state, the unicorn transitions to one of its attacks, depending on how far the PC is away from the unicorn. If the PC is inisde of the melee attack range of the unicorn, the unicorn does a **Stomping attack**. If the PC is outside of the melee attack range of the unicorn, the unicorn either does a **Charge attack** or a **Shooting attack**. A random number is generated to determine which of the two ranged attacks is choosen. <br> If the unicorns health points reach zero, the unicorn enters the **Death** state. <br> The walking animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The walking animation shown depends on the direction from the unicorn position to the PC position. There are eight walking animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn walks to the right, the animation right has to be played etc. |
+| Acceptance Criterion | Unicorn correctly transitions to the wait state after every attack and remains in the wait state for the designed time duration. The correct walking animation is shown depending on the direction from the unicorn position to the PC position. |
 | Notes | None |
 
-| **ID: EB3**| **Unicorn states: Stomping attack** |
+
+| **ID: EB3**| **Unicorn states: Charge attack** |
 | --- | --- |
-| Description | If the PC is inside of the melee radius of the unicorn, the unicorn uses a stomping attack. The unicorn stomps on the ground in front of it and deals damage in an AOE. |
-| Acceptance Criterion | Has to be implemented |
+| Description | The unicorn can perform a charged attack, if the PC is outside of the melee attack radius of the unicorn. The unicorn charges with a high speed from its original position in the direction of the PC. The charge ends a distance behind the player. The unicorn has a minimum charge distance that is only shortened if the unicorn charges against a wall. The charge distance of the unicorn can be prolonged if the player would otherwise not be reached by the unicorn. If the unicorn hits the PC, it deals a large amount of damage to the player. <br> After the attack is completed, the unicorn returns to the **Wait** state. <br> If the unicorns health points reach zero, the unicorn enters the **Death** state. <br> The charging animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The charging animation shown depends on the direction from the unicorn position to the PC position. There are eight charging animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn charges to the right, the animation right has to be played etc. |
+| Acceptance Criterion | The unicorn charges correctly at the PC. The charging distance is always at least as long as the distance between the unicorn and the PC at the beginning of the charge. The correct charging animation is shown depending on the direction from the unicorn position to the PC position. |
 | Notes | None |
 
-| **ID: EB4**| **Unicorn states: Wait** |
+| **ID: EB4**| **Unicorn states: Shooting attack** |
 | --- | --- |
-| Description | After every attack, the unicorn remains idle for a short while in which it only moves around slowly. |
-| Acceptance Criterion | Has to be implemented |
+| Description | The unicorn can shoot a set of projectiles at the PC, if the PC is outside of the melee radius of the unicorn. The projectiles fly away from the unicorn in a random direction in the half plane directed towards the player for a short distance. Afterwards they are accelerated in the direction of the PC position, that the PC has at the begin of the acceleration. The projectiles disappear if they either hit the PC or a wall or a tall object. The unicorn transitions to the **Wait** state, once its shooting animation is finished. This can before the projectiles shoot by the unicorn disappear. <br> If the unicorns health points reach zero, the unicorn enters the **Death** state. <br> The shooting animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The shooting animation shown depends on the direction from the unicorn position to the PC position. There are eight shooting animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn shoots to the right, the animation right has to be played etc.  |
+| Acceptance Criterion | The projectiles show the described behaviour. The correct charging animation is shown depending on the direction from the unicorn position to the PC position. |
 | Notes | None |
 
-| **ID: EB5**| **Unicorn states: Death** |
+| **ID: EB5**| **Unicorn states: Stomping attack** |
 | --- | --- |
-| Description | When the unicorn's health reaches 0, it transitions to a death state. In this state, the unicorn stops all actions and animations, and after a short delay, it disappears from the game world. |
+| Description | If the PC is inside of the melee attack range of the unicorn, the unicorn uses a stomping attack. The unicorn stomps on the ground in front of it, creating an AOE that deals damage to the PC if they are within it. The AOE has two zones, so that the the player receives more damage in a small radius around the unicorn and less damage if they are outside of the area. The unicorn transitions to the **Wait** state, once its stomping animation is finished. <br> If the unicorns health points reach zero, the unicorn enters the **Death** state. <br> The stomping animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The stomping animation shown depends on the direction from the unicorn position to the PC position. There are eight stomping animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn shoots to the right, the animation right has to be played etc. |
+| Acceptance Criterion | The stomping attack applies damage as described. The correct stomping animation is shown depending on the direction from the unicorn position to the PC position. |
+| Notes | None |
+
+| **ID: EB6**| **Unicorn states: Death** |
+| --- | --- |
+| Description | When the unicorn's health reaches 0, it transitions to the death state. In this state, the unicorn stops all actions and animations, and after a short delay, it disappears from the game world. The death animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. |
 | Acceptance Criterion | The unicorn must correctly transition to the death state when its health is depleted, and it should no longer be able to perform any actions or affect the game. |
-| Notes | Ensure that the transition to the death state is smooth and that the unicorn's disappearance is visually clear to the player. |
+| Notes | Ensure that the transition to the death state is smooth and that the unicorn's disappearance is visually clear to the player. <br> Find out, whether death animations for several directions are necessary or if one animation looks good enough. |
 
 ### 2.2.2 Areas
 

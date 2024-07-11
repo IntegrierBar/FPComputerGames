@@ -111,7 +111,6 @@ public partial class RoomHandler : Node
 			enemySpawns.RemoveAt(index);
 		}
 		enemyCount = enemiesToSpawn;
-		GD.Print("Enemy count: " + enemyCount);
 	}
 
 	/**
@@ -120,7 +119,6 @@ public partial class RoomHandler : Node
 	private void EnemyDied()
 	{
 		enemyCount--;
-		GD.Print("Enemy died. Count: " + enemyCount);
 		if(enemyCount == 0) {
 			CurrentRoom.IsCleared = true;
 			EnableRoomExits();
