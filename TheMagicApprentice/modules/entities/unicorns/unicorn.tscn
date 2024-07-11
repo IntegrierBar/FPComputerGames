@@ -23,8 +23,8 @@ size = Vector2(26, 25)
 size = Vector2(28, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x0lvx"]
-radius = 11.0
-height = 43.9998
+radius = 17.9969
+height = 114.005
 
 [node name="Unicorn" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
 position = Vector2(54, 33)
@@ -68,13 +68,14 @@ _healthComponent = NodePath("../../HealthComponent")
 [node name="ShootingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait", "_healthComponent")]
 script = ExtResource("7_qwsr7")
 Wait = NodePath("../Wait")
-ShootingAnimationDuration = 1.0
+ShootingAnimationDuration = 2.0
 _healthComponent = NodePath("../../HealthComponent")
 
 [node name="StompingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait", "_healthComponent")]
 script = ExtResource("8_5d1p3")
 Wait = NodePath("../Wait")
 StompingAnimationDuration = 1.0
+StompingDelayTime = 0.5
 _healthComponent = NodePath("../../HealthComponent")
 
 [node name="Death" type="Node" parent="StateMachine"]

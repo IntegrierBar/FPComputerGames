@@ -49,7 +49,7 @@ public partial class ShootingAttackProjectileHandler : Node
 	*/
 	private void SpawnProjectile()
 	{
-		PackedScene scene = GD.Load<PackedScene>("res://modules/entities/unicorns/unicorn-attacks/ShootingAttackProjectile.cs");
+		PackedScene scene = GD.Load<PackedScene>("res://modules/entities/unicorns/unicorn-attacks/ShootingAttackProjectile.tscn");
 		ShootingAttackProjectile projectile = scene.Instantiate() as ShootingAttackProjectile;
 		GetTree().Root.AddChild(projectile); // Add the ranged attack projectile to the scene tree
 
