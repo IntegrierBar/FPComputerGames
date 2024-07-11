@@ -44,7 +44,7 @@ public partial class HealthComponent : Area2D
 			return;
 
 		double damageMultiplier = 1.0;
-		if (GetParent().IsInGroup("player") && CurseHandler.IsActive(Curse.MORE_VULNERABLE))
+		if (GetParent() != null && GetParent().IsInGroup("player") && CurseHandler.IsActive(Curse.MORE_VULNERABLE))
 		{
 			damageMultiplier = 1.25; // Increase damage by 25% if curse is active
 		}
