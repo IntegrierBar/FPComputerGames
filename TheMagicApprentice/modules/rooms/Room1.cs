@@ -20,9 +20,9 @@ public partial class Room1 : Node2D
 		AddChild(slime_sun_melee);
 		AddChild(slime_sun_ranged);
 
-		slime_sun_ranged.SetSlimeProperties(MagicType.SUN, SlimeSize.SMALL, SlimeAttackRange.RANGED,new Vector2(-75.0f, 75.0f));
-		slime_sun_melee.SetSlimeProperties(MagicType.SUN, SlimeSize.SMALL, SlimeAttackRange.MELEE, new Vector2(50.0f, 125.0f));
-		slime_dark_melee.SetSlimeProperties(MagicType.DARK, SlimeSize.SMALL, SlimeAttackRange.MELEE, new Vector2(200.0f, 60.0f));
+		slime_sun_ranged.SetSlimeProperties(MagicType.SUN, SlimeSize.SMALL, SlimeAttackRange.RANGED,new Vector2(-75.0f, 75.0f), 100);
+		slime_sun_melee.SetSlimeProperties(MagicType.SUN, SlimeSize.SMALL, SlimeAttackRange.MELEE, new Vector2(50.0f, 125.0f), 100);
+		slime_dark_melee.SetSlimeProperties(MagicType.DARK, SlimeSize.SMALL, SlimeAttackRange.MELEE, new Vector2(200.0f, 60.0f), 100);
 		
 
 	}

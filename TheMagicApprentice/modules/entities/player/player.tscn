@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=39 format=3 uid="uid://cfafpfmqm8u17"]
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://modules/entities/player/states/PlayerDashing.cs" id="6_g5tpb"]
 [ext_resource type="Script" path="res://modules/entities/player/states/PlayerSpellCasting.cs" id="7_xwtn5"]
 [ext_resource type="Script" path="res://modules/entities/player/states/PlayerDeath.cs" id="8_1165l"]
-[ext_resource type="PackedScene" path="res://modules/entities/player/inventory/spell_inventory.tscn" id="10_cknrl"]
+[ext_resource type="PackedScene" uid="uid://cauv7k1n531by" path="res://modules/entities/player/inventory/spell_inventory.tscn" id="10_cknrl"]
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryBasicSpell.cs" id="11_wf06i"]
 [ext_resource type="PackedScene" uid="uid://bg4jmwx6relk0" path="res://modules/entities/player/spells/basic_spell/basic_spell.tscn" id="12_oqin6"]
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventorySunBeam.cs" id="13_drg8x"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dqpjsl8ux75jq" path="res://modules/entities/player/spells/dark_energy_wave/dark_energy_wave.tscn" id="22_vkran"]
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryBlackHole.cs" id="23_jr77b"]
 [ext_resource type="PackedScene" uid="uid://u23ysmqaadgq" path="res://modules/entities/player/spells/black_hole/black_hole.tscn" id="24_h76h0"]
-[ext_resource type="Script" path="res://modules/entities/EntityTypeComponent.cs" id="25_pocau"]
 
 [sub_resource type="Animation" id="Animation_3syv3"]
 length = 0.001
@@ -356,7 +355,3 @@ _spellScene = ExtResource("24_h76h0")
 visible = false
 
 [node name="SpellInventory" parent="UI" instance=ExtResource("10_cknrl")]
-
-[node name="EntityType" type="Node" parent="."]
-script = ExtResource("25_pocau")
-Type = 1

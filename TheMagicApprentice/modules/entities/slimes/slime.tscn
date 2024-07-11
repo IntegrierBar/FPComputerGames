@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://16e1fc62e66t"]
+[gd_scene load_steps=25 format=3 uid="uid://16e1fc62e66t"]
 
 [ext_resource type="Script" path="res://modules/entities/slimes/Slime.cs" id="1_llbif"]
 [ext_resource type="Texture2D" uid="uid://pi2gqnphaq76" path="res://modules/entities/slimes/Slime_cropped.png" id="2_aql0x"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeDeath.cs" id="8_hom1h"]
 [ext_resource type="PackedScene" uid="uid://c7on4tuqslrab" path="res://modules/entities/slimes/slime-attacks/MeleeAttackHurtBox.tscn" id="9_ilfwi"]
 [ext_resource type="PackedScene" uid="uid://cqcik8bgxyjjc" path="res://modules/entities/healthbar/healthbar.tscn" id="10_weiag"]
-[ext_resource type="Script" path="res://modules/entities/EntityTypeComponent.cs" id="11_tec1i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dxkmx"]
 radius = 18.0
@@ -275,9 +274,5 @@ script = ExtResource("8_hom1h")
 visible = false
 position = Vector2(-5, 15)
 shape = SubResource("CircleShape2D_jp6e4")
-
-[node name="EntityType" type="Node" parent="."]
-script = ExtResource("11_tec1i")
-Type = 18
 
 [connection signal="Death" from="HealthComponent" to="StateMachine" method="OnDeath"]
