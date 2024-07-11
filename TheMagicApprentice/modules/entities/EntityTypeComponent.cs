@@ -9,6 +9,9 @@ public partial class EntityTypeComponent : Node
 
 	The different types are None, Player, Enemy, Boss, Projectile, Slime, and Unicorn.
 	This enum uses flags, meaning an entity can be a combination of types. For example, a Slime is both a Slime and an Enemy.
+	
+	NOTE: This enum is currently not in use. This is a design question if we want to have every relevant node have an EntityTypeComponent.
+	It could be hard to maintain in the future, so it is currently not being used but could be relevant in the future.
 	*/
 	[Flags]
 	public enum EntityType

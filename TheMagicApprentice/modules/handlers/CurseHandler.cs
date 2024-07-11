@@ -5,6 +5,11 @@ public partial class CurseHandler : Node
 {
     private static CurseHandler _instance;
     
+    /*!
+    \brief Boolean properties representing the state of each curse.
+    
+    We use bools even though we have a Curse enum in @enums.cs because this lets us set them active or disabled in the editor very easily.
+    */
     [Export]
     public bool Skill3Disabled { get; set; } = true;
     [Export]
