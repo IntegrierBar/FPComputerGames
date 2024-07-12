@@ -34,10 +34,18 @@ public partial class PlayerSpellCasting : State
             spells = GetTree().GetNodesInGroup("spell1").OfType<InventorySpell>();
             uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot1) as UISpellSlot;
         }
+        else if (CurseHandler.IsActive(Curse.SKILL_1_ONLY))
+        {
+            spells = null;
+        }
         else if (Input.IsActionPressed("spell2"))
         {
             spells = GetTree().GetNodesInGroup("spell2").OfType<InventorySpell>();
             uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot2) as UISpellSlot;
+        }
+        else if (CurseHandler.IsActive(Curse.SKILL_3_DISABLED))
+        {
+            spells = null;
         }
         else if (Input.IsActionPressed("spell3"))
         {

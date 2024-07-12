@@ -94,7 +94,13 @@ public partial class RoomHandler : Node
 		}
 
 		var random = new Random();
-		for (int i = 0; i < EnemyCount && enemySpawns.Count > 0; i++)
+		int enemiesToSpawn = EnemyCount;
+		if (CurseHandler.IsActive(Curse.MORE_MONSTERS))
+		{
+			enemiesToSpawn = (int)Math.Round(EnemyCount * 1.333);
+		}
+
+		for (int i = 0; i < enemiesToSpawn && enemySpawns.Count > 0; i++)
 		{
 			int index = random.Next(enemySpawns.Count);
 			Node2D enemy = enemySpawns[index].Spawn();
@@ -104,7 +110,7 @@ public partial class RoomHandler : Node
 			}
 			enemySpawns.RemoveAt(index);
 		}
-		enemyCount = EnemyCount;
+		enemyCount = enemiesToSpawn;
 	}
 
 	/**

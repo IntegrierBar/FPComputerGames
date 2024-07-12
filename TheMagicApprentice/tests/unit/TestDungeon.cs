@@ -24,6 +24,7 @@ public partial class TestDungeon
 	public void TestDungeonGeneration()
 	{
 		Dungeon dungeon = new Dungeon(5, 10);
+		dungeon.Generate();
 
 		AssertThat(dungeon.Layout).IsNotNull();
 		AssertThat(dungeon.Layout.Count).IsBetween(5, 10);

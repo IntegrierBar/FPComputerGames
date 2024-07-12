@@ -38,6 +38,28 @@ public enum SlimeAttackRange
 	RANGED,
 }
 
+/*!
+\enum Curse
+\brief Global Enum for the curses
+
+The different types are MONSTER_HP_INCREASE.
+*/
+public enum Curse
+{
+    SKILL_3_DISABLED,
+    SKILL_1_ONLY,
+    MORE_VULNERABLE,
+	MONSTER_BUFF,
+    MORE_MONSTERS,
+    TWO_BOSSES
+}
+
+/*!
+\enum Direction
+\brief Global Enum for the direction of movement
+
+The different types are UP, DOWN, LEFT, RIGHT.
+*/
 public enum Direction
 {
 	UP,

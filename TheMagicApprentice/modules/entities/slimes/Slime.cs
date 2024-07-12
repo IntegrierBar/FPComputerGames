@@ -64,7 +64,7 @@ public partial class Slime : CharacterBody2D
 	The default collision shapes fit the small slime.
 	Also set view range and attack range for the slime.
 	*/
-	public void SetSlimeProperties(MagicType magicType, SlimeSize slimeSize, SlimeAttackRange slimeAttackRange, Vector2 slimePosition)
+	public void SetSlimeProperties(MagicType magicType, SlimeSize slimeSize, SlimeAttackRange slimeAttackRange, Vector2 slimePosition, double health)
 	{
 		_damageValue = BaseDamage;
 
@@ -74,6 +74,16 @@ public partial class Slime : CharacterBody2D
 		_slimeAttackRange = slimeAttackRange;
 		Position = slimePosition;
 		_viewRange = ViewRange; // Note: if view range should be different for melee and ranged slimes later, this has to go into the if-else part 
+
+
+		if (CurseHandler.IsActive(Curse.MONSTER_BUFF))
+		{
+			GetNode<HealthComponent>("%HealthComponent").SetMaxHP(health * 1.3);
+		}
+		else
+		{
+			GetNode<HealthComponent>("%HealthComponent").SetMaxHP(health);
+		}
 
 		if (slimeSize == SlimeSize.LARGE) // Scale the collision shapes for the large slimes 
 		{
@@ -163,6 +173,11 @@ public partial class Slime : CharacterBody2D
 
 	public float GetDamageValue()
 	{
-		return _damageValue;
+		float damageMultiplier = 1.0f;
+		if (CurseHandler.IsActive(Curse.MONSTER_BUFF))
+		{
+			damageMultiplier = 1.1f;
+		}
+		return _damageValue * damageMultiplier;
 	}
 }
