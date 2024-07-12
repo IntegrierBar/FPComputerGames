@@ -1,6 +1,11 @@
 using Godot;
 using System;
 
+
+/**
+AugmentEffect to increase the duration of a spell
+*/
+[GlobalClass]
 public partial class IncreaseDurationOfSpell : OnCastAugmentEffect
 {
     [Export]

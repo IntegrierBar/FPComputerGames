@@ -12,6 +12,7 @@ using System.Linq;
 
 /**
 Integration test for augments
+Contains an integration test for every augment class but not all augments since that would be too much effort
 */
 [TestSuite]
 public partial class TestAugments
@@ -263,7 +264,19 @@ public partial class TestAugments
     {
         InventorySpell blackHole = _player.GetTree().GetFirstNodeInGroup(Globals.BlackHoleSpellGroup) as InventorySpell;
 
-        AssertInt(blackHole.GetOnCastAugmentEffects().Count).IsZero();
+        AssertInt(blackHole.GetOnCastAugmentEffects().Count).IsZero(); // check that there are now OnCastAugmentEffects
+
+        // Get the size of the normal Cast BlackHole
+        blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
+
+        Spell blackHoleSpell = _player.GetTree().Root.GetNode("BlackHole") as Spell; // right now spells get added as children of Root. This might change later!
+        AssertObject(blackHoleSpell).IsNotNull();
+
+        Vector2 startScale = blackHoleSpell.Scale;
+
+        // free the blackHole 
+        blackHoleSpell.Free();
+
 
         EquipEffect("increase_radius_black_hole.tres");
 
@@ -273,8 +286,66 @@ public partial class TestAugments
         IncreasedRadiusOfSpell effect = blackHole.GetOnCastAugmentEffects()[0] as IncreasedRadiusOfSpell;
         AssertObject(effect).IsNotNull();
 
-        _player.UnEquipAugmentFromSlot(0);
+        // Cast the spell and check that the scale increased
+        blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
 
+        Spell blackHoleSpell2 = _player.GetTree().Root.GetNode("BlackHole") as Spell; // right now spells get added as children of Root. This might change later!
+        AssertObject(blackHoleSpell2).IsNotNull();
+
+        Vector2 newScale = blackHoleSpell2.Scale;
+
+        // check that Scale has increased
+        AssertFloat(newScale.X).IsGreater(startScale.X);
+        AssertFloat(newScale.Y).IsGreater(startScale.Y);
+
+        // finally unequip and check that the list of OnCastAugmentEffects is empty
+        _player.UnEquipAugmentFromSlot(0);
+        AssertInt(blackHole.GetOnCastAugmentEffects().Count).IsZero();
+    }
+
+
+    /**
+    Test increase_duration_black_hole effect
+    */
+    [TestCase]
+    public void TestIncreaseDurationBlackHole()
+    {
+        InventorySpell blackHole = _player.GetTree().GetFirstNodeInGroup(Globals.BlackHoleSpellGroup) as InventorySpell;
+
+        AssertInt(blackHole.GetOnCastAugmentEffects().Count).IsZero(); // check that there are now OnCastAugmentEffects
+
+        // Get the size of the normal Cast BlackHole
+        blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
+
+        Spell blackHoleSpell = _player.GetTree().Root.GetNode("BlackHole") as Spell; // right now spells get added as children of Root. This might change later!
+        AssertObject(blackHoleSpell).IsNotNull();
+
+        double startTimeLeft = blackHoleSpell._timeLeftUntilDeletion;
+
+        // free the blackHole 
+        blackHoleSpell.Free();
+
+        EquipEffect("increase_duration_black_hole.tres");
+
+        AssertInt(blackHole.GetOnCastAugmentEffects().Count).IsEqual(1);
+
+        // check if it is the correct augment effect
+        IncreaseDurationOfSpell effect = blackHole.GetOnCastAugmentEffects()[0] as IncreaseDurationOfSpell;
+        AssertObject(effect).IsNotNull();
+
+        // Cast the spell and check that the scale increased
+        blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
+
+        Spell blackHoleSpell2 = _player.GetTree().Root.GetNode("BlackHole") as Spell; // right now spells get added as children of Root. This might change later!
+        AssertObject(blackHoleSpell2).IsNotNull();
+
+        double newTimeLeft = blackHoleSpell2._timeLeftUntilDeletion;
+
+        // check that Scale has increased
+        AssertFloat(newTimeLeft).IsGreater(startTimeLeft);
+
+        // finally unequip and check that the list of OnCastAugmentEffects is empty
+        _player.UnEquipAugmentFromSlot(0);
         AssertInt(blackHole.GetOnCastAugmentEffects().Count).IsZero();
     }
 
