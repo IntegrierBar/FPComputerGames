@@ -54,21 +54,8 @@ public partial class UnicornStompingAttack : State
 	}
 
 	/**
-    Update animations to the stomping attack animation, depending on the magic type of the unicorn.
-	Note: When the proper animation is done, there should be eight versions for the different directions. 
-	Then, this function has to be updated accordingly. 
-	At the moment, there are no animations.
-    */
-    public override void UpdateAnimations()
-    {
-		string unicornMagicType = EntityTypeHelper.GetMagicTypeAsString((Parent as Unicorn).GetMagicType());
-		String animation_name = unicornMagicType + "_stomping_attack";
-        base.UpdateAnimations();
-    }
-
-	/**
     This function activates the hurt box of the stomping attack. The hurtbox is only activated after a delay
-	depending on the dtomping animation but this is handled by the hurtbox.
+	depending on the stomping animation but this is handled by the hurtbox.
     */
 	private void EnableStompingHurtbox()
 	{
@@ -86,4 +73,17 @@ public partial class UnicornStompingAttack : State
 		Attack attack = new(damage, magicType, _healthComponent);
 		return attack;
 	}
+
+	/**
+    Update animations to the stomping attack animation, depending on the magic type of the unicorn.
+	Note: When the proper animation is done, there should be eight versions for the different directions. 
+	Then, this function has to be updated accordingly. 
+	At the moment, there are no animations.
+    */
+    public override void UpdateAnimations()
+    {
+		string unicornMagicType = EntityTypeHelper.GetMagicTypeAsString((Parent as Unicorn).GetMagicType());
+		String animation_name = unicornMagicType + "_stomping_attack";
+        base.UpdateAnimations();
+    }
 }

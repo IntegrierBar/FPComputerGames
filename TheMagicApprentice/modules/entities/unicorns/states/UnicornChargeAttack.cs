@@ -26,7 +26,7 @@ public partial class UnicornChargeAttack : State
 	}
 
 	/**
-    When entering the state, the duration of the charge is determined at first 
+    When entering the state, the duration of the charge is determined at first.
     */
 	public override void Enter()
     {

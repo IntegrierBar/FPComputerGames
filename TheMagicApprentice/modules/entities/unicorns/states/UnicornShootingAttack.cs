@@ -52,22 +52,9 @@ public partial class UnicornShootingAttack : State
 	}
 
 	/**
-    Update animations to the charge attack animation, depending on the magic type of the unicorn.
-	Note: When the proper animation is done, there should be eight versions for the different directions. 
-	Then, this function has to be updated accordingly. 
-	At the moment, there are no animations.
-    */
-    public override void UpdateAnimations()
-    {
-		string unicornMagicType = EntityTypeHelper.GetMagicTypeAsString((Parent as Unicorn).GetMagicType());
-		String animation_name = unicornMagicType + "_charge_attack";
-        base.UpdateAnimations();
-    }
-
-	/**
-    TODO: This function should handle the spawning of the projectiles, make sure, that the projectiles
-	move in the correct direction and ensure that they damage the player when hitting them.
-	Implementation will be done later.
+    Function calls the Shooting Attack Projectile Handler to start the shooting attack. The handler 
+	then spawns the projectiles at the position of the unicorn.
+	The function therefore needs the unicorn position and an attack so that the projectiles can damage the player.
     */
 	private void ShootProjectiles()
 	{
@@ -86,4 +73,17 @@ public partial class UnicornShootingAttack : State
 		Attack attack = new(damage, magicType, _healthComponent);
 		return attack;
 	}
+
+	/**
+    Update animations to the charge attack animation, depending on the magic type of the unicorn.
+	Note: When the proper animation is done, there should be eight versions for the different directions. 
+	Then, this function has to be updated accordingly. 
+	At the moment, there are no animations.
+    */
+    public override void UpdateAnimations()
+    {
+		string unicornMagicType = EntityTypeHelper.GetMagicTypeAsString((Parent as Unicorn).GetMagicType());
+		String animation_name = unicornMagicType + "_charge_attack";
+        base.UpdateAnimations();
+    }
 }

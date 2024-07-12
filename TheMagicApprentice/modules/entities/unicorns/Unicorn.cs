@@ -12,10 +12,10 @@ public partial class Unicorn : CharacterBody2D
 	public float MeleeAttackRange = 50; ///< If the PC is inside of this radius, the unicorn performs a melee attack
 
 	[Export]
-	public float BaseDamage = 25;
+	public float BaseDamage = 25; ///< Basic damage of the unicorn
 
 	private MagicType _magicType; ///< Magic type of the unicorn
-	private float _damageValue;
+	private float _damageValue; ///< Actual damage of the unicorn
 
 	/**
 	Is called when the unicorn enters the scene tree.

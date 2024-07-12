@@ -8,15 +8,13 @@ public partial class ShootingAttackProjectileHandler : Node
 	public int AmountProjectilesToSpawn = 10; ///< How many projectiles are created 
 	private int _projectilesLeftToSpawn;	///< Variable to track how many projectiles still have to be spawned
 
-	private Attack _attack;
-	private Vector2 _unicornPosition;
+	private Attack _attack; ///< attack that is given to the projectiles to damage the player
+	private Vector2 _unicornPosition; ///< position of the unicorn at the beginning of the shooting attack
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	/**
+	As long as there are still projectiles that need to be spawned, spawn one projectile per physics
+	frame and reduce the number of projectiles left to spawn by one. 
+	*/
 	public override void _PhysicsProcess(double delta)
 	{
 		if (_projectilesLeftToSpawn > 0)
@@ -53,7 +51,7 @@ public partial class ShootingAttackProjectileHandler : Node
 		ShootingAttackProjectile projectile = scene.Instantiate() as ShootingAttackProjectile;
 		GetTree().Root.AddChild(projectile); // Add the ranged attack projectile to the scene tree
 
-		projectile.Init(_attack);
+		projectile.Init(_attack); // Iniitialise the attack such that the projectile can damage the player on impact
 		projectile.Position = _unicornPosition; // ranged attack spawns at the position of the slime
 	}
 
