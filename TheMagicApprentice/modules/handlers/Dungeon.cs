@@ -104,41 +104,41 @@ public class Dungeon
                 };
                 directions.Shuffle();
 
-                bool moved = false;
-                foreach (Vector2I direction in directions)
-                {
-                    Vector2I nextPos = currentPos + direction;
-                    nextPos.X = Math.Clamp(nextPos.X, 0, GridSize.X - 1);
-                    nextPos.Y = Math.Clamp(nextPos.Y, 0, GridSize.Y - 1);
-                    if (!Layout.ContainsKey(nextPos))
-                    {
-                        Layout[nextPos] = new Room(RoomType.Normal, GetRandomRoomScene());
-                        visitedTiles.Add(nextPos);
-                        currentPos = nextPos;
-                        moved = true;
-                        break;
-                    }
-                }
+				bool moved = false;
+				foreach (Vector2I direction in directions)
+				{
+					Vector2I nextPos = currentPos + direction;
+					nextPos.X = Math.Clamp(nextPos.X, 0, GridSize.X - 1);
+					nextPos.Y = Math.Clamp(nextPos.Y, 0, GridSize.Y - 1);
+					if (!Layout.ContainsKey(nextPos))
+					{
+						Layout[nextPos] = new Room(RoomType.Normal, GetRandomRoomScene());
+						visitedTiles.Add(nextPos);
+						currentPos = nextPos;
+						moved = true;
+						break;
+					}
+				}
 
-                if (!moved)
-                {
-                    currentPos = visitedTiles[(int)GD.Randi() % visitedTiles.Count];
-                }
-            }
+				if (!moved)
+				{
+					currentPos = visitedTiles[(int)GD.Randi() % visitedTiles.Count];
+				}
+			}
 
-            BossPosition = currentPos;
-        }
+			BossPosition = currentPos;
+		}
 
-        Layout[BossPosition] = new Room(RoomType.Boss, GetRandomRoomScene());
-    }
+		Layout[BossPosition] = new Room(RoomType.Boss, GetRandomRoomScene());
+	}
 
-    /**
-    * Gets a random room scene path.
-    * 
-    * @return A string representing the path to a random room scene.
-    */
-    private string GetRandomRoomScene()
-    {
-        return GD.Randi() % 2 == 0 ? "res://modules/rooms/Room3.tscn" : "res://modules/rooms/Room4.tscn";
-    }
+	/**
+	* Gets a random room scene path.
+	* 
+	* @return A string representing the path to a random room scene.
+	*/
+	private string GetRandomRoomScene()
+	{
+		return GD.Randi() % 2 == 0 ? "res://modules/rooms/Room3.tscn" : "res://modules/rooms/Room4.tscn";
+	}
 }
