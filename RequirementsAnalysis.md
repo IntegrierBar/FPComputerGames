@@ -528,9 +528,9 @@ In the dungeons a camera is used to track the PC and enemy actions. The camera b
 
 | **ID: D6**| **Pausing the dungeon** |
 | --- | --- |
-| Description | When the esc-key is pressed by the player a menu is opened and the game is paused. |
-| Acceptance Criterion |  |
-| Notes | From the pause menu the player can go to the settings menu or leave the dungeon early. |
+| Description | When the esc-key is pressed by the player, a menu is opened above the game layout and the game is paused. The pause menu overlays the current game screen, providing options for the player to resume the game, access the settings menu, or leave the dungeon early. |
+| Acceptance Criterion | The game pauses and the pause menu is displayed correctly when the esc-key is pressed. The player can navigate the pause menu and select options without any issues. |
+| Notes | From the pause menu, the player can go to the settings menu or leave the dungeon early. The game remains paused until the player chooses to resume or exit the dungeon. |
 
 
 | **ID: D7**| **Leaving the dungeon early** |

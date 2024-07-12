@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dua4inolrs6ri"]
+[gd_scene load_steps=7 format=3 uid="uid://dua4inolrs6ri"]
 
 [ext_resource type="PackedScene" uid="uid://cfafpfmqm8u17" path="res://modules/entities/player/player.tscn" id="1_khfie"]
+[ext_resource type="Script" path="res://modules/ui/MainGame.cs" id="1_xal8w"]
 [ext_resource type="Script" path="res://modules/handlers/DungeonHandler.cs" id="2_6yvwo"]
 [ext_resource type="Script" path="res://modules/handlers/RoomHandler.cs" id="3_cd7gp"]
 [ext_resource type="Script" path="res://modules/entities/player/CameraController.cs" id="4_8hnnh"]
@@ -31,3 +32,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_7li43")
+
+[node name="MainGameMenu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xal8w")
