@@ -83,13 +83,17 @@ public class Dungeon
         BossPosition = EntrancePosition;
         CurrentRoomPosition = EntrancePosition;
 
-        while (Math.Abs(EntrancePosition.X - BossPosition.X) + Math.Abs(EntrancePosition.Y - BossPosition.Y) < 4)
+        // Repeat until you have a dungeon with a boss room that is at least 2 rooms away from the entrance.
+        while (Math.Abs(EntrancePosition.X - BossPosition.X) + Math.Abs(EntrancePosition.Y - BossPosition.Y) <= 2)
         {
             Layout = new Dictionary<Vector2I, Room>();
             Layout[EntrancePosition] = new Room(RoomType.Normal, GetRandomRoomScene());
 
             List<Vector2I> visitedTiles = new List<Vector2I> { EntrancePosition };
             Vector2I currentPos = EntrancePosition;
+            // From the current position, walk randomly in one direction and add the room to the layout.
+            // If the next room is already in the layout, walk in a different direction.
+            // Repeat this process until the boss room is added to the layout.
             for (int i = 0; i < roomCount - 1; i++)
             {
                 Godot.Collections.Array directions = new Godot.Collections.Array{
