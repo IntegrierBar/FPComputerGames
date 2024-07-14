@@ -33,7 +33,7 @@ public partial class Star : Spell
 
 	/**
 	Change position of the spell.
-	Count down the max life time of the spell and remove the spell once the time is up -> TODO: this max time is not implemented!
+	Count down the max life time of the spell and remove the spell once the time is up 
 	*/
     public override void _PhysicsProcess(double delta)
     {
