@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ExtraArmorOfType" load_steps=2 format=3 uid="uid://lxrs8m2fui2v"]
+
+[ext_resource type="Script" path="res://modules/augments/augment_effects/ExtraArmorOfType.cs" id="1_u61df"]
+
+[resource]
+script = ExtResource("1_u61df")
+_magicType = 0
+_extraArmor = 10.0

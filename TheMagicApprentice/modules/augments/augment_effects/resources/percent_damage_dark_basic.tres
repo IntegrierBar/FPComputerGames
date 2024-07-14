@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PercentDamageForOneSpell" load_steps=2 format=3 uid="uid://dvdikngumyyo4"]
+
+[ext_resource type="Script" path="res://modules/augments/augment_effects/PercentDamageForOneSpell.cs" id="1_lesvj"]
+
+[resource]
+script = ExtResource("1_lesvj")
+_spellName = 2
+_damageIncreaseFaktor = 1.1

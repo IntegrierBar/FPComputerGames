@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AdditionalStars" load_steps=2 format=3 uid="uid://caqs7aaddy2d6"]
+
+[ext_resource type="Script" path="res://modules/augments/augment_effects/AdditionalStars.cs" id="1_jiek6"]
+
+[resource]
+script = ExtResource("1_jiek6")
+_factor = 1.1

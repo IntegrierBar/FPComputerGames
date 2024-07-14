@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PercentDamageForOneType" load_steps=2 format=3 uid="uid://cmtpii66hk16w"]
+
+[ext_resource type="Script" path="res://modules/augments/augment_effects/PercentDamageForOneType.cs" id="1_tg563"]
+
+[resource]
+script = ExtResource("1_tg563")
+_magicType = 0
+_damageIncreaseFaktor = 1.05
