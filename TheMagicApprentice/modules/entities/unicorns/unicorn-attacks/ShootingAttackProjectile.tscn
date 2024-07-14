@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm4mfwtbv0xxh"]
+
+[ext_resource type="Texture2D" uid="uid://cw4ixm7482jjb" path="res://modules/entities/slimes/slime-attacks/RangedAttack.png" id="1_1jgve"]
+[ext_resource type="Script" path="res://modules/entities/unicorns/unicorn-attacks/ShootingAttackProjectile.cs" id="1_58o2s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4icen"]
+radius = 6.0
+
+[node name="ShootingAttackProjectile" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_58o2s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("1_1jgve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("CircleShape2D_4icen")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]

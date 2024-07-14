@@ -7,11 +7,16 @@ public partial class UnicornStompingAttack : State
     [Export]
     public State Wait; ///< Reference to Wait state
 
+	[Export]
+	public double StompingAnimationDuration; ///< Duration of the stomping attack animation. 
+	[Export]
+	public double StompingDelayTime; ///< Time after which the unicorn hits the ground with its hooves in the animation
+
 	private Player _player; ///< reference to the player
 	private double _timeLeft = 0.0; ///< time left in which the unicorn remains in the stomping attack state
 
 	[Export]
-	public double StompingAnimationDuration;
+	private HealthComponent _healthComponent; ///< Reference to Health component of the unicorn
 
 	/**
     Set player so that the distance or direction to the player can be determined later. 
@@ -19,10 +24,7 @@ public partial class UnicornStompingAttack : State
 	public override void _Ready()
 	{
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
-		if (_player is null)
-		{
-			GD.Print("No player found!");
-		}
+		System.Diagnostics.Debug.Assert(_player is not null, "UnicornStompingAttack has not found a player!");
 	}
 
 	/**
@@ -33,7 +35,7 @@ public partial class UnicornStompingAttack : State
     {
 		_timeLeft = StompingAnimationDuration;
 		UpdateAnimations();
-		StompOnGround();
+		EnableStompingHurtbox();
         base.Enter();
     }
 
@@ -43,12 +45,33 @@ public partial class UnicornStompingAttack : State
     */
 	public override State ProcessPhysics(double delta)
 	{
-		_timeLeft -= delta;
+		_timeLeft -= delta; // count down time left in stomping attack state
 		if (_timeLeft <= 0)
 		{
-			return Wait;
+			return Wait; // if the time in the stomping attack state is over, return to the Wait state
 		}
 		return null;
+	}
+
+	/**
+    This function activates the hurt box of the stomping attack. The hurtbox is only activated after a delay
+	depending on the stomping animation but this is handled by the hurtbox.
+    */
+	private void EnableStompingHurtbox()
+	{
+		Parent.GetNode<HurtBoxStompingAttack>("HurtBoxStompingAttack").StartAttack(BuildAttack(), StompingDelayTime);
+	}
+
+	/**
+	Sets parameters of the unicorn attack. 
+	Damage modifiers can also be added here. 
+	*/
+	private Attack BuildAttack()
+	{
+		double damage = (Parent as Unicorn).GetDamageValue();
+	 	MagicType magicType = (Parent as Unicorn).GetMagicType();
+		Attack attack = new(damage, magicType, _healthComponent);
+		return attack;
 	}
 
 	/**
@@ -63,14 +86,4 @@ public partial class UnicornStompingAttack : State
 		String animation_name = unicornMagicType + "_stomping_attack";
         base.UpdateAnimations();
     }
-
-	/**
-    This function should handle the hitbox of the attack, probably also the animation that has to be 
-	displayed and ensure that the attack can hurt the player.
-	Implementation will be done later.
-    */
-	private void StompOnGround()
-	{
-		// here the stomping attack damage and hitbox and stuff like that should be handled
-	}
 }

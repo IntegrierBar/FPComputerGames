@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtrv3jmk71a5l"]
+
+[ext_resource type="Script" path="res://modules/entities/unicorns/unicorn-attacks/ShootingAttackProjectileHandler.cs" id="1_pxcgl"]
+
+[node name="ShootingAttackProjectileHandler" type="Node"]
+script = ExtResource("1_pxcgl")
