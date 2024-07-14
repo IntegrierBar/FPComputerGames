@@ -26,6 +26,11 @@ public partial class Healthbar : TextureProgressBar
 
 	public void InitHealthbar(double health)
 	{
+		if(_healthbar == null)
+		{
+			_healthbar = GetNode<TextureProgressBar>("Healthbar");
+		}
+		System.Diagnostics.Debug.Assert(_healthbar is not null, "Healthbar not initialized when it should be.");
 		_healthPoints = health;
 		MaxValue = _healthPoints;
 		Value = _healthPoints;

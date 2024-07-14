@@ -12,7 +12,7 @@ public partial class HealthComponent : Area2D
 
 	[Export]
 	private double MaxHP = 100; ///< Maximum HP of the entity 
-	private double _currentHP; ///< current HP of the entitiy 
+	private double _currentHP; ///< current HP of the entitiy
 
 	private Dictionary<MagicType, double> Armor = new Dictionary<MagicType, double> {
 		{MagicType.SUN, 0},
@@ -28,6 +28,8 @@ public partial class HealthComponent : Area2D
 	{
 		_currentHP = MaxHP;
 
+		
+
 		healthbar?.InitHealthbar(MaxHP);
 	}
 
@@ -41,6 +43,11 @@ public partial class HealthComponent : Area2D
 		if(_currentHP <= 0.0)
 			return;
 
+		double damageMultiplier = 1.0;
+		if (GetParent() != null && GetParent().IsInGroup("player") && CurseHandler.IsActive(Curse.MORE_VULNERABLE))
+		{
+			damageMultiplier = 1.25; // Increase damage by 25% if curse is active
+		}
 		if (Armor[attack.magicType] > 100.0)
 		{
 			if (attack.attacker is not null)
@@ -51,7 +58,7 @@ public partial class HealthComponent : Area2D
 			return;
 		}
 
-		_currentHP -= attack.damage * (1.0 - Armor[attack.magicType]/100.0);
+		_currentHP -= attack.damage * damageMultiplier * (1.0 - Armor[attack.magicType]/100.0);
 		
 		healthbar?.SetHealthPoints(_currentHP);
 
