@@ -65,21 +65,31 @@ public partial class RangedAttack : Area2D
     }
 
     /**
-	Gets called when the projectile hits a Health component.
-	Since the projectile's mask layer is set to the player layer, it cannot hit other slimes
+	Gets called when the projectile hits a Health component since health components use area2Ds.
+	Since the projectile's mask layer is set to the player layer, it cannot hit other slimes.
 	*/
     public void OnAreaEntered(Area2D area)
 	{
-		GD.Print("hit area");
-		GD.Print(area);
 		if (area is HealthComponent healthComponent) // check if area is a health component and if true cast it as a healthcomponent under the name healthComponent
 		{
 			healthComponent.TakeDamage(_attack);
-
 			// once the spell has hit something we delete it
 			QueueFree();
 		}
-		// TODO: Spell should also disappear when hitting a wall
     }
+
+	/**
+	Since parts of the tilemap that have a collision layer are not area2D nodes, body entered is necessary to use.
+	This function detects collisions with all types of 2D nodes.
+	Check if the projectile entered a part of the tilemap, which means a wall or object, and remove the projectile. 
+	This requires mask 1 (Collision) to be set!
+	*/
+	public void OnBodyEntered(Node2D body)
+	{
+		if (body is TileMap)
+		{
+			QueueFree();
+		}
+	}
 
 }

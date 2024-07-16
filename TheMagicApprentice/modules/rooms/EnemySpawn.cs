@@ -20,7 +20,7 @@ public partial class EnemySpawn : Node2D
 		Slime slimeInstance = Slime as Slime;
 		if (slimeInstance != null)
 		{
-			slimeInstance.SetSlimeProperties(MagicType.SUN, SlimeSize.SMALL, SlimeAttackRange.MELEE, GlobalPosition, 100);
+			slimeInstance.SetSlimeProperties(MagicType.SUN, SlimeSize.SMALL, SlimeAttackRange.RANGED, GlobalPosition, 100);
 		}
 		RoomHandler.CurrentRoomNode.AddChild(Slime);
 

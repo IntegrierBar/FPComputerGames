@@ -333,14 +333,14 @@ MagicType = 1
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("18_gloak")
 
-[node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
+[node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("19_ho7hk")
 BaseDamage = 5.0
 MagicType = 1
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("20_l7up7")
 
-[node name="DarkEnergyWave" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="DarkEnergyWave" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
 script = ExtResource("21_68wfp")
 BaseDamage = 5.0
 MagicType = 2

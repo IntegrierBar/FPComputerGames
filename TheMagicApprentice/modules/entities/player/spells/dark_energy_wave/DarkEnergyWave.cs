@@ -23,7 +23,7 @@ public partial class DarkEnergyWave : Spell
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
-		Scale *= (float)1.15; // use the scale property to push the wave
+		Scale *= (float)1.05; // use the scale property to push the wave
     }
 
 
