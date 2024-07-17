@@ -20,8 +20,6 @@ script = ExtResource("3_cd7gp")
 
 [node name="CurseHandler" type="Node" parent="." groups=["curse_handler"]]
 script = ExtResource("4_2b12q")
-Skill1Only = false
-MonsterBuff = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

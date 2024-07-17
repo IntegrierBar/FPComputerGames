@@ -11,17 +11,17 @@ public partial class CurseHandler : Node
     We use bools even though we have a Curse enum in @enums.cs because this lets us set them active or disabled in the editor very easily.
     */
     [Export]
-    public bool Skill3Disabled { get; set; } = true;
+    public bool Skill3Disabled { get; set; } = false;
     [Export]
-    public bool Skill1Only { get; set; } = true;
+    public bool Skill1Only { get; set; } = false;
     [Export]
-    public bool MoreVulnerable { get; set; } = true;
+    public bool MoreVulnerable { get; set; } = false;
     [Export]
-    public bool MonsterBuff { get; set; } = true;
+    public bool MonsterBuff { get; set; } = false;
     [Export]
-    public bool MoreMonsters { get; set; } = true;
+    public bool MoreMonsters { get; set; } = false;
     [Export]
-    public bool TwoBosses { get; set; } = true;
+    public bool TwoBosses { get; set; } = false;
 
     /**
     \brief Called when the node enters the scene tree for the first time
