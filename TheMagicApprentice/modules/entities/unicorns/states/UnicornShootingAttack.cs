@@ -8,10 +8,13 @@ public partial class UnicornShootingAttack : State
     public State Wait; ///< Reference to Wait state
 
 	[Export]
-	public double ShootingAnimationDuration;
+	public double ShootingAnimationDuration; ///< Duration of the shooting attack animation
 
 	private Player _player; ///< reference to the player
 	private double _timeLeft = 0.0; ///< time left in which the unicorn remains in the charge attack state
+
+	[Export]
+	private HealthComponent _healthComponent; ///< Reference to Health component of the unicorn
 
 	/**
     Set player so that the distance to the player can be determined later. 
@@ -19,10 +22,7 @@ public partial class UnicornShootingAttack : State
 	public override void _Ready()
 	{
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
-		if (_player is null)
-		{
-			GD.Print("No player found!");
-		}
+		System.Diagnostics.Debug.Assert(_player is not null, "UnicornShootingAttack has not found a player!");
 	}
 
 	/**
@@ -43,12 +43,35 @@ public partial class UnicornShootingAttack : State
     */
 	public override State ProcessPhysics(double delta)
 	{
-		_timeLeft -= delta;
+		_timeLeft -= delta; // count down time left in the shooting attack state
 		if (_timeLeft <= 0)
 		{
-			return Wait;
+			return Wait; // if the time is up return to the wait state
 		}
 		return null;
+	}
+
+	/**
+    Function calls the Shooting Attack Projectile Handler to start the shooting attack. The handler 
+	then spawns the projectiles at the position of the unicorn.
+	The function therefore needs the unicorn position and an attack so that the projectiles can damage the player.
+    */
+	private void ShootProjectiles()
+	{
+		Vector2 unicorn_position = Parent.Position; // since the unicorn does not move during the shooting attack, giving the current position is sufficient
+		Parent.GetNode<ShootingAttackProjectileHandler>("ShootingAttackProjectileHandler").StartShootingAttack(BuildAttack(), unicorn_position);
+	}
+
+	/**
+	Sets parameters of the unicorns attack. 
+	Damage modifiers can (should!) also be added here. 
+	*/
+	private Attack BuildAttack()
+	{
+		double damage = (Parent as Unicorn).GetDamageValue();
+	 	MagicType magicType = (Parent as Unicorn).GetMagicType();
+		Attack attack = new(damage, magicType, _healthComponent);
+		return attack;
 	}
 
 	/**
@@ -63,14 +86,4 @@ public partial class UnicornShootingAttack : State
 		String animation_name = unicornMagicType + "_charge_attack";
         base.UpdateAnimations();
     }
-
-	/**
-    This function should handle the spawning of the projectiles, make sure, that the projectiles
-	move in the correct direction and ensure that they damage the player when hitting them.
-	Implementation will be done later.
-    */
-	private void ShootProjectiles()
-	{
-		// this is where the shooting attack projectiles are spawned. Implementation will follow.
-	}
 }

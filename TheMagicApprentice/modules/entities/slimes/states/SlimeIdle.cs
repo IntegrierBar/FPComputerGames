@@ -18,27 +18,24 @@ public partial class SlimeIdle : State
 	[Export]
 	public double JumpAnimationDuration; ///< duration of the jump/move animation
 
-	private Player _player;
+	private Player _player; ///< reference to the player
 
 	private double _timeLeft = 0.0; ///< time left in which the slime either remains in one position, or jumps around randomly
 	private bool _idleAtSamePosition = true; ///< is true when the slime stays in one position and false for random walk, changes from true to false whenever timeLeft reaches zero
 	// Setting _idleatSamePosition to true means it will get set to false in the first physics process 
 	// and the slime starts jumping around.
 
-	private RandomNumberGenerator random;
+	private RandomNumberGenerator _random;
 
 	/**
     Set player and random number generator for the random walk.
 	*/
 	public override void _Ready()
 	{
-		random = new RandomNumberGenerator(); // necessary for generating some random numbers
+		_random = new RandomNumberGenerator(); // necessary for generating some random numbers
 
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
-		if (_player is null)
-		{
-			GD.Print("No player found!");
-		}
+		System.Diagnostics.Debug.Assert(_player is not null, "SlimeIdle has not found a player!");
 	}
 
 	/**
@@ -59,14 +56,14 @@ public partial class SlimeIdle : State
 
 		if (IsPlayerInAttackRange(vector_to_player))
 		{
-			return Attacking;
+			return Attacking; // if the player is in attack range, attack
 		}
 		if (IsPlayerInViewrange(vector_to_player))
 		{
-			return Moving;
+			return Moving; // if the player is in viewrange, move towards the player
 		}
 
-		_timeLeft -= delta;
+		_timeLeft -= delta; // count down time left in the current activity, remaining still or moving around
 		if (_timeLeft <= 0.0)
 		{
 			Vector2 new_direction = ChangeRandomWalk();
@@ -100,7 +97,7 @@ public partial class SlimeIdle : State
 		else
 		{
 			_timeLeft = (double)times * JumpAnimationDuration; // timeLeft is always a multiple of the animation duration
-			return new Vector2(random.RandfRange(-1, 1), random.RandfRange(-1, 1)).Normalized(); // set a random direction and normalise
+			return new Vector2(_random.RandfRange(-1, 1), _random.RandfRange(-1, 1)).Normalized(); // set a random direction and normalise
 		}
 	}
 
@@ -146,6 +143,6 @@ public partial class SlimeIdle : State
 	*/
 	public void CreateRNG()
 	{
-		random = new RandomNumberGenerator();
+		_random = new RandomNumberGenerator();
 	}
 }

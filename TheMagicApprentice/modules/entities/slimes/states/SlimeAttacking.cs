@@ -7,8 +7,8 @@ public partial class SlimeAttacking : State
     [Export]
     public State Moving; ///< Reference to Moving state
 
-	private double _timeLeft = 0.0;
-	private Player _player;
+	private double _timeLeft = 0.0; ///< time left in which the slime remains in the attacking state
+	private Player _player; ///< reference to the player
 
 	[Export]
 	private HealthComponent _healthComponent; ///< Reference to Health component of the slime
@@ -19,10 +19,7 @@ public partial class SlimeAttacking : State
 	public override void _Ready()
 	{
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
-		if (_player is null)
-		{
-			GD.Print("No player found!");
-		}
+		System.Diagnostics.Debug.Assert(_player is not null, "SlimeAttacking has not found a player!");
 	}
 
 	/**
@@ -34,17 +31,17 @@ public partial class SlimeAttacking : State
 		UpdateAnimations();
 
 		SlimeAttackRange slimeAttackRange = (Parent as Slime).GetSlimeAttackRange();
-		if (slimeAttackRange == SlimeAttackRange.RANGED)
+		if (slimeAttackRange == SlimeAttackRange.RANGED) 
 		{
-			AttackRanged();
+			AttackRanged(); // if the slime is ranged, use the ranged attack
 		}
 		else if (slimeAttackRange == SlimeAttackRange.MELEE)
 		{
-			AttackMelee();
+			AttackMelee(); // if the slime is melee, us the melee attack
 		}
 		else
 		{
-			GD.Print("Oh no, this slime does not have a known attack range!");
+			GD.Print("Oh no, this slime does not have a known attack range!"); // this should not happen, I don't think it even can happen...
 		}
         base.Enter();
     }
@@ -56,10 +53,10 @@ public partial class SlimeAttacking : State
 	*/    
 	public override State ProcessPhysics(double delta)
 	{
-		_timeLeft -= delta;
+		_timeLeft -= delta; // count down time left in attack state
         if (_timeLeft <= 0.0)
         {
-            return Moving;
+            return Moving; // return to moving state when the time is up
         }
 		Parent.MoveAndSlide();
 
@@ -122,7 +119,7 @@ public partial class SlimeAttacking : State
 	{
 		double damage = (Parent as Slime).GetDamageValue();
 	 	MagicType magicType = (Parent as Slime).GetMagicType();
-		Attack attack = new Attack(damage, magicType, _healthComponent);
+		Attack attack = new(damage, magicType, _healthComponent);
 		return attack;
 	}
 
@@ -134,10 +131,10 @@ public partial class SlimeAttacking : State
 	{
 		PackedScene scene = GD.Load<PackedScene>("res://modules/entities/slimes/slime-attacks/RangedAttack.tscn");
 		RangedAttack ranged_attack = scene.Instantiate() as RangedAttack;
-		GetTree().Root.AddChild(ranged_attack);
+		GetTree().Root.AddChild(ranged_attack); // Add the ranged attack projectile to the scene tree
 
 		Vector2 vector_to_player = _player.GlobalPosition - Parent.GlobalPosition;
-		ranged_attack.Init(attack, vector_to_player);
-		ranged_attack.Position = (Parent as Slime).Position;
+		ranged_attack.Init(attack, vector_to_player); // initialise the ranged attack with the build attack and the direction from the slime towards the player
+		ranged_attack.Position = Parent.Position; // ranged attack spawns at the position of the slime
 	}
 }

@@ -8,10 +8,13 @@ public partial class UnicornChargeAttack : State
     public State Wait; ///< Reference to Wait state
 
 	[Export]
-	public float CHARGESPEED = 300;
+	public float CHARGESPEED = 300; ///< Speed with which the unicorn charges at the player
 
 	private Player _player; ///< reference to the player
 	private double _timeLeft = 0.0; ///< time left in which the unicorn remains in the charge attack state
+
+	[Export]
+	private HealthComponent _healthComponent; ///< Reference to Health component of the unicorn
 
 	/**
     Set player so that the distance to the player can be determined later. 
@@ -19,20 +22,17 @@ public partial class UnicornChargeAttack : State
 	public override void _Ready()
 	{
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
-		if (_player is null)
-		{
-			GD.Print("No player found!");
-		}
+		System.Diagnostics.Debug.Assert(_player is not null, "UnicornChargeAttack has not found a player!");
 	}
 
 	/**
-    When entering the state, the duration of the charge is determined at first 
+    When entering the state, the duration of the charge is determined at first.
     */
 	public override void Enter()
     {
 		_timeLeft = DetermineChargeTimeAndSetDirection();
 		UpdateAnimations();
-		EnableChargedAttackHitbox();
+		EnableChargedAttackHurtbox();
         base.Enter();
     }
 
@@ -42,19 +42,24 @@ public partial class UnicornChargeAttack : State
 	*/
     public override void Exit()
     {
-		Parent.Velocity = new Vector2(0.0f, 0.0f);
+		Parent.Velocity = new Vector2(0.0f, 0.0f); // set velocity back to zero when leaving the state
         base.Exit();
     }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	/**
+    Count down the time left in the Charge Attack state. When the time left has reached zero, 
+	return to the wait state. 
+    */
 	public override State ProcessPhysics(double delta)
 	{
-		_timeLeft -= delta;
+		_timeLeft -= delta; // count down time left in charge attack state
 		if (_timeLeft <= 0)
 		{
-			return Wait;
+			return Wait; // if the time is up return to the wait state
 		}
-		Parent.MoveAndSlide();
+		Parent.MoveAndSlide(); 
+		// TODO: When charging the unicorn should only stop when encountering a wall, if the player is 
+		// in the way, they should either be thrown to the side or pushed along. Check if this does that.
 		return null;
 	}
 
@@ -77,9 +82,26 @@ public partial class UnicornChargeAttack : State
 		return vector_to_player.Length() / CHARGESPEED * 1.1f;
 	}
 
-	private void EnableChargedAttackHitbox()
+	/**
+    This function enables the hurtbox used for damaging the player with a charged attack.
+	Note: when the unicorn gets different charge attack animations, it might also need different hurtboxes
+	to fit with the visuals
+    */
+	private void EnableChargedAttackHurtbox()
 	{
-		// This is where the damage part of the charged attack should be later on. Implementation will follow.
+		Parent.GetNode<HurtBoxChargeAttack>("HurtBoxChargeAttack").StartAttack(BuildAttack(), _timeLeft);
+	}
+
+	/**
+	Sets parameters of the unicorn attack. 
+	Damage modifiers can also be added here. 
+	*/
+	private Attack BuildAttack()
+	{
+		double damage = (Parent as Unicorn).GetDamageValue();
+	 	MagicType magicType = (Parent as Unicorn).GetMagicType();
+		Attack attack = new(damage, magicType, _healthComponent);
+		return attack;
 	}
 
 	/**

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ExtraArmorOfType" load_steps=2 format=3 uid="uid://bt5myyx5hul47"]
+
+[ext_resource type="Script" path="res://modules/augments/augment_effects/ExtraArmorOfType.cs" id="1_j3prc"]
+
+[resource]
+script = ExtResource("1_j3prc")
+_magicType = 2
+_extraArmor = 10.0

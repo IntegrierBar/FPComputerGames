@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 
 /**
@@ -18,6 +19,8 @@ public partial class InventorySpell : Node
 	public double Damage; ///< actual damage of the spell
 	[Export]
 	public MagicType MagicType = MagicType.SUN; ///< Magic type of the spell
+
+	private List<OnCastAugmentEffect> _onCastAugmentEffects = new List<OnCastAugmentEffect>(); 
 
 	[Export]
 	protected HealthComponent _playerHealthComponent; ///< Reference to the players HealthComponent
@@ -53,6 +56,8 @@ public partial class InventorySpell : Node
 				AddToGroup(Globals.DarkSpellGroup);
 				break;
 		}
+
+		AddToGroup(Globals.InventorySpellGroup);
     }
 
 
@@ -69,6 +74,11 @@ public partial class InventorySpell : Node
 
 		// TODO in the future do not add to Tree Root but to Room
         GetTree().Root.AddChild(spell);
+
+		foreach (OnCastAugmentEffect effect in _onCastAugmentEffects)
+		{
+			effect.OnCast(spell);
+		}
 	}
 
 
@@ -79,5 +89,29 @@ public partial class InventorySpell : Node
 	{
 		System.Diagnostics.Debug.Assert(BaseDamage >= 0, "BaseDamage is negative"); // check that it is non negative
 		Damage = BaseDamage;
+	}
+
+	/**
+	add an OnCastAugmentEffect
+	*/
+	public void AddOnCastAugmentEffect(OnCastAugmentEffect onCastAugmentEffect)
+	{
+		_onCastAugmentEffects.Add(onCastAugmentEffect);
+	}
+
+	/**
+	Empties the List of OnCastAugmentEffects
+	*/
+	public void ClearOnCastAugmentEffects()
+	{
+		_onCastAugmentEffects = new List<OnCastAugmentEffect>();
+	}
+
+	/**
+	Getter for OnCastAugmentEffects. Used by tests only
+	*/
+	public List<OnCastAugmentEffect> GetOnCastAugmentEffects()
+	{
+		return _onCastAugmentEffects;
 	}
 }

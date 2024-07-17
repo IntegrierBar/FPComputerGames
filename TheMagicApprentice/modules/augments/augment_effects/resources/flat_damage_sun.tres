@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FlatDamageForOneType" load_steps=2 format=3 uid="uid://bkdodl8w40wkd"]
+
+[ext_resource type="Script" path="res://modules/augments/augment_effects/FlatDamageForOneType.cs" id="1_b0ndy"]
+
+[resource]
+script = ExtResource("1_b0ndy")
+_magicType = 0
+_flatDamageIncrease = 10.0

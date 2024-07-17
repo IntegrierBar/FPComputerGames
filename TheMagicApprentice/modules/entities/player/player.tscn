@@ -310,13 +310,15 @@ _spellScene = ExtResource("12_oqin6")
 
 [node name="DarkBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("11_wf06i")
+BaseDamage = 31.0
 MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
+[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("13_drg8x")
 CastTime = 0.7
+BaseDamage = 10.0
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("14_qxs2i")
 
@@ -345,8 +347,9 @@ MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("22_vkran")
 
-[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
 script = ExtResource("23_jr77b")
+BaseDamage = 40.0
 MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("24_h76h0")
@@ -355,3 +358,12 @@ _spellScene = ExtResource("24_h76h0")
 visible = false
 
 [node name="SpellInventory" parent="UI" instance=ExtResource("10_cknrl")]
+
+[node name="AddAugment" type="Button" parent="UI"]
+offset_left = 950.0
+offset_top = 13.0
+offset_right = 1138.0
+offset_bottom = 62.0
+text = "Add Augment to slot 0"
+
+[connection signal="pressed" from="UI/AddAugment" to="." method="TestEquip"]

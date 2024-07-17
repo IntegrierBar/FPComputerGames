@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Security.Cryptography;
 
 /*!
 \enum MagicType
@@ -66,6 +67,24 @@ public enum Direction
 	DOWN,
 	LEFT,
 	RIGHT,
+}
+
+/*!
+\enum SpellName
+\brief Global Enum for all spell names
+This Enum is mostly used by the augments so that we don't have to use strings
+*/
+public enum SpellName
+{
+    SunBasic,
+    CosmicBasic,
+    DarkBasic,
+    SunBeam,
+    SummonSun,
+    MoonLight,
+    StarRain,
+    DarkEnergyWave,
+    BlackHole,
 }
 
 public static class EntityTypeHelper
@@ -154,3 +173,6 @@ public static class DirectionHelper
 		return newPosition;
 	}
 }
+
+
+
