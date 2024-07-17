@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Security.Cryptography;
 
 /*!
 \enum MagicType
@@ -38,12 +39,52 @@ public enum SlimeAttackRange
 	RANGED,
 }
 
+/*!
+\enum Curse
+\brief Global Enum for the curses
+
+The different types are MONSTER_HP_INCREASE.
+*/
+public enum Curse
+{
+    SKILL_3_DISABLED,
+    SKILL_1_ONLY,
+    MORE_VULNERABLE,
+	MONSTER_BUFF,
+    MORE_MONSTERS,
+    TWO_BOSSES
+}
+
+/*!
+\enum Direction
+\brief Global Enum for the direction of movement
+
+The different types are UP, DOWN, LEFT, RIGHT.
+*/
 public enum Direction
 {
 	UP,
 	DOWN,
 	LEFT,
 	RIGHT,
+}
+
+/*!
+\enum SpellName
+\brief Global Enum for all spell names
+This Enum is mostly used by the augments so that we don't have to use strings
+*/
+public enum SpellName
+{
+    SunBasic,
+    CosmicBasic,
+    DarkBasic,
+    SunBeam,
+    SummonSun,
+    MoonLight,
+    StarRain,
+    DarkEnergyWave,
+    BlackHole,
 }
 
 public static class EntityTypeHelper
@@ -132,3 +173,6 @@ public static class DirectionHelper
 		return newPosition;
 	}
 }
+
+
+

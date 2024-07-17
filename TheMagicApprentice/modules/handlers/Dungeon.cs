@@ -83,13 +83,17 @@ public class Dungeon
         BossPosition = EntrancePosition;
         CurrentRoomPosition = EntrancePosition;
 
-        while (Math.Abs(EntrancePosition.X - BossPosition.X) + Math.Abs(EntrancePosition.Y - BossPosition.Y) < 4)
+        // Repeat until you have a dungeon with a boss room that is at least 2 rooms away from the entrance.
+        while (Math.Abs(EntrancePosition.X - BossPosition.X) + Math.Abs(EntrancePosition.Y - BossPosition.Y) <= 2)
         {
             Layout = new Dictionary<Vector2I, Room>();
             Layout[EntrancePosition] = new Room(RoomType.Normal, GetRandomRoomScene());
 
             List<Vector2I> visitedTiles = new List<Vector2I> { EntrancePosition };
             Vector2I currentPos = EntrancePosition;
+            // From the current position, walk randomly in one direction and add the room to the layout.
+            // If the next room is already in the layout, walk in a different direction.
+            // Repeat this process until the boss room is added to the layout.
             for (int i = 0; i < roomCount - 1; i++)
             {
                 Godot.Collections.Array directions = new Godot.Collections.Array{
@@ -100,41 +104,41 @@ public class Dungeon
                 };
                 directions.Shuffle();
 
-                bool moved = false;
-                foreach (Vector2I direction in directions)
-                {
-                    Vector2I nextPos = currentPos + direction;
-                    nextPos.X = Math.Clamp(nextPos.X, 0, GridSize.X - 1);
-                    nextPos.Y = Math.Clamp(nextPos.Y, 0, GridSize.Y - 1);
-                    if (!Layout.ContainsKey(nextPos))
-                    {
-                        Layout[nextPos] = new Room(RoomType.Normal, GetRandomRoomScene());
-                        visitedTiles.Add(nextPos);
-                        currentPos = nextPos;
-                        moved = true;
-                        break;
-                    }
-                }
+				bool moved = false;
+				foreach (Vector2I direction in directions)
+				{
+					Vector2I nextPos = currentPos + direction;
+					nextPos.X = Math.Clamp(nextPos.X, 0, GridSize.X - 1);
+					nextPos.Y = Math.Clamp(nextPos.Y, 0, GridSize.Y - 1);
+					if (!Layout.ContainsKey(nextPos))
+					{
+						Layout[nextPos] = new Room(RoomType.Normal, GetRandomRoomScene());
+						visitedTiles.Add(nextPos);
+						currentPos = nextPos;
+						moved = true;
+						break;
+					}
+				}
 
-                if (!moved)
-                {
-                    currentPos = visitedTiles[(int)GD.Randi() % visitedTiles.Count];
-                }
-            }
+				if (!moved)
+				{
+					currentPos = visitedTiles[(int)GD.Randi() % visitedTiles.Count];
+				}
+			}
 
-            BossPosition = currentPos;
-        }
+			BossPosition = currentPos;
+		}
 
-        Layout[BossPosition] = new Room(RoomType.Boss, GetRandomRoomScene());
-    }
+		Layout[BossPosition] = new Room(RoomType.Boss, GetRandomRoomScene());
+	}
 
-    /**
-    * Gets a random room scene path.
-    * 
-    * @return A string representing the path to a random room scene.
-    */
-    private string GetRandomRoomScene()
-    {
-        return GD.Randi() % 2 == 0 ? "res://modules/rooms/Room3.tscn" : "res://modules/rooms/Room4.tscn";
-    }
+	/**
+	* Gets a random room scene path.
+	* 
+	* @return A string representing the path to a random room scene.
+	*/
+	private string GetRandomRoomScene()
+	{
+		return GD.Randi() % 2 == 0 ? "res://modules/rooms/Room3.tscn" : "res://modules/rooms/Room4.tscn";
+	}
 }

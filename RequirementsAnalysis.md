@@ -679,12 +679,41 @@ If the player decides to leave the dungeon, they cannot try the same dungeon aga
 
 ##### Possible Curses
 
-- player cannot use skill 3
-- player can only use skill 1
-- player takes x % more damage
-- monsters have 20/40/60/80/100 % more hp/damage
-- x % more monsters
-- dungeon contains 2 bosses in the final room
+| **ID: CURSE1**| **Skill 3 Disabled** |
+| --- | --- |
+| Description | The player cannot use skill 3 during the dungeon run. |
+| Acceptance Criterion | Skill 3 is disabled for the player. |
+| Notes | None |
+
+| **ID: CURSE2**| **Skill 1 Only** |
+| --- | --- |
+| Description | The player can only use skill 1 during the dungeon run. |
+| Acceptance Criterion | Only skill 1 is available for the player. |
+| Notes | None |
+
+| **ID: CURSE3**| **Increased Damage Taken** |
+| --- | --- |
+| Description | The player takes 25 % more damage from all sources. |
+| Acceptance Criterion | Damage taken by the player is increased by 25 %. |
+| Notes | None |
+
+| **ID: CURSE4**| **Increased Monster HP/Damage** |
+| --- | --- |
+| Description | Monsters have 30 % more HP and deal 10% more damage. |
+| Acceptance Criterion | Monster HP and damage are increased by the specified percentages. |
+| Notes | The exact percentage increase needs to be determined. |
+
+| **ID: CURSE5**| **Increased Monster Count** |
+| --- | --- |
+| Description | 33 % more monsters spawn in the dungeon. |
+| Acceptance Criterion | The number of monsters is increased by 33 %. |
+| Notes | None |
+
+| **ID: CURSE6**| **Two Bosses** |
+| --- | --- |
+| Description | The dungeon contains 2 bosses in the final room. |
+| Acceptance Criterion | Two bosses are present in the final room of the dungeon. |
+| Notes | None |
 
 ##### 2.2.2.2.4 Tile-Based System and Collision Detection
 

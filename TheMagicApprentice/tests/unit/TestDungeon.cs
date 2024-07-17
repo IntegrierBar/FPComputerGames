@@ -11,40 +11,56 @@ using static GdUnit4.Assertions;
 public partial class TestDungeon
 {
 	[TestCase]
-	public void TestDungeonConstructor()
+	public void TestDungeonGenerateConstructor()
 	{
 		Dungeon dungeon = new Dungeon(5, 10);
 		AssertThat(dungeon.MinRooms).IsEqual(5);
 		AssertThat(dungeon.MaxRooms).IsEqual(10);
 		AssertThat(dungeon.Layout).IsNotNull();
 		AssertThat(dungeon.Layout.Count).IsGreaterEqual(5);
+		AssertThat(dungeon.GridSize).IsEqual(new Vector2I(21, 21));
 	}
 
 	[TestCase]
-	public void TestDungeonGeneration()
+	public void TestDungeonCopyConstructor()
 	{
-		Dungeon dungeon = new Dungeon(5, 10);
+		Dungeon originalDungeon = new Dungeon(5, 10);
+		Dungeon copiedDungeon = new Dungeon(originalDungeon);
 
-		AssertThat(dungeon.Layout).IsNotNull();
-		AssertThat(dungeon.Layout.Count).IsBetween(5, 10);
-		AssertThat(dungeon.EntrancePosition).IsNotEqual(dungeon.BossPosition);
-		AssertThat(dungeon.CurrentRoomPosition).IsEqual(dungeon.EntrancePosition);
+		AssertThat(copiedDungeon.Layout).IsEqual(originalDungeon.Layout);
+		AssertThat(copiedDungeon.EntrancePosition).IsEqual(originalDungeon.EntrancePosition);
+		AssertThat(copiedDungeon.BossPosition).IsEqual(originalDungeon.BossPosition);
+		AssertThat(copiedDungeon.GridSize).IsEqual(originalDungeon.GridSize);
+		AssertThat(copiedDungeon.MagicType).IsEqual(originalDungeon.MagicType);
+		AssertThat(copiedDungeon.CurrentRoomPosition).IsEqual(originalDungeon.EntrancePosition);
+		AssertThat(copiedDungeon.GridSize).IsEqual(new Vector2I(21, 21));
+	}
 
-		// Check if there are at least 2 rooms between entrance and boss
-		int manhattanDistance = Math.Abs(dungeon.EntrancePosition.X - dungeon.BossPosition.X) +
-								Math.Abs(dungeon.EntrancePosition.Y - dungeon.BossPosition.Y);
-		AssertThat(manhattanDistance).IsGreaterEqual(4);
-
-		// Check if all rooms are within the grid
-		foreach (var position in dungeon.Layout.Keys)
+	[TestCase]
+	public void TestDungeonLayoutConstructor()
+	{
+		// Arrange
+		Dictionary<Vector2I, Room> layout = new Dictionary<Vector2I, Room>
 		{
-			AssertThat(position.X).IsBetween(0, dungeon.GridSize.X - 1);
-			AssertThat(position.Y).IsBetween(0, dungeon.GridSize.Y - 1);
-		}
+			{ new Vector2I(0, 0), new Room(RoomType.Normal, "res://modules/rooms/Room3.tscn") },
+			{ new Vector2I(1, 0), new Room(RoomType.Normal, "res://modules/rooms/Room4.tscn") },
+			{ new Vector2I(1, 1), new Room(RoomType.Boss, "res://modules/rooms/Room3.tscn") }
+		};
+		Vector2I entrancePosition = new Vector2I(0, 0);
+		Vector2I bossPosition = new Vector2I(1, 1);
+		Vector2I gridSize = new Vector2I(2, 2);
+		MagicType magicType = MagicType.SUN;
 
-		// Check if entrance and boss rooms are correctly set
-		AssertThat(dungeon.Layout[dungeon.EntrancePosition].Type).IsEqual(RoomType.Normal);
-		AssertThat(dungeon.Layout[dungeon.BossPosition].Type).IsEqual(RoomType.Boss);
+		// Act
+		Dungeon dungeon = new Dungeon(layout, entrancePosition, bossPosition, gridSize, magicType);
+
+		// Assert
+		AssertThat(dungeon.Layout).IsEqual(layout);
+		AssertThat(dungeon.EntrancePosition).IsEqual(entrancePosition);
+		AssertThat(dungeon.BossPosition).IsEqual(bossPosition);
+		AssertThat(dungeon.GridSize).IsEqual(gridSize);
+		AssertThat(dungeon.MagicType).IsEqual(magicType);
+		AssertThat(dungeon.CurrentRoomPosition).IsEqual(entrancePosition);
 	}
 
 	[TestCase]
@@ -85,7 +101,7 @@ public partial class TestDungeon
 	}
 
 	[TestCase]
-	public void TestMultipleDungeonGenerations()
+	public void TestDungeonGeneration()
 	{
 		Dungeon dungeon = new Dungeon(5, 10);
 		HashSet<string> uniqueLayouts = new HashSet<string>();
@@ -93,12 +109,34 @@ public partial class TestDungeon
 		for (int i = 0; i < 100; i++)
 		{
 			dungeon.Generate();
-			string layoutHash = GetLayoutHash(dungeon.Layout);
-			uniqueLayouts.Add(layoutHash);
-		}
 
-		// Check if we have generated multiple unique layouts
-		AssertThat(uniqueLayouts.Count).IsGreater(1);
+			AssertThat(dungeon.Layout).IsNotNull();
+			AssertThat(dungeon.Layout.Count).IsBetween(5, 10);
+			AssertThat(dungeon.EntrancePosition).IsNotEqual(dungeon.BossPosition);
+			AssertThat(dungeon.CurrentRoomPosition).IsEqual(dungeon.EntrancePosition);
+
+			// Check if there are at least 2 rooms between entrance and boss
+			int manhattanDistance = Math.Abs(dungeon.EntrancePosition.X - dungeon.BossPosition.X) +
+									Math.Abs(dungeon.EntrancePosition.Y - dungeon.BossPosition.Y);
+			AssertThat(manhattanDistance).IsGreaterEqual(3);
+
+			// Check if all rooms are within the grid
+			foreach (var position in dungeon.Layout.Keys)
+			{
+				AssertThat(position.X).IsBetween(0, dungeon.GridSize.X - 1);
+				AssertThat(position.Y).IsBetween(0, dungeon.GridSize.Y - 1);
+			}
+
+			// Check if entrance and boss rooms are correctly set
+			AssertThat(dungeon.Layout[dungeon.EntrancePosition].Type).IsEqual(RoomType.Normal);
+			AssertThat(dungeon.Layout[dungeon.BossPosition].Type).IsEqual(RoomType.Boss);
+
+				string layoutHash = GetLayoutHash(dungeon.Layout);
+				uniqueLayouts.Add(layoutHash);
+			}
+
+			// Check if we have generated multiple unique layouts
+			AssertThat(uniqueLayouts.Count).IsGreater(1);
 	}
 
 	private string GetLayoutHash(Dictionary<Vector2I, Room> layout)

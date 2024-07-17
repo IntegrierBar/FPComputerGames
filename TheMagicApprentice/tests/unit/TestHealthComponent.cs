@@ -31,6 +31,31 @@ public class TestHealthComponent
         _target.Death += () => died = true; // Add custom method to check if Death Signal got emitted
     }
 
+    [TestCase]
+    public void TestReadyMethod()
+    {
+        _target.SetMaxHP(150);
+        
+        // Call _Ready manually since we're not in the Godot scene tree
+        _target._Ready();
+
+        AssertThat(_target.GetCurrentHP()).IsEqual(150);
+    }
+
+    [TestCase]
+    public void TestSetMaxHP()
+    {
+        _target.SetMaxHP(200);
+        AssertThat(_target.GetCurrentHP()).IsEqual(200);
+
+        // Test that setting MaxHP resets CurrentHP
+        _target.TakeDamage(new Attack(50, MagicType.SUN, _attackingNode));
+        AssertThat(_target.GetCurrentHP()).IsEqual(150);
+
+        _target.SetMaxHP(300);
+        AssertThat(_target.GetCurrentHP()).IsEqual(300);
+    }
+
     [TestCase(100.0, 0.0, 0.0, 0.0, 10.0, MagicType.SUN, 90.0, 100.0, TestName = "No Armor")]
     [TestCase(123.0, 50.0, 20.0, 0.0, 30.0, MagicType.SUN, 123.0 - 15.0, 100.0, TestName = "Armor Sun")]
     [TestCase(50.0, 40.0, 20.0, 10.0, 10.0, MagicType.COSMIC, 50.0 - 8.0, 100.0, TestName = "Armor Cosmic")]
@@ -47,10 +72,37 @@ public class TestHealthComponent
         _target.TakeDamage(attack);
 
         
-        // IMPORTANT!!!!!!!!!!!!!!! DO NOT USE .Equals!!!!!! instead us .IsEqual!!!!!!!!!!!!!
         AssertThat(_target.GetCurrentHP()).IsEqual(resultHP);
         AssertThat(_attackingNode.GetCurrentHP()).IsEqual(attackerHP);
 
         AssertBool(died).IsEqual(resultHP<=0);
+    }
+
+    [TestCase]
+    public void TestDamageReflection()
+    {
+        // Arrange
+        double initialAttackerHP = 100;
+        double initialTargetHP = 100;
+        double attackDamage = 50;
+        double armorValue = 150; // More than 100 to trigger reflection
+
+        HealthComponent attacker = AutoFree(new HealthComponent());
+        attacker.SetMaxHP(initialAttackerHP);
+        attacker._Ready();
+
+        _target.SetMaxHP(initialTargetHP);
+        _target.SetArmor(armorValue, 0, 0);
+        _target._Ready();
+
+        Attack attack = new Attack(attackDamage, MagicType.SUN, attacker);
+
+        // Act
+        _target.TakeDamage(attack);
+
+        // Assert
+        double expectedReflectedDamage = attackDamage * (armorValue / 100.0 - 1.0);
+        AssertThat(attacker.GetCurrentHP()).IsEqual(initialAttackerHP - expectedReflectedDamage);
+        AssertThat(_target.GetCurrentHP()).IsEqual(initialTargetHP);
     }
 }

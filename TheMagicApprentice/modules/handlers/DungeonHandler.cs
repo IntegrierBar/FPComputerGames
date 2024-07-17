@@ -29,7 +29,7 @@ public partial class DungeonHandler : Node
 	{
 		Player = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;
 		RoomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
-		LoadDungeon(Dungeons.StoryDungeons[1]);
+		LoadDungeon(new Dungeon(MinRooms, MaxRooms));
 	}
 
 	/**

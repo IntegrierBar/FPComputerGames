@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://modules/ui/MainGame.cs" id="1_xal8w"]
 [ext_resource type="Script" path="res://modules/handlers/DungeonHandler.cs" id="2_6yvwo"]
 [ext_resource type="Script" path="res://modules/handlers/RoomHandler.cs" id="3_cd7gp"]
+[ext_resource type="Script" path="res://modules/handlers/CurseHandler.cs" id="4_2b12q"]
 [ext_resource type="Script" path="res://modules/entities/player/CameraController.cs" id="4_8hnnh"]
 [ext_resource type="Script" path="res://modules/handlers/Minimap.cs" id="5_7li43"]
 
@@ -17,6 +18,9 @@ script = ExtResource("2_6yvwo")
 
 [node name="RoomHandler" type="Node" parent="." groups=["room_handler"]]
 script = ExtResource("3_cd7gp")
+
+[node name="CurseHandler" type="Node" parent="." groups=["curse_handler"]]
+script = ExtResource("4_2b12q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

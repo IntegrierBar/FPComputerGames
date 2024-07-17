@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PercentDamageForOneSpell" load_steps=2 format=3 uid="uid://d38bpb0q8b3pb"]
+
+[ext_resource type="Script" path="res://modules/augments/augment_effects/PercentDamageForOneSpell.cs" id="1_wnlg0"]
+
+[resource]
+script = ExtResource("1_wnlg0")
+_spellName = 5
+_damageIncreaseFaktor = 1.1

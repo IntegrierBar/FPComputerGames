@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/basic_spell/basic_spell.png" id="2_g11ut"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vqlg"]
-radius = 41.7612
+radius = 17.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cd5bd"]
-radius = 344.013
+radius = 135.724
 
 [node name="BlackHole" type="Area2D"]
 modulate = Color(1, 1, 1, 0.784314)
@@ -21,7 +21,6 @@ shape = SubResource("CircleShape2D_6vqlg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.0383972, 0.0383972, 0.0383972, 1)
-scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_g11ut")
 
 [node name="GravityArea" type="Area2D" parent="."]

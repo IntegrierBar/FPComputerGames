@@ -32,8 +32,8 @@ public partial class Slime : CharacterBody2D
 	*/
 	public override void _Ready()
 	{
-		System.Diagnostics.Debug.Assert(StateMachine is not null);
-		System.Diagnostics.Debug.Assert(AnimationPlayer is not null);
+		System.Diagnostics.Debug.Assert(StateMachine is not null, "StateMachine in Slime is null");
+		System.Diagnostics.Debug.Assert(AnimationPlayer is not null, "AnimationPlayer in Slime is null");
 		StateMachine.Init(this, AnimationPlayer);
 	}
 
@@ -64,7 +64,7 @@ public partial class Slime : CharacterBody2D
 	The default collision shapes fit the small slime.
 	Also set view range and attack range for the slime.
 	*/
-	public void SetSlimeProperties(MagicType magicType, SlimeSize slimeSize, SlimeAttackRange slimeAttackRange, Vector2 slimePosition)
+	public void SetSlimeProperties(MagicType magicType, SlimeSize slimeSize, SlimeAttackRange slimeAttackRange, Vector2 slimePosition, double health)
 	{
 		_damageValue = BaseDamage;
 
@@ -74,6 +74,16 @@ public partial class Slime : CharacterBody2D
 		_slimeAttackRange = slimeAttackRange;
 		Position = slimePosition;
 		_viewRange = ViewRange; // Note: if view range should be different for melee and ranged slimes later, this has to go into the if-else part 
+
+
+		if (CurseHandler.IsActive(Curse.MONSTER_BUFF))
+		{
+			GetNode<HealthComponent>("%HealthComponent").SetMaxHP(health * 1.3);
+		}
+		else
+		{
+			GetNode<HealthComponent>("%HealthComponent").SetMaxHP(health);
+		}
 
 		if (slimeSize == SlimeSize.LARGE) // Scale the collision shapes for the large slimes 
 		{
@@ -92,6 +102,11 @@ public partial class Slime : CharacterBody2D
 		}
 	}
 
+	/**
+	Set armor values of the slime depending on the magic type of the slime. 
+	The slime has an armor of 40 against the magic type it is strong against, an armor value of 25 
+	against its own magic type and an armor value of 10 against the magic type it is weak against. 
+	*/
 	private void SetArmorValues(MagicType magicType)
 	{
 		double armorSun;
@@ -161,8 +176,17 @@ public partial class Slime : CharacterBody2D
 		return _attackRangeValue;
 	}
 
+	/**
+	Getter for damage value of the slime.
+	*/
+
 	public float GetDamageValue()
 	{
-		return _damageValue;
+		float damageMultiplier = 1.0f;
+		if (CurseHandler.IsActive(Curse.MONSTER_BUFF))
+		{
+			damageMultiplier = 1.1f;
+		}
+		return _damageValue * damageMultiplier;
 	}
 }
