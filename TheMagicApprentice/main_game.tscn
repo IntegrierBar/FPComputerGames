@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dua4inolrs6ri"]
+[gd_scene load_steps=8 format=3 uid="uid://dua4inolrs6ri"]
 
 [ext_resource type="PackedScene" uid="uid://cfafpfmqm8u17" path="res://modules/entities/player/player.tscn" id="1_khfie"]
 [ext_resource type="Script" path="res://modules/ui/MainGame.cs" id="1_xal8w"]
@@ -29,6 +29,7 @@ SmoothingFactor = 5.0
 MinDelta = 0.3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_xal8w")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -36,10 +37,3 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_7li43")
-
-[node name="MainGameMenu" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_xal8w")

@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" path="res://modules/ui/pause_menu/PauseMenu.cs" id="1_g6vx2"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_g6vx2")
 
-[node name="PauseMenu" type="Control" parent="."]
+[node name="Control" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -12,9 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_g6vx2")
 
-[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+[node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.364706)
 
-[node name="Panel" type="Panel" parent="PauseMenu"]
+[node name="Panel" type="Panel" parent="Control"]
 custom_minimum_size = Vector2(300, 250)
 layout_mode = 1
 anchors_preset = 8
@@ -38,7 +38,7 @@ offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,33 +50,32 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="PauseMenu/Panel/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Pause"
 horizontal_alignment = 1
 
-[node name="ReturnButton" type="Button" parent="PauseMenu/Panel/MarginContainer/VBoxContainer"]
+[node name="ReturnButton" type="Button" parent="Control/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Return"
 
-[node name="SettingsButton" type="Button" parent="PauseMenu/Panel/MarginContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="Control/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Settings"
 
-[node name="ExitButton" type="Button" parent="PauseMenu/Panel/MarginContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Control/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Exit
 "
 
-[connection signal="pressed" from="PauseMenu/Panel/MarginContainer/VBoxContainer/ReturnButton" to="PauseMenu" method="OnResumeButtonPressed"]
-[connection signal="pressed" from="PauseMenu/Panel/MarginContainer/VBoxContainer/SettingsButton" to="PauseMenu" method="OnSettingsButtonPressed"]
-[connection signal="pressed" from="PauseMenu/Panel/MarginContainer/VBoxContainer/ExitButton" to="PauseMenu" method="_on_exit_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Panel/MarginContainer/VBoxContainer/ExitButton" to="PauseMenu" method="OnExitButtonPressed"]
+[connection signal="pressed" from="Control/Panel/MarginContainer/VBoxContainer/ReturnButton" to="." method="OnResumeButtonPressed"]
+[connection signal="pressed" from="Control/Panel/MarginContainer/VBoxContainer/SettingsButton" to="." method="OnSettingsButtonPressed"]
+[connection signal="pressed" from="Control/Panel/MarginContainer/VBoxContainer/ExitButton" to="." method="OnExitButtonPressed"]

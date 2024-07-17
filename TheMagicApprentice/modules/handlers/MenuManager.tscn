@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceq4ilgks21jd"]
-
-[ext_resource type="Script" path="res://modules/handlers/MenuManager.cs" id="1_2y561"]
-
-[node name="MenuManager" type="Node2D"]
-script = ExtResource("1_2y561")

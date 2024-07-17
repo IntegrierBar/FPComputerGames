@@ -15,7 +15,7 @@ public partial class MainHub : BaseMenu
 
 	private void OnDungeonButtonPressed()
 	{
-		PushMenu(MenuManager.MenuType.MainGame);
+		SetRootMenu(MenuManager.MenuType.MainGame);
 	}
 
 	public override void _Input(InputEvent @event)

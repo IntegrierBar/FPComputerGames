@@ -6,12 +6,10 @@ public partial class PauseMenu : BaseMenu
 	{
 		MenuType = MenuManager.MenuType.PauseMenu;
 		base._Ready();
-		//GetTree().Paused = true;
 	}
 
 	private void OnResumeButtonPressed()
 	{
-		//GetTree().Paused = false;
 		PopMenu();
 	}
 
@@ -22,7 +20,7 @@ public partial class PauseMenu : BaseMenu
 
 	private void OnExitButtonPressed()
 	{
-		//GetTree().Paused = false;
+		SetRootMenu(MenuManager.MenuType.MainMenu);
 	}
 
 	public override void _Input(InputEvent @event)
