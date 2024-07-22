@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbtvjj0ey2g4s"]
+
+[ext_resource type="Script" path="res://modules/entities/player/inventory/augments/AugmentInventory.cs" id="1_u5q8w"]
+[ext_resource type="Script" path="res://modules/entities/player/inventory/augments/InventorySlot.cs" id="2_5yclt"]
+
+[node name="AugmentInventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u5q8w")
+
+[node name="Grid" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 54.0
+offset_right = 1024.0
+offset_bottom = 592.0
+columns = 8
+
+[node name="InventorySlot" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 178.0
+offset_right = 481.0
+offset_bottom = 218.0
+script = ExtResource("2_5yclt")
