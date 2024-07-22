@@ -23,4 +23,10 @@ public partial class FlatDamageForSpellSlot : AugmentEffect
             spell.Damage += _flatDamageIncrease;
         }
     }
+
+
+    public override string Description()
+    {
+        return "Increases the damage of spells in slot " + (_slot + 1) + " by " + _flatDamageIncrease;
+    }
 }

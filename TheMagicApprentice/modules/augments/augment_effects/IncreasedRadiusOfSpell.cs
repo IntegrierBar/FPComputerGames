@@ -30,4 +30,10 @@ public partial class IncreasedRadiusOfSpell : OnCastAugmentEffect
     {
         spell.Scale *= _sizeIncreaseFactor;
     }
+
+
+    public override string Description()
+    {
+        return "Increase the scale of " + _spellName.ToString() + " by " + (_sizeIncreaseFactor - 1).ToString("0.%");
+    }
 }

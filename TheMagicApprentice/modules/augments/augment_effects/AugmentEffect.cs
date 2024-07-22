@@ -19,4 +19,12 @@ public partial class AugmentEffect : Resource
     It is responsible for the cleanup
     */
     public virtual void UnEquip(SceneTree sceneTree) {}
+
+    /**
+    Get a description of the augment effect
+    */
+    public virtual string Description()
+    {
+        return "";
+    }
 }

@@ -35,4 +35,10 @@ public partial class ExtraArmorOfType : AugmentEffect
 
         healthComponentPlayer.ModifyArmor(_magicType, -_extraArmor);
     }
+
+
+    public override string Description()
+    {
+        return "Adds " + _extraArmor + " armor to type " + _magicType.ToString();
+    }
 }

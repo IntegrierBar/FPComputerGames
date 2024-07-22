@@ -11,7 +11,7 @@ Each Augment can have up to 3 Augment effects
 public partial class Augment : Resource
 {
     [Export]
-    public string Description; ///< the discription of the augment that is displayed when hovering over it
+    public string Description = ""; ///< the discription of the augment that is displayed when hovering over it
 
     public AugmentEffect[] _augmentEffects = new AugmentEffect[3]; // Array of the AugmentEffects
 

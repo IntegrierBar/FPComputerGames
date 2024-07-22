@@ -26,4 +26,9 @@ public partial class AdditionalStars : AugmentEffect
     {
         (sceneTree.GetFirstNodeInGroup(Globals.StarRainSpellGroup) as InventoryStarRain).AmountStarsToSpawn /= _factor;
     }
+
+    public override string Description()
+    {
+        return "Cast " + (_factor - 1).ToString("0.%") + " more stars";
+    }
 }
