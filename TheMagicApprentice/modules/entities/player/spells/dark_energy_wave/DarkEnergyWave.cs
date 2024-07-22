@@ -15,6 +15,7 @@ public partial class DarkEnergyWave : Spell
 		base.Init(attack, playerPosition, targetPosition);
 
 		Position = playerPosition;
+		
 	}
 
 	/**
@@ -23,7 +24,7 @@ public partial class DarkEnergyWave : Spell
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
-		Scale *= (float)1.15; // use the scale property to push the wave
+		//Scale *= (float)1.02; // use the scale property to push the wave
     }
 
 
@@ -36,6 +37,7 @@ public partial class DarkEnergyWave : Spell
 		if (area is HealthComponent healthComponent) // check if area is a health component and if true cast it as a healthcomponent under the name healthComponent
 		{
 			healthComponent.TakeDamage(_attack);
+			GD.Print(healthComponent);
 
 			// pushes the enemy. TODO This still need extensive work. We might have to change how movement works. We probably want to use acceleration instead of velocity for movement
 			//(healthComponent.GetParent() as CharacterBody2D).Position += (healthComponent.Position - Position).Normalized() * 40;

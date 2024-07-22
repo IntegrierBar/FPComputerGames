@@ -13,7 +13,7 @@ public partial class Spell : Area2D
 
 
 	[Export]
-	public double MaxLifeTimeInSeconds = 5.0; ///< How long the spell exists at maximum until it is removed from the world
+	public double MaxLifeTimeInSeconds = 5.0; ///< How long the spell exists at maximum until it is removed from the world, can be changed for every spell in the godot editior
 	public double _timeLeftUntilDeletion; ///< Time left until deletion
 
 	/**

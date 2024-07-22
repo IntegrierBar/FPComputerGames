@@ -77,7 +77,7 @@ public partial class ShootingAttackProjectile : Area2D
     }
 
     /**
-	Gets called when the spell hits a Health component.
+	Gets called when the spell hits a Health component since health components use area2Ds.
 	Projectile mask is set such, that it can only hit the player. 
 	*/
     public void OnAreaEntered(Area2D area)
@@ -88,6 +88,19 @@ public partial class ShootingAttackProjectile : Area2D
 			// once the spell has hit something we delete it
 			QueueFree();
 		}
-		// TODO: Spell should also disappear when hitting a wall
+	}
+
+    /**
+	Since parts of the tilemap that have a collision layer are not area2D nodes, body entered is necessary to use.
+	This function detects collisions with all types of 2D nodes.
+	Check if the projectile entered a part of the tilemap, which means a wall or object, and remove the projectile. 
+	This requires mask 1 (Collision) to be set!
+	*/
+	public void OnBodyEntered(Node2D body)
+	{
+		if (body is TileMap)
+		{
+			QueueFree();
+		}
 	}
 }

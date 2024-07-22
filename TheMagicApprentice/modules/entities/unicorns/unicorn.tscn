@@ -75,7 +75,6 @@ _healthComponent = NodePath("../../HealthComponent")
 script = ExtResource("8_5d1p3")
 Wait = NodePath("../Wait")
 StompingAnimationDuration = 1.0
-StompingDelayTime = 0.5
 _healthComponent = NodePath("../../HealthComponent")
 
 [node name="Death" type="Node" parent="StateMachine"]

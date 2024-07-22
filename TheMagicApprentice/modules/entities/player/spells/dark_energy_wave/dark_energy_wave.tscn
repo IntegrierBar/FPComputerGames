@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqpjsl8ux75jq"]
+[gd_scene load_steps=5 format=3 uid="uid://dqpjsl8ux75jq"]
 
 [ext_resource type="Script" path="res://modules/entities/player/spells/dark_energy_wave/DarkEnergyWave.cs" id="1_g3318"]
 [ext_resource type="Texture2D" uid="uid://cfga3eogtf0iw" path="res://modules/entities/player/spells/dark_energy_wave/dark_energy_wave.png" id="1_gg2b4"]
@@ -6,16 +6,33 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_1w8rv"]
 radius = 45.2769
 
+[sub_resource type="Gradient" id="Gradient_en85h"]
+offsets = PackedFloat32Array(0, 0.0666667, 0.4, 0.651852, 0.937037, 0.996296)
+colors = PackedColorArray(0.505882, 0.00392157, 0.890196, 0, 0.50402, 0.00322303, 0.890376, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50402, 0.00322303, 0.890376, 1, 0.505882, 0.00392157, 0.890196, 0)
+
 [node name="DarkEnergyWave" type="Area2D"]
 modulate = Color(1, 1, 1, 0.784314)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_g3318")
-MaxLifeTimeInSeconds = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1w8rv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_gg2b4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 1000
+lifetime = 50.0
+explosiveness = 0.98
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color_initial_ramp = SubResource("Gradient_en85h")
