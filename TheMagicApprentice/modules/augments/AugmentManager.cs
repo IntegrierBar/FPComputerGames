@@ -43,7 +43,6 @@ public partial class AugmentManager : Node
 		{
 			augment._augmentEffects[i] = SelectRandomAugmentEffect();
 			augment.Description += "\n" + augment._augmentEffects[i].Description(); // build the description of the augment
-			GD.Print("Added effect " + augment._augmentEffects[i].Description());
 		}
 		return augment;
 	}

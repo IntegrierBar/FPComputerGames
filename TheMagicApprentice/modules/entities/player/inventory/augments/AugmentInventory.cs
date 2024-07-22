@@ -40,13 +40,6 @@ public partial class AugmentInventory : Control
 			inventorySlot.Init(new Vector2(_minSize, _minSize), i); // set the slots as active and give it the correct index
 			inventorySlot.EquipAugmentInSlot += player.EquipAugmentInSlot; // connect its the signal for equiping augments to the player so that augments are equiped
 		}
-
-		// for testing purposes create a test Item
-        var testInventoryItem = new InventoryItem
-        {
-            Augment = AugmentManager.Instance.CreateRandomAugment(3)
-        };
-		_inactiveAugments.GetChild(0).AddChild(testInventoryItem);
     }
 
 
@@ -110,5 +103,24 @@ public partial class AugmentInventory : Control
 		uint numberOfEffects = GD.Randi() % 3 + 1;
 		Augment augment = AugmentManager.Instance.CreateRandomAugment(numberOfEffects);
 		AddAugmentToInventory(augment);
+	}
+
+
+	/**
+	Getter for _inactiveAguments.
+	Only used be tests
+	*/
+	public GridContainer GetInactiveAugments()
+	{
+		return _inactiveAugments;
+	}
+
+	/**
+	Getter for _activeAguments.
+	Only used be tests
+	*/
+	public HBoxContainer GetActiveAugments()
+	{
+		return _activeAugments;
 	}
 }

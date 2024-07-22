@@ -80,7 +80,9 @@ public partial class TestAugments
         }
     }
 
-    // ALL OTHER TEST ONLY USE SLOT 0 TO MAKE THINGS EASIER
+    /********************************************************************************************************************************************/
+    /*                     ALL OTHER TEST ARE INDIVIDUAL AUGMENT EFFECT TESTS AND ONLY USE SLOT 0 TO MAKE THINGS EASIER                         */
+    /********************************************************************************************************************************************/
 
     /**
     Test the Augment additional_stars
