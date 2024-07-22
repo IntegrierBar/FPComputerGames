@@ -60,19 +60,22 @@ ChargeAttack = NodePath("../ChargeAttack")
 ShootingAttack = NodePath("../ShootingAttack")
 StompingAttack = NodePath("../StompingAttack")
 
-[node name="ChargeAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait")]
+[node name="ChargeAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait", "_healthComponent")]
 script = ExtResource("6_x8tb2")
 Wait = NodePath("../Wait")
+_healthComponent = NodePath("../../HealthComponent")
 
-[node name="ShootingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait")]
+[node name="ShootingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait", "_healthComponent")]
 script = ExtResource("7_qwsr7")
 Wait = NodePath("../Wait")
 ShootingAnimationDuration = 2.0
+_healthComponent = NodePath("../../HealthComponent")
 
-[node name="StompingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait")]
+[node name="StompingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("Wait", "_healthComponent")]
 script = ExtResource("8_5d1p3")
 Wait = NodePath("../Wait")
 StompingAnimationDuration = 1.0
+_healthComponent = NodePath("../../HealthComponent")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("9_i1ral")
