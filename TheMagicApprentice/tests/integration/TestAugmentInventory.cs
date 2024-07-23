@@ -11,14 +11,16 @@ using System.Threading.Tasks;
 /**
 Integration test for the AugmentInventory.
 */
-
 [TestSuite]
 public partial class TestAugmentInventory
 {
-	private ISceneRunner _mainGameScene;
-	private AugmentInventory _augmentInventory;
+	private ISceneRunner _mainGameScene; ///< scene runner of the main game
+	private AugmentInventory _augmentInventory; ///< Reference to the AugmentInventory inside the scene tree
 
-
+    /**
+    Load the main game scene and get the reference to the AugmentInventory.
+    Also Checks that the AugmentInventory was created
+    */
 	[BeforeTest]
 	public void SetupTest()
 	{
@@ -32,7 +34,9 @@ public partial class TestAugmentInventory
 
 	}
 
-
+    /**
+    Test the function AddAugmentToInventory
+    */
     [TestCase]
     public void TestAddAugmentToInventory()
     {
@@ -46,7 +50,6 @@ public partial class TestAugmentInventory
 
         AssertInt(grid.GetChild(0).GetChildCount()).IsEqual(1);
     }
-
 
     /**
     Test that when adding an augment and all slots are full, new slots are created
@@ -83,6 +86,44 @@ public partial class TestAugmentInventory
 
         // check that the amount of slots has increased
         AssertInt(grid.GetChildCount()).IsGreater(startSlotCount);
+    }
+
+    /**
+    Tests that active inventorySlots work and the augments are equiped.
+    */
+    [TestCase(0)]
+    [TestCase(1)]
+    [TestCase(2)]
+    [TestCase(3)]
+    [TestCase(4)]
+    public void TestActiveInventorySlots(int slotIndex)
+    {
+        InventoryStarRain inventoryStarRain = _augmentInventory.GetTree().GetFirstNodeInGroup(Globals.StarRainSpellGroup) as InventoryStarRain;
+        double startAmountStars = inventoryStarRain.AmountStarsToSpawn;
+
+        // Create augment and equip it in active slot slotIndex
+        Augment augment = TestAugments.CreateAugmentWithAugmenteffect("res://modules/augments/augment_effects/resources/additional_stars.tres");
+        InventoryItem inventoryItem = new InventoryItem
+        {
+            Augment = augment
+        };
+        // Put it in the first slot of the grid so we dont get any null errors
+        _augmentInventory.GetInactiveAugments().GetChild(0).AddChild(inventoryItem);
+
+        // convert it to Variant in order to use _DropData
+        Variant inventoryItemAsVariant = Variant.CreateFrom(inventoryItem);
+
+        HBoxContainer activeSlots = _augmentInventory.GetActiveAugments();
+        InventorySlot activeSlot = activeSlots.GetChild(slotIndex) as InventorySlot;
+        AssertObject(activeSlot).IsNotNull();
+        activeSlot._DropData(Vector2.Zero, inventoryItemAsVariant); // drop it into the slot
+
+        AssertFloat(inventoryStarRain.AmountStarsToSpawn).IsGreater(startAmountStars); // Check if the augment effect is active
+
+        // now unequip the augment by putting it back into the grid
+        (_augmentInventory.GetInactiveAugments().GetChild(0) as InventorySlot)._DropData(Vector2.Zero, inventoryItemAsVariant);
+
+        AssertFloat(inventoryStarRain.AmountStarsToSpawn).IsEqualApprox(startAmountStars, 1e-8); // Check if the augment effect is inactive
     }
 
 }

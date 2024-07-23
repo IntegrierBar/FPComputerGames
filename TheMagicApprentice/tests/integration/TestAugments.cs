@@ -373,9 +373,10 @@ public partial class TestAugments
 
 
     /**
-    Create augment from string path to augmenteffect resource 
+    Create augment from string path to augmenteffect resource.
+    Function is public since it is also used in TestAugmentInventory
     */
-    private Augment CreateAugmentWithAugmenteffect(string pathToAugmentEffectResource)
+    public static Augment CreateAugmentWithAugmenteffect(string pathToAugmentEffectResource)
     {
         Augment augment = new();
 

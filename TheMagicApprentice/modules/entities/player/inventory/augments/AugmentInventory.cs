@@ -3,6 +3,11 @@ using System;
 using System.Linq;
 
 
+/**
+The AugmentInventory is the root node of the augment inventory.
+It handles the creation of all InventorySlots and the adding of new augments to the inventory.
+*/
+[GlobalClass]
 public partial class AugmentInventory : Control
 {
 	[Export]
@@ -42,7 +47,6 @@ public partial class AugmentInventory : Control
 		}
     }
 
-
 	/**
 	Adds a new augment to the inventory by finding an empty slot in the Grid, creating and InventoryItem with the Augment and putting it in the slot
 	In case all slots are filled it creates a new row of slots in the inventory.
@@ -56,7 +60,6 @@ public partial class AugmentInventory : Control
         };
 		inventorySlot.AddChild(inventoryItem); // add the item to the empty slot
     }
-
 
 	/**
 	Finds the first empty InventorySlot. If all Slots are full it automatically generates Grid.Columns many new slots 
@@ -75,7 +78,7 @@ public partial class AugmentInventory : Control
 				break;
 			}
 		}
-
+		// If we did not find an empty slot we need to create more slots
 		if (emptySlot is null)
 		{
 			emptySlot = new InventorySlot();
@@ -90,10 +93,8 @@ public partial class AugmentInventory : Control
 			}
 		}
 
-
 		return emptySlot;
 	}
-
 
 	/**
 	Adds a random augment to the inventory
@@ -104,7 +105,6 @@ public partial class AugmentInventory : Control
 		Augment augment = AugmentManager.Instance.CreateRandomAugment(numberOfEffects);
 		AddAugmentToInventory(augment);
 	}
-
 
 	/**
 	Getter for _inactiveAguments.

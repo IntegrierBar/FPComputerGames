@@ -21,7 +21,7 @@ public partial class AugmentEffect : Resource
     public virtual void UnEquip(SceneTree sceneTree) {}
 
     /**
-    Get a description of the augment effect
+    Get the description of the augment effect
     */
     public virtual string Description()
     {

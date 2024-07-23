@@ -15,7 +15,6 @@ public partial class InventorySlot : PanelContainer
 
 	private int _activeAugmentSlot = -1; ///< Determines whether this augment slot is an active or inactive augment slot, i.e. whether the augment effects get applied, negative means it is an inactive slot, otherwise it is the index of the slot
 
-
 	/**
 	Initialize the data of the InventorySlot
 
@@ -27,7 +26,6 @@ public partial class InventorySlot : PanelContainer
 		CustomMinimumSize = minSize;
 		_activeAugmentSlot = activeSlot;
 	}
-
 
 	/**
 	Return true if data is an InventoryItem
@@ -42,7 +40,6 @@ public partial class InventorySlot : PanelContainer
 		return false;
     }
 	
-
 	/**
 	Reparent the InventoryItem to this slot.
 	Incease there was another InventoryItem in the slot, they switch places
@@ -76,7 +73,6 @@ public partial class InventorySlot : PanelContainer
 		// finally reparent the new item to this slot
 		inventoryItem.Reparent(this);
     }
-
 
 	/**
 	Function that emits the signal EquipAugment with the index of the InventorySlot
