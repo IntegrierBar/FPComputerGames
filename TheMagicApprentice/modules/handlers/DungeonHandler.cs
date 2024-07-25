@@ -145,4 +145,14 @@ public partial class DungeonHandler : Node
 	{
 		return Dungeon.Layout;
 	}
+
+	/**
+	 * Gets the magic type of the dungeon.
+	 * 
+	 * @return The magic type of the dungeon.
+	 */
+	public MagicType GetMagicType()
+	{
+		return Dungeon.MagicType;
+	}
 }

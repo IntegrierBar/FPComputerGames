@@ -14,13 +14,27 @@ public partial class EnemySpawn : Node2D
 	 */
 	public Node2D Spawn()
 	{
+		DungeonHandler dungeonHandler = GetTree().GetFirstNodeInGroup("dungeon_handler") as DungeonHandler;
+		MagicType magicType = dungeonHandler.GetMagicType();
+
 		Node2D Slime = ResourceLoader.Load<PackedScene>("res://modules/entities/slimes/slime.tscn").Instantiate() as Node2D;
 		Slime.GlobalPosition = GlobalPosition;
 		RoomHandler RoomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
 		Slime slimeInstance = Slime as Slime;
 		if (slimeInstance != null)
 		{
-			slimeInstance.SetSlimeProperties(MagicType.SUN, SlimeSize.SMALL, SlimeAttackRange.RANGED, GlobalPosition, 100);
+			MagicType slimeMagicType;
+			if (GD.Randf() < 0.5f)
+			{
+				slimeMagicType = magicType;
+			}
+			else
+			{
+				slimeMagicType = EntityTypeHelper.GetRandomMagicType();
+			}
+			SlimeSize size = GD.Randf() < 0.33f ? SlimeSize.LARGE : SlimeSize.SMALL;
+			SlimeAttackRange range = (size == SlimeSize.LARGE || GD.Randf() < 0.5f) ? SlimeAttackRange.MELEE : SlimeAttackRange.RANGED;
+			slimeInstance.SetSlimeProperties(slimeMagicType, size, range, GlobalPosition);
 		}
 		RoomHandler.CurrentRoomNode.AddChild(Slime);
 
