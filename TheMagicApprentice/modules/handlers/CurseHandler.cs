@@ -37,6 +37,17 @@ public partial class CurseHandler : Node
             GD.PushWarning("Multiple CurseHandler instances detected. Only one should exist.");
         }
     }
+    
+    /**
+    \brief Called when the node is about to be removed from the scene tree
+    */
+    public override void _ExitTree()
+    {
+        if (_instance == this)
+        {
+            _instance = null;
+        }
+    }
 
     /**
     \brief Checks if a specific curse is active
