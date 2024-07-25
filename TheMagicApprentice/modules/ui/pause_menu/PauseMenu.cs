@@ -20,7 +20,7 @@ public partial class PauseMenu : BaseMenu
 
 	private void OnExitButtonPressed()
 	{
-		SetRootMenu(MenuManager.MenuType.MainMenu);
+		SetRootMenu(MenuManager.MenuType.MainHub);
 	}
 
 	public override void _Input(InputEvent @event)

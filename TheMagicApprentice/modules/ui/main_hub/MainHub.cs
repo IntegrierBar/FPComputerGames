@@ -10,19 +10,11 @@ public partial class MainHub : BaseMenu
 
 	private void OnExitButtonPressed()
 	{
-		PopMenu();
+		SetRootMenu(MenuManager.MenuType.MainMenu);
 	}
 
 	private void OnDungeonButtonPressed()
 	{
 		SetRootMenu(MenuManager.MenuType.MainGame);
-	}
-
-	public override void _Input(InputEvent @event)
-	{
-		if (@event.IsActionPressed("esc") && !@event.IsEcho())
-		{
-			PushMenu(MenuManager.MenuType.PauseMenu);
-		}
 	}
 }
