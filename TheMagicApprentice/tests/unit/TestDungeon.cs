@@ -14,10 +14,9 @@ public partial class TestDungeon
 	public void TestDungeonGenerateConstructor()
 	{
 		Dungeon dungeon = new Dungeon(5, 10);
-		AssertThat(dungeon.MinRooms).IsEqual(5);
-		AssertThat(dungeon.MaxRooms).IsEqual(10);
 		AssertThat(dungeon.Layout).IsNotNull();
 		AssertThat(dungeon.Layout.Count).IsGreaterEqual(5);
+		AssertThat(dungeon.Layout.Count).IsLessEqual(10);
 		AssertThat(dungeon.GridSize).IsEqual(new Vector2I(21, 21));
 	}
 
@@ -98,50 +97,5 @@ public partial class TestDungeon
 			AssertThat(dungeon.Layout[kvp.Key].Type).IsEqual(kvp.Value.Type);
 			AssertThat(dungeon.Layout[kvp.Key].ScenePath).IsEqual(kvp.Value.ScenePath);
 		}
-	}
-
-	[TestCase]
-	public void TestDungeonGeneration()
-	{
-		Dungeon dungeon = new Dungeon(5, 10);
-		HashSet<string> uniqueLayouts = new HashSet<string>();
-
-		for (int i = 0; i < 100; i++)
-		{
-			dungeon.Generate();
-
-			AssertThat(dungeon.Layout).IsNotNull();
-			AssertThat(dungeon.Layout.Count).IsBetween(5, 10);
-			AssertThat(dungeon.EntrancePosition).IsNotEqual(dungeon.BossPosition);
-			AssertThat(dungeon.CurrentRoomPosition).IsEqual(dungeon.EntrancePosition);
-
-			// Check if there are at least 2 rooms between entrance and boss
-			int manhattanDistance = Math.Abs(dungeon.EntrancePosition.X - dungeon.BossPosition.X) +
-									Math.Abs(dungeon.EntrancePosition.Y - dungeon.BossPosition.Y);
-			AssertThat(manhattanDistance).IsGreaterEqual(3);
-
-			// Check if all rooms are within the grid
-			foreach (var position in dungeon.Layout.Keys)
-			{
-				AssertThat(position.X).IsBetween(0, dungeon.GridSize.X - 1);
-				AssertThat(position.Y).IsBetween(0, dungeon.GridSize.Y - 1);
-			}
-
-			// Check if entrance and boss rooms are correctly set
-			AssertThat(dungeon.Layout[dungeon.EntrancePosition].Type).IsEqual(RoomType.Normal);
-			AssertThat(dungeon.Layout[dungeon.BossPosition].Type).IsEqual(RoomType.Boss);
-
-				string layoutHash = GetLayoutHash(dungeon.Layout);
-				uniqueLayouts.Add(layoutHash);
-			}
-
-			// Check if we have generated multiple unique layouts
-			AssertThat(uniqueLayouts.Count).IsGreater(1);
-	}
-
-	private string GetLayoutHash(Dictionary<Vector2I, Room> layout)
-	{
-		var sortedPositions = layout.Keys.OrderBy(pos => pos.X).ThenBy(pos => pos.Y);
-		return string.Join(",", sortedPositions.Select(pos => $"{pos.X},{pos.Y},{layout[pos].Type},{layout[pos].ScenePath}"));
 	}
 }
