@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc7aaxwfj2l7d"]
+
+[ext_resource type="Script" path="res://modules/ui/main_hub/MainHub.cs" id="1_pnpib"]
+
+[node name="MainHub" type="CanvasLayer"]
+script = ExtResource("1_pnpib")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.437613, 0.692791, 0.795814, 1)
+
+[node name="ExitButton" type="Button" parent="Control"]
+layout_mode = 1
+offset_right = 112.0
+offset_bottom = 59.0
+text = "Exit"
+
+[node name="DungeonButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 837.0
+offset_top = 231.0
+offset_right = 1050.0
+offset_bottom = 413.0
+text = "Dungeon"
+
+[connection signal="pressed" from="Control/ExitButton" to="." method="OnExitButtonPressed"]
+[connection signal="pressed" from="Control/DungeonButton" to="." method="OnDungeonButtonPressed"]
