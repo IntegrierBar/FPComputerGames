@@ -123,8 +123,26 @@ public partial class CameraController : Camera2D
 
 		Vector2 targetPosition = Player.Position;
 
-		targetPosition.X = Mathf.Clamp(targetPosition.X, roomBounds.Position.X + cameraRect.Size.X / 2, roomBounds.End.X - cameraRect.Size.X / 2);
-		targetPosition.Y = Mathf.Clamp(targetPosition.Y, roomBounds.Position.Y + cameraRect.Size.Y / 2, roomBounds.End.Y - cameraRect.Size.Y / 2);
+		// Calculate the maximum allowed camera positions
+		float minX = roomBounds.Position.X + cameraRect.Size.X / 2;
+		float maxX = roomBounds.End.X - cameraRect.Size.X / 2;
+		float minY = roomBounds.Position.Y + cameraRect.Size.Y / 2;
+		float maxY = roomBounds.End.Y - cameraRect.Size.Y / 2;
+
+		// Ensure that minX is always less than maxX, and minY is always less than maxY
+		if (minX > maxX)
+		{
+			float centerX = (roomBounds.Position.X + roomBounds.End.X) / 2;
+			minX = maxX = centerX;
+		}
+		if (minY > maxY)
+		{
+			float centerY = (roomBounds.Position.Y + roomBounds.End.Y) / 2;
+			minY = maxY = centerY;
+		}
+
+		targetPosition.X = Mathf.Clamp(targetPosition.X, minX, maxX);
+		targetPosition.Y = Mathf.Clamp(targetPosition.Y, minY, maxY);
 
 		return targetPosition;
 	}

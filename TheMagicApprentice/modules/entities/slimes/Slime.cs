@@ -14,6 +14,10 @@ public partial class Slime : CharacterBody2D
 	public float AttackRangeMelee = 10; ///< Range from which a melee slime can attack the PC
 	[Export]
 	public float AttackRangeRanged = 50; ///< Range from which a ranged slime can attack the PC
+	[Export]
+	public float HealthSmall = 100; ///< Health of the small slime
+	[Export]
+	public float HealthLarge = 200; ///< Health of the large slime
 
 	[Export]
 	public float BaseDamage = 10;
@@ -64,7 +68,7 @@ public partial class Slime : CharacterBody2D
 	The default collision shapes fit the small slime.
 	Also set view range and attack range for the slime.
 	*/
-	public void SetSlimeProperties(MagicType magicType, SlimeSize slimeSize, SlimeAttackRange slimeAttackRange, Vector2 slimePosition, double health)
+	public void SetSlimeProperties(MagicType magicType, SlimeSize slimeSize, SlimeAttackRange slimeAttackRange, Vector2 slimePosition)
 	{
 		_damageValue = BaseDamage;
 
@@ -75,6 +79,15 @@ public partial class Slime : CharacterBody2D
 		Position = slimePosition;
 		_viewRange = ViewRange; // Note: if view range should be different for melee and ranged slimes later, this has to go into the if-else part 
 
+		double health;
+		if (slimeSize == SlimeSize.LARGE)
+		{
+			health = HealthLarge;
+		}
+		else
+		{
+			health = HealthSmall;
+		}
 
 		if (CurseHandler.IsActive(Curse.MONSTER_BUFF))
 		{

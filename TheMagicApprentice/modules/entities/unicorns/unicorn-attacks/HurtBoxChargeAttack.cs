@@ -37,8 +37,6 @@ public partial class HurtBoxChargeAttack : Area2D
 	*/
     public void OnAreaEntered(Area2D area)
     {
-        GD.Print("hit area");
-		GD.Print(area);
         if (area is HealthComponent healthComponent) // check if area is a health component and if true cast it as a healthcomponent under the name healthComponent
 		{
 			healthComponent.TakeDamage(_attack);

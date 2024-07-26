@@ -1,0 +1,121 @@
+[gd_scene load_steps=2 format=3 uid="uid://da65tmwqdoi0s"]
+
+[ext_resource type="Script" path="res://modules/ui/settings_menu/SettingsMenu.cs" id="1_cgfg0"]
+
+[node name="SettingsMenu" type="CanvasLayer"]
+script = ExtResource("1_cgfg0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0520215, 0.163389, 0.317644, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Separater" type="Control" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsTitle" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Separator2" type="Control" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SoundVolumeControl" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SoundVolumeLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/SoundVolumeControl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Sound volume"
+
+[node name="SoundVolumeSlider" type="HSlider" parent="Control/MarginContainer/VBoxContainer/SoundVolumeControl"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+
+[node name="MusicVolumeControl" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MusicVolumeLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/MusicVolumeControl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Music volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Control/MarginContainer/VBoxContainer/MusicVolumeControl"]
+process_mode = 3
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="FullscreenControl" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FullscreenLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/FullscreenControl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Fullscreen"
+
+[node name="FullscreenCheck" type="CheckBox" parent="Control/MarginContainer/VBoxContainer/FullscreenControl"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Separator3" type="Control" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="ExitButton" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
