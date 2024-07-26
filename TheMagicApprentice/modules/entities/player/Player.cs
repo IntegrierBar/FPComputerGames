@@ -137,5 +137,6 @@ public partial class Player : CharacterBody2D
 		Augment augment = AugmentManager.Instance.CreateRandomAugment(3);
 
 		EquipAugmentInSlot(augment, 0);
+
 	}
 }

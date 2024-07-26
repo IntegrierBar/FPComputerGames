@@ -80,7 +80,9 @@ public partial class TestAugments
         }
     }
 
-    // ALL OTHER TEST ONLY USE SLOT 0 TO MAKE THINGS EASIER
+    /********************************************************************************************************************************************/
+    /*                     ALL OTHER TEST ARE INDIVIDUAL AUGMENT EFFECT TESTS AND ONLY USE SLOT 0 TO MAKE THINGS EASIER                         */
+    /********************************************************************************************************************************************/
 
     /**
     Test the Augment additional_stars
@@ -371,9 +373,10 @@ public partial class TestAugments
 
 
     /**
-    Create augment from string path to augmenteffect resource 
+    Create augment from string path to augmenteffect resource.
+    Function is public since it is also used in TestAugmentInventory
     */
-    private Augment CreateAugmentWithAugmenteffect(string pathToAugmentEffectResource)
+    public static Augment CreateAugmentWithAugmenteffect(string pathToAugmentEffectResource)
     {
         Augment augment = new();
 

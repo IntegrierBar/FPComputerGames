@@ -22,4 +22,10 @@ public partial class FlatDamageForOneType : AugmentEffect
             spell.Damage += _flatDamageIncrease;
         }
     }
+
+
+    public override string Description()
+    {
+        return "Increases damage of all " + _magicType.ToString() + " spells by " + _flatDamageIncrease;
+    }
 }

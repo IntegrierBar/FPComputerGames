@@ -33,4 +33,10 @@ public partial class CastAdditionalSpell : AugmentEffect
             }
         }
     }
+    
+
+    public override string Description()
+    {
+        return "Cast " + _additionalSpell.ToString() + " when casting " + _castedSpell.ToString();
+    }
 }
