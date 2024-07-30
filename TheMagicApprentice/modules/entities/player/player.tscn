@@ -360,9 +360,12 @@ _spellScene = ExtResource("24_h76h0")
 
 [node name="SpellInventory" parent="UI" instance=ExtResource("10_cknrl")]
 
-[node name="AugmentInventory" parent="UI" instance=ExtResource("25_qc2ug")]
+[node name="AugmentInventory" parent="." instance=ExtResource("25_qc2ug")]
+process_mode = 4
+layer = 10
+visible = false
 
-[node name="AddAugment" type="Button" parent="UI"]
+[node name="AddAugment" type="Button" parent="AugmentInventory"]
 offset_left = 931.0
 offset_top = 15.0
 offset_right = 1144.0
@@ -370,4 +373,4 @@ offset_bottom = 64.0
 focus_mode = 0
 text = "Add Augment to Inventory"
 
-[connection signal="pressed" from="UI/AddAugment" to="UI/AugmentInventory" method="AddRandomAugment"]
+[connection signal="pressed" from="AugmentInventory/AddAugment" to="AugmentInventory" method="AddRandomAugment"]

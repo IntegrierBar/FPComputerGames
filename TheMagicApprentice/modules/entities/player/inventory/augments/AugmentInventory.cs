@@ -8,7 +8,7 @@ The AugmentInventory is the root node of the augment inventory.
 It handles the creation of all InventorySlots and the adding of new augments to the inventory.
 */
 [GlobalClass]
-public partial class AugmentInventory : Control
+public partial class AugmentInventory : CanvasLayer
 {
 	[Export]
 	private int _numberOfSlots = 10*7; ///< How many empty slots should be initialized at the start of the game
@@ -47,11 +47,39 @@ public partial class AugmentInventory : Control
 		}
     }
 
+    /**
+	If Esc is pressed the AugmentInventory becomes invisible again and stops processing
+	*/
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event.IsAction("esc"))
+		{
+			SetVisibility(false);
+		}
+    }
+
 	/**
+	Set the visibility of the AugmentInventory. 
+	Sets the visibility and the ProcessMode.
+	*/
+	public void SetVisibility(bool isVisible)
+	{
+		Visible = isVisible;
+		if (isVisible)
+		{
+			ProcessMode = ProcessModeEnum.Always;
+		}
+		else
+		{
+			ProcessMode = ProcessModeEnum.Disabled;
+		}
+	}
+
+    /**
 	Adds a new augment to the inventory by finding an empty slot in the Grid, creating and InventoryItem with the Augment and putting it in the slot
 	In case all slots are filled it creates a new row of slots in the inventory.
 	*/
-	public void AddAugmentToInventory(Augment augment)
+    public void AddAugmentToInventory(Augment augment)
 	{
 		var inventorySlot = FindEmptyInventorySlot();
         InventoryItem inventoryItem = new InventoryItem

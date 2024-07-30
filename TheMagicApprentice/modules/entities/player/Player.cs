@@ -174,4 +174,14 @@ public partial class Player : CharacterBody2D
 		EquipAugmentInSlot(augment, 0);
 
 	}
+
+
+	/**
+	Show the AugmentInventory by setting its visibility to true.
+	Is called by the main hub scirpt when the button to open the menu is pressed
+	*/
+	public void OpenAugmentInventory()
+	{
+		GetNode<AugmentInventory>("AugmentInventory").SetVisibility(true);
+	}
 }
