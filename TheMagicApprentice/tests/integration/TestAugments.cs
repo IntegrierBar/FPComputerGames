@@ -4,16 +4,14 @@ using GdUnit4;
 using Godot;
 using System;
 using static GdUnit4.Assertions;
-using GdUnit4.Executions;
-using GdUnit4.Executions.Monitors;
-using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Linq;
 
 /**
 Integration test for augments
 Contains an integration test for every augment class but not all augments since that would be too much effort
+Uses the main_game.tscn since there the player is autoloaded and not disabled.
 */
+
 [TestSuite]
 public partial class TestAugments
 {
@@ -34,7 +32,11 @@ public partial class TestAugments
     {
         _mainGameScene = ISceneRunner.Load("res://main_game.tscn");
 
-        _player = _mainGameScene.FindChild("Player") as Player;
+        // since player is now an autoload we need some cursed way to access it, since SceneRunner does not support autoloads.
+        var dungeonHandler = _mainGameScene.FindChild("DungeonHandler");
+        System.Diagnostics.Debug.Assert(dungeonHandler is not null, "root is null");
+        _player = dungeonHandler.GetNode<Player>("/root/Player");
+        System.Diagnostics.Debug.Assert(_player is not null, "Player is null");
 
         AssertObject(_player).IsNotNull();
     }

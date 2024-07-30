@@ -239,6 +239,7 @@ radius = 6.0
 height = 20.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer") groups=["player"]]
+z_index = 10
 script = ExtResource("1_33xnx")
 StateMachine = NodePath("StateMachine")
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -358,7 +359,6 @@ _spellScene = ExtResource("24_h76h0")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="SpellInventory" parent="UI" instance=ExtResource("10_cknrl")]
-visible = false
 
 [node name="AugmentInventory" parent="UI" instance=ExtResource("25_qc2ug")]
 
