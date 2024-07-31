@@ -6,6 +6,9 @@ using System.Linq;
 /**
 The AugmentInventory is the root node of the augment inventory.
 It handles the creation of all InventorySlots and the adding of new augments to the inventory.
+The scene is a child of the player so that it is always loaded as the scene containes all augment data.
+Usually the visibility and the processing is disabled. Except if the player clicks the "Open Augment Inventory" button.
+It can then be closed again using ESC.
 */
 [GlobalClass]
 public partial class AugmentInventory : CanvasLayer
@@ -59,8 +62,7 @@ public partial class AugmentInventory : CanvasLayer
     }
 
 	/**
-	Set the visibility of the AugmentInventory. 
-	Sets the visibility and the ProcessMode.
+	Set the visibility and the ProcessMode of the AugmentInventory. I.e. enable and disable it.
 	*/
 	public void SetVisibility(bool isVisible)
 	{
