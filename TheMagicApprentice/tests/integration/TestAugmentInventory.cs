@@ -24,8 +24,10 @@ public partial class TestAugmentInventory
 	[BeforeTest]
 	public void SetupTest()
 	{
-        _mainGameScene = ISceneRunner.Load("res://main_game.tscn");
-        _augmentInventory = _mainGameScene.FindChild("AugmentInventory") as AugmentInventory;
+        _mainGameScene = ISceneRunner.Load("res://modules/entities/player/inventory/augments/augment_inventory.tscn");
+        // sadly again need to use a cursed way to access the root node of the augment_inventory scene since GDUnit4 does not alles easy access
+        var marginContainer = _mainGameScene.FindChild("MarginContainer");
+        _augmentInventory = marginContainer.GetParent() as AugmentInventory;
         AssertObject(_augmentInventory).IsNotNull();
 
         // Assert that there are exactly 5 active slots and at least 10 inactive
