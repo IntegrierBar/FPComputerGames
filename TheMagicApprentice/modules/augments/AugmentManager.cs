@@ -42,6 +42,7 @@ public partial class AugmentManager : Node
 		for (int i = 0; i < Math.Min(amountAugmentEffects, 3); i++) // use Math.Min to make sure we
 		{
 			augment._augmentEffects[i] = SelectRandomAugmentEffect();
+			augment.Description += "\n" + augment._augmentEffects[i].Description(); // build the description of the augment
 		}
 		return augment;
 	}

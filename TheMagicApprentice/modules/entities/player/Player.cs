@@ -2,6 +2,13 @@ using Godot;
 using System;
 using System.Linq;
 
+
+/**
+The Player class is the root node of the player scene. It initalizes the Players state machine and then forwards Input, Process and PhysicsProcess to the state machine.
+It also manages the active augments of the player.
+The scene is set as an autoload so that every part of the game can reference it.
+Process is only enabled if the main_game scene is set as active scene in the MenuManager
+*/
 public partial class Player : CharacterBody2D
 {
 	[Export]
@@ -22,6 +29,34 @@ public partial class Player : CharacterBody2D
 		System.Diagnostics.Debug.Assert(StateMachine is not null, "StateMachine in Player is null");
 		System.Diagnostics.Debug.Assert(AnimationPlayer is not null, "AnimationPlayer in Player is null");
 		StateMachine.Init(this, AnimationPlayer);
+
+		// get the MenuManager and connect the MenuChanged signal to the OnMenuChanged function
+		MenuManager menuManager = GetTree().GetFirstNodeInGroup("menu_manager") as MenuManager;
+		if (menuManager is not null) // this is only false for tests and just exists for them
+		{
+			menuManager.MenuChanged += OnMenuChanged;
+		}
+		
+	}
+
+	/**
+	Whenever the menu of the MenuManager changes, this function gets called.
+	If the new menu is the main game scene, we activate ProcessMode and make the UI visible, otherwise we deactivate it and make the UI invisible.
+	*/
+	private void OnMenuChanged(MenuManager.MenuType newMenu, bool isPush)
+	{
+		if (newMenu == MenuManager.MenuType.MainGame)
+		{
+			ProcessMode = ProcessModeEnum.Inherit;
+			//Visible = true;
+			(GetNode("UI") as CanvasLayer).Visible = true;
+		}
+		else
+		{
+			ProcessMode = ProcessModeEnum.Disabled;
+			//Visible = false;
+			(GetNode("UI") as CanvasLayer).Visible = false;
+		}
 	}
 
 	/**
@@ -137,5 +172,16 @@ public partial class Player : CharacterBody2D
 		Augment augment = AugmentManager.Instance.CreateRandomAugment(3);
 
 		EquipAugmentInSlot(augment, 0);
+
+	}
+
+
+	/**
+	Show the AugmentInventory by setting its visibility to true.
+	Is called by the main hub scirpt when the button to open the menu is pressed
+	*/
+	public void OpenAugmentInventory()
+	{
+		GetNode<AugmentInventory>("AugmentInventory").SetVisibility(true);
 	}
 }

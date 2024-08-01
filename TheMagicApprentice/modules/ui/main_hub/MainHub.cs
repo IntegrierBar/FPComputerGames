@@ -17,4 +17,12 @@ public partial class MainHub : BaseMenu
 	{
 		SetRootMenu(MenuManager.MenuType.MainGame);
 	}
+
+	/**
+	Open the augment inventory by calling the OpenAugmentInventory function of the player which sets the visibility of the Inventory to true
+	*/
+	private void OpenAugmentInventory()
+	{
+		(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).OpenAugmentInventory();
+	}
 }

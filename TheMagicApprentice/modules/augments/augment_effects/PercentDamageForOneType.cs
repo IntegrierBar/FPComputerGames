@@ -22,4 +22,10 @@ public partial class PercentDamageForOneType : AugmentEffect
             spell.Damage *= _damageIncreaseFaktor;
         }
     }
+
+
+    public override string Description()
+    {
+        return "Increases damage of all " + _magicType.ToString() + " spells by " + (_damageIncreaseFaktor - 1).ToString("0.%");
+    }
 }

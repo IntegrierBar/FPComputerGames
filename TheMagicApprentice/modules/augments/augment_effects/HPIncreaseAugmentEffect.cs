@@ -32,4 +32,10 @@ public partial class HPIncreaseAugmentEffect : AugmentEffect
 
         healthComponentPlayer.SetMaxHP(healthComponentPlayer.GetMaxHP() / _HPIncreaseFaktor);
     }
+
+
+    public override string Description()
+    {
+        return "Increases HP by " + (_HPIncreaseFaktor - 1).ToString("0.%");
+    }
 }

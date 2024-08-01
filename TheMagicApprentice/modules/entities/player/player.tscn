@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=40 format=3 uid="uid://cfafpfmqm8u17"]
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dqpjsl8ux75jq" path="res://modules/entities/player/spells/dark_energy_wave/dark_energy_wave.tscn" id="22_vkran"]
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryBlackHole.cs" id="23_jr77b"]
 [ext_resource type="PackedScene" uid="uid://u23ysmqaadgq" path="res://modules/entities/player/spells/black_hole/black_hole.tscn" id="24_h76h0"]
+[ext_resource type="PackedScene" uid="uid://dbtvjj0ey2g4s" path="res://modules/entities/player/inventory/augments/augment_inventory.tscn" id="25_qc2ug"]
 
 [sub_resource type="Animation" id="Animation_3syv3"]
 length = 0.001
@@ -238,6 +239,7 @@ radius = 6.0
 height = 20.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer") groups=["player"]]
+z_index = 10
 script = ExtResource("1_33xnx")
 StateMachine = NodePath("StateMachine")
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -358,15 +360,17 @@ _spellScene = ExtResource("24_h76h0")
 
 [node name="SpellInventory" parent="UI" instance=ExtResource("10_cknrl")]
 
-[node name="AddAugment" type="Button" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -219.0
-offset_top = 21.0
-offset_right = -31.0
-offset_bottom = 70.0
-grow_horizontal = 0
-text = "Add Augment to slot 0"
+[node name="AugmentInventory" parent="." instance=ExtResource("25_qc2ug")]
+process_mode = 4
+layer = 10
+visible = false
 
-[connection signal="pressed" from="UI/AddAugment" to="." method="TestEquip"]
+[node name="AddAugment" type="Button" parent="AugmentInventory"]
+offset_left = 931.0
+offset_top = 15.0
+offset_right = 1144.0
+offset_bottom = 64.0
+focus_mode = 0
+text = "Add Augment to Inventory"
+
+[connection signal="pressed" from="AugmentInventory/AddAugment" to="AugmentInventory" method="AddRandomAugment"]

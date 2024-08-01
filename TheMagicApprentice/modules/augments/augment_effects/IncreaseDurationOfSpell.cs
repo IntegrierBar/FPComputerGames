@@ -30,4 +30,10 @@ public partial class IncreaseDurationOfSpell : OnCastAugmentEffect
     {
         spell._timeLeftUntilDeletion *= _durationIncreaseFactor;
     }
+
+
+    public override string Description()
+    {
+        return "Increase the duration of " + _spellName.ToString() + " by " + (_durationIncreaseFactor - 1).ToString("0.%");
+    }
 }

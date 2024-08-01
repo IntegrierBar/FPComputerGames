@@ -84,5 +84,14 @@ public partial class TestAugmentManager
                 AssertObject(augment._augmentEffects[i]).IsNull();
             }
         }
+
+        if (amountAugmentEffects > 0)
+        {
+            AssertString(augment.Description).IsNotEmpty();
+        }
+        else
+        {
+            AssertString(augment.Description).IsEmpty();
+        }
     }
 }

@@ -36,5 +36,14 @@ offset_right = 1050.0
 offset_bottom = 413.0
 text = "Dungeon"
 
+[node name="AugmentInventory" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 113.0
+offset_right = 471.0
+offset_bottom = 220.0
+text = "Open Augment Inventory"
+
 [connection signal="pressed" from="Control/ExitButton" to="." method="OnExitButtonPressed"]
 [connection signal="pressed" from="Control/DungeonButton" to="." method="OnDungeonButtonPressed"]
+[connection signal="pressed" from="Control/AugmentInventory" to="." method="OpenAugmentInventory"]

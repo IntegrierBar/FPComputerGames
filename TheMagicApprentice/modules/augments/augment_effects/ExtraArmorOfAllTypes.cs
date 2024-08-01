@@ -36,4 +36,10 @@ public partial class ExtraArmorOfAllTypes : AugmentEffect
         healthComponentPlayer.ModifyArmor(MagicType.COSMIC, -_extraArmor);
         healthComponentPlayer.ModifyArmor(MagicType.DARK, -_extraArmor);
     }
+
+
+    public override string Description()
+    {
+        return "Adds " + _extraArmor + " armor to all types";
+    }
 }

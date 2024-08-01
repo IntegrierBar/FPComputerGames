@@ -19,4 +19,10 @@ public partial class PercentDamageForOneSpell : AugmentEffect
         System.Diagnostics.Debug.Assert(spell is not null, "spell name is wrong");
         spell.Damage *= _damageIncreaseFaktor;
     }
+
+
+    public override string Description()
+    {
+        return "Increase the damage of " + _spellName.ToString() + " by " + (_damageIncreaseFaktor - 1).ToString("0.%");
+    }
 }
