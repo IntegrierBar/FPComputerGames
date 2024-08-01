@@ -14,4 +14,13 @@ public partial class BlackHole : Spell
 
 		Position = targetPosition;
 	}
+
+	public override void OnAreaEntered(Area2D area)
+	{
+		// Print the name of the area
+		GD.Print($"Area entered: {area.Name}");
+
+		// Keep the original functionality from the base class
+		base.OnAreaEntered(area);
+	}
 }

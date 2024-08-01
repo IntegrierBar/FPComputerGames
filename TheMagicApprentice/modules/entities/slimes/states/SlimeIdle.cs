@@ -10,7 +10,7 @@ public partial class SlimeIdle : State
     public State Attacking; ///< Reference to Attacking state 
 
 	[Export]
-	public float SPEED = 20; ///< Speed of the slime when it is idle
+	public float SPEED = 40; ///< Speed of the slime when it is idle
 
 	[ExportGroup("Animation Duration")]
 	[Export]
@@ -24,6 +24,7 @@ public partial class SlimeIdle : State
 	private bool _idleAtSamePosition = true; ///< is true when the slime stays in one position and false for random walk, changes from true to false whenever timeLeft reaches zero
 	// Setting _idleatSamePosition to true means it will get set to false in the first physics process 
 	// and the slime starts jumping around.
+	private Movement _movement; ///< reference to the movement component
 
 	private RandomNumberGenerator _random;
 
@@ -36,6 +37,12 @@ public partial class SlimeIdle : State
 
 		_player = GetTree().GetFirstNodeInGroup("player") as Player;
 		System.Diagnostics.Debug.Assert(_player is not null, "SlimeIdle has not found a player!");
+	}
+
+	public override void Enter()
+	{
+		base.Enter();
+		_movement = Parent.GetNode<Movement>("Movement");
 	}
 
 	/**
@@ -67,7 +74,7 @@ public partial class SlimeIdle : State
 		if (_timeLeft <= 0.0)
 		{
 			Vector2 new_direction = ChangeRandomWalk();
-			Parent.Velocity = new_direction * SPEED; // update the slimes velocity
+			_movement.ApplyMovement(new_direction, delta, SPEED);
 			UpdateAnimations();
 		}
 		Parent.MoveAndSlide();

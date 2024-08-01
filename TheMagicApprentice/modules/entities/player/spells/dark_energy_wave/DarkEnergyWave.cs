@@ -41,7 +41,9 @@ public partial class DarkEnergyWave : Spell
 
 			// pushes the enemy. TODO This still need extensive work. We might have to change how movement works. We probably want to use acceleration instead of velocity for movement
 			//(healthComponent.GetParent() as CharacterBody2D).Position += (healthComponent.Position - Position).Normalized() * 40;
-			(healthComponent.GetParent() as CharacterBody2D).MoveAndCollide((healthComponent.GlobalPosition - GlobalPosition).Normalized() * 100);  
+			var movement = (healthComponent.GetParent() as CharacterBody2D).GetNode<Movement>("Movement");
+			Vector2 force = (healthComponent.GlobalPosition - GlobalPosition).Normalized() * 100;
+			movement.ApplyForce(force);
 		}
 	}
 }
