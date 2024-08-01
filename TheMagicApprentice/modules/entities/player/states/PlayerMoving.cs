@@ -16,6 +16,14 @@ public partial class PlayerMoving : State
     public State Dashing; ///< Reference to Dashing state
     [Export]
     public State SpellCasting; ///< Reference to SpellCasting state 
+    
+    private Movement _movement; ///< reference to the movement component
+
+    public override void Enter()
+    {
+        base.Enter();
+        _movement = Parent.GetNode<Movement>("Movement");
+    }
 
 
     public override State ProcessInput(InputEvent @event)
@@ -40,8 +48,7 @@ public partial class PlayerMoving : State
             return Idle;
         }
 
-        Parent.Velocity = (float)SPEED * direction;
-        Parent.MoveAndSlide();
+        _movement.SetMovement(direction, (float)SPEED);
         
         UpdateAnimations();
         return null;

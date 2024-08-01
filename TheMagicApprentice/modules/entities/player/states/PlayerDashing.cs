@@ -10,7 +10,7 @@ public partial class PlayerDashing : State
     [Export]
     public CollisionShape2D HitBox; ///< Reference of the HitBox of the player 
     [Export]
-    public double SPEED = 400; ///< Speed of the dash
+    public double SPEED = 300; ///< Speed of the dash
     [Export]
     public double DASH_TIME = 0.3; ///< Duration of the dash 
     private double _timeLeft = 0;
@@ -26,14 +26,16 @@ public partial class PlayerDashing : State
     //[Export]
     //public State SpellCasting;
 
+    private Movement _movement; ///< reference to the movement component
+
     /**
     When entering the dash state we disable the Hitbox and set the Velocity of the Player 
     */
     public override void Enter()
     {
         base.Enter();
+        _movement = Parent.GetNode<Movement>("Movement");
         _timeLeft = DASH_TIME;
-        Parent.Velocity = Input.GetVector("left", "right", "up", "down") * (float)SPEED;
 
         HitBox.Disabled = true;
     }
@@ -56,6 +58,7 @@ public partial class PlayerDashing : State
             return Idle;
         }
 
+        _movement.SetMovement(Input.GetVector("left", "right", "up", "down"), (float)SPEED);
         Parent.MoveAndSlide();
         UpdateAnimations();
 

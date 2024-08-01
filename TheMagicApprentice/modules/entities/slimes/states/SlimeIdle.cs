@@ -10,7 +10,7 @@ public partial class SlimeIdle : State
     public State Attacking; ///< Reference to Attacking state 
 
 	[Export]
-	public float SPEED = 40; ///< Speed of the slime when it is idle
+	public float SPEED = 20; ///< Speed of the slime when it is idle
 
 	[ExportGroup("Animation Duration")]
 	[Export]
@@ -74,10 +74,9 @@ public partial class SlimeIdle : State
 		if (_timeLeft <= 0.0)
 		{
 			Vector2 new_direction = ChangeRandomWalk();
-			_movement.ApplyMovement(new_direction, delta, SPEED);
+			_movement.SetMovement(new_direction, SPEED);
 			UpdateAnimations();
 		}
-		Parent.MoveAndSlide();
 		return null;
 	}
 

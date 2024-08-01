@@ -10,9 +10,10 @@ public partial class SlimeMoving : State
     public State Attacking; ///< Reference to Attacking state 
 
 	[Export]
-	public float SPEED = 50; ///< Speed of the slime when it moves towards the player
+	public float SPEED = 30; ///< Speed of the slime when it moves towards the player
 
 	private Player _player; ///< reference to the player
+	private Movement _movement; ///< reference to the movement component
 	
 	/**
 	Set player.
@@ -29,6 +30,7 @@ public partial class SlimeMoving : State
     public override void Enter()
     {
 		UpdateAnimations();
+		_movement = Parent.GetNode<Movement>("Movement");
         base.Enter();
     }
 
@@ -55,8 +57,7 @@ public partial class SlimeMoving : State
 		}
 
 		// if slime remains in Moving state, move towards the player
-		Parent.Velocity = vector_to_player.Normalized() * SPEED;
-		Parent.MoveAndSlide();
+		_movement.SetMovement(vector_to_player.Normalized(), SPEED);
 		
 		return null;
 	}

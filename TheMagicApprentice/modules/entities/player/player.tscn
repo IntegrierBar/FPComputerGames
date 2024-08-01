@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=41 format=3 uid="uid://cfafpfmqm8u17"]
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryBlackHole.cs" id="23_jr77b"]
 [ext_resource type="PackedScene" uid="uid://u23ysmqaadgq" path="res://modules/entities/player/spells/black_hole/black_hole.tscn" id="24_h76h0"]
 [ext_resource type="PackedScene" uid="uid://dbtvjj0ey2g4s" path="res://modules/entities/player/inventory/augments/augment_inventory.tscn" id="25_qc2ug"]
+[ext_resource type="Script" path="res://modules/entities/Movement.cs" id="26_4664j"]
 
 [sub_resource type="Animation" id="Animation_3syv3"]
 length = 0.001
@@ -372,5 +373,10 @@ offset_right = 1144.0
 offset_bottom = 64.0
 focus_mode = 0
 text = "Add Augment to Inventory"
+
+[node name="Movement" type="Node" parent="."]
+script = ExtResource("26_4664j")
+Acceleration = 1000.0
+Deceleration = 1000.0
 
 [connection signal="pressed" from="AugmentInventory/AddAugment" to="AugmentInventory" method="AddRandomAugment"]
