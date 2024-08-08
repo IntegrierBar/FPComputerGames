@@ -36,4 +36,20 @@ public partial class Augment : Resource
             }
         }
     }
+
+    /**
+    Build the description of the Augment from the AugmentEffects
+    */
+    public void BuildDescription()
+    {
+        Description = "";
+        foreach (AugmentEffect effect in _augmentEffects)
+        {
+            if (effect is not null)
+            {
+                Description += "\n" + effect.Description();
+            }
+        }
+    }
+
 }
