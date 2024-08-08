@@ -173,11 +173,11 @@ public partial class AugmentInventory : CanvasLayer
 	*/
 	public void FuseSelectedAugments()
 	{
-		var fuseTo = GetNode<InventorySlot>("MarginContainer/VBoxContainer/HBoxContainer/FuseAugments/FuseTo");
-		var fuseFrom = GetNode<InventorySlot>("MarginContainer/VBoxContainer/HBoxContainer/FuseAugments/FuseFrom");
+		var fuseTo = GetNode<InventorySlot>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/FuseTo");
+		var fuseFrom = GetNode<InventorySlot>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/FuseFrom");
 
-		int fuseToEffectIndex = GetNode<AugmentEffectSelector>("MarginContainer/VBoxContainer/HBoxContainer/FuseAugments/EffectToOverride").Selected;
-		int fuseFromEffectIndex = GetNode<AugmentEffectSelector>("MarginContainer/VBoxContainer/HBoxContainer/FuseAugments/EffectToKeep").Selected;
+		int fuseToEffectIndex = GetNode<AugmentEffectSelector>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/EffectToOverride").Selected;
+		int fuseFromEffectIndex = GetNode<AugmentEffectSelector>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/EffectToKeep").Selected;
 
 		// If one of the indices is less then 0 then nothing is selected, therefore we do nothing
 		if (fuseToEffectIndex < 0 || fuseFromEffectIndex < 0)

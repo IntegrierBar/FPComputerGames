@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbtvjj0ey2g4s"]
+[gd_scene load_steps=5 format=3 uid="uid://dbtvjj0ey2g4s"]
 
 [ext_resource type="Script" path="res://modules/entities/player/inventory/augments/AugmentInventory.cs" id="1_u5q8w"]
+[ext_resource type="Theme" uid="uid://b5xmy0ocd4tfb" path="res://assets/themes/ingame_inventory_theme.tres" id="2_8ka7r"]
 [ext_resource type="Script" path="res://modules/entities/player/inventory/augments/InventorySlot.cs" id="2_bctsy"]
 [ext_resource type="Script" path="res://modules/entities/player/inventory/augments/AugmentEffectSelector.cs" id="2_d76ef"]
 
@@ -13,86 +14,97 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Panel" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_8ka7r")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="LeftButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="LeftButton" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Fuse Augments"
 
-[node name="ActiveAugments" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ActiveAugments" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="FuseAugments" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="FuseAugments" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="EffectToOverride" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/FuseAugments"]
+[node name="EffectToOverride" type="OptionButton" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text_overrun_behavior = 3
 clip_text = true
 script = ExtResource("2_d76ef")
 
-[node name="FuseTo" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FuseAugments"]
+[node name="FuseTo" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="FuseAugments" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/FuseAugments"]
+[node name="FuseAugments" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments"]
 layout_mode = 2
 text = "Fuse Augments"
 
-[node name="FuseFrom" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FuseAugments"]
+[node name="FuseFrom" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="EffectToKeep" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/FuseAugments"]
+[node name="EffectToKeep" type="OptionButton" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text_overrun_behavior = 3
 clip_text = true
 script = ExtResource("2_d76ef")
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="RightButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+[node name="RightButton" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Skill Tree"
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/CenterContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer"]
 custom_minimum_size = Vector2(600, 400)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -100,365 +112,365 @@ size_flags_vertical = 6
 follow_focus = true
 horizontal_scroll_mode = 0
 
-[node name="InactiveAugments" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer"]
+[node name="InactiveAugments" type="GridContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 10
 
-[node name="InventorySlot" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot2" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot2" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot3" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot3" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot4" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot4" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot5" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot5" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot6" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot6" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot7" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot7" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot8" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot8" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot9" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot9" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot10" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot10" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot11" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot11" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot12" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot12" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot13" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot13" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot14" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot14" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot15" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot15" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot16" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot16" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot17" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot17" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot18" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot18" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot19" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot19" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot20" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot20" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot21" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot21" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot22" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot22" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot23" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot23" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot24" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot24" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot25" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot25" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot26" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot26" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot27" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot27" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot28" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot28" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot29" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot29" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot30" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot30" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot31" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot31" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot32" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot32" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot33" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot33" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot34" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot34" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot35" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot35" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot36" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot36" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot37" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot37" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot38" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot38" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot39" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot39" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot40" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot40" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot41" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot41" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot42" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot42" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot43" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot43" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot44" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot44" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot45" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot45" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot46" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot46" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot47" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot47" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot48" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot48" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot49" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot49" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot50" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot50" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot51" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot51" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot52" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot52" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot53" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot53" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot54" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot54" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot55" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot55" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot56" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot56" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot57" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot57" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot58" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot58" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot59" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot59" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot60" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot60" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot61" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot61" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot62" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot62" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot63" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot63" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot64" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot64" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot65" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot65" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot66" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot66" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot67" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot67" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot68" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot68" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot69" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot69" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[node name="InventorySlot70" type="PanelContainer" parent="MarginContainer/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
+[node name="InventorySlot70" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/CenterContainer/ScrollContainer/InactiveAugments"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_bctsy")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/LeftButton" to="." method="LeftButtonPressed"]
-[connection signal="EquipAugmentInSlot" from="MarginContainer/VBoxContainer/HBoxContainer/FuseAugments/FuseTo" to="MarginContainer/VBoxContainer/HBoxContainer/FuseAugments/EffectToOverride" method="SelectAugment"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/FuseAugments/FuseAugments" to="." method="FuseSelectedAugments"]
-[connection signal="EquipAugmentInSlot" from="MarginContainer/VBoxContainer/HBoxContainer/FuseAugments/FuseFrom" to="MarginContainer/VBoxContainer/HBoxContainer/FuseAugments/EffectToKeep" method="SelectAugment"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/RightButton" to="." method="RightButtonPressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/MarginContainer/LeftButton" to="." method="LeftButtonPressed"]
+[connection signal="EquipAugmentInSlot" from="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/FuseTo" to="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/EffectToOverride" method="SelectAugment"]
+[connection signal="pressed" from="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/FuseAugments" to="." method="FuseSelectedAugments"]
+[connection signal="EquipAugmentInSlot" from="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/FuseFrom" to="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/EffectToKeep" method="SelectAugment"]
+[connection signal="pressed" from="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/MarginContainer2/RightButton" to="." method="RightButtonPressed"]
