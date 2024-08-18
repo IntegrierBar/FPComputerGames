@@ -282,7 +282,7 @@ public partial class TestAugments
     {
         InventorySpell blackHole = _player.GetTree().GetFirstNodeInGroup(Globals.BlackHoleSpellGroup) as InventorySpell;
 
-        AssertInt(blackHole.GetOnCastAugmentEffects().Count).IsZero(); // check that there are now OnCastAugmentEffects
+        AssertInt(blackHole.GetOnCastAugmentEffects().Count).OverrideFailureMessage("Initial amount of OnCastAugmentEffects is not 0").IsZero(); // check that there are now OnCastAugmentEffects
 
         // Get the size of the normal Cast BlackHole
         blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
@@ -330,7 +330,7 @@ public partial class TestAugments
     {
         InventorySpell blackHole = _player.GetTree().GetFirstNodeInGroup(Globals.BlackHoleSpellGroup) as InventorySpell;
 
-        AssertInt(blackHole.GetOnCastAugmentEffects().Count).IsZero(); // check that there are now OnCastAugmentEffects
+        AssertInt(blackHole.GetOnCastAugmentEffects().Count).OverrideFailureMessage("Initial amount of OnCastAugmentEffects is not 0").IsZero(); // check that there are now OnCastAugmentEffects
 
         // Get the size of the normal Cast BlackHole
         blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
