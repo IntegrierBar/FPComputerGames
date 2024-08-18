@@ -41,6 +41,20 @@ public partial class TestAugments
         AssertObject(_player).IsNotNull();
     }
 
+    /**
+    Quick test of Get/SetAugmentEffect 
+    */
+    [TestCase]
+    public void TestGetSetAugmentEffect()
+    {
+        Augment augment = new Augment();
+        AugmentEffect augmentEffect = new AdditionalStars(); 
+        AssertObject(augment.GetAugmentEffect(0)).IsNull();
+        augment.SetAugmentEffect(0, augmentEffect);
+        AssertObject(augment.GetAugmentEffect(0)).IsNotNull();
+        AssertObject(augment.GetAugmentEffect(1)).IsNull();
+    }
+
 
     /**
     Test equiping augments in random slots

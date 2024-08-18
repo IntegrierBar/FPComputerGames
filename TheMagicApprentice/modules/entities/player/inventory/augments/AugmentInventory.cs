@@ -169,18 +169,18 @@ public partial class AugmentInventory : CanvasLayer
 	}
 
 	/**
-	Fuse the currently selected Augments in the way specified by the 2 OptionButtons
+	Fuse the currently selected Augments in the way specified by the 2 OptionButtons, using the AugmentManagers FuseAugments function.
 	*/
 	public void FuseSelectedAugments()
 	{
 		var fuseTo = GetNode<InventorySlot>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/FuseTo");
 		var fuseFrom = GetNode<InventorySlot>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/FuseFrom");
 
-		int fuseToEffectIndex = GetNode<AugmentEffectSelector>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/EffectToOverride").Selected;
-		int fuseFromEffectIndex = GetNode<AugmentEffectSelector>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/EffectToKeep").Selected;
+		int indexEffectToOverride = GetNode<AugmentEffectSelector>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/EffectToOverride").Selected;
+		int indexEffectToKeep = GetNode<AugmentEffectSelector>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/EffectToKeep").Selected;
 
 		// If one of the indices is less then 0 then nothing is selected, therefore we do nothing
-		if (fuseToEffectIndex < 0 || fuseFromEffectIndex < 0)
+		if (indexEffectToOverride < 0 || indexEffectToKeep < 0)
 		{
 			return;
 		}
@@ -189,9 +189,10 @@ public partial class AugmentInventory : CanvasLayer
 		InventoryItem fuseFromItem = fuseFrom.GetChild<InventoryItem>(0);
 
 		// Override the effect of the augment with the selected AugmentEffect
-		AugmentEffect selectedAugmentEffect = fuseFromItem.Augment._augmentEffects[fuseFromEffectIndex];
-		fuseToItem.Augment._augmentEffects[fuseToEffectIndex] = selectedAugmentEffect;
-		fuseToItem.RebuildDescription(); // update the tool tip text
+		AugmentManager.Instance.FuseAugments(fuseToItem.Augment, indexEffectToOverride, fuseFromItem.Augment, indexEffectToKeep);
+
+		// update item description
+		fuseToItem.RebuildDescription();
 
 		// Finally destroy the Augment from which we have taken the effect
 		fuseFromItem.QueueFree();
