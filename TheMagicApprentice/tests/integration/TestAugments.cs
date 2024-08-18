@@ -46,6 +46,13 @@ public partial class TestAugments
 	{
 		GD.Print("Tearing down test environment...");
 
+
+        // Manually unequip all augments. Should be unneccessarry but I am doing this to fix a bug when running tests online
+        for (int i = 0; i < 5; i++)
+        {
+            _player.UnEquipAugmentFromSlot(i);
+        }
+
 		// Clean up the scene runner
 		_mainGameScene = null;
 		_player = null;
