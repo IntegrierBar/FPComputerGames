@@ -41,6 +41,18 @@ public partial class TestAugments
         AssertObject(_player).IsNotNull();
     }
 
+    [AfterTest]
+	public void TearDown()
+	{
+		GD.Print("Tearing down test environment...");
+
+		// Clean up the scene runner
+		_mainGameScene = null;
+		_player = null;
+
+		GD.Print("Scene runner and nodes freed.");
+	}
+
     /**
     Quick test of Get/SetAugmentEffect 
     */
