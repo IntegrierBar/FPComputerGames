@@ -83,6 +83,10 @@ public partial class Augment : Resource
             _augmentEffects[index] = augmentEffect;
             BuildDescription(); // rebuild the description
         }
-        System.Diagnostics.Debug.Print("Trying to set augmenteffect outside of range");
+        else
+        {
+            System.Diagnostics.Debug.Fail("Trying to set augmenteffect outside of range");
+        }
+        
     }
 }
