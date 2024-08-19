@@ -2,29 +2,26 @@
 \hypertarget{class_health_component}{}\label{class_health_component}\index{HealthComponent@{HealthComponent}}
 
 
-Inheritance diagram for Health\+Component\+:
-\nopagebreak
+Inheritance diagram for Health\+Component\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=189pt]{d0/dbe/class_health_component__inherit__graph}
+\includegraphics[width=262pt]{d0/dbe/class_health_component__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Health\+Component\+:
-\nopagebreak
+Collaboration diagram for Health\+Component\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=255pt]{d1/d33/class_health_component__coll__graph}
+\includegraphics[height=550pt]{d1/d33/class_health_component__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_health_component_a56f525f9dea8b5228348558db5d1549c}\label{class_health_component_a56f525f9dea8b5228348558db5d1549c} 
-delegate void {\bfseries Death\+Event\+Handler} ()
+delegate void \mbox{\hyperlink{class_health_component_a56f525f9dea8b5228348558db5d1549c}{Death\+Event\+Handler}} ()
 \begin{DoxyCompactList}\small\item\em Signal that gets emitted if the entities health reaches 0. \end{DoxyCompactList}\item 
 override void \mbox{\hyperlink{class_health_component_a5026a2b139578c031704b749c7361177}{\+\_\+\+Ready}} ()
 \item 
@@ -38,15 +35,14 @@ void \mbox{\hyperlink{class_health_component_a200f8213c66768d116bec11683648638}{
 \item 
 double \mbox{\hyperlink{class_health_component_aada915aafdc0413280d46cef51ff7cd8}{Get\+Current\+HP}} ()
 \item 
-double \mbox{\hyperlink{class_health_component_ac191dda1d833647d10f72b057b588943}{Get\+Armor\+Of\+Type}} (Magic\+Type type)
+double \mbox{\hyperlink{class_health_component_ac191dda1d833647d10f72b057b588943}{Get\+Armor\+Of\+Type}} (\mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}} type)
 \item 
-void \mbox{\hyperlink{class_health_component_a90811486fa013a5442374aa9f7f66d1e}{Modify\+Armor}} (Magic\+Type magic\+Type, double flat\+Armor\+Change)
+void \mbox{\hyperlink{class_health_component_a90811486fa013a5442374aa9f7f66d1e}{Modify\+Armor}} (\mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}} magic\+Type, double flat\+Armor\+Change)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_health_component_ae50eb6011c2163fb1f5cfb2832b3ff3b}\label{class_health_component_ae50eb6011c2163fb1f5cfb2832b3ff3b} 
-\mbox{\hyperlink{class_healthbar}{Healthbar}} {\bfseries healthbar}
+\mbox{\hyperlink{class_healthbar}{Healthbar}} \mbox{\hyperlink{class_health_component_ae50eb6011c2163fb1f5cfb2832b3ff3b}{healthbar}}
 \end{DoxyCompactItemize}
 
 
@@ -57,11 +53,21 @@ void \mbox{\hyperlink{class_health_component_a90811486fa013a5442374aa9f7f66d1e}{
 {\footnotesize\ttfamily \label{class_health_component_a5026a2b139578c031704b749c7361177} 
 override void Health\+Component.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-During initialization we set the current\+HP to the Max\+HP \Hypertarget{class_health_component_ac191dda1d833647d10f72b057b588943}\index{HealthComponent@{HealthComponent}!GetArmorOfType@{GetArmorOfType}}
+During initialization we set the current\+HP to the Max\+HP \Hypertarget{class_health_component_a56f525f9dea8b5228348558db5d1549c}\index{HealthComponent@{HealthComponent}!DeathEventHandler@{DeathEventHandler}}
+\index{DeathEventHandler@{DeathEventHandler}!HealthComponent@{HealthComponent}}
+\doxysubsubsection{\texorpdfstring{DeathEventHandler()}{DeathEventHandler()}}
+{\footnotesize\ttfamily \label{class_health_component_a56f525f9dea8b5228348558db5d1549c} 
+delegate void Health\+Component.\+Death\+Event\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Signal that gets emitted if the entities health reaches 0. 
+
+\Hypertarget{class_health_component_ac191dda1d833647d10f72b057b588943}\index{HealthComponent@{HealthComponent}!GetArmorOfType@{GetArmorOfType}}
 \index{GetArmorOfType@{GetArmorOfType}!HealthComponent@{HealthComponent}}
 \doxysubsubsection{\texorpdfstring{GetArmorOfType()}{GetArmorOfType()}}
 {\footnotesize\ttfamily \label{class_health_component_ac191dda1d833647d10f72b057b588943} 
-double Health\+Component.\+Get\+Armor\+Of\+Type (\begin{DoxyParamCaption}\item[{Magic\+Type}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+double Health\+Component.\+Get\+Armor\+Of\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}}}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Returns the armor of the Magic\+Type. Is only used by tests \Hypertarget{class_health_component_aada915aafdc0413280d46cef51ff7cd8}\index{HealthComponent@{HealthComponent}!GetCurrentHP@{GetCurrentHP}}
 \index{GetCurrentHP@{GetCurrentHP}!HealthComponent@{HealthComponent}}
@@ -79,7 +85,7 @@ Getter for Max\+HP \Hypertarget{class_health_component_a90811486fa013a5442374aa9
 \index{ModifyArmor@{ModifyArmor}!HealthComponent@{HealthComponent}}
 \doxysubsubsection{\texorpdfstring{ModifyArmor()}{ModifyArmor()}}
 {\footnotesize\ttfamily \label{class_health_component_a90811486fa013a5442374aa9f7f66d1e} 
-void Health\+Component.\+Modify\+Armor (\begin{DoxyParamCaption}\item[{Magic\+Type}]{magic\+Type}{, }\item[{double}]{flat\+Armor\+Change}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void Health\+Component.\+Modify\+Armor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}}}]{magic\+Type}{, }\item[{double}]{flat\+Armor\+Change}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Modify the armor for one element by addition \Hypertarget{class_health_component_a200f8213c66768d116bec11683648638}\index{HealthComponent@{HealthComponent}!SetArmor@{SetArmor}}
 \index{SetArmor@{SetArmor}!HealthComponent@{HealthComponent}}
@@ -101,6 +107,15 @@ void Health\+Component.\+Take\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyp
 
 Gets called whenever the hitbox of the Healthcomponent collides with a hurtbox. Processes the \doxylink{class_attack}{Attack} and if current\+HP reaches zero emits the signal Death. 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_health_component_ae50eb6011c2163fb1f5cfb2832b3ff3b}\index{HealthComponent@{HealthComponent}!healthbar@{healthbar}}
+\index{healthbar@{healthbar}!HealthComponent@{HealthComponent}}
+\doxysubsubsection{\texorpdfstring{healthbar}{healthbar}}
+{\footnotesize\ttfamily \label{class_health_component_ae50eb6011c2163fb1f5cfb2832b3ff3b} 
+\mbox{\hyperlink{class_healthbar}{Healthbar}} Health\+Component.\+healthbar}
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/entities/Health\+Component.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/entities/\mbox{\hyperlink{_health_component_8cs}{Health\+Component.\+cs}}\end{DoxyCompactItemize}

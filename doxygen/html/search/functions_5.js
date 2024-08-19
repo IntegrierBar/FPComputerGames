@@ -6,5 +6,6 @@ var searchData=
   ['equipaugment_3',['EquipAugment',['../d0/d7a/class_inventory_slot.html#ae7b712a9de04c5370150e04bf0ddce45',1,'InventorySlot']]],
   ['equipaugmentinslot_4',['EquipAugmentInSlot',['../d8/d53/class_player.html#a6560fad1f0db7570887662eafd67df60',1,'Player']]],
   ['equipaugmentinsloteventhandler_5',['EquipAugmentInSlotEventHandler',['../d0/d7a/class_inventory_slot.html#aea5f0341a4c2d7a0db9f13c04ed184f7',1,'InventorySlot']]],
-  ['exit_6',['Exit',['../d2/df1/class_player_dashing.html#a774406415ed8a7a99d2f040aa992849f',1,'PlayerDashing.Exit()'],['../d0/d8b/class_state.html#ae384c5d8253cc8671290231c84fdb703',1,'State.Exit()'],['../d2/da1/class_unicorn_charge_attack.html#a5b272fad66de66aea4ec1755d8742ab6',1,'UnicornChargeAttack.Exit()'],['../dd/d3c/class_unicorn_wait.html#a7b62d53d9c657ea62f8f0adccbe10bf6',1,'UnicornWait.Exit()']]]
+  ['executor_6',['Executor',['../da/dcf/class_gd_unit4_c_sharp_api.html#a6d89aed25d344fc8abae87c8e74e7f17',1,'GdUnit4CSharpApi']]],
+  ['exit_7',['Exit',['../d2/df1/class_player_dashing.html#a774406415ed8a7a99d2f040aa992849f',1,'PlayerDashing.Exit()'],['../d0/d8b/class_state.html#ae384c5d8253cc8671290231c84fdb703',1,'State.Exit()'],['../d2/da1/class_unicorn_charge_attack.html#a5b272fad66de66aea4ec1755d8742ab6',1,'UnicornChargeAttack.Exit()'],['../dd/d3c/class_unicorn_wait.html#a7b62d53d9c657ea62f8f0adccbe10bf6',1,'UnicornWait.Exit()']]]
 ];

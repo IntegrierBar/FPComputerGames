@@ -1,5 +1,5 @@
 <map id="DungeonHandler" name="DungeonHandler">
-<area shape="rect" id="Node000001" title="Manages the dungeon layout, room transitions, and player movement between rooms." alt="" coords="5,123,183,320"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="72,5,116,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,90,97,123,91,123,91,90"/>
+<area shape="rect" id="Node000001" title="Manages the dungeon layout, room transitions, and player movement between rooms." alt="" coords="5,123,235,352"/>
+<area shape="rect" id="Node000002" href="$dc/d8f/class_node.html" title=" " alt="" coords="98,5,142,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,90,123,123,117,123,117,90"/>
 </map>

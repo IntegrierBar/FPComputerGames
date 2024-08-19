@@ -2,18 +2,16 @@
 \hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
 
 
-Inheritance diagram for Player\+:
-\nopagebreak
+Inheritance diagram for Player\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=225pt]{d9/d6c/class_player__inherit__graph}
+\includegraphics[width=246pt]{d9/d6c/class_player__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Player\+:
-\nopagebreak
+Collaboration diagram for Player\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -37,19 +35,16 @@ void \mbox{\hyperlink{class_player_a9127e26e01f70c3dd9dfb71dcf06951e}{Un\+Equip\
 \item 
 void \mbox{\hyperlink{class_player_a02cea337ddf1d0cb53973be98c9f8214}{Recalculate\+Augment\+Effects}} ()
 \item 
-\Hypertarget{class_player_ae7cf2e07aee690a8ee104d604f7f6bb7}\label{class_player_ae7cf2e07aee690a8ee104d604f7f6bb7} 
-void {\bfseries Test\+Equip} ()
+void \mbox{\hyperlink{class_player_ae7cf2e07aee690a8ee104d604f7f6bb7}{Test\+Equip}} ()
 \item 
 void \mbox{\hyperlink{class_player_af998eae07f4ae1a6617a7ba7a676ead1}{Open\+Augment\+Inventory}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_player_ab485081de7af343c708cad2253c34cb8}\label{class_player_ab485081de7af343c708cad2253c34cb8} 
-\mbox{\hyperlink{class_state_machine}{State\+Machine}} {\bfseries State\+Machine}
+\mbox{\hyperlink{class_state_machine}{State\+Machine}} \mbox{\hyperlink{class_player_ab485081de7af343c708cad2253c34cb8}{State\+Machine}}
 \begin{DoxyCompactList}\small\item\em Reference to the state machine of the player charackter. \end{DoxyCompactList}\item 
-\Hypertarget{class_player_a343fb1371365e58eb9c641928d41237a}\label{class_player_a343fb1371365e58eb9c641928d41237a} 
-Animation\+Player {\bfseries Animation\+Player}
+Animation\+Player \mbox{\hyperlink{class_player_a343fb1371365e58eb9c641928d41237a}{Animation\+Player}}
 \begin{DoxyCompactList}\small\item\em Reference to the animation player of the player charackter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -99,7 +94,13 @@ Show the \doxylink{class_augment_inventory}{Augment\+Inventory} by setting its v
 {\footnotesize\ttfamily \label{class_player_a02cea337ddf1d0cb53973be98c9f8214} 
 void Player.\+Recalculate\+Augment\+Effects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Recalculates all augment effects \Hypertarget{class_player_a9127e26e01f70c3dd9dfb71dcf06951e}\index{Player@{Player}!UnEquipAugmentFromSlot@{UnEquipAugmentFromSlot}}
+Recalculates all augment effects \Hypertarget{class_player_ae7cf2e07aee690a8ee104d604f7f6bb7}\index{Player@{Player}!TestEquip@{TestEquip}}
+\index{TestEquip@{TestEquip}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{TestEquip()}{TestEquip()}}
+{\footnotesize\ttfamily \label{class_player_ae7cf2e07aee690a8ee104d604f7f6bb7} 
+void Player.\+Test\+Equip (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_player_a9127e26e01f70c3dd9dfb71dcf06951e}\index{Player@{Player}!UnEquipAugmentFromSlot@{UnEquipAugmentFromSlot}}
 \index{UnEquipAugmentFromSlot@{UnEquipAugmentFromSlot}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{UnEquipAugmentFromSlot()}{UnEquipAugmentFromSlot()}}
 {\footnotesize\ttfamily \label{class_player_a9127e26e01f70c3dd9dfb71dcf06951e} 
@@ -107,6 +108,29 @@ void Player.\+Un\+Equip\+Augment\+From\+Slot (\begin{DoxyParamCaption}\item[{int
 
 Remove an augment from a slot by equipping null in the slot 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_player_a343fb1371365e58eb9c641928d41237a}\index{Player@{Player}!AnimationPlayer@{AnimationPlayer}}
+\index{AnimationPlayer@{AnimationPlayer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{AnimationPlayer}{AnimationPlayer}}
+{\footnotesize\ttfamily \label{class_player_a343fb1371365e58eb9c641928d41237a} 
+Animation\+Player Player.\+Animation\+Player}
+
+
+
+Reference to the animation player of the player charackter. 
+
+\Hypertarget{class_player_ab485081de7af343c708cad2253c34cb8}\index{Player@{Player}!StateMachine@{StateMachine}}
+\index{StateMachine@{StateMachine}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{StateMachine}{StateMachine}}
+{\footnotesize\ttfamily \label{class_player_ab485081de7af343c708cad2253c34cb8} 
+\mbox{\hyperlink{class_state_machine}{State\+Machine}} Player.\+State\+Machine}
+
+
+
+Reference to the state machine of the player charackter. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/entities/player/Player.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/entities/player/\mbox{\hyperlink{_player_8cs}{Player.\+cs}}\end{DoxyCompactItemize}

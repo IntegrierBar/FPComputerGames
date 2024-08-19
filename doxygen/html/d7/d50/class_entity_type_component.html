@@ -95,35 +95,25 @@ $(function(){ initResizable(false); });
 <div class="dynheader">
 Inheritance diagram for EntityTypeComponent:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d8b/class_entity_type_component__inherit__graph.png" border="0" usemap="#a_entity_type_component_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_entity_type_component_inherit__map" id="a_entity_type_component_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,123,147,213"/>
-<area shape="rect" title=" " alt="" coords="54,5,98,75"/>
-<area shape="poly" title=" " alt="" coords="79,89,79,123,73,123,73,89"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d8b/class_entity_type_component__inherit__graph.svg" width="182" height="235"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Collaboration diagram for EntityTypeComponent:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d77/class_entity_type_component__coll__graph.png" border="0" usemap="#a_entity_type_component_coll__map" alt="Collaboration graph"/></div>
-<map name="a_entity_type_component_coll__map" id="a_entity_type_component_coll__map">
-<area shape="rect" title=" " alt="" coords="5,123,147,213"/>
-<area shape="rect" title=" " alt="" coords="54,5,98,75"/>
-<area shape="poly" title=" " alt="" coords="79,89,79,123,73,123,73,89"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d77/class_entity_type_component__coll__graph.svg" width="182" height="235"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a4057a0771e18e66d156338a17a815daa" id="r_a4057a0771e18e66d156338a17a815daa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4057a0771e18e66d156338a17a815daa">EntityType</a> { <br />
-&#160;&#160;<b>None</b> = 0
-, <b>Player</b> = 1 &lt;&lt; 0
-, <b>Enemy</b> = 1 &lt;&lt; 1
-, <b>Boss</b> = 1 &lt;&lt; 2
+&#160;&#160;<a class="el" href="#a4057a0771e18e66d156338a17a815daaa6adf97f83acf6453d4a6a4b1070f3754">None</a> = 0
+, <a class="el" href="#a4057a0771e18e66d156338a17a815daaa636da1d35e805b00eae0fcd8333f9234">Player</a> = 1 &lt;&lt; 0
+, <a class="el" href="#a4057a0771e18e66d156338a17a815daaa8c6d21187fb58b7a079d70030686b33e">Enemy</a> = 1 &lt;&lt; 1
+, <a class="el" href="#a4057a0771e18e66d156338a17a815daaa5859831e2b3db23528c710b1451e13fc">Boss</a> = 1 &lt;&lt; 2
 , <br />
-&#160;&#160;<b>Projectile</b> = 1 &lt;&lt; 3
-, <b>Slime</b> = Enemy | (1 &lt;&lt; 4)
-, <b>Unicorn</b> = Enemy | Boss | (1 &lt;&lt; 5)
+&#160;&#160;<a class="el" href="#a4057a0771e18e66d156338a17a815daaaae7968d26b598ce434958b0825b7a4ac">Projectile</a> = 1 &lt;&lt; 3
+, <a class="el" href="#a4057a0771e18e66d156338a17a815daaaa537a3d7d5ede5718f2b597568233925">Slime</a> = Enemy | (1 &lt;&lt; 4)
+, <a class="el" href="#a4057a0771e18e66d156338a17a815daaa393eb74047bb90c8d80dea54218430ee">Unicorn</a> = Enemy | Boss | (1 &lt;&lt; 5)
 <br />
  }</td></tr>
 <tr class="memdesc:a4057a0771e18e66d156338a17a815daa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum for the different types of entities.  <a href="#a4057a0771e18e66d156338a17a815daa">More...</a><br /></td></tr>
@@ -134,15 +124,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a063146b68dbb015e18a94fb61b95fcfc" id="r_a063146b68dbb015e18a94fb61b95fcfc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a063146b68dbb015e18a94fb61b95fcfc">IsOfType</a> (<a class="el" href="#a4057a0771e18e66d156338a17a815daa">EntityType</a> type)</td></tr>
 <tr class="memdesc:a063146b68dbb015e18a94fb61b95fcfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the entity is of a specific type.  <br /></td></tr>
 <tr class="separator:a063146b68dbb015e18a94fb61b95fcfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44052dc66bf03687a0a64b69321fe57c" id="r_a44052dc66bf03687a0a64b69321fe57c"><td class="memItemLeft" align="right" valign="top"><a id="a44052dc66bf03687a0a64b69321fe57c" name="a44052dc66bf03687a0a64b69321fe57c"></a>
-override void&#160;</td><td class="memItemRight" valign="bottom"><b>_Ready</b> ()</td></tr>
-<tr class="memdesc:a44052dc66bf03687a0a64b69321fe57c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the node enters the scene tree for the first time. <br /></td></tr>
+<tr class="memitem:a44052dc66bf03687a0a64b69321fe57c" id="r_a44052dc66bf03687a0a64b69321fe57c"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44052dc66bf03687a0a64b69321fe57c">_Ready</a> ()</td></tr>
+<tr class="memdesc:a44052dc66bf03687a0a64b69321fe57c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the node enters the scene tree for the first time.  <br /></td></tr>
 <tr class="separator:a44052dc66bf03687a0a64b69321fe57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a914f2c88e07951e65dddd95574b2ba6f" id="r_a914f2c88e07951e65dddd95574b2ba6f"><td class="memItemLeft" align="right" valign="top"><a id="a914f2c88e07951e65dddd95574b2ba6f" name="a914f2c88e07951e65dddd95574b2ba6f"></a>
-<a class="el" href="#a4057a0771e18e66d156338a17a815daa">EntityType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> = EntityType.None<code> [get, set]</code></td></tr>
+<tr class="memitem:a914f2c88e07951e65dddd95574b2ba6f" id="r_a914f2c88e07951e65dddd95574b2ba6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a4057a0771e18e66d156338a17a815daa">EntityType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a914f2c88e07951e65dddd95574b2ba6f">Type</a> = <a class="el" href="#a4057a0771e18e66d156338a17a815daaa6adf97f83acf6453d4a6a4b1070f3754">EntityType.None</a><code> [get, set]</code></td></tr>
 <tr class="separator:a914f2c88e07951e65dddd95574b2ba6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
@@ -161,10 +149,46 @@ Properties</h2></td></tr>
 <p>Enum for the different types of entities. </p>
 <p>The different types are None, <a class="el" href="../../d8/d53/class_player.html">Player</a>, Enemy, Boss, Projectile, <a class="el" href="../../d3/db0/class_slime.html">Slime</a>, and <a class="el" href="../../dc/d53/class_unicorn.html">Unicorn</a>. This enum uses flags, meaning an entity can be a combination of types. For example, a <a class="el" href="../../d3/db0/class_slime.html">Slime</a> is both a <a class="el" href="../../d3/db0/class_slime.html">Slime</a> and an Enemy.</p>
 <p>NOTE: This enum is currently not in use. This is a design question if we want to have every relevant node have an <a class="el" href="../../d7/d50/class_entity_type_component.html">EntityTypeComponent</a>. It could be hard to maintain in the future, so it is currently not being used but could be relevant in the future. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4057a0771e18e66d156338a17a815daaa6adf97f83acf6453d4a6a4b1070f3754" name="a4057a0771e18e66d156338a17a815daaa6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4057a0771e18e66d156338a17a815daaa636da1d35e805b00eae0fcd8333f9234" name="a4057a0771e18e66d156338a17a815daaa636da1d35e805b00eae0fcd8333f9234"></a>Player&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4057a0771e18e66d156338a17a815daaa8c6d21187fb58b7a079d70030686b33e" name="a4057a0771e18e66d156338a17a815daaa8c6d21187fb58b7a079d70030686b33e"></a>Enemy&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4057a0771e18e66d156338a17a815daaa5859831e2b3db23528c710b1451e13fc" name="a4057a0771e18e66d156338a17a815daaa5859831e2b3db23528c710b1451e13fc"></a>Boss&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4057a0771e18e66d156338a17a815daaaae7968d26b598ce434958b0825b7a4ac" name="a4057a0771e18e66d156338a17a815daaaae7968d26b598ce434958b0825b7a4ac"></a>Projectile&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4057a0771e18e66d156338a17a815daaaa537a3d7d5ede5718f2b597568233925" name="a4057a0771e18e66d156338a17a815daaaa537a3d7d5ede5718f2b597568233925"></a>Slime&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4057a0771e18e66d156338a17a815daaa393eb74047bb90c8d80dea54218430ee" name="a4057a0771e18e66d156338a17a815daaa393eb74047bb90c8d80dea54218430ee"></a>Unicorn&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a44052dc66bf03687a0a64b69321fe57c" name="a44052dc66bf03687a0a64b69321fe57c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44052dc66bf03687a0a64b69321fe57c">&#9670;&#160;</a></span>_Ready()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void EntityTypeComponent._Ready </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when the node enters the scene tree for the first time. </p>
+
+</div>
+</div>
 <a id="a063146b68dbb015e18a94fb61b95fcfc" name="a063146b68dbb015e18a94fb61b95fcfc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a063146b68dbb015e18a94fb61b95fcfc">&#9670;&#160;</a></span>IsOfType()</h2>
 
@@ -199,8 +223,31 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="a914f2c88e07951e65dddd95574b2ba6f" name="a914f2c88e07951e65dddd95574b2ba6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a914f2c88e07951e65dddd95574b2ba6f">&#9670;&#160;</a></span>Type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a4057a0771e18e66d156338a17a815daa">EntityType</a> EntityTypeComponent.Type = <a class="el" href="#a4057a0771e18e66d156338a17a815daaa6adf97f83acf6453d4a6a4b1070f3754">EntityType.None</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>TheMagicApprentice/modules/entities/<b>EntityTypeComponent.cs</b></li>
+<li>TheMagicApprentice/modules/entities/<a class="el" href="../../d3/d1a/_entity_type_component_8cs.html">EntityTypeComponent.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

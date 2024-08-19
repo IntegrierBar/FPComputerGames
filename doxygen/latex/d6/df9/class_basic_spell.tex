@@ -2,18 +2,16 @@
 \hypertarget{class_basic_spell}{}\label{class_basic_spell}\index{BasicSpell@{BasicSpell}}
 
 
-Inheritance diagram for Basic\+Spell\+:
-\nopagebreak
+Inheritance diagram for Basic\+Spell\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=203pt]{de/db3/class_basic_spell__inherit__graph}
+\includegraphics[height=550pt]{de/db3/class_basic_spell__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Basic\+Spell\+:
-\nopagebreak
+Collaboration diagram for Basic\+Spell\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,7 +25,7 @@ override void \mbox{\hyperlink{class_basic_spell_a05629585e8c19fe28f75aafd386081
 \item 
 override void \mbox{\hyperlink{class_basic_spell_a9586b1fb8ba3efa70ebfbb8899da8404}{\+\_\+\+Physics\+Process}} (double delta)
 \item 
-override void \mbox{\hyperlink{class_basic_spell_aaaeb5a2e3a894eec3dce802acfbd8eb9}{On\+Area\+Entered}} (Area2D area)
+override void \mbox{\hyperlink{class_basic_spell_aaaeb5a2e3a894eec3dce802acfbd8eb9}{On\+Area\+Entered}} (\mbox{\hyperlink{class_area2_d}{Area2D}} area)
 \item 
 void \mbox{\hyperlink{class_basic_spell_aa0f71fd7023e68626d067f830bd38310}{On\+Body\+Entered}} (Node2D body)
 \end{DoxyCompactItemize}
@@ -43,28 +41,27 @@ double \mbox{\hyperlink{class_spell_ad61d19b3d1cf06364672446a4445f125}{Get\+Time
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_basic_spell_ada432363fdf348a58bb7e181cff01b67}\label{class_basic_spell_ada432363fdf348a58bb7e181cff01b67} 
-float {\bfseries SPEED} = 600
+float \mbox{\hyperlink{class_basic_spell_ada432363fdf348a58bb7e181cff01b67}{SPEED}} = 600
 \begin{DoxyCompactList}\small\item\em Speed of the spell. Do not set to high or else it might not hit enemies. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_spell}{Spell}}}
 \begin{DoxyCompactItemize}
 \item 
-double {\bfseries Max\+Life\+Time\+In\+Seconds} = 5.\+0
+double \mbox{\hyperlink{class_spell_a29ef662c6d505751adfcce7bc3350b56}{Max\+Life\+Time\+In\+Seconds}} = 5.\+0
 \begin{DoxyCompactList}\small\item\em How long the spell exists at maximum until it is removed from the world, can be changed for every spell in the godot editior. \end{DoxyCompactList}\item 
-double {\bfseries \+\_\+time\+Left\+Until\+Deletion}
+double \mbox{\hyperlink{class_spell_ad0ecea63d7f88662bd4bd048a628cce2}{\+\_\+time\+Left\+Until\+Deletion}}
 \begin{DoxyCompactList}\small\item\em Time left until deletion. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_spell}{Spell}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_attack}{Attack}} {\bfseries \+\_\+attack}
+\mbox{\hyperlink{class_attack}{Attack}} \mbox{\hyperlink{class_spell_a255c0df3a74c476ac74bd42cbd667bf8}{\+\_\+attack}}
 \begin{DoxyCompactList}\small\item\em Contains damage, type and caster reference for damage calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 The basic spell object of each element. Setting the element will also change the color.
 
-Note that since we use an Area2D which we manually move, if the spells moves ultra fast it can move over the enemies and thus miss them. 
+Note that since we use an \doxylink{class_area2_d}{Area2D} which we manually move, if the spells moves ultra fast it can move over the enemies and thus miss them. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_basic_spell_a9586b1fb8ba3efa70ebfbb8899da8404}\index{BasicSpell@{BasicSpell}!\_PhysicsProcess@{\_PhysicsProcess}}
@@ -87,7 +84,7 @@ Reimplemented from \mbox{\hyperlink{class_spell_a4b3330b53bc8349e53b4e759ee18bd9
 \index{OnAreaEntered@{OnAreaEntered}!BasicSpell@{BasicSpell}}
 \doxysubsubsection{\texorpdfstring{OnAreaEntered()}{OnAreaEntered()}}
 {\footnotesize\ttfamily \label{class_basic_spell_aaaeb5a2e3a894eec3dce802acfbd8eb9} 
-override void Basic\+Spell.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{Area2D}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+override void Basic\+Spell.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area2_d}{Area2D}}}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 Gets called when the spell hits a Health component since health components use area2\+Ds. Since the spells mask layer is set to the enemies layer, it cannot hit the player 
 
@@ -101,6 +98,19 @@ void Basic\+Spell.\+On\+Body\+Entered (\begin{DoxyParamCaption}\item[{Node2D}]{b
 
 Since parts of the tilemap that have a collision layer are not area2D nodes, body entered is necessary to use. This function detects collisions with all types of 2D nodes. Check if the projectile entered a part of the tilemap, which means a wall or object, and remove the projectile. This requires mask 1 (Collision) to be set! 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_basic_spell_ada432363fdf348a58bb7e181cff01b67}\index{BasicSpell@{BasicSpell}!SPEED@{SPEED}}
+\index{SPEED@{SPEED}!BasicSpell@{BasicSpell}}
+\doxysubsubsection{\texorpdfstring{SPEED}{SPEED}}
+{\footnotesize\ttfamily \label{class_basic_spell_ada432363fdf348a58bb7e181cff01b67} 
+float Basic\+Spell.\+SPEED = 600}
+
+
+
+Speed of the spell. Do not set to high or else it might not hit enemies. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/entities/player/spells/basic\+\_\+spell/Basic\+Spell.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/entities/player/spells/basic\+\_\+spell/\mbox{\hyperlink{_basic_spell_8cs}{Basic\+Spell.\+cs}}\end{DoxyCompactItemize}

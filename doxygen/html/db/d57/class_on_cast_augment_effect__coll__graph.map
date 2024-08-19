@@ -1,7 +1,7 @@
 <map id="OnCastAugmentEffect" name="OnCastAugmentEffect">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,283,149,352"/>
-<area shape="rect" id="Node000002" href="$d5/d2b/class_augment_effect.html" title=" " alt="" coords="28,123,127,235"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,250,80,283,75,283,75,250"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="43,5,112,75"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="80,90,80,123,75,123,75,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="19,315,163,400"/>
+<area shape="rect" id="Node000002" href="$d5/d2b/class_augment_effect.html" title=" " alt="" coords="5,123,177,267"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,282,94,315,89,315,89,282"/>
+<area shape="rect" id="Node000003" href="$df/d00/class_resource.html" title=" " alt="" coords="57,5,126,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,90,94,123,89,123,89,90"/>
 </map>

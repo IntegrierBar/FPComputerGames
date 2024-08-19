@@ -1,5 +1,5 @@
 <map id="AugmentInventory" name="AugmentInventory">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,180,384"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="48,5,137,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,89,95,123,90,123,90,89"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,247,448"/>
+<area shape="rect" id="Node000002" href="$d4/dc3/class_canvas_layer.html" title=" " alt="" coords="81,5,171,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,90,129,123,123,123,123,90"/>
 </map>

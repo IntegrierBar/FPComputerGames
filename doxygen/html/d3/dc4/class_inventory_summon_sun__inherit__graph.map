@@ -1,7 +1,7 @@
 <map id="InventorySummonSun" name="InventorySummonSun">
-<area shape="rect" id="Node000001" title=" " alt="" coords="35,475,176,544"/>
-<area shape="rect" id="Node000002" href="$d0/d1e/class_inventory_spell.html" title=" " alt="" coords="5,123,205,427"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,441,108,475,103,475,103,441"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="83,5,127,75"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,90,108,123,103,123,103,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="56,571,211,640"/>
+<area shape="rect" id="Node000002" href="$d0/d1e/class_inventory_spell.html" title=" " alt="" coords="5,123,261,523"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,538,136,571,131,571,131,538"/>
+<area shape="rect" id="Node000003" href="$dc/d8f/class_node.html" title=" " alt="" coords="111,5,155,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="136,90,136,123,131,123,131,90"/>
 </map>

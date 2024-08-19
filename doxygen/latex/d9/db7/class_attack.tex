@@ -2,8 +2,7 @@
 \hypertarget{class_attack}{}\label{class_attack}\index{Attack@{Attack}}
 
 
-Collaboration diagram for Attack\+:
-\nopagebreak
+Collaboration diagram for Attack\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -13,22 +12,18 @@ Collaboration diagram for Attack\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_attack_af7633a843216cc8e7c1b44560e84f46e}\label{class_attack_af7633a843216cc8e7c1b44560e84f46e} 
-{\bfseries Attack} (double damage\+Value, Magic\+Type type, \mbox{\hyperlink{class_health_component}{Health\+Component}} attacker\+Node)
+\mbox{\hyperlink{class_attack_af7633a843216cc8e7c1b44560e84f46e}{Attack}} (double damage\+Value, \mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}} type, \mbox{\hyperlink{class_health_component}{Health\+Component}} attacker\+Node)
 \item 
 \mbox{\hyperlink{class_attack_abdbc55f7a8a842cc3710a27488ea1506}{Attack}} (\mbox{\hyperlink{class_attack}{Attack}} attack)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_attack_a71325afa8729214deb18057d9ba81c56}\label{class_attack_a71325afa8729214deb18057d9ba81c56} 
-double {\bfseries damage}
+double \mbox{\hyperlink{class_attack_a71325afa8729214deb18057d9ba81c56}{damage}}
 \begin{DoxyCompactList}\small\item\em The damage value of the attack. \end{DoxyCompactList}\item 
-\Hypertarget{class_attack_a7b2377112afe5134ff73a67e6aa338fd}\label{class_attack_a7b2377112afe5134ff73a67e6aa338fd} 
-Magic\+Type {\bfseries magic\+Type}
+\mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}} \mbox{\hyperlink{class_attack_a7b2377112afe5134ff73a67e6aa338fd}{magic\+Type}}
 \begin{DoxyCompactList}\small\item\em The magic type of the attack. \end{DoxyCompactList}\item 
-\Hypertarget{class_attack_a6e9f0b4a33df28a9ea10f571c45b35c1}\label{class_attack_a6e9f0b4a33df28a9ea10f571c45b35c1} 
-\mbox{\hyperlink{class_health_component}{Health\+Component}} {\bfseries attacker}
+\mbox{\hyperlink{class_health_component}{Health\+Component}} \mbox{\hyperlink{class_attack_a6e9f0b4a33df28a9ea10f571c45b35c1}{attacker}}
 \begin{DoxyCompactList}\small\item\em Reference to the \doxylink{class_health_component}{Health\+Component} of the attacker. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -36,14 +31,53 @@ Magic\+Type {\bfseries magic\+Type}
 Basic class that encapsulates everything responsible for an attack 
 
 \doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_attack_af7633a843216cc8e7c1b44560e84f46e}\index{Attack@{Attack}!Attack@{Attack}}
+\index{Attack@{Attack}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{Attack()}{Attack()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_attack_af7633a843216cc8e7c1b44560e84f46e} 
+Attack.\+Attack (\begin{DoxyParamCaption}\item[{double}]{damage\+Value}{, }\item[{\mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}}}]{type}{, }\item[{\mbox{\hyperlink{class_health_component}{Health\+Component}}}]{attacker\+Node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \Hypertarget{class_attack_abdbc55f7a8a842cc3710a27488ea1506}\index{Attack@{Attack}!Attack@{Attack}}
 \index{Attack@{Attack}!Attack@{Attack}}
-\doxysubsubsection{\texorpdfstring{Attack()}{Attack()}}
+\doxysubsubsection{\texorpdfstring{Attack()}{Attack()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{class_attack_abdbc55f7a8a842cc3710a27488ea1506} 
 Attack.\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_attack}{Attack}}}]{attack}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Copy constructor 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_attack_a6e9f0b4a33df28a9ea10f571c45b35c1}\index{Attack@{Attack}!attacker@{attacker}}
+\index{attacker@{attacker}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{attacker}{attacker}}
+{\footnotesize\ttfamily \label{class_attack_a6e9f0b4a33df28a9ea10f571c45b35c1} 
+\mbox{\hyperlink{class_health_component}{Health\+Component}} Attack.\+attacker}
+
+
+
+Reference to the \doxylink{class_health_component}{Health\+Component} of the attacker. 
+
+\Hypertarget{class_attack_a71325afa8729214deb18057d9ba81c56}\index{Attack@{Attack}!damage@{damage}}
+\index{damage@{damage}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{damage}{damage}}
+{\footnotesize\ttfamily \label{class_attack_a71325afa8729214deb18057d9ba81c56} 
+double Attack.\+damage}
+
+
+
+The damage value of the attack. 
+
+\Hypertarget{class_attack_a7b2377112afe5134ff73a67e6aa338fd}\index{Attack@{Attack}!magicType@{magicType}}
+\index{magicType@{magicType}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{magicType}{magicType}}
+{\footnotesize\ttfamily \label{class_attack_a7b2377112afe5134ff73a67e6aa338fd} 
+\mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}} Attack.\+magic\+Type}
+
+
+
+The magic type of the attack. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/attack.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/\mbox{\hyperlink{attack_8cs}{attack.\+cs}}\end{DoxyCompactItemize}

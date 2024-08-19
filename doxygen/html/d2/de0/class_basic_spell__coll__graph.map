@@ -1,16 +1,23 @@
 <map id="BasicSpell" name="BasicSpell">
-<area shape="rect" id="Node000001" title=" " alt="" coords="21,1048,154,1181"/>
-<area shape="rect" id="Node000002" href="$d8/d0d/class_spell.html" title=" " alt="" coords="5,823,169,999"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,1014,90,1048,85,1048,85,1014"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="37,167,95,236"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="70,251,87,823,82,823,65,251"/>
-<area shape="rect" id="Node000005" href="$d1/da7/class_health_component.html" title=" " alt="" coords="104,343,249,583"/>
-<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="89,249,129,342,124,344,84,251"/>
-<area shape="rect" id="Node000004" href="$d9/db7/class_attack.html" title=" " alt="" coords="119,647,205,759"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="145,759,127,808,122,806,140,758"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="172,583,169,630,164,630,167,583"/>
-<area shape="rect" id="Node000006" href="$d7/dca/class_healthbar.html" title=" " alt="" coords="119,124,247,279"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="184,279,183,326,177,326,179,278"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="119,5,247,75"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="186,90,186,124,181,124,181,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="78,1276,282,1505"/>
+<area shape="rect" id="Node000002" href="$d8/d0d/class_spell.html" title=" " alt="" coords="5,993,211,1212"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,1226,154,1275,149,1277,136,1227"/>
+<area shape="rect" id="Node000003" href="$dc/df8/class_area2_d.html" title=" " alt="" coords="149,191,206,260"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="151,274,124,329,103,391,88,471,79,554,75,637,74,718,81,869,94,994,89,994,76,870,69,718,69,636,74,553,83,471,97,390,119,327,146,272"/>
+<area shape="rect" id="Node000007" href="$d1/da7/class_health_component.html" title=" " alt="" coords="296,391,539,743"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="212,271,298,393,294,396,207,274"/>
+<area shape="rect" id="Node000004" href="$d9/db7/class_attack.html" title=" " alt="" coords="281,807,513,929"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="310,931,226,995,222,990,306,927"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="112,532,163,601"/>
+<area shape="poly" id="edge10_Node000002_Node000005" title=" " alt="" coords="137,601,123,807,115,977,110,976,118,807,132,601"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="142,601,154,669,166,707,185,741,217,769,268,801,265,805,213,774,181,744,162,709,149,671,137,602"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="195,532,271,601"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="241,601,257,668,269,706,286,741,323,792,319,795,282,744,265,708,251,669,236,602"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="408,743,405,790,400,789,403,742"/>
+<area shape="rect" id="Node000008" href="$d7/dca/class_healthbar.html" title=" " alt="" coords="339,124,495,327"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="420,326,420,374,415,374,415,326"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="353,5,481,75"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="420,89,420,124,415,124,415,89"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="235,1068,272,1137"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="247,1138,216,1260,211,1259,242,1137"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="InventoryItem" name="InventoryItem">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,147,235"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="34,5,118,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,90,79,123,73,123,73,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,179,251"/>
+<area shape="rect" id="Node000002" href="$de/d15/class_texture_rect.html" title=" " alt="" coords="50,5,134,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,89,95,123,89,123,89,89"/>
 </map>

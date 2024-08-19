@@ -2,18 +2,16 @@
 \hypertarget{class_star}{}\label{class_star}\index{Star@{Star}}
 
 
-Inheritance diagram for Star\+:
-\nopagebreak
+Inheritance diagram for Star\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=203pt]{d6/de3/class_star__inherit__graph}
+\includegraphics[height=550pt]{d6/de3/class_star__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Star\+:
-\nopagebreak
+Collaboration diagram for Star\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,7 +25,7 @@ override void \mbox{\hyperlink{class_star_ace6a0fff162bae73764cccbb05ceba3b}{Ini
 \item 
 override void \mbox{\hyperlink{class_star_a6ea47e6a7e5d80c0038dcc5e7cff41a8}{\+\_\+\+Physics\+Process}} (double delta)
 \item 
-override void \mbox{\hyperlink{class_star_a986fa1e414df0421929346fb9796481c}{On\+Area\+Entered}} (Area2D area)
+override void \mbox{\hyperlink{class_star_a986fa1e414df0421929346fb9796481c}{On\+Area\+Entered}} (\mbox{\hyperlink{class_area2_d}{Area2D}} area)
 \item 
 void \mbox{\hyperlink{class_star_ad91d9d81348ee230909b5262b6d8ad4a}{On\+Body\+Entered}} (Node2D body)
 \end{DoxyCompactItemize}
@@ -43,21 +41,20 @@ double \mbox{\hyperlink{class_spell_ad61d19b3d1cf06364672446a4445f125}{Get\+Time
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_star_a472f35a7a288bd91e8359244c8927a20}\label{class_star_a472f35a7a288bd91e8359244c8927a20} 
-float {\bfseries SPEED} = 500
+float \mbox{\hyperlink{class_star_a472f35a7a288bd91e8359244c8927a20}{SPEED}} = 500
 \begin{DoxyCompactList}\small\item\em Speed of the spell. Do not set to high or else it might not hit enemies. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_spell}{Spell}}}
 \begin{DoxyCompactItemize}
 \item 
-double {\bfseries Max\+Life\+Time\+In\+Seconds} = 5.\+0
+double \mbox{\hyperlink{class_spell_a29ef662c6d505751adfcce7bc3350b56}{Max\+Life\+Time\+In\+Seconds}} = 5.\+0
 \begin{DoxyCompactList}\small\item\em How long the spell exists at maximum until it is removed from the world, can be changed for every spell in the godot editior. \end{DoxyCompactList}\item 
-double {\bfseries \+\_\+time\+Left\+Until\+Deletion}
+double \mbox{\hyperlink{class_spell_ad0ecea63d7f88662bd4bd048a628cce2}{\+\_\+time\+Left\+Until\+Deletion}}
 \begin{DoxyCompactList}\small\item\em Time left until deletion. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_spell}{Spell}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_attack}{Attack}} {\bfseries \+\_\+attack}
+\mbox{\hyperlink{class_attack}{Attack}} \mbox{\hyperlink{class_spell_a255c0df3a74c476ac74bd42cbd667bf8}{\+\_\+attack}}
 \begin{DoxyCompactList}\small\item\em Contains damage, type and caster reference for damage calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -87,7 +84,7 @@ Reimplemented from \mbox{\hyperlink{class_spell_a4b3330b53bc8349e53b4e759ee18bd9
 \index{OnAreaEntered@{OnAreaEntered}!Star@{Star}}
 \doxysubsubsection{\texorpdfstring{OnAreaEntered()}{OnAreaEntered()}}
 {\footnotesize\ttfamily \label{class_star_a986fa1e414df0421929346fb9796481c} 
-override void Star.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{Area2D}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+override void Star.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area2_d}{Area2D}}}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 Gets called when the spell hits a Health component since health components use area2\+Ds. Since the spells mask layer is set to the enemies layer, it cannot hit the player 
 
@@ -101,6 +98,19 @@ void Star.\+On\+Body\+Entered (\begin{DoxyParamCaption}\item[{Node2D}]{body}{}\e
 
 Since parts of the tilemap that have a collision layer are not area2D nodes, body entered is necessary to use. This function detects collisions with all types of 2D nodes. Check if the projectile entered a part of the tilemap, which means a wall or object, and remove the projectile. This requires mask 1 (Collision) to be set! 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_star_a472f35a7a288bd91e8359244c8927a20}\index{Star@{Star}!SPEED@{SPEED}}
+\index{SPEED@{SPEED}!Star@{Star}}
+\doxysubsubsection{\texorpdfstring{SPEED}{SPEED}}
+{\footnotesize\ttfamily \label{class_star_a472f35a7a288bd91e8359244c8927a20} 
+float Star.\+SPEED = 500}
+
+
+
+Speed of the spell. Do not set to high or else it might not hit enemies. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/entities/player/spells/star\+\_\+rain/Star.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/entities/player/spells/star\+\_\+rain/\mbox{\hyperlink{_star_8cs}{Star.\+cs}}\end{DoxyCompactItemize}

@@ -7,22 +7,20 @@ Manages the dungeon layout, room transitions, and player movement between rooms.
 
 
 
-Inheritance diagram for Dungeon\+Handler\+:
-\nopagebreak
+Inheritance diagram for Dungeon\+Handler\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=213pt]{d5/d2b/class_dungeon_handler__inherit__graph}
+\includegraphics[width=252pt]{d5/d2b/class_dungeon_handler__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Dungeon\+Handler\+:
-\nopagebreak
+Collaboration diagram for Dungeon\+Handler\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=213pt]{db/d3d/class_dungeon_handler__coll__graph}
+\includegraphics[width=252pt]{db/d3d/class_dungeon_handler__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -38,16 +36,14 @@ Vector2 \mbox{\hyperlink{class_dungeon_handler_ad3566b7f4f02fda370e3914b30c965fc
 \item 
 Dictionary$<$ Vector2I, \mbox{\hyperlink{class_room}{Room}} $>$ \mbox{\hyperlink{class_dungeon_handler_a28eaa299de49bd306342300a804bf378}{Get\+Dungeon\+Layout}} ()
 \item 
-Magic\+Type \mbox{\hyperlink{class_dungeon_handler_aed54a0a2ce51a3acc9aec82b92d483df}{Get\+Magic\+Type}} ()
+\mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}} \mbox{\hyperlink{class_dungeon_handler_aed54a0a2ce51a3acc9aec82b92d483df}{Get\+Magic\+Type}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_dungeon_handler_afd50dedd7d63df5d454b8d5d3dbbc4a2}\label{class_dungeon_handler_afd50dedd7d63df5d454b8d5d3dbbc4a2} 
-int {\bfseries Min\+Rooms} = 5
+int \mbox{\hyperlink{class_dungeon_handler_afd50dedd7d63df5d454b8d5d3dbbc4a2}{Min\+Rooms}} = 5
 \begin{DoxyCompactList}\small\item\em Minimum number of rooms in the dungeon. \end{DoxyCompactList}\item 
-\Hypertarget{class_dungeon_handler_a123c9864603b0beb89fe51d96cdc5f28}\label{class_dungeon_handler_a123c9864603b0beb89fe51d96cdc5f28} 
-int {\bfseries Max\+Rooms} = 10
+int \mbox{\hyperlink{class_dungeon_handler_a123c9864603b0beb89fe51d96cdc5f28}{Max\+Rooms}} = 10
 \begin{DoxyCompactList}\small\item\em Maximum number of rooms in the dungeon. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -100,7 +96,7 @@ The grid size of the dungeon.
 \index{GetMagicType@{GetMagicType}!DungeonHandler@{DungeonHandler}}
 \doxysubsubsection{\texorpdfstring{GetMagicType()}{GetMagicType()}}
 {\footnotesize\ttfamily \label{class_dungeon_handler_aed54a0a2ce51a3acc9aec82b92d483df} 
-Magic\+Type Dungeon\+Handler.\+Get\+Magic\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}} Dungeon\+Handler.\+Get\+Magic\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Gets the magic type of the dungeon.
 
@@ -122,6 +118,29 @@ Loads a dungeon.
 \end{DoxyParams}
 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_dungeon_handler_a123c9864603b0beb89fe51d96cdc5f28}\index{DungeonHandler@{DungeonHandler}!MaxRooms@{MaxRooms}}
+\index{MaxRooms@{MaxRooms}!DungeonHandler@{DungeonHandler}}
+\doxysubsubsection{\texorpdfstring{MaxRooms}{MaxRooms}}
+{\footnotesize\ttfamily \label{class_dungeon_handler_a123c9864603b0beb89fe51d96cdc5f28} 
+int Dungeon\+Handler.\+Max\+Rooms = 10}
+
+
+
+Maximum number of rooms in the dungeon. 
+
+\Hypertarget{class_dungeon_handler_afd50dedd7d63df5d454b8d5d3dbbc4a2}\index{DungeonHandler@{DungeonHandler}!MinRooms@{MinRooms}}
+\index{MinRooms@{MinRooms}!DungeonHandler@{DungeonHandler}}
+\doxysubsubsection{\texorpdfstring{MinRooms}{MinRooms}}
+{\footnotesize\ttfamily \label{class_dungeon_handler_afd50dedd7d63df5d454b8d5d3dbbc4a2} 
+int Dungeon\+Handler.\+Min\+Rooms = 5}
+
+
+
+Minimum number of rooms in the dungeon. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/handlers/Dungeon\+Handler.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/handlers/\mbox{\hyperlink{_dungeon_handler_8cs}{Dungeon\+Handler.\+cs}}\end{DoxyCompactItemize}

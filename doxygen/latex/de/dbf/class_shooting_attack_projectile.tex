@@ -2,22 +2,20 @@
 \hypertarget{class_shooting_attack_projectile}{}\label{class_shooting_attack_projectile}\index{ShootingAttackProjectile@{ShootingAttackProjectile}}
 
 
-Inheritance diagram for Shooting\+Attack\+Projectile\+:
-\nopagebreak
+Inheritance diagram for Shooting\+Attack\+Projectile\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=200pt]{d3/de2/class_shooting_attack_projectile__inherit__graph}
+\includegraphics[width=233pt]{d3/de2/class_shooting_attack_projectile__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Shooting\+Attack\+Projectile\+:
-\nopagebreak
+Collaboration diagram for Shooting\+Attack\+Projectile\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=200pt]{d1/d0a/class_shooting_attack_projectile__coll__graph}
+\includegraphics[width=319pt]{d1/d0a/class_shooting_attack_projectile__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -29,21 +27,18 @@ void \mbox{\hyperlink{class_shooting_attack_projectile_a273f58590ce1ef4773a83c9b
 \item 
 override void \mbox{\hyperlink{class_shooting_attack_projectile_a6426c6069c7dd2198a91fec938f015dd}{\+\_\+\+Physics\+Process}} (double delta)
 \item 
-void \mbox{\hyperlink{class_shooting_attack_projectile_ac0595a3c13e5e078a3a0649fcc8840f3}{On\+Area\+Entered}} (Area2D area)
+void \mbox{\hyperlink{class_shooting_attack_projectile_ac0595a3c13e5e078a3a0649fcc8840f3}{On\+Area\+Entered}} (\mbox{\hyperlink{class_area2_d}{Area2D}} area)
 \item 
 void \mbox{\hyperlink{class_shooting_attack_projectile_a1f166a7ccae27924aa495cadbd4a16f6}{On\+Body\+Entered}} (Node2D body)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_shooting_attack_projectile_af70532121cae295c3eba4c56b0408cc6}\label{class_shooting_attack_projectile_af70532121cae295c3eba4c56b0408cc6} 
-float {\bfseries SPEED} = 300
+float \mbox{\hyperlink{class_shooting_attack_projectile_af70532121cae295c3eba4c56b0408cc6}{SPEED}} = 300
 \begin{DoxyCompactList}\small\item\em Speed of the attack. Do not set too high or evading might be too difficult. \end{DoxyCompactList}\item 
-\Hypertarget{class_shooting_attack_projectile_a8f545315ef9e6c8ab9b7a6c33b5143de}\label{class_shooting_attack_projectile_a8f545315ef9e6c8ab9b7a6c33b5143de} 
-double {\bfseries Max\+Life\+Time\+In\+Seconds} = 5
+double \mbox{\hyperlink{class_shooting_attack_projectile_a8f545315ef9e6c8ab9b7a6c33b5143de}{Max\+Life\+Time\+In\+Seconds}} = 5
 \begin{DoxyCompactList}\small\item\em maximum life time of the projectile, the projectile is remove afterwards \end{DoxyCompactList}\item 
-\Hypertarget{class_shooting_attack_projectile_a358d17142b3ec427011645904c52cef4}\label{class_shooting_attack_projectile_a358d17142b3ec427011645904c52cef4} 
-double {\bfseries Homing\+Timer} = 1
+double \mbox{\hyperlink{class_shooting_attack_projectile_a358d17142b3ec427011645904c52cef4}{Homing\+Timer}} = 1
 \begin{DoxyCompactList}\small\item\em time after spawn in which the projectile changes its direction according to the position of the player \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -70,7 +65,7 @@ Initialise the projectiles parameters. Set the attack so that the projectile can
 \index{OnAreaEntered@{OnAreaEntered}!ShootingAttackProjectile@{ShootingAttackProjectile}}
 \doxysubsubsection{\texorpdfstring{OnAreaEntered()}{OnAreaEntered()}}
 {\footnotesize\ttfamily \label{class_shooting_attack_projectile_ac0595a3c13e5e078a3a0649fcc8840f3} 
-void Shooting\+Attack\+Projectile.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{Area2D}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void Shooting\+Attack\+Projectile.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area2_d}{Area2D}}}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Gets called when the spell hits a Health component since health components use area2\+Ds. Projectile mask is set such, that it can only hit the player. \Hypertarget{class_shooting_attack_projectile_a1f166a7ccae27924aa495cadbd4a16f6}\index{ShootingAttackProjectile@{ShootingAttackProjectile}!OnBodyEntered@{OnBodyEntered}}
 \index{OnBodyEntered@{OnBodyEntered}!ShootingAttackProjectile@{ShootingAttackProjectile}}
@@ -80,6 +75,39 @@ void Shooting\+Attack\+Projectile.\+On\+Body\+Entered (\begin{DoxyParamCaption}\
 
 Since parts of the tilemap that have a collision layer are not area2D nodes, body entered is necessary to use. This function detects collisions with all types of 2D nodes. Check if the projectile entered a part of the tilemap, which means a wall or object, and remove the projectile. This requires mask 1 (Collision) to be set! 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_shooting_attack_projectile_a358d17142b3ec427011645904c52cef4}\index{ShootingAttackProjectile@{ShootingAttackProjectile}!HomingTimer@{HomingTimer}}
+\index{HomingTimer@{HomingTimer}!ShootingAttackProjectile@{ShootingAttackProjectile}}
+\doxysubsubsection{\texorpdfstring{HomingTimer}{HomingTimer}}
+{\footnotesize\ttfamily \label{class_shooting_attack_projectile_a358d17142b3ec427011645904c52cef4} 
+double Shooting\+Attack\+Projectile.\+Homing\+Timer = 1}
+
+
+
+time after spawn in which the projectile changes its direction according to the position of the player 
+
+\Hypertarget{class_shooting_attack_projectile_a8f545315ef9e6c8ab9b7a6c33b5143de}\index{ShootingAttackProjectile@{ShootingAttackProjectile}!MaxLifeTimeInSeconds@{MaxLifeTimeInSeconds}}
+\index{MaxLifeTimeInSeconds@{MaxLifeTimeInSeconds}!ShootingAttackProjectile@{ShootingAttackProjectile}}
+\doxysubsubsection{\texorpdfstring{MaxLifeTimeInSeconds}{MaxLifeTimeInSeconds}}
+{\footnotesize\ttfamily \label{class_shooting_attack_projectile_a8f545315ef9e6c8ab9b7a6c33b5143de} 
+double Shooting\+Attack\+Projectile.\+Max\+Life\+Time\+In\+Seconds = 5}
+
+
+
+maximum life time of the projectile, the projectile is remove afterwards 
+
+\Hypertarget{class_shooting_attack_projectile_af70532121cae295c3eba4c56b0408cc6}\index{ShootingAttackProjectile@{ShootingAttackProjectile}!SPEED@{SPEED}}
+\index{SPEED@{SPEED}!ShootingAttackProjectile@{ShootingAttackProjectile}}
+\doxysubsubsection{\texorpdfstring{SPEED}{SPEED}}
+{\footnotesize\ttfamily \label{class_shooting_attack_projectile_af70532121cae295c3eba4c56b0408cc6} 
+float Shooting\+Attack\+Projectile.\+SPEED = 300}
+
+
+
+Speed of the attack. Do not set too high or evading might be too difficult. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/entities/unicorns/unicorn-\/attacks/Shooting\+Attack\+Projectile.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/entities/unicorns/unicorn-\/attacks/\mbox{\hyperlink{_shooting_attack_projectile_8cs}{Shooting\+Attack\+Projectile.\+cs}}\end{DoxyCompactItemize}

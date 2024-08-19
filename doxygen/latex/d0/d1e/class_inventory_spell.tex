@@ -2,8 +2,7 @@
 \hypertarget{class_inventory_spell}{}\label{class_inventory_spell}\index{InventorySpell@{InventorySpell}}
 
 
-Inheritance diagram for Inventory\+Spell\+:
-\nopagebreak
+Inheritance diagram for Inventory\+Spell\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +11,7 @@ Inheritance diagram for Inventory\+Spell\+:
 \end{figure}
 
 
-Collaboration diagram for Inventory\+Spell\+:
-\nopagebreak
+Collaboration diagram for Inventory\+Spell\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -38,29 +36,22 @@ List$<$ \mbox{\hyperlink{class_on_cast_augment_effect}{On\+Cast\+Augment\+Effect
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_inventory_spell_ae466cca59838b66e93b965de59f330f3}\label{class_inventory_spell_ae466cca59838b66e93b965de59f330f3} 
-double {\bfseries Cast\+Time} = 0.\+3
+double \mbox{\hyperlink{class_inventory_spell_ae466cca59838b66e93b965de59f330f3}{Cast\+Time}} = 0.\+3
 \begin{DoxyCompactList}\small\item\em How long it takes to cast the spell. \end{DoxyCompactList}\item 
-\Hypertarget{class_inventory_spell_a7ab1029074b883f850b126407dff1c62}\label{class_inventory_spell_a7ab1029074b883f850b126407dff1c62} 
-double {\bfseries Cool\+Down} = 1
+double \mbox{\hyperlink{class_inventory_spell_a7ab1029074b883f850b126407dff1c62}{Cool\+Down}} = 1
 \begin{DoxyCompactList}\small\item\em How long until the spell can be used again. \end{DoxyCompactList}\item 
-\Hypertarget{class_inventory_spell_aa61295861a8e253fd668704e8e9d7c46}\label{class_inventory_spell_aa61295861a8e253fd668704e8e9d7c46} 
-double {\bfseries Base\+Damage} = 30
+double \mbox{\hyperlink{class_inventory_spell_aa61295861a8e253fd668704e8e9d7c46}{Base\+Damage}} = 30
 \begin{DoxyCompactList}\small\item\em base damage of the skill \end{DoxyCompactList}\item 
-\Hypertarget{class_inventory_spell_a572509ba9ee492591e6aa9e77ba79d8b}\label{class_inventory_spell_a572509ba9ee492591e6aa9e77ba79d8b} 
-double {\bfseries Damage}
+double \mbox{\hyperlink{class_inventory_spell_a572509ba9ee492591e6aa9e77ba79d8b}{Damage}}
 \begin{DoxyCompactList}\small\item\em actual damage of the spell \end{DoxyCompactList}\item 
-\Hypertarget{class_inventory_spell_ab3fc577ffdd33f88071ef722bd64c22a}\label{class_inventory_spell_ab3fc577ffdd33f88071ef722bd64c22a} 
-Magic\+Type {\bfseries Magic\+Type} = Magic\+Type.\+SUN
+\mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}} \mbox{\hyperlink{class_inventory_spell_ab3fc577ffdd33f88071ef722bd64c22a}{Magic\+Type}} = \mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7a9034a19b67bd4853d7cba104d62e0828}{Magic\+Type.\+SUN}}
 \begin{DoxyCompactList}\small\item\em Magic type of the spell. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_inventory_spell_af0add5a70a58fe25d304b7572eb24d6d}\label{class_inventory_spell_af0add5a70a58fe25d304b7572eb24d6d} 
-\mbox{\hyperlink{class_health_component}{Health\+Component}} {\bfseries \+\_\+player\+Health\+Component}
+\mbox{\hyperlink{class_health_component}{Health\+Component}} \mbox{\hyperlink{class_inventory_spell_af0add5a70a58fe25d304b7572eb24d6d}{\+\_\+player\+Health\+Component}}
 \begin{DoxyCompactList}\small\item\em Reference to the players \doxylink{class_health_component}{Health\+Component}. \end{DoxyCompactList}\item 
-\Hypertarget{class_inventory_spell_ab828155cd1b38a204e742beb4b38799a}\label{class_inventory_spell_ab828155cd1b38a204e742beb4b38799a} 
-Packed\+Scene {\bfseries \+\_\+spell\+Scene}
+Packed\+Scene \mbox{\hyperlink{class_inventory_spell_ab828155cd1b38a204e742beb4b38799a}{\+\_\+spell\+Scene}}
 \end{DoxyCompactItemize}
 
 
@@ -110,6 +101,75 @@ void Inventory\+Spell.\+Reset\+Damage (\begin{DoxyParamCaption}{}{}\end{DoxyPara
 
 Reset Damage to Base\+Damage 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_inventory_spell_af0add5a70a58fe25d304b7572eb24d6d}\index{InventorySpell@{InventorySpell}!\_playerHealthComponent@{\_playerHealthComponent}}
+\index{\_playerHealthComponent@{\_playerHealthComponent}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{\_playerHealthComponent}{\_playerHealthComponent}}
+{\footnotesize\ttfamily \label{class_inventory_spell_af0add5a70a58fe25d304b7572eb24d6d} 
+\mbox{\hyperlink{class_health_component}{Health\+Component}} Inventory\+Spell.\+\_\+player\+Health\+Component\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Reference to the players \doxylink{class_health_component}{Health\+Component}. 
+
+\Hypertarget{class_inventory_spell_ab828155cd1b38a204e742beb4b38799a}\index{InventorySpell@{InventorySpell}!\_spellScene@{\_spellScene}}
+\index{\_spellScene@{\_spellScene}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{\_spellScene}{\_spellScene}}
+{\footnotesize\ttfamily \label{class_inventory_spell_ab828155cd1b38a204e742beb4b38799a} 
+Packed\+Scene Inventory\+Spell.\+\_\+spell\+Scene\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_inventory_spell_aa61295861a8e253fd668704e8e9d7c46}\index{InventorySpell@{InventorySpell}!BaseDamage@{BaseDamage}}
+\index{BaseDamage@{BaseDamage}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{BaseDamage}{BaseDamage}}
+{\footnotesize\ttfamily \label{class_inventory_spell_aa61295861a8e253fd668704e8e9d7c46} 
+double Inventory\+Spell.\+Base\+Damage = 30}
+
+
+
+base damage of the skill 
+
+\Hypertarget{class_inventory_spell_ae466cca59838b66e93b965de59f330f3}\index{InventorySpell@{InventorySpell}!CastTime@{CastTime}}
+\index{CastTime@{CastTime}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{CastTime}{CastTime}}
+{\footnotesize\ttfamily \label{class_inventory_spell_ae466cca59838b66e93b965de59f330f3} 
+double Inventory\+Spell.\+Cast\+Time = 0.\+3}
+
+
+
+How long it takes to cast the spell. 
+
+\Hypertarget{class_inventory_spell_a7ab1029074b883f850b126407dff1c62}\index{InventorySpell@{InventorySpell}!CoolDown@{CoolDown}}
+\index{CoolDown@{CoolDown}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{CoolDown}{CoolDown}}
+{\footnotesize\ttfamily \label{class_inventory_spell_a7ab1029074b883f850b126407dff1c62} 
+double Inventory\+Spell.\+Cool\+Down = 1}
+
+
+
+How long until the spell can be used again. 
+
+\Hypertarget{class_inventory_spell_a572509ba9ee492591e6aa9e77ba79d8b}\index{InventorySpell@{InventorySpell}!Damage@{Damage}}
+\index{Damage@{Damage}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{Damage}{Damage}}
+{\footnotesize\ttfamily \label{class_inventory_spell_a572509ba9ee492591e6aa9e77ba79d8b} 
+double Inventory\+Spell.\+Damage}
+
+
+
+actual damage of the spell 
+
+\Hypertarget{class_inventory_spell_ab3fc577ffdd33f88071ef722bd64c22a}\index{InventorySpell@{InventorySpell}!MagicType@{MagicType}}
+\index{MagicType@{MagicType}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{MagicType}{MagicType}}
+{\footnotesize\ttfamily \label{class_inventory_spell_ab3fc577ffdd33f88071ef722bd64c22a} 
+\mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7}{Magic\+Type}} Inventory\+Spell.\+Magic\+Type = \mbox{\hyperlink{enums_8cs_adb3a5bf177ca1371d6862066772586d7a9034a19b67bd4853d7cba104d62e0828}{Magic\+Type.\+SUN}}}
+
+
+
+Magic type of the spell. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/entities/player/inventory/spells/Inventory\+Spell.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/entities/player/inventory/spells/\mbox{\hyperlink{_inventory_spell_8cs}{Inventory\+Spell.\+cs}}\end{DoxyCompactItemize}

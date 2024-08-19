@@ -2,29 +2,26 @@
 \hypertarget{class_inventory_slot}{}\label{class_inventory_slot}\index{InventorySlot@{InventorySlot}}
 
 
-Inheritance diagram for Inventory\+Slot\+:
-\nopagebreak
+Inheritance diagram for Inventory\+Slot\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=252pt]{df/d32/class_inventory_slot__inherit__graph}
+\includegraphics[width=241pt]{df/d32/class_inventory_slot__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Inventory\+Slot\+:
-\nopagebreak
+Collaboration diagram for Inventory\+Slot\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=252pt]{d7/d8d/class_inventory_slot__coll__graph}
+\includegraphics[width=241pt]{d7/d8d/class_inventory_slot__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_inventory_slot_aea5f0341a4c2d7a0db9f13c04ed184f7}\label{class_inventory_slot_aea5f0341a4c2d7a0db9f13c04ed184f7} 
-delegate void {\bfseries Equip\+Augment\+In\+Slot\+Event\+Handler} (\mbox{\hyperlink{class_augment}{Augment}} augment, int slot\+Index)
+delegate void \mbox{\hyperlink{class_inventory_slot_aea5f0341a4c2d7a0db9f13c04ed184f7}{Equip\+Augment\+In\+Slot\+Event\+Handler}} (\mbox{\hyperlink{class_augment}{Augment}} augment, int slot\+Index)
 \begin{DoxyCompactList}\small\item\em Signal that gets emitted if the entities health reaches 0. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_inventory_slot_a26738276405215567fcf084cafd072df}{Init}} (Vector2 min\+Size, int active\+Slot)
 \item 
@@ -58,7 +55,17 @@ Reparent the \doxylink{class_inventory_item}{Inventory\+Item} to this slot. Ince
 {\footnotesize\ttfamily \label{class_inventory_slot_ae7b712a9de04c5370150e04bf0ddce45} 
 void Inventory\+Slot.\+Equip\+Augment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory_item}{Inventory\+Item}}}]{augment\+Item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Reparent the \doxylink{class_inventory_item}{Inventory\+Item} and emit the signal Equipt\+Augment\+In\+Slot \Hypertarget{class_inventory_slot_a26738276405215567fcf084cafd072df}\index{InventorySlot@{InventorySlot}!Init@{Init}}
+Reparent the \doxylink{class_inventory_item}{Inventory\+Item} and emit the signal Equipt\+Augment\+In\+Slot \Hypertarget{class_inventory_slot_aea5f0341a4c2d7a0db9f13c04ed184f7}\index{InventorySlot@{InventorySlot}!EquipAugmentInSlotEventHandler@{EquipAugmentInSlotEventHandler}}
+\index{EquipAugmentInSlotEventHandler@{EquipAugmentInSlotEventHandler}!InventorySlot@{InventorySlot}}
+\doxysubsubsection{\texorpdfstring{EquipAugmentInSlotEventHandler()}{EquipAugmentInSlotEventHandler()}}
+{\footnotesize\ttfamily \label{class_inventory_slot_aea5f0341a4c2d7a0db9f13c04ed184f7} 
+delegate void Inventory\+Slot.\+Equip\+Augment\+In\+Slot\+Event\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_augment}{Augment}}}]{augment}{, }\item[{int}]{slot\+Index}{}\end{DoxyParamCaption})}
+
+
+
+Signal that gets emitted if the entities health reaches 0. 
+
+\Hypertarget{class_inventory_slot_a26738276405215567fcf084cafd072df}\index{InventorySlot@{InventorySlot}!Init@{Init}}
 \index{Init@{Init}!InventorySlot@{InventorySlot}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily \label{class_inventory_slot_a26738276405215567fcf084cafd072df} 
@@ -77,4 +84,4 @@ Initialize the data of the \doxylink{class_inventory_slot}{Inventory\+Slot}
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/entities/player/inventory/augments/Inventory\+Slot.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/entities/player/inventory/augments/\mbox{\hyperlink{_inventory_slot_8cs}{Inventory\+Slot.\+cs}}\end{DoxyCompactItemize}

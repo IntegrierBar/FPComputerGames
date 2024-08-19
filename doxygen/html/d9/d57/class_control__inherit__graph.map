@@ -1,0 +1,7 @@
+<map id="Control" name="Control">
+<area shape="rect" id="Node000001" title=" " alt="" coords="131,5,185,75"/>
+<area shape="rect" id="Node000002" href="$dd/d5b/class_minimap.html" title="A UI element that displays a minimap of the dungeon." alt="" coords="5,123,161,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,89,118,124,113,122,131,87"/>
+<area shape="rect" id="Node000003" href="$db/dbe/class_spell_inventory.html" title=" " alt="" coords="186,152,282,221"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,86,219,151,214,154,180,89"/>
+</map>

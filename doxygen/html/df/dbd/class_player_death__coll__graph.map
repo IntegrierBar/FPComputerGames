@@ -1,7 +1,13 @@
 <map id="PlayerDeath" name="PlayerDeath">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,389,151,480"/>
-<area shape="rect" id="Node000002" href="$d0/d8b/class_state.html" title=" " alt="" coords="9,123,147,341"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,356,81,390,75,390,75,356"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="56,5,100,75"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,90,81,123,75,123,75,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="107,448,311,555"/>
+<area shape="rect" id="Node000002" href="$d0/d8b/class_state.html" title=" " alt="" coords="30,139,235,384"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,397,195,447,189,449,173,399"/>
+<area shape="rect" id="Node000003" href="$dc/d8f/class_node.html" title=" " alt="" coords="5,5,49,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="52,87,77,138,72,140,48,89"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="74,5,191,75"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="135,75,135,122,130,122,130,75"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="216,5,324,75"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="251,76,220,126,215,123,247,73"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="259,227,310,296"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="277,296,250,385,234,432,229,431,245,383,272,295"/>
 </map>

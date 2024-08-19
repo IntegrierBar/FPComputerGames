@@ -2,22 +2,20 @@
 \hypertarget{class_hurt_box_stomping_attack}{}\label{class_hurt_box_stomping_attack}\index{HurtBoxStompingAttack@{HurtBoxStompingAttack}}
 
 
-Inheritance diagram for Hurt\+Box\+Stomping\+Attack\+:
-\nopagebreak
+Inheritance diagram for Hurt\+Box\+Stomping\+Attack\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=195pt]{d2/dc4/class_hurt_box_stomping_attack__inherit__graph}
+\includegraphics[width=233pt]{d2/dc4/class_hurt_box_stomping_attack__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Hurt\+Box\+Stomping\+Attack\+:
-\nopagebreak
+Collaboration diagram for Hurt\+Box\+Stomping\+Attack\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=195pt]{d8/d4b/class_hurt_box_stomping_attack__coll__graph}
+\includegraphics[width=233pt]{d8/d4b/class_hurt_box_stomping_attack__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -27,7 +25,7 @@ override void \mbox{\hyperlink{class_hurt_box_stomping_attack_a234ee61d8327819e5
 \item 
 override void \mbox{\hyperlink{class_hurt_box_stomping_attack_aea697fcb70251a302ae93b6635afa579}{\+\_\+\+Physics\+Process}} (double delta)
 \item 
-void \mbox{\hyperlink{class_hurt_box_stomping_attack_a4e2fc3209cab259c4e1f81809552689f}{On\+Area\+Entered}} (Area2D area)
+void \mbox{\hyperlink{class_hurt_box_stomping_attack_a4e2fc3209cab259c4e1f81809552689f}{On\+Area\+Entered}} (\mbox{\hyperlink{class_area2_d}{Area2D}} area)
 \item 
 void \mbox{\hyperlink{class_hurt_box_stomping_attack_a01a3b238316ee3c88d5dea6992ddc4c5}{Set\+Attack}} (\mbox{\hyperlink{class_attack}{Attack}} attack)
 \item 
@@ -40,8 +38,7 @@ void \mbox{\hyperlink{class_hurt_box_stomping_attack_a646feb9d823a1bd8007bd75963
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_hurt_box_stomping_attack_a7c680820751991d73110af979b8c8e00}\label{class_hurt_box_stomping_attack_a7c680820751991d73110af979b8c8e00} 
-Timer {\bfseries timer}
+Timer \mbox{\hyperlink{class_hurt_box_stomping_attack_a7c680820751991d73110af979b8c8e00}{timer}}
 \begin{DoxyCompactList}\small\item\em timer used to track the delay time of the stomping attack (damage should only be applied when the unicorn hits the ground) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -68,7 +65,7 @@ When the attack is ended, disable the monitoring again so that the player cannot
 \index{OnAreaEntered@{OnAreaEntered}!HurtBoxStompingAttack@{HurtBoxStompingAttack}}
 \doxysubsubsection{\texorpdfstring{OnAreaEntered()}{OnAreaEntered()}}
 {\footnotesize\ttfamily \label{class_hurt_box_stomping_attack_a4e2fc3209cab259c4e1f81809552689f} 
-void Hurt\+Box\+Stomping\+Attack.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{Area2D}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void Hurt\+Box\+Stomping\+Attack.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area2_d}{Area2D}}}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 The unicorn should only be able to detect collisions with the PC. If the unicorns hurtbox on the ground collides with the PC, the damage function is called. The player can only be hit once by the stomping attack, so the attack ends when the player was damaged. \Hypertarget{class_hurt_box_stomping_attack_a646feb9d823a1bd8007bd7596371380e}\index{HurtBoxStompingAttack@{HurtBoxStompingAttack}!OnTimerTimeout@{OnTimerTimeout}}
 \index{OnTimerTimeout@{OnTimerTimeout}!HurtBoxStompingAttack@{HurtBoxStompingAttack}}
@@ -90,6 +87,19 @@ void Hurt\+Box\+Stomping\+Attack.\+Start\+Attack (\begin{DoxyParamCaption}\item[
 
 Start attack begins the attack by setting the attack. Also sets the timer to the delay time, after which the damafinf phase of the attack begins. Starts the timer. 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_hurt_box_stomping_attack_a7c680820751991d73110af979b8c8e00}\index{HurtBoxStompingAttack@{HurtBoxStompingAttack}!timer@{timer}}
+\index{timer@{timer}!HurtBoxStompingAttack@{HurtBoxStompingAttack}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily \label{class_hurt_box_stomping_attack_a7c680820751991d73110af979b8c8e00} 
+Timer Hurt\+Box\+Stomping\+Attack.\+timer}
+
+
+
+timer used to track the delay time of the stomping attack (damage should only be applied when the unicorn hits the ground) 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/entities/unicorns/unicorn-\/attacks/Hurt\+Box\+Stomping\+Attack.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/entities/unicorns/unicorn-\/attacks/\mbox{\hyperlink{_hurt_box_stomping_attack_8cs}{Hurt\+Box\+Stomping\+Attack.\+cs}}\end{DoxyCompactItemize}

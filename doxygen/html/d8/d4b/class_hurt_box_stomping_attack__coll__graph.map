@@ -1,5 +1,7 @@
 <map id="HurtBoxStompingAttack" name="HurtBoxStompingAttack">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,159,320"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="53,5,111,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,90,85,123,79,123,79,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,139,209,400"/>
+<area shape="rect" id="Node000002" href="$dc/df8/class_area2_d.html" title=" " alt="" coords="41,5,99,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,89,89,139,83,139,75,90"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="123,5,169,75"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,75,135,123,130,122,138,74"/>
 </map>

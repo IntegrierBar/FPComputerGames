@@ -2,8 +2,7 @@
 \hypertarget{class_spell}{}\label{class_spell}\index{Spell@{Spell}}
 
 
-Inheritance diagram for Spell\+:
-\nopagebreak
+Inheritance diagram for Spell\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +11,7 @@ Inheritance diagram for Spell\+:
 \end{figure}
 
 
-Collaboration diagram for Spell\+:
-\nopagebreak
+Collaboration diagram for Spell\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -29,24 +27,21 @@ virtual void \mbox{\hyperlink{class_spell_a4b3330b53bc8349e53b4e759ee18bd9a}{Ini
 \item 
 override void \mbox{\hyperlink{class_spell_a2741a6b003367c7399bdbb5774847f1d}{\+\_\+\+Physics\+Process}} (double delta)
 \item 
-virtual void \mbox{\hyperlink{class_spell_a5530a0ad9b822ce8e3f3ee2d0d7eca9b}{On\+Area\+Entered}} (Area2D area)
+virtual void \mbox{\hyperlink{class_spell_a5530a0ad9b822ce8e3f3ee2d0d7eca9b}{On\+Area\+Entered}} (\mbox{\hyperlink{class_area2_d}{Area2D}} area)
 \item 
 double \mbox{\hyperlink{class_spell_ad61d19b3d1cf06364672446a4445f125}{Get\+Time\+Until\+Deleteion}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_spell_a29ef662c6d505751adfcce7bc3350b56}\label{class_spell_a29ef662c6d505751adfcce7bc3350b56} 
-double {\bfseries Max\+Life\+Time\+In\+Seconds} = 5.\+0
+double \mbox{\hyperlink{class_spell_a29ef662c6d505751adfcce7bc3350b56}{Max\+Life\+Time\+In\+Seconds}} = 5.\+0
 \begin{DoxyCompactList}\small\item\em How long the spell exists at maximum until it is removed from the world, can be changed for every spell in the godot editior. \end{DoxyCompactList}\item 
-\Hypertarget{class_spell_ad0ecea63d7f88662bd4bd048a628cce2}\label{class_spell_ad0ecea63d7f88662bd4bd048a628cce2} 
-double {\bfseries \+\_\+time\+Left\+Until\+Deletion}
+double \mbox{\hyperlink{class_spell_ad0ecea63d7f88662bd4bd048a628cce2}{\+\_\+time\+Left\+Until\+Deletion}}
 \begin{DoxyCompactList}\small\item\em Time left until deletion. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_spell_a255c0df3a74c476ac74bd42cbd667bf8}\label{class_spell_a255c0df3a74c476ac74bd42cbd667bf8} 
-\mbox{\hyperlink{class_attack}{Attack}} {\bfseries \+\_\+attack}
+\mbox{\hyperlink{class_attack}{Attack}} \mbox{\hyperlink{class_spell_a255c0df3a74c476ac74bd42cbd667bf8}{\+\_\+attack}}
 \begin{DoxyCompactList}\small\item\em Contains damage, type and caster reference for damage calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -86,7 +81,7 @@ Reimplemented in \mbox{\hyperlink{class_basic_spell_a05629585e8c19fe28f75aafd386
 \index{OnAreaEntered@{OnAreaEntered}!Spell@{Spell}}
 \doxysubsubsection{\texorpdfstring{OnAreaEntered()}{OnAreaEntered()}}
 {\footnotesize\ttfamily \label{class_spell_a5530a0ad9b822ce8e3f3ee2d0d7eca9b} 
-virtual void Spell.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{Area2D}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+virtual void Spell.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area2_d}{Area2D}}}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 Default implementation of the On\+Area\+Entered method for all Spells Simply checks if the area is a \doxylink{class_health_component}{Health\+Component} and calls Take\+Damage(). 
 
@@ -94,6 +89,39 @@ Reimplemented in \mbox{\hyperlink{class_basic_spell_aaaeb5a2e3a894eec3dce802acfb
 
 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_spell_a255c0df3a74c476ac74bd42cbd667bf8}\index{Spell@{Spell}!\_attack@{\_attack}}
+\index{\_attack@{\_attack}!Spell@{Spell}}
+\doxysubsubsection{\texorpdfstring{\_attack}{\_attack}}
+{\footnotesize\ttfamily \label{class_spell_a255c0df3a74c476ac74bd42cbd667bf8} 
+\mbox{\hyperlink{class_attack}{Attack}} Spell.\+\_\+attack\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Contains damage, type and caster reference for damage calculation. 
+
+\Hypertarget{class_spell_ad0ecea63d7f88662bd4bd048a628cce2}\index{Spell@{Spell}!\_timeLeftUntilDeletion@{\_timeLeftUntilDeletion}}
+\index{\_timeLeftUntilDeletion@{\_timeLeftUntilDeletion}!Spell@{Spell}}
+\doxysubsubsection{\texorpdfstring{\_timeLeftUntilDeletion}{\_timeLeftUntilDeletion}}
+{\footnotesize\ttfamily \label{class_spell_ad0ecea63d7f88662bd4bd048a628cce2} 
+double Spell.\+\_\+time\+Left\+Until\+Deletion}
+
+
+
+Time left until deletion. 
+
+\Hypertarget{class_spell_a29ef662c6d505751adfcce7bc3350b56}\index{Spell@{Spell}!MaxLifeTimeInSeconds@{MaxLifeTimeInSeconds}}
+\index{MaxLifeTimeInSeconds@{MaxLifeTimeInSeconds}!Spell@{Spell}}
+\doxysubsubsection{\texorpdfstring{MaxLifeTimeInSeconds}{MaxLifeTimeInSeconds}}
+{\footnotesize\ttfamily \label{class_spell_a29ef662c6d505751adfcce7bc3350b56} 
+double Spell.\+Max\+Life\+Time\+In\+Seconds = 5.\+0}
+
+
+
+How long the spell exists at maximum until it is removed from the world, can be changed for every spell in the godot editior. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/entities/player/spells/Spell.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/entities/player/spells/\mbox{\hyperlink{_spell_8cs}{Spell.\+cs}}\end{DoxyCompactItemize}

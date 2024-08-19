@@ -1,8 +1,14 @@
 <map id="SlimeMoving" name="SlimeMoving">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,423,144,556"/>
-<area shape="rect" id="Node000002" href="$d0/d8b/class_state.html" title=" " alt="" coords="5,124,144,343"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,357,75,399,75,423,70,423,69,399,69,357"/>
-<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="77,342,77,406,72,406,72,342"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="53,5,97,75"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="77,90,77,124,72,124,72,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="69,464,285,613"/>
+<area shape="rect" id="Node000002" href="$d0/d8b/class_state.html" title=" " alt="" coords="30,139,235,384"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,398,154,440,159,464,154,465,149,440,142,399"/>
+<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="155,384,165,447,160,448,149,384"/>
+<area shape="rect" id="Node000003" href="$dc/d8f/class_node.html" title=" " alt="" coords="5,5,49,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="52,87,77,138,72,140,48,89"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="74,5,191,75"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="135,75,135,122,130,122,130,75"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="216,5,324,75"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="251,76,220,126,215,123,247,73"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="259,227,297,296"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="275,296,260,364,235,441,231,450,226,448,230,439,255,362,270,295"/>
 </map>

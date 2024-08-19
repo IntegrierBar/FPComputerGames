@@ -1,5 +1,5 @@
 <map id="AugmentEffectSelector" name="AugmentEffectSelector">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,152,192"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="34,5,123,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,90,81,123,76,123,76,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,176,208"/>
+<area shape="rect" id="Node000002" href="$df/d33/class_option_button.html" title=" " alt="" coords="46,5,135,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,89,93,123,88,123,88,89"/>
 </map>

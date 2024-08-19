@@ -2,22 +2,20 @@
 \hypertarget{class_ranged_attack}{}\label{class_ranged_attack}\index{RangedAttack@{RangedAttack}}
 
 
-Inheritance diagram for Ranged\+Attack\+:
-\nopagebreak
+Inheritance diagram for Ranged\+Attack\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=200pt]{d0/d3b/class_ranged_attack__inherit__graph}
+\includegraphics[width=233pt]{d0/d3b/class_ranged_attack__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Ranged\+Attack\+:
-\nopagebreak
+Collaboration diagram for Ranged\+Attack\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=200pt]{dc/d98/class_ranged_attack__coll__graph}
+\includegraphics[width=318pt]{dc/d98/class_ranged_attack__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -27,18 +25,16 @@ void \mbox{\hyperlink{class_ranged_attack_aa8295a7e2704104e0de54c5cb506b1c5}{Ini
 \item 
 override void \mbox{\hyperlink{class_ranged_attack_a9d72bb5aa8bdddba57b7f0b60c51605f}{\+\_\+\+Physics\+Process}} (double delta)
 \item 
-void \mbox{\hyperlink{class_ranged_attack_a9098850d57a15e7e2a047713583df4cf}{On\+Area\+Entered}} (Area2D area)
+void \mbox{\hyperlink{class_ranged_attack_a9098850d57a15e7e2a047713583df4cf}{On\+Area\+Entered}} (\mbox{\hyperlink{class_area2_d}{Area2D}} area)
 \item 
 void \mbox{\hyperlink{class_ranged_attack_aeb288ef116419026dfa4cdc1a68a17cb}{On\+Body\+Entered}} (Node2D body)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_ranged_attack_ab0360ae2a42e919150a2fe8a815b8e3f}\label{class_ranged_attack_ab0360ae2a42e919150a2fe8a815b8e3f} 
-float {\bfseries SPEED} = 100
+float \mbox{\hyperlink{class_ranged_attack_ab0360ae2a42e919150a2fe8a815b8e3f}{SPEED}} = 100
 \begin{DoxyCompactList}\small\item\em Speed of the attack. Do not set too high or evading might be too difficult. \end{DoxyCompactList}\item 
-\Hypertarget{class_ranged_attack_a932014c00ce113e55a5fd0c4e11ec4e6}\label{class_ranged_attack_a932014c00ce113e55a5fd0c4e11ec4e6} 
-double {\bfseries Max\+Life\+Time\+In\+Seconds} = 5
+double \mbox{\hyperlink{class_ranged_attack_a932014c00ce113e55a5fd0c4e11ec4e6}{Max\+Life\+Time\+In\+Seconds}} = 5
 \end{DoxyCompactItemize}
 
 
@@ -59,7 +55,7 @@ Set attack and direction which are given to the Init function. Look\+At is used 
 \index{OnAreaEntered@{OnAreaEntered}!RangedAttack@{RangedAttack}}
 \doxysubsubsection{\texorpdfstring{OnAreaEntered()}{OnAreaEntered()}}
 {\footnotesize\ttfamily \label{class_ranged_attack_a9098850d57a15e7e2a047713583df4cf} 
-void Ranged\+Attack.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{Area2D}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void Ranged\+Attack.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area2_d}{Area2D}}}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Gets called when the projectile hits a Health component since health components use area2\+Ds. Since the projectile\textquotesingle{}s mask layer is set to the player layer, it cannot hit other slimes. \Hypertarget{class_ranged_attack_aeb288ef116419026dfa4cdc1a68a17cb}\index{RangedAttack@{RangedAttack}!OnBodyEntered@{OnBodyEntered}}
 \index{OnBodyEntered@{OnBodyEntered}!RangedAttack@{RangedAttack}}
@@ -69,6 +65,25 @@ void Ranged\+Attack.\+On\+Body\+Entered (\begin{DoxyParamCaption}\item[{Node2D}]
 
 Since parts of the tilemap that have a collision layer are not area2D nodes, body entered is necessary to use. This function detects collisions with all types of 2D nodes. Check if the projectile entered a part of the tilemap, which means a wall or object, and remove the projectile. This requires mask 1 (Collision) to be set! 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_ranged_attack_a932014c00ce113e55a5fd0c4e11ec4e6}\index{RangedAttack@{RangedAttack}!MaxLifeTimeInSeconds@{MaxLifeTimeInSeconds}}
+\index{MaxLifeTimeInSeconds@{MaxLifeTimeInSeconds}!RangedAttack@{RangedAttack}}
+\doxysubsubsection{\texorpdfstring{MaxLifeTimeInSeconds}{MaxLifeTimeInSeconds}}
+{\footnotesize\ttfamily \label{class_ranged_attack_a932014c00ce113e55a5fd0c4e11ec4e6} 
+double Ranged\+Attack.\+Max\+Life\+Time\+In\+Seconds = 5}
+
+\Hypertarget{class_ranged_attack_ab0360ae2a42e919150a2fe8a815b8e3f}\index{RangedAttack@{RangedAttack}!SPEED@{SPEED}}
+\index{SPEED@{SPEED}!RangedAttack@{RangedAttack}}
+\doxysubsubsection{\texorpdfstring{SPEED}{SPEED}}
+{\footnotesize\ttfamily \label{class_ranged_attack_ab0360ae2a42e919150a2fe8a815b8e3f} 
+float Ranged\+Attack.\+SPEED = 100}
+
+
+
+Speed of the attack. Do not set too high or evading might be too difficult. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/entities/slimes/slime-\/attacks/Ranged\+Attack.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/entities/slimes/slime-\/attacks/\mbox{\hyperlink{_ranged_attack_8cs}{Ranged\+Attack.\+cs}}\end{DoxyCompactItemize}

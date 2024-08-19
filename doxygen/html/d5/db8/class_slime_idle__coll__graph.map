@@ -1,8 +1,16 @@
 <map id="SlimeIdle" name="SlimeIdle">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,423,168,620"/>
-<area shape="rect" id="Node000002" href="$d0/d8b/class_state.html" title=" " alt="" coords="17,124,156,343"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,357,87,399,87,423,82,423,81,399,81,357"/>
-<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="89,343,89,406,84,406,84,343"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="65,5,109,75"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,90,89,124,84,124,84,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="119,464,335,635"/>
+<area shape="rect" id="Node000002" href="$d0/d8b/class_state.html" title=" " alt="" coords="30,139,235,384"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,398,155,439,166,463,161,465,150,441,138,399"/>
+<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="160,383,178,439,181,447,176,449,172,441,155,385"/>
+<area shape="rect" id="Node000003" href="$dc/d8f/class_node.html" title=" " alt="" coords="5,5,49,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="52,87,77,138,72,140,48,89"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="74,5,191,75"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="135,75,135,122,130,122,130,75"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="216,5,324,75"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="251,76,220,126,215,123,247,73"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="259,227,297,296"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="275,296,250,440,249,448,243,447,245,440,270,295"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="341,227,391,296"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="363,296,347,365,334,404,318,441,312,451,308,448,313,439,329,402,342,363,358,295"/>
 </map>

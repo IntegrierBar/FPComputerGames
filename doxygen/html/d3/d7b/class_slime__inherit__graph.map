@@ -1,5 +1,5 @@
 <map id="Slime" name="Slime">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,167,533"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="27,5,145,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,90,89,123,83,123,83,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,232,661"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="60,5,177,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,89,121,123,116,123,116,89"/>
 </map>

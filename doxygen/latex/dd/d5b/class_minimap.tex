@@ -7,40 +7,35 @@ A UI element that displays a minimap of the dungeon.
 
 
 
-Inheritance diagram for Minimap\+:
-\nopagebreak
+Inheritance diagram for Minimap\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=145pt]{d3/df6/class_minimap__inherit__graph}
+\includegraphics[width=197pt]{d3/df6/class_minimap__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Minimap\+:
-\nopagebreak
+Collaboration diagram for Minimap\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=145pt]{d6/ddd/class_minimap__coll__graph}
+\includegraphics[width=203pt]{d6/ddd/class_minimap__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_minimap_aefef0663372388e66770faf163c28b0c}\label{class_minimap_aefef0663372388e66770faf163c28b0c} 
-override void {\bfseries \+\_\+\+Ready} ()
+override void \mbox{\hyperlink{class_minimap_aefef0663372388e66770faf163c28b0c}{\+\_\+\+Ready}} ()
 \begin{DoxyCompactList}\small\item\em Called when the node enters the scene tree for the first time. Initializes references to the \doxylink{class_dungeon_handler}{Dungeon\+Handler} and retrieves the dungeon layout. \end{DoxyCompactList}\item 
 override void \mbox{\hyperlink{class_minimap_a809ff88befa82a70bbc90f0fdbdf0209}{\+\_\+\+Process}} (double delta)
 \begin{DoxyCompactList}\small\item\em Called every frame. Updates the minimap display. \end{DoxyCompactList}\item 
-\Hypertarget{class_minimap_a83048a579a6f44b29c9191aa8454e29d}\label{class_minimap_a83048a579a6f44b29c9191aa8454e29d} 
-override void {\bfseries \+\_\+\+Draw} ()
+override void \mbox{\hyperlink{class_minimap_a83048a579a6f44b29c9191aa8454e29d}{\+\_\+\+Draw}} ()
 \begin{DoxyCompactList}\small\item\em Draws the minimap. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_minimap_a03ccfb8e55c5a917628a00993f416400}\label{class_minimap_a03ccfb8e55c5a917628a00993f416400} 
-Vector2I {\bfseries Cell\+Size} = new Vector2I(10, 10)
+Vector2I \mbox{\hyperlink{class_minimap_a03ccfb8e55c5a917628a00993f416400}{Cell\+Size}} = new Vector2I(10, 10)
 \begin{DoxyCompactList}\small\item\em Size of each cell in the minimap grid. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -48,6 +43,16 @@ Vector2I {\bfseries Cell\+Size} = new Vector2I(10, 10)
 A UI element that displays a minimap of the dungeon. 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_minimap_a83048a579a6f44b29c9191aa8454e29d}\index{Minimap@{Minimap}!\_Draw@{\_Draw}}
+\index{\_Draw@{\_Draw}!Minimap@{Minimap}}
+\doxysubsubsection{\texorpdfstring{\_Draw()}{\_Draw()}}
+{\footnotesize\ttfamily \label{class_minimap_a83048a579a6f44b29c9191aa8454e29d} 
+override void Minimap.\+\_\+\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Draws the minimap. 
+
 \Hypertarget{class_minimap_a809ff88befa82a70bbc90f0fdbdf0209}\index{Minimap@{Minimap}!\_Process@{\_Process}}
 \index{\_Process@{\_Process}!Minimap@{Minimap}}
 \doxysubsubsection{\texorpdfstring{\_Process()}{\_Process()}}
@@ -63,8 +68,31 @@ Called every frame. Updates the minimap display.
 {\em delta} & The time elapsed since the last frame.\\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_minimap_aefef0663372388e66770faf163c28b0c}\index{Minimap@{Minimap}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!Minimap@{Minimap}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_minimap_aefef0663372388e66770faf163c28b0c} 
+override void Minimap.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Called when the node enters the scene tree for the first time. Initializes references to the \doxylink{class_dungeon_handler}{Dungeon\+Handler} and retrieves the dungeon layout. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_minimap_a03ccfb8e55c5a917628a00993f416400}\index{Minimap@{Minimap}!CellSize@{CellSize}}
+\index{CellSize@{CellSize}!Minimap@{Minimap}}
+\doxysubsubsection{\texorpdfstring{CellSize}{CellSize}}
+{\footnotesize\ttfamily \label{class_minimap_a03ccfb8e55c5a917628a00993f416400} 
+Vector2I Minimap.\+Cell\+Size = new Vector2I(10, 10)}
+
+
+
+Size of each cell in the minimap grid. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-The\+Magic\+Apprentice/modules/handlers/Minimap.\+cs\end{DoxyCompactItemize}
+The\+Magic\+Apprentice/modules/handlers/\mbox{\hyperlink{_minimap_8cs}{Minimap.\+cs}}\end{DoxyCompactItemize}
