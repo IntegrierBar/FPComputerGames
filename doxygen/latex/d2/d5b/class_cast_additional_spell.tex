@@ -1,0 +1,65 @@
+\doxysection{Cast\+Additional\+Spell Class Reference}
+\hypertarget{class_cast_additional_spell}{}\label{class_cast_additional_spell}\index{CastAdditionalSpell@{CastAdditionalSpell}}
+
+
+Inheritance diagram for Cast\+Additional\+Spell\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{d0/d70/class_cast_additional_spell__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Cast\+Additional\+Spell\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{d7/d5b/class_cast_additional_spell__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_cast_additional_spell_a93aaf8f7da61945a96694f0a630e5059}{Equip}} (Scene\+Tree scene\+Tree)
+\item 
+override string \mbox{\hyperlink{class_cast_additional_spell_ad92c64133e256926e023a77b19695acd}{Description}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_augment_effect}{Augment\+Effect}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_augment_effect_a65bf699f2aeeabc200f01db0fd51cfb3}{Un\+Equip}} (Scene\+Tree scene\+Tree)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_augment_effect}{Augment\+Effect} to cast one spell, when casting another. The Un\+Equiping is handled in the player class 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cast_additional_spell_ad92c64133e256926e023a77b19695acd}\index{CastAdditionalSpell@{CastAdditionalSpell}!Description@{Description}}
+\index{Description@{Description}!CastAdditionalSpell@{CastAdditionalSpell}}
+\doxysubsubsection{\texorpdfstring{Description()}{Description()}}
+{\footnotesize\ttfamily \label{class_cast_additional_spell_ad92c64133e256926e023a77b19695acd} 
+override string Cast\+Additional\+Spell.\+Description (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Get the description of the augment effect 
+
+Reimplemented from \mbox{\hyperlink{class_augment_effect_a8ab9cb0c5d1686372815d9c1437d2521}{Augment\+Effect}}.
+
+\Hypertarget{class_cast_additional_spell_a93aaf8f7da61945a96694f0a630e5059}\index{CastAdditionalSpell@{CastAdditionalSpell}!Equip@{Equip}}
+\index{Equip@{Equip}!CastAdditionalSpell@{CastAdditionalSpell}}
+\doxysubsubsection{\texorpdfstring{Equip()}{Equip()}}
+{\footnotesize\ttfamily \label{class_cast_additional_spell_a93aaf8f7da61945a96694f0a630e5059} 
+override void Cast\+Additional\+Spell.\+Equip (\begin{DoxyParamCaption}\item[{Scene\+Tree}]{scene\+Tree}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+If \+\_\+casted\+Spell is in a \doxylink{class_spell}{Spell} Group, we also add \+\_\+additional\+Spell 
+
+Reimplemented from \mbox{\hyperlink{class_augment_effect_abeeaabe848b3e8686b7966bcd983a1a7}{Augment\+Effect}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/augments/augment\+\_\+effects/Cast\+Additional\+Spell.\+cs\end{DoxyCompactItemize}

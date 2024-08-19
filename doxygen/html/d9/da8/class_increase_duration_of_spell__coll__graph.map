@@ -1,0 +1,9 @@
+<map id="IncreaseDurationOfSpell" name="IncreaseDurationOfSpell">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,400,160,512"/>
+<area shape="rect" id="Node000002" href="$d8/d16/class_on_cast_augment_effect.html" title=" " alt="" coords="11,283,155,352"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,367,85,400,80,400,80,367"/>
+<area shape="rect" id="Node000003" href="$d5/d2b/class_augment_effect.html" title=" " alt="" coords="33,123,132,235"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,250,85,283,80,283,80,250"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="48,5,117,75"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="85,90,85,123,80,123,80,90"/>
+</map>

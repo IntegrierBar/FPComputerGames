@@ -1,0 +1,88 @@
+\doxysection{UISpell\+Slot Class Reference}
+\hypertarget{class_u_i_spell_slot}{}\label{class_u_i_spell_slot}\index{UISpellSlot@{UISpellSlot}}
+
+
+Class for the \doxylink{class_spell}{Spell} Box that shows the currently active spell.  
+
+
+
+
+Inheritance diagram for UISpell\+Slot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{d5/db5/class_u_i_spell_slot__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for UISpell\+Slot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{d0/d79/class_u_i_spell_slot__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_u_i_spell_slot_af10260faa8abf3ddf98c052898cf3905}{\+\_\+\+Ready}} ()
+\item 
+void \mbox{\hyperlink{class_u_i_spell_slot_aa3d9f4164f8e7af90d3792c1addf0a30}{Set\+Spell}} (Texture2D icon)
+\item 
+\Hypertarget{class_u_i_spell_slot_a3215789817ec15de95412f3e421e0449}\label{class_u_i_spell_slot_a3215789817ec15de95412f3e421e0449} 
+override void {\bfseries \+\_\+\+Physics\+Process} (double delta)
+\item 
+\Hypertarget{class_u_i_spell_slot_aa549150438cfb1c07886f29a89e1bf81}\label{class_u_i_spell_slot_aa549150438cfb1c07886f29a89e1bf81} 
+void {\bfseries Cast} (double cooldown)
+\item 
+bool \mbox{\hyperlink{class_u_i_spell_slot_ab08f5b9248cbf35a8bb2751513ada60c}{Is\+On\+Cooldown}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{class_u_i_spell_slot_a3595266d45c3bb13938e4eeeaabf8e4f}{Convert\+Time\+To\+String\+In\+Seconds}} (double time)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_u_i_spell_slot_a316b09940c69f63c7e8c406761e4f7d2}\label{class_u_i_spell_slot_a316b09940c69f63c7e8c406761e4f7d2} 
+Texture2D {\bfseries Starting\+Texture}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the \doxylink{class_spell}{Spell} Box that shows the currently active spell. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_i_spell_slot_af10260faa8abf3ddf98c052898cf3905}\index{UISpellSlot@{UISpellSlot}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!UISpellSlot@{UISpellSlot}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_u_i_spell_slot_af10260faa8abf3ddf98c052898cf3905} 
+override void UISpell\+Slot.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the reference to the texture\+Rect \Hypertarget{class_u_i_spell_slot_a3595266d45c3bb13938e4eeeaabf8e4f}\index{UISpellSlot@{UISpellSlot}!ConvertTimeToStringInSeconds@{ConvertTimeToStringInSeconds}}
+\index{ConvertTimeToStringInSeconds@{ConvertTimeToStringInSeconds}!UISpellSlot@{UISpellSlot}}
+\doxysubsubsection{\texorpdfstring{ConvertTimeToStringInSeconds()}{ConvertTimeToStringInSeconds()}}
+{\footnotesize\ttfamily \label{class_u_i_spell_slot_a3595266d45c3bb13938e4eeeaabf8e4f} 
+static string UISpell\+Slot.\+Convert\+Time\+To\+String\+In\+Seconds (\begin{DoxyParamCaption}\item[{double}]{time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Takes a double, rounds it up to the next integer and converts it to string and adds an s at the end. Uses System.\+Globalization.\+Culture\+Info to make sure that we use . and not , to separate the , \Hypertarget{class_u_i_spell_slot_ab08f5b9248cbf35a8bb2751513ada60c}\index{UISpellSlot@{UISpellSlot}!IsOnCooldown@{IsOnCooldown}}
+\index{IsOnCooldown@{IsOnCooldown}!UISpellSlot@{UISpellSlot}}
+\doxysubsubsection{\texorpdfstring{IsOnCooldown()}{IsOnCooldown()}}
+{\footnotesize\ttfamily \label{class_u_i_spell_slot_ab08f5b9248cbf35a8bb2751513ada60c} 
+bool UISpell\+Slot.\+Is\+On\+Cooldown (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns true is physics process is enabled, false otherwise. This works because the physics process is enabled if and only if we are on cooldown. \Hypertarget{class_u_i_spell_slot_aa3d9f4164f8e7af90d3792c1addf0a30}\index{UISpellSlot@{UISpellSlot}!SetSpell@{SetSpell}}
+\index{SetSpell@{SetSpell}!UISpellSlot@{UISpellSlot}}
+\doxysubsubsection{\texorpdfstring{SetSpell()}{SetSpell()}}
+{\footnotesize\ttfamily \label{class_u_i_spell_slot_aa3d9f4164f8e7af90d3792c1addf0a30} 
+void UISpell\+Slot.\+Set\+Spell (\begin{DoxyParamCaption}\item[{Texture2D}]{icon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the texture of the texture\+Rect 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/player/inventory/UISpell\+Slot.\+cs\end{DoxyCompactItemize}

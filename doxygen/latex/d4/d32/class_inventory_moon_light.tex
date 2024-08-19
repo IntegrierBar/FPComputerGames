@@ -1,0 +1,80 @@
+\doxysection{Inventory\+Moon\+Light Class Reference}
+\hypertarget{class_inventory_moon_light}{}\label{class_inventory_moon_light}\index{InventoryMoonLight@{InventoryMoonLight}}
+
+
+Inheritance diagram for Inventory\+Moon\+Light\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{d3/d3f/class_inventory_moon_light__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Inventory\+Moon\+Light\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{de/d98/class_inventory_moon_light__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_inventory_moon_light_a0a43ec52a07c2887509b0d9465b9cfbd}{\+\_\+\+Ready}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_inventory_spell}{Inventory\+Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_inventory_spell_a983611d1b7aa666a4ed57afa9bf74a77}{\+\_\+\+Ready}} ()
+\item 
+virtual void \mbox{\hyperlink{class_inventory_spell_a9cb08d3edcb575db754b6e0062f9e17a}{Cast}} (Vector2 player\+Position, Vector2 target\+Position)
+\item 
+void \mbox{\hyperlink{class_inventory_spell_a6b1724e176952c2d03b87c2a868be4dd}{Reset\+Damage}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_spell_a896ce169b8f6c16d4fe17126c3fc4a9a}{Add\+On\+Cast\+Augment\+Effect}} (\mbox{\hyperlink{class_on_cast_augment_effect}{On\+Cast\+Augment\+Effect}} on\+Cast\+Augment\+Effect)
+\item 
+void \mbox{\hyperlink{class_inventory_spell_a8034ce0c5f3eb7a81ca0e75769a3a14b}{Clear\+On\+Cast\+Augment\+Effects}} ()
+\item 
+List$<$ \mbox{\hyperlink{class_on_cast_augment_effect}{On\+Cast\+Augment\+Effect}} $>$ \mbox{\hyperlink{class_inventory_spell_a9ab9f448f01f02a7687a5591555ee86e}{Get\+On\+Cast\+Augment\+Effects}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_inventory_spell}{Inventory\+Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+double {\bfseries Cast\+Time} = 0.\+3
+\begin{DoxyCompactList}\small\item\em How long it takes to cast the spell. \end{DoxyCompactList}\item 
+double {\bfseries Cool\+Down} = 1
+\begin{DoxyCompactList}\small\item\em How long until the spell can be used again. \end{DoxyCompactList}\item 
+double {\bfseries Base\+Damage} = 30
+\begin{DoxyCompactList}\small\item\em base damage of the skill \end{DoxyCompactList}\item 
+double {\bfseries Damage}
+\begin{DoxyCompactList}\small\item\em actual damage of the spell \end{DoxyCompactList}\item 
+Magic\+Type {\bfseries Magic\+Type} = Magic\+Type.\+SUN
+\begin{DoxyCompactList}\small\item\em Magic type of the spell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_inventory_spell}{Inventory\+Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_health_component}{Health\+Component}} {\bfseries \+\_\+player\+Health\+Component}
+\begin{DoxyCompactList}\small\item\em Reference to the players \doxylink{class_health_component}{Health\+Component}. \end{DoxyCompactList}\item 
+Packed\+Scene {\bfseries \+\_\+spell\+Scene}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the Node responsible for summoning the Moon Light spell 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_inventory_moon_light_a0a43ec52a07c2887509b0d9465b9cfbd}\index{InventoryMoonLight@{InventoryMoonLight}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!InventoryMoonLight@{InventoryMoonLight}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_inventory_moon_light_a0a43ec52a07c2887509b0d9465b9cfbd} 
+override void Inventory\+Moon\+Light.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Additionaly to base class also adds itself to the Moon Light \doxylink{class_spell}{Spell} Group 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/player/inventory/spells/Inventory\+Moon\+Light.\+cs\end{DoxyCompactItemize}

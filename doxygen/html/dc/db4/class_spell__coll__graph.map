@@ -1,0 +1,14 @@
+<map id="Spell" name="Spell">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,823,169,999"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="37,167,95,236"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,251,87,823,82,823,65,251"/>
+<area shape="rect" id="Node000004" href="$d1/da7/class_health_component.html" title=" " alt="" coords="104,343,249,583"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="89,249,129,342,124,344,84,251"/>
+<area shape="rect" id="Node000003" href="$d9/db7/class_attack.html" title=" " alt="" coords="119,647,205,759"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,759,127,808,122,806,140,758"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="172,583,169,630,164,630,167,583"/>
+<area shape="rect" id="Node000005" href="$d7/dca/class_healthbar.html" title=" " alt="" coords="119,124,247,279"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="184,279,183,326,177,326,179,278"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="119,5,247,75"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="186,90,186,124,181,124,181,90"/>
+</map>

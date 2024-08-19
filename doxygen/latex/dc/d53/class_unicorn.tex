@@ -1,0 +1,96 @@
+\doxysection{Unicorn Class Reference}
+\hypertarget{class_unicorn}{}\label{class_unicorn}\index{Unicorn@{Unicorn}}
+
+
+Inheritance diagram for Unicorn\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{d3/d6b/class_unicorn__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Unicorn\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d6/de4/class_unicorn__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_unicorn_a95977b7daa1dbbd7c9a5b6152b3273d6}{\+\_\+\+Ready}} ()
+\item 
+override void \mbox{\hyperlink{class_unicorn_a654a8de886f14445146a4b49464edabd}{\+\_\+\+Process}} (double delta)
+\item 
+override void \mbox{\hyperlink{class_unicorn_ad343d025f827af935cab428d2598f19d}{\+\_\+\+Physics\+Process}} (double delta)
+\item 
+void \mbox{\hyperlink{class_unicorn_a74e6f3948771388ee43713731dc5c997}{Set\+Unicorn\+Properties}} (Magic\+Type magic\+Type, Vector2 unicorn\+Position)
+\item 
+Magic\+Type \mbox{\hyperlink{class_unicorn_af83ddee0286276ee14a8194e2e60bafc}{Get\+Magic\+Type}} ()
+\item 
+float \mbox{\hyperlink{class_unicorn_ae6fd39545ae35cd966b28a59bab4d51f}{Get\+Damage\+Value}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_unicorn_ad7fa6d97db9690f751d81d1fcea340a3}\label{class_unicorn_ad7fa6d97db9690f751d81d1fcea340a3} 
+\mbox{\hyperlink{class_state_machine}{State\+Machine}} {\bfseries State\+Machine}
+\begin{DoxyCompactList}\small\item\em Reference to the state machine of the unicorn. \end{DoxyCompactList}\item 
+\Hypertarget{class_unicorn_a36f4fce6e2a0f78bdc26cff6f03e9723}\label{class_unicorn_a36f4fce6e2a0f78bdc26cff6f03e9723} 
+Animation\+Player {\bfseries Animation\+Player}
+\begin{DoxyCompactList}\small\item\em Reference to the animation player of the unicorn. \end{DoxyCompactList}\item 
+\Hypertarget{class_unicorn_a425418f56d8f04afa427ce657489e662}\label{class_unicorn_a425418f56d8f04afa427ce657489e662} 
+float {\bfseries Melee\+Attack\+Range} = 50
+\begin{DoxyCompactList}\small\item\em If the PC is inside of this radius, the unicorn performs a melee attack. \end{DoxyCompactList}\item 
+\Hypertarget{class_unicorn_a8ed80178182d0d4fe98bc51929d11f59}\label{class_unicorn_a8ed80178182d0d4fe98bc51929d11f59} 
+float {\bfseries Base\+Damage} = 25
+\begin{DoxyCompactList}\small\item\em Basic damage of the unicorn. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_unicorn_ad343d025f827af935cab428d2598f19d}\index{Unicorn@{Unicorn}!\_PhysicsProcess@{\_PhysicsProcess}}
+\index{\_PhysicsProcess@{\_PhysicsProcess}!Unicorn@{Unicorn}}
+\doxysubsubsection{\texorpdfstring{\_PhysicsProcess()}{\_PhysicsProcess()}}
+{\footnotesize\ttfamily \label{class_unicorn_ad343d025f827af935cab428d2598f19d} 
+override void Unicorn.\+\_\+\+Physics\+Process (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Is called every physics update We simply forward the call to the state machine \Hypertarget{class_unicorn_a654a8de886f14445146a4b49464edabd}\index{Unicorn@{Unicorn}!\_Process@{\_Process}}
+\index{\_Process@{\_Process}!Unicorn@{Unicorn}}
+\doxysubsubsection{\texorpdfstring{\_Process()}{\_Process()}}
+{\footnotesize\ttfamily \label{class_unicorn_a654a8de886f14445146a4b49464edabd} 
+override void Unicorn.\+\_\+\+Process (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Is called every frame We simply forward the call to the state machine \Hypertarget{class_unicorn_a95977b7daa1dbbd7c9a5b6152b3273d6}\index{Unicorn@{Unicorn}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!Unicorn@{Unicorn}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_unicorn_a95977b7daa1dbbd7c9a5b6152b3273d6} 
+override void Unicorn.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Is called when the unicorn enters the scene tree. Checks if the references to the state machine and the animation player are valid and then sends them to the state machine so that all states get the references \Hypertarget{class_unicorn_ae6fd39545ae35cd966b28a59bab4d51f}\index{Unicorn@{Unicorn}!GetDamageValue@{GetDamageValue}}
+\index{GetDamageValue@{GetDamageValue}!Unicorn@{Unicorn}}
+\doxysubsubsection{\texorpdfstring{GetDamageValue()}{GetDamageValue()}}
+{\footnotesize\ttfamily \label{class_unicorn_ae6fd39545ae35cd966b28a59bab4d51f} 
+float Unicorn.\+Get\+Damage\+Value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter for damage value of the unicorn. \Hypertarget{class_unicorn_af83ddee0286276ee14a8194e2e60bafc}\index{Unicorn@{Unicorn}!GetMagicType@{GetMagicType}}
+\index{GetMagicType@{GetMagicType}!Unicorn@{Unicorn}}
+\doxysubsubsection{\texorpdfstring{GetMagicType()}{GetMagicType()}}
+{\footnotesize\ttfamily \label{class_unicorn_af83ddee0286276ee14a8194e2e60bafc} 
+Magic\+Type Unicorn.\+Get\+Magic\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter for magic type of the unicorn. \Hypertarget{class_unicorn_a74e6f3948771388ee43713731dc5c997}\index{Unicorn@{Unicorn}!SetUnicornProperties@{SetUnicornProperties}}
+\index{SetUnicornProperties@{SetUnicornProperties}!Unicorn@{Unicorn}}
+\doxysubsubsection{\texorpdfstring{SetUnicornProperties()}{SetUnicornProperties()}}
+{\footnotesize\ttfamily \label{class_unicorn_a74e6f3948771388ee43713731dc5c997} 
+void Unicorn.\+Set\+Unicorn\+Properties (\begin{DoxyParamCaption}\item[{Magic\+Type}]{magic\+Type}{, }\item[{Vector2}]{unicorn\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets properties of the unicorn\+: Magic type, initial position and base damage. Modifications of the base damage could be done here. The armor values of the unicorn are set depending on the magic type of the unicorn. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/unicorns/Unicorn.\+cs\end{DoxyCompactItemize}

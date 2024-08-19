@@ -2,7 +2,24 @@ var searchData=
 [
   ['calculateattack_0',['CalculateAttack',['../d6/d93/class_sun.html#ae5da0e2c70879767a0e6472c088b902f',1,'Sun']]],
   ['cameracontroller_1',['CameraController',['../d4/d3e/class_camera_controller.html',1,'']]],
-  ['cast_2',['Cast',['../d8/d26/class_inventory_basic_spell.html#ad39ead79f1d28f22d1ecedf51069b641',1,'InventoryBasicSpell.Cast()'],['../d0/d1e/class_inventory_spell.html#a86e9e91c3f70d8cfa663dc20431df73f',1,'InventorySpell.Cast()'],['../d4/d43/class_inventory_sun_beam.html#a0587c35e309d67cf36e2d70ed423a199',1,'InventorySunBeam.Cast()']]],
-  ['changerandomwalk_3',['ChangeRandomWalk',['../d2/d94/class_slime_idle.html#acb4bd4f4b3ad3fc2d93b0d759c612368',1,'SlimeIdle']]],
-  ['createrng_4',['CreateRNG',['../d2/d94/class_slime_idle.html#a16290f77bbb4692761e98d0f14ecb0be',1,'SlimeIdle']]]
+  ['canenter_2',['CanEnter',['../d4/d55/class_player_spell_casting.html#ab2586fa468975fc2f93cf1e4ba554bf1',1,'PlayerSpellCasting.CanEnter()'],['../d0/d8b/class_state.html#a27cebddea23c9ae664bbb4ab09ff9cf7',1,'State.CanEnter()']]],
+  ['cast_3',['Cast',['../d0/d1e/class_inventory_spell.html#a9cb08d3edcb575db754b6e0062f9e17a',1,'InventorySpell.Cast()'],['../dd/ddc/class_inventory_star_rain.html#aecfc2f18ec42cc2afaecf658a8d673cc',1,'InventoryStarRain.Cast()']]],
+  ['castadditionalspell_4',['CastAdditionalSpell',['../d2/d5b/class_cast_additional_spell.html',1,'']]],
+  ['casttime_5',['CastTime',['../d0/d1e/class_inventory_spell.html#ae466cca59838b66e93b965de59f330f3',1,'InventorySpell']]],
+  ['cellsize_6',['CellSize',['../dd/d5b/class_minimap.html#a03ccfb8e55c5a917628a00993f416400',1,'Minimap']]],
+  ['changerandomwalk_7',['ChangeRandomWalk',['../d2/d94/class_slime_idle.html#acb4bd4f4b3ad3fc2d93b0d759c612368',1,'SlimeIdle']]],
+  ['chargeattack_8',['ChargeAttack',['../dd/d3c/class_unicorn_wait.html#a193782cfec34d1c0df3ffabdc767d946',1,'UnicornWait']]],
+  ['chargespeed_9',['CHARGESPEED',['../d2/da1/class_unicorn_charge_attack.html#a154445fc13126f702502f1c29b9e34b5',1,'UnicornChargeAttack']]],
+  ['clearallcurses_10',['ClearAllCurses',['../de/d2d/class_curse_handler.html#af992bf0c8b70da66f0558eecf0e5ae9e',1,'CurseHandler']]],
+  ['clearoncastaugmenteffects_11',['ClearOnCastAugmentEffects',['../d0/d1e/class_inventory_spell.html#a8034ce0c5f3eb7a81ca0e75769a3a14b',1,'InventorySpell']]],
+  ['converttimetostringinseconds_12',['ConvertTimeToStringInSeconds',['../d5/de4/class_u_i_spell_slot.html#a3595266d45c3bb13938e4eeeaabf8e4f',1,'UISpellSlot']]],
+  ['cooldown_13',['CoolDown',['../d0/d1e/class_inventory_spell.html#a7ab1029074b883f850b126407dff1c62',1,'InventorySpell']]],
+  ['createaugmentwithaugmenteffect_14',['CreateAugmentWithAugmenteffect',['../d9/d2f/class_tests_1_1_test_augments.html#a01ff145c6590b6883d2c40e56a7a8cad',1,'Tests::TestAugments']]],
+  ['createrandomaugment_15',['CreateRandomAugment',['../d0/db4/class_augment_manager.html#af9dd1fc513428232a90a3f96f7772074',1,'AugmentManager']]],
+  ['createrng_16',['CreateRNG',['../d2/d94/class_slime_idle.html#a16290f77bbb4692761e98d0f14ecb0be',1,'SlimeIdle']]],
+  ['currentmenu_17',['CurrentMenu',['../d9/db2/class_menu_manager.html#abbfa158af0f552031c319b7186d403a0',1,'MenuManager']]],
+  ['currentroom_18',['CurrentRoom',['../d5/dc9/class_room_handler.html#a54b2bad5d2ad4ee07acf1974e53deb46',1,'RoomHandler']]],
+  ['currentroomnode_19',['CurrentRoomNode',['../d5/dc9/class_room_handler.html#a875be30b459adfbe145136ceaf829ea2',1,'RoomHandler']]],
+  ['currentroomposition_20',['CurrentRoomPosition',['../d6/d2d/class_dungeon.html#a5c40d811b6bf460e90d6a1c6283d3687',1,'Dungeon']]],
+  ['cursehandler_21',['CurseHandler',['../de/d2d/class_curse_handler.html',1,'']]]
 ];

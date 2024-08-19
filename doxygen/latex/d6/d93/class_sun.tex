@@ -1,9 +1,23 @@
 \doxysection{Sun Class Reference}
 \hypertarget{class_sun}{}\label{class_sun}\index{Sun@{Sun}}
-Inheritance diagram for Sun\+:\begin{figure}[H]
+
+
+Inheritance diagram for Sun\+:
+\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{d6/d93/class_sun}
+\includegraphics[width=203pt]{dc/da3/class_sun__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sun\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d4/d5f/class_sun__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -14,6 +28,8 @@ override void \mbox{\hyperlink{class_sun_ac1c06d1885bb528d73be4e40647cc854}{Init
 override void \mbox{\hyperlink{class_sun_ac3ed9bde71e691945355eb1767d8c731}{\+\_\+\+Physics\+Process}} (double delta)
 \item 
 \mbox{\hyperlink{class_attack}{Attack}} \mbox{\hyperlink{class_sun_ae5da0e2c70879767a0e6472c088b902f}{Calculate\+Attack}} (double distance\+To\+Enemy\+Squared)
+\item 
+override void \mbox{\hyperlink{class_sun_ac0fd364d9fa66e4bf489ed321c241b15}{On\+Area\+Entered}} (Area2D area)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_spell}{Spell}}}
 \begin{DoxyCompactItemize}
@@ -22,8 +38,6 @@ override void \mbox{\hyperlink{class_spell_a684f403add55c8d9e10f7c76fa0faa23}{\+
 \item 
 override void \mbox{\hyperlink{class_spell_a2741a6b003367c7399bdbb5774847f1d}{\+\_\+\+Physics\+Process}} (double delta)
 \item 
-virtual void \mbox{\hyperlink{class_spell_a5530a0ad9b822ce8e3f3ee2d0d7eca9b}{On\+Area\+Entered}} (Area2D area)
-\item 
 double \mbox{\hyperlink{class_spell_ad61d19b3d1cf06364672446a4445f125}{Get\+Time\+Until\+Deleteion}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
@@ -31,7 +45,7 @@ double \mbox{\hyperlink{class_spell_ad61d19b3d1cf06364672446a4445f125}{Get\+Time
 \begin{DoxyCompactItemize}
 \item 
 double {\bfseries Max\+Life\+Time\+In\+Seconds} = 5.\+0
-\begin{DoxyCompactList}\small\item\em How long the spell exists at maximum until it is removed from the world. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em How long the spell exists at maximum until it is removed from the world, can be changed for every spell in the godot editior. \end{DoxyCompactList}\item 
 double {\bfseries \+\_\+time\+Left\+Until\+Deletion}
 \begin{DoxyCompactList}\small\item\em Time left until deletion. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_spell}{Spell}}}
@@ -66,6 +80,16 @@ override void Sun.\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_
 Positions the \doxylink{class_sun}{Sun} at the mouse position 
 
 Reimplemented from \mbox{\hyperlink{class_spell_a4b3330b53bc8349e53b4e759ee18bd9a}{Spell}}.
+
+\Hypertarget{class_sun_ac0fd364d9fa66e4bf489ed321c241b15}\index{Sun@{Sun}!OnAreaEntered@{OnAreaEntered}}
+\index{OnAreaEntered@{OnAreaEntered}!Sun@{Sun}}
+\doxysubsubsection{\texorpdfstring{OnAreaEntered()}{OnAreaEntered()}}
+{\footnotesize\ttfamily \label{class_sun_ac0fd364d9fa66e4bf489ed321c241b15} 
+override void Sun.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{Area2D}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Override On\+Area\+Entered to make it empty since we do not want to use it. All Damage is applied in \+\_\+\+Physics\+Process 
+
+Reimplemented from \mbox{\hyperlink{class_spell_a5530a0ad9b822ce8e3f3ee2d0d7eca9b}{Spell}}.
 
 
 

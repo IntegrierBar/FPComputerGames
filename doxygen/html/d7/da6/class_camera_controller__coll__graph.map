@@ -1,0 +1,5 @@
+<map id="CameraController" name="CameraController">
+<area shape="rect" id="Node000001" title="This class controls the camera in the game." alt="" coords="5,123,128,256"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="29,5,105,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,90,69,123,64,123,64,90"/>
+</map>

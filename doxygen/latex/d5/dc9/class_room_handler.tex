@@ -1,9 +1,23 @@
 \doxysection{Room\+Handler Class Reference}
 \hypertarget{class_room_handler}{}\label{class_room_handler}\index{RoomHandler@{RoomHandler}}
-Inheritance diagram for Room\+Handler\+:\begin{figure}[H]
+
+
+Inheritance diagram for Room\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{d5/dc9/class_room_handler}
+\includegraphics[width=230pt]{d5/d95/class_room_handler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Room\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{de/d4d/class_room_handler__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -14,14 +28,22 @@ delegate void {\bfseries Room\+Initialized\+Event\+Handler} ()
 \begin{DoxyCompactList}\small\item\em Signal emitted after a new room is loaded. \end{DoxyCompactList}\item 
 override void \mbox{\hyperlink{class_room_handler_ad032a8250abb62922c05c87162687e3d}{\+\_\+\+Ready}} ()
 \item 
+void \mbox{\hyperlink{class_room_handler_ab8f26d5ec93ef8056b0669a5932afc8a}{Load\+Room}} (\mbox{\hyperlink{class_room}{Room}} room, Direction enter\+Direction)
+\item 
 Rect2 \mbox{\hyperlink{class_room_handler_a966dc77b20fc246b36f96859b23a09e3}{Get\+Current\+Room\+Bounds}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_room_handler_ad8926c04f1150a63496e719a7456b237}\label{class_room_handler_ad8926c04f1150a63496e719a7456b237} 
-string {\bfseries Starting\+Room}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\end{DoxyCompactItemize}
+\Hypertarget{class_room_handler_aa725d7d6ac6a474a214aab4efff5c617}\label{class_room_handler_aa725d7d6ac6a474a214aab4efff5c617} 
+int {\bfseries Enemy\+Count} = 3\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Number of enemies to spawn in each room. \end{DoxyCompactList}\item 
+\Hypertarget{class_room_handler_a54b2bad5d2ad4ee07acf1974e53deb46}\label{class_room_handler_a54b2bad5d2ad4ee07acf1974e53deb46} 
+\mbox{\hyperlink{class_room}{Room}} {\bfseries Current\+Room}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Reference to the current room object. \end{DoxyCompactList}\item 
+\Hypertarget{class_room_handler_a875be30b459adfbe145136ceaf829ea2}\label{class_room_handler_a875be30b459adfbe145136ceaf829ea2} 
+Node {\bfseries Current\+Room\+Node}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Reference to the current room node. Has to contain a "{}\+Tile\+Map"{} node. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
@@ -42,6 +64,21 @@ Gets the current room bounds in real-\/world coordinates.
 \begin{DoxyReturn}{Returns}
 The current room bounds in real-\/world coordinates. 
 \end{DoxyReturn}
+\Hypertarget{class_room_handler_ab8f26d5ec93ef8056b0669a5932afc8a}\index{RoomHandler@{RoomHandler}!LoadRoom@{LoadRoom}}
+\index{LoadRoom@{LoadRoom}!RoomHandler@{RoomHandler}}
+\doxysubsubsection{\texorpdfstring{LoadRoom()}{LoadRoom()}}
+{\footnotesize\ttfamily \label{class_room_handler_ab8f26d5ec93ef8056b0669a5932afc8a} 
+void Room\+Handler.\+Load\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_room}{Room}}}]{room}{, }\item[{Direction}]{enter\+Direction}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a room by name and sets the player\textquotesingle{}s position based on the entrance direction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Name} & The name of the room to load. \\
+\hline
+{\em enter\+Direction} & The direction from which the player enters the room. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

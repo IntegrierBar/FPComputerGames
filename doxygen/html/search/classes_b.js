@@ -1,14 +1,12 @@
 var searchData=
 [
-  ['slime_0',['Slime',['../d3/db0/class_slime.html',1,'']]],
-  ['slimeattacking_1',['SlimeAttacking',['../dc/d44/class_slime_attacking.html',1,'']]],
-  ['slimedeath_2',['SlimeDeath',['../db/d1c/class_slime_death.html',1,'']]],
-  ['slimeidle_3',['SlimeIdle',['../d2/d94/class_slime_idle.html',1,'']]],
-  ['slimemoving_4',['SlimeMoving',['../d9/dfb/class_slime_moving.html',1,'']]],
-  ['spell_5',['Spell',['../d8/d0d/class_spell.html',1,'']]],
-  ['star_6',['Star',['../d7/d8d/class_star.html',1,'']]],
-  ['state_7',['State',['../d0/d8b/class_state.html',1,'']]],
-  ['statemachine_8',['StateMachine',['../d4/dd0/class_state_machine.html',1,'']]],
-  ['sun_9',['Sun',['../d6/d93/class_sun.html',1,'']]],
-  ['sunbeam_10',['SunBeam',['../d5/d00/class_sun_beam.html',1,'']]]
+  ['pausemenu_0',['PauseMenu',['../d4/de5/class_pause_menu.html',1,'']]],
+  ['percentdamageforonespell_1',['PercentDamageForOneSpell',['../d1/d07/class_percent_damage_for_one_spell.html',1,'']]],
+  ['percentdamageforonetype_2',['PercentDamageForOneType',['../d1/dd0/class_percent_damage_for_one_type.html',1,'']]],
+  ['player_3',['Player',['../d8/d53/class_player.html',1,'']]],
+  ['playerdashing_4',['PlayerDashing',['../d2/df1/class_player_dashing.html',1,'']]],
+  ['playerdeath_5',['PlayerDeath',['../dc/d4c/class_player_death.html',1,'']]],
+  ['playeridle_6',['PlayerIdle',['../d3/d9d/class_player_idle.html',1,'']]],
+  ['playermoving_7',['PlayerMoving',['../dc/d24/class_player_moving.html',1,'']]],
+  ['playerspellcasting_8',['PlayerSpellCasting',['../d4/d55/class_player_spell_casting.html',1,'']]]
 ];

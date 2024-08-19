@@ -1,0 +1,12 @@
+<map id="InventoryItem" name="InventoryItem">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,519,147,631"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="13,343,97,412"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,426,73,518,67,519,57,427"/>
+<area shape="rect" id="Node000003" href="$de/d8a/class_augment.html" title=" " alt="" coords="121,300,260,455"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,456,119,506,114,503,144,453"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="139,5,208,75"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="178,89,185,236,189,300,184,300,180,236,173,90"/>
+<area shape="rect" id="Node000005" href="$d5/d2b/class_augment_effect.html" title=" " alt="" coords="195,124,293,236"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="200,87,218,123,214,126,195,89"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="232,236,218,285,213,283,227,235"/>
+</map>

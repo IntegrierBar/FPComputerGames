@@ -1,0 +1,5 @@
+<map id="SpellInventory" name="SpellInventory">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,101,192"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="26,5,81,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,90,56,123,51,123,51,90"/>
+</map>

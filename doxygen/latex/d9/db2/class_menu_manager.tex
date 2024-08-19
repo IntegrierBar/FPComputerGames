@@ -1,0 +1,120 @@
+\doxysection{Menu\+Manager Class Reference}
+\hypertarget{class_menu_manager}{}\label{class_menu_manager}\index{MenuManager@{MenuManager}}
+
+
+Inheritance diagram for Menu\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{d2/d33/class_menu_manager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Menu\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{dd/ddf/class_menu_manager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Type}} \{ \newline
+{\bfseries Main\+Game}
+, {\bfseries Main\+Menu}
+, {\bfseries Main\+Hub}
+, {\bfseries Pause\+Menu}
+, \newline
+{\bfseries Settings\+Menu}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_menu_manager_a27195ed3cd893cd90c9431bc29fced15}\label{class_menu_manager_a27195ed3cd893cd90c9431bc29fced15} 
+delegate void {\bfseries Menu\+Changed\+Event\+Handler} (\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Type}} new\+Menu, bool is\+Push)
+\item 
+override void \mbox{\hyperlink{class_menu_manager_af07461828a35a48e7a60e3dbd7fc57f5}{\+\_\+\+Ready}} ()
+\item 
+void \mbox{\hyperlink{class_menu_manager_a30484dbd8a364acd9c791f66f4878e78}{Push\+Menu}} (\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Type}} new\+Menu)
+\item 
+void \mbox{\hyperlink{class_menu_manager_a7d7dd0f252a04b33bc1803732154f24e}{Pop\+Menu}} ()
+\item 
+void \mbox{\hyperlink{class_menu_manager_ab2cb79b844c6d25a9c0cd4549d622f83}{Set\+Root\+Menu}} (\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Type}} new\+Menu)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Type}} \mbox{\hyperlink{class_menu_manager_abbfa158af0f552031c319b7186d403a0}{Current\+Menu}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the menu system for the game. Handles menu transitions, stack management, and menu instantiation. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}\index{MenuManager@{MenuManager}!MenuType@{MenuType}}
+\index{MenuType@{MenuType}!MenuManager@{MenuManager}}
+\doxysubsubsection{\texorpdfstring{MenuType}{MenuType}}
+{\footnotesize\ttfamily \label{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267} 
+enum \mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Manager.\+Menu\+Type}}}
+
+Enum representing different types of menus in the game. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_menu_manager_af07461828a35a48e7a60e3dbd7fc57f5}\index{MenuManager@{MenuManager}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!MenuManager@{MenuManager}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_menu_manager_af07461828a35a48e7a60e3dbd7fc57f5} 
+override void Menu\+Manager.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Initializes the menu system by pushing the main menu. \Hypertarget{class_menu_manager_a7d7dd0f252a04b33bc1803732154f24e}\index{MenuManager@{MenuManager}!PopMenu@{PopMenu}}
+\index{PopMenu@{PopMenu}!MenuManager@{MenuManager}}
+\doxysubsubsection{\texorpdfstring{PopMenu()}{PopMenu()}}
+{\footnotesize\ttfamily \label{class_menu_manager_a7d7dd0f252a04b33bc1803732154f24e} 
+void Menu\+Manager.\+Pop\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Pops the top menu from the stack and removes its instance. \Hypertarget{class_menu_manager_a30484dbd8a364acd9c791f66f4878e78}\index{MenuManager@{MenuManager}!PushMenu@{PushMenu}}
+\index{PushMenu@{PushMenu}!MenuManager@{MenuManager}}
+\doxysubsubsection{\texorpdfstring{PushMenu()}{PushMenu()}}
+{\footnotesize\ttfamily \label{class_menu_manager_a30484dbd8a364acd9c791f66f4878e78} 
+void Menu\+Manager.\+Push\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Type}}}]{new\+Menu}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Pushes a new menu onto the stack and instantiates it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Menu} & The type of menu to push onto the stack. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_menu_manager_ab2cb79b844c6d25a9c0cd4549d622f83}\index{MenuManager@{MenuManager}!SetRootMenu@{SetRootMenu}}
+\index{SetRootMenu@{SetRootMenu}!MenuManager@{MenuManager}}
+\doxysubsubsection{\texorpdfstring{SetRootMenu()}{SetRootMenu()}}
+{\footnotesize\ttfamily \label{class_menu_manager_ab2cb79b844c6d25a9c0cd4549d622f83} 
+void Menu\+Manager.\+Set\+Root\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Type}}}]{new\+Menu}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Clears the menu stack and sets a new root menu.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Menu} & The type of menu to set as the new root. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_menu_manager_abbfa158af0f552031c319b7186d403a0}\index{MenuManager@{MenuManager}!CurrentMenu@{CurrentMenu}}
+\index{CurrentMenu@{CurrentMenu}!MenuManager@{MenuManager}}
+\doxysubsubsection{\texorpdfstring{CurrentMenu}{CurrentMenu}}
+{\footnotesize\ttfamily \label{class_menu_manager_abbfa158af0f552031c319b7186d403a0} 
+\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Type}} Menu\+Manager.\+Current\+Menu\hspace{0.3cm}{\ttfamily [get]}}
+
+Gets the current active menu. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/handlers/Menu\+Manager.\+cs\end{DoxyCompactItemize}

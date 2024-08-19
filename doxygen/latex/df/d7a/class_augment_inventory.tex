@@ -1,0 +1,116 @@
+\doxysection{Augment\+Inventory Class Reference}
+\hypertarget{class_augment_inventory}{}\label{class_augment_inventory}\index{AugmentInventory@{AugmentInventory}}
+
+
+Inheritance diagram for Augment\+Inventory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{dd/db6/class_augment_inventory__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Augment\+Inventory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{dc/d97/class_augment_inventory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_augment_inventory_a816b5ffcd5e17955d2875bf111d2f7ef}{\+\_\+\+Ready}} ()
+\item 
+override void \mbox{\hyperlink{class_augment_inventory_ac2a9b8c14a4c43d09ac0549434c97c69}{\+\_\+\+Unhandled\+Input}} (Input\+Event @event)
+\item 
+void \mbox{\hyperlink{class_augment_inventory_a49fc33baa4a99cec8b365e6d179384a6}{Set\+Visibility}} (bool is\+Visible)
+\item 
+void \mbox{\hyperlink{class_augment_inventory_abc180522468630709fb253930f0cca7a}{Add\+Augment\+To\+Inventory}} (\mbox{\hyperlink{class_augment}{Augment}} augment)
+\item 
+void \mbox{\hyperlink{class_augment_inventory_a3990db85ddf1477ce799142f309d913a}{Left\+Button\+Pressed}} ()
+\item 
+void \mbox{\hyperlink{class_augment_inventory_ac8b3bd4e4989c74dac96386ac4b34973}{Right\+Button\+Pressed}} ()
+\item 
+void \mbox{\hyperlink{class_augment_inventory_a1eec03c7494ceaafaf9224279514de84}{Fuse\+Selected\+Augments}} ()
+\item 
+void \mbox{\hyperlink{class_augment_inventory_ad4cc455e0f4d52251ab8fc7a1854c0b2}{Add\+Random\+Augment}} ()
+\item 
+Grid\+Container \mbox{\hyperlink{class_augment_inventory_a967e1d3b8ae935d569d64a7f8e69bffb}{Get\+Inactive\+Augments}} ()
+\item 
+HBox\+Container \mbox{\hyperlink{class_augment_inventory_a484f589334271fb45673fed4d5deaa4d}{Get\+Active\+Augments}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_augment_inventory}{Augment\+Inventory} is the root node of the augment inventory. It handles the creation of all Inventory\+Slots and the adding of new augments to the inventory. The scene is a child of the player so that it is always loaded as the scene containes all augment data. Usually the visibility and the processing is disabled. Except if the player clicks the "{}\+Open Augment Inventory"{} button. It can then be closed again using ESC. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_augment_inventory_a816b5ffcd5e17955d2875bf111d2f7ef}\index{AugmentInventory@{AugmentInventory}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!AugmentInventory@{AugmentInventory}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_augment_inventory_a816b5ffcd5e17955d2875bf111d2f7ef} 
+override void Augment\+Inventory.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the Reference to the Grid and fills it with \+\_\+number\+Of\+Slots many emtpy slots and gets reference to the active augments and creates the 5 active augment slots \Hypertarget{class_augment_inventory_ac2a9b8c14a4c43d09ac0549434c97c69}\index{AugmentInventory@{AugmentInventory}!\_UnhandledInput@{\_UnhandledInput}}
+\index{\_UnhandledInput@{\_UnhandledInput}!AugmentInventory@{AugmentInventory}}
+\doxysubsubsection{\texorpdfstring{\_UnhandledInput()}{\_UnhandledInput()}}
+{\footnotesize\ttfamily \label{class_augment_inventory_ac2a9b8c14a4c43d09ac0549434c97c69} 
+override void Augment\+Inventory.\+\_\+\+Unhandled\+Input (\begin{DoxyParamCaption}\item[{Input\+Event @}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+If Esc is pressed the \doxylink{class_augment_inventory}{Augment\+Inventory} becomes invisible again and stops processing \Hypertarget{class_augment_inventory_abc180522468630709fb253930f0cca7a}\index{AugmentInventory@{AugmentInventory}!AddAugmentToInventory@{AddAugmentToInventory}}
+\index{AddAugmentToInventory@{AddAugmentToInventory}!AugmentInventory@{AugmentInventory}}
+\doxysubsubsection{\texorpdfstring{AddAugmentToInventory()}{AddAugmentToInventory()}}
+{\footnotesize\ttfamily \label{class_augment_inventory_abc180522468630709fb253930f0cca7a} 
+void Augment\+Inventory.\+Add\+Augment\+To\+Inventory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_augment}{Augment}}}]{augment}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a new augment to the inventory by finding an empty slot in the Grid, creating and \doxylink{class_inventory_item}{Inventory\+Item} with the \doxylink{class_augment}{Augment} and putting it in the slot In case all slots are filled it creates a new row of slots in the inventory. \Hypertarget{class_augment_inventory_ad4cc455e0f4d52251ab8fc7a1854c0b2}\index{AugmentInventory@{AugmentInventory}!AddRandomAugment@{AddRandomAugment}}
+\index{AddRandomAugment@{AddRandomAugment}!AugmentInventory@{AugmentInventory}}
+\doxysubsubsection{\texorpdfstring{AddRandomAugment()}{AddRandomAugment()}}
+{\footnotesize\ttfamily \label{class_augment_inventory_ad4cc455e0f4d52251ab8fc7a1854c0b2} 
+void Augment\+Inventory.\+Add\+Random\+Augment (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a random augment to the inventory \Hypertarget{class_augment_inventory_a1eec03c7494ceaafaf9224279514de84}\index{AugmentInventory@{AugmentInventory}!FuseSelectedAugments@{FuseSelectedAugments}}
+\index{FuseSelectedAugments@{FuseSelectedAugments}!AugmentInventory@{AugmentInventory}}
+\doxysubsubsection{\texorpdfstring{FuseSelectedAugments()}{FuseSelectedAugments()}}
+{\footnotesize\ttfamily \label{class_augment_inventory_a1eec03c7494ceaafaf9224279514de84} 
+void Augment\+Inventory.\+Fuse\+Selected\+Augments (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Fuse the currently selected Augments in the way specified by the 2 Option\+Buttons, using the Augment\+Managers Fuse\+Augments function. \Hypertarget{class_augment_inventory_a484f589334271fb45673fed4d5deaa4d}\index{AugmentInventory@{AugmentInventory}!GetActiveAugments@{GetActiveAugments}}
+\index{GetActiveAugments@{GetActiveAugments}!AugmentInventory@{AugmentInventory}}
+\doxysubsubsection{\texorpdfstring{GetActiveAugments()}{GetActiveAugments()}}
+{\footnotesize\ttfamily \label{class_augment_inventory_a484f589334271fb45673fed4d5deaa4d} 
+HBox\+Container Augment\+Inventory.\+Get\+Active\+Augments (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter for \+\_\+active\+Aguments. Only used be tests \Hypertarget{class_augment_inventory_a967e1d3b8ae935d569d64a7f8e69bffb}\index{AugmentInventory@{AugmentInventory}!GetInactiveAugments@{GetInactiveAugments}}
+\index{GetInactiveAugments@{GetInactiveAugments}!AugmentInventory@{AugmentInventory}}
+\doxysubsubsection{\texorpdfstring{GetInactiveAugments()}{GetInactiveAugments()}}
+{\footnotesize\ttfamily \label{class_augment_inventory_a967e1d3b8ae935d569d64a7f8e69bffb} 
+Grid\+Container Augment\+Inventory.\+Get\+Inactive\+Augments (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter for \+\_\+inactive\+Aguments. Only used be tests \Hypertarget{class_augment_inventory_a3990db85ddf1477ce799142f309d913a}\index{AugmentInventory@{AugmentInventory}!LeftButtonPressed@{LeftButtonPressed}}
+\index{LeftButtonPressed@{LeftButtonPressed}!AugmentInventory@{AugmentInventory}}
+\doxysubsubsection{\texorpdfstring{LeftButtonPressed()}{LeftButtonPressed()}}
+{\footnotesize\ttfamily \label{class_augment_inventory_a3990db85ddf1477ce799142f309d913a} 
+void Augment\+Inventory.\+Left\+Button\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets called when the left button of the menu is pressed. Handles transition to Fuse Augments and Skill Tree \Hypertarget{class_augment_inventory_ac8b3bd4e4989c74dac96386ac4b34973}\index{AugmentInventory@{AugmentInventory}!RightButtonPressed@{RightButtonPressed}}
+\index{RightButtonPressed@{RightButtonPressed}!AugmentInventory@{AugmentInventory}}
+\doxysubsubsection{\texorpdfstring{RightButtonPressed()}{RightButtonPressed()}}
+{\footnotesize\ttfamily \label{class_augment_inventory_ac8b3bd4e4989c74dac96386ac4b34973} 
+void Augment\+Inventory.\+Right\+Button\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets called when right button is pressed. Handles transition to Skill Tree and Active Augments \Hypertarget{class_augment_inventory_a49fc33baa4a99cec8b365e6d179384a6}\index{AugmentInventory@{AugmentInventory}!SetVisibility@{SetVisibility}}
+\index{SetVisibility@{SetVisibility}!AugmentInventory@{AugmentInventory}}
+\doxysubsubsection{\texorpdfstring{SetVisibility()}{SetVisibility()}}
+{\footnotesize\ttfamily \label{class_augment_inventory_a49fc33baa4a99cec8b365e6d179384a6} 
+void Augment\+Inventory.\+Set\+Visibility (\begin{DoxyParamCaption}\item[{bool}]{is\+Visible}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the visibility and the Process\+Mode of the \doxylink{class_augment_inventory}{Augment\+Inventory}. I.\+e. enable and disable it. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/player/inventory/augments/Augment\+Inventory.\+cs\end{DoxyCompactItemize}

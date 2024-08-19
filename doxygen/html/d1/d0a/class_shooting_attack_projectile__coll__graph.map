@@ -1,0 +1,5 @@
+<map id="ShootingAttackProjectile" name="ShootingAttackProjectile">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,165,320"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="57,5,114,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,90,88,123,83,123,83,90"/>
+</map>

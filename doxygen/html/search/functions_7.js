@@ -1,4 +1,23 @@
 var searchData=
 [
-  ['onareaentered_0',['OnAreaEntered',['../d6/df9/class_basic_spell.html#aaaeb5a2e3a894eec3dce802acfbd8eb9',1,'BasicSpell.OnAreaEntered()'],['../d9/d51/class_dark_energy_wave.html#ab7581b139a640f14501e71e1f172348e',1,'DarkEnergyWave.OnAreaEntered()'],['../d8/d0d/class_spell.html#a5530a0ad9b822ce8e3f3ee2d0d7eca9b',1,'Spell.OnAreaEntered()'],['../d7/d8d/class_star.html#a986fa1e414df0421929346fb9796481c',1,'Star.OnAreaEntered()'],['../dd/dff/class_melee_attack_hurt_box.html#a853a2a5985c7874ee4d9057e191b2c76',1,'MeleeAttackHurtBox.OnAreaEntered()'],['../d8/d29/class_ranged_attack.html#a9098850d57a15e7e2a047713583df4cf',1,'RangedAttack.OnAreaEntered()']]]
+  ['getactiveaugments_0',['GetActiveAugments',['../df/d7a/class_augment_inventory.html#a484f589334271fb45673fed4d5deaa4d',1,'AugmentInventory']]],
+  ['getarmoroftype_1',['GetArmorOfType',['../d1/da7/class_health_component.html#ac191dda1d833647d10f72b057b588943',1,'HealthComponent']]],
+  ['getattackrangevalue_2',['GetAttackRangeValue',['../d3/db0/class_slime.html#a724343d1bc5336ff76373405988b1e5c',1,'Slime']]],
+  ['getaugmenteffect_3',['GetAugmentEffect',['../de/d8a/class_augment.html#ae666b44aaf03b18445d813dc85101b21',1,'Augment']]],
+  ['getaugmenteffects_4',['GetAugmentEffects',['../d0/db4/class_augment_manager.html#a2fe918186373d0211fa5191d329f86ab',1,'AugmentManager']]],
+  ['getcurrenthp_5',['GetCurrentHP',['../d1/da7/class_health_component.html#aada915aafdc0413280d46cef51ff7cd8',1,'HealthComponent']]],
+  ['getcurrentroombounds_6',['GetCurrentRoomBounds',['../d5/dc9/class_room_handler.html#a966dc77b20fc246b36f96859b23a09e3',1,'RoomHandler']]],
+  ['getcurrentroomposition_7',['GetCurrentRoomPosition',['../d4/d1d/class_dungeon_handler.html#a8a9db05fc49d1d0ef7734d3db082db8b',1,'DungeonHandler']]],
+  ['getdamagevalue_8',['GetDamageValue',['../d3/db0/class_slime.html#ad69354b5c96e483305753c3523a84516',1,'Slime.GetDamageValue()'],['../dc/d53/class_unicorn.html#ae6fd39545ae35cd966b28a59bab4d51f',1,'Unicorn.GetDamageValue()']]],
+  ['getdungeonlayout_9',['GetDungeonLayout',['../d4/d1d/class_dungeon_handler.html#a28eaa299de49bd306342300a804bf378',1,'DungeonHandler']]],
+  ['getgridsize_10',['GetGridSize',['../d4/d1d/class_dungeon_handler.html#ad3566b7f4f02fda370e3914b30c965fc',1,'DungeonHandler']]],
+  ['getinactiveaugments_11',['GetInactiveAugments',['../df/d7a/class_augment_inventory.html#a967e1d3b8ae935d569d64a7f8e69bffb',1,'AugmentInventory']]],
+  ['getmagictype_12',['GetMagicType',['../d3/db0/class_slime.html#a8b8d75b665a9d074e1eb64dd60f6400c',1,'Slime.GetMagicType()'],['../dc/d53/class_unicorn.html#af83ddee0286276ee14a8194e2e60bafc',1,'Unicorn.GetMagicType()'],['../d4/d1d/class_dungeon_handler.html#aed54a0a2ce51a3acc9aec82b92d483df',1,'DungeonHandler.GetMagicType()']]],
+  ['getmaxhp_13',['GetMaxHP',['../d1/da7/class_health_component.html#a389d447886b48191c31e7ce621621ac6',1,'HealthComponent']]],
+  ['getoncastaugmenteffects_14',['GetOnCastAugmentEffects',['../d0/d1e/class_inventory_spell.html#a9ab9f448f01f02a7687a5591555ee86e',1,'InventorySpell']]],
+  ['getslimeattackrange_15',['GetSlimeAttackRange',['../d3/db0/class_slime.html#a3c8b3641d538d49942c34e3dda89b973',1,'Slime']]],
+  ['getslimesize_16',['GetSlimeSize',['../d3/db0/class_slime.html#a219c3ecb5d3217fbfaf2aadc819d5de2',1,'Slime']]],
+  ['getstate_17',['GetState',['../d4/dd0/class_state_machine.html#a57b1c813842d5243c69323e38314df47',1,'StateMachine']]],
+  ['gettimeuntildeleteion_18',['GetTimeUntilDeleteion',['../d8/d0d/class_spell.html#ad61d19b3d1cf06364672446a4445f125',1,'Spell']]],
+  ['getviewrange_19',['GetViewRange',['../d3/db0/class_slime.html#a7fa3e1c4ce6bb0d47f23446b0cc5979a',1,'Slime']]]
 ];

@@ -1,0 +1,63 @@
+\doxysection{Shooting\+Attack\+Projectile\+Handler Class Reference}
+\hypertarget{class_shooting_attack_projectile_handler}{}\label{class_shooting_attack_projectile_handler}\index{ShootingAttackProjectileHandler@{ShootingAttackProjectileHandler}}
+
+
+Inheritance diagram for Shooting\+Attack\+Projectile\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{d9/d3d/class_shooting_attack_projectile_handler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Shooting\+Attack\+Projectile\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{dd/d2a/class_shooting_attack_projectile_handler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_shooting_attack_projectile_handler_a454a4f6cb23c437f23dec463cc242dce}{\+\_\+\+Physics\+Process}} (double delta)
+\item 
+void \mbox{\hyperlink{class_shooting_attack_projectile_handler_a5a920b2cd94da61b2ebdd4100d69f876}{Set\+Attack}} (\mbox{\hyperlink{class_attack}{Attack}} attack)
+\item 
+void \mbox{\hyperlink{class_shooting_attack_projectile_handler_a86eabda45ba3f8db177f05a82e9d351f}{Start\+Shooting\+Attack}} (\mbox{\hyperlink{class_attack}{Attack}} attack, Vector2 unicorn\+Position)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_shooting_attack_projectile_handler_a52551d0ea3c529ebf06c989750169243}\label{class_shooting_attack_projectile_handler_a52551d0ea3c529ebf06c989750169243} 
+int {\bfseries Amount\+Projectiles\+To\+Spawn} = 10
+\begin{DoxyCompactList}\small\item\em How many projectiles are created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_shooting_attack_projectile_handler_a454a4f6cb23c437f23dec463cc242dce}\index{ShootingAttackProjectileHandler@{ShootingAttackProjectileHandler}!\_PhysicsProcess@{\_PhysicsProcess}}
+\index{\_PhysicsProcess@{\_PhysicsProcess}!ShootingAttackProjectileHandler@{ShootingAttackProjectileHandler}}
+\doxysubsubsection{\texorpdfstring{\_PhysicsProcess()}{\_PhysicsProcess()}}
+{\footnotesize\ttfamily \label{class_shooting_attack_projectile_handler_a454a4f6cb23c437f23dec463cc242dce} 
+override void Shooting\+Attack\+Projectile\+Handler.\+\_\+\+Physics\+Process (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+As long as there are still projectiles that need to be spawned, spawn one projectile per physics frame and reduce the number of projectiles left to spawn by one. \Hypertarget{class_shooting_attack_projectile_handler_a5a920b2cd94da61b2ebdd4100d69f876}\index{ShootingAttackProjectileHandler@{ShootingAttackProjectileHandler}!SetAttack@{SetAttack}}
+\index{SetAttack@{SetAttack}!ShootingAttackProjectileHandler@{ShootingAttackProjectileHandler}}
+\doxysubsubsection{\texorpdfstring{SetAttack()}{SetAttack()}}
+{\footnotesize\ttfamily \label{class_shooting_attack_projectile_handler_a5a920b2cd94da61b2ebdd4100d69f876} 
+void Shooting\+Attack\+Projectile\+Handler.\+Set\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_attack}{Attack}}}]{attack}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{class_attack}{Attack} is currently set from the Attacking state in the ranged attack function, so right before the attack is made. \Hypertarget{class_shooting_attack_projectile_handler_a86eabda45ba3f8db177f05a82e9d351f}\index{ShootingAttackProjectileHandler@{ShootingAttackProjectileHandler}!StartShootingAttack@{StartShootingAttack}}
+\index{StartShootingAttack@{StartShootingAttack}!ShootingAttackProjectileHandler@{ShootingAttackProjectileHandler}}
+\doxysubsubsection{\texorpdfstring{StartShootingAttack()}{StartShootingAttack()}}
+{\footnotesize\ttfamily \label{class_shooting_attack_projectile_handler_a86eabda45ba3f8db177f05a82e9d351f} 
+void Shooting\+Attack\+Projectile\+Handler.\+Start\+Shooting\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_attack}{Attack}}}]{attack}{, }\item[{Vector2}]{unicorn\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Starts shooting attack by setting the projectiles left to spawn and initialising the attack used for the projectiles. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/unicorns/unicorn-\/attacks/Shooting\+Attack\+Projectile\+Handler.\+cs\end{DoxyCompactItemize}

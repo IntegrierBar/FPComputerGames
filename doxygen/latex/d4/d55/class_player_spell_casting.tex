@@ -1,15 +1,31 @@
 \doxysection{Player\+Spell\+Casting Class Reference}
 \hypertarget{class_player_spell_casting}{}\label{class_player_spell_casting}\index{PlayerSpellCasting@{PlayerSpellCasting}}
-Inheritance diagram for Player\+Spell\+Casting\+:\begin{figure}[H]
+
+
+Inheritance diagram for Player\+Spell\+Casting\+:
+\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{d4/d55/class_player_spell_casting}
+\includegraphics[width=184pt]{d7/da0/class_player_spell_casting__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Player\+Spell\+Casting\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{df/d79/class_player_spell_casting__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 override void \mbox{\hyperlink{class_player_spell_casting_a5612e80d4223e3b0ee844da14e256fbb}{Enter}} ()
+\item 
+override bool \mbox{\hyperlink{class_player_spell_casting_ab2586fa468975fc2f93cf1e4ba554bf1}{Can\+Enter}} ()
 \item 
 override \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_player_spell_casting_aa65094abea51885e8683a2dee540f812}{Process\+Physics}} (double delta)
 \end{DoxyCompactItemize}
@@ -40,6 +56,16 @@ Animation\+Player {\bfseries Animations}
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_spell_casting_ab2586fa468975fc2f93cf1e4ba554bf1}\index{PlayerSpellCasting@{PlayerSpellCasting}!CanEnter@{CanEnter}}
+\index{CanEnter@{CanEnter}!PlayerSpellCasting@{PlayerSpellCasting}}
+\doxysubsubsection{\texorpdfstring{CanEnter()}{CanEnter()}}
+{\footnotesize\ttfamily \label{class_player_spell_casting_ab2586fa468975fc2f93cf1e4ba554bf1} 
+override bool Player\+Spell\+Casting.\+Can\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Called before we enter the state. Checks if we are allowed to enter the state 
+
+Reimplemented from \mbox{\hyperlink{class_state_a27cebddea23c9ae664bbb4ab09ff9cf7}{State}}.
+
 \Hypertarget{class_player_spell_casting_a5612e80d4223e3b0ee844da14e256fbb}\index{PlayerSpellCasting@{PlayerSpellCasting}!Enter@{Enter}}
 \index{Enter@{Enter}!PlayerSpellCasting@{PlayerSpellCasting}}
 \doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}

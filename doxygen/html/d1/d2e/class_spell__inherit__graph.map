@@ -1,0 +1,19 @@
+<map id="Spell" name="Spell">
+<area shape="rect" id="Node000001" title=" " alt="" coords="374,123,538,320"/>
+<area shape="rect" id="Node000003" href="$d6/df9/class_basic_spell.html" title=" " alt="" coords="5,368,139,501"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="361,263,258,311,152,370,140,378,137,374,149,366,256,306,359,259"/>
+<area shape="rect" id="Node000004" href="$db/d1b/class_black_hole.html" title=" " alt="" coords="163,400,237,469"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="363,282,306,323,251,370,224,402,220,398,247,366,303,319,360,278"/>
+<area shape="rect" id="Node000005" href="$d9/d51/class_dark_energy_wave.html" title=" " alt="" coords="261,379,395,491"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="391,334,363,380,359,378,387,331"/>
+<area shape="rect" id="Node000006" href="$df/d1e/class_moon_light.html" title=" " alt="" coords="419,400,493,469"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="459,335,459,400,453,400,453,335"/>
+<area shape="rect" id="Node000007" href="$d7/d8d/class_star.html" title=" " alt="" coords="517,368,651,501"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="525,332,547,367,542,370,521,334"/>
+<area shape="rect" id="Node000008" href="$d6/d93/class_sun.html" title=" " alt="" coords="675,368,808,501"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="552,284,664,366,676,375,673,379,661,370,548,289"/>
+<area shape="rect" id="Node000009" href="$d5/d00/class_sun_beam.html" title=" " alt="" coords="832,400,901,469"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="553,243,617,262,687,289,757,323,822,366,850,398,846,402,818,370,754,328,685,294,615,267,552,248"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="427,5,485,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="459,90,459,123,453,123,453,90"/>
+</map>

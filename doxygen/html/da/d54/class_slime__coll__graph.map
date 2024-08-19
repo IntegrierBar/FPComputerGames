@@ -1,0 +1,12 @@
+<map id="Slime" name="Slime">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,663,167,1052"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="6,476,123,545"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,560,77,663,71,663,65,560"/>
+<area shape="rect" id="Node000003" href="$d4/dd0/class_state_machine.html" title=" " alt="" coords="148,423,275,599"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,599,165,647,160,646,177,597"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="168,5,212,75"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="194,89,202,343,207,423,202,423,197,343,188,90"/>
+<area shape="rect" id="Node000005" href="$d0/d8b/class_state.html" title=" " alt="" coords="211,124,350,343"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="215,87,232,123,227,125,210,89"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="256,343,240,407,235,406,251,342"/>
+</map>

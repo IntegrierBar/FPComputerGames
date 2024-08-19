@@ -1,9 +1,23 @@
 \doxysection{Ranged\+Attack Class Reference}
 \hypertarget{class_ranged_attack}{}\label{class_ranged_attack}\index{RangedAttack@{RangedAttack}}
-Inheritance diagram for Ranged\+Attack\+:\begin{figure}[H]
+
+
+Inheritance diagram for Ranged\+Attack\+:
+\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{d8/d29/class_ranged_attack}
+\includegraphics[width=200pt]{d0/d3b/class_ranged_attack__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ranged\+Attack\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{dc/d98/class_ranged_attack__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -14,6 +28,8 @@ void \mbox{\hyperlink{class_ranged_attack_aa8295a7e2704104e0de54c5cb506b1c5}{Ini
 override void \mbox{\hyperlink{class_ranged_attack_a9d72bb5aa8bdddba57b7f0b60c51605f}{\+\_\+\+Physics\+Process}} (double delta)
 \item 
 void \mbox{\hyperlink{class_ranged_attack_a9098850d57a15e7e2a047713583df4cf}{On\+Area\+Entered}} (Area2D area)
+\item 
+void \mbox{\hyperlink{class_ranged_attack_aeb288ef116419026dfa4cdc1a68a17cb}{On\+Body\+Entered}} (Node2D body)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -45,7 +61,13 @@ Set attack and direction which are given to the Init function. Look\+At is used 
 {\footnotesize\ttfamily \label{class_ranged_attack_a9098850d57a15e7e2a047713583df4cf} 
 void Ranged\+Attack.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{Area2D}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Gets called when the projectile hits a Health component. Since the projectile\textquotesingle{}s mask layer is set to the player layer, it cannot hit other slimes 
+Gets called when the projectile hits a Health component since health components use area2\+Ds. Since the projectile\textquotesingle{}s mask layer is set to the player layer, it cannot hit other slimes. \Hypertarget{class_ranged_attack_aeb288ef116419026dfa4cdc1a68a17cb}\index{RangedAttack@{RangedAttack}!OnBodyEntered@{OnBodyEntered}}
+\index{OnBodyEntered@{OnBodyEntered}!RangedAttack@{RangedAttack}}
+\doxysubsubsection{\texorpdfstring{OnBodyEntered()}{OnBodyEntered()}}
+{\footnotesize\ttfamily \label{class_ranged_attack_aeb288ef116419026dfa4cdc1a68a17cb} 
+void Ranged\+Attack.\+On\+Body\+Entered (\begin{DoxyParamCaption}\item[{Node2D}]{body}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Since parts of the tilemap that have a collision layer are not area2D nodes, body entered is necessary to use. This function detects collisions with all types of 2D nodes. Check if the projectile entered a part of the tilemap, which means a wall or object, and remove the projectile. This requires mask 1 (Collision) to be set! 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

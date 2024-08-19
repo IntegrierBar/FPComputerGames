@@ -1,9 +1,23 @@
 \doxysection{Spell Class Reference}
 \hypertarget{class_spell}{}\label{class_spell}\index{Spell@{Spell}}
-Inheritance diagram for Spell\+:\begin{figure}[H]
+
+
+Inheritance diagram for Spell\+:
+\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{d8/d0d/class_spell}
+\includegraphics[width=350pt]{d1/d2e/class_spell__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Spell\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{dc/db4/class_spell__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -24,7 +38,7 @@ double \mbox{\hyperlink{class_spell_ad61d19b3d1cf06364672446a4445f125}{Get\+Time
 \item 
 \Hypertarget{class_spell_a29ef662c6d505751adfcce7bc3350b56}\label{class_spell_a29ef662c6d505751adfcce7bc3350b56} 
 double {\bfseries Max\+Life\+Time\+In\+Seconds} = 5.\+0
-\begin{DoxyCompactList}\small\item\em How long the spell exists at maximum until it is removed from the world. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em How long the spell exists at maximum until it is removed from the world, can be changed for every spell in the godot editior. \end{DoxyCompactList}\item 
 \Hypertarget{class_spell_ad0ecea63d7f88662bd4bd048a628cce2}\label{class_spell_ad0ecea63d7f88662bd4bd048a628cce2} 
 double {\bfseries \+\_\+time\+Left\+Until\+Deletion}
 \begin{DoxyCompactList}\small\item\em Time left until deletion. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -76,7 +90,7 @@ virtual void Spell.\+On\+Area\+Entered (\begin{DoxyParamCaption}\item[{Area2D}]{
 
 Default implementation of the On\+Area\+Entered method for all Spells Simply checks if the area is a \doxylink{class_health_component}{Health\+Component} and calls Take\+Damage(). 
 
-Reimplemented in \mbox{\hyperlink{class_basic_spell_aaaeb5a2e3a894eec3dce802acfbd8eb9}{Basic\+Spell}}, \mbox{\hyperlink{class_dark_energy_wave_ab7581b139a640f14501e71e1f172348e}{Dark\+Energy\+Wave}}, and \mbox{\hyperlink{class_star_a986fa1e414df0421929346fb9796481c}{Star}}.
+Reimplemented in \mbox{\hyperlink{class_basic_spell_aaaeb5a2e3a894eec3dce802acfbd8eb9}{Basic\+Spell}}, \mbox{\hyperlink{class_dark_energy_wave_ab7581b139a640f14501e71e1f172348e}{Dark\+Energy\+Wave}}, \mbox{\hyperlink{class_star_a986fa1e414df0421929346fb9796481c}{Star}}, and \mbox{\hyperlink{class_sun_ac0fd364d9fa66e4bf489ed321c241b15}{Sun}}.
 
 
 

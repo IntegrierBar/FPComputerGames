@@ -1,0 +1,8 @@
+<map id="SlimeIdle" name="SlimeIdle">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,423,168,620"/>
+<area shape="rect" id="Node000002" href="$d0/d8b/class_state.html" title=" " alt="" coords="17,124,156,343"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,357,87,399,87,423,82,423,81,399,81,357"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="89,343,89,406,84,406,84,343"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="65,5,109,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,90,89,124,84,124,84,90"/>
+</map>

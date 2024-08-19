@@ -1,0 +1,99 @@
+\doxysection{Inventory\+Star\+Rain Class Reference}
+\hypertarget{class_inventory_star_rain}{}\label{class_inventory_star_rain}\index{InventoryStarRain@{InventoryStarRain}}
+
+
+Inheritance diagram for Inventory\+Star\+Rain\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{d7/d38/class_inventory_star_rain__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Inventory\+Star\+Rain\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{dd/d47/class_inventory_star_rain__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_inventory_star_rain_a2bb417da360265b3ce1f2bff6556b8b5}{\+\_\+\+Ready}} ()
+\item 
+override void \mbox{\hyperlink{class_inventory_star_rain_aecfc2f18ec42cc2afaecf658a8d673cc}{Cast}} (Vector2 player\+Position, Vector2 target\+Position)
+\item 
+\Hypertarget{class_inventory_star_rain_ac7666f425ec3ebce5f7a19faabd575bf}\label{class_inventory_star_rain_ac7666f425ec3ebce5f7a19faabd575bf} 
+override void {\bfseries \+\_\+\+Physics\+Process} (double delta)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_inventory_spell}{Inventory\+Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_inventory_spell_a983611d1b7aa666a4ed57afa9bf74a77}{\+\_\+\+Ready}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_spell_a6b1724e176952c2d03b87c2a868be4dd}{Reset\+Damage}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_spell_a896ce169b8f6c16d4fe17126c3fc4a9a}{Add\+On\+Cast\+Augment\+Effect}} (\mbox{\hyperlink{class_on_cast_augment_effect}{On\+Cast\+Augment\+Effect}} on\+Cast\+Augment\+Effect)
+\item 
+void \mbox{\hyperlink{class_inventory_spell_a8034ce0c5f3eb7a81ca0e75769a3a14b}{Clear\+On\+Cast\+Augment\+Effects}} ()
+\item 
+List$<$ \mbox{\hyperlink{class_on_cast_augment_effect}{On\+Cast\+Augment\+Effect}} $>$ \mbox{\hyperlink{class_inventory_spell_a9ab9f448f01f02a7687a5591555ee86e}{Get\+On\+Cast\+Augment\+Effects}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_inventory_star_rain_a6f0f8a29cc271aa9f4cf3a2cdb94ff71}\label{class_inventory_star_rain_a6f0f8a29cc271aa9f4cf3a2cdb94ff71} 
+double {\bfseries Amount\+Stars\+To\+Spawn} = 10
+\begin{DoxyCompactList}\small\item\em How many stars are created. Uses double instead of int to allow easy manipulation from augments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_inventory_spell}{Inventory\+Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+double {\bfseries Cast\+Time} = 0.\+3
+\begin{DoxyCompactList}\small\item\em How long it takes to cast the spell. \end{DoxyCompactList}\item 
+double {\bfseries Cool\+Down} = 1
+\begin{DoxyCompactList}\small\item\em How long until the spell can be used again. \end{DoxyCompactList}\item 
+double {\bfseries Base\+Damage} = 30
+\begin{DoxyCompactList}\small\item\em base damage of the skill \end{DoxyCompactList}\item 
+double {\bfseries Damage}
+\begin{DoxyCompactList}\small\item\em actual damage of the spell \end{DoxyCompactList}\item 
+Magic\+Type {\bfseries Magic\+Type} = Magic\+Type.\+SUN
+\begin{DoxyCompactList}\small\item\em Magic type of the spell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_inventory_spell}{Inventory\+Spell}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_health_component}{Health\+Component}} {\bfseries \+\_\+player\+Health\+Component}
+\begin{DoxyCompactList}\small\item\em Reference to the players \doxylink{class_health_component}{Health\+Component}. \end{DoxyCompactList}\item 
+Packed\+Scene {\bfseries \+\_\+spell\+Scene}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the Node responsible for summoning the \doxylink{class_star}{Star} Rain spell Instead of instantly spawning the spell once, it spawnes the spell every 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_inventory_star_rain_a2bb417da360265b3ce1f2bff6556b8b5}\index{InventoryStarRain@{InventoryStarRain}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!InventoryStarRain@{InventoryStarRain}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_inventory_star_rain_a2bb417da360265b3ce1f2bff6556b8b5} 
+override void Inventory\+Star\+Rain.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Additionaly to base class also adds itself to the \doxylink{class_star}{Star} Rain \doxylink{class_spell}{Spell} Group \Hypertarget{class_inventory_star_rain_aecfc2f18ec42cc2afaecf658a8d673cc}\index{InventoryStarRain@{InventoryStarRain}!Cast@{Cast}}
+\index{Cast@{Cast}!InventoryStarRain@{InventoryStarRain}}
+\doxysubsubsection{\texorpdfstring{Cast()}{Cast()}}
+{\footnotesize\ttfamily \label{class_inventory_star_rain_aecfc2f18ec42cc2afaecf658a8d673cc} 
+override void Inventory\+Star\+Rain.\+Cast (\begin{DoxyParamCaption}\item[{Vector2}]{player\+Position}{, }\item[{Vector2}]{target\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Casts the spell by instanciating the scene and initializing the spell 
+
+Reimplemented from \mbox{\hyperlink{class_inventory_spell_a9cb08d3edcb575db754b6e0062f9e17a}{Inventory\+Spell}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/player/inventory/spells/Inventory\+Star\+Rain.\+cs\end{DoxyCompactItemize}

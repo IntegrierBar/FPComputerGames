@@ -1,0 +1,31 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,208,83,235"/>
+<area shape="rect" id="Node000001" href="$de/d8a/class_augment.html" title=" " alt="" coords="148,183,221,209"/>
+<area shape="poly" id="edge67_Node000000_Node000001" title=" " alt="" coords="98,209,147,200,148,205,99,214"/>
+<area shape="rect" id="Node000002" href="$d5/d2b/class_augment_effect.html" title=" " alt="" coords="131,233,238,260"/>
+<area shape="poly" id="edge68_Node000000_Node000002" title=" " alt="" coords="99,228,131,234,130,240,98,234"/>
+<area shape="rect" id="Node000003" href="$d3/df6/class_additional_stars.html" title=" " alt="" coords="325,5,434,32"/>
+<area shape="poly" id="edge69_Node000002_Node000003" title=" " alt="" coords="234,222,236,220,250,197,257,175,257,131,259,87,267,64,284,42,303,29,324,21,325,26,305,34,288,46,272,67,264,88,263,131,262,176,255,199,240,223,238,225"/>
+<area shape="rect" id="Node000004" href="$d2/d5b/class_cast_additional_spell.html" title=" " alt="" coords="312,56,447,83"/>
+<area shape="poly" id="edge70_Node000002_Node000004" title=" " alt="" coords="234,222,236,220,248,204,254,188,258,156,263,125,271,108,284,93,310,77,313,82,288,97,275,111,268,126,263,157,259,189,252,206,240,223,238,226"/>
+<area shape="rect" id="Node000005" href="$d8/d35/class_extra_armor_of_all_types.html" title=" " alt="" coords="304,107,455,133"/>
+<area shape="poly" id="edge71_Node000002_Node000005" title=" " alt="" coords="232,223,236,219,251,200,259,181,267,162,284,143,305,132,308,136,288,147,271,165,264,183,256,203,240,223,235,227"/>
+<area shape="rect" id="Node000006" href="$df/deb/class_extra_armor_of_type.html" title=" " alt="" coords="315,157,444,184"/>
+<area shape="poly" id="edge72_Node000002_Node000006" title=" " alt="" coords="227,224,237,219,285,194,319,182,321,187,287,198,239,224,229,229"/>
+<area shape="rect" id="Node000007" href="$d9/d41/class_flat_damage_for_one_type.html" title=" " alt="" coords="298,208,461,235"/>
+<area shape="poly" id="edge73_Node000002_Node000007" title=" " alt="" coords="253,235,297,229,298,235,254,240"/>
+<area shape="rect" id="Node000008" href="$d4/d8f/class_flat_damage_for_spell_slot.html" title=" " alt="" coords="298,259,461,285"/>
+<area shape="poly" id="edge74_Node000002_Node000008" title=" " alt="" coords="254,253,298,259,297,264,253,258"/>
+<area shape="rect" id="Node000009" href="$d1/d2e/class_h_p_increase_augment_effect.html" title=" " alt="" coords="292,309,468,336"/>
+<area shape="poly" id="edge75_Node000002_Node000009" title=" " alt="" coords="224,265,287,295,321,306,320,311,285,300,222,270"/>
+<area shape="rect" id="Node000010" href="$d8/d16/class_on_cast_augment_effect.html" title=" " alt="" coords="304,360,456,387"/>
+<area shape="poly" id="edge76_Node000002_Node000010" title=" " alt="" coords="206,270,241,309,263,329,287,346,312,357,310,362,285,350,260,333,238,313,202,274"/>
+<area shape="rect" id="Node000013" href="$d1/d07/class_percent_damage_for_one_spell.html" title=" " alt="" coords="286,411,473,437"/>
+<area shape="poly" id="edge79_Node000002_Node000013" title=" " alt="" coords="199,273,233,336,257,369,288,397,308,408,306,412,284,401,254,372,228,339,194,276"/>
+<area shape="rect" id="Node000014" href="$d1/dd0/class_percent_damage_for_one_type.html" title=" " alt="" coords="286,461,473,488"/>
+<area shape="poly" id="edge80_Node000002_Node000014" title=" " alt="" coords="194,274,206,314,225,360,252,407,288,447,306,458,303,463,284,451,247,411,220,363,201,315,189,276"/>
+<area shape="rect" id="Node000011" href="$d0/d68/class_increase_duration_of_spell.html" title=" " alt="" coords="521,335,685,361"/>
+<area shape="poly" id="edge77_Node000010_Node000011" title=" " alt="" coords="471,360,521,355,521,360,472,366"/>
+<area shape="rect" id="Node000012" href="$d5/d92/class_increased_radius_of_spell.html" title=" " alt="" coords="522,385,684,412"/>
+<area shape="poly" id="edge78_Node000010_Node000012" title=" " alt="" coords="472,381,522,387,521,392,471,386"/>
+</map>

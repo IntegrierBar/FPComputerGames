@@ -94,9 +94,23 @@ $(function(){ initResizable(false); });
 <div class="dynheader">
 Inheritance diagram for RangedAttack:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../d8/d29/class_ranged_attack.png" alt=""/>
- </div></div>
+<div class="center"><img src="../../d0/d3b/class_ranged_attack__inherit__graph.png" border="0" usemap="#a_ranged_attack_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_ranged_attack_inherit__map" id="a_ranged_attack_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,123,165,277"/>
+<area shape="rect" title=" " alt="" coords="57,5,114,75"/>
+<area shape="poly" title=" " alt="" coords="88,90,88,123,83,123,83,90"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for RangedAttack:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d98/class_ranged_attack__coll__graph.png" border="0" usemap="#a_ranged_attack_coll__map" alt="Collaboration graph"/></div>
+<map name="a_ranged_attack_coll__map" id="a_ranged_attack_coll__map">
+<area shape="rect" title=" " alt="" coords="5,123,165,277"/>
+<area shape="rect" title=" " alt="" coords="57,5,114,75"/>
+<area shape="poly" title=" " alt="" coords="88,90,88,123,83,123,83,90"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -106,6 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9d72bb5aa8bdddba57b7f0b60c51605f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9098850d57a15e7e2a047713583df4cf" id="r_a9098850d57a15e7e2a047713583df4cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9098850d57a15e7e2a047713583df4cf">OnAreaEntered</a> (Area2D area)</td></tr>
 <tr class="separator:a9098850d57a15e7e2a047713583df4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb288ef116419026dfa4cdc1a68a17cb" id="r_aeb288ef116419026dfa4cdc1a68a17cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb288ef116419026dfa4cdc1a68a17cb">OnBodyEntered</a> (Node2D body)</td></tr>
+<tr class="separator:aeb288ef116419026dfa4cdc1a68a17cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -196,7 +212,33 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>MaxLifeTimeInSecond
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets called when the projectile hits a Health component. Since the projectile's mask layer is set to the player layer, it cannot hit other slimes </p>
+<p>Gets called when the projectile hits a Health component since health components use area2Ds. Since the projectile's mask layer is set to the player layer, it cannot hit other slimes. </p>
+
+</div>
+</div>
+<a id="aeb288ef116419026dfa4cdc1a68a17cb" name="aeb288ef116419026dfa4cdc1a68a17cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb288ef116419026dfa4cdc1a68a17cb">&#9670;&#160;</a></span>OnBodyEntered()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RangedAttack.OnBodyEntered </td>
+          <td>(</td>
+          <td class="paramtype">Node2D</td>          <td class="paramname"><span class="paramname"><em>body</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Since parts of the tilemap that have a collision layer are not area2D nodes, body entered is necessary to use. This function detects collisions with all types of 2D nodes. Check if the projectile entered a part of the tilemap, which means a wall or object, and remove the projectile. This requires mask 1 (Collision) to be set! </p>
 
 </div>
 </div>

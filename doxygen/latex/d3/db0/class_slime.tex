@@ -1,9 +1,23 @@
 \doxysection{Slime Class Reference}
 \hypertarget{class_slime}{}\label{class_slime}\index{Slime@{Slime}}
-Inheritance diagram for Slime\+:\begin{figure}[H]
+
+
+Inheritance diagram for Slime\+:
+\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{d3/db0/class_slime}
+\includegraphics[width=201pt]{d3/d7b/class_slime__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Slime\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{da/d54/class_slime__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -27,8 +41,7 @@ float \mbox{\hyperlink{class_slime_a7fa3e1c4ce6bb0d47f23446b0cc5979a}{Get\+View\
 \item 
 float \mbox{\hyperlink{class_slime_a724343d1bc5336ff76373405988b1e5c}{Get\+Attack\+Range\+Value}} ()
 \item 
-\Hypertarget{class_slime_ad69354b5c96e483305753c3523a84516}\label{class_slime_ad69354b5c96e483305753c3523a84516} 
-float {\bfseries Get\+Damage\+Value} ()
+float \mbox{\hyperlink{class_slime_ad69354b5c96e483305753c3523a84516}{Get\+Damage\+Value}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -48,6 +61,12 @@ float {\bfseries Attack\+Range\+Melee} = 10
 \Hypertarget{class_slime_ab6f4dfdf395469ee5609e8c13a805781}\label{class_slime_ab6f4dfdf395469ee5609e8c13a805781} 
 float {\bfseries Attack\+Range\+Ranged} = 50
 \begin{DoxyCompactList}\small\item\em Range from which a ranged slime can attack the PC. \end{DoxyCompactList}\item 
+\Hypertarget{class_slime_a2b7183672dbd3ad52334d0fe4cc2bf7e}\label{class_slime_a2b7183672dbd3ad52334d0fe4cc2bf7e} 
+float {\bfseries Health\+Small} = 100
+\begin{DoxyCompactList}\small\item\em Health of the small slime. \end{DoxyCompactList}\item 
+\Hypertarget{class_slime_ab3dcb0ed95a2fded2bd7be5a9c6a3afc}\label{class_slime_ab3dcb0ed95a2fded2bd7be5a9c6a3afc} 
+float {\bfseries Health\+Large} = 200
+\begin{DoxyCompactList}\small\item\em Health of the large slime. \end{DoxyCompactList}\item 
 \Hypertarget{class_slime_aef80fe179ef47c404eb45d4ce9448075}\label{class_slime_aef80fe179ef47c404eb45d4ce9448075} 
 float {\bfseries Base\+Damage} = 10
 \end{DoxyCompactItemize}
@@ -78,7 +97,13 @@ Is called when the slime enters the scene tree. Checks if the references to the 
 {\footnotesize\ttfamily \label{class_slime_a724343d1bc5336ff76373405988b1e5c} 
 float Slime.\+Get\+Attack\+Range\+Value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Getter for attack range of the slime. Using this function ensures that the correct attack range is returned for every slime independent of their attack range type. \Hypertarget{class_slime_a8b8d75b665a9d074e1eb64dd60f6400c}\index{Slime@{Slime}!GetMagicType@{GetMagicType}}
+Getter for attack range of the slime. Using this function ensures that the correct attack range is returned for every slime independent of their attack range type. \Hypertarget{class_slime_ad69354b5c96e483305753c3523a84516}\index{Slime@{Slime}!GetDamageValue@{GetDamageValue}}
+\index{GetDamageValue@{GetDamageValue}!Slime@{Slime}}
+\doxysubsubsection{\texorpdfstring{GetDamageValue()}{GetDamageValue()}}
+{\footnotesize\ttfamily \label{class_slime_ad69354b5c96e483305753c3523a84516} 
+float Slime.\+Get\+Damage\+Value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter for damage value of the slime. \Hypertarget{class_slime_a8b8d75b665a9d074e1eb64dd60f6400c}\index{Slime@{Slime}!GetMagicType@{GetMagicType}}
 \index{GetMagicType@{GetMagicType}!Slime@{Slime}}
 \doxysubsubsection{\texorpdfstring{GetMagicType()}{GetMagicType()}}
 {\footnotesize\ttfamily \label{class_slime_a8b8d75b665a9d074e1eb64dd60f6400c} 

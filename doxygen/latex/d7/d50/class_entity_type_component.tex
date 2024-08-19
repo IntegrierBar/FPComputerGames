@@ -1,0 +1,91 @@
+\doxysection{Entity\+Type\+Component Class Reference}
+\hypertarget{class_entity_type_component}{}\label{class_entity_type_component}\index{EntityTypeComponent@{EntityTypeComponent}}
+
+
+Inheritance diagram for Entity\+Type\+Component\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{dd/d8b/class_entity_type_component__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Entity\+Type\+Component\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{d5/d77/class_entity_type_component__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_entity_type_component_a4057a0771e18e66d156338a17a815daa}{Entity\+Type}} \{ \newline
+{\bfseries None} = 0
+, {\bfseries Player} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, {\bfseries Enemy} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, {\bfseries Boss} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, \newline
+{\bfseries Projectile} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+, {\bfseries Slime} = Enemy \texorpdfstring{$\vert$}{|} (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4)
+, {\bfseries Unicorn} = Enemy \texorpdfstring{$\vert$}{|} Boss \texorpdfstring{$\vert$}{|} (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5)
+ \}
+\begin{DoxyCompactList}\small\item\em Enum for the different types of entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_entity_type_component_a063146b68dbb015e18a94fb61b95fcfc}{Is\+Of\+Type}} (\mbox{\hyperlink{class_entity_type_component_a4057a0771e18e66d156338a17a815daa}{Entity\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Checks if the entity is of a specific type. \end{DoxyCompactList}\item 
+\Hypertarget{class_entity_type_component_a44052dc66bf03687a0a64b69321fe57c}\label{class_entity_type_component_a44052dc66bf03687a0a64b69321fe57c} 
+override void {\bfseries \+\_\+\+Ready} ()
+\begin{DoxyCompactList}\small\item\em Called when the node enters the scene tree for the first time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_entity_type_component_a914f2c88e07951e65dddd95574b2ba6f}\label{class_entity_type_component_a914f2c88e07951e65dddd95574b2ba6f} 
+\mbox{\hyperlink{class_entity_type_component_a4057a0771e18e66d156338a17a815daa}{Entity\+Type}} {\bfseries Type} = Entity\+Type.\+None\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_entity_type_component_a4057a0771e18e66d156338a17a815daa}\index{EntityTypeComponent@{EntityTypeComponent}!EntityType@{EntityType}}
+\index{EntityType@{EntityType}!EntityTypeComponent@{EntityTypeComponent}}
+\doxysubsubsection{\texorpdfstring{EntityType}{EntityType}}
+{\footnotesize\ttfamily \label{class_entity_type_component_a4057a0771e18e66d156338a17a815daa} 
+enum \mbox{\hyperlink{class_entity_type_component_a4057a0771e18e66d156338a17a815daa}{Entity\+Type\+Component.\+Entity\+Type}}}
+
+
+
+Enum for the different types of entities. 
+
+The different types are None, \doxylink{class_player}{Player}, Enemy, Boss, Projectile, \doxylink{class_slime}{Slime}, and \doxylink{class_unicorn}{Unicorn}. This enum uses flags, meaning an entity can be a combination of types. For example, a \doxylink{class_slime}{Slime} is both a \doxylink{class_slime}{Slime} and an Enemy.
+
+NOTE\+: This enum is currently not in use. This is a design question if we want to have every relevant node have an \doxylink{class_entity_type_component}{Entity\+Type\+Component}. It could be hard to maintain in the future, so it is currently not being used but could be relevant in the future. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_entity_type_component_a063146b68dbb015e18a94fb61b95fcfc}\index{EntityTypeComponent@{EntityTypeComponent}!IsOfType@{IsOfType}}
+\index{IsOfType@{IsOfType}!EntityTypeComponent@{EntityTypeComponent}}
+\doxysubsubsection{\texorpdfstring{IsOfType()}{IsOfType()}}
+{\footnotesize\ttfamily \label{class_entity_type_component_a063146b68dbb015e18a94fb61b95fcfc} 
+bool Entity\+Type\+Component.\+Is\+Of\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entity_type_component_a4057a0771e18e66d156338a17a815daa}{Entity\+Type}}}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the entity is of a specific type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type to check against \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the entity is of the specified type, false otherwise 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/Entity\+Type\+Component.\+cs\end{DoxyCompactItemize}

@@ -1,26 +1,49 @@
 \doxysection{Inventory\+Spell Class Reference}
 \hypertarget{class_inventory_spell}{}\label{class_inventory_spell}\index{InventorySpell@{InventorySpell}}
-Inheritance diagram for Inventory\+Spell\+:\begin{figure}[H]
+
+
+Inheritance diagram for Inventory\+Spell\+:
+\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{d0/d1e/class_inventory_spell}
+\includegraphics[width=350pt]{d9/d29/class_inventory_spell__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Inventory\+Spell\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d6/d4b/class_inventory_spell__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_inventory_spell_a983611d1b7aa666a4ed57afa9bf74a77}\label{class_inventory_spell_a983611d1b7aa666a4ed57afa9bf74a77} 
-override void {\bfseries \+\_\+\+Ready} ()
+override void \mbox{\hyperlink{class_inventory_spell_a983611d1b7aa666a4ed57afa9bf74a77}{\+\_\+\+Ready}} ()
 \item 
-virtual void \mbox{\hyperlink{class_inventory_spell_a86e9e91c3f70d8cfa663dc20431df73f}{Cast}} (Vector2 caster\+Position, Vector2 target\+Position)
+virtual void \mbox{\hyperlink{class_inventory_spell_a9cb08d3edcb575db754b6e0062f9e17a}{Cast}} (Vector2 player\+Position, Vector2 target\+Position)
 \item 
-virtual void \mbox{\hyperlink{class_inventory_spell_a0ba498924fe9ba16834fbe2e8502b41b}{Equip}} (int slot)
+void \mbox{\hyperlink{class_inventory_spell_a6b1724e176952c2d03b87c2a868be4dd}{Reset\+Damage}} ()
 \item 
-virtual void \mbox{\hyperlink{class_inventory_spell_afec21b5066020b7af54c93f4b9581fca}{Un\+Equip}} ()
+void \mbox{\hyperlink{class_inventory_spell_a896ce169b8f6c16d4fe17126c3fc4a9a}{Add\+On\+Cast\+Augment\+Effect}} (\mbox{\hyperlink{class_on_cast_augment_effect}{On\+Cast\+Augment\+Effect}} on\+Cast\+Augment\+Effect)
+\item 
+void \mbox{\hyperlink{class_inventory_spell_a8034ce0c5f3eb7a81ca0e75769a3a14b}{Clear\+On\+Cast\+Augment\+Effects}} ()
+\item 
+List$<$ \mbox{\hyperlink{class_on_cast_augment_effect}{On\+Cast\+Augment\+Effect}} $>$ \mbox{\hyperlink{class_inventory_spell_a9ab9f448f01f02a7687a5591555ee86e}{Get\+On\+Cast\+Augment\+Effects}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\Hypertarget{class_inventory_spell_ae466cca59838b66e93b965de59f330f3}\label{class_inventory_spell_ae466cca59838b66e93b965de59f330f3} 
+double {\bfseries Cast\+Time} = 0.\+3
+\begin{DoxyCompactList}\small\item\em How long it takes to cast the spell. \end{DoxyCompactList}\item 
+\Hypertarget{class_inventory_spell_a7ab1029074b883f850b126407dff1c62}\label{class_inventory_spell_a7ab1029074b883f850b126407dff1c62} 
+double {\bfseries Cool\+Down} = 1
+\begin{DoxyCompactList}\small\item\em How long until the spell can be used again. \end{DoxyCompactList}\item 
 \Hypertarget{class_inventory_spell_aa61295861a8e253fd668704e8e9d7c46}\label{class_inventory_spell_aa61295861a8e253fd668704e8e9d7c46} 
 double {\bfseries Base\+Damage} = 30
 \begin{DoxyCompactList}\small\item\em base damage of the skill \end{DoxyCompactList}\item 
@@ -29,13 +52,13 @@ double {\bfseries Damage}
 \begin{DoxyCompactList}\small\item\em actual damage of the spell \end{DoxyCompactList}\item 
 \Hypertarget{class_inventory_spell_ab3fc577ffdd33f88071ef722bd64c22a}\label{class_inventory_spell_ab3fc577ffdd33f88071ef722bd64c22a} 
 Magic\+Type {\bfseries Magic\+Type} = Magic\+Type.\+SUN
-\begin{DoxyCompactList}\small\item\em Magic type of the spell. \end{DoxyCompactList}\item 
-\Hypertarget{class_inventory_spell_a4361604551aa2e3b7b3d6e88b92975d9}\label{class_inventory_spell_a4361604551aa2e3b7b3d6e88b92975d9} 
-\mbox{\hyperlink{class_health_component}{Health\+Component}} {\bfseries Player\+Health\+Component}
-\begin{DoxyCompactList}\small\item\em Reference to the caster (i.\+e. the player) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Magic type of the spell. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\Hypertarget{class_inventory_spell_af0add5a70a58fe25d304b7572eb24d6d}\label{class_inventory_spell_af0add5a70a58fe25d304b7572eb24d6d} 
+\mbox{\hyperlink{class_health_component}{Health\+Component}} {\bfseries \+\_\+player\+Health\+Component}
+\begin{DoxyCompactList}\small\item\em Reference to the players \doxylink{class_health_component}{Health\+Component}. \end{DoxyCompactList}\item 
 \Hypertarget{class_inventory_spell_ab828155cd1b38a204e742beb4b38799a}\label{class_inventory_spell_ab828155cd1b38a204e742beb4b38799a} 
 Packed\+Scene {\bfseries \+\_\+spell\+Scene}
 \end{DoxyCompactItemize}
@@ -45,29 +68,47 @@ Packed\+Scene {\bfseries \+\_\+spell\+Scene}
 Base class for all spells inside the inventory 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_inventory_spell_a86e9e91c3f70d8cfa663dc20431df73f}\index{InventorySpell@{InventorySpell}!Cast@{Cast}}
+\Hypertarget{class_inventory_spell_a983611d1b7aa666a4ed57afa9bf74a77}\index{InventorySpell@{InventorySpell}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_inventory_spell_a983611d1b7aa666a4ed57afa9bf74a77} 
+override void Inventory\+Spell.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+call Reset\+Damage in order to set Damage to Base\+Damage. Adds the spell to the correct base groups depending on the Magic\+Type \Hypertarget{class_inventory_spell_a896ce169b8f6c16d4fe17126c3fc4a9a}\index{InventorySpell@{InventorySpell}!AddOnCastAugmentEffect@{AddOnCastAugmentEffect}}
+\index{AddOnCastAugmentEffect@{AddOnCastAugmentEffect}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{AddOnCastAugmentEffect()}{AddOnCastAugmentEffect()}}
+{\footnotesize\ttfamily \label{class_inventory_spell_a896ce169b8f6c16d4fe17126c3fc4a9a} 
+void Inventory\+Spell.\+Add\+On\+Cast\+Augment\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_on_cast_augment_effect}{On\+Cast\+Augment\+Effect}}}]{on\+Cast\+Augment\+Effect}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+add an \doxylink{class_on_cast_augment_effect}{On\+Cast\+Augment\+Effect} \Hypertarget{class_inventory_spell_a9cb08d3edcb575db754b6e0062f9e17a}\index{InventorySpell@{InventorySpell}!Cast@{Cast}}
 \index{Cast@{Cast}!InventorySpell@{InventorySpell}}
 \doxysubsubsection{\texorpdfstring{Cast()}{Cast()}}
-{\footnotesize\ttfamily \label{class_inventory_spell_a86e9e91c3f70d8cfa663dc20431df73f} 
-virtual void Inventory\+Spell.\+Cast (\begin{DoxyParamCaption}\item[{Vector2}]{caster\+Position}{, }\item[{Vector2}]{target\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_inventory_spell_a9cb08d3edcb575db754b6e0062f9e17a} 
+virtual void Inventory\+Spell.\+Cast (\begin{DoxyParamCaption}\item[{Vector2}]{player\+Position}{, }\item[{Vector2}]{target\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 Casts the spell by instanciating the scene and initializing the spell 
 
-Reimplemented in \mbox{\hyperlink{class_inventory_basic_spell_ad39ead79f1d28f22d1ecedf51069b641}{Inventory\+Basic\+Spell}}, and \mbox{\hyperlink{class_inventory_sun_beam_a0587c35e309d67cf36e2d70ed423a199}{Inventory\+Sun\+Beam}}.
+Reimplemented in \mbox{\hyperlink{class_inventory_star_rain_aecfc2f18ec42cc2afaecf658a8d673cc}{Inventory\+Star\+Rain}}.
 
-\Hypertarget{class_inventory_spell_a0ba498924fe9ba16834fbe2e8502b41b}\index{InventorySpell@{InventorySpell}!Equip@{Equip}}
-\index{Equip@{Equip}!InventorySpell@{InventorySpell}}
-\doxysubsubsection{\texorpdfstring{Equip()}{Equip()}}
-{\footnotesize\ttfamily \label{class_inventory_spell_a0ba498924fe9ba16834fbe2e8502b41b} 
-virtual void Inventory\+Spell.\+Equip (\begin{DoxyParamCaption}\item[{int}]{slot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+\Hypertarget{class_inventory_spell_a8034ce0c5f3eb7a81ca0e75769a3a14b}\index{InventorySpell@{InventorySpell}!ClearOnCastAugmentEffects@{ClearOnCastAugmentEffects}}
+\index{ClearOnCastAugmentEffects@{ClearOnCastAugmentEffects}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{ClearOnCastAugmentEffects()}{ClearOnCastAugmentEffects()}}
+{\footnotesize\ttfamily \label{class_inventory_spell_a8034ce0c5f3eb7a81ca0e75769a3a14b} 
+void Inventory\+Spell.\+Clear\+On\+Cast\+Augment\+Effects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Equips the spell by adding it to the correct group \Hypertarget{class_inventory_spell_afec21b5066020b7af54c93f4b9581fca}\index{InventorySpell@{InventorySpell}!UnEquip@{UnEquip}}
-\index{UnEquip@{UnEquip}!InventorySpell@{InventorySpell}}
-\doxysubsubsection{\texorpdfstring{UnEquip()}{UnEquip()}}
-{\footnotesize\ttfamily \label{class_inventory_spell_afec21b5066020b7af54c93f4b9581fca} 
-virtual void Inventory\+Spell.\+Un\+Equip (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+Empties the List of On\+Cast\+Augment\+Effects \Hypertarget{class_inventory_spell_a9ab9f448f01f02a7687a5591555ee86e}\index{InventorySpell@{InventorySpell}!GetOnCastAugmentEffects@{GetOnCastAugmentEffects}}
+\index{GetOnCastAugmentEffects@{GetOnCastAugmentEffects}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{GetOnCastAugmentEffects()}{GetOnCastAugmentEffects()}}
+{\footnotesize\ttfamily \label{class_inventory_spell_a9ab9f448f01f02a7687a5591555ee86e} 
+List$<$ \mbox{\hyperlink{class_on_cast_augment_effect}{On\+Cast\+Augment\+Effect}} $>$ Inventory\+Spell.\+Get\+On\+Cast\+Augment\+Effects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Unequip the spell by removing it from all spell groups 
+Getter for On\+Cast\+Augment\+Effects. Used by tests only \Hypertarget{class_inventory_spell_a6b1724e176952c2d03b87c2a868be4dd}\index{InventorySpell@{InventorySpell}!ResetDamage@{ResetDamage}}
+\index{ResetDamage@{ResetDamage}!InventorySpell@{InventorySpell}}
+\doxysubsubsection{\texorpdfstring{ResetDamage()}{ResetDamage()}}
+{\footnotesize\ttfamily \label{class_inventory_spell_a6b1724e176952c2d03b87c2a868be4dd} 
+void Inventory\+Spell.\+Reset\+Damage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reset Damage to Base\+Damage 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

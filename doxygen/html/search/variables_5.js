@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['idle_0',['Idle',['../d2/df1/class_player_dashing.html#a5728eb4b3316f97a7a43d5b7bdf30c31',1,'PlayerDashing.Idle'],['../dc/d24/class_player_moving.html#a4bb986b041ebe0f55cb9de14cbbe8ba1',1,'PlayerMoving.Idle'],['../d4/d55/class_player_spell_casting.html#adf75179581ac346bfb5363e094a96a95',1,'PlayerSpellCasting.Idle'],['../d9/dfb/class_slime_moving.html#a67a6340a7153748642ad32872417db71',1,'SlimeMoving.Idle']]],
-  ['idleanimationduration_1',['IdleAnimationDuration',['../d2/d94/class_slime_idle.html#a84f9874c4a45089c6cd49449ddbad1dd',1,'SlimeIdle']]]
+  ['healthlarge_0',['HealthLarge',['../d3/db0/class_slime.html#ab3dcb0ed95a2fded2bd7be5a9c6a3afc',1,'Slime']]],
+  ['healthsmall_1',['HealthSmall',['../d3/db0/class_slime.html#a2b7183672dbd3ad52334d0fe4cc2bf7e',1,'Slime']]],
+  ['hitbox_2',['HitBox',['../d2/df1/class_player_dashing.html#a9afe377d00fe92c495760633a9450734',1,'PlayerDashing']]],
+  ['homingtimer_3',['HomingTimer',['../de/dbf/class_shooting_attack_projectile.html#a358d17142b3ec427011645904c52cef4',1,'ShootingAttackProjectile']]]
 ];

@@ -1,0 +1,104 @@
+\doxysection{Unicorn\+Shooting\+Attack Class Reference}
+\hypertarget{class_unicorn_shooting_attack}{}\label{class_unicorn_shooting_attack}\index{UnicornShootingAttack@{UnicornShootingAttack}}
+
+
+Inheritance diagram for Unicorn\+Shooting\+Attack\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{dc/dd2/class_unicorn_shooting_attack__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Unicorn\+Shooting\+Attack\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{d7/d85/class_unicorn_shooting_attack__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_unicorn_shooting_attack_a3f0aa686b5e5371f3280e771e3048840}{\+\_\+\+Ready}} ()
+\item 
+override void \mbox{\hyperlink{class_unicorn_shooting_attack_ad8122c11f5a729ad29a30d9869b81e4f}{Enter}} ()
+\item 
+override \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_unicorn_shooting_attack_a23fa3184ad1fdf58e76828c125ac0cf6}{Process\+Physics}} (double delta)
+\item 
+override void \mbox{\hyperlink{class_unicorn_shooting_attack_a770253822c6ab899949348c8878a9223}{Update\+Animations}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_state_a27cebddea23c9ae664bbb4ab09ff9cf7}{Can\+Enter}} ()
+\item 
+virtual void \mbox{\hyperlink{class_state_ae384c5d8253cc8671290231c84fdb703}{Exit}} ()
+\item 
+virtual \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_state_a7d099d7bdc79e52b367a486029481883}{Process\+Input}} (Input\+Event @event)
+\item 
+virtual \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_state_adab2ce69b1aa448a362799d1d494b200}{Process\+Frame}} (double delta)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_unicorn_shooting_attack_a92cf3134691bc2c9597d2cc697eff476}\label{class_unicorn_shooting_attack_a92cf3134691bc2c9597d2cc697eff476} 
+\mbox{\hyperlink{class_state}{State}} {\bfseries Wait}
+\begin{DoxyCompactList}\small\item\em Reference to Wait state. \end{DoxyCompactList}\item 
+\Hypertarget{class_unicorn_shooting_attack_a466480e13f846506ec075376d3302b50}\label{class_unicorn_shooting_attack_a466480e13f846506ec075376d3302b50} 
+double {\bfseries Shooting\+Animation\+Duration}
+\begin{DoxyCompactList}\small\item\em Duration of the shooting attack animation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+Character\+Body2D {\bfseries Parent}
+\begin{DoxyCompactList}\small\item\em Reference to the parent of the scene, i.\+e. the entity that this state machine belongs to. \end{DoxyCompactList}\item 
+Animation\+Player {\bfseries Animations}
+\begin{DoxyCompactList}\small\item\em Reference to the Animation\+Player of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_unicorn_shooting_attack_a3f0aa686b5e5371f3280e771e3048840}\index{UnicornShootingAttack@{UnicornShootingAttack}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!UnicornShootingAttack@{UnicornShootingAttack}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_unicorn_shooting_attack_a3f0aa686b5e5371f3280e771e3048840} 
+override void Unicorn\+Shooting\+Attack.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set player so that the distance to the player can be determined later. \Hypertarget{class_unicorn_shooting_attack_ad8122c11f5a729ad29a30d9869b81e4f}\index{UnicornShootingAttack@{UnicornShootingAttack}!Enter@{Enter}}
+\index{Enter@{Enter}!UnicornShootingAttack@{UnicornShootingAttack}}
+\doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}
+{\footnotesize\ttfamily \label{class_unicorn_shooting_attack_ad8122c11f5a729ad29a30d9869b81e4f} 
+override void Unicorn\+Shooting\+Attack.\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+When entering the shooting attack state, set the time left in the state, which depends on the animation duration. Update the animation and call the function, that handles the shooting of the projectiles. 
+
+Reimplemented from \mbox{\hyperlink{class_state_ab9ff526b7a0b992ae01dd9c9ece5a882}{State}}.
+
+\Hypertarget{class_unicorn_shooting_attack_a23fa3184ad1fdf58e76828c125ac0cf6}\index{UnicornShootingAttack@{UnicornShootingAttack}!ProcessPhysics@{ProcessPhysics}}
+\index{ProcessPhysics@{ProcessPhysics}!UnicornShootingAttack@{UnicornShootingAttack}}
+\doxysubsubsection{\texorpdfstring{ProcessPhysics()}{ProcessPhysics()}}
+{\footnotesize\ttfamily \label{class_unicorn_shooting_attack_a23fa3184ad1fdf58e76828c125ac0cf6} 
+override \mbox{\hyperlink{class_state}{State}} Unicorn\+Shooting\+Attack.\+Process\+Physics (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Count down the time left in the Shooting \doxylink{class_attack}{Attack} state. When the time left has reached zero, return to the wait state. 
+
+Reimplemented from \mbox{\hyperlink{class_state_a9c4d232b2b843d9703828c9020c6fc8a}{State}}.
+
+\Hypertarget{class_unicorn_shooting_attack_a770253822c6ab899949348c8878a9223}\index{UnicornShootingAttack@{UnicornShootingAttack}!UpdateAnimations@{UpdateAnimations}}
+\index{UpdateAnimations@{UpdateAnimations}!UnicornShootingAttack@{UnicornShootingAttack}}
+\doxysubsubsection{\texorpdfstring{UpdateAnimations()}{UpdateAnimations()}}
+{\footnotesize\ttfamily \label{class_unicorn_shooting_attack_a770253822c6ab899949348c8878a9223} 
+override void Unicorn\+Shooting\+Attack.\+Update\+Animations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Update animations to the charge attack animation, depending on the magic type of the unicorn. Note\+: When the proper animation is done, there should be eight versions for the different directions. Then, this function has to be updated accordingly. At the moment, there are no animations. 
+
+Reimplemented from \mbox{\hyperlink{class_state_aaba9e1d832609aad7324eb2b26c2fbb4}{State}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/unicorns/states/Unicorn\+Shooting\+Attack.\+cs\end{DoxyCompactItemize}

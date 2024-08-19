@@ -1,4 +1,22 @@
 var searchData=
 [
-  ['jumpanimationduration_0',['JumpAnimationDuration',['../d2/d94/class_slime_idle.html#aa69c6e2796eadb6873462fd4bbe00db5',1,'SlimeIdle']]]
+  ['idle_0',['Idle',['../d2/df1/class_player_dashing.html#a5728eb4b3316f97a7a43d5b7bdf30c31',1,'PlayerDashing.Idle'],['../dc/d24/class_player_moving.html#a4bb986b041ebe0f55cb9de14cbbe8ba1',1,'PlayerMoving.Idle'],['../d4/d55/class_player_spell_casting.html#adf75179581ac346bfb5363e094a96a95',1,'PlayerSpellCasting.Idle'],['../d9/dfb/class_slime_moving.html#a67a6340a7153748642ad32872417db71',1,'SlimeMoving.Idle']]],
+  ['idleanimationduration_1',['IdleAnimationDuration',['../d2/d94/class_slime_idle.html#a84f9874c4a45089c6cd49449ddbad1dd',1,'SlimeIdle']]],
+  ['increasedradiusofspell_2',['IncreasedRadiusOfSpell',['../d5/d92/class_increased_radius_of_spell.html',1,'']]],
+  ['increasedurationofspell_3',['IncreaseDurationOfSpell',['../d0/d68/class_increase_duration_of_spell.html',1,'']]],
+  ['init_4',['Init',['../d0/d7a/class_inventory_slot.html#a26738276405215567fcf084cafd072df',1,'InventorySlot.Init()'],['../d6/df9/class_basic_spell.html#a05629585e8c19fe28f75aafd3860818d',1,'BasicSpell.Init()'],['../db/d1b/class_black_hole.html#adae99251074986a4d7a9979c7cc683ed',1,'BlackHole.Init()'],['../d9/d51/class_dark_energy_wave.html#ad300924fb290576bd19c8f58e40139d5',1,'DarkEnergyWave.Init()'],['../df/d1e/class_moon_light.html#a93a0ad6fc56790cca786b57db1cf7517',1,'MoonLight.Init()'],['../d8/d0d/class_spell.html#a4b3330b53bc8349e53b4e759ee18bd9a',1,'Spell.Init()'],['../d7/d8d/class_star.html#ace6a0fff162bae73764cccbb05ceba3b',1,'Star.Init()'],['../d6/d93/class_sun.html#ac1c06d1885bb528d73be4e40647cc854',1,'Sun.Init()'],['../d5/d00/class_sun_beam.html#a92098ce72ef01c2a3b8116b3a025b409',1,'SunBeam.Init()'],['../d8/d29/class_ranged_attack.html#aa8295a7e2704104e0de54c5cb506b1c5',1,'RangedAttack.Init()'],['../d4/dd0/class_state_machine.html#a127f5c8d96f0c95d9565dd2c61498833',1,'StateMachine.Init()'],['../de/dbf/class_shooting_attack_projectile.html#a273f58590ce1ef4773a83c9b6279ab6b',1,'ShootingAttackProjectile.Init()']]],
+  ['instance_5',['Instance',['../d0/db4/class_augment_manager.html#ab6681e0cf6073ac91de843d20ba94103',1,'AugmentManager']]],
+  ['inventorybasicspell_6',['InventoryBasicSpell',['../d8/d26/class_inventory_basic_spell.html',1,'']]],
+  ['inventoryblackhole_7',['InventoryBlackHole',['../d6/d81/class_inventory_black_hole.html',1,'']]],
+  ['inventorydarkenergywave_8',['InventoryDarkEnergyWave',['../de/d1d/class_inventory_dark_energy_wave.html',1,'']]],
+  ['inventoryitem_9',['InventoryItem',['../d6/d0e/class_inventory_item.html',1,'']]],
+  ['inventorymoonlight_10',['InventoryMoonLight',['../d4/d32/class_inventory_moon_light.html',1,'']]],
+  ['inventoryslot_11',['InventorySlot',['../d0/d7a/class_inventory_slot.html',1,'']]],
+  ['inventoryspell_12',['InventorySpell',['../d0/d1e/class_inventory_spell.html',1,'']]],
+  ['inventorystarrain_13',['InventoryStarRain',['../dd/ddc/class_inventory_star_rain.html',1,'']]],
+  ['inventorysummonsun_14',['InventorySummonSun',['../d5/d3e/class_inventory_summon_sun.html',1,'']]],
+  ['inventorysunbeam_15',['InventorySunBeam',['../d4/d43/class_inventory_sun_beam.html',1,'']]],
+  ['isactive_16',['IsActive',['../de/d2d/class_curse_handler.html#a580f91987e4fb1c22f641688c40fbb6d',1,'CurseHandler']]],
+  ['isoftype_17',['IsOfType',['../d7/d50/class_entity_type_component.html#a063146b68dbb015e18a94fb61b95fcfc',1,'EntityTypeComponent']]],
+  ['isoncooldown_18',['IsOnCooldown',['../d5/de4/class_u_i_spell_slot.html#ab08f5b9248cbf35a8bb2751513ada60c',1,'UISpellSlot']]]
 ];

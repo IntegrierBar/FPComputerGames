@@ -1,0 +1,114 @@
+\doxysection{Unicorn\+Charge\+Attack Class Reference}
+\hypertarget{class_unicorn_charge_attack}{}\label{class_unicorn_charge_attack}\index{UnicornChargeAttack@{UnicornChargeAttack}}
+
+
+Inheritance diagram for Unicorn\+Charge\+Attack\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{d7/d6f/class_unicorn_charge_attack__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Unicorn\+Charge\+Attack\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{dc/dc0/class_unicorn_charge_attack__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_unicorn_charge_attack_a54d92b0d78f07cc54cbdfa5b79d66fd3}{\+\_\+\+Ready}} ()
+\item 
+override void \mbox{\hyperlink{class_unicorn_charge_attack_a3520430a7b364b82732b8bce5ad03833}{Enter}} ()
+\item 
+override void \mbox{\hyperlink{class_unicorn_charge_attack_a5b272fad66de66aea4ec1755d8742ab6}{Exit}} ()
+\item 
+override \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_unicorn_charge_attack_a1056752ae136783dd50f57a211dd4495}{Process\+Physics}} (double delta)
+\item 
+override void \mbox{\hyperlink{class_unicorn_charge_attack_aa4b06eed1e1db792ef567514009ffb09}{Update\+Animations}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_state_a27cebddea23c9ae664bbb4ab09ff9cf7}{Can\+Enter}} ()
+\item 
+virtual \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_state_a7d099d7bdc79e52b367a486029481883}{Process\+Input}} (Input\+Event @event)
+\item 
+virtual \mbox{\hyperlink{class_state}{State}} \mbox{\hyperlink{class_state_adab2ce69b1aa448a362799d1d494b200}{Process\+Frame}} (double delta)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_unicorn_charge_attack_a50ab505886da67c3d6caf717f04903a4}\label{class_unicorn_charge_attack_a50ab505886da67c3d6caf717f04903a4} 
+\mbox{\hyperlink{class_state}{State}} {\bfseries Wait}
+\begin{DoxyCompactList}\small\item\em Reference to Wait state. \end{DoxyCompactList}\item 
+\Hypertarget{class_unicorn_charge_attack_a154445fc13126f702502f1c29b9e34b5}\label{class_unicorn_charge_attack_a154445fc13126f702502f1c29b9e34b5} 
+float {\bfseries CHARGESPEED} = 300
+\begin{DoxyCompactList}\small\item\em Speed with which the unicorn charges at the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+Character\+Body2D {\bfseries Parent}
+\begin{DoxyCompactList}\small\item\em Reference to the parent of the scene, i.\+e. the entity that this state machine belongs to. \end{DoxyCompactList}\item 
+Animation\+Player {\bfseries Animations}
+\begin{DoxyCompactList}\small\item\em Reference to the Animation\+Player of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_unicorn_charge_attack_a54d92b0d78f07cc54cbdfa5b79d66fd3}\index{UnicornChargeAttack@{UnicornChargeAttack}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!UnicornChargeAttack@{UnicornChargeAttack}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_unicorn_charge_attack_a54d92b0d78f07cc54cbdfa5b79d66fd3} 
+override void Unicorn\+Charge\+Attack.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set player so that the distance to the player can be determined later. \Hypertarget{class_unicorn_charge_attack_a3520430a7b364b82732b8bce5ad03833}\index{UnicornChargeAttack@{UnicornChargeAttack}!Enter@{Enter}}
+\index{Enter@{Enter}!UnicornChargeAttack@{UnicornChargeAttack}}
+\doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}
+{\footnotesize\ttfamily \label{class_unicorn_charge_attack_a3520430a7b364b82732b8bce5ad03833} 
+override void Unicorn\+Charge\+Attack.\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+When entering the state, the duration of the charge is determined at first. 
+
+Reimplemented from \mbox{\hyperlink{class_state_ab9ff526b7a0b992ae01dd9c9ece5a882}{State}}.
+
+\Hypertarget{class_unicorn_charge_attack_a5b272fad66de66aea4ec1755d8742ab6}\index{UnicornChargeAttack@{UnicornChargeAttack}!Exit@{Exit}}
+\index{Exit@{Exit}!UnicornChargeAttack@{UnicornChargeAttack}}
+\doxysubsubsection{\texorpdfstring{Exit()}{Exit()}}
+{\footnotesize\ttfamily \label{class_unicorn_charge_attack_a5b272fad66de66aea4ec1755d8742ab6} 
+override void Unicorn\+Charge\+Attack.\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+When the unicorn leaves the state, reset the velocity to zero to ensure that the unicorn does not do any unintended movements when in the next state. 
+
+Reimplemented from \mbox{\hyperlink{class_state_ae384c5d8253cc8671290231c84fdb703}{State}}.
+
+\Hypertarget{class_unicorn_charge_attack_a1056752ae136783dd50f57a211dd4495}\index{UnicornChargeAttack@{UnicornChargeAttack}!ProcessPhysics@{ProcessPhysics}}
+\index{ProcessPhysics@{ProcessPhysics}!UnicornChargeAttack@{UnicornChargeAttack}}
+\doxysubsubsection{\texorpdfstring{ProcessPhysics()}{ProcessPhysics()}}
+{\footnotesize\ttfamily \label{class_unicorn_charge_attack_a1056752ae136783dd50f57a211dd4495} 
+override \mbox{\hyperlink{class_state}{State}} Unicorn\+Charge\+Attack.\+Process\+Physics (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Count down the time left in the Charge \doxylink{class_attack}{Attack} state. When the time left has reached zero, return to the wait state. 
+
+Reimplemented from \mbox{\hyperlink{class_state_a9c4d232b2b843d9703828c9020c6fc8a}{State}}.
+
+\Hypertarget{class_unicorn_charge_attack_aa4b06eed1e1db792ef567514009ffb09}\index{UnicornChargeAttack@{UnicornChargeAttack}!UpdateAnimations@{UpdateAnimations}}
+\index{UpdateAnimations@{UpdateAnimations}!UnicornChargeAttack@{UnicornChargeAttack}}
+\doxysubsubsection{\texorpdfstring{UpdateAnimations()}{UpdateAnimations()}}
+{\footnotesize\ttfamily \label{class_unicorn_charge_attack_aa4b06eed1e1db792ef567514009ffb09} 
+override void Unicorn\+Charge\+Attack.\+Update\+Animations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Update animations to the charge attack animation, depending on the magic type of the unicorn. Note\+: When the proper animation is done, there should be eight versions for the different directions. Then, this function has to be updated accordingly. At the moment, there are no animations. 
+
+Reimplemented from \mbox{\hyperlink{class_state_aaba9e1d832609aad7324eb2b26c2fbb4}{State}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/unicorns/states/Unicorn\+Charge\+Attack.\+cs\end{DoxyCompactItemize}

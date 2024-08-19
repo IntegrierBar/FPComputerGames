@@ -1,0 +1,121 @@
+\doxysection{Base\+Menu Class Reference}
+\hypertarget{class_base_menu}{}\label{class_base_menu}\index{BaseMenu@{BaseMenu}}
+
+
+Inheritance diagram for Base\+Menu\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/db4/class_base_menu__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Base\+Menu\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{d8/de9/class_base_menu__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_base_menu_a205ceef374bb808f88d7f4da2ab3b336}{\+\_\+\+Ready}} ()
+\item 
+void \mbox{\hyperlink{class_base_menu_ae1b775f898c3673c3aceee25b904d000}{Push\+Menu}} (\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Manager.\+Menu\+Type}} new\+Menu)
+\item 
+void \mbox{\hyperlink{class_base_menu_a8e1ca7b8a730650f6c84356e47eab460}{Pop\+Menu}} ()
+\item 
+void \mbox{\hyperlink{class_base_menu_a7acaa0b6681495f0b7faafe6a2bf5fa9}{Set\+Root\+Menu}} (\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Manager.\+Menu\+Type}} new\+Menu)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_base_menu_a35e9519204e8a2715605847b43e4bd4e}{Setup\+Menu}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_manager}{Menu\+Manager}} \mbox{\hyperlink{class_base_menu_adbec553f7dc2e5562efbd2da155d9838}{Menu\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Manager.\+Menu\+Type}} \mbox{\hyperlink{class_base_menu_a8d416893c2354812b8e672b9f95ead8d}{Menu\+Type}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for all menu types in the game. Provides common functionality and interface with the \doxylink{class_menu_manager}{Menu\+Manager}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_base_menu_a205ceef374bb808f88d7f4da2ab3b336}\index{BaseMenu@{BaseMenu}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!BaseMenu@{BaseMenu}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_base_menu_a205ceef374bb808f88d7f4da2ab3b336} 
+override void Base\+Menu.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Initializes the menu by getting the \doxylink{class_menu_manager}{Menu\+Manager} reference and calling Setup\+Menu. \Hypertarget{class_base_menu_a8e1ca7b8a730650f6c84356e47eab460}\index{BaseMenu@{BaseMenu}!PopMenu@{PopMenu}}
+\index{PopMenu@{PopMenu}!BaseMenu@{BaseMenu}}
+\doxysubsubsection{\texorpdfstring{PopMenu()}{PopMenu()}}
+{\footnotesize\ttfamily \label{class_base_menu_a8e1ca7b8a730650f6c84356e47eab460} 
+void Base\+Menu.\+Pop\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Pops the current menu from the stack. \Hypertarget{class_base_menu_ae1b775f898c3673c3aceee25b904d000}\index{BaseMenu@{BaseMenu}!PushMenu@{PushMenu}}
+\index{PushMenu@{PushMenu}!BaseMenu@{BaseMenu}}
+\doxysubsubsection{\texorpdfstring{PushMenu()}{PushMenu()}}
+{\footnotesize\ttfamily \label{class_base_menu_ae1b775f898c3673c3aceee25b904d000} 
+void Base\+Menu.\+Push\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Manager.\+Menu\+Type}}}]{new\+Menu}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Pushes a new menu onto the stack.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Menu} & The type of menu to push. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_base_menu_a7acaa0b6681495f0b7faafe6a2bf5fa9}\index{BaseMenu@{BaseMenu}!SetRootMenu@{SetRootMenu}}
+\index{SetRootMenu@{SetRootMenu}!BaseMenu@{BaseMenu}}
+\doxysubsubsection{\texorpdfstring{SetRootMenu()}{SetRootMenu()}}
+{\footnotesize\ttfamily \label{class_base_menu_a7acaa0b6681495f0b7faafe6a2bf5fa9} 
+void Base\+Menu.\+Set\+Root\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Manager.\+Menu\+Type}}}]{new\+Menu}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets a new root menu, clearing the existing menu stack.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Menu} & The type of menu to set as the new root. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_base_menu_a35e9519204e8a2715605847b43e4bd4e}\index{BaseMenu@{BaseMenu}!SetupMenu@{SetupMenu}}
+\index{SetupMenu@{SetupMenu}!BaseMenu@{BaseMenu}}
+\doxysubsubsection{\texorpdfstring{SetupMenu()}{SetupMenu()}}
+{\footnotesize\ttfamily \label{class_base_menu_a35e9519204e8a2715605847b43e4bd4e} 
+virtual void Base\+Menu.\+Setup\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Virtual method for setting up the menu. Can be overridden in derived classes to provide specific setup logic. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_base_menu_adbec553f7dc2e5562efbd2da155d9838}\index{BaseMenu@{BaseMenu}!MenuManager@{MenuManager}}
+\index{MenuManager@{MenuManager}!BaseMenu@{BaseMenu}}
+\doxysubsubsection{\texorpdfstring{MenuManager}{MenuManager}}
+{\footnotesize\ttfamily \label{class_base_menu_adbec553f7dc2e5562efbd2da155d9838} 
+\mbox{\hyperlink{class_menu_manager}{Menu\+Manager}} Base\+Menu.\+Menu\+Manager\hspace{0.3cm}{\ttfamily [protected]}}
+
+Reference to the \doxylink{class_menu_manager}{Menu\+Manager} instance. 
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_base_menu_a8d416893c2354812b8e672b9f95ead8d}\index{BaseMenu@{BaseMenu}!MenuType@{MenuType}}
+\index{MenuType@{MenuType}!BaseMenu@{BaseMenu}}
+\doxysubsubsection{\texorpdfstring{MenuType}{MenuType}}
+{\footnotesize\ttfamily \label{class_base_menu_a8d416893c2354812b8e672b9f95ead8d} 
+\mbox{\hyperlink{class_menu_manager_a442a2cbb529fa44b6e6c837f1e2be267}{Menu\+Manager.\+Menu\+Type}} Base\+Menu.\+Menu\+Type\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}
+
+The type of this menu. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/ui/Base\+Menu.\+cs\end{DoxyCompactItemize}

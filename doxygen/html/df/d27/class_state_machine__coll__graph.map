@@ -1,0 +1,8 @@
+<map id="StateMachine" name="StateMachine">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,423,132,599"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="41,5,85,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,90,70,423,65,423,61,90"/>
+<area shape="rect" id="Node000003" href="$d0/d8b/class_state.html" title=" " alt="" coords="85,124,223,343"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="88,87,105,123,100,125,83,89"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="123,343,103,407,98,406,118,342"/>
+</map>

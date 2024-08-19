@@ -1,0 +1,5 @@
+<map id="RoomExit" name="RoomExit">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,225,256"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="87,5,144,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,90,118,123,113,123,113,90"/>
+</map>

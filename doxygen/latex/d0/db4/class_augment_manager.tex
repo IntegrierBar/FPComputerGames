@@ -1,0 +1,85 @@
+\doxysection{Augment\+Manager Class Reference}
+\hypertarget{class_augment_manager}{}\label{class_augment_manager}\index{AugmentManager@{AugmentManager}}
+
+
+Inheritance diagram for Augment\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{dd/d72/class_augment_manager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Augment\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{d0/d58/class_augment_manager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_augment_manager_a3e15c2fe421fb008a761bdeeec79f25c}{\+\_\+\+Ready}} ()
+\item 
+\mbox{\hyperlink{class_augment}{Augment}} \mbox{\hyperlink{class_augment_manager_af9dd1fc513428232a90a3f96f7772074}{Create\+Random\+Augment}} (uint amount\+Augment\+Effects)
+\item 
+void \mbox{\hyperlink{class_augment_manager_a387a8b50372a8694e948be36d5b20a68}{Fuse\+Augments}} (\mbox{\hyperlink{class_augment}{Augment}} target, int index\+Effect\+To\+Override, \mbox{\hyperlink{class_augment}{Augment}} sacrifice, int index\+Effect\+To\+Keep)
+\item 
+List$<$ \mbox{\hyperlink{class_augment_effect}{Augment\+Effect}} $>$ \mbox{\hyperlink{class_augment_manager_a2fe918186373d0211fa5191d329f86ab}{Get\+Augment\+Effects}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_augment_manager_ab6681e0cf6073ac91de843d20ba94103}\label{class_augment_manager_ab6681e0cf6073ac91de843d20ba94103} 
+static \mbox{\hyperlink{class_augment_manager}{Augment\+Manager}} {\bfseries Instance}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Instance of the Singleton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This pseudo singleton class manages all the different Augments and \doxylink{class_augment_effect}{Augment\+Effect}. It loads all Augment\+Effects at runtime and is used to automatically create a random augment with 1-\/3 Augment\+Effects
+
+It handles all complicated parts of \doxylink{class_augment}{Augment} creation.
+
+It is an autoload of the Game and thus always accessible using the static Instance member 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_augment_manager_a3e15c2fe421fb008a761bdeeec79f25c}\index{AugmentManager@{AugmentManager}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!AugmentManager@{AugmentManager}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_augment_manager_a3e15c2fe421fb008a761bdeeec79f25c} 
+override void Augment\+Manager.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Since this node is an autoload the ready function gets called exactly ones at the start of the game. Use this to set it to the static Instance of the class. \Hypertarget{class_augment_manager_af9dd1fc513428232a90a3f96f7772074}\index{AugmentManager@{AugmentManager}!CreateRandomAugment@{CreateRandomAugment}}
+\index{CreateRandomAugment@{CreateRandomAugment}!AugmentManager@{AugmentManager}}
+\doxysubsubsection{\texorpdfstring{CreateRandomAugment()}{CreateRandomAugment()}}
+{\footnotesize\ttfamily \label{class_augment_manager_af9dd1fc513428232a90a3f96f7772074} 
+\mbox{\hyperlink{class_augment}{Augment}} Augment\+Manager.\+Create\+Random\+Augment (\begin{DoxyParamCaption}\item[{uint}]{amount\+Augment\+Effects}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Automaticaly creates a random augment with amount\+Augment\+Effects randomly selected Augment\+Effects
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount\+Augment\+Effects} & should be between 1 and 3. If it is larger then 3 it will instead use 3 and if it is 0 then it will return an augment without effects \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_augment_manager_a387a8b50372a8694e948be36d5b20a68}\index{AugmentManager@{AugmentManager}!FuseAugments@{FuseAugments}}
+\index{FuseAugments@{FuseAugments}!AugmentManager@{AugmentManager}}
+\doxysubsubsection{\texorpdfstring{FuseAugments()}{FuseAugments()}}
+{\footnotesize\ttfamily \label{class_augment_manager_a387a8b50372a8694e948be36d5b20a68} 
+void Augment\+Manager.\+Fuse\+Augments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_augment}{Augment}}}]{target}{, }\item[{int}]{index\+Effect\+To\+Override}{, }\item[{\mbox{\hyperlink{class_augment}{Augment}}}]{sacrifice}{, }\item[{int}]{index\+Effect\+To\+Keep}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Fuses two Augments by overriding the \doxylink{class_augment_effect}{Augment\+Effect} from fuse\+To with index index\+Effect\+To\+Keep with the \doxylink{class_augment_effect}{Augment\+Effect} from fuse\+From at position index\+Effect\+To\+Keep. Both target and sacrifice have to be mutable, as target gets changed and sacrifice gets deleted \Hypertarget{class_augment_manager_a2fe918186373d0211fa5191d329f86ab}\index{AugmentManager@{AugmentManager}!GetAugmentEffects@{GetAugmentEffects}}
+\index{GetAugmentEffects@{GetAugmentEffects}!AugmentManager@{AugmentManager}}
+\doxysubsubsection{\texorpdfstring{GetAugmentEffects()}{GetAugmentEffects()}}
+{\footnotesize\ttfamily \label{class_augment_manager_a2fe918186373d0211fa5191d329f86ab} 
+List$<$ \mbox{\hyperlink{class_augment_effect}{Augment\+Effect}} $>$ Augment\+Manager.\+Get\+Augment\+Effects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter for Augment\+Effects. Is only used by tests 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/augments/Augment\+Manager.\+cs\end{DoxyCompactItemize}

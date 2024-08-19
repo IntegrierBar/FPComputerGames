@@ -1,9 +1,23 @@
 \doxysection{Health\+Component Class Reference}
 \hypertarget{class_health_component}{}\label{class_health_component}\index{HealthComponent@{HealthComponent}}
-Inheritance diagram for Health\+Component\+:\begin{figure}[H]
+
+
+Inheritance diagram for Health\+Component\+:
+\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{d1/da7/class_health_component}
+\includegraphics[width=189pt]{d0/dbe/class_health_component__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Health\+Component\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{d1/d33/class_health_component__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -18,9 +32,21 @@ void \mbox{\hyperlink{class_health_component_ae49d3bdc650b428d9e326a08637361f5}{
 \item 
 void \mbox{\hyperlink{class_health_component_a7c295015964f74cb93492d818e02e667}{Set\+Max\+HP}} (double new\+Max\+HP)
 \item 
+double \mbox{\hyperlink{class_health_component_a389d447886b48191c31e7ce621621ac6}{Get\+Max\+HP}} ()
+\item 
 void \mbox{\hyperlink{class_health_component_a200f8213c66768d116bec11683648638}{Set\+Armor}} (double armor\+Sun, double armor\+Cosmic, double armor\+Dark)
 \item 
 double \mbox{\hyperlink{class_health_component_aada915aafdc0413280d46cef51ff7cd8}{Get\+Current\+HP}} ()
+\item 
+double \mbox{\hyperlink{class_health_component_ac191dda1d833647d10f72b057b588943}{Get\+Armor\+Of\+Type}} (Magic\+Type type)
+\item 
+void \mbox{\hyperlink{class_health_component_a90811486fa013a5442374aa9f7f66d1e}{Modify\+Armor}} (Magic\+Type magic\+Type, double flat\+Armor\+Change)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_health_component_ae50eb6011c2163fb1f5cfb2832b3ff3b}\label{class_health_component_ae50eb6011c2163fb1f5cfb2832b3ff3b} 
+\mbox{\hyperlink{class_healthbar}{Healthbar}} {\bfseries healthbar}
 \end{DoxyCompactItemize}
 
 
@@ -31,13 +57,31 @@ double \mbox{\hyperlink{class_health_component_aada915aafdc0413280d46cef51ff7cd8
 {\footnotesize\ttfamily \label{class_health_component_a5026a2b139578c031704b749c7361177} 
 override void Health\+Component.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-During initialization we set the current\+HP to the Max\+HP \Hypertarget{class_health_component_aada915aafdc0413280d46cef51ff7cd8}\index{HealthComponent@{HealthComponent}!GetCurrentHP@{GetCurrentHP}}
+During initialization we set the current\+HP to the Max\+HP \Hypertarget{class_health_component_ac191dda1d833647d10f72b057b588943}\index{HealthComponent@{HealthComponent}!GetArmorOfType@{GetArmorOfType}}
+\index{GetArmorOfType@{GetArmorOfType}!HealthComponent@{HealthComponent}}
+\doxysubsubsection{\texorpdfstring{GetArmorOfType()}{GetArmorOfType()}}
+{\footnotesize\ttfamily \label{class_health_component_ac191dda1d833647d10f72b057b588943} 
+double Health\+Component.\+Get\+Armor\+Of\+Type (\begin{DoxyParamCaption}\item[{Magic\+Type}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the armor of the Magic\+Type. Is only used by tests \Hypertarget{class_health_component_aada915aafdc0413280d46cef51ff7cd8}\index{HealthComponent@{HealthComponent}!GetCurrentHP@{GetCurrentHP}}
 \index{GetCurrentHP@{GetCurrentHP}!HealthComponent@{HealthComponent}}
 \doxysubsubsection{\texorpdfstring{GetCurrentHP()}{GetCurrentHP()}}
 {\footnotesize\ttfamily \label{class_health_component_aada915aafdc0413280d46cef51ff7cd8} 
 double Health\+Component.\+Get\+Current\+HP (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Getter for Current\+HP. Is only used by tests \Hypertarget{class_health_component_a200f8213c66768d116bec11683648638}\index{HealthComponent@{HealthComponent}!SetArmor@{SetArmor}}
+Getter for Current\+HP. Is only used by tests \Hypertarget{class_health_component_a389d447886b48191c31e7ce621621ac6}\index{HealthComponent@{HealthComponent}!GetMaxHP@{GetMaxHP}}
+\index{GetMaxHP@{GetMaxHP}!HealthComponent@{HealthComponent}}
+\doxysubsubsection{\texorpdfstring{GetMaxHP()}{GetMaxHP()}}
+{\footnotesize\ttfamily \label{class_health_component_a389d447886b48191c31e7ce621621ac6} 
+double Health\+Component.\+Get\+Max\+HP (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter for Max\+HP \Hypertarget{class_health_component_a90811486fa013a5442374aa9f7f66d1e}\index{HealthComponent@{HealthComponent}!ModifyArmor@{ModifyArmor}}
+\index{ModifyArmor@{ModifyArmor}!HealthComponent@{HealthComponent}}
+\doxysubsubsection{\texorpdfstring{ModifyArmor()}{ModifyArmor()}}
+{\footnotesize\ttfamily \label{class_health_component_a90811486fa013a5442374aa9f7f66d1e} 
+void Health\+Component.\+Modify\+Armor (\begin{DoxyParamCaption}\item[{Magic\+Type}]{magic\+Type}{, }\item[{double}]{flat\+Armor\+Change}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Modify the armor for one element by addition \Hypertarget{class_health_component_a200f8213c66768d116bec11683648638}\index{HealthComponent@{HealthComponent}!SetArmor@{SetArmor}}
 \index{SetArmor@{SetArmor}!HealthComponent@{HealthComponent}}
 \doxysubsubsection{\texorpdfstring{SetArmor()}{SetArmor()}}
 {\footnotesize\ttfamily \label{class_health_component_a200f8213c66768d116bec11683648638} 

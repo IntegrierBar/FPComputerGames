@@ -1,9 +1,23 @@
 \doxysection{Player Class Reference}
 \hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
-Inheritance diagram for Player\+:\begin{figure}[H]
+
+
+Inheritance diagram for Player\+:
+\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{d8/d53/class_player}
+\includegraphics[width=225pt]{d9/d6c/class_player__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Player\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d6/db3/class_player__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -16,6 +30,17 @@ override void \mbox{\hyperlink{class_player_a81db5dd46c343160498d29f6fa42d611}{\
 override void \mbox{\hyperlink{class_player_a58bb8488c42d336b1ba8b3f796ba67f0}{\+\_\+\+Physics\+Process}} (double delta)
 \item 
 override void \mbox{\hyperlink{class_player_af1f380bc0ff1a7f3a3679e62c3ecda3d}{\+\_\+\+Unhandled\+Input}} (Input\+Event @event)
+\item 
+void \mbox{\hyperlink{class_player_a6560fad1f0db7570887662eafd67df60}{Equip\+Augment\+In\+Slot}} (\mbox{\hyperlink{class_augment}{Augment}} augment, int slot)
+\item 
+void \mbox{\hyperlink{class_player_a9127e26e01f70c3dd9dfb71dcf06951e}{Un\+Equip\+Augment\+From\+Slot}} (int slot)
+\item 
+void \mbox{\hyperlink{class_player_a02cea337ddf1d0cb53973be98c9f8214}{Recalculate\+Augment\+Effects}} ()
+\item 
+\Hypertarget{class_player_ae7cf2e07aee690a8ee104d604f7f6bb7}\label{class_player_ae7cf2e07aee690a8ee104d604f7f6bb7} 
+void {\bfseries Test\+Equip} ()
+\item 
+void \mbox{\hyperlink{class_player_af998eae07f4ae1a6617a7ba7a676ead1}{Open\+Augment\+Inventory}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -27,6 +52,9 @@ override void \mbox{\hyperlink{class_player_af1f380bc0ff1a7f3a3679e62c3ecda3d}{\
 Animation\+Player {\bfseries Animation\+Player}
 \begin{DoxyCompactList}\small\item\em Reference to the animation player of the player charackter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_player}{Player} class is the root node of the player scene. It initalizes the Players state machine and then forwards Input, Process and Physics\+Process to the state machine. It also manages the active augments of the player. The scene is set as an autoload so that every part of the game can reference it. Process is only enabled if the main\+\_\+game scene is set as active scene in the \doxylink{class_menu_manager}{Menu\+Manager} 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_player_a58bb8488c42d336b1ba8b3f796ba67f0}\index{Player@{Player}!\_PhysicsProcess@{\_PhysicsProcess}}
@@ -53,7 +81,31 @@ Is called when the player charackter enters the scene tree. Checks if the refere
 {\footnotesize\ttfamily \label{class_player_af1f380bc0ff1a7f3a3679e62c3ecda3d} 
 override void Player.\+\_\+\+Unhandled\+Input (\begin{DoxyParamCaption}\item[{Input\+Event @}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Is called whenever any Input from the user is unhandled We simply forward the call to the state machine 
+Is called whenever any Input from the user is unhandled We simply forward the call to the state machine \Hypertarget{class_player_a6560fad1f0db7570887662eafd67df60}\index{Player@{Player}!EquipAugmentInSlot@{EquipAugmentInSlot}}
+\index{EquipAugmentInSlot@{EquipAugmentInSlot}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{EquipAugmentInSlot()}{EquipAugmentInSlot()}}
+{\footnotesize\ttfamily \label{class_player_a6560fad1f0db7570887662eafd67df60} 
+void Player.\+Equip\+Augment\+In\+Slot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_augment}{Augment}}}]{augment}{, }\item[{int}]{slot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Equips an \doxylink{class_augment}{Augment} at slot \Hypertarget{class_player_af998eae07f4ae1a6617a7ba7a676ead1}\index{Player@{Player}!OpenAugmentInventory@{OpenAugmentInventory}}
+\index{OpenAugmentInventory@{OpenAugmentInventory}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{OpenAugmentInventory()}{OpenAugmentInventory()}}
+{\footnotesize\ttfamily \label{class_player_af998eae07f4ae1a6617a7ba7a676ead1} 
+void Player.\+Open\+Augment\+Inventory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Show the \doxylink{class_augment_inventory}{Augment\+Inventory} by setting its visibility to true. Is called by the main hub scirpt when the button to open the menu is pressed \Hypertarget{class_player_a02cea337ddf1d0cb53973be98c9f8214}\index{Player@{Player}!RecalculateAugmentEffects@{RecalculateAugmentEffects}}
+\index{RecalculateAugmentEffects@{RecalculateAugmentEffects}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{RecalculateAugmentEffects()}{RecalculateAugmentEffects()}}
+{\footnotesize\ttfamily \label{class_player_a02cea337ddf1d0cb53973be98c9f8214} 
+void Player.\+Recalculate\+Augment\+Effects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Recalculates all augment effects \Hypertarget{class_player_a9127e26e01f70c3dd9dfb71dcf06951e}\index{Player@{Player}!UnEquipAugmentFromSlot@{UnEquipAugmentFromSlot}}
+\index{UnEquipAugmentFromSlot@{UnEquipAugmentFromSlot}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{UnEquipAugmentFromSlot()}{UnEquipAugmentFromSlot()}}
+{\footnotesize\ttfamily \label{class_player_a9127e26e01f70c3dd9dfb71dcf06951e} 
+void Player.\+Un\+Equip\+Augment\+From\+Slot (\begin{DoxyParamCaption}\item[{int}]{slot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Remove an augment from a slot by equipping null in the slot 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

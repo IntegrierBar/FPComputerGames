@@ -1,0 +1,80 @@
+\doxysection{Inventory\+Slot Class Reference}
+\hypertarget{class_inventory_slot}{}\label{class_inventory_slot}\index{InventorySlot@{InventorySlot}}
+
+
+Inheritance diagram for Inventory\+Slot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{df/d32/class_inventory_slot__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Inventory\+Slot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{d7/d8d/class_inventory_slot__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_inventory_slot_aea5f0341a4c2d7a0db9f13c04ed184f7}\label{class_inventory_slot_aea5f0341a4c2d7a0db9f13c04ed184f7} 
+delegate void {\bfseries Equip\+Augment\+In\+Slot\+Event\+Handler} (\mbox{\hyperlink{class_augment}{Augment}} augment, int slot\+Index)
+\begin{DoxyCompactList}\small\item\em Signal that gets emitted if the entities health reaches 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_inventory_slot_a26738276405215567fcf084cafd072df}{Init}} (Vector2 min\+Size, int active\+Slot)
+\item 
+override bool \mbox{\hyperlink{class_inventory_slot_aada95d9611a557e179e0e2748a6b37ae}{\+\_\+\+Can\+Drop\+Data}} (Vector2 at\+Position, Variant data)
+\item 
+override void \mbox{\hyperlink{class_inventory_slot_a6aeba2378e2aa202deb70fcdb4fa9d85}{\+\_\+\+Drop\+Data}} (Vector2 at\+Position, Variant data)
+\item 
+void \mbox{\hyperlink{class_inventory_slot_ae7b712a9de04c5370150e04bf0ddce45}{Equip\+Augment}} (\mbox{\hyperlink{class_inventory_item}{Inventory\+Item}} augment\+Item)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_inventory_slot}{Inventory\+Slot} class. An inventory\+Slot contains an item, if it has a child. Which is then the item it contains. Uses Godots internal \+\_\+\+Can\+Drop\+Data and \+\_\+\+Drop\+Data function to handle the drag and drop logic 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_inventory_slot_aada95d9611a557e179e0e2748a6b37ae}\index{InventorySlot@{InventorySlot}!\_CanDropData@{\_CanDropData}}
+\index{\_CanDropData@{\_CanDropData}!InventorySlot@{InventorySlot}}
+\doxysubsubsection{\texorpdfstring{\_CanDropData()}{\_CanDropData()}}
+{\footnotesize\ttfamily \label{class_inventory_slot_aada95d9611a557e179e0e2748a6b37ae} 
+override bool Inventory\+Slot.\+\_\+\+Can\+Drop\+Data (\begin{DoxyParamCaption}\item[{Vector2}]{at\+Position}{, }\item[{Variant}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if data is an \doxylink{class_inventory_item}{Inventory\+Item} \Hypertarget{class_inventory_slot_a6aeba2378e2aa202deb70fcdb4fa9d85}\index{InventorySlot@{InventorySlot}!\_DropData@{\_DropData}}
+\index{\_DropData@{\_DropData}!InventorySlot@{InventorySlot}}
+\doxysubsubsection{\texorpdfstring{\_DropData()}{\_DropData()}}
+{\footnotesize\ttfamily \label{class_inventory_slot_a6aeba2378e2aa202deb70fcdb4fa9d85} 
+override void Inventory\+Slot.\+\_\+\+Drop\+Data (\begin{DoxyParamCaption}\item[{Vector2}]{at\+Position}{, }\item[{Variant}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reparent the \doxylink{class_inventory_item}{Inventory\+Item} to this slot. Incease there was another \doxylink{class_inventory_item}{Inventory\+Item} in the slot, they switch places \Hypertarget{class_inventory_slot_ae7b712a9de04c5370150e04bf0ddce45}\index{InventorySlot@{InventorySlot}!EquipAugment@{EquipAugment}}
+\index{EquipAugment@{EquipAugment}!InventorySlot@{InventorySlot}}
+\doxysubsubsection{\texorpdfstring{EquipAugment()}{EquipAugment()}}
+{\footnotesize\ttfamily \label{class_inventory_slot_ae7b712a9de04c5370150e04bf0ddce45} 
+void Inventory\+Slot.\+Equip\+Augment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory_item}{Inventory\+Item}}}]{augment\+Item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reparent the \doxylink{class_inventory_item}{Inventory\+Item} and emit the signal Equipt\+Augment\+In\+Slot \Hypertarget{class_inventory_slot_a26738276405215567fcf084cafd072df}\index{InventorySlot@{InventorySlot}!Init@{Init}}
+\index{Init@{Init}!InventorySlot@{InventorySlot}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_inventory_slot_a26738276405215567fcf084cafd072df} 
+void Inventory\+Slot.\+Init (\begin{DoxyParamCaption}\item[{Vector2}]{min\+Size}{, }\item[{int}]{active\+Slot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Initialize the data of the \doxylink{class_inventory_slot}{Inventory\+Slot}
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Size} & determines the minimum size of the slot \\
+\hline
+{\em active} & sets \+\_\+active\+Augment\+Slot \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+The\+Magic\+Apprentice/modules/entities/player/inventory/augments/Inventory\+Slot.\+cs\end{DoxyCompactItemize}
