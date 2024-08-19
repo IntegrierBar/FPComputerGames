@@ -77,11 +77,11 @@ public partial class TestAugmentManager
         {
             if (i < amountAugmentEffects)
             {
-                AssertObject(augment._augmentEffects[i]).IsNotNull();
+                AssertObject(augment.GetAugmentEffect(i)).IsNotNull();
             }
             else
             {
-                AssertObject(augment._augmentEffects[i]).IsNull();
+                AssertObject(augment.GetAugmentEffect(i)).IsNull();
             }
         }
 
@@ -93,5 +93,48 @@ public partial class TestAugmentManager
         {
             AssertString(augment.Description).IsEmpty();
         }
+    }
+
+
+    /**
+    Test fusing of augments
+    */
+    [TestCase]
+    public void TestFuseAugments()
+    {
+        _augmentManager._Ready();
+
+        Augment target = _augmentManager.CreateRandomAugment(2);
+        Augment sacrifice = _augmentManager.CreateRandomAugment(1);
+
+        // get description of target and the effect from sacrifice
+        string targetDescriptionStart = target.Description;
+        string effectToKeepDescription = sacrifice.GetAugmentEffect(0).Description();
+        AugmentEffect effectToKeep = sacrifice.GetAugmentEffect(0);
+
+        // first check that using wrong indices does nothing
+        _augmentManager.FuseAugments(target, -1, sacrifice, 0);
+        AssertString(target.Description).IsEqual(targetDescriptionStart);
+        AssertObject(sacrifice).IsNotNull();
+
+        _augmentManager.FuseAugments(target, 0, sacrifice, -2);
+        AssertString(target.Description).IsEqual(targetDescriptionStart);
+        AssertObject(sacrifice).IsNotNull();
+
+        _augmentManager.FuseAugments(target, 2, sacrifice, 0);
+        AssertString(target.Description).IsEqual(targetDescriptionStart);
+        AssertObject(sacrifice).IsNotNull();
+
+        _augmentManager.FuseAugments(target, 1, sacrifice, 1);
+        AssertString(target.Description).IsEqual(targetDescriptionStart);
+        AssertObject(sacrifice).IsNotNull();
+
+        // now fuse the augments
+        _augmentManager.FuseAugments(target, 0, sacrifice, 0);
+        // check that augment was fused
+        AssertObject(target.GetAugmentEffect(0)).IsSame(effectToKeep);
+        AssertString(target.Description).IsNotEqual(targetDescriptionStart);
+        AssertString(target.Description).Contains(effectToKeepDescription);
+        AssertObject(sacrifice.GetAugmentEffect(0)).IsNull();
     }
 }

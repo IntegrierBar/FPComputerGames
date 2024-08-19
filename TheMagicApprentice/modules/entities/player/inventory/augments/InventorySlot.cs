@@ -50,36 +50,27 @@ public partial class InventorySlot : PanelContainer
 		System.Diagnostics.Debug.Assert(inventoryItem is not null, "Conversion to InventoryItem failed"); // I am relatively sure this should never happen. In case it ever happens, we need to have an early return for this
 
 
-		// In case there already was an inventoryItem in the slot, we need them to switch places
-		InventoryItem itemInCurrentSlot = null; // get the reference to the other item incase it exists, so that if the old slot of the item is an active slot we can equip the other item
+		// get the reference to the other item incase it exists
+		InventoryItem itemInCurrentSlot = null; 
 		if (GetChildCount() > 0)
 		{
 			itemInCurrentSlot = GetChild(0) as InventoryItem;
-			itemInCurrentSlot?.Reparent(inventoryItem.GetParent());
 		}
-		// if the old slot of the new item was an active slot, we need to equip the other item
+
+		// Get the previous slot of the item
 		InventorySlot previousSlotOfItem = inventoryItem.GetParent<InventorySlot>();
-		if (previousSlotOfItem._activeAugmentSlot >= 0)
-		{
-			previousSlotOfItem.EquipAugment(itemInCurrentSlot?.Augment); // in case itemInCurrentSlot was null, this equips null as an augment which is the same as unequiping the current augment
-		}
 
-		// If this slot is an active slot, we need to equip the new augment
-		if (_activeAugmentSlot >= 0)
-		{
-			EquipAugment(inventoryItem.Augment);
-		}
-
-		// finally reparent the new item to this slot
-		inventoryItem.Reparent(this);
+		// Equip the new item in this slot and the previous item in the other slot
+		EquipAugment(inventoryItem);
+		previousSlotOfItem.EquipAugment(itemInCurrentSlot);
     }
 
 	/**
-	Function that emits the signal EquipAugment with the index of the InventorySlot
+	Reparent the InventoryItem and emit the signal EquiptAugmentInSlot
 	*/
-	private void EquipAugment(Augment augment)
+	public void EquipAugment(InventoryItem augmentItem)
 	{
-		System.Diagnostics.Debug.Assert(_activeAugmentSlot >= 0, "Trying to equip augment in inactive slot");
-		EmitSignal(SignalName.EquipAugmentInSlot, augment, _activeAugmentSlot);
+		augmentItem?.Reparent(this);
+		EmitSignal(SignalName.EquipAugmentInSlot, augmentItem?.Augment, _activeAugmentSlot);
 	}
 }

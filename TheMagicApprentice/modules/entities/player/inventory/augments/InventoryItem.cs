@@ -44,4 +44,12 @@ public partial class InventoryItem : TextureRect
 		return this;
     }
 
+    /**
+	Rebuild the description of the Augment and set the tooltiptext
+	*/
+	public void RebuildDescription()
+	{
+		Augment.BuildDescription();
+        TooltipText = Augment.Description;
+	}
 }

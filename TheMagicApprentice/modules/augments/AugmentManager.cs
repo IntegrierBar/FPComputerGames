@@ -4,19 +4,21 @@ using System.Collections.Generic;
 
 
 /**
-This class manages all the different Augments and AugmentEffect.
+This pseudo singleton class manages all the different Augments and AugmentEffect.
 It loads all AugmentEffects at runtime and is used to automatically create a random augment with 1-3 AugmentEffects
 
 It handles all complicated parts of Augment creation.
+
+It is an autoload of the Game and thus always accessible using the static Instance member
 */
 public partial class AugmentManager : Node
 {
 
-	public static AugmentManager Instance { get; private set; }
+	public static AugmentManager Instance { get; private set; } ///< Instance of the Singleton
 
-	private List<AugmentEffect> _augmentEffects = new();
+	private List<AugmentEffect> _augmentEffects = new(); ///< List of all possible AugmentEffects
 
-	private static Random _random = new();
+	private static Random _random = new(); ///< random number generator
 	
 	/**
 	Since this node is an autoload the ready function gets called exactly ones at the start of the game.
@@ -39,14 +41,13 @@ public partial class AugmentManager : Node
 		System.Diagnostics.Debug.Assert(amountAugmentEffects > 0, "amountAugmentEffects is 0");
 
 		Augment augment = new Augment();
-		for (int i = 0; i < Math.Min(amountAugmentEffects, 3); i++) // use Math.Min to make sure we
+		for (int i = 0; i < Math.Min(amountAugmentEffects, 3); i++) // use Math.Min to make sure we dont go out of bounce
 		{
-			augment._augmentEffects[i] = SelectRandomAugmentEffect();
-			augment.Description += "\n" + augment._augmentEffects[i].Description(); // build the description of the augment
+			augment.SetAugmentEffect(i, SelectRandomAugmentEffect());
+			//augment.Description += "\n" + augment._augmentEffects[i].Description(); // build the description of the augment
 		}
 		return augment;
 	}
-
 
 	/**
 	returns a random AugmentEffect from the list of all AugmentEffects
@@ -55,6 +56,23 @@ public partial class AugmentManager : Node
 	{
 		int randomIndex = _random.Next(_augmentEffects.Count); // create random index
 		return _augmentEffects[randomIndex];
+	}
+
+	/**
+	Fuses two Augments by overriding the AugmentEffect from fuseTo with index indexEffectToKeep with the AugmentEffect from fuseFrom at position indexEffectToKeep.
+	Both target and sacrifice have to be mutable, as target gets changed and sacrifice gets deleted
+	*/
+	public void FuseAugments(Augment target, int indexEffectToOverride, Augment sacrifice, int indexEffectToKeep)
+	{
+		// if any of the indices is out of bounds do an early return
+		if (indexEffectToOverride < 0 || indexEffectToKeep < 0 || target.GetAugmentEffect(indexEffectToOverride) is null || sacrifice.GetAugmentEffect(indexEffectToKeep) is null)
+		{
+			return;
+		}
+		// change the effect
+		target.SetAugmentEffect(indexEffectToOverride, sacrifice.GetAugmentEffect(indexEffectToKeep));
+		// Remove the AugmentEffect from sacrifice. This is actually not important but more of a security
+		sacrifice.SetAugmentEffect(indexEffectToOverride, null);
 	}
 
 	/**
