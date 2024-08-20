@@ -304,13 +304,13 @@ script = ExtResource("11_wf06i")
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="CosmicBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="CosmicBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
 script = ExtResource("11_wf06i")
 MagicType = 1
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="DarkBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="DarkBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
 script = ExtResource("11_wf06i")
 BaseDamage = 31.0
 MagicType = 2
@@ -342,14 +342,14 @@ MagicType = 1
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("20_l7up7")
 
-[node name="DarkEnergyWave" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
+[node name="DarkEnergyWave" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("21_68wfp")
 BaseDamage = 5.0
 MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("22_vkran")
 
-[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
+[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("23_jr77b")
 BaseDamage = 40.0
 MagicType = 2

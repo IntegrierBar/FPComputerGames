@@ -29,7 +29,11 @@ public partial class BasicSpell : Spell
 		LookAt(targetPosition); // make spell look in the correct direction
 
 		// change the color depending on the magic type
-		Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
+		AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		String animations_name = EntityTypeHelper.GetMagicTypeAsString(_attack.magicType) + "_basic_spell";
+		sprite.Play(animations_name);
+
+		/*Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
 		switch (_attack.magicType)
 		{
 			case MagicType.SUN:
@@ -47,7 +51,7 @@ public partial class BasicSpell : Spell
 				sprite.Modulate = new Color("BLACK");
 				break;
 			}
-		}
+		}*/
 	}
 
 	/**

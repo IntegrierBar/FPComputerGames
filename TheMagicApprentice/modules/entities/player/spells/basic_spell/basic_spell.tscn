@@ -1,10 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg4jmwx6relk0"]
+[gd_scene load_steps=14 format=3 uid="uid://bg4jmwx6relk0"]
 
 [ext_resource type="Script" path="res://modules/entities/player/spells/basic_spell/BasicSpell.cs" id="1_p4fnx"]
 [ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/basic_spell/basic_spell.png" id="2_2rdec"]
+[ext_resource type="Texture2D" uid="uid://bvgwuqdrmpwq2" path="res://assets/Entities/Projectiles/cosmic_projectile_basic_spell2.png" id="3_70jwc"]
+[ext_resource type="Texture2D" uid="uid://cwnasm1uv4k38" path="res://assets/Entities/Projectiles/dark_projectile_basic_spell2.png" id="4_rh8f5"]
+[ext_resource type="Texture2D" uid="uid://ptjqaec06l8j" path="res://assets/Entities/Projectiles/sun_projectile_basic_spell2.png" id="5_yb1rt"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_82ati"]
-radius = 16.0312
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjaud"]
+size = Vector2(88, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64q1p"]
+atlas = ExtResource("3_70jwc")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6kgy"]
+atlas = ExtResource("3_70jwc")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oags"]
+atlas = ExtResource("4_rh8f5")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc7u2"]
+atlas = ExtResource("4_rh8f5")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnqna"]
+atlas = ExtResource("5_yb1rt")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6u83"]
+atlas = ExtResource("5_yb1rt")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3e624"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64q1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6kgy")
+}],
+"loop": true,
+"name": &"cosmic_basic_spell",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oags")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc7u2")
+}],
+"loop": true,
+"name": &"dark_basic_spell",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnqna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6u83")
+}],
+"loop": true,
+"name": &"sun_basic_spell",
+"speed": 5.0
+}]
 
 [node name="BasicSpell" type="Area2D"]
 modulate = Color(1, 1, 1, 0.784314)
@@ -14,9 +77,17 @@ collision_mask = 5
 script = ExtResource("1_p4fnx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_82ati")
+position = Vector2(40, -4)
+shape = SubResource("RectangleShape2D_vjaud")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_2rdec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, -8)
+scale = Vector2(5.4375, 5.4375)
+sprite_frames = SubResource("SpriteFrames_3e624")
+animation = &"sun_basic_spell"
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
