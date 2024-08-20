@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['gdunit4csharpapi_0',['GdUnit4CSharpApi',['../da/dcf/class_gd_unit4_c_sharp_api.html',1,'']]]
+  ['flatdamageforonetype_0',['FlatDamageForOneType',['../d9/d41/class_flat_damage_for_one_type.html',1,'']]],
+  ['flatdamageforspellslot_1',['FlatDamageForSpellSlot',['../d4/d8f/class_flat_damage_for_spell_slot.html',1,'']]]
 ];

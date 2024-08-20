@@ -1,0 +1,18 @@
+<map id="Slime" name="Slime">
+<area shape="rect" id="Node000001" title=" " alt="" coords="264,864,491,1237"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,123,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,89,79,204,100,362,134,541,158,632,186,719,223,802,266,882,262,884,218,804,182,721,153,633,129,543,94,363,74,204,64,90"/>
+<area shape="rect" id="Node000005" href="$d0/d8b/class_state.html" title=" " alt="" coords="192,139,397,384"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="101,73,182,149,178,153,97,76"/>
+<area shape="rect" id="Node000003" href="$d4/dd0/class_state_machine.html" title=" " alt="" coords="197,464,393,720"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="309,720,327,840,328,847,323,848,321,840,304,720"/>
+<area shape="rect" id="Node000004" href="$dc/d8f/class_node.html" title=" " alt="" coords="151,5,195,75"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="170,89,165,149,163,223,168,304,183,383,196,424,214,463,210,465,191,426,177,385,163,305,158,224,160,149,164,89"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="201,86,230,138,225,140,197,89"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="297,384,297,448,292,448,292,384"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="310,5,418,75"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="403,73,418,98,436,167,446,256,449,358,447,466,433,677,419,840,418,847,413,847,413,840,428,676,441,465,443,358,440,256,431,168,414,100,399,76"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="351,75,342,100,334,123,329,121,336,98,346,73"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="472,557,509,627"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="490,627,479,723,456,841,454,849,449,847,451,839,473,723,485,626"/>
+</map>

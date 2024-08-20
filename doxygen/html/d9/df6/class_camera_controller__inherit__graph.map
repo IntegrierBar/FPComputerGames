@@ -1,0 +1,5 @@
+<map id="CameraController" name="CameraController">
+<area shape="rect" id="Node000001" title="This class controls the camera in the game." alt="" coords="5,123,161,272"/>
+<area shape="rect" id="Node000002" href="$db/dd8/class_camera2_d.html" title=" " alt="" coords="45,5,121,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,90,86,123,81,123,81,90"/>
+</map>

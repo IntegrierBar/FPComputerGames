@@ -1,0 +1,7 @@
+<map id="ShootingAttackProjectileHandler" name="ShootingAttackProjectileHandler">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,139,209,331"/>
+<area shape="rect" id="Node000002" href="$dc/d8f/class_node.html" title=" " alt="" coords="56,5,100,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,89,96,138,90,139,83,90"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="125,5,151,75"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,75,128,122,122,122,130,74"/>
+</map>

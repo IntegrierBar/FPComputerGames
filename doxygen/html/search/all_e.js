@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['rangedattack_0',['RangedAttack',['../d8/d29/class_ranged_attack.html',1,'']]],
-  ['room1_1',['Room1',['../d2/df4/class_room1.html',1,'']]],
-  ['roomentrance_2',['RoomEntrance',['../d9/dd3/class_room_entrance.html',1,'']]],
-  ['roomexit_3',['RoomExit',['../d7/d0c/class_room_exit.html',1,'']]],
-  ['roomhandler_4',['RoomHandler',['../d5/dc9/class_room_handler.html',1,'']]],
-  ['roominitializedeventhandler_5',['RoomInitializedEventHandler',['../d5/dc9/class_room_handler.html#a625e58928169ec45bbed20493c5b65d6',1,'RoomHandler']]]
+  ['onareaentered_0',['OnAreaEntered',['../d6/df9/class_basic_spell.html#aaaeb5a2e3a894eec3dce802acfbd8eb9',1,'BasicSpell.OnAreaEntered()'],['../d9/d51/class_dark_energy_wave.html#ab7581b139a640f14501e71e1f172348e',1,'DarkEnergyWave.OnAreaEntered()'],['../d8/d0d/class_spell.html#a5530a0ad9b822ce8e3f3ee2d0d7eca9b',1,'Spell.OnAreaEntered()'],['../d7/d8d/class_star.html#a986fa1e414df0421929346fb9796481c',1,'Star.OnAreaEntered()'],['../d6/d93/class_sun.html#ac0fd364d9fa66e4bf489ed321c241b15',1,'Sun.OnAreaEntered()'],['../dd/dff/class_melee_attack_hurt_box.html#a853a2a5985c7874ee4d9057e191b2c76',1,'MeleeAttackHurtBox.OnAreaEntered()'],['../d8/d29/class_ranged_attack.html#a9098850d57a15e7e2a047713583df4cf',1,'RangedAttack.OnAreaEntered()'],['../d8/d3e/class_hurt_box_charge_attack.html#a71dfce88abfa07788afcdb743eff8b34',1,'HurtBoxChargeAttack.OnAreaEntered()'],['../dd/daa/class_hurt_box_stomping_attack.html#a4e2fc3209cab259c4e1f81809552689f',1,'HurtBoxStompingAttack.OnAreaEntered()'],['../de/dbf/class_shooting_attack_projectile.html#ac0595a3c13e5e078a3a0649fcc8840f3',1,'ShootingAttackProjectile.OnAreaEntered()']]],
+  ['onbodyentered_1',['OnBodyEntered',['../d6/df9/class_basic_spell.html#aa0f71fd7023e68626d067f830bd38310',1,'BasicSpell.OnBodyEntered()'],['../d7/d8d/class_star.html#ad91d9d81348ee230909b5262b6d8ad4a',1,'Star.OnBodyEntered()'],['../d8/d29/class_ranged_attack.html#aeb288ef116419026dfa4cdc1a68a17cb',1,'RangedAttack.OnBodyEntered()'],['../de/dbf/class_shooting_attack_projectile.html#a1f166a7ccae27924aa495cadbd4a16f6',1,'ShootingAttackProjectile.OnBodyEntered()']]],
+  ['oncast_2',['OnCast',['../d5/d92/class_increased_radius_of_spell.html#a7060ed022413ebf36af2d920aadb43d4',1,'IncreasedRadiusOfSpell.OnCast()'],['../d0/d68/class_increase_duration_of_spell.html#afa1a338a45fe325a3c97190c1e31fe6c',1,'IncreaseDurationOfSpell.OnCast()'],['../d8/d16/class_on_cast_augment_effect.html#a00ce6a265d9f9d647cddd415c57048a6',1,'OnCastAugmentEffect.OnCast()']]],
+  ['oncastaugmenteffect_3',['OnCastAugmentEffect',['../d8/d16/class_on_cast_augment_effect.html',1,'']]],
+  ['oncastaugmenteffect_2ecs_4',['OnCastAugmentEffect.cs',['../d6/daf/_on_cast_augment_effect_8cs.html',1,'']]],
+  ['ondeath_5',['OnDeath',['../d4/dd0/class_state_machine.html#aeb23b9e30aebc86d53f6cbf70095b7a2',1,'StateMachine']]],
+  ['ontimertimeout_6',['OnTimerTimeout',['../d7/dca/class_healthbar.html#a734cc2f0e5f3160e9fce8c6435af0c60',1,'Healthbar.OnTimerTimeout()'],['../dd/daa/class_hurt_box_stomping_attack.html#a646feb9d823a1bd8007bd7596371380e',1,'HurtBoxStompingAttack.OnTimerTimeout()']]],
+  ['openaugmentinventory_7',['OpenAugmentInventory',['../d8/d53/class_player.html#af998eae07f4ae1a6617a7ba7a676ead1',1,'Player']]],
+  ['optionbutton_8',['OptionButton',['../df/d33/class_option_button.html',1,'']]]
 ];

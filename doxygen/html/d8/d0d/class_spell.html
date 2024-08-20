@@ -95,18 +95,13 @@ $(function(){ initResizable(false); });
 <div class="dynheader">
 Inheritance diagram for Spell:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../d8/d0d/class_spell.png" usemap="#Spell_map" alt=""/>
-  <map id="Spell_map" name="Spell_map">
-<area href="../../d6/df9/class_basic_spell.html" alt="BasicSpell" shape="rect" coords="0,112,112,136"/>
-<area href="../../db/d1b/class_black_hole.html" alt="BlackHole" shape="rect" coords="122,112,234,136"/>
-<area href="../../d9/d51/class_dark_energy_wave.html" alt="DarkEnergyWave" shape="rect" coords="244,112,356,136"/>
-<area href="../../df/d1e/class_moon_light.html" alt="MoonLight" shape="rect" coords="366,112,478,136"/>
-<area href="../../d7/d8d/class_star.html" alt="Star" shape="rect" coords="488,112,600,136"/>
-<area href="../../d6/d93/class_sun.html" alt="Sun" shape="rect" coords="610,112,722,136"/>
-<area href="../../d5/d00/class_sun_beam.html" alt="SunBeam" shape="rect" coords="732,112,844,136"/>
-  </map>
-</div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d1/d2e/class_spell__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for Spell:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dc/db4/class_spell__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -116,27 +111,24 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4b3330b53bc8349e53b4e759ee18bd9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2741a6b003367c7399bdbb5774847f1d" id="r_a2741a6b003367c7399bdbb5774847f1d"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2741a6b003367c7399bdbb5774847f1d">_PhysicsProcess</a> (double delta)</td></tr>
 <tr class="separator:a2741a6b003367c7399bdbb5774847f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5530a0ad9b822ce8e3f3ee2d0d7eca9b" id="r_a5530a0ad9b822ce8e3f3ee2d0d7eca9b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5530a0ad9b822ce8e3f3ee2d0d7eca9b">OnAreaEntered</a> (Area2D area)</td></tr>
+<tr class="memitem:a5530a0ad9b822ce8e3f3ee2d0d7eca9b" id="r_a5530a0ad9b822ce8e3f3ee2d0d7eca9b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5530a0ad9b822ce8e3f3ee2d0d7eca9b">OnAreaEntered</a> (<a class="el" href="../../dc/df8/class_area2_d.html">Area2D</a> area)</td></tr>
 <tr class="separator:a5530a0ad9b822ce8e3f3ee2d0d7eca9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad61d19b3d1cf06364672446a4445f125" id="r_ad61d19b3d1cf06364672446a4445f125"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad61d19b3d1cf06364672446a4445f125">GetTimeUntilDeleteion</a> ()</td></tr>
 <tr class="separator:ad61d19b3d1cf06364672446a4445f125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a29ef662c6d505751adfcce7bc3350b56" id="r_a29ef662c6d505751adfcce7bc3350b56"><td class="memItemLeft" align="right" valign="top"><a id="a29ef662c6d505751adfcce7bc3350b56" name="a29ef662c6d505751adfcce7bc3350b56"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>MaxLifeTimeInSeconds</b> = 5.0</td></tr>
-<tr class="memdesc:a29ef662c6d505751adfcce7bc3350b56"><td class="mdescLeft">&#160;</td><td class="mdescRight">How long the spell exists at maximum until it is removed from the world. <br /></td></tr>
+<tr class="memitem:a29ef662c6d505751adfcce7bc3350b56" id="r_a29ef662c6d505751adfcce7bc3350b56"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29ef662c6d505751adfcce7bc3350b56">MaxLifeTimeInSeconds</a> = 5.0</td></tr>
+<tr class="memdesc:a29ef662c6d505751adfcce7bc3350b56"><td class="mdescLeft">&#160;</td><td class="mdescRight">How long the spell exists at maximum until it is removed from the world, can be changed for every spell in the godot editior.  <br /></td></tr>
 <tr class="separator:a29ef662c6d505751adfcce7bc3350b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0ecea63d7f88662bd4bd048a628cce2" id="r_ad0ecea63d7f88662bd4bd048a628cce2"><td class="memItemLeft" align="right" valign="top"><a id="ad0ecea63d7f88662bd4bd048a628cce2" name="ad0ecea63d7f88662bd4bd048a628cce2"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>_timeLeftUntilDeletion</b></td></tr>
-<tr class="memdesc:ad0ecea63d7f88662bd4bd048a628cce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time left until deletion. <br /></td></tr>
+<tr class="memitem:ad0ecea63d7f88662bd4bd048a628cce2" id="r_ad0ecea63d7f88662bd4bd048a628cce2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0ecea63d7f88662bd4bd048a628cce2">_timeLeftUntilDeletion</a></td></tr>
+<tr class="memdesc:ad0ecea63d7f88662bd4bd048a628cce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time left until deletion.  <br /></td></tr>
 <tr class="separator:ad0ecea63d7f88662bd4bd048a628cce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a255c0df3a74c476ac74bd42cbd667bf8" id="r_a255c0df3a74c476ac74bd42cbd667bf8"><td class="memItemLeft" align="right" valign="top"><a id="a255c0df3a74c476ac74bd42cbd667bf8" name="a255c0df3a74c476ac74bd42cbd667bf8"></a>
-<a class="el" href="../../d9/db7/class_attack.html">Attack</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_attack</b></td></tr>
-<tr class="memdesc:a255c0df3a74c476ac74bd42cbd667bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains damage, type and caster reference for damage calculation. <br /></td></tr>
+<tr class="memitem:a255c0df3a74c476ac74bd42cbd667bf8" id="r_a255c0df3a74c476ac74bd42cbd667bf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/db7/class_attack.html">Attack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a255c0df3a74c476ac74bd42cbd667bf8">_attack</a></td></tr>
+<tr class="memdesc:a255c0df3a74c476ac74bd42cbd667bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains damage, type and caster reference for damage calculation.  <br /></td></tr>
 <tr class="separator:a255c0df3a74c476ac74bd42cbd667bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -269,7 +261,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">virtual void Spell.OnAreaEntered </td>
           <td>(</td>
-          <td class="paramtype">Area2D</td>          <td class="paramname"><span class="paramname"><em>area</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../dc/df8/class_area2_d.html">Area2D</a></td>          <td class="paramname"><span class="paramname"><em>area</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -281,12 +273,69 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Default implementation of the OnAreaEntered method for all Spells Simply checks if the area is a <a class="el" href="../../d1/da7/class_health_component.html">HealthComponent</a> and calls TakeDamage(). </p>
 
-<p>Reimplemented in <a class="el" href="../../d6/df9/class_basic_spell.html#aaaeb5a2e3a894eec3dce802acfbd8eb9">BasicSpell</a>, <a class="el" href="../../d9/d51/class_dark_energy_wave.html#ab7581b139a640f14501e71e1f172348e">DarkEnergyWave</a>, and <a class="el" href="../../d7/d8d/class_star.html#a986fa1e414df0421929346fb9796481c">Star</a>.</p>
+<p>Reimplemented in <a class="el" href="../../d6/df9/class_basic_spell.html#aaaeb5a2e3a894eec3dce802acfbd8eb9">BasicSpell</a>, <a class="el" href="../../d9/d51/class_dark_energy_wave.html#ab7581b139a640f14501e71e1f172348e">DarkEnergyWave</a>, <a class="el" href="../../d7/d8d/class_star.html#a986fa1e414df0421929346fb9796481c">Star</a>, and <a class="el" href="../../d6/d93/class_sun.html#ac0fd364d9fa66e4bf489ed321c241b15">Sun</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a255c0df3a74c476ac74bd42cbd667bf8" name="a255c0df3a74c476ac74bd42cbd667bf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a255c0df3a74c476ac74bd42cbd667bf8">&#9670;&#160;</a></span>_attack</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/db7/class_attack.html">Attack</a> Spell._attack</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains damage, type and caster reference for damage calculation. </p>
+
+</div>
+</div>
+<a id="ad0ecea63d7f88662bd4bd048a628cce2" name="ad0ecea63d7f88662bd4bd048a628cce2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ecea63d7f88662bd4bd048a628cce2">&#9670;&#160;</a></span>_timeLeftUntilDeletion</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Spell._timeLeftUntilDeletion</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Time left until deletion. </p>
+
+</div>
+</div>
+<a id="a29ef662c6d505751adfcce7bc3350b56" name="a29ef662c6d505751adfcce7bc3350b56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29ef662c6d505751adfcce7bc3350b56">&#9670;&#160;</a></span>MaxLifeTimeInSeconds</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Spell.MaxLifeTimeInSeconds = 5.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>How long the spell exists at maximum until it is removed from the world, can be changed for every spell in the godot editior. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>TheMagicApprentice/modules/entities/player/spells/<b>Spell.cs</b></li>
+<li>TheMagicApprentice/modules/entities/player/spells/<a class="el" href="../../d8/dcd/_spell_8cs.html">Spell.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

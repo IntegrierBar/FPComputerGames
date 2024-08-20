@@ -1,0 +1,5 @@
+# dont track latex files
+doxygen/latex/
+
+# dont track xml files
+doxygen/xml

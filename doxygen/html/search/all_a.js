@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['license_20mit_0',['The MIT License (MIT)',['../d9/d78/md__the_magic_apprentice_2addons_2gut_2_l_i_c_e_n_s_e.html',1,'']]]
+  ['jumpanimationduration_0',['JumpAnimationDuration',['../d2/d94/class_slime_idle.html#aa69c6e2796eadb6873462fd4bbe00db5',1,'SlimeIdle']]]
 ];

@@ -86,23 +86,53 @@ $(function(){ initResizable(false); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../d1/dbb/class_dungeon_handler-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">DungeonHandler Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages the dungeon layout, room transitions, and player movement between rooms.  
+ <a href="#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for DungeonHandler:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../d4/d1d/class_dungeon_handler.png" alt=""/>
- </div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d2b/class_dungeon_handler__inherit__graph.svg" width="240" height="358"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for DungeonHandler:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d3d/class_dungeon_handler__coll__graph.svg" width="240" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afd5890c123c2beaccab47d6d24745bfc" id="r_afd5890c123c2beaccab47d6d24745bfc"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd5890c123c2beaccab47d6d24745bfc">_Ready</a> ()</td></tr>
 <tr class="separator:afd5890c123c2beaccab47d6d24745bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84a3642f0ae1f4e6dc19233ca14dbea8" id="r_a84a3642f0ae1f4e6dc19233ca14dbea8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84a3642f0ae1f4e6dc19233ca14dbea8">LoadDungeon</a> (<a class="el" href="../../d6/d2d/class_dungeon.html">Dungeon</a> dungeon)</td></tr>
+<tr class="separator:a84a3642f0ae1f4e6dc19233ca14dbea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a9db05fc49d1d0ef7734d3db082db8b" id="r_a8a9db05fc49d1d0ef7734d3db082db8b"><td class="memItemLeft" align="right" valign="top">Vector2I&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a9db05fc49d1d0ef7734d3db082db8b">GetCurrentRoomPosition</a> ()</td></tr>
+<tr class="separator:a8a9db05fc49d1d0ef7734d3db082db8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3566b7f4f02fda370e3914b30c965fc" id="r_ad3566b7f4f02fda370e3914b30c965fc"><td class="memItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3566b7f4f02fda370e3914b30c965fc">GetGridSize</a> ()</td></tr>
+<tr class="separator:ad3566b7f4f02fda370e3914b30c965fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28eaa299de49bd306342300a804bf378" id="r_a28eaa299de49bd306342300a804bf378"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; Vector2I, <a class="el" href="../../df/d3f/class_room.html">Room</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28eaa299de49bd306342300a804bf378">GetDungeonLayout</a> ()</td></tr>
+<tr class="separator:a28eaa299de49bd306342300a804bf378"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed54a0a2ce51a3acc9aec82b92d483df" id="r_aed54a0a2ce51a3acc9aec82b92d483df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/dc1/enums_8cs.html#adb3a5bf177ca1371d6862066772586d7">MagicType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed54a0a2ce51a3acc9aec82b92d483df">GetMagicType</a> ()</td></tr>
+<tr class="separator:aed54a0a2ce51a3acc9aec82b92d483df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:afd50dedd7d63df5d454b8d5d3dbbc4a2" id="r_afd50dedd7d63df5d454b8d5d3dbbc4a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd50dedd7d63df5d454b8d5d3dbbc4a2">MinRooms</a> = 5</td></tr>
+<tr class="memdesc:afd50dedd7d63df5d454b8d5d3dbbc4a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum number of rooms in the dungeon.  <br /></td></tr>
+<tr class="separator:afd50dedd7d63df5d454b8d5d3dbbc4a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a123c9864603b0beb89fe51d96cdc5f28" id="r_a123c9864603b0beb89fe51d96cdc5f28"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a123c9864603b0beb89fe51d96cdc5f28">MaxRooms</a> = 10</td></tr>
+<tr class="memdesc:a123c9864603b0beb89fe51d96cdc5f28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of rooms in the dungeon.  <br /></td></tr>
+<tr class="separator:a123c9864603b0beb89fe51d96cdc5f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages the dungeon layout, room transitions, and player movement between rooms. </p>
+<p>This class is responsible for handling the overall structure of the dungeon, including loading rooms, managing room transitions, and keeping track of the player's position within the dungeon. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="afd5890c123c2beaccab47d6d24745bfc" name="afd5890c123c2beaccab47d6d24745bfc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afd5890c123c2beaccab47d6d24745bfc">&#9670;&#160;</a></span>_Ready()</h2>
 
@@ -125,12 +155,185 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Called when the node is added to the scene. Initializes the player and room handler, and loads the initial room. </p>
+<p>Called when the node enters the scene tree for the first time. Initializes the dungeon, player, and room handler, and loads the initial room. </p>
+
+</div>
+</div>
+<a id="a8a9db05fc49d1d0ef7734d3db082db8b" name="a8a9db05fc49d1d0ef7734d3db082db8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a9db05fc49d1d0ef7734d3db082db8b">&#9670;&#160;</a></span>GetCurrentRoomPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2I DungeonHandler.GetCurrentRoomPosition </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Gets the current room position in the dungeon layout.</p>
+<dl class="section return"><dt>Returns</dt><dd>The current room position. </dd></dl>
+
+</div>
+</div>
+<a id="a28eaa299de49bd306342300a804bf378" name="a28eaa299de49bd306342300a804bf378"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28eaa299de49bd306342300a804bf378">&#9670;&#160;</a></span>GetDungeonLayout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dictionary&lt; Vector2I, <a class="el" href="../../df/d3f/class_room.html">Room</a> &gt; DungeonHandler.GetDungeonLayout </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Gets the entire dungeon layout.</p>
+<dl class="section return"><dt>Returns</dt><dd>A dictionary representing the dungeon layout. </dd></dl>
+
+</div>
+</div>
+<a id="ad3566b7f4f02fda370e3914b30c965fc" name="ad3566b7f4f02fda370e3914b30c965fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3566b7f4f02fda370e3914b30c965fc">&#9670;&#160;</a></span>GetGridSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2 DungeonHandler.GetGridSize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Gets the grid size of the dungeon.</p>
+<dl class="section return"><dt>Returns</dt><dd>The grid size of the dungeon. </dd></dl>
+
+</div>
+</div>
+<a id="aed54a0a2ce51a3acc9aec82b92d483df" name="aed54a0a2ce51a3acc9aec82b92d483df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed54a0a2ce51a3acc9aec82b92d483df">&#9670;&#160;</a></span>GetMagicType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/dc1/enums_8cs.html#adb3a5bf177ca1371d6862066772586d7">MagicType</a> DungeonHandler.GetMagicType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Gets the magic type of the dungeon.</p>
+<dl class="section return"><dt>Returns</dt><dd>The magic type of the dungeon. </dd></dl>
+
+</div>
+</div>
+<a id="a84a3642f0ae1f4e6dc19233ca14dbea8" name="a84a3642f0ae1f4e6dc19233ca14dbea8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84a3642f0ae1f4e6dc19233ca14dbea8">&#9670;&#160;</a></span>LoadDungeon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DungeonHandler.LoadDungeon </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d2d/class_dungeon.html">Dungeon</a></td>          <td class="paramname"><span class="paramname"><em>dungeon</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Loads a dungeon.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dungeon</td><td>The dungeon to load. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a123c9864603b0beb89fe51d96cdc5f28" name="a123c9864603b0beb89fe51d96cdc5f28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a123c9864603b0beb89fe51d96cdc5f28">&#9670;&#160;</a></span>MaxRooms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DungeonHandler.MaxRooms = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximum number of rooms in the dungeon. </p>
+
+</div>
+</div>
+<a id="afd50dedd7d63df5d454b8d5d3dbbc4a2" name="afd50dedd7d63df5d454b8d5d3dbbc4a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd50dedd7d63df5d454b8d5d3dbbc4a2">&#9670;&#160;</a></span>MinRooms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DungeonHandler.MinRooms = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Minimum number of rooms in the dungeon. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>TheMagicApprentice/modules/handlers/<b>DungeonHandler.cs</b></li>
+<li>TheMagicApprentice/modules/handlers/<a class="el" href="../../d9/da2/_dungeon_handler_8cs.html">DungeonHandler.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
