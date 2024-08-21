@@ -13,11 +13,11 @@ public partial class BasicSpell : Spell
 	[Export]
 	public float SPEED = 600; ///< Speed of the spell. Do not set to high or else it might not hit enemies
 
-	private Vector2 _direction; ///< Direction in which to spell moves
+	private Vector2 _direction; ///< Direction in which the spell moves
 
 
 	/**
-	Call after instantiating the base spell scene in order to set the Attack of the spell and change the color.
+	Call after instantiating the base spell scene in order to set the Attack of the spell and change the animation depending on the magic type.
 	*/
 	public override void Init(Attack attack, Vector2 playerPosition, Vector2 targetPosition)
 	{
@@ -33,25 +33,10 @@ public partial class BasicSpell : Spell
 		String animations_name = EntityTypeHelper.GetMagicTypeAsString(_attack.magicType) + "_basic_spell";
 		sprite.Play(animations_name);
 
-		/*Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
-		switch (_attack.magicType)
+		if (_direction.X < 0) // flip sprite vertically if the projectile flies to the left (so that down remains down in the image)
 		{
-			case MagicType.SUN:
-			{
-				sprite.Modulate = new Color("YELLOW");
-				break;
-			}
-			case MagicType.COSMIC:
-			{
-				sprite.Modulate = new Color("BLUE");
-				break;
-			}
-			default:
-			{
-				sprite.Modulate = new Color("BLACK");
-				break;
-			}
-		}*/
+			sprite.FlipV = true;
+		}
 	}
 
 	/**
