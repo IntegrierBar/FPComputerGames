@@ -36,27 +36,6 @@ public partial class RangedAttack : Area2D
 		{
 			sprite.FlipV = true;
 		}
-		/*
-		Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
-		switch (_attack.magicType) // change colour of the sprite depending on the magic type
-		{
-			case MagicType.SUN:
-			{
-				sprite.Modulate = new Color("ORANGE");
-				break;
-			}
-			case MagicType.COSMIC:
-			{
-				sprite.Modulate = new Color("CYAN");
-				break;
-			}
-			default:
-			{
-				sprite.Modulate = new Color("PURPLE");
-				break;
-			}
-		}*/
-
     }
 
 	/**
