@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpjlbco62ohco"
-path="res://.godot/imported/Unicorn_dark.png.png-da52a778a734e2553987634e3f32f0b5.ctex"
+uid="uid://b6vfx21py2s61"
+path="res://.godot/imported/dark_projectile_with_contour.png-9f21d8a97a1105c68bcbb324b2ee0166.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Unicorns/Unicorn_dark.png.png"
-dest_files=["res://.godot/imported/Unicorn_dark.png.png-da52a778a734e2553987634e3f32f0b5.ctex"]
+source_file="res://assets/Entities/Projectiles/dark_projectile_with_contour.png"
+dest_files=["res://.godot/imported/dark_projectile_with_contour.png-9f21d8a97a1105c68bcbb324b2ee0166.ctex"]
 
 [params]
 

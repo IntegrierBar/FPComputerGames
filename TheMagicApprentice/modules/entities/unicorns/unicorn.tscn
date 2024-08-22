@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dom7xfancttur"]
 
-[ext_resource type="Texture2D" uid="uid://bpjlbco62ohco" path="res://assets/Unicorns/Unicorn_dark.png.png" id="1_fw332"]
+[ext_resource type="Texture2D" uid="uid://bpjlbco62ohco" path="res://assets/Entities/Unicorns/Unicorn_dark.png.png" id="1_fw332"]
 [ext_resource type="Script" path="res://modules/entities/unicorns/Unicorn.cs" id="1_uvms1"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="2_eddt6"]
 [ext_resource type="PackedScene" uid="uid://jbflxvnkddjv" path="res://modules/entities/state_Machine.tscn" id="4_3hbvh"]
