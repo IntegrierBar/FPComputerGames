@@ -12,6 +12,7 @@ public partial class MoonLight : Spell
 	// TODO implement the boost
 	public override void Init(Attack attack, Vector2 playerPosition, Vector2 targetPosition) 
 	{
+		base.Init(attack, playerPosition, targetPosition);
 		Position = playerPosition;
 	}
 }
