@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/basic_spell/basic_spell.png" id="2_qdgch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8w71c"]
-radius = 184.003
+radius = 152.013
 
 [node name="Sun" type="Area2D"]
 modulate = Color(1, 1, 1, 0.784314)
@@ -18,5 +18,4 @@ shape = SubResource("CircleShape2D_8w71c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
-scale = Vector2(3, 3)
 texture = ExtResource("2_qdgch")

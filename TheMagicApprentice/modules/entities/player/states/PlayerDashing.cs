@@ -10,9 +10,9 @@ public partial class PlayerDashing : State
     [Export]
     public CollisionShape2D HitBox; ///< Reference of the HitBox of the player 
     [Export]
-    public double SPEED = 400; ///< Speed of the dash
+    public double SPEED = 500; ///< Speed of the dash
     [Export]
-    public double DASH_TIME = 0.3; ///< Duration of the dash 
+    public double DASH_TIME = 0.15; ///< Duration of the dash 
     private double _timeLeft = 0;
 
     

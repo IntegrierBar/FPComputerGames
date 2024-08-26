@@ -16,11 +16,17 @@ public partial class Star : Spell
 
 	
 	/**
-	Similar to BasicSpell but add a random offset to the starting position
+	Similar to BasicSpell but add a random offset to the starting position.
+	Attack contains the total damage combined of all 10 stars, so divide by 10 for individual star.
 	*/
 	public override void Init(Attack attack, Vector2 playerPosition, Vector2 targetPosition)
 	{
 		base.Init(attack, playerPosition, targetPosition);
+		_attack.damage /= 10.0;
+
+		GD.Print("damage per star is = " + _attack.damage.ToString());
+		GD.Print("type per star is = " + _attack.magicType.ToString());
+		
 
 		var rng = new RandomNumberGenerator();
 
