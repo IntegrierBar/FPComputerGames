@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc7aaxwfj2l7d"]
+[gd_scene load_steps=18 format=3 uid="uid://cc7aaxwfj2l7d"]
 
 [ext_resource type="Script" path="res://modules/ui/main_hub/MainHub.cs" id="1_pnpib"]
+[ext_resource type="Texture2D" uid="uid://dr3cjwrt78ppo" path="res://assets/UI/Mainhub/Mainhub_library.png" id="2_mjg23"]
+[ext_resource type="Texture2D" uid="uid://dcy3xf4mrqchl" path="res://assets/UI/Mainhub/Mainhub_dungeondoor.png" id="3_vg65c"]
+[ext_resource type="Texture2D" uid="uid://dg3nw32873exq" path="res://assets/UI/Mainhub/Hover_buttons/Mainhub_dungeondoor_hover.png" id="4_2aigc"]
+[ext_resource type="BitMap" uid="uid://cuv0kttqu0v1c" path="res://assets/UI/Mainhub/bitmaps/Mainhub_dungeondoor_bm.png" id="4_evtvj"]
+[ext_resource type="Texture2D" uid="uid://jktd8xk3iupp" path="res://assets/UI/Mainhub/Mainhub_librarydoor.png" id="5_ehcsp"]
+[ext_resource type="BitMap" uid="uid://c7w3vtvfndi8p" path="res://assets/UI/Mainhub/bitmaps/Mainhub_librarydoor_bm.png" id="6_v7spv"]
+[ext_resource type="Texture2D" uid="uid://b6npts6mbfaw7" path="res://assets/UI/Mainhub/Hover_buttons/Mainhub_librarydoor_hover.png" id="7_472bj"]
+[ext_resource type="Texture2D" uid="uid://bxg4eefg63yu1" path="res://assets/UI/Mainhub/Mainhub_augmentbox.png" id="7_jglxn"]
+[ext_resource type="BitMap" uid="uid://cabmpgvk8mfkr" path="res://assets/UI/Mainhub/bitmaps/Mainhub_augmentbox_bm.png" id="8_gy26a"]
+[ext_resource type="Texture2D" uid="uid://d2ktmhtig0o7b" path="res://assets/UI/Mainhub/Mainhub_backpack.png" id="9_ww0s4"]
+[ext_resource type="BitMap" uid="uid://dx1yl8beo8v5s" path="res://assets/UI/Mainhub/bitmaps/Mainhub_backpack_bm.png" id="10_8om6p"]
+[ext_resource type="Texture2D" uid="uid://btdvx4q8pys63" path="res://assets/UI/Mainhub/Hover_buttons/Mainhub_augmentbox_hover.png" id="10_75uiw"]
+[ext_resource type="Texture2D" uid="uid://bw2epjb51qysq" path="res://assets/UI/Mainhub/Hover_buttons/Mainhub_backpack_hover.png" id="10_cxk4a"]
+[ext_resource type="Texture2D" uid="uid://cf614t7rowdmy" path="res://assets/UI/Mainhub/Mainhub_bookstand.png" id="11_s1ubj"]
+[ext_resource type="BitMap" uid="uid://dvxsdaevemuxm" path="res://assets/UI/Mainhub/bitmaps/Mainhub_bookstand_bm.png" id="12_b4ysj"]
+[ext_resource type="Texture2D" uid="uid://cux58h7v65g7" path="res://assets/UI/Mainhub/Hover_buttons/Mainhub_bookstand_hover.png" id="16_jeku4"]
 
 [node name="MainHub" type="CanvasLayer"]
 script = ExtResource("1_pnpib")
@@ -14,6 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,13 +39,25 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.437613, 0.692791, 0.795814, 1)
 
-[node name="ExitButton" type="Button" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mjg23")
+expand_mode = 3
+
+[node name="ExitButtonOld" type="Button" parent="Control"]
+visible = false
 layout_mode = 1
 offset_right = 112.0
 offset_bottom = 59.0
 text = "Exit"
 
-[node name="DungeonButton" type="Button" parent="Control"]
+[node name="DungeonButtonOld" type="Button" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 837.0
 offset_top = 231.0
@@ -37,6 +66,7 @@ offset_bottom = 413.0
 text = "Dungeon"
 
 [node name="AugmentInventory" type="Button" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 210.0
 offset_top = 113.0
@@ -44,6 +74,68 @@ offset_right = 471.0
 offset_bottom = 220.0
 text = "Open Augment Inventory"
 
-[connection signal="pressed" from="Control/ExitButton" to="." method="OnExitButtonPressed"]
-[connection signal="pressed" from="Control/DungeonButton" to="." method="OnDungeonButtonPressed"]
+[node name="DungeonButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_vg65c")
+texture_hover = ExtResource("4_2aigc")
+texture_click_mask = ExtResource("4_evtvj")
+stretch_mode = 0
+
+[node name="ExitButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_ehcsp")
+texture_hover = ExtResource("7_472bj")
+texture_click_mask = ExtResource("6_v7spv")
+stretch_mode = 0
+
+[node name="AugementFuseButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_jglxn")
+texture_hover = ExtResource("10_75uiw")
+texture_click_mask = ExtResource("8_gy26a")
+stretch_mode = 0
+
+[node name="InventoryButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_ww0s4")
+texture_hover = ExtResource("10_cxk4a")
+texture_click_mask = ExtResource("10_8om6p")
+stretch_mode = 0
+
+[node name="SkillTreeButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("11_s1ubj")
+texture_hover = ExtResource("16_jeku4")
+texture_click_mask = ExtResource("12_b4ysj")
+stretch_mode = 0
+
+[connection signal="pressed" from="Control/ExitButtonOld" to="." method="OnExitButtonPressed"]
 [connection signal="pressed" from="Control/AugmentInventory" to="." method="OpenAugmentInventory"]
+[connection signal="pressed" from="Control/DungeonButton" to="." method="OnDungeonButtonPressed"]
+[connection signal="pressed" from="Control/ExitButton" to="." method="OnExitButtonPressed"]
+[connection signal="pressed" from="Control/InventoryButton" to="." method="OpenAugmentInventory"]

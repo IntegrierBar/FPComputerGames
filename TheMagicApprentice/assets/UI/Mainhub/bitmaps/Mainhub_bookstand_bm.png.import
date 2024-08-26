@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dvxsdaevemuxm"
+path="res://.godot/imported/Mainhub_bookstand_bm.png-8d4b3e400d13b34ee3a0bf5d834892db.res"
+
+[deps]
+
+source_file="res://assets/UI/Mainhub/bitmaps/Mainhub_bookstand_bm.png"
+dest_files=["res://.godot/imported/Mainhub_bookstand_bm.png-8d4b3e400d13b34ee3a0bf5d834892db.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
