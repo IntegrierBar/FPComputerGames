@@ -29,16 +29,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.437613, 0.692791, 0.795814, 1)
-
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
@@ -48,31 +38,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_mjg23")
 expand_mode = 3
-
-[node name="ExitButtonOld" type="Button" parent="Control"]
-visible = false
-layout_mode = 1
-offset_right = 112.0
-offset_bottom = 59.0
-text = "Exit"
-
-[node name="DungeonButtonOld" type="Button" parent="Control"]
-visible = false
-layout_mode = 0
-offset_left = 837.0
-offset_top = 231.0
-offset_right = 1050.0
-offset_bottom = 413.0
-text = "Dungeon"
-
-[node name="AugmentInventory" type="Button" parent="Control"]
-visible = false
-layout_mode = 0
-offset_left = 210.0
-offset_top = 113.0
-offset_right = 471.0
-offset_bottom = 220.0
-text = "Open Augment Inventory"
 
 [node name="DungeonButton" type="TextureButton" parent="Control"]
 layout_mode = 1
@@ -134,8 +99,7 @@ texture_hover = ExtResource("16_jeku4")
 texture_click_mask = ExtResource("12_b4ysj")
 stretch_mode = 0
 
-[connection signal="pressed" from="Control/ExitButtonOld" to="." method="OnExitButtonPressed"]
-[connection signal="pressed" from="Control/AugmentInventory" to="." method="OpenAugmentInventory"]
 [connection signal="pressed" from="Control/DungeonButton" to="." method="OnDungeonButtonPressed"]
 [connection signal="pressed" from="Control/ExitButton" to="." method="OnExitButtonPressed"]
+[connection signal="pressed" from="Control/AugementFuseButton" to="." method="OpenFuseAugments"]
 [connection signal="pressed" from="Control/InventoryButton" to="." method="OpenAugmentInventory"]
