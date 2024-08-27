@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_durc3")
 _magicType = 2
-_damageIncreaseFaktor = 1.05
+_damageIncreaseFaktor = 1.1

@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_63xsc")
 _slot = 1
-_flatDamageIncrease = 20.0
+_flatDamageIncrease = 15.0

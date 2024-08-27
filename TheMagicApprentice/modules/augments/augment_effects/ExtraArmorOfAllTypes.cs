@@ -9,7 +9,7 @@ AugmentEffect to increase the armor of all types
 public partial class ExtraArmorOfAllTypes : AugmentEffect
 {
     [Export]
-    private double _extraArmor = 5; ///< How much extra armor gets added to the player
+    private double _extraArmor = 7; ///< How much extra armor gets added to the player. Use 7, since then player needs all 15 slots to get 100 armor.
 
     /**
     Get the players Healthcomponent and modify it

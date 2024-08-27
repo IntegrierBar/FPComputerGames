@@ -71,7 +71,6 @@ public partial class Slime : CharacterBody2D
 	public void SetSlimeProperties(MagicType magicType, SlimeSize slimeSize, SlimeAttackRange slimeAttackRange, Vector2 slimePosition)
 	{
 		_damageValue = BaseDamage;
-		GD.Print("magic type is " + magicType.ToString());
 
 		_magicType = magicType;
 		SetArmorValues(magicType);

@@ -12,7 +12,7 @@ public partial class PercentDamageForOneType : AugmentEffect
     private MagicType _magicType = MagicType.SUN; ///< Which MagicType gets alls spells extra damage
 
     [Export]
-    private double _damageIncreaseFaktor = 1.05; ///< factor of the damage increase
+    private double _damageIncreaseFaktor = 1.1; ///< factor of the damage increase
 
     public override void Equip(SceneTree sceneTree)
     {

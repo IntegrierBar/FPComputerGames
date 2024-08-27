@@ -340,7 +340,7 @@ _spellName = 5
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("18_gloak")
 
-[node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
+[node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("19_ho7hk")
 CastTime = 0.5
 CoolDown = 1.0
@@ -353,13 +353,13 @@ _spellScene = ExtResource("20_l7up7")
 [node name="DarkEnergyWave" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("10_wplkf")
 CoolDown = 2.0
-BaseDamage = 0.0
+BaseDamage = 10.0
 MagicType = 2
 _spellName = 7
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("22_vkran")
 
-[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
+[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("10_wplkf")
 CastTime = 0.5
 CoolDown = 3.0

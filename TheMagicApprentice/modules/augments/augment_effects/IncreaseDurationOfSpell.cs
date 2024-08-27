@@ -12,7 +12,7 @@ public partial class IncreaseDurationOfSpell : OnCastAugmentEffect
     private SpellName _spellName = SpellName.BlackHole; ///< Which spell gets effected by the AugmentEffect
 
     [Export]
-    private float _durationIncreaseFactor = 1.5f; ///< factor by how much the size of the spell increases
+    private float _durationIncreaseFactor = 1.4f; ///< factor by how much the size of the spell increases
 
     /**
     Adds itself to the OnCastAugment List of the correct Inventory spell

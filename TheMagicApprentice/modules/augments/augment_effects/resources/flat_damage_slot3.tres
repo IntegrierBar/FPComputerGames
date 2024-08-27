@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_qpeah")
 _slot = 2
-_flatDamageIncrease = 20.0
+_flatDamageIncrease = 15.0

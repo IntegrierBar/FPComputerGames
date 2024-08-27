@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_lesvj")
 _spellName = 2
-_damageIncreaseFaktor = 1.1
+_damageIncreaseFaktor = 1.2

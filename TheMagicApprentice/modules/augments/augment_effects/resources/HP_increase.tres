@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_tcsh3")
-_HPIncreaseFaktor = 1.1
+_HPIncreaseFaktor = 1.2

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CastAdditionalSpell" load_steps=2 format=3 uid="uid://w2hh44ifibl4"]
+
+[ext_resource type="Script" path="res://modules/augments/augment_effects/CastAdditionalSpell.cs" id="1_4ilsp"]
+
+[resource]
+script = ExtResource("1_4ilsp")
+_castedSpell = 3
+_additionalSpell = 0
