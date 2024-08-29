@@ -319,10 +319,10 @@ MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
+[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("13_drg8x")
 CastTime = 0.7
-BaseDamage = 10.0
+BaseDamage = 80.0
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("14_qxs2i")
 

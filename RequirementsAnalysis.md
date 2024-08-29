@@ -163,7 +163,7 @@ Each skill has a damage, magic type, a duration for how long it lasts and a cool
 
 | **ID: EPS1**| **Skill: Basic Skills** |
 | --- | --- |
-| Description | Each magic type has a basic skill that consist of a colored circular projectile shot from PC in the direction of the mouse. If the projectile hits an enemy, the enemy is dealt the damage of the skill and the projectile despawns. <br> If the projectile hits a wall or structure it also despawns. |
+| Description | Each magic type has a basic skill that consist of a colored circular projectile shot from PC in the direction of the mouse. If the projectile hits an enemy, the enemy is dealt the damage of the skill and the projectile despawns, spawning some collision particles. <br> If the projectile hits a wall or structure it also despawns. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | The color of the projectile is the color of the magic type it belongs to. |
 

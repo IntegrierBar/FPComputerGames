@@ -7,6 +7,6 @@ modulate = Color(1, 1, 1, 0.666667)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_iu6rn")
-MaxLifeTimeInSeconds = 0.1
+MaxLifeTimeInSeconds = 1.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
