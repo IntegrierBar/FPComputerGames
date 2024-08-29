@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['smoothingfactor_0',['SmoothingFactor',['../d4/d3e/class_camera_controller.html#a15f05584ce243c772e7990ae46aaa20f',1,'CameraController']]]
+  ['direction_0',['Direction',['../d9/dd3/class_room_entrance.html#aa3aaa8491e9ab9f16807ff13dcb9f47a',1,'RoomEntrance.Direction'],['../d7/d0c/class_room_exit.html#ab4f8a84ef8586d89bbf973e6874a597e',1,'RoomExit.Direction']]]
 ];

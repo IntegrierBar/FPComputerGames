@@ -16,9 +16,10 @@ public partial class AugmentInventory : CanvasLayer
 	[Export]
 	private int _numberOfSlots = 10*7; ///< How many empty slots should be initialized at the start of the game
 	[Export]
-	private float _minSize = 64; ///< Minimum size of the individual InventorySlots. When changing this remember to also change custim_minimum_size of the ScrollContainer accordingly
+	private float _minSize = 64; ///< Minimum size of the individual InventorySlots. When changing this remember to also change it in all manually instanced Slots
 	private GridContainer _inactiveAugments; ///< Reference to the GridContainer Node that contains all inactive augment slot
 	private HBoxContainer _activeAugments; ///< Referennce to the HBoxContainer that containes all active augment slots
+	private HBoxContainer _fuseAugments; ///< Reference to the HBoxContainer that contains the system for fusing augments
 	
 	/**
 	Gets the Reference to the Grid and fills it with _numberOfSlots many emtpy slots and gets reference to the active augments and creates the 5 active augment slots
@@ -27,16 +28,18 @@ public partial class AugmentInventory : CanvasLayer
 	{
 		_inactiveAugments = GetNode<GridContainer>("%InactiveAugments");
 		_activeAugments = GetNode<HBoxContainer>("%ActiveAugments");
+		_fuseAugments = GetNode<HBoxContainer>("%FuseAugments");
 		System.Diagnostics.Debug.Assert(_inactiveAugments is not null, "InactiveAugments in AugmentInventory is null");
 		System.Diagnostics.Debug.Assert(_activeAugments is not null, "ActiveAugments in AugmentInventory is null");
+		System.Diagnostics.Debug.Assert(_fuseAugments is not null, "FuseAugments in AugmentInventory is null");
 
-		// create the inventory for the inactive augments
-		for (int i = 0; i < _numberOfSlots; i++)
+		// create the inventory for the inactive augments.
+		/*for (int i = 0; i < _numberOfSlots; i++)
 		{
 			var inventorySlot = new InventorySlot();
 			_inactiveAugments.AddChild(inventorySlot);
 			inventorySlot.Init(new Vector2(_minSize, _minSize), -1); // set the slots as inactive
-		}
+		}*/
 
 		// create the inventory for the active augments
 		Player player = GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player;
@@ -124,6 +127,79 @@ public partial class AugmentInventory : CanvasLayer
 		}
 
 		return emptySlot;
+	}
+
+	/**
+	Gets called when the left button of the menu is pressed.
+	Handles transition to Fuse Augments and Skill Tree
+	*/
+	public void LeftButtonPressed()
+	{
+		if (_activeAugments.IsVisibleInTree())
+		{
+			// Switch to Fuse Augment Menu
+			_activeAugments.Visible = false;
+			_fuseAugments.Visible = true;
+			GetNode<Button>("%LeftButton").Text = "Skill Tree";
+			GetNode<Button>("%RightButton").Text = "Active Augments";
+		}
+		else
+		{
+			// TODO Go to skill tree
+		}
+	}
+
+	/**
+	Gets called when right button is pressed.
+	Handles transition to Skill Tree and Active Augments
+	*/
+	public void RightButtonPressed()
+	{
+		if (_activeAugments.IsVisibleInTree())
+		{
+			// TODO Go to skill tree
+		}
+		else // _fuseAugments is currently shown
+		{
+			_activeAugments.Visible = true;
+			_fuseAugments.Visible = false;
+			GetNode<Button>("%LeftButton").Text = "Fuse Augments";
+			GetNode<Button>("%RightButton").Text = "Skill Tree";
+		}
+	}
+
+	/**
+	Fuse the currently selected Augments in the way specified by the 2 OptionButtons, using the AugmentManagers FuseAugments function.
+	*/
+	public void FuseSelectedAugments()
+	{
+		var fuseTo = GetNode<InventorySlot>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/FuseTo");
+		var fuseFrom = GetNode<InventorySlot>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/FuseFrom");
+
+		int indexEffectToOverride = GetNode<AugmentEffectSelector>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/EffectToOverride").Selected;
+		int indexEffectToKeep = GetNode<AugmentEffectSelector>("MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/FuseAugments/EffectToKeep").Selected;
+
+		// If one of the indices is less then 0 then nothing is selected, therefore we do nothing
+		if (indexEffectToOverride < 0 || indexEffectToKeep < 0)
+		{
+			return;
+		}
+		// since both indices are >= 0, something is selected, which means augments are inside the slots, therefore this is valid
+		InventoryItem fuseToItem = fuseTo.GetChild<InventoryItem>(0);
+		InventoryItem fuseFromItem = fuseFrom.GetChild<InventoryItem>(0);
+
+		// Override the effect of the augment with the selected AugmentEffect
+		AugmentManager.Instance.FuseAugments(fuseToItem.Augment, indexEffectToOverride, fuseFromItem.Augment, indexEffectToKeep);
+
+		// update item description
+		fuseToItem.RebuildDescription();
+
+		// Finally destroy the Augment from which we have taken the effect
+		fuseFromItem.QueueFree();
+		fuseFrom.EquipAugment(null); // let the slot, and thus the OptionButton, know it is empty now
+
+		// call EquipAugment even thougt it is already a child so that the OptionButton gets updated
+		fuseTo.EquipAugment(fuseToItem);
 	}
 
 	/**

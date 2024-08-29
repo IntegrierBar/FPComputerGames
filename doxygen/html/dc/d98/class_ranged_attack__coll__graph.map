@@ -1,0 +1,9 @@
+<map id="RangedAttack" name="RangedAttack">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,139,209,336"/>
+<area shape="rect" id="Node000002" href="$dc/df8/class_area2_d.html" title=" " alt="" coords="7,5,64,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,87,74,138,69,140,50,89"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="89,5,126,75"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,74,110,122,105,122,105,74"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="171,5,222,75"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="187,75,170,116,166,124,161,122,165,114,182,73"/>
+</map>

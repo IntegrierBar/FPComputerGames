@@ -94,23 +94,18 @@ $(function(){ initResizable(false); });
 <div class="dynheader">
 Inheritance diagram for State:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../d0/d8b/class_state.png" usemap="#State_map" alt=""/>
-  <map id="State_map" name="State_map">
-<area href="../../d2/df1/class_player_dashing.html" alt="PlayerDashing" shape="rect" coords="129,112,248,136"/>
-<area href="../../dc/d4c/class_player_death.html" alt="PlayerDeath" shape="rect" coords="129,168,248,192"/>
-<area href="../../d3/d9d/class_player_idle.html" alt="PlayerIdle" shape="rect" coords="129,224,248,248"/>
-<area href="../../dc/d24/class_player_moving.html" alt="PlayerMoving" shape="rect" coords="129,280,248,304"/>
-<area href="../../d4/d55/class_player_spell_casting.html" alt="PlayerSpellCasting" shape="rect" coords="129,336,248,360"/>
-<area href="../../dc/d44/class_slime_attacking.html" alt="SlimeAttacking" shape="rect" coords="129,392,248,416"/>
-<area href="../../db/d1c/class_slime_death.html" alt="SlimeDeath" shape="rect" coords="129,448,248,472"/>
-<area href="../../d2/d94/class_slime_idle.html" alt="SlimeIdle" shape="rect" coords="129,504,248,528"/>
-<area href="../../d9/dfb/class_slime_moving.html" alt="SlimeMoving" shape="rect" coords="129,560,248,584"/>
-  </map>
-</div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/d06/class_state__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for State:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/d8f/class_state__coll__graph.svg" width="330" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a27cebddea23c9ae664bbb4ab09ff9cf7" id="r_a27cebddea23c9ae664bbb4ab09ff9cf7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27cebddea23c9ae664bbb4ab09ff9cf7">CanEnter</a> ()</td></tr>
+<tr class="separator:a27cebddea23c9ae664bbb4ab09ff9cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9ff526b7a0b992ae01dd9c9ece5a882" id="r_ab9ff526b7a0b992ae01dd9c9ece5a882"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9ff526b7a0b992ae01dd9c9ece5a882">Enter</a> ()</td></tr>
 <tr class="separator:ab9ff526b7a0b992ae01dd9c9ece5a882"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae384c5d8253cc8671290231c84fdb703" id="r_ae384c5d8253cc8671290231c84fdb703"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae384c5d8253cc8671290231c84fdb703">Exit</a> ()</td></tr>
@@ -126,16 +121,42 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ada054c4f62c717b386b4fd635619c536" id="r_ada054c4f62c717b386b4fd635619c536"><td class="memItemLeft" align="right" valign="top"><a id="ada054c4f62c717b386b4fd635619c536" name="ada054c4f62c717b386b4fd635619c536"></a>
-CharacterBody2D&#160;</td><td class="memItemRight" valign="bottom"><b>Parent</b></td></tr>
-<tr class="memdesc:ada054c4f62c717b386b4fd635619c536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the parent of the scene, i.e. the entity that this state machine belongs to. <br /></td></tr>
+<tr class="memitem:ada054c4f62c717b386b4fd635619c536" id="r_ada054c4f62c717b386b4fd635619c536"><td class="memItemLeft" align="right" valign="top">CharacterBody2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada054c4f62c717b386b4fd635619c536">Parent</a></td></tr>
+<tr class="memdesc:ada054c4f62c717b386b4fd635619c536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the parent of the scene, i.e. the entity that this state machine belongs to.  <br /></td></tr>
 <tr class="separator:ada054c4f62c717b386b4fd635619c536"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abea9a45853912600dfd687fed0f12855" id="r_abea9a45853912600dfd687fed0f12855"><td class="memItemLeft" align="right" valign="top"><a id="abea9a45853912600dfd687fed0f12855" name="abea9a45853912600dfd687fed0f12855"></a>
-AnimationPlayer&#160;</td><td class="memItemRight" valign="bottom"><b>Animations</b></td></tr>
-<tr class="memdesc:abea9a45853912600dfd687fed0f12855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the AnimationPlayer of the entity. <br /></td></tr>
+<tr class="memitem:abea9a45853912600dfd687fed0f12855" id="r_abea9a45853912600dfd687fed0f12855"><td class="memItemLeft" align="right" valign="top">AnimationPlayer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abea9a45853912600dfd687fed0f12855">Animations</a></td></tr>
+<tr class="memdesc:abea9a45853912600dfd687fed0f12855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the AnimationPlayer of the entity.  <br /></td></tr>
 <tr class="separator:abea9a45853912600dfd687fed0f12855"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a27cebddea23c9ae664bbb4ab09ff9cf7" name="a27cebddea23c9ae664bbb4ab09ff9cf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27cebddea23c9ae664bbb4ab09ff9cf7">&#9670;&#160;</a></span>CanEnter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool State.CanEnter </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Called before we enter the state. Checks if we are allowed to enter the state </p>
+
+<p>Reimplemented in <a class="el" href="../../d4/d55/class_player_spell_casting.html#ab2586fa468975fc2f93cf1e4ba554bf1">PlayerSpellCasting</a>.</p>
+
+</div>
+</div>
 <a id="ab9ff526b7a0b992ae01dd9c9ece5a882" name="ab9ff526b7a0b992ae01dd9c9ece5a882"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9ff526b7a0b992ae01dd9c9ece5a882">&#9670;&#160;</a></span>Enter()</h2>
 
@@ -160,7 +181,7 @@ AnimationPlayer&#160;</td><td class="memItemRight" valign="bottom"><b>Animations
 </div><div class="memdoc">
 <p>Called everytime we enter the state </p>
 
-<p>Reimplemented in <a class="el" href="../../d2/df1/class_player_dashing.html#a80880e71431c6d8a76c51f8f7f8cb88d">PlayerDashing</a>, <a class="el" href="../../dc/d4c/class_player_death.html#a7740e464a493cb3a83f47068c15b4cdf">PlayerDeath</a>, <a class="el" href="../../d3/d9d/class_player_idle.html#a6032563645a9f9d1dd8dcb19d11316da">PlayerIdle</a>, <a class="el" href="../../d4/d55/class_player_spell_casting.html#a5612e80d4223e3b0ee844da14e256fbb">PlayerSpellCasting</a>, <a class="el" href="../../dc/d44/class_slime_attacking.html#af64f37136c4d168adedeae73aeb741d9">SlimeAttacking</a>, <a class="el" href="../../db/d1c/class_slime_death.html#a3e3d85dc1e76de3dd5f5fa2f75b6aec5">SlimeDeath</a>, and <a class="el" href="../../d9/dfb/class_slime_moving.html#ae3152b6bdea2150e938025b3cd52d408">SlimeMoving</a>.</p>
+<p>Reimplemented in <a class="el" href="../../d2/df1/class_player_dashing.html#a80880e71431c6d8a76c51f8f7f8cb88d">PlayerDashing</a>, <a class="el" href="../../dc/d4c/class_player_death.html#a7740e464a493cb3a83f47068c15b4cdf">PlayerDeath</a>, <a class="el" href="../../d3/d9d/class_player_idle.html#a6032563645a9f9d1dd8dcb19d11316da">PlayerIdle</a>, <a class="el" href="../../d4/d55/class_player_spell_casting.html#a5612e80d4223e3b0ee844da14e256fbb">PlayerSpellCasting</a>, <a class="el" href="../../dc/d44/class_slime_attacking.html#af64f37136c4d168adedeae73aeb741d9">SlimeAttacking</a>, <a class="el" href="../../db/d1c/class_slime_death.html#a3e3d85dc1e76de3dd5f5fa2f75b6aec5">SlimeDeath</a>, <a class="el" href="../../d9/dfb/class_slime_moving.html#ae3152b6bdea2150e938025b3cd52d408">SlimeMoving</a>, <a class="el" href="../../d2/da1/class_unicorn_charge_attack.html#a3520430a7b364b82732b8bce5ad03833">UnicornChargeAttack</a>, <a class="el" href="../../d0/d8c/class_unicorn_death.html#a5f417cf214f7e391933d23ee77a2d940">UnicornDeath</a>, <a class="el" href="../../d2/df5/class_unicorn_shooting_attack.html#ad8122c11f5a729ad29a30d9869b81e4f">UnicornShootingAttack</a>, <a class="el" href="../../d1/d6c/class_unicorn_stomping_attack.html#aa345f69479449d69d308e205160cb683">UnicornStompingAttack</a>, and <a class="el" href="../../dd/d3c/class_unicorn_wait.html#ad3d4ca0c6b4f3a6a2f68dcf8249f17f5">UnicornWait</a>.</p>
 
 </div>
 </div>
@@ -188,7 +209,7 @@ AnimationPlayer&#160;</td><td class="memItemRight" valign="bottom"><b>Animations
 </div><div class="memdoc">
 <p>Called everytime we exit the state </p>
 
-<p>Reimplemented in <a class="el" href="../../d2/df1/class_player_dashing.html#a774406415ed8a7a99d2f040aa992849f">PlayerDashing</a>.</p>
+<p>Reimplemented in <a class="el" href="../../d2/df1/class_player_dashing.html#a774406415ed8a7a99d2f040aa992849f">PlayerDashing</a>, <a class="el" href="../../d2/da1/class_unicorn_charge_attack.html#a5b272fad66de66aea4ec1755d8742ab6">UnicornChargeAttack</a>, and <a class="el" href="../../dd/d3c/class_unicorn_wait.html#a7b62d53d9c657ea62f8f0adccbe10bf6">UnicornWait</a>.</p>
 
 </div>
 </div>
@@ -270,7 +291,7 @@ AnimationPlayer&#160;</td><td class="memItemRight" valign="bottom"><b>Animations
 </div><div class="memdoc">
 <p>If the state is the current state this function gets called every physics update </p>
 
-<p>Reimplemented in <a class="el" href="../../d2/df1/class_player_dashing.html#ad904965c030ec98d3a1aa5e650f11d31">PlayerDashing</a>, <a class="el" href="../../dc/d4c/class_player_death.html#a692a44ccbf5b6d8f3925018a259193e0">PlayerDeath</a>, <a class="el" href="../../d3/d9d/class_player_idle.html#a0a0154ef758fea34cd1452ea7aede9e8">PlayerIdle</a>, <a class="el" href="../../dc/d24/class_player_moving.html#abf8a11ad1c2d785e5be942847874e5af">PlayerMoving</a>, <a class="el" href="../../d4/d55/class_player_spell_casting.html#aa65094abea51885e8683a2dee540f812">PlayerSpellCasting</a>, <a class="el" href="../../dc/d44/class_slime_attacking.html#a79822555f6809f6a2fface053095e526">SlimeAttacking</a>, <a class="el" href="../../db/d1c/class_slime_death.html#a92a660dc00e5187299780d5a2a17eb76">SlimeDeath</a>, <a class="el" href="../../d2/d94/class_slime_idle.html#adcbc621a550ae12a6d1fade90f73926e">SlimeIdle</a>, and <a class="el" href="../../d9/dfb/class_slime_moving.html#a8778a20a6ec5420b399a2c5a5c701eaf">SlimeMoving</a>.</p>
+<p>Reimplemented in <a class="el" href="../../d2/df1/class_player_dashing.html#ad904965c030ec98d3a1aa5e650f11d31">PlayerDashing</a>, <a class="el" href="../../dc/d4c/class_player_death.html#a692a44ccbf5b6d8f3925018a259193e0">PlayerDeath</a>, <a class="el" href="../../d3/d9d/class_player_idle.html#a0a0154ef758fea34cd1452ea7aede9e8">PlayerIdle</a>, <a class="el" href="../../dc/d24/class_player_moving.html#abf8a11ad1c2d785e5be942847874e5af">PlayerMoving</a>, <a class="el" href="../../d4/d55/class_player_spell_casting.html#aa65094abea51885e8683a2dee540f812">PlayerSpellCasting</a>, <a class="el" href="../../dc/d44/class_slime_attacking.html#a79822555f6809f6a2fface053095e526">SlimeAttacking</a>, <a class="el" href="../../db/d1c/class_slime_death.html#a92a660dc00e5187299780d5a2a17eb76">SlimeDeath</a>, <a class="el" href="../../d2/d94/class_slime_idle.html#adcbc621a550ae12a6d1fade90f73926e">SlimeIdle</a>, <a class="el" href="../../d9/dfb/class_slime_moving.html#a8778a20a6ec5420b399a2c5a5c701eaf">SlimeMoving</a>, <a class="el" href="../../d2/da1/class_unicorn_charge_attack.html#a1056752ae136783dd50f57a211dd4495">UnicornChargeAttack</a>, <a class="el" href="../../d0/d8c/class_unicorn_death.html#aac39decbf5619e803f96bbb86a365311">UnicornDeath</a>, <a class="el" href="../../d2/df5/class_unicorn_shooting_attack.html#a23fa3184ad1fdf58e76828c125ac0cf6">UnicornShootingAttack</a>, <a class="el" href="../../d1/d6c/class_unicorn_stomping_attack.html#a0d60d9be4d9331a26b2821a91b957f64">UnicornStompingAttack</a>, and <a class="el" href="../../dd/d3c/class_unicorn_wait.html#a30f85e461cf2fa0793714c3f3b0658a3">UnicornWait</a>.</p>
 
 </div>
 </div>
@@ -298,12 +319,45 @@ AnimationPlayer&#160;</td><td class="memItemRight" valign="bottom"><b>Animations
 </div><div class="memdoc">
 <p>Called in ProcessFrame. Is resposible for playing the correct animation for the state </p>
 
-<p>Reimplemented in <a class="el" href="../../d2/df1/class_player_dashing.html#a8a51000583cf0ff1c678b79ed037e63c">PlayerDashing</a>, <a class="el" href="../../dc/d24/class_player_moving.html#abac98f296d0d9fc8b0fa3bf55cd7e2f4">PlayerMoving</a>, <a class="el" href="../../dc/d44/class_slime_attacking.html#ac523bd42cd73dbdaa906a4530a7297cc">SlimeAttacking</a>, <a class="el" href="../../db/d1c/class_slime_death.html#ab90ed30a3df0548ee312224eb7189b26">SlimeDeath</a>, <a class="el" href="../../d2/d94/class_slime_idle.html#a64dbec559f5f05302e2fa1901621c0e8">SlimeIdle</a>, and <a class="el" href="../../d9/dfb/class_slime_moving.html#ad2355fd27541fed99839e55c8ad20090">SlimeMoving</a>.</p>
+<p>Reimplemented in <a class="el" href="../../d2/df1/class_player_dashing.html#a8a51000583cf0ff1c678b79ed037e63c">PlayerDashing</a>, <a class="el" href="../../dc/d24/class_player_moving.html#abac98f296d0d9fc8b0fa3bf55cd7e2f4">PlayerMoving</a>, <a class="el" href="../../dc/d44/class_slime_attacking.html#ac523bd42cd73dbdaa906a4530a7297cc">SlimeAttacking</a>, <a class="el" href="../../db/d1c/class_slime_death.html#ab90ed30a3df0548ee312224eb7189b26">SlimeDeath</a>, <a class="el" href="../../d2/d94/class_slime_idle.html#a64dbec559f5f05302e2fa1901621c0e8">SlimeIdle</a>, <a class="el" href="../../d9/dfb/class_slime_moving.html#ad2355fd27541fed99839e55c8ad20090">SlimeMoving</a>, <a class="el" href="../../d2/da1/class_unicorn_charge_attack.html#aa4b06eed1e1db792ef567514009ffb09">UnicornChargeAttack</a>, <a class="el" href="../../d0/d8c/class_unicorn_death.html#a23977172ab659ce743040311630a3fd5">UnicornDeath</a>, <a class="el" href="../../d2/df5/class_unicorn_shooting_attack.html#a770253822c6ab899949348c8878a9223">UnicornShootingAttack</a>, <a class="el" href="../../d1/d6c/class_unicorn_stomping_attack.html#a096640035b4bc3fdbdae0d74bbe337d3">UnicornStompingAttack</a>, and <a class="el" href="../../dd/d3c/class_unicorn_wait.html#ad6ff317db3031bc155fd86cb008ab6e2">UnicornWait</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="abea9a45853912600dfd687fed0f12855" name="abea9a45853912600dfd687fed0f12855"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abea9a45853912600dfd687fed0f12855">&#9670;&#160;</a></span>Animations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AnimationPlayer State.Animations</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reference to the AnimationPlayer of the entity. </p>
+
+</div>
+</div>
+<a id="ada054c4f62c717b386b4fd635619c536" name="ada054c4f62c717b386b4fd635619c536"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada054c4f62c717b386b4fd635619c536">&#9670;&#160;</a></span>Parent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CharacterBody2D State.Parent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reference to the parent of the scene, i.e. the entity that this state machine belongs to. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>TheMagicApprentice/modules/entities/<b>State.cs</b></li>
+<li>TheMagicApprentice/modules/entities/<a class="el" href="../../d6/df4/_state_8cs.html">State.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

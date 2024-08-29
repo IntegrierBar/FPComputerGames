@@ -1,0 +1,33 @@
+<map id="State" name="State">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1537,123,1743,389"/>
+<area shape="rect" id="Node000003" href="$d2/df1/class_player_dashing.html" title=" " alt="" coords="5,459,221,672"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1522,265,1228,282,1044,296,852,315,662,338,489,366,342,400,283,419,235,440,202,461,199,457,232,435,281,414,341,395,488,361,662,333,851,310,1044,291,1228,277,1522,260"/>
+<area shape="rect" id="Node000004" href="$dc/d4c/class_player_death.html" title=" " alt="" coords="246,512,450,619"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1523,268,1273,289,963,324,809,347,668,374,549,405,501,422,463,440,440,455,418,473,383,514,379,510,415,469,436,451,460,435,499,417,548,400,667,369,808,342,962,319,1272,284,1522,263"/>
+<area shape="rect" id="Node000005" href="$d3/d9d/class_player_idle.html" title=" " alt="" coords="474,491,678,640"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1523,273,1319,299,1077,336,958,359,850,384,759,411,692,440,659,464,629,493,626,489,655,460,689,435,757,406,849,379,957,354,1076,331,1319,293,1522,268"/>
+<area shape="rect" id="Node000006" href="$dc/d24/class_player_moving.html" title=" " alt="" coords="703,461,919,669"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1523,270,1395,288,1243,319,1163,342,1083,369,1005,401,932,440,899,464,896,459,929,435,1003,397,1081,364,1161,337,1241,314,1394,282,1522,264"/>
+<area shape="rect" id="Node000007" href="$d4/d55/class_player_spell_casting.html" title=" " alt="" coords="943,501,1147,629"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1524,287,1440,312,1346,345,1251,387,1162,440,1125,469,1094,503,1090,500,1122,465,1158,435,1249,383,1344,340,1438,307,1522,282"/>
+<area shape="rect" id="Node000008" href="$dc/d44/class_slime_attacking.html" title=" " alt="" coords="1172,491,1388,640"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1527,339,1464,387,1402,439,1347,493,1343,489,1398,435,1461,383,1524,335"/>
+<area shape="rect" id="Node000009" href="$db/d1c/class_slime_death.html" title=" " alt="" coords="1412,501,1628,629"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1585,404,1547,502,1542,500,1580,402"/>
+<area shape="rect" id="Node000010" href="$d2/d94/class_slime_idle.html" title=" " alt="" coords="1652,437,1868,693"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1700,402,1713,437,1708,439,1695,404"/>
+<area shape="rect" id="Node000011" href="$d9/dfb/class_slime_moving.html" title=" " alt="" coords="1892,469,2108,661"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1756,335,1819,383,1882,435,1916,468,1912,471,1878,439,1816,387,1753,339"/>
+<area shape="rect" id="Node000012" href="$d2/da1/class_unicorn_charge_attack.html" title=" " alt="" coords="2132,469,2348,661"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1758,283,1842,308,1935,341,2031,383,2122,435,2162,467,2158,471,2118,440,2029,388,1933,346,1840,313,1756,288"/>
+<area shape="rect" id="Node000013" href="$d0/d8c/class_unicorn_death.html" title=" " alt="" coords="2372,501,2588,629"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1757,264,1888,281,2043,313,2125,335,2206,363,2286,396,2361,435,2402,465,2436,500,2432,504,2398,469,2359,440,2284,401,2205,368,2123,341,2042,318,1887,287,1757,269"/>
+<area shape="rect" id="Node000014" href="$d2/df5/class_unicorn_shooting_attack.html" title=" " alt="" coords="2612,472,2828,659"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1758,254,1930,263,2035,273,2147,289,2263,313,2380,344,2494,384,2601,435,2626,451,2649,470,2645,474,2623,455,2599,440,2491,389,2378,349,2262,318,2146,295,2034,278,1930,268,1757,259"/>
+<area shape="rect" id="Node000015" href="$d1/d6c/class_unicorn_stomping_attack.html" title=" " alt="" coords="2852,461,3068,669"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="1758,263,2012,284,2328,319,2485,342,2629,369,2751,400,2801,417,2841,435,2877,459,2874,464,2839,440,2799,422,2750,405,2628,375,2484,348,2327,324,2011,289,1757,268"/>
+<area shape="rect" id="Node000016" href="$dd/d3c/class_unicorn_wait.html" title=" " alt="" coords="3092,437,3308,693"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="1758,259,2059,276,2248,290,2445,308,2640,331,2819,360,2970,394,3031,414,3081,435,3094,442,3091,447,3079,440,3029,419,2968,399,2818,365,2639,337,2445,313,2247,295,2059,281,1758,265"/>
+<area shape="rect" id="Node000002" href="$dc/d8f/class_node.html" title=" " alt="" coords="1618,5,1662,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1643,90,1643,123,1637,123,1637,90"/>
+</map>

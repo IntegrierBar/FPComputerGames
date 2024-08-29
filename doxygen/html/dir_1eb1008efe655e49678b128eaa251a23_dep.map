@@ -1,0 +1,16 @@
+<map id="TheMagicApprentice/modules/entities/player" name="TheMagicApprentice/modules/entities/player">
+<area shape="rect" id="node3" href="dir_c55a352f579b0a526b42016380cabf36.html" title="augments" alt="" coords="146,75,224,101"/>
+<area shape="rect" id="node4" href="dir_d9cb6bb8e85d238c8ec64a3b06dd5973.html" title="spells" alt="" coords="248,75,304,101"/>
+<area shape="rect" id="node6" href="dir_dcb226ae9805ff0c413e8f742896cdbb.html" title="basic_spell" alt="" coords="416,75,502,101"/>
+<area shape="rect" id="node7" href="dir_e365faeaf9537f4fe937f9f3b025f768.html" title="black_hole" alt="" coords="526,75,610,101"/>
+<area shape="rect" id="node8" href="dir_3a73279c96d703690e2452a3ed2d022e.html" title="dark_energy_wave" alt="" coords="634,75,764,101"/>
+<area shape="rect" id="node9" href="dir_0fa159ff7026e1158a5381036bdc7e26.html" title="moon_light" alt="" coords="788,75,873,101"/>
+<area shape="rect" id="node10" href="dir_a953210f17038a53b414eab9d1a83c66.html" title="star_rain" alt="" coords="896,75,968,101"/>
+<area shape="rect" id="node11" href="dir_fe0ac6033bc2a6b5976edb9a50467bd2.html" title="summon_sun" alt="" coords="992,75,1091,101"/>
+<area shape="rect" id="node12" href="dir_a73b886afa8d653c9034f4dd7d83e4ab.html" title="sun_beam" alt="" coords="1115,75,1197,101"/>
+<area shape="rect" id="node13" href="dir_eda82a2787e8bddbc4b24bd987f8617c.html" title="states" alt="" coords="1302,75,1359,101"/>
+<area shape="rect" id="clust3" href="dir_2ff82af1bff91d56946a9dd1dcb74b03.html" alt="" coords="37,64,315,112"/>
+<area shape="rect" id="clust4" href="dir_0daf681459ec114ada4bbcabd0499c28.html" alt="" coords="325,64,1208,112"/>
+<area shape="rect" id="clust2" href="dir_1eb1008efe655e49678b128eaa251a23.html" alt="" coords="27,53,1371,123"/>
+<area shape="rect" id="clust1" href="dir_990ac48b00bb3ee92e7a4c1dda9513a0.html" title="entities" alt="" coords="16,16,1381,133"/>
+</map>

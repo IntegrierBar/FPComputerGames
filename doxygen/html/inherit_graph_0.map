@@ -1,0 +1,33 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$dc/df8/class_area2_d.html" title=" " alt="" coords="5,183,71,209"/>
+<area shape="rect" id="Node000001" href="$d1/da7/class_health_component.html" title=" " alt="" coords="138,5,264,32"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="44,167,70,104,90,71,117,42,136,30,139,35,120,46,95,74,74,106,49,169"/>
+<area shape="rect" id="Node000002" href="$d8/d3e/class_hurt_box_charge_attack.html" title=" " alt="" coords="126,56,276,83"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="52,168,79,129,117,93,139,81,141,86,120,97,83,132,56,171"/>
+<area shape="rect" id="Node000003" href="$dd/daa/class_hurt_box_stomping_attack.html" title=" " alt="" coords="120,107,282,133"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="69,171,118,143,147,131,149,136,120,148,72,176"/>
+<area shape="rect" id="Node000004" href="$dd/dff/class_melee_attack_hurt_box.html" title=" " alt="" coords="130,157,272,184"/>
+<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="86,186,129,179,130,184,86,191"/>
+<area shape="rect" id="Node000005" href="$d8/d29/class_ranged_attack.html" title=" " alt="" coords="149,208,253,235"/>
+<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="86,201,149,211,148,216,85,206"/>
+<area shape="rect" id="Node000006" href="$d7/d0c/class_room_exit.html" title=" " alt="" coords="161,259,240,285"/>
+<area shape="poly" id="edge6_Node000000_Node000006" title=" " alt="" coords="72,216,120,244,162,260,160,265,118,249,69,221"/>
+<area shape="rect" id="Node000007" href="$de/dbf/class_shooting_attack_projectile.html" title=" " alt="" coords="119,309,283,336"/>
+<area shape="poly" id="edge7_Node000000_Node000007" title=" " alt="" coords="56,221,83,260,120,295,141,306,139,311,117,299,79,263,52,224"/>
+<area shape="rect" id="Node000008" href="$d8/d0d/class_spell.html" title=" " alt="" coords="176,360,226,387"/>
+<area shape="poly" id="edge8_Node000000_Node000008" title=" " alt="" coords="49,223,74,286,95,318,120,346,147,361,176,368,175,373,145,366,117,350,90,321,70,288,44,225"/>
+<area shape="rect" id="Node000009" href="$d6/df9/class_basic_spell.html" title=" " alt="" coords="351,208,434,235"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="241,365,262,358,281,346,292,334,299,322,305,297,311,271,329,245,349,231,352,236,333,249,316,273,310,299,304,324,297,337,285,350,264,363,242,370"/>
+<area shape="rect" id="Node000010" href="$db/d1b/class_black_hole.html" title=" " alt="" coords="352,259,433,285"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="240,363,282,346,296,334,305,322,314,309,329,295,350,283,353,288,333,300,318,312,309,325,300,337,284,350,242,368"/>
+<area shape="rect" id="Node000011" href="$d9/d51/class_dark_energy_wave.html" title=" " alt="" coords="331,309,454,336"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="240,360,339,334,340,339,242,365"/>
+<area shape="rect" id="Node000012" href="$df/d1e/class_moon_light.html" title=" " alt="" coords="352,360,433,387"/>
+<area shape="poly" id="edge12_Node000008_Node000012" title=" " alt="" coords="242,371,352,371,352,376,242,376"/>
+<area shape="rect" id="Node000013" href="$d7/d8d/class_star.html" title=" " alt="" coords="370,411,415,437"/>
+<area shape="poly" id="edge13_Node000008_Node000013" title=" " alt="" coords="242,381,370,416,369,421,241,386"/>
+<area shape="rect" id="Node000014" href="$d6/d93/class_sun.html" title=" " alt="" coords="370,461,415,488"/>
+<area shape="poly" id="edge14_Node000008_Node000014" title=" " alt="" coords="238,393,332,447,371,464,369,469,330,452,235,397"/>
+<area shape="rect" id="Node000015" href="$d5/d00/class_sun_beam.html" title=" " alt="" coords="354,512,432,539"/>
+<area shape="poly" id="edge15_Node000008_Node000015" title=" " alt="" coords="225,397,271,447,301,474,332,498,354,510,352,514,330,502,297,478,268,451,221,401"/>
+</map>

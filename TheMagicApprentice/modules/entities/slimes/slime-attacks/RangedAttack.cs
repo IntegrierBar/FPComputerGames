@@ -27,7 +27,17 @@ public partial class RangedAttack : Area2D
 
 		LookAt(GlobalPosition + direction); // makes attack look in the correct direction 
 
-        Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
+		// change the color depending on the magic type
+		AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		String animations_name = EntityTypeHelper.GetMagicTypeAsString(_attack.magicType) + "_projectile";
+		sprite.Play(animations_name);
+
+		if (_direction.X < 0) // flip sprite vertically if the projectile flies to the left (so that down remains down in the image)
+		{
+			sprite.FlipV = true;
+		}
+		/*
+		Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
 		switch (_attack.magicType) // change colour of the sprite depending on the magic type
 		{
 			case MagicType.SUN:
@@ -45,7 +55,7 @@ public partial class RangedAttack : Area2D
 				sprite.Modulate = new Color("PURPLE");
 				break;
 			}
-		}
+		}*/
 
     }
 

@@ -1,0 +1,34 @@
+<map id="TheMagicApprentice/modules" name="TheMagicApprentice/modules">
+<area shape="rect" id="node3" href="dir_74fedd784941cb1cf0155cd99a79d96c.html" title="augment_effects" alt="" coords="149,96,267,123"/>
+<area shape="rect" id="node5" href="dir_156164473666fa9dd456178ffedb568c.html" title="healthbar" alt="" coords="2359,96,2433,123"/>
+<area shape="rect" id="node8" href="dir_c55a352f579b0a526b42016380cabf36.html" title="augments" alt="" coords="418,96,496,123"/>
+<area shape="rect" id="node9" href="dir_d9cb6bb8e85d238c8ec64a3b06dd5973.html" title="spells" alt="" coords="520,96,576,123"/>
+<area shape="rect" id="node11" href="dir_dcb226ae9805ff0c413e8f742896cdbb.html" title="basic_spell" alt="" coords="688,96,774,123"/>
+<area shape="rect" id="node12" href="dir_e365faeaf9537f4fe937f9f3b025f768.html" title="black_hole" alt="" coords="798,96,882,123"/>
+<area shape="rect" id="node13" href="dir_3a73279c96d703690e2452a3ed2d022e.html" title="dark_energy_wave" alt="" coords="906,96,1036,123"/>
+<area shape="rect" id="node14" href="dir_0fa159ff7026e1158a5381036bdc7e26.html" title="moon_light" alt="" coords="1060,96,1145,123"/>
+<area shape="rect" id="node15" href="dir_a953210f17038a53b414eab9d1a83c66.html" title="star_rain" alt="" coords="1168,96,1240,123"/>
+<area shape="rect" id="node16" href="dir_fe0ac6033bc2a6b5976edb9a50467bd2.html" title="summon_sun" alt="" coords="1264,96,1363,123"/>
+<area shape="rect" id="node17" href="dir_a73b886afa8d653c9034f4dd7d83e4ab.html" title="sun_beam" alt="" coords="1387,96,1469,123"/>
+<area shape="rect" id="node18" href="dir_eda82a2787e8bddbc4b24bd987f8617c.html" title="states" alt="" coords="1574,96,1631,123"/>
+<area shape="rect" id="node20" href="dir_0495c8aea2979c5f036682e5f99384c4.html" title="slime&#45;attacks" alt="" coords="1748,96,1847,123"/>
+<area shape="rect" id="node21" href="dir_3bd5a531ff674e58b3c361af2e2db976.html" title="states" alt="" coords="1871,96,1929,123"/>
+<area shape="rect" id="node23" href="dir_bc3a9b89ce613ef864712371e4e9977f.html" title="states" alt="" coords="2055,96,2113,123"/>
+<area shape="rect" id="node24" href="dir_a99733535fab39a9c55ce96351976b69.html" title="unicorn&#45;attacks" alt="" coords="2137,96,2247,123"/>
+<area shape="rect" id="node25" href="dir_78c375dd3201c7692b3aa2523b5618c0.html" title="handlers" alt="" coords="3085,96,3155,123"/>
+<area shape="rect" id="node26" href="dir_d3c3fa92f43ac0a1cf1ba8523955c28d.html" title="rooms" alt="" coords="3179,96,3237,123"/>
+<area shape="rect" id="node28" href="dir_64d36a440f359ce47de67d9a3b19dbdf.html" title="main_hub" alt="" coords="2527,96,2604,123"/>
+<area shape="rect" id="node29" href="dir_224c46c823ed12776acca442898b2af7.html" title="main_menu" alt="" coords="2628,96,2716,123"/>
+<area shape="rect" id="node30" href="dir_8f5ed07e4ddeafaaf8a5bb9bb68234d9.html" title="pause_menu" alt="" coords="2740,96,2836,123"/>
+<area shape="rect" id="node31" href="dir_ed38a89b33108fadab1ee4ea55ed80cd.html" title="settings_menu" alt="" coords="2860,96,2966,123"/>
+<area shape="rect" id="clust3" href="dir_b8e661f3c57ab233c228e792e4ed88eb.html" alt="" coords="37,85,277,133"/>
+<area shape="rect" id="clust6" href="dir_2ff82af1bff91d56946a9dd1dcb74b03.html" alt="" coords="309,85,587,133"/>
+<area shape="rect" id="clust7" href="dir_0daf681459ec114ada4bbcabd0499c28.html" alt="" coords="597,85,1480,133"/>
+<area shape="rect" id="clust5" href="dir_1eb1008efe655e49678b128eaa251a23.html" alt="" coords="299,75,1643,144"/>
+<area shape="rect" id="clust8" href="dir_f9de24285a49fc94f10bddb37a744cdd.html" alt="" coords="1653,85,1940,133"/>
+<area shape="rect" id="clust9" href="dir_4fb2c7f8d5e3d0fd3f9f7230609d5cc1.html" alt="" coords="1951,85,2257,133"/>
+<area shape="rect" id="clust4" href="dir_990ac48b00bb3ee92e7a4c1dda9513a0.html" alt="" coords="288,64,2444,155"/>
+<area shape="rect" id="clust10" href="dir_d78a5f95203ed07fde1d8067b38c2eea.html" alt="" coords="2455,85,2977,133"/>
+<area shape="rect" id="clust2" href="dir_281a3971acf26abaafec632a279212ee.html" alt="" coords="27,53,3248,165"/>
+<area shape="rect" id="clust1" href="dir_ce8fda2e682f6b6fae13f74503ac4873.html" title="TheMagicApprentice" alt="" coords="16,16,3259,176"/>
+</map>

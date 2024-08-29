@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['setarmor_0',['SetArmor',['../d1/da7/class_health_component.html#a200f8213c66768d116bec11683648638',1,'HealthComponent']]],
-  ['setattack_1',['SetAttack',['../dd/dff/class_melee_attack_hurt_box.html#a843ba26fa1133464c7dfbc0733ae424c',1,'MeleeAttackHurtBox']]],
-  ['setmaxhp_2',['SetMaxHP',['../d1/da7/class_health_component.html#a7c295015964f74cb93492d818e02e667',1,'HealthComponent']]],
-  ['setslimeproperties_3',['SetSlimeProperties',['../d3/db0/class_slime.html#a624caece4bab5c444a2f90fabe9a0b35',1,'Slime']]]
+  ['menuchangedeventhandler_0',['MenuChangedEventHandler',['../d9/db2/class_menu_manager.html#a27195ed3cd893cd90c9431bc29fced15',1,'MenuManager']]],
+  ['modifyarmor_1',['ModifyArmor',['../d1/da7/class_health_component.html#a90811486fa013a5442374aa9f7f66d1e',1,'HealthComponent']]]
 ];

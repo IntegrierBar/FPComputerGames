@@ -47,6 +47,16 @@ public partial class ShootingAttackProjectile : Area2D
         _maxLifeTimeSeconds = MaxLifeTimeInSeconds;
         _direction = new Vector2(_random.RandfRange(-1, 1), _random.RandfRange(-1, 1)).Normalized(); // Start direction of the projectil is random
         _homingTimer = HomingTimer;
+
+        // change the color depending on the magic type
+		AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		String animations_name = EntityTypeHelper.GetMagicTypeAsString(_attack.magicType) + "_projectile";
+		sprite.Play(animations_name);
+
+		if (_direction.X < 0) // flip sprite vertically if the projectile flies to the left (so that down remains down in the image)
+		{
+			sprite.FlipV = true;
+		}
     }
 
 

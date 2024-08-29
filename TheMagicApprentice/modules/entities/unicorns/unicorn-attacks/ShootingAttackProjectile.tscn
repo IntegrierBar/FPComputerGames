@@ -1,10 +1,115 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm4mfwtbv0xxh"]
+[gd_scene load_steps=20 format=3 uid="uid://bm4mfwtbv0xxh"]
 
 [ext_resource type="Texture2D" uid="uid://cw4ixm7482jjb" path="res://modules/entities/slimes/slime-attacks/RangedAttack.png" id="1_1jgve"]
 [ext_resource type="Script" path="res://modules/entities/unicorns/unicorn-attacks/ShootingAttackProjectile.cs" id="1_58o2s"]
+[ext_resource type="Texture2D" uid="uid://h88yhn8j1mq5" path="res://assets/Entities/Projectiles/cosmic_projectile_with_contour.png" id="3_1vfts"]
+[ext_resource type="Texture2D" uid="uid://b6vfx21py2s61" path="res://assets/Entities/Projectiles/dark_projectile_with_contour.png" id="4_56kth"]
+[ext_resource type="Texture2D" uid="uid://djg5kdnwm1hym" path="res://assets/Entities/Projectiles/sun_projectile_with_contour.png" id="5_4rc7l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4icen"]
 radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cp5d"]
+atlas = ExtResource("3_1vfts")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjrqe"]
+atlas = ExtResource("3_1vfts")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6vey"]
+atlas = ExtResource("3_1vfts")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc1xx"]
+atlas = ExtResource("3_1vfts")
+region = Rect2(60, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flx1w"]
+atlas = ExtResource("4_56kth")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1isg"]
+atlas = ExtResource("4_56kth")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdmlq"]
+atlas = ExtResource("4_56kth")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fejs"]
+atlas = ExtResource("4_56kth")
+region = Rect2(60, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mklww"]
+atlas = ExtResource("5_4rc7l")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_780qf"]
+atlas = ExtResource("5_4rc7l")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqri6"]
+atlas = ExtResource("5_4rc7l")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uocu"]
+atlas = ExtResource("5_4rc7l")
+region = Rect2(60, 0, 20, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wt7m8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cp5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjrqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6vey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc1xx")
+}],
+"loop": true,
+"name": &"cosmic_projectile",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flx1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1isg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdmlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fejs")
+}],
+"loop": true,
+"name": &"dark_projectile",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mklww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_780qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqri6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uocu")
+}],
+"loop": true,
+"name": &"sun_projectile",
+"speed": 8.0
+}]
 
 [node name="ShootingAttackProjectile" type="Area2D"]
 collision_layer = 0
@@ -12,12 +117,20 @@ collision_mask = 3
 script = ExtResource("1_58o2s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 rotation = -1.5708
 texture = ExtResource("1_1jgve")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 0)
 shape = SubResource("CircleShape2D_4icen")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_wt7m8")
+animation = &"dark_projectile"
+frame = 3
+frame_progress = 0.648659
 
 [connection signal="area_entered" from="." to="." method="OnAreaEntered"]
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]

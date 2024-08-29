@@ -1,0 +1,19 @@
+<map id="Spell" name="Spell">
+<area shape="rect" id="Node000001" title=" " alt="" coords="625,123,830,384"/>
+<area shape="rect" id="Node000003" href="$d6/df9/class_basic_spell.html" title=" " alt="" coords="5,432,209,661"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="611,282,522,307,422,340,319,382,222,434,211,442,208,438,219,430,317,377,420,335,520,301,609,277"/>
+<area shape="rect" id="Node000004" href="$db/d1b/class_black_hole.html" title=" " alt="" coords="233,488,395,605"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="613,308,509,363,457,397,408,434,380,461,355,490,351,487,376,457,404,430,454,393,506,359,610,303"/>
+<area shape="rect" id="Node000005" href="$d9/d51/class_dark_energy_wave.html" title=" " alt="" coords="419,451,623,643"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="629,398,590,453,586,449,625,395"/>
+<area shape="rect" id="Node000006" href="$df/d1e/class_moon_light.html" title=" " alt="" coords="647,488,808,605"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="730,399,730,488,725,488,725,399"/>
+<area shape="rect" id="Node000007" href="$d7/d8d/class_star.html" title=" " alt="" coords="832,432,1036,661"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="830,395,856,431,851,434,826,398"/>
+<area shape="rect" id="Node000008" href="$d6/d93/class_sun.html" title=" " alt="" coords="1060,432,1285,661"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="845,308,947,364,1050,430,1062,438,1058,443,1047,434,944,368,842,313"/>
+<area shape="rect" id="Node000009" href="$d5/d00/class_sun_beam.html" title=" " alt="" coords="1309,488,1471,605"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="845,268,948,289,1066,321,1187,367,1245,397,1300,430,1331,456,1356,487,1352,490,1327,460,1296,434,1242,401,1184,372,1064,326,947,294,844,273"/>
+<area shape="rect" id="Node000002" href="$dc/df8/class_area2_d.html" title=" " alt="" coords="699,5,756,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="730,89,730,123,725,123,725,89"/>
+</map>

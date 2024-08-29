@@ -1,0 +1,7 @@
+<map id="UISpellSlot" name="UISpellSlot">
+<area shape="rect" id="Node000001" title="Class for the Spell Box that shows the currently active spell." alt="" coords="8,139,216,363"/>
+<area shape="rect" id="Node000002" href="$d3/dd2/class_panel_container.html" title=" " alt="" coords="5,5,107,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,88,85,138,80,140,66,90"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="131,5,205,75"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,75,149,123,144,122,157,74"/>
+</map>

@@ -41,6 +41,39 @@ public partial class TestAugments
         AssertObject(_player).IsNotNull();
     }
 
+    [AfterTest]
+	public void TearDown()
+	{
+		GD.Print("Tearing down test environment...");
+
+
+        // Manually unequip all augments. Should be unneccessarry but I am doing this to fix a bug when running tests online
+        for (int i = 0; i < 5; i++)
+        {
+            _player.UnEquipAugmentFromSlot(i);
+        }
+
+		// Clean up the scene runner
+		_mainGameScene = null;
+		_player = null;
+
+		GD.Print("Scene runner and nodes freed.");
+	}
+
+    /**
+    Quick test of Get/SetAugmentEffect 
+    */
+    [TestCase]
+    public void TestGetSetAugmentEffect()
+    {
+        Augment augment = new Augment();
+        AugmentEffect augmentEffect = new AdditionalStars(); 
+        AssertObject(augment.GetAugmentEffect(0)).IsNull();
+        augment.SetAugmentEffect(0, augmentEffect);
+        AssertObject(augment.GetAugmentEffect(0)).IsNotNull();
+        AssertObject(augment.GetAugmentEffect(1)).IsNull();
+    }
+
 
     /**
     Test equiping augments in random slots
@@ -268,7 +301,7 @@ public partial class TestAugments
     {
         InventorySpell blackHole = _player.GetTree().GetFirstNodeInGroup(Globals.BlackHoleSpellGroup) as InventorySpell;
 
-        AssertInt(blackHole.GetOnCastAugmentEffects().Count).IsZero(); // check that there are now OnCastAugmentEffects
+        AssertInt(blackHole.GetOnCastAugmentEffects().Count).OverrideFailureMessage("Initial amount of OnCastAugmentEffects is not 0").IsZero(); // check that there are now OnCastAugmentEffects
 
         // Get the size of the normal Cast BlackHole
         blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
@@ -316,7 +349,7 @@ public partial class TestAugments
     {
         InventorySpell blackHole = _player.GetTree().GetFirstNodeInGroup(Globals.BlackHoleSpellGroup) as InventorySpell;
 
-        AssertInt(blackHole.GetOnCastAugmentEffects().Count).IsZero(); // check that there are now OnCastAugmentEffects
+        AssertInt(blackHole.GetOnCastAugmentEffects().Count).OverrideFailureMessage("Initial amount of OnCastAugmentEffects is not 0").IsZero(); // check that there are now OnCastAugmentEffects
 
         // Get the size of the normal Cast BlackHole
         blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
