@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtl4wglw6wdmq"]
+[gd_scene load_steps=8 format=3 uid="uid://dtl4wglw6wdmq"]
 
 [ext_resource type="TileSet" uid="uid://b71dpx3m84qao" path="res://modules/rooms/TileSet.tres" id="1_da1mj"]
 [ext_resource type="PackedScene" uid="uid://drm2iwrvix1y1" path="res://modules/rooms/room_entrance.tscn" id="5_pfsau"]
 [ext_resource type="PackedScene" uid="uid://by7jetksgyl4p" path="res://modules/rooms/room_exit.tscn" id="6_2r4yt"]
 [ext_resource type="Script" path="res://modules/rooms/EnemySpawn.cs" id="7_15v0r"]
+[ext_resource type="Texture2D" uid="uid://dqsh6uvb331hm" path="res://modules/entities/player/spells/sun_beam/flashlight_texture.tres" id="7_72gr2"]
 [ext_resource type="PackedScene" uid="uid://cfafpfmqm8u17" path="res://modules/entities/player/player.tscn" id="8_e4t3u"]
 [ext_resource type="PackedScene" uid="uid://bg4jmwx6relk0" path="res://modules/entities/player/spells/basic_spell/basic_spell.tscn" id="9_3cf6c"]
 
@@ -81,4 +82,15 @@ color = Color(0.2193, 0.417945, 0.51, 1)
 position = Vector2(-109, -39)
 
 [node name="BasicSpell" parent="." instance=ExtResource("9_3cf6c")]
+visible = false
 position = Vector2(-286, -86)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-312, -27)
+rotation = -0.671309
+color = Color(1, 1, 0, 1)
+energy = 3.0
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = ExtResource("7_72gr2")

@@ -380,6 +380,7 @@ text = "Add Augment to Inventory"
 color = Color(0.615686, 0.572549, 0.737255, 1)
 energy = 1.3
 shadow_enabled = true
+shadow_filter = 2
 texture = ExtResource("26_vyf6c")
 
 [connection signal="pressed" from="AugmentInventory/AddAugment" to="AugmentInventory" method="AddRandomAugment"]
