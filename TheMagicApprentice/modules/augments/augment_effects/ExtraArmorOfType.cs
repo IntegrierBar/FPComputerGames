@@ -12,7 +12,7 @@ public partial class ExtraArmorOfType : AugmentEffect
     private MagicType _magicType = MagicType.SUN; ///< Type of armor we want to effect
 
     [Export]
-    private double _extraArmor = 10; ///< How much armor gets added
+    private double _extraArmor = 12; ///< How much armor gets added. Use 12 so that with 9 player has over 100 Armor of the type.
 
     /**
     Get the players Healthcomponent and modify it

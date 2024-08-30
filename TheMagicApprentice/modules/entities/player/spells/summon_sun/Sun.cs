@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 /**
 The spell object of the spell summon sun.
@@ -8,11 +9,13 @@ Deals damage every tick to enemies inside its radius
 public partial class Sun : Spell
 {
 	/**
-	Positions the Sun at the mouse position
+	Positions the Sun at the mouse position.
+	Create the Attack is the dmg per second. Since damage is applied 60 times per second, we need to divide by 60
 	*/
 	public override void Init(Attack attack, Vector2 playerPosition, Vector2 targetPosition) 
 	{
 		base.Init(attack, playerPosition, targetPosition);
+		_attack.damage /= 60.0;
 
 		Position = targetPosition;
 	}
@@ -28,24 +31,29 @@ public partial class Sun : Spell
 		{
 			if (area is HealthComponent healthComponent)
 			{
-				double distanceToEnemySquared = (Position - healthComponent.GlobalPosition).LengthSquared(); // use squared distance since that is what physics dictate
+				double distanceToEnemySquared = (Position - healthComponent.GlobalPosition).Length(); // use squared distance since that is what physics dictate
 				healthComponent.TakeDamage(CalculateAttack(distanceToEnemySquared));
 			}
 		}
     }
 
 	/**
-	Calculate the damage depending on the squared distance to the enemy
-	TODO we might want to change this in the future for a better calculation. It probalby needs a scaling factor depending on the size of the sun
+	Calculate the damage depending on the distance to the enemy.
+	Use linear scaling since otherwise not fun.
 	*/
-	public Attack CalculateAttack(double distanceToEnemySquared)
+	public Attack CalculateAttack(double distanceToEnemy)
 	{
-		if (distanceToEnemySquared <= 1.0)
+		// TODO once the sun spell is finalized remove the calculations here and hardcode the values.
+		double radiusSun = 15.0;
+		double maximumReach = 150.0;
+		double a = 1.0/(radiusSun - maximumReach);
+		double b = - maximumReach / (radiusSun - maximumReach);
+		if (distanceToEnemy <= radiusSun) // the number here is the radius of the sun. Inside this, the enemy takes the full damage. Outside the radius scales down quadratically. TODO if sun is changed. need to change here as well
 		{
 			return _attack;
 		}
 		Attack attack = new Attack(_attack);
-		attack.damage /=  distanceToEnemySquared;
+		attack.damage *= a * distanceToEnemy + b;
 		return attack;
 	}
 

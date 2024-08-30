@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_erjn3")
 _spellName = 4
-_durationIncreaseFactor = 1.5
+_durationIncreaseFactor = 1.4

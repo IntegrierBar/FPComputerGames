@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 [Tool]
-public partial class FlashLightTextureGenerator : Sprite2D
+public partial class FlashLightTextureGenerator : PointLight2D
 {
 	[Export] public int TextureSize = 256;
 	[Export(PropertyHint.Range, "0,180")] public float BeamAngle = 38.0f;

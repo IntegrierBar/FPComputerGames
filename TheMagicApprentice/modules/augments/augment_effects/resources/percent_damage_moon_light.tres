@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_wnlg0")
 _spellName = 5
-_damageIncreaseFaktor = 1.1
+_damageIncreaseFaktor = 1.2

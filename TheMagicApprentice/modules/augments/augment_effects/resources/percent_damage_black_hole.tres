@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_qgp7y")
 _spellName = 8
-_damageIncreaseFaktor = 1.1
+_damageIncreaseFaktor = 1.2

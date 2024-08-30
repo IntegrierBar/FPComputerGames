@@ -13,7 +13,7 @@ public partial class FlatDamageForSpellSlot : AugmentEffect
     private uint _slot = 0; ///< Index of which slot gets changed
 
     [Export]
-    private double _flatDamageIncrease = 20; ///< The flat increase of the spelldamage
+    private double _flatDamageIncrease = 15; ///< The flat increase of the spelldamage
 
     public override void Equip(SceneTree sceneTree)
     {

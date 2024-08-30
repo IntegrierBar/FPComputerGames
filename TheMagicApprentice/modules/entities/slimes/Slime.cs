@@ -125,27 +125,29 @@ public partial class Slime : CharacterBody2D
 		double armorSun;
 		double armorCosmic;
 		double armorDark;
-		if (magicType == MagicType.SUN)
+		switch (magicType)
 		{
-			armorSun = 25;
-			armorCosmic = 40;
-			armorDark = 10;
-			GetNode<HealthComponent>("%HealthComponent").SetArmor(armorSun, armorCosmic, armorDark);
-		}
-		if (magicType == MagicType.COSMIC)
-		{
-			armorSun = 10;
-			armorCosmic = 25;
-			armorDark = 40;
-			GetNode<HealthComponent>("%HealthComponent").SetArmor(armorSun, armorCosmic, armorDark);
-		}
-		else // magic type dark
-		{
-			armorSun = 40;
-			armorCosmic = 10;
-			armorDark = 25;
-			GetNode<HealthComponent>("%HealthComponent").SetArmor(armorSun, armorCosmic, armorDark);
-		}
+			case MagicType.SUN: 
+				armorSun = 25;
+				armorCosmic = 50;
+				armorDark = 10;
+				GetNode<HealthComponent>("%HealthComponent").SetArmor(armorSun, armorCosmic, armorDark);
+				break;
+			
+			case MagicType.COSMIC:
+				armorSun = 10;
+				armorCosmic = 25;
+				armorDark = 50;
+				GetNode<HealthComponent>("%HealthComponent").SetArmor(armorSun, armorCosmic, armorDark);
+				break;
+			
+			case MagicType.DARK:
+				armorSun = 50;
+				armorCosmic = 10;
+				armorDark = 25;
+				GetNode<HealthComponent>("%HealthComponent").SetArmor(armorSun, armorCosmic, armorDark);
+				break;
+		} 
 	}
 
 	/**

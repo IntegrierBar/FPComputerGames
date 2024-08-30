@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_jj6o8")
 _magicType = 1
-_damageIncreaseFaktor = 1.05
+_damageIncreaseFaktor = 1.1

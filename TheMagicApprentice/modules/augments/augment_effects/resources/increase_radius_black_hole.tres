@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_0g23a")
 _spellName = 8
-_sizeIncreaseFactor = 1.1
+_sizeIncreaseFactor = 1.3

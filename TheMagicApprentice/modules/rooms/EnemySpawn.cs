@@ -24,7 +24,7 @@ public partial class EnemySpawn : Node2D
 		if (slimeInstance != null)
 		{
 			MagicType slimeMagicType;
-			if (GD.Randf() < 0.5f)
+			if (GD.Randf() < 0.25f)
 			{
 				slimeMagicType = magicType;
 			}

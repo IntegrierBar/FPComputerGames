@@ -10,15 +10,18 @@ Base class for all spells inside the inventory
 public partial class InventorySpell : Node
 {
 	[Export]
-	public double CastTime = 0.3; ///< How long it takes to cast the spell
+	public double CastTime = 0.2; ///< How long it takes to cast the spell
 	[Export]
-	public double CoolDown = 1;	///< How long until the spell can be used again
+	public double CoolDown = 0.5;	///< How long until the spell can be used again
 
 	[Export]
-	public double BaseDamage = 30; ///< base damage of the skill
+	public double BaseDamage = 60; ///< base damage of the skill
 	public double Damage; ///< actual damage of the spell
 	[Export]
 	public MagicType MagicType = MagicType.SUN; ///< Magic type of the spell
+
+	[Export]
+	public SpellName _spellName; ///< Name of the spell to cast.
 
 	private List<OnCastAugmentEffect> _onCastAugmentEffects = new List<OnCastAugmentEffect>(); 
 
@@ -36,6 +39,7 @@ public partial class InventorySpell : Node
 	*/
     public override void _Ready()
     {
+
 		// For debugging purposes make sure that the exports have been set
 		System.Diagnostics.Debug.Assert(_playerHealthComponent is not null, "_playerHealthComponent in InventorySpell is null"); 
 		System.Diagnostics.Debug.Assert(_spellScene is not null, "_spellScene in InventorySpell is null"); 
@@ -57,7 +61,10 @@ public partial class InventorySpell : Node
 				break;
 		}
 
+		// Add to the group of all InventorySpells
 		AddToGroup(Globals.InventorySpellGroup);
+		// Add the inventory spell to its group
+		AddToGroup(Globals.GetGroupNameOfSpell(_spellName));
     }
 
 

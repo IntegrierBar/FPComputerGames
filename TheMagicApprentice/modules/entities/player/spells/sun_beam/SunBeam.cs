@@ -13,6 +13,7 @@ public partial class SunBeam : Spell
 	private MeshInstance2D meshInstance;
 	private List<RayCast2D> rayCasts = new List<RayCast2D>();
 	private CollisionPolygon2D collisionPolygon;
+	private PointLight2D pointLight;
 
 	private void CreateRayCasts()
 	{
@@ -20,7 +21,7 @@ public partial class SunBeam : Spell
 		for (int i = 0; i <= BeamSegments; i++)
 		{
 			var ray = new RayCast2D();
-			ray.CollisionMask = 1; // Adjust as needed
+			ray.CollisionMask = 1 << (4 - 1);
 			AddChild(ray);
 			rayCasts.Add(ray);
 		}
@@ -30,13 +31,20 @@ public partial class SunBeam : Spell
 	{
 		base.Init(attack, playerPosition, targetPosition);
 		meshInstance = GetNode<MeshInstance2D>("MeshInstance2D");
+		pointLight = GetNode<PointLight2D>("FlashLight");
 		CreateRayCasts();
 		collisionPolygon = new CollisionPolygon2D();
 		AddChild(collisionPolygon);
 
 		GlobalPosition = playerPosition;
-
+		RotateLight(playerPosition, targetPosition);
 		CallDeferred(nameof(UpdateBeam), targetPosition);
+	}
+
+	private void RotateLight(Vector2 playerPosition, Vector2 targetPosition)
+	{
+		Vector2 direction = (targetPosition - playerPosition).Normalized();
+		pointLight.Rotation = Mathf.Atan2(direction.Y, direction.X);
 	}
 
 	private void UpdateBeam(Vector2 targetPosition)
@@ -96,10 +104,10 @@ public partial class SunBeam : Spell
 		arrays[(int)Mesh.ArrayType.Color] = colors;
 		arrays[(int)Mesh.ArrayType.Index] = indices;
 
-		var arrayMesh = new ArrayMesh();
+		/*var arrayMesh = new ArrayMesh();
 		arrayMesh.AddSurfaceFromArrays(Mesh.PrimitiveType.Triangles, arrays);
 
-		meshInstance.Mesh = arrayMesh;
+		meshInstance.Mesh = arrayMesh;*/
 	}
 
 	private void UpdateCollisionPolygon(List<Vector2> points)

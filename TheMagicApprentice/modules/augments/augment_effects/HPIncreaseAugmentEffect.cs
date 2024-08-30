@@ -9,7 +9,7 @@ AugmentEffect to increase the HP of player by percentage
 public partial class HPIncreaseAugmentEffect : AugmentEffect
 {
     [Export]
-    private double _HPIncreaseFaktor = 1.1; ///< Factor by how much the HP gets increased
+    private double _HPIncreaseFaktor = 1.2; ///< Factor by how much the HP gets increased
 
     /**
     Get the players Healthcomponent and modify it

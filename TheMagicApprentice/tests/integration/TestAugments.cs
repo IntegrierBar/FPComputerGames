@@ -44,9 +44,6 @@ public partial class TestAugments
     [AfterTest]
 	public void TearDown()
 	{
-		GD.Print("Tearing down test environment...");
-
-
         // Manually unequip all augments. Should be unneccessarry but I am doing this to fix a bug when running tests online
         for (int i = 0; i < 5; i++)
         {
@@ -56,8 +53,6 @@ public partial class TestAugments
 		// Clean up the scene runner
 		_mainGameScene = null;
 		_player = null;
-
-		GD.Print("Scene runner and nodes freed.");
 	}
 
     /**
@@ -152,24 +147,24 @@ public partial class TestAugments
         }
 
         // first make sure that moonlight is in spell1 group and star rain is not
-        InventorySpell moonLight = _player.GetTree().GetFirstNodeInGroup(Globals.MoonLightSpellGroup) as InventorySpell;
         InventorySpell starRain = _player.GetTree().GetFirstNodeInGroup(Globals.StarRainSpellGroup) as InventorySpell;
-        moonLight.AddToGroup(Globals.Spell1);
-        starRain.RemoveFromGroup(Globals.Spell1);
-        AssertBool(moonLight.IsInGroup(Globals.Spell1)).IsTrue();
-        AssertBool(starRain.IsInGroup(Globals.Spell1)).IsFalse();
+        InventorySpell moonLight = _player.GetTree().GetFirstNodeInGroup(Globals.MoonLightSpellGroup) as InventorySpell;
+        starRain.AddToGroup(Globals.Spell1);
+        moonLight.RemoveFromGroup(Globals.Spell1);
+        AssertBool(starRain.IsInGroup(Globals.Spell1)).IsTrue();
+        AssertBool(moonLight.IsInGroup(Globals.Spell1)).IsFalse();
 
         // Then equip the augment
-        EquipEffect("cast_star_rain_on_moonlight.tres");
+        EquipEffect("cast_moonlight_on_star_rain.tres");
 
         // Check if StarRain is in spell1 group
-        AssertBool(moonLight.IsInGroup(Globals.Spell1)).IsTrue();
         AssertBool(starRain.IsInGroup(Globals.Spell1)).IsTrue();
+        AssertBool(moonLight.IsInGroup(Globals.Spell1)).IsTrue();
 
         // Check that unequipping works
         _player.UnEquipAugmentFromSlot(0);
-        AssertBool(moonLight.IsInGroup(Globals.Spell1)).IsTrue();
-        AssertBool(starRain.IsInGroup(Globals.Spell1)).IsFalse();
+        AssertBool(starRain.IsInGroup(Globals.Spell1)).IsTrue();
+        AssertBool(moonLight.IsInGroup(Globals.Spell1)).IsFalse();
     }
 
 

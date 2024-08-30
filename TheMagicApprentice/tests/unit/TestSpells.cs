@@ -31,16 +31,18 @@ public class TestSpells
 	
 
 	/**
-	Test Sun CalculateAttack() function
+	Test Sun CalculateAttack() function.
+	Remeber that the damage calculated by CalculateAttack is 1/60 of the damage given to the spell
 	*/
-	[TestCase(100.0, 10.0, 10.0, TestName = "simpel numbers")]
-	[TestCase(100.0, 0.5, 100.0, TestName = "Test Mininium")]
-	[TestCase(100.0, -0.5, 100.0, TestName = "Test negative distance")]
+	[TestCase(60.0, 1.0, 1.0, TestName = "inside sun")]
+	[TestCase(60.0, 15.1, 1.0, TestName = "just in front of sun")]
+	[TestCase(60.0, 149, 0.0, TestName = "far away from sun")]
+	[TestCase(60.0, -10.0, 1.0, TestName = "negative distance")]
 	public void TestSunCalculateAttack(double damage, double distanceToEnemySquared, double finalDamage)
 	{
 		Sun sun = AutoFree(new Sun());
 		Attack attack = new Attack(damage, MagicType.SUN, null);
 		sun.Init(attack, Vector2.Zero, Vector2.Zero);
-		AssertThat(sun.CalculateAttack(distanceToEnemySquared).damage).IsEqual(finalDamage);
+		AssertThat(sun.CalculateAttack(distanceToEnemySquared).damage).IsEqualApprox(finalDamage, 1e-1);
 	}
 }

@@ -11,7 +11,7 @@ public partial class PercentDamageForOneSpell : AugmentEffect
     private SpellName _spellName = SpellName.SunBasic; ///< Name of the spell to get extra damage
 
     [Export]
-    private double _damageIncreaseFaktor = 1.1; ///< factor of the damage increase
+    private double _damageIncreaseFaktor = 1.2; ///< factor of the damage increase
 
     public override void Equip(SceneTree sceneTree)
     {

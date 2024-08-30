@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_tg563")
 _magicType = 0
-_damageIncreaseFaktor = 1.05
+_damageIncreaseFaktor = 1.1
