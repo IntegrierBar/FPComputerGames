@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=41 format=3 uid="uid://cfafpfmqm8u17"]
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryBlackHole.cs" id="23_jr77b"]
 [ext_resource type="PackedScene" uid="uid://u23ysmqaadgq" path="res://modules/entities/player/spells/black_hole/black_hole.tscn" id="24_h76h0"]
 [ext_resource type="PackedScene" uid="uid://dbtvjj0ey2g4s" path="res://modules/entities/player/inventory/augments/augment_inventory.tscn" id="25_qc2ug"]
+[ext_resource type="Texture2D" uid="uid://drnbql6ntl12h" path="res://modules/entities/light/spotlight.tres" id="26_vyf6c"]
 
 [sub_resource type="Animation" id="Animation_3syv3"]
 length = 0.001
@@ -306,20 +307,20 @@ script = ExtResource("11_wf06i")
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="CosmicBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
+[node name="CosmicBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
 script = ExtResource("11_wf06i")
 MagicType = 1
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="DarkBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
+[node name="DarkBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("11_wf06i")
 BaseDamage = 31.0
 MagicType = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
 script = ExtResource("13_drg8x")
 CastTime = 0.7
 BaseDamage = 80.0
@@ -374,5 +375,11 @@ offset_right = 1106.0
 offset_bottom = 604.0
 focus_mode = 0
 text = "Add Augment to Inventory"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.615686, 0.572549, 0.737255, 1)
+energy = 1.3
+shadow_enabled = true
+texture = ExtResource("26_vyf6c")
 
 [connection signal="pressed" from="AugmentInventory/AddAugment" to="AugmentInventory" method="AddRandomAugment"]

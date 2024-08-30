@@ -5,6 +5,7 @@ using System.Linq;
 
 public partial class SunBeam : Spell
 {
+	[Export] public Color BeamColor = new Color(1, 1, 0, 0.7f);
 	[Export] public int BeamSegments = 100;
 	[Export] public float BeamAngle = 38.0f;
 	[Export] public float MaxBeamLength = 200.0f;
@@ -80,7 +81,7 @@ public partial class SunBeam : Spell
 
 		for (int i = 0; i < vertices.Length; i++)
 		{
-			colors[i] = new Color(1, 1, 0, 0.7f); // Yellow with some transparency
+			colors[i] = BeamColor;
 		}
 
 		int index = 0;
@@ -102,60 +103,60 @@ public partial class SunBeam : Spell
 	}
 
 	private void UpdateCollisionPolygon(List<Vector2> points)
-{
-	// Create a list for the polygon points
-	var polygonPoints = new List<Vector2>();
-	
-	// Add the center point (origin of the beam)
-	polygonPoints.Add(Vector2.Zero);
-	
-	// Add all other points
-	polygonPoints.AddRange(points.GetRange(1, points.Count - 1));
-	
-	// Remove any duplicate points
-	polygonPoints = polygonPoints.Distinct().ToList();
-
-	// Ensure the polygon is convex by using a convex hull algorithm
-	polygonPoints = ConvexHull(polygonPoints);
-
-	collisionPolygon.Polygon = polygonPoints.ToArray();
-}
-
-private List<Vector2> ConvexHull(List<Vector2> points)
-{
-	if (points.Count <= 3)
-		return points;
-
-	// Sort points lexicographically
-	points.Sort((a, b) => a.X != b.X ? a.X.CompareTo(b.X) : a.Y.CompareTo(b.Y));
-
-	List<Vector2> hull = new List<Vector2>();
-
-	// Build lower hull
-	foreach (var point in points)
 	{
-		while (hull.Count >= 2 && Cross(hull[hull.Count - 2], hull[hull.Count - 1], point) <= 0)
-			hull.RemoveAt(hull.Count - 1);
-		hull.Add(point);
+		// Create a list for the polygon points
+		var polygonPoints = new List<Vector2>();
+		
+		// Add the center point (origin of the beam)
+		polygonPoints.Add(Vector2.Zero);
+		
+		// Add all other points
+		polygonPoints.AddRange(points.GetRange(1, points.Count - 1));
+		
+		// Remove any duplicate points
+		polygonPoints = polygonPoints.Distinct().ToList();
+
+		// Ensure the polygon is convex by using a convex hull algorithm
+		polygonPoints = ConvexHull(polygonPoints);
+
+		collisionPolygon.Polygon = polygonPoints.ToArray();
 	}
 
-	// Build upper hull
-	int lowerHullSize = hull.Count;
-	for (int i = points.Count - 2; i >= 0; i--)
+	private List<Vector2> ConvexHull(List<Vector2> points)
 	{
-		Vector2 point = points[i];
-		while (hull.Count > lowerHullSize && Cross(hull[hull.Count - 2], hull[hull.Count - 1], point) <= 0)
-			hull.RemoveAt(hull.Count - 1);
-		hull.Add(point);
+		if (points.Count <= 3)
+			return points;
+
+		// Sort points lexicographically
+		points.Sort((a, b) => a.X != b.X ? a.X.CompareTo(b.X) : a.Y.CompareTo(b.Y));
+
+		List<Vector2> hull = new List<Vector2>();
+
+		// Build lower hull
+		foreach (var point in points)
+		{
+			while (hull.Count >= 2 && Cross(hull[hull.Count - 2], hull[hull.Count - 1], point) <= 0)
+				hull.RemoveAt(hull.Count - 1);
+			hull.Add(point);
+		}
+
+		// Build upper hull
+		int lowerHullSize = hull.Count;
+		for (int i = points.Count - 2; i >= 0; i--)
+		{
+			Vector2 point = points[i];
+			while (hull.Count > lowerHullSize && Cross(hull[hull.Count - 2], hull[hull.Count - 1], point) <= 0)
+				hull.RemoveAt(hull.Count - 1);
+			hull.Add(point);
+		}
+
+		hull.RemoveAt(hull.Count - 1);  // Last point is the same as the first one
+
+		return hull;
 	}
 
-	hull.RemoveAt(hull.Count - 1);  // Last point is the same as the first one
-
-	return hull;
-}
-
-private float Cross(Vector2 o, Vector2 a, Vector2 b)
-{
-	return (a.X - o.X) * (b.Y - o.Y) - (a.Y - o.Y) * (b.X - o.X);
-}
+	private float Cross(Vector2 o, Vector2 a, Vector2 b)
+	{
+		return (a.X - o.X) * (b.Y - o.Y) - (a.Y - o.Y) * (b.X - o.X);
+	}
 }

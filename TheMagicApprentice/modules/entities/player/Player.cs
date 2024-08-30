@@ -146,14 +146,14 @@ public partial class Player : CharacterBody2D
 
 		// This is a little bit ugly, but it works
 		// loop over all spell groups, keep the first spell and remove all others
-        foreach (var spellGroup in new string[3] {Globals.Spell1, Globals.Spell2, Globals.Spell3})
-        {
-            var spellsInSpellGroup = GetTree().GetNodesInGroup(spellGroup);
+		foreach (var spellGroup in new string[3] {Globals.Spell1, Globals.Spell2, Globals.Spell3})
+		{
+			var spellsInSpellGroup = GetTree().GetNodesInGroup(spellGroup);
 			for (int i = 1; i < spellsInSpellGroup.Count; i++) // start index at 1 since we want to keep the first node
 			{
 				spellsInSpellGroup[i].RemoveFromGroup(spellGroup); // remove from the spell Group
 			}
-        }
+		}
 	}
 
 	/**

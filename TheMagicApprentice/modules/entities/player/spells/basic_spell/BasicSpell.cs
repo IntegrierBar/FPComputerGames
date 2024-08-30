@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections;
 
 
 /**
@@ -17,6 +18,8 @@ public partial class BasicSpell : Spell
 
 	CpuParticles2D _trailParticles;
 	CpuParticles2D _collisionParticles;
+	Light2D _light;
+	Light2D _flash;
 
 	[Export]
 	public Color SunTrailColor = new Color(1, 0.8f, 0);
@@ -62,6 +65,8 @@ public partial class BasicSpell : Spell
 	{
 		_trailParticles = GetNode<CpuParticles2D>("TrailParticles");
 		_collisionParticles = GetNode<CpuParticles2D>("CollisionParticles");
+		_light = GetNode<Light2D>("Light");
+		_flash = GetNode<Light2D>("Flash");
 
 		// Set colors based on magic type
 		Color trailColor;
@@ -88,6 +93,8 @@ public partial class BasicSpell : Spell
 
 		_trailParticles.Color = trailColor;
 		_collisionParticles.Color = collisionColor;
+		_light.Color = trailColor;
+		_flash.Color = trailColor;
 	}
 
 	/**
@@ -112,7 +119,7 @@ public partial class BasicSpell : Spell
 			healthComponent.TakeDamage(_attack);
 			PlayCollisionParticles();
 			StopTrailParticles();
-			// once the spell has hit something we delete it
+			StartFlash();
 			QueueFree();
 		}
 	}
@@ -129,8 +136,45 @@ public partial class BasicSpell : Spell
 		{
 			PlayCollisionParticles();
 			StopTrailParticles();
+			StartFlash();
 			QueueFree();
 		}
+	}
+
+	private void StartFlash()
+	{
+		AnimationPlayer flashAnimationPlayer = _flash.GetNode<AnimationPlayer>("AnimationPlayer");
+		flashAnimationPlayer.Active = true;
+		flashAnimationPlayer.Play("flashAnimation");
+
+		Vector2 globalPos = _flash.GlobalPosition;
+	
+		// Remove the flash from its parent to prevent it from being freed with the spell
+		_flash.GetParent().RemoveChild(_flash);
+		GetParent().AddChild(_flash);
+		_flash.GlobalPosition = globalPos;
+
+		// Use a weak reference to avoid potential memory leaks
+		WeakReference<Light2D> weakFlash = new WeakReference<Light2D>(_flash);
+
+		// Explanation of WeakReference:
+		// A WeakReference allows the garbage collector to collect the referenced object
+		// if there are no other strong references to it. This is useful in callback scenarios
+		// like this one, where we want to avoid keeping the _flash object alive indefinitely
+		// if the spell and its components are destroyed before the animation finishes.
+		// By using a WeakReference, we ensure that:
+		// 1. If the _flash object is still alive when the animation finishes, we can access and free it.
+		// 2. If the _flash object has been garbage collected, we won't cause a null reference exception.
+		// If we omit the WeakReference, the _flash object will not be freed and we will have a memory leak.
+
+		// Queue free the flash after the animation is done
+		flashAnimationPlayer.AnimationFinished += (StringName animName) =>
+		{
+			if (weakFlash.TryGetTarget(out Light2D flash))
+			{
+				flash.QueueFree();
+			}
+		};
 	}
 
 	private void StopTrailParticles()
@@ -140,6 +184,7 @@ public partial class BasicSpell : Spell
 		GetParent().AddChild(_trailParticles);
 		_trailParticles.GlobalPosition = globalPos;
 		_trailParticles.Emitting = false;
+		CreateTimer(_trailParticles.Lifetime, _trailParticles);
 	}
 
 	private void PlayCollisionParticles()
@@ -149,5 +194,14 @@ public partial class BasicSpell : Spell
 		_collisionParticles.GetParent().RemoveChild(_collisionParticles);
 		GetParent().AddChild(_collisionParticles);
 		_collisionParticles.GlobalPosition = globalPos;
+		CreateTimer(_collisionParticles.Lifetime, _collisionParticles);
+	}
+
+	private void CreateTimer(double duration, CpuParticles2D particles)
+	{
+		GetTree().CreateTimer(duration).Timeout += () =>
+		{
+			particles.QueueFree();
+		};
 	}
 }
