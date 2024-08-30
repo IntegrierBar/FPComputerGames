@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_rm7ur")
-_castedSpell = 3
-_additionalSpell = 4
+_castedSpell = 4
+_additionalSpell = 3

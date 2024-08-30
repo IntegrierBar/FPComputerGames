@@ -144,10 +144,10 @@ public partial class Player : CharacterBody2D
 			inventorySpell.ClearOnCastAugmentEffects();
 		}
 
-		// THIS DOES NOT WORK PROPERLY. SO I REMOVED IT AM DONE IT DIFFERENTLY
+		// THIS DOES NOT WORK PROPERLY. SO I REMOVED IT AND DONE IT DIFFERENTLY
 		// loop over all spell groups, keep the first spell and remove all others
 		// TODO use a smarter system for this using the skill system once implemented
-		
+		/*
         foreach (var spellGroup in new string[3] {Globals.Spell1, Globals.Spell2, Globals.Spell3})
         {
 			
@@ -157,7 +157,7 @@ public partial class Player : CharacterBody2D
 				spellsInSpellGroup[i].RemoveFromGroup(spellGroup); // remove from the spell Group
 			}
         }
-		
+		*/
 	}
 
 	/**
