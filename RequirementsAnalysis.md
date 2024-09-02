@@ -387,6 +387,12 @@ The unicorns are controlled by a state machine. The initial state of the state m
 
 The first area type is the main hub which is a menu that allows the player to modify their load-out. In this area no PC exists that can be moved. Instead there is a point-and-click visualisation of the magic school. Clicking on specific objects in the image opens the different menus needed to modify the load-out. 
 
+| **ID: AMH1**| **Main Hub** |
+| --- | --- |
+| Description | The Main Hub is a point nd click environment that allows the player to return back to the main menu and to access four sub menus: the augment inventory, the skill tree, the fuse augments menu and the dungeon selection menu. The graphic for the background and the five buttons is given in the assets folder. |
+| Acceptance Criterion | The Main Hub menu exists and connections to the main menu and the four sub-menus via the five buttons work. |
+| Notes | None |
+
 ##### 2.2.2.1.1 Skill tree
 
 The skill tree is a menu where the player can unlock new skills and read the effects of the different skills. 

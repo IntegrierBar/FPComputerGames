@@ -179,13 +179,25 @@ public partial class Player : CharacterBody2D
 
 	}
 
-
 	/**
 	Show the AugmentInventory by setting its visibility to true.
+	Ensuring that the inventory is shown by switching to it first.
 	Is called by the main hub scirpt when the button to open the menu is pressed
 	*/
 	public void OpenAugmentInventory()
 	{
+		GetNode<AugmentInventory>("AugmentInventory").SwitchToAugmentInventory();
+		GetNode<AugmentInventory>("AugmentInventory").SetVisibility(true);
+	}
+
+	/**
+	Show the Fuse Augment Menu by setting the AugmentInventory visibility to true.
+	Ensuring that the fusing menu is shown by switching to it first.
+	Is called by the main hub scirpt when the button to open the menu is pressed
+	*/
+	public void OpenFuseAugments()
+	{
+		GetNode<AugmentInventory>("AugmentInventory").SwitchToFuseAugments();
 		GetNode<AugmentInventory>("AugmentInventory").SetVisibility(true);
 	}
 }

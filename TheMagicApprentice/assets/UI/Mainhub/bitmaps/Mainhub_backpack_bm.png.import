@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dx1yl8beo8v5s"
+path="res://.godot/imported/Mainhub_backpack_bm.png-c2ccc2462c547a957fb587af2948104f.res"
+
+[deps]
+
+source_file="res://assets/UI/Mainhub/bitmaps/Mainhub_backpack_bm.png"
+dest_files=["res://.godot/imported/Mainhub_backpack_bm.png-c2ccc2462c547a957fb587af2948104f.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
