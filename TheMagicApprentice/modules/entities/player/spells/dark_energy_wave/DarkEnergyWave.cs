@@ -14,8 +14,7 @@ public partial class DarkEnergyWave : Spell
 	{
 		base.Init(attack, playerPosition, targetPosition);
 
-		Position = playerPosition;
-		
+		GlobalPosition = playerPosition;
 	}
 
 	/**
@@ -26,8 +25,6 @@ public partial class DarkEnergyWave : Spell
         base._PhysicsProcess(delta);
 		//Scale *= (float)1.02; // use the scale property to push the wave
     }
-
-
 
     /**
 	If we hit an enemy we push them back

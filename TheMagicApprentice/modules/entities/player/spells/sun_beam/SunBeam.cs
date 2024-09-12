@@ -12,7 +12,7 @@ public partial class SunBeam : Spell
 	{
 		base.Init(attack, playerPosition, targetPosition);
 
-		Position = playerPosition;
+		GlobalPosition = playerPosition;
 
 		LookAt(targetPosition); // make spell look in the correct direction
 	}

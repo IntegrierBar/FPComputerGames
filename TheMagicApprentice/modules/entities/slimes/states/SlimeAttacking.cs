@@ -129,12 +129,17 @@ public partial class SlimeAttacking : State
 	*/
 	private void SpawnRangedAttack(Attack attack)
 	{
-		PackedScene scene = GD.Load<PackedScene>("res://modules/entities/slimes/slime-attacks/RangedAttack.tscn");
-		RangedAttack ranged_attack = scene.Instantiate() as RangedAttack;
-		GetTree().Root.AddChild(ranged_attack); // Add the ranged attack projectile to the scene tree
+		// Get a reference to the current room. The current room is the child of the RoomHandler
+		Node2D room = GetTree().GetFirstNodeInGroup(Globals.RoomHandlerGroup)?.GetChild(0) as Node2D;
+		if (room is not null) // only cast if room exists
+		{
+			PackedScene scene = GD.Load<PackedScene>("res://modules/entities/slimes/slime-attacks/RangedAttack.tscn");
+			RangedAttack ranged_attack = scene.Instantiate() as RangedAttack;
+			room.AddChild(ranged_attack); // Add the ranged attack projectile to the scene tree
 
-		Vector2 vector_to_player = _player.GlobalPosition - Parent.GlobalPosition;
-		ranged_attack.Init(attack, vector_to_player); // initialise the ranged attack with the build attack and the direction from the slime towards the player
-		ranged_attack.Position = Parent.Position; // ranged attack spawns at the position of the slime
+			Vector2 vector_to_player = _player.GlobalPosition - Parent.GlobalPosition;
+			ranged_attack.Init(attack, vector_to_player); // initialise the ranged attack with the build attack and the direction from the slime towards the player
+			ranged_attack.GlobalPosition = Parent.GlobalPosition; // ranged attack spawns at the position of the slime
+		}
 	}
 }
