@@ -7,6 +7,7 @@ In particular it conatins all string names for the groups
 public static class Globals
 {
     public const string PlayerGroup = "player"; ///< string name of the group for player
+    public const string RoomHandlerGroup = "room_handler"; ///< string name of the group of the room handler
 
     // group for all InventorySpells
     public const string InventorySpellGroup = "inventory_spell";  ///< string name of the group that contains all inventory spells
