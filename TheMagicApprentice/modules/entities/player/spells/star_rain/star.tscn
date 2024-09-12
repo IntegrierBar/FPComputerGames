@@ -10,6 +10,9 @@ radius = 4.0
 collision_layer = 0
 collision_mask = 5
 script = ExtResource("1_tj5l4")
+SPEED = 150.0
+SPAWN_RADIUS = 25.0
+SPREAD_ANGLE = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kyivp")

@@ -43,18 +43,18 @@ public partial class BasicSpell : Spell
 	Move the spell in _direction
 	Count down the max life time of the spell and remove the spell once the time is up
 	*/
-    public override void _PhysicsProcess(double delta)
-    {
+	public override void _PhysicsProcess(double delta)
+	{
 		base._PhysicsProcess(delta);
-        Position += (float)delta * SPEED * _direction;
-    }
+		Position += (float)delta * SPEED * _direction;
+	}
 
 
-    /**
+	/**
 	Gets called when the spell hits a Health component since health components use area2Ds.
 	Since the spells mask layer is set to the enemies layer, it cannot hit the player
 	*/
-    public override void OnAreaEntered(Area2D area)
+	public override void OnAreaEntered(Area2D area)
 	{
 		if (area is HealthComponent healthComponent) // check if area is a health component and if true cast it as a healthcomponent under the name healthComponent
 		{

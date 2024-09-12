@@ -11,6 +11,10 @@ public partial class Star : Spell
 {
 	[Export]
 	public float SPEED = 500; ///< Speed of the spell. Do not set to high or else it might not hit enemies
+	[Export]
+	public float SPAWN_RADIUS = 25; ///< Radius in which stars are spawned
+	[Export]
+	public float SPREAD_ANGLE = 0.1f; ///< Angle uncertainty for the star's direction
 
 	private Vector2 _direction; ///< Direction in which to spell moves
 
@@ -30,9 +34,14 @@ public partial class Star : Spell
 
 		var rng = new RandomNumberGenerator();
 
-		Vector2 offset = new Vector2(rng.RandfRange(-10, 10),  rng.RandfRange(-10, 10));
+		float angle = rng.RandfRange(0, Mathf.Tau);
+		float radius = rng.RandfRange(0, SPAWN_RADIUS);
+		Vector2 offset = new Vector2(radius * Mathf.Cos(angle), radius * Mathf.Sin(angle));
 		GlobalPosition = playerPosition + offset;
-		_direction = (targetPosition-playerPosition).Normalized(); // TODO think abouth how to set the direction according to the offset
+		_direction = (targetPosition - GlobalPosition).Normalized();
+
+		float randomAngle = rng.RandfRange(-SPREAD_ANGLE, SPREAD_ANGLE);
+		_direction = _direction.Rotated(randomAngle);
 
 		LookAt(targetPosition); // make spell look in the correct direction
 	}
@@ -41,18 +50,18 @@ public partial class Star : Spell
 	Change position of the spell.
 	Count down the max life time of the spell and remove the spell once the time is up 
 	*/
-    public override void _PhysicsProcess(double delta)
-    {
+	public override void _PhysicsProcess(double delta)
+	{
 		base._PhysicsProcess(delta);
-        Position += (float)delta * SPEED * _direction;
-    }
+		Position += (float)delta * SPEED * _direction;
+	}
 
 
-    /**
+	/**
 	Gets called when the spell hits a Health component since health components use area2Ds.
 	Since the spells mask layer is set to the enemies layer, it cannot hit the player
 	*/
-    public override void OnAreaEntered(Area2D area)
+	public override void OnAreaEntered(Area2D area)
 	{
 		if (area is HealthComponent healthComponent) // check if area is a health component and if true cast it as a healthcomponent under the name healthComponent
 		{
