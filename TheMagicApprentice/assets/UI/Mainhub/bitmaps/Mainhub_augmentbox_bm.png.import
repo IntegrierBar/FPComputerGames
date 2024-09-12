@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cabmpgvk8mfkr"
+path="res://.godot/imported/Mainhub_augmentbox_bm.png-07542eae1970ce2336aec047d4b92d2f.res"
+
+[deps]
+
+source_file="res://assets/UI/Mainhub/bitmaps/Mainhub_augmentbox_bm.png"
+dest_files=["res://.godot/imported/Mainhub_augmentbox_bm.png-07542eae1970ce2336aec047d4b92d2f.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

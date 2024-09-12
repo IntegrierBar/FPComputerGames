@@ -17,7 +17,7 @@ public partial class Sun : Spell
 		base.Init(attack, playerPosition, targetPosition);
 		_attack.damage /= 60.0;
 
-		Position = targetPosition;
+		GlobalPosition = targetPosition;
 	}
 
 	/**

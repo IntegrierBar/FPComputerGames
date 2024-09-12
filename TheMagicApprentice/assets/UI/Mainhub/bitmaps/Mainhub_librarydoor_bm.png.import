@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://c7w3vtvfndi8p"
+path="res://.godot/imported/Mainhub_librarydoor_bm.png-e3a1067041e7ea2ee987404faf7dda37.res"
+
+[deps]
+
+source_file="res://assets/UI/Mainhub/bitmaps/Mainhub_librarydoor_bm.png"
+dest_files=["res://.godot/imported/Mainhub_librarydoor_bm.png-e3a1067041e7ea2ee987404faf7dda37.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

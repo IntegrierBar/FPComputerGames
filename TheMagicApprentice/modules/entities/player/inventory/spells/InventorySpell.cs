@@ -67,27 +67,29 @@ public partial class InventorySpell : Node
 		AddToGroup(Globals.GetGroupNameOfSpell(_spellName));
     }
 
-
     /**
 	Casts the spell by instanciating the scene and initializing the spell
+	playerPosition and targetPosition are both global coordinates
 	*/
     public virtual void Cast(Vector2 playerPosition, Vector2 targetPosition) 
 	{
-		Spell spell = _spellScene.Instantiate() as Spell;
-		System.Diagnostics.Debug.Assert(spell is not null, "_spellScene is empty, Could not create szene"); // check that it is not null
-
-        Attack attack = new Attack(Damage, MagicType, _playerHealthComponent);
-        spell.Init(attack, playerPosition, targetPosition);
-
-		// TODO in the future do not add to Tree Root but to Room
-        GetTree().Root.AddChild(spell);
-
-		foreach (OnCastAugmentEffect effect in _onCastAugmentEffects)
+		// Get a reference to the current room. The current room is the child of the RoomHandler
+		Node2D room = GetTree().GetFirstNodeInGroup(Globals.RoomHandlerGroup)?.GetChild(0) as Node2D;
+		if (room is not null) // only cast if room exists
 		{
-			effect.OnCast(spell);
+			Spell spell = _spellScene.Instantiate() as Spell;
+			System.Diagnostics.Debug.Assert(spell is not null, "_spellScene is empty, Could not create szene"); // check that it is not null
+
+			Attack attack = new Attack(Damage, MagicType, _playerHealthComponent);
+			spell.Init(attack, playerPosition, targetPosition);
+
+        	room.AddChild(spell);
+			foreach (OnCastAugmentEffect effect in _onCastAugmentEffects)
+			{
+				effect.OnCast(spell);
+			}
 		}
 	}
-
 
 	/**
 	Reset Damage to BaseDamage

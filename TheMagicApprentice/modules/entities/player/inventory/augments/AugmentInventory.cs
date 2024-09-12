@@ -130,20 +130,38 @@ public partial class AugmentInventory : CanvasLayer
 	}
 
 	/**
+	Sets the visibility of the HBoxContainers such that the Fuse Augement Menu is visible
+	*/
+	public void SwitchToFuseAugments()
+	{
+		_activeAugments.Visible = false;
+		_fuseAugments.Visible = true;
+		GetNode<Button>("%LeftButton").Text = "Skill Tree";
+		GetNode<Button>("%RightButton").Text = "Active Augments";
+	}
+
+	/**
+	Sets the visibility of the HBoxContainers such that the Augement Inventory Menu is visible
+	*/
+	public void SwitchToAugmentInventory()
+	{
+		_activeAugments.Visible = true;
+		_fuseAugments.Visible = false;
+		GetNode<Button>("%LeftButton").Text = "Fuse Augments";
+		GetNode<Button>("%RightButton").Text = "Skill Tree";
+	}
+
+	/**
 	Gets called when the left button of the menu is pressed.
 	Handles transition to Fuse Augments and Skill Tree
 	*/
 	public void LeftButtonPressed()
 	{
-		if (_activeAugments.IsVisibleInTree())
-		{
-			// Switch to Fuse Augment Menu
-			_activeAugments.Visible = false;
-			_fuseAugments.Visible = true;
-			GetNode<Button>("%LeftButton").Text = "Skill Tree";
-			GetNode<Button>("%RightButton").Text = "Active Augments";
+		if (_activeAugments.IsVisibleInTree()) // in Augement Inventory
+		{ 
+			SwitchToFuseAugments();
 		}
-		else
+		else // in Fuse Augements Menu
 		{
 			// TODO Go to skill tree
 		}
@@ -155,16 +173,13 @@ public partial class AugmentInventory : CanvasLayer
 	*/
 	public void RightButtonPressed()
 	{
-		if (_activeAugments.IsVisibleInTree())
+		if (_activeAugments.IsVisibleInTree()) // in Augment Inventory
 		{
 			// TODO Go to skill tree
 		}
 		else // _fuseAugments is currently shown
 		{
-			_activeAugments.Visible = true;
-			_fuseAugments.Visible = false;
-			GetNode<Button>("%LeftButton").Text = "Fuse Augments";
-			GetNode<Button>("%RightButton").Text = "Skill Tree";
+			SwitchToAugmentInventory();
 		}
 	}
 

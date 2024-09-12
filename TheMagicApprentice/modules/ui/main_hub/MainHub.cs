@@ -25,4 +25,12 @@ public partial class MainHub : BaseMenu
 	{
 		(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).OpenAugmentInventory();
 	}
+
+	/**
+	Open the fuse augment menu by calling the OpenFuseAugments function of the player which sets the visibility of the Menu to true
+	*/
+	private void OpenFuseAugments()
+	{
+		(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).OpenFuseAugments();
+	}
 }

@@ -65,7 +65,7 @@ public partial class PlayerSpellCasting : State
         // otherwise cast all spells
         foreach (InventorySpell spell in spells)
         {
-            spell.Cast(Parent.Position, Parent.GetGlobalMousePosition());
+            spell.Cast(Parent.GlobalPosition, Parent.GetGlobalMousePosition());
         }
         // finally retrieve the CastTime from the first spell which is always the main spell
         _timeLeft = spells.First().CastTime;

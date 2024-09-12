@@ -41,7 +41,7 @@ public partial class BasicSpell : Spell
 	{
 		base.Init(attack, playerPosition, targetPosition);
 
-		Position = playerPosition;
+		GlobalPosition = playerPosition;
 		_direction = (targetPosition-playerPosition).Normalized();
 
 		LookAt(targetPosition); // make spell look in the correct direction
