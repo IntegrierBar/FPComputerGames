@@ -97,9 +97,7 @@ public partial class TestAugments
                 // if augmentEffectIndex is below 0 then the augment is filled and we can move on to the next augment
                 if (augmentEffectIndex < 0)
                 {
-                    _player.EquipAugmentInSlot(augment, _random.Next(5)); ///// WHY IS THERE A PROBELM Herere????????
-
-
+                    _player.EquipAugmentInSlot(augment, _random.Next(5)); 
                     augmentEffectIndex = _random.Next(3);
                 }
                 fileName = directory.GetNext();
@@ -304,7 +302,7 @@ public partial class TestAugments
         blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
 
 		Node2D room = _player.GetTree().GetFirstNodeInGroup(Globals.RoomHandlerGroup)?.GetChild(0) as Node2D;
-        Spell blackHoleSpell = room.GetNode("BlackHole") as Spell; // right now spells get added as children of Root. This might change later!
+        Spell blackHoleSpell = room.GetNode("BlackHole") as Spell;
         AssertObject(blackHoleSpell).IsNotNull();
 
         Vector2 startScale = blackHoleSpell.Scale;
@@ -324,7 +322,7 @@ public partial class TestAugments
         // Cast the spell and check that the scale increased
         blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
 
-        Spell blackHoleSpell2 = room.GetNode("BlackHole") as Spell; // right now spells get added as children of Root. This might change later!
+        Spell blackHoleSpell2 = room.GetNode("BlackHole") as Spell;
         AssertObject(blackHoleSpell2).IsNotNull();
 
         Vector2 newScale = blackHoleSpell2.Scale;
@@ -353,7 +351,7 @@ public partial class TestAugments
         blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
 
         Node2D room = _player.GetTree().GetFirstNodeInGroup(Globals.RoomHandlerGroup)?.GetChild(0) as Node2D;
-        Spell blackHoleSpell = room.GetNode("BlackHole") as Spell; // right now spells get added as children of Root. This might change later!
+        Spell blackHoleSpell = room.GetNode("BlackHole") as Spell; 
         AssertObject(blackHoleSpell).IsNotNull();
 
         double startTimeLeft = blackHoleSpell._timeLeftUntilDeletion;
@@ -372,7 +370,7 @@ public partial class TestAugments
         // Cast the spell and check that the scale increased
         blackHole.Cast(Vector2.Zero, Vector2.Down); // Cast the spell so that it is instanciated
 
-        Spell blackHoleSpell2 = room.GetNode("BlackHole") as Spell; // right now spells get added as children of Root. This might change later!
+        Spell blackHoleSpell2 = room.GetNode("BlackHole") as Spell;
         AssertObject(blackHoleSpell2).IsNotNull();
 
         double newTimeLeft = blackHoleSpell2._timeLeftUntilDeletion;
@@ -430,8 +428,6 @@ public partial class TestAugments
     */
     private void EquipEffect(string effectName)
     {
-        GD.Print("HI");
-        GD.Print(effectName);
         string path = _folderPath + effectName;
         _player.EquipAugmentInSlot(CreateAugmentWithAugmenteffect(path), 0);
     }
