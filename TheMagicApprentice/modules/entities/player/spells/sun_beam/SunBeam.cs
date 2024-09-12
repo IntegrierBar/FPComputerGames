@@ -3,18 +3,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+/**
+The SunBeam spell class.
+This spell creates a beam of light that can damage enemies.
+*/
 public partial class SunBeam : Spell
 {
-	[Export] public Color BeamColor = new Color(1, 1, 0, 0.7f);
-	[Export] public int BeamSegments = 100;
-	[Export] public float BeamAngle = 38.0f;
-	[Export] public float MaxBeamLength = 200.0f;
+	[Export] public Color BeamColor = new Color(1, 1, 0, 0.7f); ///< The color of the sun beam
+	[Export] public int BeamSegments = 100; ///< The number of segments in the beam for smooth rendering
+	[Export] public float BeamAngle = 38.0f; ///< The angle of the beam in degrees
+	[Export] public float MaxBeamLength = 200.0f; ///< The maximum length of the beam
 
-	private MeshInstance2D meshInstance;
-	private List<RayCast2D> rayCasts = new List<RayCast2D>();
-	private CollisionPolygon2D collisionPolygon;
-	private PointLight2D pointLight;
+	private MeshInstance2D meshInstance; ///< The mesh instance for rendering the beam
+	private List<RayCast2D> rayCasts = new List<RayCast2D>(); ///< List of raycasts for collision detection
+	private CollisionPolygon2D collisionPolygon; ///< The collision polygon for the beam
+	private PointLight2D pointLight; ///< The point light for the beam's origin
 
+	/**
+	Creates raycasts for collision detection along the beam's edges.
+	*/
 	private void CreateRayCasts()
 	{
 		// Create raycasts for left and right edges of each segment
@@ -41,12 +48,21 @@ public partial class SunBeam : Spell
 		CallDeferred(nameof(UpdateBeam), targetPosition);
 	}
 
+	/**
+	Rotates the point light to face the target position.
+	@param playerPosition The position of the player casting the spell
+	@param targetPosition The target position for the spell
+	*/
 	private void RotateLight(Vector2 playerPosition, Vector2 targetPosition)
 	{
 		Vector2 direction = (targetPosition - playerPosition).Normalized();
 		pointLight.Rotation = Mathf.Atan2(direction.Y, direction.X);
 	}
 
+	/**
+	Updates the beam's shape and collision based on the target position.
+	@param targetPosition The target position for the spell
+	*/
 	private void UpdateBeam(Vector2 targetPosition)
 	{
 		Vector2 direction = (targetPosition - GlobalPosition).Normalized();
@@ -78,6 +94,10 @@ public partial class SunBeam : Spell
 		UpdateCollisionPolygon(points);
 	}
 
+	/**
+	Updates the mesh for rendering the beam.
+	@param points The list of points defining the beam's shape
+	*/
 	private void UpdateMesh(List<Vector2> points)
 	{
 		var arrays = new Godot.Collections.Array();
@@ -110,6 +130,10 @@ public partial class SunBeam : Spell
 		meshInstance.Mesh = arrayMesh;*/
 	}
 
+	/**
+	Updates the collision polygon for the beam.
+	@param points The list of points defining the beam's shape
+	*/
 	private void UpdateCollisionPolygon(List<Vector2> points)
 	{
 		// Create a list for the polygon points
@@ -130,6 +154,11 @@ public partial class SunBeam : Spell
 		collisionPolygon.Polygon = polygonPoints.ToArray();
 	}
 
+	/**
+	Computes the convex hull of a set of points.
+	@param points The list of points to compute the convex hull for
+	@return The list of points forming the convex hull
+	*/
 	private List<Vector2> ConvexHull(List<Vector2> points)
 	{
 		if (points.Count <= 3)
@@ -163,6 +192,13 @@ public partial class SunBeam : Spell
 		return hull;
 	}
 
+	/**
+	Computes the cross product of three points.
+	@param o The origin point
+	@param a The first point
+	@param b The second point
+	@return The cross product value
+	*/
 	private float Cross(Vector2 o, Vector2 a, Vector2 b)
 	{
 		return (a.X - o.X) * (b.Y - o.Y) - (a.Y - o.Y) * (b.X - o.X);
