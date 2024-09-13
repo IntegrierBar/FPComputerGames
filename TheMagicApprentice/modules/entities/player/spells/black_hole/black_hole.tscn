@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://u23ysmqaadgq"]
+[gd_scene load_steps=6 format=3 uid="uid://u23ysmqaadgq"]
 
 [ext_resource type="Script" path="res://modules/entities/player/spells/black_hole/BlackHole.cs" id="1_fllgi"]
 [ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/basic_spell/basic_spell.png" id="2_g11ut"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vqlg"]
-radius = 17.0
+radius = 35.0143
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cd5bd"]
 radius = 135.724
+
+[sub_resource type="Gradient" id="Gradient_o82ek"]
+colors = PackedColorArray(0.1218, 0.21344, 0.58, 1, 0.231373, 0.694118, 0.780392, 1)
 
 [node name="BlackHole" type="Area2D"]
 modulate = Color(1, 1, 1, 0.784314)
@@ -20,6 +23,7 @@ MaxLifeTimeInSeconds = 3.0
 shape = SubResource("CircleShape2D_6vqlg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 self_modulate = Color(0.0383972, 0.0383972, 0.0383972, 1)
 texture = ExtResource("2_g11ut")
 
@@ -35,3 +39,20 @@ gravity = 4096.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityArea"]
 shape = SubResource("CircleShape2D_cd5bd")
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+amount = 200
+emission_shape = 2
+emission_sphere_radius = 34.85
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+orbit_velocity_min = 0.4
+orbit_velocity_max = 0.4
+radial_accel_min = -60.0
+radial_accel_max = -30.0
+damping_min = 15.0
+damping_max = 15.0
+scale_amount_max = 4.0
+color_initial_ramp = SubResource("Gradient_o82ek")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
