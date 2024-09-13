@@ -9,15 +9,15 @@ TODO: Currently the gravity does not affect anything. we probalby have to use gr
 public partial class BlackHole : Spell
 {
 	
-	[Export] private float _pullStrength = 50f;
-	[Export] private float _maxPullStrength = 100f;
-	[Export] private float _minPullStrength = 10f;
-	[Export] private float _maxPullDistance = 200f;
+	[Export] private float _maxPullStrength = 100f; ///< The maximum strength of the black hole's gravitational pull
+	[Export] private float _minPullStrength = 10f; ///< The minimum strength of the black hole's gravitational pull
+	
 
-	CpuParticles2D _particles;
-	Area2D _gravityArea;
-	private List<Slime> _affectedSlimes = new List<Slime>();
-	private double startingDamage;
+	CpuParticles2D _particles; ///< Reference to the particle system for visual effects
+	Area2D _gravityArea; ///< The area in which the black hole's gravity affects entities
+	private List<Slime> _affectedSlimes = new List<Slime>(); ///< List of slimes currently affected by the black hole
+	private double startingDamage; ///< The initial damage value of the black hole
+	private float _maxPullDistance; ///< The maximum distance at which the black hole affects entities, obtained from the Area2D
 	
 
 	public override void Init(Attack attack, Vector2 playerPosition, Vector2 targetPosition) 
@@ -26,10 +26,26 @@ public partial class BlackHole : Spell
 
 		GlobalPosition = targetPosition;
 		_particles = GetNode<CpuParticles2D>("Particles");
-		startingDamage = _attack.damage;
+		startingDamage = _attack.damage; // we store starting damage to be able to multiply it by delta each frame in _Process
 
 		_gravityArea = GetNode<Area2D>("GravityArea");
 		_gravityArea.AreaEntered += OnGravityAreaEntered;
+		_gravityArea.AreaExited += OnGravityAreaExited;
+
+		// Set the maximum pull distance based on the GravityArea's collision shape
+		var gravityAreaShape = _gravityArea.GetNode<CollisionShape2D>("CollisionShape2D");
+		if (gravityAreaShape != null && gravityAreaShape.Shape is CircleShape2D circleShape)
+		{
+			_maxPullDistance = circleShape.Radius;
+		}
+		else
+		{
+			GD.PushWarning("BlackHole: Unable to determine _maxPullDistance from GravityArea's CollisionShape2D. Using default value.");
+			_maxPullDistance = 135.724f; // Default value from the scene file
+		}
+
+		// Connect the area exited signal
+		
 	}
 
 	public override void _ExitTree()
@@ -72,7 +88,10 @@ public partial class BlackHole : Spell
 			}
 		}
 	}
-
+	/**
+	 * Pulls affected slimes towards the black hole.
+	 * @param delta The time elapsed since the last frame.
+	 */
 	private void PullSlimes(float delta)
 	{
 		foreach (var slime in _affectedSlimes.ToArray())
@@ -97,6 +116,9 @@ public partial class BlackHole : Spell
 		}
 	}
 
+	/**
+	 * Stops the particle effect and ensures it's properly cleaned up.
+	 */
 	private void StopParticles()
 	{
 		if (_particles != null)
