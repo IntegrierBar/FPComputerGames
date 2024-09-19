@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqx4bqlj501rl"]
+[gd_scene load_steps=13 format=3 uid="uid://cqx4bqlj501rl"]
 
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/SkillTree.cs" id="1_46nbb"]
 [ext_resource type="Theme" uid="uid://b5xmy0ocd4tfb" path="res://assets/themes/ingame_inventory_theme.tres" id="1_t4fwo"]
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/SkillSlot.cs" id="2_ngcow"]
+[ext_resource type="Texture2D" uid="uid://bigsga6igu58y" path="res://modules/entities/player/inventory/spell_icons/sun_basic_spell.png" id="4_m7173"]
+[ext_resource type="Texture2D" uid="uid://biry3omfnf4kg" path="res://modules/entities/player/inventory/spell_icons/sun_beam.png" id="5_1qm5a"]
+[ext_resource type="Texture2D" uid="uid://dwvuqo1yxiyav" path="res://modules/entities/player/inventory/spell_icons/summon_sun.png" id="6_5duyx"]
+[ext_resource type="Texture2D" uid="uid://blalqnk66rj54" path="res://modules/entities/player/inventory/spell_icons/cosmic_basic_spell.png" id="6_on6i7"]
+[ext_resource type="Texture2D" uid="uid://djspc51dmqamj" path="res://modules/entities/player/inventory/spell_icons/moon_light.png" id="7_dwf2f"]
+[ext_resource type="Texture2D" uid="uid://ek035vhcmnxn" path="res://modules/entities/player/inventory/spell_icons/star_rain.png" id="8_3ibk3"]
+[ext_resource type="Texture2D" uid="uid://bdt4twt0g0j4i" path="res://modules/entities/player/inventory/spell_icons/dark_basic_spell.png" id="9_gsyot"]
+[ext_resource type="Texture2D" uid="uid://pcr6wy4bvbv4" path="res://modules/entities/player/inventory/spell_icons/dark_energy_wave.png" id="10_gkt4w"]
+[ext_resource type="Texture2D" uid="uid://indvmr1fyie0" path="res://modules/entities/player/inventory/spell_icons/blackhole.png" id="11_8x474"]
 
 [node name="SkillTree" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_46nbb")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -49,8 +59,128 @@ text = "Active Augments"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_constants/separation = 40
+theme_override_constants/separation = 100
 alignment = 1
+
+[node name="SkillSlot1" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ActiveSkills"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="OptionsSkillSlot1" type="OptionButton" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ActiveSkills/SkillSlot1"]
+unique_name_in_owner = true
+layout_mode = 2
+text_overrun_behavior = 2
+expand_icon = true
+item_count = 9
+fit_to_longest_item = false
+popup/item_0/text = "Sun Basic Spell"
+popup/item_0/icon = ExtResource("4_m7173")
+popup/item_0/id = 0
+popup/item_1/text = "Sun Beam"
+popup/item_1/icon = ExtResource("5_1qm5a")
+popup/item_1/id = 1
+popup/item_2/text = "Summon Sun"
+popup/item_2/icon = ExtResource("6_5duyx")
+popup/item_2/id = 2
+popup/item_3/text = "Cosmic Basic Spell"
+popup/item_3/icon = ExtResource("6_on6i7")
+popup/item_3/id = 3
+popup/item_4/text = "Moon Light"
+popup/item_4/icon = ExtResource("7_dwf2f")
+popup/item_4/id = 4
+popup/item_5/text = "Star Rain"
+popup/item_5/icon = ExtResource("8_3ibk3")
+popup/item_5/id = 5
+popup/item_6/text = "Dark Basic Spell"
+popup/item_6/icon = ExtResource("9_gsyot")
+popup/item_6/id = 6
+popup/item_7/text = "Dark Energy Wave"
+popup/item_7/icon = ExtResource("10_gkt4w")
+popup/item_7/id = 7
+popup/item_8/text = "Black Hole"
+popup/item_8/icon = ExtResource("11_8x474")
+popup/item_8/id = 8
+
+[node name="SkillSlot2" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ActiveSkills"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="OptionsSkillSlot2" type="OptionButton" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ActiveSkills/SkillSlot2"]
+unique_name_in_owner = true
+layout_mode = 2
+text_overrun_behavior = 2
+expand_icon = true
+item_count = 9
+fit_to_longest_item = false
+popup/item_0/text = "Sun Basic Spell"
+popup/item_0/icon = ExtResource("4_m7173")
+popup/item_0/id = 0
+popup/item_1/text = "Sun Beam"
+popup/item_1/icon = ExtResource("5_1qm5a")
+popup/item_1/id = 1
+popup/item_2/text = "Summon Sun"
+popup/item_2/icon = ExtResource("6_5duyx")
+popup/item_2/id = 2
+popup/item_3/text = "Cosmic Basic Spell"
+popup/item_3/icon = ExtResource("6_on6i7")
+popup/item_3/id = 3
+popup/item_4/text = "Moon Light"
+popup/item_4/icon = ExtResource("7_dwf2f")
+popup/item_4/id = 4
+popup/item_5/text = "Star Rain"
+popup/item_5/icon = ExtResource("8_3ibk3")
+popup/item_5/id = 5
+popup/item_6/text = "Dark Basic Spell"
+popup/item_6/icon = ExtResource("9_gsyot")
+popup/item_6/id = 6
+popup/item_7/text = "Dark Energy Wave"
+popup/item_7/icon = ExtResource("10_gkt4w")
+popup/item_7/id = 7
+popup/item_8/text = "Black Hole"
+popup/item_8/icon = ExtResource("11_8x474")
+popup/item_8/id = 8
+
+[node name="SkillSlot3" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ActiveSkills"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="OptionsSkillSlot3" type="OptionButton" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ActiveSkills/SkillSlot3"]
+unique_name_in_owner = true
+layout_mode = 2
+text_overrun_behavior = 2
+expand_icon = true
+item_count = 9
+fit_to_longest_item = false
+popup/item_0/text = "Sun Basic Spell"
+popup/item_0/icon = ExtResource("4_m7173")
+popup/item_0/id = 0
+popup/item_1/text = "Sun Beam"
+popup/item_1/icon = ExtResource("5_1qm5a")
+popup/item_1/id = 1
+popup/item_2/text = "Summon Sun"
+popup/item_2/icon = ExtResource("6_5duyx")
+popup/item_2/id = 2
+popup/item_3/text = "Cosmic Basic Spell"
+popup/item_3/icon = ExtResource("6_on6i7")
+popup/item_3/id = 3
+popup/item_4/text = "Moon Light"
+popup/item_4/icon = ExtResource("7_dwf2f")
+popup/item_4/id = 4
+popup/item_5/text = "Star Rain"
+popup/item_5/icon = ExtResource("8_3ibk3")
+popup/item_5/id = 5
+popup/item_6/text = "Dark Basic Spell"
+popup/item_6/icon = ExtResource("9_gsyot")
+popup/item_6/id = 6
+popup/item_7/text = "Dark Energy Wave"
+popup/item_7/icon = ExtResource("10_gkt4w")
+popup/item_7/id = 7
+popup/item_8/text = "Black Hole"
+popup/item_8/icon = ExtResource("11_8x474")
+popup/item_8/id = 8
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_direction = 2
@@ -92,16 +222,19 @@ layout_mode = 2
 text = "Sun"
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="SunBasicPanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("2_ngcow")
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/SunBasicPanelContainer"]
+layout_mode = 2
+texture = ExtResource("4_m7173")
+
 [node name="EmptySpaceLabel" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "
-
 
 "
 
@@ -112,10 +245,18 @@ layout_mode = 2
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("5_1qm5a")
+
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+texture = ExtResource("6_5duyx")
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -143,7 +284,6 @@ size_flags_horizontal = 4
 [node name="EmptySpaceLabel" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "
-
 
 "
 
@@ -185,7 +325,6 @@ size_flags_horizontal = 4
 [node name="EmptySpaceLabel" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
 layout_mode = 2
 text = "
-
 
 "
 
@@ -261,7 +400,8 @@ text = "0"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer2"]
+[node name="UnlockButton" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -269,4 +409,8 @@ size_flags_vertical = 8
 text = "Unlock"
 
 [connection signal="pressed" from="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/MarginContainer/LeftButton" to="." method="LeftButtonPressed"]
+[connection signal="item_selected" from="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ActiveSkills/SkillSlot1/OptionsSkillSlot1" to="." method="SkillSlot1Selected"]
+[connection signal="item_selected" from="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ActiveSkills/SkillSlot2/OptionsSkillSlot2" to="." method="SkillSlot2Selected"]
+[connection signal="item_selected" from="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ActiveSkills/SkillSlot3/OptionsSkillSlot3" to="." method="SkillSlot3Selected"]
 [connection signal="pressed" from="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/MarginContainer2/RightButton" to="." method="RightButtonPressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer2/UnlockButton" to="." method="UnlockButtonPressed"]

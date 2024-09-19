@@ -170,6 +170,35 @@ public partial class Player : CharacterBody2D
 		EquipAllAugments();
 	}
 
+	/**
+	Sets skills for the player.
+	First, all augments are removed, then the currently equipped spell is removed.
+	If a new spell should be set, it is added to the group corresponding to the spell slot.
+	Afterwards, the augments are added again. 
+	Note: spell is null if a spell should be removed! This is intended behaviour.
+	*/
+	public void SetPlayerSkills(int nrSkillSlot, SpellName? spell)
+	{
+		UnEquipAllAugments();
+		ResetSpells();
+		// Remove old skill from group
+		String spellSlotGroupName = Globals.GetGroupNameOfSpellsInSlot((uint)nrSkillSlot); // TODO: Check that nothing can go wrong here
+		var spellsInSpellGroup = GetTree().GetNodesInGroup(spellSlotGroupName);
+		foreach (var oldSpell in spellsInSpellGroup)
+		{
+			oldSpell.RemoveFromGroup(spellSlotGroupName);
+		}
+		// Add new skill to the group
+		if (spell is not null)
+		{
+			String groupName = Globals.GetGroupNameOfSpell((SpellName)spell);
+			Node spellNode = GetTree().GetFirstNodeInGroup(groupName);
+			spellNode.AddToGroup(spellSlotGroupName);
+		}
+		// Equip all augments again
+		EquipAllAugments();
+	}
+
 	// small test function to test augment generation
 	public void TestEquip()
 	{
@@ -199,5 +228,14 @@ public partial class Player : CharacterBody2D
 	{
 		GetNode<AugmentInventory>("AugmentInventory").SwitchToFuseAugments();
 		GetNode<AugmentInventory>("AugmentInventory").SetVisibility(true);
+	}
+
+	/**
+	Show the Skill Tree by setting the SkillTree visibility to true.
+	TODO: Is called by the main hub scirpt when the button to open the menu is pressed
+	*/
+	public void OpenSkillTree()
+	{
+		GetNode<SkillTree>("SkillTree").SetVisibility(true);
 	}
 }

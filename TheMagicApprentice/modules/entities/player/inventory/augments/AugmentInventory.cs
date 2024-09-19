@@ -163,9 +163,8 @@ public partial class AugmentInventory : CanvasLayer
 		}
 		else // in Fuse Augements Menu
 		{
-			// TODO Go to skill tree
-			//SetVisibility(false);
-			//GetNode<SkillTree>("SkillTree").SetVisibility(true);
+			SetVisibility(false);
+			GetParent().GetNode<SkillTree>("SkillTree").SetVisibility(true);
 		}
 	}
 
@@ -177,9 +176,8 @@ public partial class AugmentInventory : CanvasLayer
 	{
 		if (_activeAugments.IsVisibleInTree()) // in Augment Inventory
 		{
-			// TODO Go to skill tree
-			//SetVisibility(false);
-			//GetNode<SkillTree>("SkillTree").SetVisibility(true);
+			SetVisibility(false);
+			GetParent().GetNode<SkillTree>("SkillTree").SetVisibility(true);
 		}
 		else // _fuseAugments is currently shown
 		{

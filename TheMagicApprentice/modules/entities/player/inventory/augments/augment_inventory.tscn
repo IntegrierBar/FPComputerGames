@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://modules/entities/player/inventory/augments/AugmentEffectSelector.cs" id="2_d76ef"]
 
 [node name="AugmentInventory" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_u5q8w")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
