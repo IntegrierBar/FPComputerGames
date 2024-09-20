@@ -5,6 +5,8 @@ public partial class PlayerMoving : State
 {
     [Export]
     public double SPEED = 100; ///< Movement speed 
+    [Export]
+    public AudioStreamPlayer2D WalkingSound;
     
     
     [ExportGroup("States")]
@@ -73,5 +75,23 @@ public partial class PlayerMoving : State
         }
 
         Animations.Play(animationName);
+    }
+
+    /**
+    Start playing the walking sound when entering
+    */
+    public override void Enter()
+    {
+        base.Enter();
+        WalkingSound.Play();
+    }
+
+    /**
+    Stops the walking sound from playing when we leave the state
+    */
+    public override void Exit()
+    {
+        base.Exit();
+        WalkingSound.Stop();
     }
 }

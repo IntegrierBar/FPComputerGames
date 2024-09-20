@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://u23ysmqaadgq"]
+[gd_scene load_steps=6 format=3 uid="uid://u23ysmqaadgq"]
 
 [ext_resource type="Script" path="res://modules/entities/player/spells/black_hole/BlackHole.cs" id="1_fllgi"]
 [ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/basic_spell/basic_spell.png" id="2_g11ut"]
+[ext_resource type="AudioStream" uid="uid://t33l0trbfwd8" path="res://modules/entities/player/spells/black_hole/black_hole.mp3" id="3_7h4i1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vqlg"]
 radius = 17.0
@@ -35,3 +36,7 @@ gravity = 4096.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityArea"]
 shape = SubResource("CircleShape2D_cd5bd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7h4i1")
+autoplay = true
