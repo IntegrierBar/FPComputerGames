@@ -3,6 +3,9 @@ using System;
 
 public partial class SlimeMoving : State
 {
+	[Export]
+	public AudioStreamPlayer2D WalkingSound;
+
 	[ExportGroup("States")]
     [Export]
     public State Idle; ///< Reference to Idle state
@@ -30,6 +33,17 @@ public partial class SlimeMoving : State
     {
 		UpdateAnimations();
         base.Enter();
+		// start the walking sound
+		WalkingSound.Play();
+    }
+
+    /**
+	Stop the walking sound when leaving the state
+	*/
+    public override void Exit()
+    {
+        base.Exit();
+		WalkingSound.Stop();
     }
 
     /**

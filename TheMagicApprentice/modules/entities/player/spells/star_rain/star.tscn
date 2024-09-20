@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://modules/entities/player/spells/star_rain/Star.cs" id="1_tj5l4"]
 [ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/basic_spell/basic_spell.png" id="2_cjge1"]
-[ext_resource type="AudioStream" uid="uid://beimlsy81pmg7" path="res://modules/entities/player/spells/star_rain/star.mp3" id="3_l1q6t"]
+[ext_resource type="AudioStream" uid="uid://v7851oanj7gu" path="res://modules/entities/player/spells/star_rain/star.wav" id="3_kkgjc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyivp"]
 radius = 4.0
@@ -21,8 +21,8 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_cjge1")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_l1q6t")
-volume_db = -12.18
+stream = ExtResource("3_kkgjc")
+volume_db = -25.0
 autoplay = true
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]

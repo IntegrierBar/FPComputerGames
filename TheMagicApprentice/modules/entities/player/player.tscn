@@ -315,7 +315,7 @@ _spellName = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
 script = ExtResource("10_wplkf")
 CastTime = 0.5
 CoolDown = 1.0
@@ -332,7 +332,7 @@ _spellName = 4
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("16_7jeko")
 
-[node name="MoonLight" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
+[node name="MoonLight" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("10_wplkf")
 CastTime = 0.3
 CoolDown = 1.0
@@ -342,7 +342,7 @@ _spellName = 5
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("18_gloak")
 
-[node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
 script = ExtResource("19_ho7hk")
 CastTime = 0.5
 CoolDown = 1.0
@@ -361,7 +361,7 @@ _spellName = 7
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("22_vkran")
 
-[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
+[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("10_wplkf")
 CastTime = 0.5
 CoolDown = 3.0

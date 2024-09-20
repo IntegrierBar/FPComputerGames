@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://modules/entities/player/spells/basic_spell/BasicSpell.cs" id="1_p4fnx"]
 [ext_resource type="Texture2D" uid="uid://c7fy47vvy7m1t" path="res://assets/Entities/Projectiles/cosmic_projectile_basic_spell.png" id="3_cuwab"]
 [ext_resource type="Texture2D" uid="uid://sj770ky372a5" path="res://assets/Entities/Projectiles/dark_projectile_basic_spell.png" id="4_xw0w8"]
+[ext_resource type="AudioStream" uid="uid://c33qr2h4irqr4" path="res://modules/entities/player/spells/basic_spell/basic_spell.wav" id="5_0s1pv"]
 [ext_resource type="Texture2D" uid="uid://d0aqku0wbokoh" path="res://assets/Entities/Projectiles/sun_projectile_basic_spell.png" id="5_15gr4"]
-[ext_resource type="AudioStream" uid="uid://dy7ds3ce4ahbm" path="res://modules/entities/player/spells/basic_spell/basic_spell.mp3" id="5_vxavc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atxw1"]
 atlas = ExtResource("3_cuwab")
@@ -84,7 +84,8 @@ sprite_frames = SubResource("SpriteFrames_3e624")
 animation = &"sun_basic_spell"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_vxavc")
+stream = ExtResource("5_0s1pv")
+volume_db = -10.0
 autoplay = true
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
