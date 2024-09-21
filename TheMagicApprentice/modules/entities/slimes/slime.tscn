@@ -206,7 +206,6 @@ radius = 24.0
 [node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer")]
 position = Vector2(219, 117)
 scale = Vector2(0.5, 0.5)
-collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_llbif")
 StateMachine = NodePath("StateMachine")
