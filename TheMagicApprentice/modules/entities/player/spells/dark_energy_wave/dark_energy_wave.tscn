@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqpjsl8ux75jq"]
+[gd_scene load_steps=4 format=3 uid="uid://dqpjsl8ux75jq"]
 
 [ext_resource type="Script" path="res://modules/entities/player/spells/dark_energy_wave/DarkEnergyWave.cs" id="1_g3318"]
-[ext_resource type="Texture2D" uid="uid://cfga3eogtf0iw" path="res://modules/entities/player/spells/dark_energy_wave/dark_energy_wave.png" id="1_gg2b4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1w8rv"]
 radius = 45.2769
@@ -19,10 +18,6 @@ MaxLifeTimeInSeconds = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1w8rv")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("1_gg2b4")
 
 [node name="Particles" type="CPUParticles2D" parent="."]
 amount = 1000

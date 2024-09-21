@@ -10,9 +10,8 @@ Enemies hit are pushed away.
 */
 public partial class DarkEnergyWave : Spell
 {
-	private Sprite2D _sprite;
-	private CpuParticles2D _particles;
-	private CollisionShape2D _collisionShape;
+	private CpuParticles2D _particles; ///< Particles of the dark energy wave
+	private CollisionShape2D _collisionShape; ///< Collision shape of the dark energy wave
 	private float _initialSize = 10f; ///< Initial size in pixels
 	private float _elapsedTime = 0f; ///< Time elapsed since spell creation
 	private Dictionary<CharacterBody2D, Vector2> _pushedSlimes = new Dictionary<CharacterBody2D, Vector2>(); ///< Tracks pushed slimes and their velocities
@@ -24,10 +23,8 @@ public partial class DarkEnergyWave : Spell
 		base.Init(attack, playerPosition, targetPosition);
 
 		GlobalPosition = playerPosition;
-		 _sprite = GetNode<Sprite2D>("Sprite2D");
 		_particles = GetNode<CpuParticles2D>("Particles");
 		_collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
-		UpdateSpriteSize(_initialSize);
 	}
 
 	/**
@@ -39,7 +36,7 @@ public partial class DarkEnergyWave : Spell
 		
 		_elapsedTime += (float)delta;
 		float newSize = CalculateSize(_elapsedTime);
-		UpdateSize(newSize);
+		UpdateCollisionShapeSize(newSize);
 
 		UpdatePushedSlimes((float)delta);
 	}
@@ -50,7 +47,7 @@ public partial class DarkEnergyWave : Spell
 	public override void _ExitTree()
 	{
 		base._ExitTree();
-		UpdateSize(0);
+		UpdateCollisionShapeSize(0);
 	}
 
 	/**
@@ -83,25 +80,6 @@ public partial class DarkEnergyWave : Spell
 		float distance = initialVelocity * time + maxLinearAccel * time * time;
 		
 		return _initialSize + distance; // Size in pixels
-	}
-
-	/**
-	Updates both sprite and collision shape size
-	*/
-	private void UpdateSize(float size)
-	{
-		UpdateSpriteSize(size);
-		UpdateCollisionShapeSize(size);
-	}
-
-	/**
-	Updates the sprite size based on the given size
-	*/
-	private void UpdateSpriteSize(float size)
-	{
-		Vector2 textureSize = _sprite.Texture.GetSize();
-		float scale = size / Mathf.Max(textureSize.X, textureSize.Y);
-		_sprite.Scale = new Vector2(scale, scale);
 	}
 
 	/**
