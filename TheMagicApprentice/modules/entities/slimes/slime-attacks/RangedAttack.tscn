@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bagdg0m051duy"]
+[gd_scene load_steps=20 format=3 uid="uid://bagdg0m051duy"]
 
 [ext_resource type="Script" path="res://modules/entities/slimes/slime-attacks/RangedAttack.cs" id="1_7mkfd"]
 [ext_resource type="Texture2D" uid="uid://h88yhn8j1mq5" path="res://assets/Entities/Projectiles/cosmic_projectile_with_contour.png" id="3_gvwgn"]
 [ext_resource type="Texture2D" uid="uid://b6vfx21py2s61" path="res://assets/Entities/Projectiles/dark_projectile_with_contour.png" id="4_faesf"]
 [ext_resource type="Texture2D" uid="uid://djg5kdnwm1hym" path="res://assets/Entities/Projectiles/sun_projectile_with_contour.png" id="5_bhkes"]
+[ext_resource type="AudioStream" uid="uid://vp433t4wx65" path="res://modules/entities/slimes/slime-attacks/slime_ranged_attack.mp3" id="5_gnyoy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pptpn"]
 radius = 6.0
@@ -124,6 +125,11 @@ shape = SubResource("CircleShape2D_pptpn")
 position = Vector2(2, 0)
 sprite_frames = SubResource("SpriteFrames_haxlq")
 animation = &"dark_projectile"
+
+[node name="RangedAttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gnyoy")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="area_entered" from="." to="." method="OnAreaEntered"]
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]

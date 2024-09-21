@@ -64,6 +64,8 @@ public partial class MeleeAttackHurtBox : Area2D
         SetAttack(attack);
         CallDeferred("SetMonitoringAndPhysics", true); 
         _timeLeft = timeLeft;
+        // play the sound effect
+        GetNode<AudioStreamPlayer2D>("MeleeAttackSound").Play();
     }
 
     /**

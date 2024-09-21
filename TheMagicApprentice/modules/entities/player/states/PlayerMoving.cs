@@ -6,7 +6,7 @@ public partial class PlayerMoving : State
     [Export]
     public double SPEED = 100; ///< Movement speed 
     [Export]
-    public AudioStreamPlayer2D WalkingSound;
+    public AudioStreamPlayer2D WalkingSound; ///< Reference to the AudioStreamPlayer2D for the walking sound
     
     
     [ExportGroup("States")]

@@ -4,7 +4,7 @@ using System;
 public partial class SlimeMoving : State
 {
 	[Export]
-	public AudioStreamPlayer2D WalkingSound;
+	public AudioStreamPlayer2D WalkingSound; ///< Reference to the AudioStreamPlayer2D for the walking sound
 
 	[ExportGroup("States")]
     [Export]
