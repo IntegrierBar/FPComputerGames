@@ -1,5 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://cfafpfmqm8u17"]
 
+
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
 [ext_resource type="Texture2D" uid="uid://b2bd8d8kejpv0" path="res://modules/entities/player/character.png" id="2_81jtv"]
@@ -23,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dqpjsl8ux75jq" path="res://modules/entities/player/spells/dark_energy_wave/dark_energy_wave.tscn" id="22_vkran"]
 [ext_resource type="PackedScene" uid="uid://u23ysmqaadgq" path="res://modules/entities/player/spells/black_hole/black_hole.tscn" id="24_h76h0"]
 [ext_resource type="PackedScene" uid="uid://dbtvjj0ey2g4s" path="res://modules/entities/player/inventory/augments/augment_inventory.tscn" id="25_qc2ug"]
+[ext_resource type="Texture2D" uid="uid://drnbql6ntl12h" path="res://modules/entities/light/spotlight.tres" id="26_vyf6c"]
 
 [sub_resource type="Animation" id="Animation_3syv3"]
 length = 0.001
@@ -238,6 +240,7 @@ height = 20.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer") groups=["player"]]
 z_index = 10
+collision_mask = 3
 script = ExtResource("1_33xnx")
 StateMachine = NodePath("StateMachine")
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -313,7 +316,7 @@ script = ExtResource("10_wplkf")
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="CosmicBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="CosmicBasic" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
 script = ExtResource("10_wplkf")
 MagicType = 1
 _spellName = 1
@@ -327,11 +330,11 @@ _spellName = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
+[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
 script = ExtResource("10_wplkf")
 CastTime = 0.5
 CoolDown = 1.0
-BaseDamage = 0.0
+BaseDamage = 80.0
 _spellName = 3
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("14_qxs2i")
@@ -399,6 +402,13 @@ offset_right = 1106.0
 offset_bottom = 604.0
 focus_mode = 0
 text = "Add Augment to Inventory"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.615686, 0.572549, 0.737255, 1)
+energy = 1.3
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("26_vyf6c")
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("22_r8oly")

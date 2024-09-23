@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://modules/entities/player/spells/sun_beam/SunBeam.cs" id="1_iu6rn"]
 [ext_resource type="AudioStream" uid="uid://cd6ra1hye4xiv" path="res://modules/entities/player/spells/sun_beam/sun_beam.mp3" id="2_w5a2e"]
+[ext_resource type="Texture2D" uid="uid://dqsh6uvb331hm" path="res://modules/entities/player/spells/sun_beam/flashlight_texture.tres" id="3_esvq6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xw77j"]
 radius = 19.0
@@ -14,14 +15,20 @@ modulate = Color(1, 1, 1, 0.666667)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_iu6rn")
+BeamColor = Color(1, 1, 0, 1)
+MaxBeamLength = 500.0
 MaxLifeTimeInSeconds = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(460, 0)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_xw77j")
-
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+
+[node name="FlashLight" type="PointLight2D" parent="."]
+color = Color(1, 1, 0, 1)
+energy = 10.0
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+shadow_item_cull_mask = 2
+texture = ExtResource("3_esvq6")
 modulate = Color(1, 1, 0, 0.670588)
 position = Vector2(462, -0.499997)
 scale = Vector2(904, 19.5)
