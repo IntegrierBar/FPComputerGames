@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://n7hccfofkm8k"]
+[gd_scene load_steps=5 format=3 uid="uid://n7hccfofkm8k"]
 
 [ext_resource type="Script" path="res://modules/entities/player/spells/summon_sun/Sun.cs" id="1_khkum"]
 [ext_resource type="Texture2D" uid="uid://clqa8q55tp7i6" path="res://modules/entities/player/spells/basic_spell/basic_spell.png" id="2_qdgch"]
+[ext_resource type="AudioStream" uid="uid://ltlnfoc1lpbw" path="res://modules/entities/player/spells/summon_sun/summon_sun.mp3" id="3_56mfo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8w71c"]
 radius = 152.013
@@ -19,3 +20,8 @@ shape = SubResource("CircleShape2D_8w71c")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
 texture = ExtResource("2_qdgch")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_56mfo")
+volume_db = -10.0
+autoplay = true

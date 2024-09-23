@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3hs40r4yyuwr"]
+[gd_scene load_steps=5 format=3 uid="uid://d3hs40r4yyuwr"]
 
 [ext_resource type="Script" path="res://modules/entities/player/spells/sun_beam/SunBeam.cs" id="1_iu6rn"]
+[ext_resource type="AudioStream" uid="uid://cd6ra1hye4xiv" path="res://modules/entities/player/spells/sun_beam/sun_beam.mp3" id="2_w5a2e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xw77j"]
 radius = 19.0
@@ -25,3 +26,8 @@ modulate = Color(1, 1, 0, 0.670588)
 position = Vector2(462, -0.499997)
 scale = Vector2(904, 19.5)
 mesh = SubResource("CapsuleMesh_v6xar")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_w5a2e")
+volume_db = -20.0
+autoplay = true

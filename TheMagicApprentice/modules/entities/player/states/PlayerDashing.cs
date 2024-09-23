@@ -8,6 +8,8 @@ During dashing the hitbox of the player is disabled
 public partial class PlayerDashing : State
 {
     [Export]
+    public AudioStreamPlayer2D DashSound; ///< Reference to the AudioStreamPlayer2D for the dash sound
+    [Export]
     public CollisionShape2D HitBox; ///< Reference of the HitBox of the player 
     [Export]
     public double SPEED = 500; ///< Speed of the dash
@@ -36,6 +38,7 @@ public partial class PlayerDashing : State
         Parent.Velocity = Input.GetVector("left", "right", "up", "down") * (float)SPEED;
 
         HitBox.Disabled = true;
+        DashSound.Play(); // play the audio
     }
 
     /**

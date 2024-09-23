@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dua4inolrs6ri"]
+[gd_scene load_steps=8 format=3 uid="uid://dua4inolrs6ri"]
 
 [ext_resource type="Script" path="res://modules/ui/MainGame.cs" id="1_xal8w"]
 [ext_resource type="Script" path="res://modules/handlers/DungeonHandler.cs" id="2_6yvwo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://modules/handlers/CurseHandler.cs" id="4_2b12q"]
 [ext_resource type="Script" path="res://modules/entities/player/CameraController.cs" id="4_8hnnh"]
 [ext_resource type="Script" path="res://modules/handlers/Minimap.cs" id="5_7li43"]
+[ext_resource type="AudioStream" uid="uid://bpkupyrot7kcq" path="res://assets/Music/backgroundmusic.mp3" id="7_p5kkg"]
 
 [node name="Scene" type="Node2D"]
 
@@ -34,3 +35,9 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_7li43")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_p5kkg")
+volume_db = -40.0
+autoplay = true
