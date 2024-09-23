@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://16e1fc62e66t"]
+[gd_scene load_steps=26 format=3 uid="uid://16e1fc62e66t"]
 
 [ext_resource type="Script" path="res://modules/entities/slimes/Slime.cs" id="1_llbif"]
 [ext_resource type="Texture2D" uid="uid://pi2gqnphaq76" path="res://modules/entities/slimes/Slime_cropped.png" id="2_aql0x"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://modules/entities/slimes/states/SlimeDeath.cs" id="8_hom1h"]
 [ext_resource type="PackedScene" uid="uid://c7on4tuqslrab" path="res://modules/entities/slimes/slime-attacks/MeleeAttackHurtBox.tscn" id="9_ilfwi"]
 [ext_resource type="PackedScene" uid="uid://cqcik8bgxyjjc" path="res://modules/entities/healthbar/healthbar.tscn" id="10_weiag"]
+[ext_resource type="AudioStream" uid="uid://bgk04ogjw6mm8" path="res://modules/entities/slimes/slime.mp3" id="11_sfjcu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dxkmx"]
 radius = 18.0
@@ -256,8 +257,9 @@ Attacking = NodePath("../Attacking")
 IdleAnimationDuration = 1.0
 JumpAnimationDuration = 1.0
 
-[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle", "Attacking")]
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("WalkingSound", "Idle", "Attacking")]
 script = ExtResource("6_nb7wg")
+WalkingSound = NodePath("../../WalkingSound")
 Idle = NodePath("../Idle")
 Attacking = NodePath("../Attacking")
 
@@ -275,5 +277,9 @@ script = ExtResource("8_hom1h")
 visible = false
 position = Vector2(-5, 15)
 shape = SubResource("CircleShape2D_jp6e4")
+
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_sfjcu")
+volume_db = -30.0
 
 [connection signal="Death" from="HealthComponent" to="StateMachine" method="OnDeath"]

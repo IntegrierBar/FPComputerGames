@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://modules/entities/player/spells/basic_spell/BasicSpell.cs" id="1_p4fnx"]
 [ext_resource type="Texture2D" uid="uid://c7fy47vvy7m1t" path="res://assets/Entities/Projectiles/cosmic_projectile_basic_spell.png" id="3_cuwab"]
 [ext_resource type="Texture2D" uid="uid://sj770ky372a5" path="res://assets/Entities/Projectiles/dark_projectile_basic_spell.png" id="4_xw0w8"]
+[ext_resource type="AudioStream" uid="uid://c33qr2h4irqr4" path="res://modules/entities/player/spells/basic_spell/basic_spell.wav" id="5_0s1pv"]
 [ext_resource type="Texture2D" uid="uid://d0aqku0wbokoh" path="res://assets/Entities/Projectiles/sun_projectile_basic_spell.png" id="5_15gr4"]
 [ext_resource type="Gradient" uid="uid://bpxrt7fqcuiba" path="res://modules/entities/player/spells/basic_spell/color_ramp.tres" id="5_odo3c"]
 [ext_resource type="Texture2D" uid="uid://drnbql6ntl12h" path="res://modules/entities/light/spotlight.tres" id="6_87xpp"]
@@ -177,5 +178,10 @@ active = false
 libraries = {
 "": SubResource("AnimationLibrary_aa34n")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0s1pv")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
