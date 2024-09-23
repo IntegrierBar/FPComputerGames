@@ -96,9 +96,11 @@ esc={
 
 [layer_names]
 
+2d_render/layer_2="Beam"
 2d_physics/layer_1="Collision"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Beam"
 
 [rendering]
 

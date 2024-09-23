@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqpjsl8ux75jq"]
+[gd_scene load_steps=6 format=3 uid="uid://dqpjsl8ux75jq"]
 
 [ext_resource type="Script" path="res://modules/entities/player/spells/dark_energy_wave/DarkEnergyWave.cs" id="1_g3318"]
+[ext_resource type="Texture2D" uid="uid://cfga3eogtf0iw" path="res://modules/entities/player/spells/dark_energy_wave/dark_energy_wave.png" id="1_gg2b4"]
+[ext_resource type="AudioStream" uid="uid://cdlk2fneor3w2" path="res://modules/entities/player/spells/dark_energy_wave/dark_energy_wave.mp3" id="3_8xrqk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1w8rv"]
 radius = 45.2769
@@ -33,3 +35,8 @@ linear_accel_max = 300.0
 scale_amount_min = 3.0
 scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_en85h")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8xrqk")
+volume_db = -10.0
+autoplay = true
