@@ -13,9 +13,13 @@ public partial class MainHub : BaseMenu
 		SetRootMenu(MenuManager.MenuType.MainMenu);
 	}
 
+	/**
+	Open the dungeon selection menu by calling the OpenDungeonSelection function of the player which sets the visibility of the Menu to true
+	*/
 	private void OnDungeonButtonPressed()
 	{
-		SetRootMenu(MenuManager.MenuType.MainGame);
+		SetRootMenu(MenuManager.MenuType.MainHub);
+		PushMenu(MenuManager.MenuType.DungeonSelection);
 	}
 
 	/**

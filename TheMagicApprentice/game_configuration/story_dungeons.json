@@ -1,0 +1,52 @@
+[
+    {
+        "name": "IntroDungeon",
+        "layout": {
+            "0,0": {
+                "type": "Normal",
+                "scene": "res://modules/rooms/Room3.tscn"
+            },
+            "0,1": {
+                "type": "Normal",
+                "scene": "res://modules/rooms/Room4.tscn"
+            },
+            "0,2": {
+                "type": "Normal",
+                "scene": "res://modules/rooms/Room3.tscn"
+            },
+            "0,3": {
+                "type": "Boss",
+                "scene": "res://modules/rooms/Room4.tscn"
+            }
+        },
+        "entrancePosition": {
+            "x": 0,
+            "y": 0
+        },
+        "bossPosition": {
+            "x": 0,
+            "y": 3
+        },
+        "gridSize": {
+            "x": 1,
+            "y": 4
+        },
+        "magicType": "SUN"
+    },
+    {
+        "name": "StoryDungeon1"
+    },
+    {
+        "name": "StoryDungeon2"
+    },
+    {
+        "name": "StoryDungeon3"
+    },
+    {
+        "name": "StoryDungeon4"
+    },
+    {
+        "name": "StoryDungeon5"
+    }
+]
+

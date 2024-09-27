@@ -20,7 +20,8 @@ public partial class MenuManager : Node
 		MainMenu,
 		MainHub,
 		PauseMenu,
-		SettingsMenu
+		SettingsMenu,
+		DungeonSelection
 	}
 
 	/**
@@ -33,7 +34,7 @@ public partial class MenuManager : Node
 		{ MenuType.MainHub, "res://modules/ui/main_hub/main_hub.tscn" },
 		{ MenuType.PauseMenu, "res://modules/ui/pause_menu/pause_menu.tscn" },
 		{ MenuType.SettingsMenu, "res://modules/ui/settings_menu/settings_menu.tscn" },
-		// Add other menu types and their scene paths here
+		{ MenuType.DungeonSelection, "res://modules/ui/dungeon_selection/dungeon_selection.tscn" }
 	};
 	
 	/**
