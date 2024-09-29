@@ -71,10 +71,10 @@ public partial class TestAugments
 
 
     /**
-    Test equiping augments in random slots
+    Test equipping augments in random slots
     */
     [TestCase]
-    public void TestAugmentEquiping()
+    public void TestAugmentEquipping()
     {
         // iterate over all augmenteffect.
         // put randonly 1-3 effect into one augment and equip the augment in a random slot

@@ -179,7 +179,7 @@ public partial class SkillTree : CanvasLayer
 	never be more than one other copy of any spell.
 	Caution: nrSkillSlot ranges from 0 to 2, while the OptionButtons have numbers from 1 to 3
 	*/
-	private int IsSkillCurrentlyEquipped(int nrSkillSlot, int index)
+	public int IsSkillCurrentlyEquipped(int nrSkillSlot, int index)
 	{
 		OptionButton node1 = GetNode<OptionButton>("%OptionsSkillSlot2");
 		OptionButton node2 = GetNode<OptionButton>("%OptionsSkillSlot3");
@@ -214,7 +214,7 @@ public partial class SkillTree : CanvasLayer
 	Function that gets the SpellName corresponding to each index from the OptionsButton
 	Function returns null if index is not between 0 and 8!
 	*/
-	private static SpellName? GetSpellFromIndex(int index) => index switch
+	public SpellName? GetSpellFromIndex(int index) => index switch
 	{
 		0 => SpellName.SunBasic,
 		1 => SpellName.SunBeam,
