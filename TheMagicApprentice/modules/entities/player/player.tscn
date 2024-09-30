@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=40 format=3 uid="uid://cfafpfmqm8u17"]
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bg322q6tu80w8" path="res://modules/entities/player/spells/moon_light/moon_light.tscn" id="18_gloak"]
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryStarRain.cs" id="19_ho7hk"]
 [ext_resource type="PackedScene" uid="uid://d0v4b5ja0wumo" path="res://modules/entities/player/spells/star_rain/star.tscn" id="20_l7up7"]
+[ext_resource type="PackedScene" uid="uid://cqx4bqlj501rl" path="res://modules/entities/player/inventory/spells/skill_tree.tscn" id="21_73epa"]
 [ext_resource type="AudioStream" uid="uid://duc02tb548k0i" path="res://modules/entities/player/states/walking.mp3" id="21_aqxnf"]
 [ext_resource type="AudioStream" uid="uid://dbqfq2yqv56ax" path="res://modules/entities/player/hit.mp3" id="22_r8oly"]
 [ext_resource type="PackedScene" uid="uid://dqpjsl8ux75jq" path="res://modules/entities/player/spells/dark_energy_wave/dark_energy_wave.tscn" id="22_vkran"]
@@ -329,7 +330,7 @@ _spellName = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell1"]]
+[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("10_wplkf")
 CastTime = 0.5
 CoolDown = 1.0
@@ -348,8 +349,6 @@ _spellScene = ExtResource("16_7jeko")
 
 [node name="MoonLight" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("10_wplkf")
-CastTime = 0.3
-CoolDown = 1.0
 BaseDamage = 0.0
 MagicType = 1
 _spellName = 5
@@ -359,14 +358,13 @@ _spellScene = ExtResource("18_gloak")
 [node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("19_ho7hk")
 CastTime = 0.5
-CoolDown = 1.0
 BaseDamage = 100.0
 MagicType = 1
 _spellName = 6
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("20_l7up7")
 
-[node name="DarkEnergyWave" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
+[node name="DarkEnergyWave" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("10_wplkf")
 CoolDown = 2.0
 BaseDamage = 40.0
@@ -391,7 +389,6 @@ _spellScene = ExtResource("24_h76h0")
 
 [node name="AugmentInventory" parent="." instance=ExtResource("25_qc2ug")]
 process_mode = 4
-layer = 10
 visible = false
 
 [node name="AddAugment" type="Button" parent="AugmentInventory"]
@@ -401,6 +398,9 @@ offset_right = 1106.0
 offset_bottom = 604.0
 focus_mode = 0
 text = "Add Augment to Inventory"
+
+[node name="SkillTree" parent="." instance=ExtResource("21_73epa")]
+visible = false
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.615686, 0.572549, 0.737255, 1)

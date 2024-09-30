@@ -103,3 +103,4 @@ stretch_mode = 0
 [connection signal="pressed" from="Control/ExitButton" to="." method="OnExitButtonPressed"]
 [connection signal="pressed" from="Control/AugementFuseButton" to="." method="OpenFuseAugments"]
 [connection signal="pressed" from="Control/InventoryButton" to="." method="OpenAugmentInventory"]
+[connection signal="pressed" from="Control/SkillTreeButton" to="." method="OpenSkillTree"]

@@ -33,4 +33,12 @@ public partial class MainHub : BaseMenu
 	{
 		(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).OpenFuseAugments();
 	}
+
+	/**
+	Open the skill tree by calling the OpenSkillTree function of the player which sets the visibility of the Skill Tree to true
+	*/
+	private void OpenSkillTree()
+	{
+		(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).OpenSkillTree();
+	}
 }
