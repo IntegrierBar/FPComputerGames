@@ -47,12 +47,17 @@ public partial class ShootingAttackProjectileHandler : Node
 	*/
 	private void SpawnProjectile()
 	{
-		PackedScene scene = GD.Load<PackedScene>("res://modules/entities/unicorns/unicorn-attacks/ShootingAttackProjectile.tscn");
-		ShootingAttackProjectile projectile = scene.Instantiate() as ShootingAttackProjectile;
-		GetTree().Root.AddChild(projectile); // Add the ranged attack projectile to the scene tree
+		// Get a reference to the current room. The current room is the child of the RoomHandler
+		Node2D room = GetTree().GetFirstNodeInGroup(Globals.RoomHandlerGroup)?.GetChild(0) as Node2D;
+		if (room is not null) // only cast if room exists
+		{
+			PackedScene scene = GD.Load<PackedScene>("res://modules/entities/unicorns/unicorn-attacks/ShootingAttackProjectile.tscn");
+			ShootingAttackProjectile projectile = scene.Instantiate() as ShootingAttackProjectile;
+			room.AddChild(projectile); // Add the ranged attack projectile to the scene tree
 
-		projectile.Init(_attack); // Iniitialise the attack such that the projectile can damage the player on impact
-		projectile.Position = _unicornPosition; // ranged attack spawns at the position of the slime
+			projectile.Init(_attack); // Iniitialise the attack such that the projectile can damage the player on impact
+			projectile.GlobalPosition = _unicornPosition; // ranged attack spawns at the position of the slime
+		}
 	}
 
 }

@@ -12,6 +12,6 @@ public partial class BlackHole : Spell
 	{
 		base.Init(attack, playerPosition, targetPosition);
 
-		Position = targetPosition;
+		GlobalPosition = targetPosition;
 	}
 }

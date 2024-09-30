@@ -1,4 +1,5 @@
-[gd_scene load_steps=36 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=39 format=3 uid="uid://cfafpfmqm8u17"]
+
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
@@ -9,6 +10,7 @@
 [ext_resource type="Script" path="res://modules/entities/player/states/PlayerDashing.cs" id="6_g5tpb"]
 [ext_resource type="Script" path="res://modules/entities/player/states/PlayerSpellCasting.cs" id="7_xwtn5"]
 [ext_resource type="Script" path="res://modules/entities/player/states/PlayerDeath.cs" id="8_1165l"]
+[ext_resource type="AudioStream" uid="uid://wv7ekhv02l3s" path="res://modules/entities/player/states/dash.wav" id="9_g3jid"]
 [ext_resource type="PackedScene" uid="uid://cauv7k1n531by" path="res://modules/entities/player/inventory/spell_inventory.tscn" id="10_cknrl"]
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventorySpell.cs" id="10_wplkf"]
 [ext_resource type="PackedScene" uid="uid://bg4jmwx6relk0" path="res://modules/entities/player/spells/basic_spell/basic_spell.tscn" id="12_oqin6"]
@@ -18,9 +20,12 @@
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/InventoryStarRain.cs" id="19_ho7hk"]
 [ext_resource type="PackedScene" uid="uid://d0v4b5ja0wumo" path="res://modules/entities/player/spells/star_rain/star.tscn" id="20_l7up7"]
 [ext_resource type="PackedScene" uid="uid://cqx4bqlj501rl" path="res://modules/entities/player/inventory/spells/skill_tree.tscn" id="21_73epa"]
+[ext_resource type="AudioStream" uid="uid://duc02tb548k0i" path="res://modules/entities/player/states/walking.mp3" id="21_aqxnf"]
+[ext_resource type="AudioStream" uid="uid://dbqfq2yqv56ax" path="res://modules/entities/player/hit.mp3" id="22_r8oly"]
 [ext_resource type="PackedScene" uid="uid://dqpjsl8ux75jq" path="res://modules/entities/player/spells/dark_energy_wave/dark_energy_wave.tscn" id="22_vkran"]
 [ext_resource type="PackedScene" uid="uid://u23ysmqaadgq" path="res://modules/entities/player/spells/black_hole/black_hole.tscn" id="24_h76h0"]
 [ext_resource type="PackedScene" uid="uid://dbtvjj0ey2g4s" path="res://modules/entities/player/inventory/augments/augment_inventory.tscn" id="25_qc2ug"]
+[ext_resource type="Texture2D" uid="uid://drnbql6ntl12h" path="res://modules/entities/light/spotlight.tres" id="26_vyf6c"]
 
 [sub_resource type="Animation" id="Animation_3syv3"]
 length = 0.001
@@ -236,6 +241,7 @@ height = 20.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine", "AnimationPlayer") groups=["player"]]
 z_index = 10
+collision_mask = 3
 script = ExtResource("1_33xnx")
 StateMachine = NodePath("StateMachine")
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -256,8 +262,9 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jsldv")
 metadata/_edit_lock_ = true
 
-[node name="HealthComponent" parent="." instance=ExtResource("1_oqun1")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("HitSound") instance=ExtResource("1_oqun1")]
 collision_layer = 2
+HitSound = NodePath("../HitSound")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
@@ -275,16 +282,26 @@ Moving = NodePath("../Moving")
 Dashing = NodePath("../Dashing")
 SpellCasting = NodePath("../SpellCasting")
 
-[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle", "Dashing", "SpellCasting")]
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("WalkingSound", "Idle", "Dashing", "SpellCasting")]
 script = ExtResource("5_jyanl")
+WalkingSound = NodePath("WalkingSound")
 Idle = NodePath("../Idle")
 Dashing = NodePath("../Dashing")
 SpellCasting = NodePath("../SpellCasting")
 
-[node name="Dashing" type="Node" parent="StateMachine" node_paths=PackedStringArray("HitBox", "Idle")]
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="StateMachine/Moving"]
+stream = ExtResource("21_aqxnf")
+volume_db = -20.0
+
+[node name="Dashing" type="Node" parent="StateMachine" node_paths=PackedStringArray("DashSound", "HitBox", "Idle")]
 script = ExtResource("6_g5tpb")
+DashSound = NodePath("DashSound")
 HitBox = NodePath("../../HealthComponent/CollisionShape2D")
 Idle = NodePath("../Idle")
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="StateMachine/Dashing"]
+stream = ExtResource("9_g3jid")
+volume_db = -10.0
 
 [node name="SpellCasting" type="Node" parent="StateMachine" node_paths=PackedStringArray("Idle")]
 script = ExtResource("7_xwtn5")
@@ -314,15 +331,16 @@ _spellName = 2
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("12_oqin6")
 
-[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="SunBeam" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell1"]]
 script = ExtResource("10_wplkf")
 CastTime = 0.5
-BaseDamage = 0.0
+CoolDown = 1.0
+BaseDamage = 80.0
 _spellName = 3
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("14_qxs2i")
 
-[node name="SummonSun" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell2"]]
+[node name="SummonSun" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("10_wplkf")
 CastTime = 0.5
 CoolDown = 2.0
@@ -338,7 +356,7 @@ _spellName = 5
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("18_gloak")
 
-[node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell1"]]
+[node name="StarRain" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("19_ho7hk")
 CastTime = 0.5
 BaseDamage = 100.0
@@ -347,16 +365,16 @@ _spellName = 6
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("20_l7up7")
 
-[node name="DarkEnergyWave" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
+[node name="DarkEnergyWave" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
 script = ExtResource("10_wplkf")
 CoolDown = 2.0
-BaseDamage = 10.0
+BaseDamage = 40.0
 MagicType = 2
 _spellName = 7
 _playerHealthComponent = NodePath("../../HealthComponent")
 _spellScene = ExtResource("22_vkran")
 
-[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent") groups=["spell3"]]
+[node name="BlackHole" type="Node" parent="Spells" node_paths=PackedStringArray("_playerHealthComponent")]
 script = ExtResource("10_wplkf")
 CastTime = 0.5
 CoolDown = 3.0
@@ -384,5 +402,16 @@ text = "Add Augment to Inventory"
 
 [node name="SkillTree" parent="." instance=ExtResource("21_73epa")]
 visible = false
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.615686, 0.572549, 0.737255, 1)
+energy = 1.3
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("26_vyf6c")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_r8oly")
+volume_db = -20.0
 
 [connection signal="pressed" from="AugmentInventory/AddAugment" to="AugmentInventory" method="AddRandomAugment"]

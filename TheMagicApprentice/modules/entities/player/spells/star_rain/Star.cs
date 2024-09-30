@@ -31,7 +31,7 @@ public partial class Star : Spell
 		var rng = new RandomNumberGenerator();
 
 		Vector2 offset = new Vector2(rng.RandfRange(-10, 10),  rng.RandfRange(-10, 10));
-		Position = playerPosition + offset;
+		GlobalPosition = playerPosition + offset;
 		_direction = (targetPosition-playerPosition).Normalized(); // TODO think abouth how to set the direction according to the offset
 
 		LookAt(targetPosition); // make spell look in the correct direction

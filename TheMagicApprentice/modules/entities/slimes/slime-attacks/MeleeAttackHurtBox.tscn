@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7on4tuqslrab"]
+[gd_scene load_steps=3 format=3 uid="uid://c7on4tuqslrab"]
 
 [ext_resource type="Script" path="res://modules/entities/slimes/slime-attacks/MeleeAttackHurtBox.cs" id="1_u2l2q"]
+[ext_resource type="AudioStream" uid="uid://myr5j80c6gyi" path="res://modules/entities/slimes/slime-attacks/slime_melee_attack.mp3" id="2_ht4bu"]
 
 [node name="MeleeAttackHurtBox" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_u2l2q")
+
+[node name="MeleeAttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ht4bu")
+volume_db = -20.0
 
 [connection signal="area_entered" from="." to="." method="OnAreaEntered"]

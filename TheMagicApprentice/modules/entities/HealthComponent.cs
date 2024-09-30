@@ -8,6 +8,8 @@ public partial class HealthComponent : Area2D
 	public delegate void DeathEventHandler(); ///< Signal that gets emitted if the entities health reaches 0 
 
 	[Export]
+	public AudioStreamPlayer2D HitSound; ///< Reference to the AudioStreamPlayer2D that plays the hit sound. Can be null. If it is null, it is ignored
+	[Export]
 	public Healthbar healthbar;
 
 	[Export]
@@ -66,6 +68,9 @@ public partial class HealthComponent : Area2D
 		{
 			EmitSignal(SignalName.Death);
 		}
+
+		// play the hit sound if it exists
+		HitSound?.Play();
 	}
 
 	/**

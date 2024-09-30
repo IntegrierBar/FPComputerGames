@@ -1,5 +1,14 @@
 using Godot;
 
+public enum SpawnType {
+	RANDOM,
+	MELEE_SLIME,
+	BIG_SLIME,
+	RANGED_SLIME,
+	UNICORN
+	
+}
+
 /**
  * The EnemySpawn class represents a node in the room where enemies can be spawned.
  * These nodes are spread around the room and initialized by the RoomHandler.
@@ -7,6 +16,10 @@ using Godot;
  */
 public partial class EnemySpawn : Node2D
 {
+
+	[Export]
+	public SpawnType SpawnType = SpawnType.RANDOM;
+
 	/**
 	 * Spawns a slime enemy at the position of this EnemySpawn node.
 	 * 
@@ -24,16 +37,49 @@ public partial class EnemySpawn : Node2D
 		if (slimeInstance != null)
 		{
 			MagicType slimeMagicType;
-			if (GD.Randf() < 0.25f)
+			SlimeSize size;
+			SlimeAttackRange range;
+
+			if (SpawnType == SpawnType.RANDOM)
 			{
-				slimeMagicType = magicType;
+				if (GD.Randf() < 0.25f)
+				{
+					slimeMagicType = magicType;
+				}
+				else
+				{
+					slimeMagicType = EntityTypeHelper.GetRandomMagicType();
+				}
+				size = GD.Randf() < 0.33f ? SlimeSize.LARGE : SlimeSize.SMALL;
+				range = (size == SlimeSize.LARGE || GD.Randf() < 0.5f) ? SlimeAttackRange.MELEE : SlimeAttackRange.RANGED;
 			}
 			else
 			{
-				slimeMagicType = EntityTypeHelper.GetRandomMagicType();
+				slimeMagicType = magicType;
+				switch (SpawnType)
+				{
+					case SpawnType.MELEE_SLIME:
+						size = SlimeSize.SMALL;
+						range = SlimeAttackRange.MELEE;
+						break;
+					case SpawnType.BIG_SLIME:
+						size = SlimeSize.LARGE;
+						range = SlimeAttackRange.MELEE;
+						break;
+					case SpawnType.RANGED_SLIME:
+						size = SlimeSize.SMALL;
+						range = SlimeAttackRange.RANGED;
+						break;
+					case SpawnType.UNICORN:
+						size = SlimeSize.LARGE;
+						range = SlimeAttackRange.RANGED;
+						break;
+					default:
+						size = SlimeSize.SMALL;
+						range = SlimeAttackRange.MELEE;
+						break;
+				}
 			}
-			SlimeSize size = GD.Randf() < 0.33f ? SlimeSize.LARGE : SlimeSize.SMALL;
-			SlimeAttackRange range = (size == SlimeSize.LARGE || GD.Randf() < 0.5f) ? SlimeAttackRange.MELEE : SlimeAttackRange.RANGED;
 			slimeInstance.SetSlimeProperties(slimeMagicType, size, range, GlobalPosition);
 		}
 		RoomHandler.CurrentRoomNode.AddChild(Slime);
