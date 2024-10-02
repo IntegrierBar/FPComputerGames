@@ -80,19 +80,19 @@ _healthComponent = NodePath("../../HealthComponent")
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("9_i1ral")
 
-[node name="UnicornAttacks" type="Node" parent="."]
+[node name="UnicornAttacks" type="Node2D" parent="."]
 
 [node name="HurtBoxChargeAttack" parent="UnicornAttacks" instance=ExtResource("10_cusfu")]
 
 [node name="CollisionShapeChargeAttack" type="CollisionShape2D" parent="UnicornAttacks/HurtBoxChargeAttack"]
-position = Vector2(54, 39)
+position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_unm7j")
 disabled = true
 
 [node name="HurtBoxStompingAttack" parent="UnicornAttacks" instance=ExtResource("11_ma7dc")]
 
 [node name="CollisionShapeStompingAttack" type="CollisionShape2D" parent="UnicornAttacks/HurtBoxStompingAttack"]
-position = Vector2(47, 48)
+position = Vector2(-27, 16)
 rotation = -1.57379
 shape = SubResource("CapsuleShape2D_x0lvx")
 disabled = true
