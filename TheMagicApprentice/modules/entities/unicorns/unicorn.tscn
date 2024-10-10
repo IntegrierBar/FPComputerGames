@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dom7xfancttur"]
+[gd_scene load_steps=18 format=3 uid="uid://dom7xfancttur"]
 
 [ext_resource type="Texture2D" uid="uid://bpjlbco62ohco" path="res://assets/Entities/Unicorns/Unicorn_dark.png.png" id="1_fw332"]
 [ext_resource type="Script" path="res://modules/entities/unicorns/Unicorn.cs" id="1_uvms1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ip1vdxk6q8g1" path="res://modules/entities/unicorns/unicorn-attacks/HurtBoxChargeAttack.tscn" id="10_cusfu"]
 [ext_resource type="PackedScene" uid="uid://cw411rnqw88ih" path="res://modules/entities/unicorns/unicorn-attacks/HurtBoxStompingAttack.tscn" id="11_ma7dc"]
 [ext_resource type="PackedScene" uid="uid://dtrv3jmk71a5l" path="res://modules/entities/unicorns/unicorn-attacks/ShootingAttackProjectileHandler.tscn" id="12_7hsri"]
+[ext_resource type="PackedScene" uid="uid://cqcik8bgxyjjc" path="res://modules/entities/healthbar/healthbar.tscn" id="13_p7sb6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4174d"]
 size = Vector2(26, 25)
@@ -43,7 +44,8 @@ texture = ExtResource("1_fw332")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_eddt6")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("healthbar") instance=ExtResource("2_eddt6")]
+healthbar = NodePath("../HealthBar")
 
 [node name="HitBoxUnicorn" type="CollisionShape2D" parent="HealthComponent"]
 unique_name_in_owner = true
@@ -83,6 +85,7 @@ script = ExtResource("9_i1ral")
 [node name="UnicornAttacks" type="Node2D" parent="."]
 
 [node name="HurtBoxChargeAttack" parent="UnicornAttacks" instance=ExtResource("10_cusfu")]
+unique_name_in_owner = true
 
 [node name="CollisionShapeChargeAttack" type="CollisionShape2D" parent="UnicornAttacks/HurtBoxChargeAttack"]
 position = Vector2(0, 7)
@@ -90,6 +93,7 @@ shape = SubResource("RectangleShape2D_unm7j")
 disabled = true
 
 [node name="HurtBoxStompingAttack" parent="UnicornAttacks" instance=ExtResource("11_ma7dc")]
+unique_name_in_owner = true
 
 [node name="CollisionShapeStompingAttack" type="CollisionShape2D" parent="UnicornAttacks/HurtBoxStompingAttack"]
 position = Vector2(-27, 16)
@@ -98,3 +102,12 @@ shape = SubResource("CapsuleShape2D_x0lvx")
 disabled = true
 
 [node name="ShootingAttackProjectileHandler" parent="UnicornAttacks" instance=ExtResource("12_7hsri")]
+unique_name_in_owner = true
+
+[node name="HealthBar" parent="." instance=ExtResource("13_p7sb6")]
+offset_left = -40.0
+offset_top = -22.0
+offset_right = 40.0
+offset_bottom = -13.0
+
+[connection signal="Death" from="HealthComponent" to="." method="OnHealthReachesZero"]
