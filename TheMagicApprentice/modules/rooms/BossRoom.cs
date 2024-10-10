@@ -5,17 +5,20 @@ public partial class BossRoom : Node2D
 {
 	/**
 	gets called when unicorn dies.
-	pauses the game and shows a popup telling the player what augments they got together with the exit button
 	*/
 	public void OnUnicornDeath()
 	{
-		// TODO: for now create augment and exit the room
-		uint amountAugmentEffects = 2; // TODO determine this some other way
-		Augment augment = AugmentManager.Instance.CreateRandomAugment(amountAugmentEffects);
-		(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).AddAugmentToInventory(augment); // add the augment to the player
+		// use call deferred to prevent bugs
+		CallDeferred(nameof(OpenMenu));
+	}
 
-		// exit the dungeon
+
+	/**
+	pauses the game and shows a popup telling the player what augments they got together with the exit button
+	*/
+	private void OpenMenu()
+	{
 		MenuManager menuManager = GetTree().GetFirstNodeInGroup("menu_manager") as MenuManager;
-		menuManager.SetRootMenu(MenuManager.MenuType.MainHub);
+		menuManager.PushMenu(MenuManager.MenuType.DungeonClearMenu);
 	}
 }
