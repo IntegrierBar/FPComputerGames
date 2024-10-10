@@ -89,7 +89,7 @@ public partial class UnicornChargeAttack : State
     */
 	private void EnableChargedAttackHurtbox()
 	{
-		Parent.GetNode<HurtBoxChargeAttack>("HurtBoxChargeAttack").StartAttack(BuildAttack(), _timeLeft);
+		Parent.GetNode<HurtBoxChargeAttack>("%HurtBoxChargeAttack").StartAttack(BuildAttack(), _timeLeft);
 	}
 
 	/**

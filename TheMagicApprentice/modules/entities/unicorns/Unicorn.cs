@@ -3,6 +3,9 @@ using System;
 
 public partial class Unicorn : CharacterBody2D
 {
+	[Signal]
+	public delegate void DeathEventHandler(); ///< Signal that gets emitted if the unicorn dies
+
 	[Export]
 	public StateMachine StateMachine; ///< Reference to the state machine of the unicorn
 	[Export]
@@ -44,6 +47,15 @@ public partial class Unicorn : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		StateMachine.ProcessPhysics(delta);
+	}
+
+	/**
+	Gets called when the HP of the unicorn reaches zero.
+	Emits the Death Signal of the Unicorn class so that room knows its dead
+	*/
+	public void OnHealthReachesZero()
+	{
+		EmitSignal(SignalName.Death);
 	}
 
 	/**

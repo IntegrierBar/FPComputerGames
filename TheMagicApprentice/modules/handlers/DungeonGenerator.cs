@@ -60,7 +60,7 @@ public static class DungeonGenerator
 			bossPosition = currentPos;
 		}
 
-		layout[bossPosition] = new Room(RoomType.Boss, GetRandomRoomScene());
+		layout[bossPosition] = new Room(RoomType.Boss, "res://modules/rooms/BossRoom.tscn"); // set the boss room
 	}
 
     /**

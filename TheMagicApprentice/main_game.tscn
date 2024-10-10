@@ -45,4 +45,3 @@ process_mode = 3
 stream = ExtResource("7_p5kkg")
 volume_db = -40.0
 autoplay = true
-

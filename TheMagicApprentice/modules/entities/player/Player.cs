@@ -238,4 +238,12 @@ public partial class Player : CharacterBody2D
 	{
 		GetNode<SkillTree>("SkillTree").SetVisibility(true);
 	}
+
+	/**
+	Adds the augment to the inventory
+	*/
+	public void AddAugmentToInventory(Augment augment)
+	{
+		GetNode<AugmentInventory>("AugmentInventory").AddAugmentToInventory(augment);
+	}
 }

@@ -59,7 +59,7 @@ public partial class UnicornStompingAttack : State
     */
 	private void EnableStompingHurtbox()
 	{
-		Parent.GetNode<HurtBoxStompingAttack>("HurtBoxStompingAttack").StartAttack(BuildAttack(), StompingDelayTime);
+		Parent.GetNode<HurtBoxStompingAttack>("%HurtBoxStompingAttack").StartAttack(BuildAttack(), StompingDelayTime);
 	}
 
 	/**

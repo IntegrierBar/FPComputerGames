@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2f6nfqsln7v3"]
+
+[ext_resource type="Script" path="res://modules/ui/dungeon_clear_menu/DungeonClearMenu.cs" id="1_85p8s"]
+[ext_resource type="Theme" uid="uid://b5xmy0ocd4tfb" path="res://assets/themes/ingame_inventory_theme.tres" id="2_ixmd2"]
+
+[node name="DungeonClearMenu" type="CanvasLayer"]
+script = ExtResource("1_85p8s")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_ixmd2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+bbcode_enabled = true
+text = "[center][font_size={40}][b][wave amp=30.0 freq=3.0 connected=1][rainbow freq=0.18 sat=0.9 val=0.9]DUNGEON CLEARED"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "AUGMENTS FOUND"
+horizontal_alignment = 1
+
+[node name="AugmentDisplay" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ExitDungeonButton" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit Dungeon
+"
+
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/ExitDungeonButton" to="." method="OnExitButtonPressed"]
