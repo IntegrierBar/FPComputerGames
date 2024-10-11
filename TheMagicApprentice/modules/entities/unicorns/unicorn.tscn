@@ -46,6 +46,7 @@ texture = ExtResource("1_fw332")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("healthbar") instance=ExtResource("2_eddt6")]
 healthbar = NodePath("../HealthBar")
+MaxHP = 500.0
 
 [node name="HitBoxUnicorn" type="CollisionShape2D" parent="HealthComponent"]
 unique_name_in_owner = true

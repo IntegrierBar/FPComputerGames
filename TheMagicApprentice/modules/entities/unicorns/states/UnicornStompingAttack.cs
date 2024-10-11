@@ -10,7 +10,7 @@ public partial class UnicornStompingAttack : State
 	[Export]
 	public double StompingAnimationDuration; ///< Duration of the stomping attack animation. 
 	[Export]
-	public double StompingDelayTime; ///< Time after which the unicorn hits the ground with its hooves in the animation
+	public double StompingDelayTime = 0.5; ///< Time after which the unicorn hits the ground with its hooves in the animation
 
 	private Player _player; ///< reference to the player
 	private double _timeLeft = 0.0; ///< time left in which the unicorn remains in the stomping attack state
