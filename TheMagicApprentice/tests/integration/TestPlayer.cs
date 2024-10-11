@@ -128,7 +128,7 @@ public partial class TestPlayer
 		{
 			_player.SetPlayerSkill(i, null);
 		}
-		// check that at start the playerskills are null
+		// check that playerskills are null now
         for (int i = 0; i < 3; i++)
         {
             AssertObject(_player.GetPlayerSkill(i)).IsNull();

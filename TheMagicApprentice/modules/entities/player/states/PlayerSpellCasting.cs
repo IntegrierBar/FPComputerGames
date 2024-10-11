@@ -28,10 +28,12 @@ public partial class PlayerSpellCasting : State
     {
         base.Enter();
         InventorySpell spell = null;
+        IEnumerable<InventorySpell> spellsToCast = null;
         UISpellSlot uISpellBox = null;
         if (Input.IsActionPressed("spell1"))
         {
             spell = (Parent as Player).GetPlayerSkill(0);
+            spellsToCast = GetTree().GetNodesInGroup("spell1").OfType<InventorySpell>();
             uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot1) as UISpellSlot;
         }
         else if (CurseHandler.IsActive(Curse.SKILL_1_ONLY))
@@ -41,6 +43,7 @@ public partial class PlayerSpellCasting : State
         else if (Input.IsActionPressed("spell2"))
         {
             spell = (Parent as Player).GetPlayerSkill(1);
+            spellsToCast = GetTree().GetNodesInGroup("spell2").OfType<InventorySpell>();
             uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot2) as UISpellSlot;
         }
         else if (CurseHandler.IsActive(Curse.SKILL_3_DISABLED))
@@ -50,6 +53,7 @@ public partial class PlayerSpellCasting : State
         else if (Input.IsActionPressed("spell3"))
         {
             spell = (Parent as Player).GetPlayerSkill(2);
+            spellsToCast = GetTree().GetNodesInGroup("spell3").OfType<InventorySpell>();
             uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot3) as UISpellSlot;
         }
 
@@ -62,8 +66,12 @@ public partial class PlayerSpellCasting : State
 
         System.Diagnostics.Debug.Assert(uISpellBox is not null, "uISpellBox is null in PlayerSpellCasting");
         
-        // otherwise cast the spell
-        spell.Cast(Parent.GlobalPosition, Parent.GetGlobalMousePosition());
+        // otherwise cast the spells
+        foreach (var inventorySpell in spellsToCast)
+        {
+            inventorySpell.Cast(Parent.GlobalPosition, Parent.GetGlobalMousePosition());
+        }
+        
 
         // finally retrieve the CastTime from the first spell which is always the main spell
         _timeLeft = spell.CastTime;
