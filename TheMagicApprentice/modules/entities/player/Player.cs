@@ -17,7 +17,8 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public AnimationPlayer AnimationPlayer; ///< Reference to the animation player of the player charackter
 
-	private Augment[] _activeAugments = new Augment[5]; ///< Array of the 5 active augmentc
+	private Augment[] _activeAugments = new Augment[5]; ///< Array of the 5 active augments
+	private InventorySpell[] _spellSlots = new InventorySpell[3]; ///< Array of the 3 spellslots. Contains the references to the currently selected InventorySpells
 
 
 	/**
@@ -177,17 +178,19 @@ public partial class Player : CharacterBody2D
 	Afterwards, the augments are added again. 
 	Note: spell is null if a spell should be removed! This is intended behaviour.
 	*/
-	public void SetPlayerSkills(int nrSkillSlot, SpellName? spell)
+	public void SetPlayerSkill(int nrSkillSlot, SpellName? spell)
 	{
 		UnEquipAllAugments();
 		ResetSpells();
+        /*
 		// Remove old skill from group
-		String spellSlotGroupName = Globals.GetGroupNameOfSpellsInSlot((uint)nrSkillSlot); // TODO: Check that nothing can go wrong here
-		var spellsInSpellGroup = GetTree().GetNodesInGroup(spellSlotGroupName);
+		//String spellSlotGroupName = Globals.GetGroupNameOfSpellsInSlot((uint)nrSkillSlot); // TODO: Check that nothing can go wrong here
+		//var spellsInSpellGroup = GetTree().GetNodesInGroup(spellSlotGroupName);
 		foreach (var oldSpell in spellsInSpellGroup)
 		{
 			oldSpell.RemoveFromGroup(spellSlotGroupName);
 		}
+		
 		// Add new skill to the group
 		if (spell is not null)
 		{
@@ -195,8 +198,25 @@ public partial class Player : CharacterBody2D
 			Node spellNode = GetTree().GetFirstNodeInGroup(groupName);
 			spellNode.AddToGroup(spellSlotGroupName);
 		}
+		*/
+        // Equip the spell in the slot (spell can also be null here)
+		InventorySpell newSpell = null;
+		if (spell is not null)
+		{
+			string spellGroupName = Globals.GetGroupNameOfSpell((SpellName)spell);
+			newSpell = GetTree().GetFirstNodeInGroup(spellGroupName) as InventorySpell;
+		}
+		_spellSlots[nrSkillSlot] = newSpell;
 		// Equip all augments again
 		EquipAllAugments();
+	}
+
+	/**
+	Get the reference to the InventorySpell at the index
+	*/
+	public InventorySpell GetPlayerSkill(int slotIndex)
+	{
+		return _spellSlots.ElementAtOrDefault(slotIndex);
 	}
 
 	// small test function to test augment generation

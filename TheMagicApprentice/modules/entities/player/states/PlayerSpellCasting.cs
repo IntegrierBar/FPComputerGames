@@ -27,34 +27,34 @@ public partial class PlayerSpellCasting : State
     public override void Enter()
     {
         base.Enter();
-        IEnumerable<InventorySpell> spells = null;
+        InventorySpell spell = null;
         UISpellSlot uISpellBox = null;
         if (Input.IsActionPressed("spell1"))
         {
-            spells = GetTree().GetNodesInGroup("spell1").OfType<InventorySpell>();
+            spell = (Parent as Player).GetPlayerSkill(0);
             uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot1) as UISpellSlot;
         }
         else if (CurseHandler.IsActive(Curse.SKILL_1_ONLY))
         {
-            spells = null;
+            spell = null;
         }
         else if (Input.IsActionPressed("spell2"))
         {
-            spells = GetTree().GetNodesInGroup("spell2").OfType<InventorySpell>();
+            spell = (Parent as Player).GetPlayerSkill(1);
             uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot2) as UISpellSlot;
         }
         else if (CurseHandler.IsActive(Curse.SKILL_3_DISABLED))
         {
-            spells = null;
+            spell = null;
         }
         else if (Input.IsActionPressed("spell3"))
         {
-            spells = GetTree().GetNodesInGroup("spell3").OfType<InventorySpell>();
+            spell = (Parent as Player).GetPlayerSkill(2);
             uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot3) as UISpellSlot;
         }
 
-        // if the spell is null, then we can imideately exit since that means we just tried to cast a spell that does not exist
-        if (spells is null || !spells.Any())
+        // if the spell is null, then we can imideately exit since that means we just tried to cast a spell that does not exist. But should technically not happen, thanks to CanEnter
+        if (spell is null)
         {
             _timeLeft = 0.0;
             return;
@@ -62,39 +62,37 @@ public partial class PlayerSpellCasting : State
 
         System.Diagnostics.Debug.Assert(uISpellBox is not null, "uISpellBox is null in PlayerSpellCasting");
         
-        // otherwise cast all spells
-        foreach (InventorySpell spell in spells)
-        {
-            spell.Cast(Parent.GlobalPosition, Parent.GetGlobalMousePosition());
-        }
-        // finally retrieve the CastTime from the first spell which is always the main spell
-        _timeLeft = spells.First().CastTime;
+        // otherwise cast the spell
+        spell.Cast(Parent.GlobalPosition, Parent.GetGlobalMousePosition());
 
-        uISpellBox.Cast(spells.First().CoolDown); // show in UI that spell was cast
+        // finally retrieve the CastTime from the first spell which is always the main spell
+        _timeLeft = spell.CastTime;
+
+        uISpellBox.Cast(spell.CoolDown); // show in UI that spell was cast
         Animations.Play("cast");
     }
 
     public override bool CanEnter()
     {
-        IEnumerable<InventorySpell> spells = null;
+        InventorySpell spell = null;
         UISpellSlot uISpellBox = null;
         if (Input.IsActionPressed("spell1"))
         {
-            spells = GetTree().GetNodesInGroup("spell1").OfType<InventorySpell>();
+            spell = (Parent as Player).GetPlayerSkill(0);
             uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot1) as UISpellSlot;
         }
         else if (Input.IsActionPressed("spell2"))
         {
-            spells = GetTree().GetNodesInGroup("spell2").OfType<InventorySpell>();
+            spell = (Parent as Player).GetPlayerSkill(1);
             uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot2) as UISpellSlot;
         }
         else if (Input.IsActionPressed("spell3"))
         {
-            spells = GetTree().GetNodesInGroup("spell3").OfType<InventorySpell>();
+            spell = (Parent as Player).GetPlayerSkill(2);
             uISpellBox = GetTree().GetFirstNodeInGroup(Globals.SpellSlot3) as UISpellSlot;
         }
 
-        if (spells is null || !spells.Any() || uISpellBox.IsOnCooldown())
+        if (spell is null || uISpellBox.IsOnCooldown())
         {
             return false;
         }

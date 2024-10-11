@@ -147,7 +147,7 @@ public partial class SkillTree : CanvasLayer
 		int indexOfDublicateSkill = IsSkillCurrentlyEquipped(nrSkillSlot, index);
 		if (indexOfDublicateSkill == 1 || indexOfDublicateSkill == 2) 
 		{
-			player.SetPlayerSkills(indexOfDublicateSkill, null);
+			player.SetPlayerSkill(indexOfDublicateSkill, null);
 			String nodeName = "%OptionsSkillSlot" + (indexOfDublicateSkill + 1);
 			OptionButton node = GetNode<OptionButton>(nodeName);
 			SetEmptyOption(node);
@@ -155,7 +155,7 @@ public partial class SkillTree : CanvasLayer
 		}
 		#nullable enable
 			SpellName? spell = GetSpellFromIndex(index);
-			player.SetPlayerSkills(nrSkillSlot, spell);
+			player.SetPlayerSkill(nrSkillSlot, spell);
 		#nullable disable
 		SetUIIcon(nrSkillSlot + 1, index);
 	}
