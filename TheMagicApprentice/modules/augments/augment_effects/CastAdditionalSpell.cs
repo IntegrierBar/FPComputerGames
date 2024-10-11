@@ -40,6 +40,7 @@ public partial class CastAdditionalSpell : AugmentEffect
     /**
     We need to manually unequip _additionalSpell from the group if _castedSpell is in the group.
     This is ugly and should be changed once skill tree exists. But it works for how, since cyclic dependancies do not exist
+    TODO this should not be neccessary anymore
     */
     public override void UnEquip(SceneTree sceneTree)
     {

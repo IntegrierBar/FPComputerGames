@@ -26,7 +26,7 @@ public partial class IncreaseDurationOfSpell : OnCastAugmentEffect
     /**
     Increases the duration of the spell
     */
-    public override void OnCast(Spell spell)
+    public override void OnCast(Spell spell, Vector2 playerPosition, Vector2 targetPosition)
     {
         spell._timeLeftUntilDeletion *= _durationIncreaseFactor;
     }

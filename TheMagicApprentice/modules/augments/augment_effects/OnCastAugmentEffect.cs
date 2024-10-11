@@ -8,5 +8,5 @@ Base class for all augments whose effects are only activated when a spell is cas
 [GlobalClass]
 public partial class OnCastAugmentEffect : AugmentEffect
 {
-    public virtual void OnCast(Spell spell) {}
+    public virtual void OnCast(Spell spell, Vector2 playerPosition, Vector2 targetPosition) {}
 }

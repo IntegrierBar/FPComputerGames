@@ -26,7 +26,7 @@ public partial class IncreasedRadiusOfSpell : OnCastAugmentEffect
     /**
     Increases the size of the spell
     */
-    public override void OnCast(Spell spell)
+    public override void OnCast(Spell spell, Vector2 playerPosition, Vector2 targetPosition)
     {
         spell.Scale *= _sizeIncreaseFactor;
     }

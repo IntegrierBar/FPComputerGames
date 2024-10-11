@@ -140,17 +140,10 @@ public partial class TestAugments
     [TestCase]
     public void TestCastAdditionalSpell()
     {
-        // first clear spell1 group
-        foreach (Node node in _player.GetTree().GetNodesInGroup(Globals.Spell1))
-        {
-            node.RemoveFromGroup(Globals.Spell1);
-        }
-
-        // first make sure that moonlight is in spell1 group and star rain is not
+        // first equip starRain in slot1
         InventorySpell starRain = _player.GetTree().GetFirstNodeInGroup(Globals.StarRainSpellGroup) as InventorySpell;
         InventorySpell moonLight = _player.GetTree().GetFirstNodeInGroup(Globals.MoonLightSpellGroup) as InventorySpell;
-        starRain.AddToGroup(Globals.Spell1);
-        moonLight.RemoveFromGroup(Globals.Spell1);
+        _player.SetPlayerSkill(0, SpellName.StarRain);
         AssertBool(starRain.IsInGroup(Globals.Spell1)).IsTrue();
         AssertBool(moonLight.IsInGroup(Globals.Spell1)).IsFalse();
 
@@ -243,13 +236,9 @@ public partial class TestAugments
     [TestCase]
     public void TestFlatDamageSlot1()
     {
-        // first make sure only spell SunBasic is in Slot1
-        foreach (Node node in _player.GetTree().GetNodesInGroup(Globals.Spell1))
-        {
-            node.RemoveFromGroup(Globals.Spell1);
-        }
+        // first make sure SunBasic is in Slot1
+        _player.SetPlayerSkill(0, SpellName.SunBasic);
         InventorySpell sunBasic = _player.GetTree().GetFirstNodeInGroup(Globals.SunBasicSpellGroup) as InventorySpell;
-        sunBasic.AddToGroup(Globals.Spell1);
 
         double startDamage = sunBasic.Damage;
 
