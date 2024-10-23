@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 /**
  * Manages the menu system for the game.
@@ -49,11 +50,43 @@ public partial class MenuManager : Node
 	
 
 	/**
-	 * Initializes the menu system by pushing the main menu.
+	 * Called when the node is added to the scene tree, adds this node to the menu_manager group.
+	 */
+	public override void _EnterTree()
+	{
+		AddToGroup("menu_manager");
+	}
+
+	/**
+	 * Called when the node is ready.
 	 */
 	public override void _Ready()
 	{
-		PushMenu(MenuType.MainMenu);
+		CheckForExistingMenu();
+	}
+
+	/**
+	 * Checks for an existing menu node in the scene and adds it to the stack and tracking.
+	 */
+	private void CheckForExistingMenu()
+	{
+		// Look for any node that inherits from BaseMenu
+		var existingMenuNode = GetTree().Root.GetChildren()
+			.FirstOrDefault(node => node is BaseMenu) as BaseMenu;
+
+		if (existingMenuNode != null)
+		{
+			// Add the existing menu to our stack and tracking
+			MenuType menuType = existingMenuNode.MenuType;
+			_menuStack.Push(menuType);
+			_menuNodes[menuType] = existingMenuNode;
+			existingMenuNode.CallDeferred("reparent", this);
+		}
+		else
+		{
+			// If no menu exists, destroy this node
+			QueueFree();
+		}
 	}
 
 	/**
