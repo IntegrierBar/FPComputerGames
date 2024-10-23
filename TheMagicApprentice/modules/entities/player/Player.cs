@@ -17,7 +17,8 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public AnimationPlayer AnimationPlayer; ///< Reference to the animation player of the player charackter
 
-	private Augment[] _activeAugments = new Augment[5]; ///< Array of the 5 active augmentc
+	private Augment[] _activeAugments = new Augment[5]; ///< Array of the 5 active augments
+	private InventorySpell[] _spellSlots = new InventorySpell[3]; ///< Array of the 3 spellslots. Contains the references to the currently selected InventorySpells
 
 
 	/**
@@ -144,20 +145,19 @@ public partial class Player : CharacterBody2D
 			inventorySpell.ClearOnCastAugmentEffects();
 		}
 
-		// THIS DOES NOT WORK PROPERLY. SO I REMOVED IT AND DONE IT DIFFERENTLY
-		// loop over all spell groups, keep the first spell and remove all others
-		// TODO use a smarter system for this using the skill system once implemented
-		/*
-        foreach (var spellGroup in new string[3] {Globals.Spell1, Globals.Spell2, Globals.Spell3})
-        {
-			
-            var spellsInSpellGroup = GetTree().GetNodesInGroup(spellGroup);
-			for (int i = 1; i < spellsInSpellGroup.Count; i++) // start index at 1 since we want to keep the first node
+		// Reset the spell groups
+		string[] spellGroupNames =  {Globals.Spell1, Globals.Spell2, Globals.Spell3};
+		for (int i = 0; i < 3; i++)
+		{
+			// first remove all spells from the group
+			var spellsInSpellGroup = GetTree().GetNodesInGroup(spellGroupNames[i]);
+			foreach (var spell in spellsInSpellGroup)
 			{
-				spellsInSpellGroup[i].RemoveFromGroup(spellGroup); // remove from the spell Group
+				spell.RemoveFromGroup(spellGroupNames[i]); 
 			}
-        }
-		*/
+			// Then add the current spell if it exists
+			_spellSlots[i]?.AddToGroup(spellGroupNames[i]);
+		}
 	}
 
 	/**
@@ -168,6 +168,48 @@ public partial class Player : CharacterBody2D
 		UnEquipAllAugments();
 		ResetSpells();
 		EquipAllAugments();
+	}
+
+	/**
+	Sets skills for the player.
+	First, all augments are removed, then the currently equipped spell is removed.
+	If a new spell should be set, it is added to the group corresponding to the spell slot.
+	Afterwards, the augments are added again. 
+	Note: spell is null if a spell should be removed! This is intended behaviour.
+	*/
+	public void SetPlayerSkill(int nrSkillSlot, SpellName? spell)
+	{
+		UnEquipAllAugments();
+		ResetSpells();
+        
+		// Remove old skill from group TODO should not be neccessary anymore
+		String spellSlotGroupName = Globals.GetGroupNameOfSpellsInSlot((uint)nrSkillSlot); // TODO: Check that nothing can go wrong here
+		var spellsInSpellGroup = GetTree().GetNodesInGroup(spellSlotGroupName);
+		foreach (var oldSpell in spellsInSpellGroup)
+		{
+			oldSpell.RemoveFromGroup(spellSlotGroupName);
+		}
+		
+        // Equip the spell in the slot (spell can also be null here)
+		InventorySpell newSpell = null;
+		if (spell is not null)
+		{
+			string spellGroupName = Globals.GetGroupNameOfSpell((SpellName)spell);
+			newSpell = GetTree().GetFirstNodeInGroup(spellGroupName) as InventorySpell;
+			newSpell.AddToGroup(spellSlotGroupName);
+		}
+		_spellSlots[nrSkillSlot] = newSpell;
+		
+		// Equip all augments again
+		EquipAllAugments();
+	}
+
+	/**
+	Get the reference to the InventorySpell at the index
+	*/
+	public InventorySpell GetPlayerSkill(int slotIndex)
+	{
+		return _spellSlots.ElementAtOrDefault(slotIndex);
 	}
 
 	// small test function to test augment generation
@@ -199,5 +241,22 @@ public partial class Player : CharacterBody2D
 	{
 		GetNode<AugmentInventory>("AugmentInventory").SwitchToFuseAugments();
 		GetNode<AugmentInventory>("AugmentInventory").SetVisibility(true);
+	}
+
+	/**
+	Show the Skill Tree by setting the SkillTree visibility to true.
+	TODO: Is called by the main hub scirpt when the button to open the menu is pressed
+	*/
+	public void OpenSkillTree()
+	{
+		GetNode<SkillTree>("SkillTree").SetVisibility(true);
+	}
+
+	/**
+	Adds the augment to the inventory
+	*/
+	public void AddAugmentToInventory(Augment augment)
+	{
+		GetNode<AugmentInventory>("AugmentInventory").AddAugmentToInventory(augment);
 	}
 }

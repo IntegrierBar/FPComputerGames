@@ -107,4 +107,31 @@ public partial class TestPlayer
 		await _mainGameScene.SimulateFrames(1, 20);
 		AssertObject(stateMachine.GetState()).IsInstanceOf<PlayerIdle>();
     }
+
+	/**
+	Test SetPlayerSkill
+	*/
+	[TestCase]
+    public void TestSetPlayerSkill()
+    {
+        // equip 3 different skills in the different slots
+        _player.SetPlayerSkill(0, SpellName.SunBasic);
+        _player.SetPlayerSkill(1, SpellName.CosmicBasic);
+        _player.SetPlayerSkill(2, SpellName.DarkBasic);
+        // check that equipping worked
+        AssertObject(_player.GetPlayerSkill(0)._spellName).Equals(SpellName.SunBasic);
+		AssertObject(_player.GetPlayerSkill(1)._spellName).Equals(SpellName.CosmicBasic);
+		AssertObject(_player.GetPlayerSkill(2)._spellName).Equals(SpellName.DarkBasic);
+
+		// unequip all spells
+		for (int i = 0; i < 3; i++)
+		{
+			_player.SetPlayerSkill(i, null);
+		}
+		// check that playerskills are null now
+        for (int i = 0; i < 3; i++)
+        {
+            AssertObject(_player.GetPlayerSkill(i)).IsNull();
+        }
+    }
 }

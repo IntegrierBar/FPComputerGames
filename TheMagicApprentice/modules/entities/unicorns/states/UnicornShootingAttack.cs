@@ -59,7 +59,7 @@ public partial class UnicornShootingAttack : State
 	private void ShootProjectiles()
 	{
 		Vector2 unicorn_position = Parent.Position; // since the unicorn does not move during the shooting attack, giving the current position is sufficient
-		Parent.GetNode<ShootingAttackProjectileHandler>("ShootingAttackProjectileHandler").StartShootingAttack(BuildAttack(), unicorn_position);
+		Parent.GetNode<ShootingAttackProjectileHandler>("%ShootingAttackProjectileHandler").StartShootingAttack(BuildAttack(), unicorn_position);
 	}
 
 	/**

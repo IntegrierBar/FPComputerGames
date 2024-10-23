@@ -86,7 +86,7 @@ public partial class InventorySpell : Node
         	room.AddChild(spell);
 			foreach (OnCastAugmentEffect effect in _onCastAugmentEffects)
 			{
-				effect.OnCast(spell);
+				effect.OnCast(spell, playerPosition, targetPosition);
 			}
 		}
 	}
