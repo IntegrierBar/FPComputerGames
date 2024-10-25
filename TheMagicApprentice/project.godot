@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 
 AugmentManager="*res://modules/augments/AugmentManager.cs"
 Player="*res://modules/entities/player/player.tscn"
+CurseHandler="*res://modules/handlers/CurseHandler.cs"
+DungeonHandler="*res://modules/handlers/DungeonHandler.cs"
 MenuManager="*res://modules/handlers/MenuManager.cs"
 
 [display]

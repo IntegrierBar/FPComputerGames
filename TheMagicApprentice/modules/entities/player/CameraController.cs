@@ -36,9 +36,8 @@ public partial class CameraController : Camera2D
 		StartZoom = Zoom.X;
 		Player = GetTree().GetFirstNodeInGroup("player") as Node2D;
 		RoomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
-		JumpToTarget();
-		System.Diagnostics.Debug.Assert(Player is not null);
-		System.Diagnostics.Debug.Assert(RoomHandler is not null);
+		System.Diagnostics.Debug.Assert(Player is not null, "Player is null");
+		System.Diagnostics.Debug.Assert(RoomHandler is not null, "Roomhandler is null");
 		RoomHandler.RoomInitialized += JumpToTarget;
 	}
 

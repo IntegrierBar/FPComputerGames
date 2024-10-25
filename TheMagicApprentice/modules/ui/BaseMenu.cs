@@ -4,7 +4,7 @@ using Godot;
  * Base class for all menu types in the game.
  * Provides common functionality and interface with the MenuManager.
  */
-public partial class BaseMenu : CanvasLayer
+public partial class BaseMenu : Node
 {
 	/** Reference to the MenuManager instance. */
 	protected MenuManager MenuManager;

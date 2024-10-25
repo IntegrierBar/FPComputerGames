@@ -11,6 +11,8 @@ public partial class MenuManager : Node
 {
 	[Signal]
 	public delegate void MenuChangedEventHandler(MenuType newMenu, bool isPush);
+	[Signal]
+	public delegate void MenuLeftEventHandler(MenuType leftMenu);
 
 	/**
 	 * Enum representing different types of menus in the game.
@@ -83,6 +85,7 @@ public partial class MenuManager : Node
 			_menuStack.Push(menuType);
 			_menuNodes[menuType] = existingMenuNode;
 			existingMenuNode.CallDeferred("reparent", this);
+			EmitSignal(SignalName.MenuChanged, (int)menuType, false);
 		}
 		else
 		{
@@ -105,8 +108,8 @@ public partial class MenuManager : Node
 				FreezeCurrentMenu();
 			}
 			_menuStack.Push(newMenu);
-			EmitSignal(SignalName.MenuChanged, (int)newMenu, true);
 			InstantiateMenuOverlay(newMenu);
+			EmitSignal(SignalName.MenuChanged, (int)newMenu, true);
 		}
 	}
 
@@ -122,6 +125,7 @@ public partial class MenuManager : Node
 			{
 				poppedNode.QueueFree();
 				_menuNodes.Remove(poppedMenu);
+				EmitSignal(SignalName.MenuLeft, (int)poppedMenu);
 			}
 			GetTree().CreateTimer(0.1f).Connect("timeout", Callable.From(() => UnfreezeCurrentMenu()));
 			EmitSignal(SignalName.MenuChanged, (int)CurrentMenu, false);

@@ -28,7 +28,10 @@ public partial class TestDungeonHandler
 		GD.Print("Scene loaded.");
 
 		// Get references to the nodes
-		dungeonHandler = _sceneRunner.FindChild("DungeonHandler") as DungeonHandler;
+		var roomHandler = _sceneRunner.FindChild("RoomHandler");
+		System.Diagnostics.Debug.Assert(roomHandler is not null, "RoomHandler is null");
+		dungeonHandler = roomHandler.GetNode<DungeonHandler>("/root/DungeonHandler");
+		System.Diagnostics.Debug.Assert(dungeonHandler is not null, "DungeonHandler is null");
 	}
 
 	[AfterTest]
@@ -46,7 +49,7 @@ public partial class TestDungeonHandler
 	[TestCase]
 	public void TestLoadRoom()
 	{
-		dungeonHandler.LoadDungeon(Dungeons.IntroDungeon);
+		dungeonHandler.SetDungeon(Dungeons.IntroDungeon);
 		
 		AssertThat(dungeonHandler.GetCurrentRoomPosition()).IsEqual(new Vector2I(0, 0));
 
@@ -64,7 +67,7 @@ public partial class TestDungeonHandler
 	[TestCase]
 	public void TestOnPlayerEnteredDoor()
 	{
-		dungeonHandler.LoadDungeon(Dungeons.IntroDungeon);
+		dungeonHandler.SetDungeon(Dungeons.IntroDungeon);
 		
 		AssertThat(dungeonHandler.GetCurrentRoomPosition()).IsEqual(new Vector2I(0, 0));
 
