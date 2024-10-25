@@ -19,10 +19,14 @@ public partial class TestMenuManager
 		GD.Print("Setting up test environment...");
 
 		// Load the scene using ISceneRunner
-		_sceneRunner = ISceneRunner.Load("res://tests/integration/test_main_menu.tscn");
+		_sceneRunner = ISceneRunner.Load("res://modules/ui/main_menu/main_menu.tscn");
 		GD.Print("Scene loaded.");
 
-		_menuManager = _sceneRunner.FindChild("MenuManager") as MenuManager;
+		// why doesnt this work :(
+		var menu = _sceneRunner.FindChild("MainMenu");
+		System.Diagnostics.Debug.Assert(menu is not null, "MainMenu is null");
+		_menuManager = menu.GetNode<MenuManager>("/root/MenuManager");
+		System.Diagnostics.Debug.Assert(_menuManager is not null, "MenuManager is null");
 	}
 
 	[AfterTest]
