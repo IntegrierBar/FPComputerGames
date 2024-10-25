@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbtvjj0ey2g4s"]
+[gd_scene load_steps=3 format=3 uid="uid://dbtvjj0s2g4s"]
 
 [ext_resource type="Script" path="res://modules/ui/dungeon_selection/DungeonSelection.cs" id="1_n0eeo"]
 [ext_resource type="Theme" uid="uid://b5xmy0ocd4tfb" path="res://assets/themes/ingame_inventory_theme.tres" id="2_cm6hp"]

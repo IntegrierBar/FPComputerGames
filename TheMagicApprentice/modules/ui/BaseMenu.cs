@@ -19,6 +19,7 @@ public partial class BaseMenu : Node
 	{
 		MenuManager = GetTree().GetFirstNodeInGroup("menu_manager") as MenuManager;
 		SetupMenu();
+		MenuManager.RequestRootMenu(this);
 	}
 
 	/**

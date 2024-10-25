@@ -62,39 +62,6 @@ public partial class MenuManager : Node
 	}
 
 	/**
-	 * Called when the node is ready.
-	 */
-	public override void _Ready()
-	{
-		CheckForExistingMenu();
-	}
-
-	/**
-	 * Checks for an existing menu node in the scene and adds it to the stack and tracking.
-	 */
-	private void CheckForExistingMenu()
-	{
-		// Look for any node that inherits from BaseMenu
-		var existingMenuNode = GetTree().Root.GetChildren()
-			.FirstOrDefault(node => node is BaseMenu) as BaseMenu;
-
-		if (existingMenuNode != null)
-		{
-			// Add the existing menu to our stack and tracking
-			MenuType menuType = existingMenuNode.MenuType;
-			_menuStack.Push(menuType);
-			_menuNodes[menuType] = existingMenuNode;
-			existingMenuNode.CallDeferred("reparent", this);
-			EmitSignal(SignalName.MenuChanged, (int)menuType, false);
-		}
-		else
-		{
-			// If no menu exists, destroy this node
-			QueueFree();
-		}
-	}
-
-	/**
 	 * Pushes a new menu onto the stack and instantiates it.
 	 * 
 	 * @param newMenu The type of menu to push onto the stack.
@@ -149,6 +116,24 @@ public partial class MenuManager : Node
 			}
 		}
 		PushMenu(newMenu);
+	}
+
+	public void RequestRootMenu(BaseMenu menu)
+	{
+		if (_menuStack.Count == 0)
+		{
+			// Validate that we're actually getting a BaseMenu
+			if (menu is not BaseMenu)
+			{
+				GD.PrintErr($"Invalid menu type requested: {menu.GetType()}");
+				return;
+			}
+
+			menu.CallDeferred("reparent", this);
+			_menuNodes[menu.MenuType] = menu;
+			_menuStack.Push(menu.MenuType);
+			EmitSignal(SignalName.MenuChanged, (int)menu.MenuType, true);
+		}
 	}
 
 	/**
