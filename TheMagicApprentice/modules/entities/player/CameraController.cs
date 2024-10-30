@@ -117,6 +117,10 @@ public partial class CameraController : Camera2D
 	 */
 	private Vector2 CalculateTargetPosition()
 	{
+		 // early return if not in scene tree
+		if (!IsInsideTree())
+			return Position;
+
 		Rect2 roomBounds = RoomHandler.GetCurrentRoomBounds();
 		Rect2 cameraRect = GetCameraRect();
 
@@ -151,6 +155,9 @@ public partial class CameraController : Camera2D
 	 */
 	private void JumpToTarget()
 	{
+		// early return if not in scene tree
+		if (!IsInsideTree())
+			return;
 		switch(RoomHandler.CurrentRoom.Type) {
 			case RoomType.Normal:
 				Zoom = Vector2.One * StartZoom;
