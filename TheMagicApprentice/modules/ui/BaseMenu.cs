@@ -1,3 +1,4 @@
+using System.Linq;
 using Godot;
 
 /**
@@ -17,7 +18,8 @@ public partial class BaseMenu : Node
 	 */
 	public override void _Ready()
 	{
-		MenuManager = GetTree().GetFirstNodeInGroup("menu_manager") as MenuManager;
+		// Get last MenuManager in the group (so it works in tests where we use the non-autoloaded MenuManager)
+		MenuManager = GetTree().GetNodesInGroup("menu_manager").Last() as MenuManager;
 		SetupMenu();
 		MenuManager.RequestRootMenu(this);
 	}

@@ -19,14 +19,14 @@ public partial class TestMenuManager
 		GD.Print("Setting up test environment...");
 
 		// Load the scene using ISceneRunner
-		_sceneRunner = ISceneRunner.Load("res://modules/ui/main_menu/main_menu.tscn");
+		_sceneRunner = ISceneRunner.Load("res://tests/integration/test_menu_manager.tscn");
 		GD.Print("Scene loaded.");
 
 		// why doesnt this work :(
-		var menu = _sceneRunner.FindChild("MainMenu");
-		System.Diagnostics.Debug.Assert(menu is not null, "MainMenu is null");
-		_menuManager = menu.GetNode<MenuManager>("/root/MenuManager");
+		_menuManager = _sceneRunner.FindChild("MenuManager") as MenuManager;
 		System.Diagnostics.Debug.Assert(_menuManager is not null, "MenuManager is null");
+
+		_menuManager.SetRootMenu(MenuManager.MenuType.MainMenu);
 	}
 
 	[AfterTest]
@@ -144,12 +144,7 @@ public partial class TestMenuManager
 		// Check if the MainGame scene is instantiated
 		var mainGame = _menuManager.GetNode("Scene");
 		AssertThat(mainGame).IsNotNull();
-		AssertThat(mainGame).IsInstanceOf<Node2D>();
-
-		// Check if the MainGame script is attached and functioning
-		var mainGameScript = mainGame.GetNode<CanvasLayer>("CanvasLayer");
-		AssertThat(mainGameScript).IsNotNull();
-		AssertThat(mainGameScript).IsInstanceOf<MainGame>();
+		AssertThat(mainGame).IsInstanceOf<MainGame>();
 
 		// Simulate pressing the ESC key to open the pause menu
 		var escEvent = new InputEventKey
