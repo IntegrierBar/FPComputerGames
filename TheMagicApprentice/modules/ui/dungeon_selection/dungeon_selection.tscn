@@ -1,0 +1,139 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbtvjj0s2g4s"]
+
+[ext_resource type="Script" path="res://modules/ui/dungeon_selection/DungeonSelection.cs" id="1_n0eeo"]
+[ext_resource type="Theme" uid="uid://b5xmy0ocd4tfb" path="res://assets/themes/ingame_inventory_theme.tres" id="2_cm6hp"]
+
+[node name="DungeonSelection" type="CanvasLayer"]
+script = ExtResource("1_n0eeo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_cm6hp")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="LeftButton" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 340
+
+[node name="Panel" type="Panel" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -33.0
+offset_right = 34.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StoryButton" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(119.615, 66)
+layout_mode = 2
+text = "Story"
+
+[node name="Panel" type="Panel" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 60.005)
+layout_mode = 2
+
+[node name="CustomButton" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 66)
+layout_mode = 2
+text = "Custom"
+
+[node name="Panel2" type="Panel" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="StoryDungeonsContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel2/StoryDungeonsContainer"]
+layout_mode = 2
+text = "Story dungeon 1"
+
+[node name="Panel2" type="Panel" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel2/StoryDungeonsContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 60.005)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel2/StoryDungeonsContainer"]
+layout_mode = 2
+text = "Story dungeon 1"
+
+[node name="CustomDungeonsContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel2/CustomDungeonsContainer"]
+layout_mode = 2
+text = "Story dungeon 1"
+
+[node name="Panel2" type="Panel" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel2/CustomDungeonsContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 60.005)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="MarginContainer/MarginContainer2/VBoxContainer/HSplitContainer/Panel2/CustomDungeonsContainer"]
+layout_mode = 2
+text = "Story dungeon 1"
+
+[connection signal="pressed" from="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/MarginContainer/LeftButton" to="." method="OnBackButtonPressed"]

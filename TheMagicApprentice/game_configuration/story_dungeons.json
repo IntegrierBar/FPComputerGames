@@ -1,0 +1,398 @@
+[
+  {
+	"Name": "Intro",
+	"SerializableLayout": [
+	  {
+		"X": 0,
+		"Y": 0,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 0,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 0,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 0,
+		"Y": 3,
+		"Type": 1,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  }
+	],
+	"CurrentRoomPosition": {
+	  "X": 0,
+	  "Y": 0
+	},
+	"EntrancePosition": {
+	  "X": 0,
+	  "Y": 0
+	},
+	"BossPosition": {
+	  "X": 0,
+	  "Y": 3
+	},
+	"GridSize": {
+	  "X": 1,
+	  "Y": 4
+	},
+	"MagicType": 0
+  },
+  {
+	"Name": "Story Dungeon 1",
+	"SerializableLayout": [
+	  {
+		"X": 1,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 1,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 2,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 3,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 3,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 4,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 5,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 5,
+		"Y": 2,
+		"Type": 1,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  }
+	],
+	"CurrentRoomPosition": {
+	  "X": 1,
+	  "Y": 1
+	},
+	"EntrancePosition": {
+	  "X": 1,
+	  "Y": 1
+	},
+	"BossPosition": {
+	  "X": 5,
+	  "Y": 2
+	},
+	"GridSize": {
+	  "X": 7,
+	  "Y": 4
+	},
+	"MagicType": 1
+  },
+  {
+	"Name": "Story Dungeon 2",
+	"SerializableLayout": [
+	  {
+		"X": 1,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 1,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 2,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 3,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 3,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 4,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 5,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 5,
+		"Y": 2,
+		"Type": 1,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  }
+	],
+	"CurrentRoomPosition": {
+	  "X": 1,
+	  "Y": 1
+	},
+	"EntrancePosition": {
+	  "X": 1,
+	  "Y": 1
+	},
+	"BossPosition": {
+	  "X": 5,
+	  "Y": 2
+	},
+	"GridSize": {
+	  "X": 7,
+	  "Y": 4
+	},
+	"MagicType": 1
+  },
+  {
+	"Name": "Story Dungeon 3",
+	"SerializableLayout": [
+	  {
+		"X": 1,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 1,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 2,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 3,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 3,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 4,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 5,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 5,
+		"Y": 2,
+		"Type": 1,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  }
+	],
+	"CurrentRoomPosition": {
+	  "X": 1,
+	  "Y": 1
+	},
+	"EntrancePosition": {
+	  "X": 1,
+	  "Y": 1
+	},
+	"BossPosition": {
+	  "X": 5,
+	  "Y": 2
+	},
+	"GridSize": {
+	  "X": 7,
+	  "Y": 4
+	},
+	"MagicType": 1
+  },
+  {
+	"Name": "Story Dungeon 4",
+	"SerializableLayout": [
+	  {
+		"X": 1,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 1,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 2,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 3,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 3,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 4,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 5,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 5,
+		"Y": 2,
+		"Type": 1,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  }
+	],
+	"CurrentRoomPosition": {
+	  "X": 1,
+	  "Y": 1
+	},
+	"EntrancePosition": {
+	  "X": 1,
+	  "Y": 1
+	},
+	"BossPosition": {
+	  "X": 5,
+	  "Y": 2
+	},
+	"GridSize": {
+	  "X": 7,
+	  "Y": 4
+	},
+	"MagicType": 1
+  },
+  {
+	"Name": "Story Dungeon 5",
+	"SerializableLayout": [
+	  {
+		"X": 1,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 1,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 2,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 3,
+		"Y": 2,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 3,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 4,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  },
+	  {
+		"X": 5,
+		"Y": 1,
+		"Type": 0,
+		"ScenePath": "res://modules/rooms/Room3.tscn"
+	  },
+	  {
+		"X": 5,
+		"Y": 2,
+		"Type": 1,
+		"ScenePath": "res://modules/rooms/Room4.tscn"
+	  }
+	],
+	"CurrentRoomPosition": {
+	  "X": 1,
+	  "Y": 1
+	},
+	"EntrancePosition": {
+	  "X": 1,
+	  "Y": 1
+	},
+	"BossPosition": {
+	  "X": 5,
+	  "Y": 2
+	},
+	"GridSize": {
+	  "X": 7,
+	  "Y": 4
+	},
+	"MagicType": 1
+  }
+]

@@ -2,15 +2,30 @@ using System.Collections.Generic;
 using System;
 using Godot;
 using System.Net.Http.Headers;
+using System.Linq;
+using System.Text.Json.Serialization;
 
 public class Dungeon
 {
-    public Dictionary<Vector2I, Room> Layout { get; private set; } ///< Layout of the dungeon, where each room is mapped to a position.
+    public string Name { get; set; } ///< Name of the dungeon.
+
+    [JsonIgnore] // Ignore the layout from serialization
+    public Dictionary<Vector2I, Room> Layout { get; set; } ///< Layout of the dungeon, where each room is mapped to a position.
+    
     public Vector2I CurrentRoomPosition { get; set; } ///< Current room position in the dungeon.
-    public Vector2I EntrancePosition { get; private set; } ///< Entrance position of the dungeon.
-    public Vector2I BossPosition { get; private set; } ///< Boss room position in the dungeon.
-    public Vector2I GridSize { get; private set; } ///< Size of the dungeon grid.
-    public MagicType MagicType { get; private set; } ///< Magic type of the dungeon.
+    public Vector2I EntrancePosition { get; set; } ///< Entrance position of the dungeon.
+    public Vector2I BossPosition { get; set; } ///< Boss room position in the dungeon.
+    public Vector2I GridSize { get; set; } ///< Size of the dungeon grid.
+    public MagicType MagicType { get; set; } ///< Magic type of the dungeon.
+
+    /**
+    * Parameterless constructor for JSON deserialization.
+    */
+    [JsonConstructor]
+    public Dungeon()
+    {
+        Layout = new Dictionary<Vector2I, Room>();
+    }
 
     /**
     * Constructor for the Dungeon class.
@@ -21,6 +36,7 @@ public class Dungeon
     */
     public Dungeon(int minRooms, int maxRooms)
     {
+        Name = "GeneratedDungeon";
         Dungeon generatedDungeon = DungeonGenerator.GenerateDungeon(minRooms, maxRooms);
         CopyFrom(generatedDungeon);
     }
@@ -37,6 +53,7 @@ public class Dungeon
     */
     public Dungeon(Dictionary<Vector2I, Room> layout, Vector2I entrancePosition, Vector2I bossPosition, Vector2I gridSize, MagicType magicType)
     {
+        Name = "GeneratedDungeon";
         Layout = layout;
         EntrancePosition = entrancePosition;
         CurrentRoomPosition = entrancePosition;
@@ -63,6 +80,7 @@ public class Dungeon
     */
     private void CopyFrom(Dungeon dungeon)
     {
+        Name = dungeon.Name;
         Layout = new Dictionary<Vector2I, Room>(dungeon.Layout);
         EntrancePosition = dungeon.EntrancePosition;
         CurrentRoomPosition = dungeon.EntrancePosition;
@@ -70,4 +88,31 @@ public class Dungeon
         GridSize = dungeon.GridSize;
         MagicType = dungeon.MagicType;
     }
+
+    // Serializable version of the layout
+    public SerializableRoom[] SerializableLayout
+    {
+        get => Layout?.Select(kvp => new SerializableRoom 
+        { 
+            X = kvp.Key.X, 
+            Y = kvp.Key.Y, 
+            Type = kvp.Value.Type,
+            ScenePath = kvp.Value.ScenePath 
+        }).ToArray();
+        set
+        {
+            Layout = value?.ToDictionary(
+                sr => new Vector2I(sr.X, sr.Y),
+                sr => new Room(sr.Type, sr.ScenePath)
+            );
+        }
+    }
+}
+
+public class SerializableRoom
+{
+    public int X { get; set; }
+    public int Y { get; set; }
+    public RoomType Type { get; set; }
+    public string ScenePath { get; set; }
 }

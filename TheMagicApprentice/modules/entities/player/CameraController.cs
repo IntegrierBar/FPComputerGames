@@ -36,9 +36,8 @@ public partial class CameraController : Camera2D
 		StartZoom = Zoom.X;
 		Player = GetTree().GetFirstNodeInGroup("player") as Node2D;
 		RoomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
-		JumpToTarget();
-		System.Diagnostics.Debug.Assert(Player is not null);
-		System.Diagnostics.Debug.Assert(RoomHandler is not null);
+		System.Diagnostics.Debug.Assert(Player is not null, "Player is null");
+		System.Diagnostics.Debug.Assert(RoomHandler is not null, "Roomhandler is null");
 		RoomHandler.RoomInitialized += JumpToTarget;
 	}
 
@@ -118,6 +117,10 @@ public partial class CameraController : Camera2D
 	 */
 	private Vector2 CalculateTargetPosition()
 	{
+		 // early return if not in scene tree
+		if (!IsInsideTree())
+			return Position;
+
 		Rect2 roomBounds = RoomHandler.GetCurrentRoomBounds();
 		Rect2 cameraRect = GetCameraRect();
 
@@ -152,6 +155,9 @@ public partial class CameraController : Camera2D
 	 */
 	private void JumpToTarget()
 	{
+		// early return if not in scene tree
+		if (!IsInsideTree())
+			return;
 		switch(RoomHandler.CurrentRoom.Type) {
 			case RoomType.Normal:
 				Zoom = Vector2.One * StartZoom;

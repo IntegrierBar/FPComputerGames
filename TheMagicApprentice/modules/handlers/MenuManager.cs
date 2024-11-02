@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 /**
  * Manages the menu system for the game.
@@ -10,6 +11,8 @@ public partial class MenuManager : Node
 {
 	[Signal]
 	public delegate void MenuChangedEventHandler(MenuType newMenu, bool isPush);
+	[Signal]
+	public delegate void MenuLeftEventHandler(MenuType leftMenu);
 
 	/**
 	 * Enum representing different types of menus in the game.
@@ -21,6 +24,7 @@ public partial class MenuManager : Node
 		MainHub,
 		PauseMenu,
 		SettingsMenu,
+		DungeonSelection,
 		DungeonClearMenu
 	}
 
@@ -34,7 +38,8 @@ public partial class MenuManager : Node
 		{ MenuType.MainHub, "res://modules/ui/main_hub/main_hub.tscn" },
 		{ MenuType.PauseMenu, "res://modules/ui/pause_menu/pause_menu.tscn" },
 		{ MenuType.SettingsMenu, "res://modules/ui/settings_menu/settings_menu.tscn" },
-		{ MenuType.DungeonClearMenu, "res://modules/ui/dungeon_clear_menu/dungeon_clear_menu.tscn" },
+		{ MenuType.DungeonSelection, "res://modules/ui/dungeon_selection/dungeon_selection.tscn" },
+		{ MenuType.DungeonClearMenu, "res://modules/ui/dungeon_clear_menu/dungeon_clear_menu.tscn" }
 		// Add other menu types and their scene paths here
 	};
 	
@@ -49,11 +54,11 @@ public partial class MenuManager : Node
 	
 
 	/**
-	 * Initializes the menu system by pushing the main menu.
+	 * Called when the node is added to the scene tree, adds this node to the menu_manager group.
 	 */
-	public override void _Ready()
+	public override void _EnterTree()
 	{
-		PushMenu(MenuType.MainMenu);
+		AddToGroup("menu_manager");
 	}
 
 	/**
@@ -70,8 +75,8 @@ public partial class MenuManager : Node
 				FreezeCurrentMenu();
 			}
 			_menuStack.Push(newMenu);
-			EmitSignal(SignalName.MenuChanged, (int)newMenu, true);
 			InstantiateMenuOverlay(newMenu);
+			EmitSignal(SignalName.MenuChanged, (int)newMenu, true);
 		}
 	}
 
@@ -87,6 +92,7 @@ public partial class MenuManager : Node
 			{
 				poppedNode.QueueFree();
 				_menuNodes.Remove(poppedMenu);
+				EmitSignal(SignalName.MenuLeft, (int)poppedMenu);
 			}
 			GetTree().CreateTimer(0.1f).Connect("timeout", Callable.From(() => UnfreezeCurrentMenu()));
 			EmitSignal(SignalName.MenuChanged, (int)CurrentMenu, false);
@@ -110,6 +116,24 @@ public partial class MenuManager : Node
 			}
 		}
 		PushMenu(newMenu);
+	}
+
+	public void RequestRootMenu(BaseMenu menu)
+	{
+		if (_menuStack.Count == 0)
+		{
+			// Validate that we're actually getting a BaseMenu
+			if (menu is not BaseMenu)
+			{
+				GD.PrintErr($"Invalid menu type requested: {menu.GetType()}");
+				return;
+			}
+
+			menu.CallDeferred("reparent", this);
+			_menuNodes[menu.MenuType] = menu;
+			_menuStack.Push(menu.MenuType);
+			EmitSignal(SignalName.MenuChanged, (int)menu.MenuType, true);
+		}
 	}
 
 	/**

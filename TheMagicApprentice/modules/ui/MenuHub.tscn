@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://mvd4nys3bax6"]
+[gd_scene load_steps=2 format=3 uid="uid://kg2c8qf7u2dj"]
 
 [ext_resource type="Script" path="res://modules/handlers/MenuManager.cs" id="1_yvu67"]
 

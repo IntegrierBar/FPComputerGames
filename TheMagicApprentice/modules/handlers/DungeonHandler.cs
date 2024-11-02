@@ -22,25 +22,52 @@ public partial class DungeonHandler : Node
 	private Node2D Player; ///< Reference to the player node.
 
 	/**
+	 * Called when the node is added to the scene tree, adds this node to the dungeon_handler group.
+	 */
+	public override void _EnterTree()
+	{
+		AddToGroup("dungeon_handler");
+	}
+
+	/**
 	 * Called when the node enters the scene tree for the first time.
 	 * Initializes the dungeon, player, and room handler, and loads the initial room.
 	 */
 	public override void _Ready()
 	{
 		Player = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;
-		RoomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
-		LoadDungeon(new Dungeon(MinRooms, MaxRooms));
+		SetDungeon(Dungeons.IntroDungeon);
+		
+		// Subscribe to menu events
+		MenuManager menuManager = GetTree().GetFirstNodeInGroup("menu_manager") as MenuManager;
+		if (menuManager != null)
+		{
+			menuManager.MenuChanged += OnMenuChanged;
+			menuManager.MenuLeft += OnMenuLeft;
+		}
 	}
 
 	/**
 	 * Loads a dungeon.
 	 *
-	 * @param dungeon The dungeon to load.
+	 * @param dungeon The dungeon to set.
 	 */
-	public void LoadDungeon(Dungeon dungeon)
+	public void SetDungeon(Dungeon dungeon)
 	{
 		Dungeon = new Dungeon(dungeon);
+	}
+
+	public void LoadFirstRoom()
+	{
 		LoadRoom(Dungeon.CurrentRoomPosition, Direction.DOWN);
+	}
+
+	private void CheckRoomHandler()
+	{
+		if (RoomHandler == null)
+		{
+			RoomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
+		}
 	}
 
 	/**
@@ -58,6 +85,8 @@ public partial class DungeonHandler : Node
 		}
 
 		Room room = Dungeon.Layout[position];
+
+		GD.Print($"Loading room: {room} at position {position}, roomHandler is null: {RoomHandler == null}");
 
 		RoomHandler.LoadRoom(room, enterDirection);
 		room.IsVisited = true;
@@ -154,5 +183,37 @@ public partial class DungeonHandler : Node
 	public MagicType GetMagicType()
 	{
 		return Dungeon.MagicType;
+	}
+
+	private void OnMenuChanged(MenuManager.MenuType newMenu, bool isPush)
+	{
+		GD.Print($"Menu changed: {newMenu} {isPush}");
+		if (newMenu == MenuManager.MenuType.MainGame)
+		{
+			RoomHandler = GetTree().GetFirstNodeInGroup("room_handler") as RoomHandler;
+			GD.Print($"RoomHandler: {RoomHandler == null}");
+			if(Dungeon != null)
+			{
+				LoadFirstRoom();
+			}
+		}
+	}
+
+	private void OnMenuLeft(MenuManager.MenuType leftMenu)
+	{
+		if (leftMenu == MenuManager.MenuType.MainGame)
+		{
+			RoomHandler = null;
+		}
+	}
+
+	public override void _ExitTree()
+	{
+		MenuManager menuManager = GetTree().GetFirstNodeInGroup("menu_manager") as MenuManager;
+		if (menuManager != null)
+		{
+			menuManager.MenuChanged -= OnMenuChanged;
+			menuManager.MenuLeft -= OnMenuLeft;
+		}
 	}
 }
