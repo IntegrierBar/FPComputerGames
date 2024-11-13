@@ -256,7 +256,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("2_ngcow")
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/SunBasicPanelContainer"]
+[node name="SunBasic" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/SunBasicPanelContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("13_uwepl")
@@ -279,7 +279,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="SunBeam" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("13_uwepl")
@@ -294,7 +294,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/HBoxContainer/PanelContainer2"]
+[node name="SummonSun" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/HBoxContainer/PanelContainer2"]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("13_uwepl")
@@ -327,7 +327,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer/PanelContainer"]
+[node name="CosmicBasic" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer/PanelContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("13_uwepl")
@@ -350,7 +350,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="MoonLight" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("13_uwepl")
@@ -365,7 +365,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer/HBoxContainer/PanelContainer2"]
+[node name="StarRain" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer/HBoxContainer/PanelContainer2"]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("13_uwepl")
@@ -398,7 +398,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer/PanelContainer"]
+[node name="DarkBasic" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer/PanelContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("13_uwepl")
@@ -421,7 +421,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="DarkEnergyWave" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("13_uwepl")
@@ -436,7 +436,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer/HBoxContainer/PanelContainer2"]
+[node name="BlackHole" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer/HBoxContainer/PanelContainer2"]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("13_uwepl")
