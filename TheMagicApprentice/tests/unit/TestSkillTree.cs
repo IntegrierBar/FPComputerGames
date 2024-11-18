@@ -19,6 +19,9 @@ public partial class TestSkillTree
 		_skillTree = AutoFree(new SkillTree());
 	}
 
+	/**
+	Tests both GetSpellFromIndex and its inverse
+	*/
 	[TestCase(0, SpellName.SunBasic, TestName = "SunBasic")]
 	[TestCase(1, SpellName.SunBeam, TestName = "SunBeam")]
 	[TestCase(2, SpellName.SummonSun, TestName = "SummonSun")]
@@ -33,5 +36,24 @@ public partial class TestSkillTree
 	public void TestGetSpellFromIndex(int spellIndex, SpellName? spellName)
 	{
 		AssertThat(_skillTree.GetSpellFromIndex(spellIndex)).IsEqual(spellName);
+		if (spellName is not null) // only check the inverse function if spellName is not null
+		{
+			AssertThat(_skillTree.GetIndexFromSpell((SpellName)spellName)).IsEqual(spellIndex);
+		}
+		
+	}
+
+	[TestCase("SunBasic", SpellName.SunBasic)]
+	[TestCase("SummonSun", SpellName.SummonSun)]
+	[TestCase("SunBeam", SpellName.SunBeam)]
+	[TestCase("CosmicBasic", SpellName.CosmicBasic)]
+	[TestCase("MoonLight", SpellName.MoonLight)]
+	[TestCase("StarRain", SpellName.StarRain)]
+	[TestCase("DarkBasic", SpellName.DarkBasic)]
+	[TestCase("DarkEnergyWave", SpellName.DarkEnergyWave)]
+	[TestCase("BlackHole", SpellName.BlackHole)]
+	public void TestConvertStringNameToSpellName(string stringName, SpellName spellName)
+	{
+		AssertThat(SkillTree.ConvertStringNameToSpellName(stringName)).IsEqual(spellName);
 	}
 }

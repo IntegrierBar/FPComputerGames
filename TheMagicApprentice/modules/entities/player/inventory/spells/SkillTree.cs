@@ -1,11 +1,14 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 
 [GlobalClass]
 public partial class SkillTree : CanvasLayer
 {
 	private Player player; ///< Reference to player to set skills 
+
+	private ButtonGroup _skillTreeButtons; ///< reference to the ButtonGroup the the buttons inside the skillTree
 	
 	public override void _Ready()
 	{
@@ -15,6 +18,14 @@ public partial class SkillTree : CanvasLayer
 		GetNode<OptionButton>("%OptionsSkillSlot1").Select(indexInitialSkill);
 		SkillSlot1Selected(indexInitialSkill); 
 		// TODO: the first skill should be selected in the intro dungeon depending on the chosen magic type
+
+		// get the reference to the skill tree button group (this seems to be the cannonical way of doing this)
+		_skillTreeButtons = GetNode<TextureButton>("MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/SunBasicPanelContainer/SunBasic").ButtonGroup;
+
+		AddSkillPointOfType(MagicType.SUN);
+		AddSkillPointOfType(MagicType.SUN);
+		AddSkillPointOfType(MagicType.SUN);
+		AddSkillPointOfType(MagicType.SUN);
 	}
 
 	/**
@@ -72,7 +83,7 @@ public partial class SkillTree : CanvasLayer
 	*/
 	private void SkillSlot1Selected(int index)
 	{
-		for (int i = 0; i <= 8; i++) // enable all skills in skill slot 2 and 3 first to remove disabling from previous skill
+		for (int i = 0; i <= 8; i++) // enable all skills in skill slot 2 and 3 first to remove disabling from previous skill // TODO, NEEED to fix this as this complicates unlocking of skills
 		{
 			GetNode<OptionButton>("%OptionsSkillSlot2").SetItemDisabled(i, false);
 			GetNode<OptionButton>("%OptionsSkillSlot3").SetItemDisabled(i, false);
@@ -202,12 +213,37 @@ public partial class SkillTree : CanvasLayer
 		return -1;
 	}
 
+	/**
+	Gets called when the Unlock Button was pressed.
+	Finds out which spell the player has selected to be unlocked.
+	If the player has enough skill points of that type, the skill is unlocked and the button for the 
+	*/
 	private void UnlockButtonPressed()
 	{
-		
-		// Handle unlocking of skills here
-		// check whether that is possible in the current state and with the current amount of skill points first
-		
+		// get the currently selected skill and check if we have enough skill points of its type
+		BaseButton currentButton = _skillTreeButtons.GetPressedButton();
+		// if there is no button selected or the currently selected button is disabled (i.e. is already unlocked) do nothing.
+		if (currentButton is null || currentButton.Disabled)
+		{
+			return;
+		}
+
+		// Get the magic Type of the skill from its string name, so that we can determine the skill points
+		SpellName spellName = ConvertStringNameToSpellName(currentButton.Name.ToString());
+		MagicType magicTypeOfSkill = EntityTypeHelper.GetMagicTypeOfSpell(spellName);
+
+		int skillPoints = GetSkillPointsOfType(magicTypeOfSkill);
+		if (skillPoints <= 0 || !CanUnlockSkill(spellName)) // if we dont have enough skill points, or the basic skill of the magic type is locked do nothing
+		{
+			return;
+		}
+
+		// unlock the skill and reduce the skill points by one
+		UnlockSkillInSelectionMenu(spellName);
+		SetSkillPointsOfType(magicTypeOfSkill, skillPoints - 1);
+		// finally disable the button so that it cannot be used again
+		currentButton.Disabled = true;
+		currentButton.ButtonPressed = false;
 	}
 
 	/**
@@ -226,6 +262,133 @@ public partial class SkillTree : CanvasLayer
 		7 => SpellName.DarkEnergyWave,
 		8 => SpellName.BlackHole,
 		_ => null,
+	}; 
+
+	/**
+	Returns the index of the SpellName from the OptionsButton.
+	Is the inverse of GetSpellFromIndex.
+	Is not static since technically it depends on implementation that might in the future depend on the scene.
+	*/
+	public int GetIndexFromSpell(SpellName spellName) => spellName switch
+	{
+		SpellName.SunBasic => 0,
+		SpellName.SunBeam => 1,
+		SpellName.SummonSun => 2,
+		SpellName.CosmicBasic => 3,
+		SpellName.MoonLight => 4,
+		SpellName.StarRain => 5,
+		SpellName.DarkBasic => 6,
+		SpellName.DarkEnergyWave => 7,
+		SpellName.BlackHole => 8,
+		_ => 0,
 	};
 
+	/**
+	Converts the StringName of a spell into the actual SpellName. 
+	Is used to convert the Name of the buttons that are the skill tree into the corresponding SpellName
+	*/
+	public static SpellName ConvertStringNameToSpellName(string skillName) => skillName switch
+	{
+		"SunBasic" => SpellName.SunBasic,
+		"SummonSun" => SpellName.SummonSun,
+		"SunBeam" => SpellName.SunBeam,
+		"CosmicBasic" => SpellName.CosmicBasic,
+		"MoonLight" => SpellName.MoonLight,
+		"StarRain" => SpellName.StarRain,
+		"DarkBasic" => SpellName.DarkBasic,
+		"DarkEnergyWave" => SpellName.DarkEnergyWave,
+		"BlackHole" => SpellName.BlackHole,
+		_ => SpellName.SunBasic,
+	};
+
+	/**
+	Returns the number of SkillPoints currently available of the MagicType.
+	Does so by reading the value from the display string.
+	Incase there is an error with converting the string to int, it resets the skill points to 0 and returns -1 to indicate that there was something wrong (this is only really used for the tests)
+	*/
+	public int GetSkillPointsOfType(MagicType magicType)
+	{
+		Label skillPointLabel = GetReferenceToSkillPointLabel(magicType); // get reference to label
+
+		int skillPoints;
+		if (! int.TryParse(skillPointLabel.Text, out skillPoints)) // convert string to int and check if it failed
+		{
+			// Could not convert skill points, so we reset them to 0
+			skillPointLabel.Text = 0.ToString();
+			skillPoints = -1;
+		}
+		return skillPoints;
+	}
+
+	/**
+	Set the skill points of type magicType to skillPoints by setting the text.
+	*/
+	private void SetSkillPointsOfType(MagicType magicType, int skillPoints)
+	{
+		Label skillPointLabel = GetReferenceToSkillPointLabel(magicType); // get reference to label
+		skillPointLabel.Text = skillPoints.ToString(); // set the label
+	}
+
+	/**
+	Get Reference to the SkillPointLabel of the MagicType.
+	*/
+	private Label GetReferenceToSkillPointLabel(MagicType magicType)
+	{
+		switch (magicType)
+		{
+			case MagicType.SUN:
+				return GetNode<Label>("%SunSkillPoints");
+			case MagicType.COSMIC:
+				return GetNode<Label>("%CosmicSkillPoints");
+			case MagicType.DARK:
+				return GetNode<Label>("%DarkSkillPoints");
+			default: // cannot happen
+				return null;
+		}
+	}
+
+	/**
+	Unlocks the skill in the skill selection menu
+	*/
+	private void UnlockSkillInSelectionMenu(SpellName spellName)
+	{
+        List<string> namesOfOptionButtons = new List<string>{"%OptionsSkillSlot1", "%OptionsSkillSlot2", "%OptionsSkillSlot3"}; // list of the names of the OptionButtons
+		foreach (var namesOfOptionButton in namesOfOptionButtons)
+		{
+			GetNode<OptionButton>(namesOfOptionButton).SetItemDisabled(GetIndexFromSpell(spellName), false); // enable the item
+		}
+	}
+
+	/**
+	Add a skill point of the MagicType magicType
+	*/
+	public void AddSkillPointOfType(MagicType magicType)
+	{
+		Label skillPointLabel = GetReferenceToSkillPointLabel(magicType);
+		int skillPoints = 0;
+		if (int.TryParse(skillPointLabel.Text, out skillPoints))
+		{
+			skillPointLabel.Text = (skillPoints + 1).ToString();
+		}
+		else
+		{
+			// Could not convert skill points, so we reset them to 1, since we just added a skill point
+			skillPointLabel.Text = 1.ToString();
+		}
+	}
+
+	/**
+	Checks if the skill can be unlocked.
+	I.e. if it is not a base spell, the base spell of that magicType has to be unlocked
+	*/
+	private bool CanUnlockSkill(SpellName spellName)
+	{
+		var baseSpells = new HashSet<SpellName> {SpellName.SunBasic, SpellName.CosmicBasic, SpellName.DarkBasic};
+		if (!baseSpells.Contains(spellName)) // if it is not a base spell, we have to check if its base spell is unlocked by checking if its base spell is unlocked in slot 1
+		{
+			MagicType magicTypeOfSkill = EntityTypeHelper.GetMagicTypeOfSpell(spellName);
+			return !GetNode<OptionButton>("%OptionsSkillSlot1").IsItemDisabled((int)magicTypeOfSkill * 3); // the index of the basic spell of each MagicType is a multiple of 3 in the correct order;
+		}
+		return true;
+	}
 }

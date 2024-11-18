@@ -90,6 +90,23 @@ public enum SpellName
 public static class EntityTypeHelper
 {
     /**
+    Returns the MagicType of the spellName.
+    */
+    public static MagicType GetMagicTypeOfSpell(SpellName spellName) => spellName switch
+	{
+		SpellName.SunBasic => MagicType.SUN,
+		SpellName.SummonSun => MagicType.SUN,
+		SpellName.SunBeam => MagicType.SUN,
+		SpellName.CosmicBasic => MagicType.COSMIC,
+		SpellName.MoonLight => MagicType.COSMIC,
+		SpellName.StarRain => MagicType.COSMIC,
+		SpellName.DarkBasic => MagicType.DARK,
+		SpellName.DarkEnergyWave => MagicType.DARK,
+		SpellName.BlackHole => MagicType.DARK,
+		_ => MagicType.SUN,
+	};
+
+    /**
 	Takes a magic type and returns it as a string, where all letters are lowercase.
     This is the way the magic types are written in e.g. the animation names.
 	*/

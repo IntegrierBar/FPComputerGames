@@ -5,6 +5,7 @@ public partial class DungeonClearMenu : BaseMenu
 {
 	/**
 	When instanciated, generate the augments, add them to the player and display them.
+	Also add the skill point to the player
 	*/
 	public override void _Ready()
 	{
@@ -29,6 +30,11 @@ public partial class DungeonClearMenu : BaseMenu
 			augmentDisplay.AddChild(container);
 			container.AddChild(displayItem);
 		}
+
+		// Add the skill point to the player.
+		// the MagicType of the skill point is the same as the MagicType of the dungeon.
+		MagicType magicType = (GetTree().GetFirstNodeInGroup(Globals.DungeonHandlerGroup) as DungeonHandler).GetMagicType();
+		(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).AddSkillPointOfType(magicType);
 	}
 
 	/**
