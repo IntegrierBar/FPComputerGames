@@ -9,6 +9,7 @@ public partial class SkillTree : CanvasLayer
 	private Player player; ///< Reference to player to set skills 
 
 	private ButtonGroup _skillTreeButtons; ///< reference to the ButtonGroup the the buttons inside the skillTree
+	private int _indexOfSkill1; ///< Index of the skill selected in Skill slot 1.
 	
 	public override void _Ready()
 	{
@@ -78,20 +79,49 @@ public partial class SkillTree : CanvasLayer
 	}
 
 	/**
+	Unlocks the basic skill of the magicType and sets it as the skill in slot 1.
+	Is used whenever a new game is started to set the first spell of the game
+	*/
+	public void SetStartBasic(MagicType magicType)
+	{
+		SpellName basicSpell = magicType switch // get the SpellName of the Basic Spell
+		{
+			MagicType.SUN => SpellName.SunBasic,
+			MagicType.COSMIC => SpellName.CosmicBasic,
+			MagicType.DARK => SpellName.DarkBasic,
+			_ => SpellName.SunBasic, // default value that realistically should not happen, but it makes static analyzer happy.
+		};
+
+		var skillTreeButtons = _skillTreeButtons.GetButtons();
+		// loop over all buttons, find the correct button and disable it, to show that the skill is unlocked
+		foreach (var button in skillTreeButtons)
+		{
+			if (ConvertStringNameToSpellName(button.Name.ToString()) == basicSpell)
+			{
+				button.Disabled = true;
+				break;
+			}
+		}
+		// Unlock the skill and set it in slot 1
+		UnlockSkillInSelectionMenu(basicSpell);
+		SkillSlot1Selected(GetIndexFromSpell(basicSpell));
+	}
+
+	/**
 	Gets called when the skill in skill slot 1 gets changed. The skill that is equipped to skill slot 1
 	is disabled for skill slot 2 and 3. Afterwards call function that equips the chosen skill to the player. 
 	*/
 	private void SkillSlot1Selected(int index)
 	{
-		for (int i = 0; i <= 8; i++) // enable all skills in skill slot 2 and 3 first to remove disabling from previous skill // TODO, NEEED to fix this as this complicates unlocking of skills
-		{
-			GetNode<OptionButton>("%OptionsSkillSlot2").SetItemDisabled(i, false);
-			GetNode<OptionButton>("%OptionsSkillSlot3").SetItemDisabled(i, false);
-		}
+		
+		GetNode<OptionButton>("%OptionsSkillSlot2").SetItemDisabled(_indexOfSkill1, false);
+		GetNode<OptionButton>("%OptionsSkillSlot3").SetItemDisabled(_indexOfSkill1, false);
+		
 		// Disable the currently chosen skill for slot 1 for the skill slots 2 and 3
 		GetNode<OptionButton>("%OptionsSkillSlot2").SetItemDisabled(index, true); 
 		GetNode<OptionButton>("%OptionsSkillSlot3").SetItemDisabled(index, true);
 		SetSkill(0, index);
+		_indexOfSkill1 = index;
 	}
 
 	/**
