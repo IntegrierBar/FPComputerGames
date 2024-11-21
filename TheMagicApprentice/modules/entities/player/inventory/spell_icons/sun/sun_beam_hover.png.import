@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pcr6wy4bvbv4"
-path="res://.godot/imported/dark_energy_wave.png-9adb70aac82aca958f1d8f94147acef2.ctex"
+uid="uid://di6rn4q8fcfip"
+path="res://.godot/imported/sun_beam_hover.png-928ae0d90e01ee4661b52e25494e1304.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/entities/player/inventory/spell_icons/dark_energy_wave.png"
-dest_files=["res://.godot/imported/dark_energy_wave.png-9adb70aac82aca958f1d8f94147acef2.ctex"]
+source_file="res://modules/entities/player/inventory/spell_icons/sun/sun_beam_hover.png"
+dest_files=["res://.godot/imported/sun_beam_hover.png-928ae0d90e01ee4661b52e25494e1304.ctex"]
 
 [params]
 

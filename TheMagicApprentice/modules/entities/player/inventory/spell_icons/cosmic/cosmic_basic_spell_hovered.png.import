@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://indvmr1fyie0"
-path="res://.godot/imported/blackhole.png-b1ba904e003cefb14a71ceca7ccc127b.ctex"
+uid="uid://jeuglq0vppbl"
+path="res://.godot/imported/cosmic_basic_spell_hovered.png-506654d7c2a301c7ee5b004c4ed8fb74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/entities/player/inventory/spell_icons/blackhole.png"
-dest_files=["res://.godot/imported/blackhole.png-b1ba904e003cefb14a71ceca7ccc127b.ctex"]
+source_file="res://modules/entities/player/inventory/spell_icons/cosmic/cosmic_basic_spell_hovered.png"
+dest_files=["res://.godot/imported/cosmic_basic_spell_hovered.png-506654d7c2a301c7ee5b004c4ed8fb74.ctex"]
 
 [params]
 

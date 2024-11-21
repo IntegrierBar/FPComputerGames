@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdt4twt0g0j4i"
-path="res://.godot/imported/dark_basic_spell.png-eeadf13ee45d756109393b7ee83a7126.ctex"
+uid="uid://biry3omfnf4kg"
+path="res://.godot/imported/sun_beam.png-dc110134e669a15442bf60793b0f7b92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/entities/player/inventory/spell_icons/dark_basic_spell.png"
-dest_files=["res://.godot/imported/dark_basic_spell.png-eeadf13ee45d756109393b7ee83a7126.ctex"]
+source_file="res://modules/entities/player/inventory/spell_icons/sun/sun_beam.png"
+dest_files=["res://.godot/imported/sun_beam.png-dc110134e669a15442bf60793b0f7b92.ctex"]
 
 [params]
 

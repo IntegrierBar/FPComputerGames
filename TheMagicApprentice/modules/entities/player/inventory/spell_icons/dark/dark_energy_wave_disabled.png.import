@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ek035vhcmnxn"
-path="res://.godot/imported/star_rain.png-c5c511805739fe4f578fd43aea3b01a3.ctex"
+uid="uid://drltx5sf0xod6"
+path="res://.godot/imported/dark_energy_wave_disabled.png-c167ce5eac3fff537e3c376794e609b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/entities/player/inventory/spell_icons/star_rain.png"
-dest_files=["res://.godot/imported/star_rain.png-c5c511805739fe4f578fd43aea3b01a3.ctex"]
+source_file="res://modules/entities/player/inventory/spell_icons/dark/dark_energy_wave_disabled.png"
+dest_files=["res://.godot/imported/dark_energy_wave_disabled.png-c167ce5eac3fff537e3c376794e609b2.ctex"]
 
 [params]
 

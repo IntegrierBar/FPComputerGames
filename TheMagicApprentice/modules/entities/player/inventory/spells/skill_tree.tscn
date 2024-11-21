@@ -1,17 +1,45 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqx4bqlj501rl"]
+[gd_scene load_steps=41 format=3 uid="uid://cqx4bqlj501rl"]
 
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/SkillTree.cs" id="1_46nbb"]
 [ext_resource type="Theme" uid="uid://b5xmy0ocd4tfb" path="res://assets/themes/ingame_inventory_theme.tres" id="1_t4fwo"]
 [ext_resource type="Script" path="res://modules/entities/player/inventory/spells/SkillSlot.cs" id="2_ngcow"]
-[ext_resource type="Texture2D" uid="uid://bigsga6igu58y" path="res://modules/entities/player/inventory/spell_icons/sun_basic_spell.png" id="4_m7173"]
-[ext_resource type="Texture2D" uid="uid://biry3omfnf4kg" path="res://modules/entities/player/inventory/spell_icons/sun_beam.png" id="5_1qm5a"]
-[ext_resource type="Texture2D" uid="uid://dwvuqo1yxiyav" path="res://modules/entities/player/inventory/spell_icons/summon_sun.png" id="6_5duyx"]
-[ext_resource type="Texture2D" uid="uid://blalqnk66rj54" path="res://modules/entities/player/inventory/spell_icons/cosmic_basic_spell.png" id="6_on6i7"]
-[ext_resource type="Texture2D" uid="uid://djspc51dmqamj" path="res://modules/entities/player/inventory/spell_icons/moon_light.png" id="7_dwf2f"]
-[ext_resource type="Texture2D" uid="uid://ek035vhcmnxn" path="res://modules/entities/player/inventory/spell_icons/star_rain.png" id="8_3ibk3"]
-[ext_resource type="Texture2D" uid="uid://bdt4twt0g0j4i" path="res://modules/entities/player/inventory/spell_icons/dark_basic_spell.png" id="9_gsyot"]
-[ext_resource type="Texture2D" uid="uid://pcr6wy4bvbv4" path="res://modules/entities/player/inventory/spell_icons/dark_energy_wave.png" id="10_gkt4w"]
-[ext_resource type="Texture2D" uid="uid://indvmr1fyie0" path="res://modules/entities/player/inventory/spell_icons/blackhole.png" id="11_8x474"]
+[ext_resource type="Texture2D" uid="uid://bigsga6igu58y" path="res://modules/entities/player/inventory/spell_icons/sun/sun_basic_spell.png" id="4_m7173"]
+[ext_resource type="Texture2D" uid="uid://biry3omfnf4kg" path="res://modules/entities/player/inventory/spell_icons/sun/sun_beam.png" id="5_1qm5a"]
+[ext_resource type="Texture2D" uid="uid://dwvuqo1yxiyav" path="res://modules/entities/player/inventory/spell_icons/sun/summon_sun.png" id="6_5duyx"]
+[ext_resource type="Texture2D" uid="uid://blalqnk66rj54" path="res://modules/entities/player/inventory/spell_icons/cosmic/cosmic_basic_spell.png" id="6_on6i7"]
+[ext_resource type="Texture2D" uid="uid://djspc51dmqamj" path="res://modules/entities/player/inventory/spell_icons/cosmic/moon_light.png" id="7_dwf2f"]
+[ext_resource type="Texture2D" uid="uid://ek035vhcmnxn" path="res://modules/entities/player/inventory/spell_icons/cosmic/star_rain.png" id="8_3ibk3"]
+[ext_resource type="Texture2D" uid="uid://bdt4twt0g0j4i" path="res://modules/entities/player/inventory/spell_icons/dark/dark_basic_spell.png" id="9_gsyot"]
+[ext_resource type="Texture2D" uid="uid://pcr6wy4bvbv4" path="res://modules/entities/player/inventory/spell_icons/dark/dark_energy_wave.png" id="10_gkt4w"]
+[ext_resource type="Texture2D" uid="uid://indvmr1fyie0" path="res://modules/entities/player/inventory/spell_icons/dark/blackhole.png" id="11_8x474"]
+[ext_resource type="ButtonGroup" uid="uid://b4fbsir01et50" path="res://modules/entities/player/inventory/spell_icons/spell_icons_button_group.tres" id="13_uwepl"]
+[ext_resource type="Texture2D" uid="uid://c4u82vui8ru0g" path="res://modules/entities/player/inventory/spell_icons/sun/sun_basic_spell_pressed.png" id="14_476ce"]
+[ext_resource type="Texture2D" uid="uid://3dbpxqogwaq2" path="res://modules/entities/player/inventory/spell_icons/sun/sun_basic_spell_hover.png" id="15_d0wf1"]
+[ext_resource type="Texture2D" uid="uid://mjfibb08r1r0" path="res://modules/entities/player/inventory/spell_icons/sun/sun_beam_disabled.png" id="16_f5dyc"]
+[ext_resource type="Texture2D" uid="uid://0h3ydr0bbgm7" path="res://modules/entities/player/inventory/spell_icons/sun/sun_basic_spell_disabled.png" id="16_f7xus"]
+[ext_resource type="Texture2D" uid="uid://boqevbgfgp2c7" path="res://modules/entities/player/inventory/spell_icons/sun/sun_beam_pressed.png" id="17_kv4hk"]
+[ext_resource type="Texture2D" uid="uid://di6rn4q8fcfip" path="res://modules/entities/player/inventory/spell_icons/sun/sun_beam_hover.png" id="18_iipe2"]
+[ext_resource type="Texture2D" uid="uid://djbwil0wg1p11" path="res://modules/entities/player/inventory/spell_icons/sun/summon_sun_disabled.png" id="19_xj2pe"]
+[ext_resource type="Texture2D" uid="uid://5ma5oqcfhku4" path="res://modules/entities/player/inventory/spell_icons/sun/summon_sun_pressed.png" id="20_dn577"]
+[ext_resource type="Texture2D" uid="uid://bv2lr5vp05dbp" path="res://modules/entities/player/inventory/spell_icons/sun/summon_sun_hover.png" id="21_gqj6l"]
+[ext_resource type="Texture2D" uid="uid://cw6hnt1brmkla" path="res://modules/entities/player/inventory/spell_icons/cosmic/cosmic_basic_spell_disabled.png" id="22_wn73f"]
+[ext_resource type="Texture2D" uid="uid://bw7vteby01rvb" path="res://modules/entities/player/inventory/spell_icons/cosmic/cosmic_basic_spell_pressed.png" id="23_lss32"]
+[ext_resource type="Texture2D" uid="uid://jeuglq0vppbl" path="res://modules/entities/player/inventory/spell_icons/cosmic/cosmic_basic_spell_hovered.png" id="24_mi44c"]
+[ext_resource type="Texture2D" uid="uid://daen1p436kyx6" path="res://modules/entities/player/inventory/spell_icons/cosmic/moon_light_disabled.png" id="25_m3xlx"]
+[ext_resource type="Texture2D" uid="uid://blp1t38thfvg8" path="res://modules/entities/player/inventory/spell_icons/cosmic/moon_light_pressed.png" id="26_1a405"]
+[ext_resource type="Texture2D" uid="uid://dbyx6ij8s4657" path="res://modules/entities/player/inventory/spell_icons/cosmic/moon_light_hover.png" id="27_6i0tk"]
+[ext_resource type="Texture2D" uid="uid://b67abe2b14jeg" path="res://modules/entities/player/inventory/spell_icons/cosmic/star_rain_disabled.png" id="28_31sh6"]
+[ext_resource type="Texture2D" uid="uid://7tem7krf3bse" path="res://modules/entities/player/inventory/spell_icons/cosmic/star_rain_pressed.png" id="29_t4lim"]
+[ext_resource type="Texture2D" uid="uid://xxvfmb7y5byg" path="res://modules/entities/player/inventory/spell_icons/cosmic/star_rain_hover.png" id="30_kja3l"]
+[ext_resource type="Texture2D" uid="uid://da0o2pdyauy3u" path="res://modules/entities/player/inventory/spell_icons/dark/dark_basic_spell_disabled.png" id="32_vti65"]
+[ext_resource type="Texture2D" uid="uid://bx1mabxisx2ie" path="res://modules/entities/player/inventory/spell_icons/dark/dark_basic_spell_pressed.png" id="33_qc2j4"]
+[ext_resource type="Texture2D" uid="uid://oel26gdhoufd" path="res://modules/entities/player/inventory/spell_icons/dark/dark_basic_spell_hover.png" id="34_ps3a3"]
+[ext_resource type="Texture2D" uid="uid://drltx5sf0xod6" path="res://modules/entities/player/inventory/spell_icons/dark/dark_energy_wave_disabled.png" id="35_doaiq"]
+[ext_resource type="Texture2D" uid="uid://dg21l8hkxw868" path="res://modules/entities/player/inventory/spell_icons/dark/dark_energy_wave_pressed.png" id="36_o7i4n"]
+[ext_resource type="Texture2D" uid="uid://p7ypdj5tl37n" path="res://modules/entities/player/inventory/spell_icons/dark/dark_energy_wave_hover.png" id="37_g8mj2"]
+[ext_resource type="Texture2D" uid="uid://cuqg5hp1kq6" path="res://modules/entities/player/inventory/spell_icons/dark/blackhole_disabled.png" id="38_ryqfq"]
+[ext_resource type="Texture2D" uid="uid://y7o0ox8emcn2" path="res://modules/entities/player/inventory/spell_icons/dark/blackhole_pressed.png" id="39_6c6if"]
+[ext_resource type="Texture2D" uid="uid://ctdi5pxshbyea" path="res://modules/entities/player/inventory/spell_icons/dark/blackhole_hovered.png" id="40_ownm6"]
 
 [node name="SkillTree" type="CanvasLayer"]
 layer = 10
@@ -77,30 +105,39 @@ fit_to_longest_item = false
 popup/item_0/text = "Sun Basic Spell"
 popup/item_0/icon = ExtResource("4_m7173")
 popup/item_0/id = 0
+popup/item_0/disabled = true
 popup/item_1/text = "Sun Beam"
 popup/item_1/icon = ExtResource("5_1qm5a")
 popup/item_1/id = 1
+popup/item_1/disabled = true
 popup/item_2/text = "Summon Sun"
 popup/item_2/icon = ExtResource("6_5duyx")
 popup/item_2/id = 2
+popup/item_2/disabled = true
 popup/item_3/text = "Cosmic Basic Spell"
 popup/item_3/icon = ExtResource("6_on6i7")
 popup/item_3/id = 3
+popup/item_3/disabled = true
 popup/item_4/text = "Moon Light"
 popup/item_4/icon = ExtResource("7_dwf2f")
 popup/item_4/id = 4
+popup/item_4/disabled = true
 popup/item_5/text = "Star Rain"
 popup/item_5/icon = ExtResource("8_3ibk3")
 popup/item_5/id = 5
+popup/item_5/disabled = true
 popup/item_6/text = "Dark Basic Spell"
 popup/item_6/icon = ExtResource("9_gsyot")
 popup/item_6/id = 6
+popup/item_6/disabled = true
 popup/item_7/text = "Dark Energy Wave"
 popup/item_7/icon = ExtResource("10_gkt4w")
 popup/item_7/id = 7
+popup/item_7/disabled = true
 popup/item_8/text = "Black Hole"
 popup/item_8/icon = ExtResource("11_8x474")
 popup/item_8/id = 8
+popup/item_8/disabled = true
 
 [node name="SkillSlot2" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ActiveSkills"]
 custom_minimum_size = Vector2(64, 64)
@@ -117,30 +154,39 @@ fit_to_longest_item = false
 popup/item_0/text = "Sun Basic Spell"
 popup/item_0/icon = ExtResource("4_m7173")
 popup/item_0/id = 0
+popup/item_0/disabled = true
 popup/item_1/text = "Sun Beam"
 popup/item_1/icon = ExtResource("5_1qm5a")
 popup/item_1/id = 1
+popup/item_1/disabled = true
 popup/item_2/text = "Summon Sun"
 popup/item_2/icon = ExtResource("6_5duyx")
 popup/item_2/id = 2
+popup/item_2/disabled = true
 popup/item_3/text = "Cosmic Basic Spell"
 popup/item_3/icon = ExtResource("6_on6i7")
 popup/item_3/id = 3
+popup/item_3/disabled = true
 popup/item_4/text = "Moon Light"
 popup/item_4/icon = ExtResource("7_dwf2f")
 popup/item_4/id = 4
+popup/item_4/disabled = true
 popup/item_5/text = "Star Rain"
 popup/item_5/icon = ExtResource("8_3ibk3")
 popup/item_5/id = 5
+popup/item_5/disabled = true
 popup/item_6/text = "Dark Basic Spell"
 popup/item_6/icon = ExtResource("9_gsyot")
 popup/item_6/id = 6
+popup/item_6/disabled = true
 popup/item_7/text = "Dark Energy Wave"
 popup/item_7/icon = ExtResource("10_gkt4w")
 popup/item_7/id = 7
+popup/item_7/disabled = true
 popup/item_8/text = "Black Hole"
 popup/item_8/icon = ExtResource("11_8x474")
 popup/item_8/id = 8
+popup/item_8/disabled = true
 
 [node name="SkillSlot3" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer/ActiveSkills"]
 custom_minimum_size = Vector2(64, 64)
@@ -157,30 +203,39 @@ fit_to_longest_item = false
 popup/item_0/text = "Sun Basic Spell"
 popup/item_0/icon = ExtResource("4_m7173")
 popup/item_0/id = 0
+popup/item_0/disabled = true
 popup/item_1/text = "Sun Beam"
 popup/item_1/icon = ExtResource("5_1qm5a")
 popup/item_1/id = 1
+popup/item_1/disabled = true
 popup/item_2/text = "Summon Sun"
 popup/item_2/icon = ExtResource("6_5duyx")
 popup/item_2/id = 2
+popup/item_2/disabled = true
 popup/item_3/text = "Cosmic Basic Spell"
 popup/item_3/icon = ExtResource("6_on6i7")
 popup/item_3/id = 3
+popup/item_3/disabled = true
 popup/item_4/text = "Moon Light"
 popup/item_4/icon = ExtResource("7_dwf2f")
 popup/item_4/id = 4
+popup/item_4/disabled = true
 popup/item_5/text = "Star Rain"
 popup/item_5/icon = ExtResource("8_3ibk3")
 popup/item_5/id = 5
+popup/item_5/disabled = true
 popup/item_6/text = "Dark Basic Spell"
 popup/item_6/icon = ExtResource("9_gsyot")
 popup/item_6/id = 6
+popup/item_6/disabled = true
 popup/item_7/text = "Dark Energy Wave"
 popup/item_7/icon = ExtResource("10_gkt4w")
 popup/item_7/id = 7
+popup/item_7/disabled = true
 popup/item_8/text = "Black Hole"
 popup/item_8/icon = ExtResource("11_8x474")
 popup/item_8/id = 8
+popup/item_8/disabled = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_direction = 2
@@ -204,7 +259,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="MarginContainerSun" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 50
@@ -212,53 +267,71 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer"]
 layout_mode = 2
 text = "Sun"
 horizontal_alignment = 1
 
-[node name="SunBasicPanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="SunBasicPanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("2_ngcow")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/SunBasicPanelContainer"]
+[node name="SunBasic" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/SunBasicPanelContainer"]
 layout_mode = 2
-texture = ExtResource("4_m7173")
+toggle_mode = true
+button_group = ExtResource("13_uwepl")
+texture_normal = ExtResource("16_f7xus")
+texture_pressed = ExtResource("14_476ce")
+texture_hover = ExtResource("15_d0wf1")
+texture_disabled = ExtResource("4_m7173")
+stretch_mode = 0
 
-[node name="EmptySpaceLabel" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="EmptySpaceLabel" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer"]
 layout_mode = 2
 text = "
 
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="SunBeam" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
-texture = ExtResource("5_1qm5a")
+toggle_mode = true
+button_group = ExtResource("13_uwepl")
+texture_normal = ExtResource("16_f5dyc")
+texture_pressed = ExtResource("17_kv4hk")
+texture_hover = ExtResource("18_iipe2")
+texture_disabled = ExtResource("5_1qm5a")
+stretch_mode = 0
 
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
+[node name="SummonSun" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/HBoxContainer/PanelContainer2"]
 layout_mode = 2
-texture = ExtResource("6_5duyx")
+toggle_mode = true
+button_group = ExtResource("13_uwepl")
+texture_normal = ExtResource("19_xj2pe")
+texture_pressed = ExtResource("20_dn577")
+texture_hover = ExtResource("21_gqj6l")
+texture_disabled = ExtResource("6_5duyx")
+stretch_mode = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="MarginContainerCosmic" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 50
@@ -266,40 +339,70 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer"]
 layout_mode = 2
 text = "Cosmic"
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="EmptySpaceLabel" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="CosmicBasic" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer/PanelContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("13_uwepl")
+texture_normal = ExtResource("22_wn73f")
+texture_pressed = ExtResource("23_lss32")
+texture_hover = ExtResource("24_mi44c")
+texture_disabled = ExtResource("6_on6i7")
+stretch_mode = 0
+
+[node name="EmptySpaceLabel" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer"]
 layout_mode = 2
 text = "
 
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="MoonLight" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("13_uwepl")
+texture_normal = ExtResource("25_m3xlx")
+texture_pressed = ExtResource("26_1a405")
+texture_hover = ExtResource("27_6i0tk")
+texture_disabled = ExtResource("7_dwf2f")
+stretch_mode = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="StarRain" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerCosmic/VBoxContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("13_uwepl")
+texture_normal = ExtResource("28_31sh6")
+texture_pressed = ExtResource("29_t4lim")
+texture_hover = ExtResource("30_kja3l")
+texture_disabled = ExtResource("8_3ibk3")
+stretch_mode = 0
+
+[node name="MarginContainerDark" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 50
@@ -307,38 +410,68 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer"]
 layout_mode = 2
 text = "Dark"
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="EmptySpaceLabel" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
+[node name="DarkBasic" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer/PanelContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("13_uwepl")
+texture_normal = ExtResource("32_vti65")
+texture_pressed = ExtResource("33_qc2j4")
+texture_hover = ExtResource("34_ps3a3")
+texture_disabled = ExtResource("9_gsyot")
+stretch_mode = 0
+
+[node name="EmptySpaceLabel" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer"]
 layout_mode = 2
 text = "
 
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer"]
+[node name="DarkEnergyWave" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("13_uwepl")
+texture_normal = ExtResource("35_doaiq")
+texture_pressed = ExtResource("36_o7i4n")
+texture_hover = ExtResource("37_g8mj2")
+texture_disabled = ExtResource("10_gkt4w")
+stretch_mode = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 10
+
+[node name="BlackHole" type="TextureButton" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerDark/VBoxContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("13_uwepl")
+texture_normal = ExtResource("38_ryqfq")
+texture_pressed = ExtResource("39_6c6if")
+texture_hover = ExtResource("40_ownm6")
+texture_disabled = ExtResource("11_8x474")
+stretch_mode = 0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -369,6 +502,7 @@ text = "Sun:
 "
 
 [node name="SunSkillPoints" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
@@ -381,6 +515,7 @@ layout_mode = 2
 text = "Cosmic:"
 
 [node name="CosmicSkillPoints" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
@@ -393,6 +528,7 @@ layout_mode = 2
 text = "Dark:"
 
 [node name="DarkSkillPoints" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 

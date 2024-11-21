@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djspc51dmqamj"
-path="res://.godot/imported/moon_light.png-6dd5f2a3dd62fe44df48bb67c6a8b693.ctex"
+uid="uid://pcr6wy4bvbv4"
+path="res://.godot/imported/dark_energy_wave.png-54ab90c7d6f49f92739efc010bc86034.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/entities/player/inventory/spell_icons/moon_light.png"
-dest_files=["res://.godot/imported/moon_light.png-6dd5f2a3dd62fe44df48bb67c6a8b693.ctex"]
+source_file="res://modules/entities/player/inventory/spell_icons/dark/dark_energy_wave.png"
+dest_files=["res://.godot/imported/dark_energy_wave.png-54ab90c7d6f49f92739efc010bc86034.ctex"]
 
 [params]
 

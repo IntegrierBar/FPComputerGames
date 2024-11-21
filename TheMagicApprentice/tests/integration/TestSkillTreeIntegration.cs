@@ -40,4 +40,24 @@ public partial class TestSkillTreeIntegration
 		int resultSkillSlot = _skillTree.IsSkillCurrentlyEquipped(nrSkillSlot, newIndex);
 		AssertThat(resultSkillSlot).IsEqual(result);
 	}
+
+	/**
+	tests if adding skill points works and then tests if spending the skill points to unlock the skills works
+	*/
+	[TestCase]
+	public void TestAddingSkillPoints()
+	{
+		// first add skill points (3 Sun 2 Cosmix 1 Dark)
+		_skillTree.AddSkillPointOfType(MagicType.SUN);
+		_skillTree.AddSkillPointOfType(MagicType.SUN);
+		_skillTree.AddSkillPointOfType(MagicType.SUN);
+		_skillTree.AddSkillPointOfType(MagicType.COSMIC);
+		_skillTree.AddSkillPointOfType(MagicType.COSMIC);
+		_skillTree.AddSkillPointOfType(MagicType.DARK);
+
+		// check that that worked
+		AssertInt(_skillTree.GetSkillPointsOfType(MagicType.SUN)).IsEqual(7); // TODO right now it is initially set to 4 need to change this later
+		AssertInt(_skillTree.GetSkillPointsOfType(MagicType.COSMIC)).IsEqual(2);
+		AssertInt(_skillTree.GetSkillPointsOfType(MagicType.DARK)).IsEqual(1);
+	}
 }

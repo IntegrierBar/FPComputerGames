@@ -259,4 +259,13 @@ public partial class Player : CharacterBody2D
 	{
 		GetNode<AugmentInventory>("AugmentInventory").AddAugmentToInventory(augment);
 	}
+
+	/**
+	Add a skill point of type magicType.
+	Is called by the dungeon clear menu and is used to forward to the skill tree.
+	*/
+	public void AddSkillPointOfType(MagicType magicType)
+	{
+		GetNode<SkillTree>("SkillTree").AddSkillPointOfType(magicType);
+	}
 }
