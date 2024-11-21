@@ -3,28 +3,46 @@ using System;
 
 public partial class NewGameMenu : BaseMenu
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
 	/**
+	Resets the player scene
+	*/
+    public override void _Ready()
+    {
+        base._Ready();
+		// Need to reset the player scene.
+		//(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).ResetPlayer();
+		//GetTree().CurrentScene = GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player;
+		//GetTree().ReloadCurrentScene();
+    }
+
+    /**
+	If the ESC key is pressed, return to main menu
+	*/
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event.IsAction("esc"))
+		{
+			PopMenu();
+		}
+    }
+
+    /**
 	Gets called when the button for the sun element is pressed
 	*/
-	public void SunSelected()
-	{}
+    public void SunSelected()
+	{
+		SelectElementInPlayer(MagicType.SUN);
+		CallDeferred(nameof(EnterIntroDungeon));
+	}
 
 	/**
 	Gets called when the button for the cosmic element is pressed
 	*/
 	public void CosmicSelected()
 	{
-
+		SelectElementInPlayer(MagicType.COSMIC);
+		CallDeferred(nameof(EnterIntroDungeon));
 	}
 
 	/**
@@ -32,6 +50,24 @@ public partial class NewGameMenu : BaseMenu
 	*/
 	public void DarkSelected()
 	{
+		SelectElementInPlayer(MagicType.DARK);
+		CallDeferred(nameof(EnterIntroDungeon));
+	}
 
+	/**
+	Unlocks and selects the base spell of MagicType magicType in the player
+	*/
+	private void SelectElementInPlayer(MagicType magicType)
+	{
+		(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).SetStartBasic(magicType);
+	}
+
+	/**
+	Exits this scene and loads into the IntroDungeon.
+	For now only goes to MainHub
+	*/
+	private void EnterIntroDungeon()
+	{
+		SetRootMenu(MenuManager.MenuType.MainHub);
 	}
 }

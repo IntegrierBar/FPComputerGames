@@ -268,4 +268,27 @@ public partial class Player : CharacterBody2D
 	{
 		GetNode<SkillTree>("SkillTree").AddSkillPointOfType(magicType);
 	}
+
+	/**
+	Set the basic skill whith which the player starts the game
+	*/
+	public void SetStartBasic(MagicType magicType)
+	{
+		GetNode<SkillTree>("SkillTree").SetStartBasic(magicType);
+	}
+
+	/**
+	Resets the player scene to the default.
+	Is called whenever a new game is created
+	*/
+	public void ResetPlayer()
+	{
+		var playerScene = GD.Load<PackedScene>("res://modules/entities/player/player.tscn");
+		var newPlayer = playerScene.Instantiate();
+		Name = "OldPlayer";
+		newPlayer.Name = "Player";
+		RemoveFromGroup(Globals.PlayerGroup);
+		GetTree().Root.AddChild(newPlayer);
+		QueueFree();
+	}
 }

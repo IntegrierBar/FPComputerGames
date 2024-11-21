@@ -104,7 +104,10 @@ public partial class SkillTree : CanvasLayer
 		}
 		// Unlock the skill and set it in slot 1
 		UnlockSkillInSelectionMenu(basicSpell);
-		SkillSlot1Selected(GetIndexFromSpell(basicSpell));
+		// we have to manually set the skill again, because rest of code assumes that player does it
+		_indexOfSkill1 = GetIndexFromSpell(basicSpell);
+		GetNode<OptionButton>("%OptionsSkillSlot1").Select(_indexOfSkill1);
+		SkillSlot1Selected(_indexOfSkill1);
 	}
 
 	/**
