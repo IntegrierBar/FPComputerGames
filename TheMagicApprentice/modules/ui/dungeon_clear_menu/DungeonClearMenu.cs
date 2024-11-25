@@ -35,6 +35,17 @@ public partial class DungeonClearMenu : BaseMenu
 		// the MagicType of the skill point is the same as the MagicType of the dungeon.
 		MagicType magicType = (GetTree().GetFirstNodeInGroup(Globals.DungeonHandlerGroup) as DungeonHandler).GetMagicType();
 		(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).AddSkillPointOfType(magicType);
+
+		// Set the Display text for the Skill Point
+		RichTextLabel skillPointLabel = GetNode<RichTextLabel>("%SkillPointLabel");
+		string bbcodeColor = magicType switch
+        {
+            MagicType.SUN => "[color=yellow]",
+            MagicType.COSMIC => "[color=blue]",
+            MagicType.DARK => "[color=purple]",
+            _ => throw new NotImplementedException(),
+        };
+		skillPointLabel.Text += bbcodeColor + EntityTypeHelper.GetMagicTypeAsString(magicType).ToUpper();
 	}
 
 	/**
