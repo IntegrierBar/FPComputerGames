@@ -22,11 +22,6 @@ public partial class SkillTree : CanvasLayer
 
 		// get the reference to the skill tree button group (this seems to be the cannonical way of doing this)
 		_skillTreeButtons = GetNode<TextureButton>("MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/SunBasicPanelContainer/SunBasic").ButtonGroup;
-
-		AddSkillPointOfType(MagicType.SUN);
-		AddSkillPointOfType(MagicType.SUN);
-		AddSkillPointOfType(MagicType.SUN);
-		AddSkillPointOfType(MagicType.SUN);
 	}
 
 	/**

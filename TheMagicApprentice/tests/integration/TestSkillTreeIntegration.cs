@@ -56,7 +56,7 @@ public partial class TestSkillTreeIntegration
 		_skillTree.AddSkillPointOfType(MagicType.DARK);
 
 		// check that that worked
-		AssertInt(_skillTree.GetSkillPointsOfType(MagicType.SUN)).IsEqual(7); // TODO right now it is initially set to 4 need to change this later
+		AssertInt(_skillTree.GetSkillPointsOfType(MagicType.SUN)).IsEqual(3); 
 		AssertInt(_skillTree.GetSkillPointsOfType(MagicType.COSMIC)).IsEqual(2);
 		AssertInt(_skillTree.GetSkillPointsOfType(MagicType.DARK)).IsEqual(1);
 	}
