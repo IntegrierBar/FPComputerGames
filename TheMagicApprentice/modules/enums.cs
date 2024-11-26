@@ -122,6 +122,18 @@ public static class EntityTypeHelper
     }
 
     /**
+    Returns the MagicType that is weak against the MagicType magicType.
+    Is used by the NewGameMenu to determine which MagicType the Intro Dungeon should have
+    */
+    public static MagicType GetWeakerMagicType(MagicType magicType) => magicType switch
+    {
+        MagicType.SUN => MagicType.COSMIC,
+        MagicType.COSMIC => MagicType.DARK,
+        MagicType.DARK => MagicType.SUN,
+        _ => throw new ArgumentOutOfRangeException(nameof(magicType), magicType, null), // cannot happen, but must make compiler happy
+    };
+
+    /**
     Returns a random magic type.
     */
     public static MagicType GetRandomMagicType()

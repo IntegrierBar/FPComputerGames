@@ -25,7 +25,8 @@ public partial class MenuManager : Node
 		PauseMenu,
 		SettingsMenu,
 		DungeonSelection,
-		DungeonClearMenu
+		DungeonClearMenu,
+		NewGameMenu,
 	}
 
 	/**
@@ -39,7 +40,8 @@ public partial class MenuManager : Node
 		{ MenuType.PauseMenu, "res://modules/ui/pause_menu/pause_menu.tscn" },
 		{ MenuType.SettingsMenu, "res://modules/ui/settings_menu/settings_menu.tscn" },
 		{ MenuType.DungeonSelection, "res://modules/ui/dungeon_selection/dungeon_selection.tscn" },
-		{ MenuType.DungeonClearMenu, "res://modules/ui/dungeon_clear_menu/dungeon_clear_menu.tscn" }
+		{ MenuType.DungeonClearMenu, "res://modules/ui/dungeon_clear_menu/dungeon_clear_menu.tscn" },
+		{ MenuType.NewGameMenu, "res://modules/ui/new_game_menu/new_game_menu.tscn"}
 		// Add other menu types and their scene paths here
 	};
 	

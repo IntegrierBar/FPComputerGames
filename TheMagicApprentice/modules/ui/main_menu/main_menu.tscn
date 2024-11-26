@@ -92,6 +92,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Exit"
 
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGameButton" to="." method="OnNewGameButtonPressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueButton" to="." method="OnContinueButtonPressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SettingsButton" to="." method="OnSettingsButtonPressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="OnExitButtonPressed"]

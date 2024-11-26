@@ -94,6 +94,12 @@ public partial class DungeonHandler : Node
 		Dungeon.CurrentRoomPosition = position;
 
 		ConnectRoomExitSignals();
+		
+		// if the room is the boss room. Also connect the dungeon clear signal, so that the dungeon clear menu is pushed
+		if (position == Dungeon.BossPosition)
+		{
+			RoomHandler.RoomCleared += () => CallDeferred(nameof(OpenDungeonClearMenu)); // use call deferred, since we need to first do the rest of the physics process before we do anything.
+		}
 	}
 
 	/**
@@ -216,4 +222,15 @@ public partial class DungeonHandler : Node
 			menuManager.MenuLeft -= OnMenuLeft;
 		}
 	}
+
+	/**
+	Opens the dungeon clear menu.
+	Is called after all enemies of the boss room are killed
+	*/
+	private void OpenDungeonClearMenu()
+	{
+		MenuManager menuManager = GetTree().GetFirstNodeInGroup("menu_manager") as MenuManager;
+		menuManager.PushMenu(MenuManager.MenuType.DungeonClearMenu);
+	}
+
 }

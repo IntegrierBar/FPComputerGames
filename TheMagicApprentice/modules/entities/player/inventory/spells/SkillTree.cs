@@ -22,11 +22,6 @@ public partial class SkillTree : CanvasLayer
 
 		// get the reference to the skill tree button group (this seems to be the cannonical way of doing this)
 		_skillTreeButtons = GetNode<TextureButton>("MarginContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainerSun/VBoxContainer/SunBasicPanelContainer/SunBasic").ButtonGroup;
-
-		AddSkillPointOfType(MagicType.SUN);
-		AddSkillPointOfType(MagicType.SUN);
-		AddSkillPointOfType(MagicType.SUN);
-		AddSkillPointOfType(MagicType.SUN);
 	}
 
 	/**
@@ -104,7 +99,10 @@ public partial class SkillTree : CanvasLayer
 		}
 		// Unlock the skill and set it in slot 1
 		UnlockSkillInSelectionMenu(basicSpell);
-		SkillSlot1Selected(GetIndexFromSpell(basicSpell));
+		// we have to manually set the skill again, because rest of code assumes that player does it
+		_indexOfSkill1 = GetIndexFromSpell(basicSpell);
+		GetNode<OptionButton>("%OptionsSkillSlot1").Select(_indexOfSkill1);
+		SkillSlot1Selected(_indexOfSkill1);
 	}
 
 	/**

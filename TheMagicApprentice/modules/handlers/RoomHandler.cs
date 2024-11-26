@@ -8,6 +8,8 @@ public partial class RoomHandler : Node
 {
 	[Signal]
 	public delegate void RoomInitializedEventHandler(); ///< Signal emitted after a new room is loaded.
+	[Signal]
+	public delegate void RoomClearedEventHandler(); ///< Signal emitted once all enemies in the room have been killed
 	[Export]
 	public int EnemyCount { get; set; } = 3; ///< Number of enemies to spawn in each room.
 	
@@ -119,11 +121,14 @@ public partial class RoomHandler : Node
 	private void EnemyDied()
 	{
 		enemyCount--;
+		// if there are no enemies left, the room has been cleared
 		if(enemyCount == 0) {
 			CurrentRoom.IsCleared = true;
+			EmitSignal(SignalName.RoomCleared);
 			EnableRoomExits();
 		}
 	}
+	
 	/**
 	* Enables the Rooms Exits.
 	*/

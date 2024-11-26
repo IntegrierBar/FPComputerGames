@@ -22,4 +22,12 @@ public partial class MainMenu : BaseMenu
 	{
 		PushMenu(MenuManager.MenuType.SettingsMenu);
 	}
+
+	/**
+	Loads into the New Game scene
+	*/
+	private void OnNewGameButtonPressed()
+	{
+		PushMenu(MenuManager.MenuType.NewGameMenu);
+	}
 }
