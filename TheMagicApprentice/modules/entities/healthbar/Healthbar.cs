@@ -44,10 +44,6 @@ public partial class Healthbar : TextureProgressBar
 		_healthPoints = Math.Min(MaxValue, newHealth);
 		_healthbar.Value = _healthPoints;
 
-		if (_healthPoints <= 0)
-		{
-			QueueFree();
-		}
 		if (_healthPoints < oldHealth)
 		{
 			_timer.Start();

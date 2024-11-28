@@ -62,6 +62,21 @@ public partial class DungeonHandler : Node
 		LoadRoom(Dungeon.CurrentRoomPosition, Direction.DOWN);
 	}
 
+	/**
+	Reloads the dungeon by relabeling all rooms as not cleared and loading again into the first room
+	*/
+	public void ReloadDungeon()
+	{	
+		// reset the rooms
+		foreach (Room room in Dungeon.Layout.Values)
+		{
+			room.IsCleared = false;
+			room.IsVisited = false;
+		}
+
+		LoadRoom(Dungeon.EntrancePosition, Direction.DOWN); // load into the first room
+	}
+
 	private void CheckRoomHandler()
 	{
 		if (RoomHandler == null)
