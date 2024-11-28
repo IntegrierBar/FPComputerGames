@@ -23,6 +23,17 @@ public partial class CurseHandler : Node
     [Export]
     public bool TwoBosses { get; set; } = false;
 
+    // Add the curse descriptions dictionary
+    private static readonly Dictionary<Curse, string> CurseDescriptions = new Dictionary<Curse, string>
+    {
+        { Curse.SKILL_3_DISABLED, "Third skill slot disabled" },
+        { Curse.SKILL_1_ONLY, "Only first skill available" },
+        { Curse.MORE_VULNERABLE, "Take more damage" },
+        { Curse.MONSTER_BUFF, "Stronger monsters" },
+        { Curse.MORE_MONSTERS, "More monsters" },
+        { Curse.TWO_BOSSES, "Two bosses" }
+    };
+
     /**
     \brief Called when the node enters the scene tree for the first time
     */
@@ -140,5 +151,13 @@ public partial class CurseHandler : Node
         _instance.MonsterBuff = false;
         _instance.MoreMonsters = false;
         _instance.TwoBosses = false;
+    }
+
+    // Add a method to get the description
+    public static string GetCurseDescription(Curse curse)
+    {
+        return CurseDescriptions.TryGetValue(curse, out string description) 
+            ? description 
+            : "Unknown curse";
     }
 }
