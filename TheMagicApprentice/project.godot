@@ -23,6 +23,7 @@ Player="*res://modules/entities/player/player.tscn"
 CurseHandler="*res://modules/handlers/CurseHandler.cs"
 DungeonHandler="*res://modules/handlers/DungeonHandler.cs"
 MenuManager="*res://modules/handlers/MenuManager.cs"
+ProgressManager="*res://modules/handlers/ProgressManager.cs"
 
 [display]
 

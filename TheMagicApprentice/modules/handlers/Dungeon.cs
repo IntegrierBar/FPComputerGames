@@ -5,9 +5,12 @@ using System.Net.Http.Headers;
 using System.Linq;
 using System.Text.Json.Serialization;
 
+
 public class Dungeon
 {
     public string Name { get; set; } ///< Name of the dungeon.
+    public bool IsStoryDungeon { get; set; } ///< Whether this is a story dungeon
+    public int StoryIndex { get; set; } = -1; ///< Index of story dungeon (0-4), -1 if not a story dungeon
 
     [JsonIgnore] // Ignore the layout from serialization
     public Dictionary<Vector2I, Room> Layout { get; set; } ///< Layout of the dungeon, where each room is mapped to a position.
@@ -25,6 +28,8 @@ public class Dungeon
     public Dungeon()
     {
         Layout = new Dictionary<Vector2I, Room>();
+        IsStoryDungeon = false;
+        StoryIndex = -1;
     }
 
     /**
@@ -37,6 +42,8 @@ public class Dungeon
     public Dungeon(int minRooms, int maxRooms)
     {
         Name = "GeneratedDungeon";
+        IsStoryDungeon = false;
+        StoryIndex = -1;
         Dungeon generatedDungeon = DungeonGenerator.GenerateDungeon(minRooms, maxRooms);
         CopyFrom(generatedDungeon);
     }
@@ -81,6 +88,8 @@ public class Dungeon
     private void CopyFrom(Dungeon dungeon)
     {
         Name = dungeon.Name;
+        IsStoryDungeon = dungeon.IsStoryDungeon;
+        StoryIndex = dungeon.StoryIndex;
         Layout = new Dictionary<Vector2I, Room>(dungeon.Layout);
         EntrancePosition = dungeon.EntrancePosition;
         CurrentRoomPosition = dungeon.EntrancePosition;

@@ -132,7 +132,7 @@ public partial class RoomHandler : Node
 	/**
 	* Enables the Rooms Exits.
 	*/
-	private void EnableRoomExits()
+	public void EnableRoomExits()
 	{
 		GetTree().CreateTimer(0.1f).Timeout += () =>
 		{

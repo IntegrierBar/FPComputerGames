@@ -9,30 +9,30 @@ public partial class NewGameMenu : BaseMenu
 	/**
 	Resets the player scene
 	*/
-    public override void _Ready()
-    {
-        base._Ready();
+	public override void _Ready()
+	{
+		base._Ready();
 		// Need to reset the player scene.
 		//(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).ResetPlayer();
 		//GetTree().CurrentScene = GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player;
 		//GetTree().ReloadCurrentScene();
-    }
+	}
 
-    /**
+	/**
 	If the ESC key is pressed, return to main menu
 	*/
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        if (@event.IsAction("esc"))
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (@event.IsAction("esc"))
 		{
 			PopMenu();
 		}
-    }
+	}
 
-    /**
+	/**
 	Gets called when the button for the sun element is pressed
 	*/
-    public void SunSelected()
+	public void SunSelected()
 	{
 		_magicTypeSelected = MagicType.SUN;
 		SelectElementInPlayer(MagicType.SUN);
@@ -64,7 +64,12 @@ public partial class NewGameMenu : BaseMenu
 	*/
 	private void SelectElementInPlayer(MagicType magicType)
 	{
-		(GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player).SetStartBasic(magicType);
+		var player = GetTree().GetFirstNodeInGroup(Globals.PlayerGroup) as Player;
+		player.SetStartBasic(magicType);
+		
+		// Set the starting magic type in ProgressManager
+		var progressManager = GetTree().GetFirstNodeInGroup(Globals.ProgressManagerGroup) as ProgressManager;
+		progressManager.SetPlayerStartMagicType(magicType);
 	}
 
 	/**
