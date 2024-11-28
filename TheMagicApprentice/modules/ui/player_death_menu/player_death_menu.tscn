@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6yfxxx3vhadn"]
+
+[ext_resource type="Script" path="res://modules/ui/player_death_menu/PlayerDeathMenu.cs" id="1_pingk"]
+[ext_resource type="Theme" uid="uid://b5xmy0ocd4tfb" path="res://assets/themes/ingame_inventory_theme.tres" id="2_yw7hi"]
+
+[node name="PlayerDeathMenu" type="CanvasLayer"]
+script = ExtResource("1_pingk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_yw7hi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size={40}][b][color=dark_red]YOU DIED"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="TryAgainButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+text = "Try Again"
+
+[node name="ExitDungeonButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit Dungeon
+"
+
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/TryAgainButton" to="." method="OnTryAgainButtonPressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/ExitDungeonButton" to="." method="OnExitDungeonButtonPressed"]

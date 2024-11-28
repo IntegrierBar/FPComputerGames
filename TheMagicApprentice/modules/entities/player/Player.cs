@@ -41,8 +41,29 @@ public partial class Player : CharacterBody2D
 	}
 
 	/**
+	Gets called when HP reach 0.
+	Opens the death screen using CallDeferred
+	*/
+	public void OnPlayerDeath()
+	{
+		CallDeferred(nameof(OpenPlayerDeathMenu));
+	}
+
+	/**
+	Opens the PlayerDeathMenu using the MenuManager
+	*/
+	private void OpenPlayerDeathMenu()
+	{
+		MenuManager menuManager = GetTree().GetFirstNodeInGroup("menu_manager") as MenuManager;
+		System.Diagnostics.Debug.Assert(menuManager is not null, "Cannot find MenuManager when player died");
+
+		menuManager.PushMenu(MenuManager.MenuType.PlayerDeathMenu);
+	}
+
+	/**
 	Whenever the menu of the MenuManager changes, this function gets called.
 	If the new menu is the main game scene, we activate ProcessMode and make the UI visible, otherwise we deactivate it and make the UI invisible.
+	Furthermore, if we enter the MainGame, we reset the hp of the player
 	*/
 	private void OnMenuChanged(MenuManager.MenuType newMenu, bool isPush)
 	{
@@ -51,6 +72,7 @@ public partial class Player : CharacterBody2D
 			ProcessMode = ProcessModeEnum.Inherit;
 			//Visible = true;
 			(GetNode("UI") as CanvasLayer).Visible = true;
+			ResetPlayerHP();
 		}
 		else
 		{
@@ -280,6 +302,7 @@ public partial class Player : CharacterBody2D
 	/**
 	Resets the player scene to the default.
 	Is called whenever a new game is created
+	Currently does not work
 	*/
 	public void ResetPlayer()
 	{
@@ -290,5 +313,13 @@ public partial class Player : CharacterBody2D
 		RemoveFromGroup(Globals.PlayerGroup);
 		GetTree().Root.AddChild(newPlayer);
 		QueueFree();
+	}
+
+	/**
+	Resets the HP of the player
+	*/
+	public void ResetPlayerHP()
+	{
+		GetNode<HealthComponent>("HealthComponent")._Ready(); // the ready function of the healthcomponent resets the HP, that is why we call it there
 	}
 }

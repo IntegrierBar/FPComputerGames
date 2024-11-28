@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cfafpfmqm8u17"]
+[gd_scene load_steps=41 format=3 uid="uid://cfafpfmqm8u17"]
 
 [ext_resource type="Script" path="res://modules/entities/player/Player.cs" id="1_33xnx"]
 [ext_resource type="PackedScene" uid="uid://b5pdg2ut61woi" path="res://modules/entities/health_component.tscn" id="1_oqun1"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cqx4bqlj501rl" path="res://modules/entities/player/inventory/spells/skill_tree.tscn" id="21_73epa"]
 [ext_resource type="AudioStream" uid="uid://duc02tb548k0i" path="res://modules/entities/player/states/walking.mp3" id="21_aqxnf"]
 [ext_resource type="AudioStream" uid="uid://dbqfq2yqv56ax" path="res://modules/entities/player/hit.mp3" id="22_r8oly"]
+[ext_resource type="PackedScene" uid="uid://cqcik8bgxyjjc" path="res://modules/entities/healthbar/healthbar.tscn" id="22_sk64w"]
 [ext_resource type="PackedScene" uid="uid://dqpjsl8ux75jq" path="res://modules/entities/player/spells/dark_energy_wave/dark_energy_wave.tscn" id="22_vkran"]
 [ext_resource type="PackedScene" uid="uid://u23ysmqaadgq" path="res://modules/entities/player/spells/black_hole/black_hole.tscn" id="24_h76h0"]
 [ext_resource type="PackedScene" uid="uid://dbtvjj0ey2g4s" path="res://modules/entities/player/inventory/augments/augment_inventory.tscn" id="25_qc2ug"]
@@ -261,9 +262,10 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jsldv")
 metadata/_edit_lock_ = true
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("HitSound") instance=ExtResource("1_oqun1")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("HitSound", "healthbar") instance=ExtResource("1_oqun1")]
 collision_layer = 2
 HitSound = NodePath("../HitSound")
+healthbar = NodePath("../UI/Damagebar")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
@@ -387,6 +389,22 @@ _spellScene = ExtResource("24_h76h0")
 
 [node name="SpellInventory" parent="UI" instance=ExtResource("10_cknrl")]
 
+[node name="Damagebar" parent="UI" instance=ExtResource("22_sk64w")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -79.0
+offset_right = 2.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
 [node name="AugmentInventory" parent="." instance=ExtResource("25_qc2ug")]
 process_mode = 4
 visible = false
@@ -413,4 +431,5 @@ texture = ExtResource("26_vyf6c")
 stream = ExtResource("22_r8oly")
 volume_db = -20.0
 
+[connection signal="Death" from="HealthComponent" to="." method="OnPlayerDeath"]
 [connection signal="pressed" from="AugmentInventory/AddAugment" to="AugmentInventory" method="AddRandomAugment"]

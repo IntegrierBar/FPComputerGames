@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cauv7k1n531by"]
+[gd_scene load_steps=4 format=3 uid="uid://cauv7k1n531by"]
 
 [ext_resource type="Script" path="res://modules/entities/player/inventory/SpellInventory.cs" id="1_f0cmj"]
 [ext_resource type="Theme" uid="uid://b5xmy0ocd4tfb" path="res://assets/themes/ingame_inventory_theme.tres" id="1_qb6us"]
 [ext_resource type="PackedScene" uid="uid://bojweh18kways" path="res://modules/entities/player/inventory/UI_spell_slot.tscn" id="3_n3my7"]
-[ext_resource type="Texture2D" uid="uid://bigsga6igu58y" path="res://modules/entities/player/inventory/spell_icons/sun/sun_basic_spell.png" id="4_e7go7"]
-[ext_resource type="Texture2D" uid="uid://ek035vhcmnxn" path="res://modules/entities/player/inventory/spell_icons/cosmic/star_rain.png" id="5_8phs2"]
-[ext_resource type="Texture2D" uid="uid://biry3omfnf4kg" path="res://modules/entities/player/inventory/spell_icons/sun/sun_beam.png" id="6_cwwwy"]
 
 [node name="SpellInventory" type="Control"]
 layout_mode = 3
@@ -41,16 +38,13 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(37, 33)
 layout_mode = 2
-StartingTexture = ExtResource("4_e7go7")
 
 [node name="SpellSlot2" parent="MarginContainer/HBoxContainer" groups=["spell_slot2"] instance=ExtResource("3_n3my7")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(37, 33)
 layout_mode = 2
-StartingTexture = ExtResource("5_8phs2")
 
 [node name="SpellSlot3" parent="MarginContainer/HBoxContainer" groups=["spell_slot3"] instance=ExtResource("3_n3my7")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(37, 33)
 layout_mode = 2
-StartingTexture = ExtResource("6_cwwwy")
