@@ -62,18 +62,18 @@ public partial class ProgressManager : Node
     {
         if (index == 0)
         {
-            return EntityTypeHelper.GetWeakerMagicType(_playerStartMagicType);
+            return _playerStartMagicType;
         }
 
         // Calculate the sequence: if player chose Sun -> Cosmic -> Dark -> Sun -> Cosmic -> Dark
         int cycleLength = 3;
-        int baseIndex = (index + 1) % cycleLength; // +1 because first dungeon is same as intro
+        int baseIndex = index % cycleLength; // No +1 needed since we want to start cycling from index 1
 
         return baseIndex switch
         {
-            0 => EntityTypeHelper.GetWeakerMagicType(_playerStartMagicType),
-            1 => EntityTypeHelper.GetWeakerMagicType(EntityTypeHelper.GetWeakerMagicType(_playerStartMagicType)),
-            2 => _playerStartMagicType,
+            0 => _playerStartMagicType,
+            1 => EntityTypeHelper.GetWeakerMagicType(_playerStartMagicType),
+            2 => EntityTypeHelper.GetWeakerMagicType(EntityTypeHelper.GetWeakerMagicType(_playerStartMagicType)),
             _ => MagicType.SUN // Should never happen
         };
     }

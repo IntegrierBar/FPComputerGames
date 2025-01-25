@@ -39,15 +39,16 @@ public class TestProgressManager
 
         var expectedTypes = new MagicType[]
         {
-            MagicType.COSMIC, // Story 1
-            MagicType.DARK,   // Story 2
-            MagicType.SUN,    // Story 3
-            MagicType.COSMIC, // Story 4
-            MagicType.DARK    // Story 5
+            MagicType.SUN, // Story 1
+            MagicType.COSMIC,   // Story 2
+            MagicType.DARK,    // Story 3
+            MagicType.SUN, // Story 4
+            MagicType.COSMIC    // Story 5
         };
 
         for (int i = 0; i < expectedTypes.Length; i++)
         {
+            GD.Print($"Testing story dungeon {i}, expected {expectedTypes[i]}, got {_progressManager.GetStoryDungeonType(i)}");
             AssertThat(_progressManager.GetStoryDungeonType(i)).IsEqual(expectedTypes[i]);
         }
     }
