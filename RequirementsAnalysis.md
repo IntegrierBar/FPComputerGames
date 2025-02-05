@@ -9,17 +9,17 @@ The purpose of the game is for the player to have fun.
 
 ## 1.2. Scope of the system
 
-The system is a video game developed with Godot 4 that allows the user to control a player character in order to kill monsters in dungeons and to improve their player characters strength through augments and unlocking skills. 
+The system is a video game developed with Godot 4 that allows the user to control a player character in order to kill monsters in dungeons with magic and to improve their player characters strength through augments and unlocking skills. 
 
 ## 1.3. Objectives and success criteria of the project
 
-The goal of this project is the creation of a single player RPG web game.
+The goal of this project is the creation of a single player RPG game.
 
 ## 1.4. Definitions, acronyms, and abbreviations
 
 **Player Character (PC)**: This term refers to the character controlled by the player within the game. The player's decisions and actions dictate the character's behavior and progression.<br/>
 **Hit Points (HP)**: Represent the health or vitality of entities, such as player characters and enemies. Hit Points decrease when the entity takes damage. An entity is defeated or dies when its Hit Points reach zero.<br/>
-**Augment**: A type of item that can be equipped by the player to gain additional statistics or effects. Augments are typically obtained as drops from defeated enemies.<br/>
+**Augment**: A type of item that can be equipped by the player to gain additional statistics or effects. Augments are typically obtained by clearing dungeons.<br/>
 **Load-out**: The combination of augments and magic skills a player currently equips. A player can equip up to five augments and three magic skills simultaneously. <br/>
 **Area of effect (AOE)**: Area in which a damaging skill effects enemies or the PC. 
 **Dungeon**: A dungeon is an area within the game where the player can control the Player Character (PC) and combat enemies to gain rewards. Dungeons are composed as a 2D-grid of multiple rooms.
@@ -38,12 +38,12 @@ An old version can be found on [stormboard](https://stormboard.com/storm/1886510
 
 ## 2.1. Overview
 
-The PC is a magician that explores dungeons. In these they fight slimes with 3 magic spells to get to the boss room, where they fight a boss.  
-There are 2 types of dungeons. Automatically generated ones and story dungeons, that are hand crafted. Furthermore, the player can choose to curse a dungeon, which increases the difficulty by strengthening the enemies or weakening the player. Cursed dungeons give better rewards.
+The PC is a magician that explores dungeons. In these they fight slimes with up to 3 magic spells to get to the boss room, where they fight a boss.  
+There are 2 types of dungeons. Automatically generated dungeons and story dungeons that are hand crafted. Furthermore, the player can choose to curse a dungeon, which increases the difficulty by strengthening the enemies or weakening the player. Cursed dungeons give better rewards.
 By defeating the boss, the player can unlock new magic skills of the 3 different magic types.
 
-Players also get “augments”, which are used instead of armor. They have between 1 and 3 effects. These effects can be simple stat increases or additional effects (like casting one Skill when another is cast or increasing damaging area).
-The player can wear a total of 5 augments at a time. Additional augments can be stored in an inventory. Slots are unlocked by playing story dungeons.
+Instead of classical concepts like armor the player receives "Augments". Each Augment has between 1 and 3 effects. These effects can be simple stat increases or additional effects (like casting one Skill when another is cast or increasing the AOE).
+The player can wear up to a total of 5 augments. Additional augments can be stored in an inventory. Augment slots are unlocked by playing story dungeons.
 
 Players can only change their load-out (active augments and spells) outside of dungeons in the home town. This is done since the difficulty of generated dungeons is determined by the amount of augments the player is currently using.
 The game is supposed to be finishable in under 2 hours. The idea is hence not to create a long game, but instead allow great replayability by having many different and interesting choices of playstyles and builds.
@@ -60,13 +60,13 @@ All entities have the following properties:
 
 | **ID: EP1**| **Entity property: Max HP** |
 | --- | --- |
-| Description | Every entity has a max HP floating point value that shows how much damage the entity can take before dying. |
+| Description | Every entity has a max HP floating point value that shows how much damage the entity can take in total before dying. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | The max HP of every entity has to be greater than 0 and less than infinity. |
 
 | **ID: EP2**| **Entity property: Current HP** |
 | --- | --- |
-| Description | Every entity has a current HP floating point value that shows how much damage the entity has already taken and can still take before dying. If the current HP value is smaller or equal to zero, the entity dies. |
+| Description | Every entity has a current HP floating point value that shows how much damage the entity can still take before dying. If the current HP value is smaller or equal to zero, the entity dies. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | The relation of current HP to max HP should be visible for the player for all entities on screen through healthbars. <br> The current HP always has to be less or equal to the max HP. Contrary to the max HP it is allowed to be negative. |
 
@@ -74,7 +74,7 @@ All entities have the following properties:
 | --- | --- |
 | Description | Every entity has three armor floating point values for each of the three magic types in game. The armor type for a magic type determines how much the damage to the entity is reduced by an attack of that magic type (30 armor means 30% damage reduction). <br> If an entity has an armor value above 100, part of the damage is reflected back to the attacker. Example: Entity has 120 armor, attack makes 100 damage, then 20 damage is reflected back to the attacker, if the attacker has an armor value of 50, the attacker takes 10 damage. |
 | Acceptance Criterion | Damage of all types is applied correctly to entities depending on their armor values. |
-| Notes | The damage calculation works like <br> if armor <= 100: health = health - damage*(100-armor)/100 <br> Only PC should be able to reach over 100 armor through additional stats, enemies need at least one armor value below 30 unless they are buffed. <br> Case where both entities have over 100 armor of the same type has to be covered nonetheless. In that case both entites take no damage of this magic type. |
+| Notes | The damage calculation works like <br> if armor <= 100: health = health - damage*(100-armor)/100 <br> Only PC should be able to reach over 100 armor through additional stats, enemies need at least one armor value below 30 unless they are buffed. <br> If both entities have more than 100 armor neither entity takes any damage. |
 
 | **ID: EP4**| **Entity property: Damaging skills** |
 | --- | --- |
@@ -100,9 +100,9 @@ All entities have the following properties:
 
 There are three magic types in the game: Sun, Cosmic and Dark. Skills and enemies belonging to the different magic types are colour coded to allow differentiation by the player. The colours are Sun: yellow - red, Cosmic: blue - white, Dark: black - purple. The magic types work like in Rock, paper, scissors such that they have one other magic type that they are strong against and one against which they are weak. Their effectivity against themselves is in between. <br>
 The magic types are:
-- Sun, strong against Cosmic, weak against Dark
-- Cosmic, strong against Dark, weak against Sun
-- Dark, strong against Sun, weak against Cosmic
+- Sun: strong against Cosmic, weak against Dark
+- Cosmic: strong against Dark, weak against Sun
+- Dark: strong against Sun, weak against Cosmic
 
 
 #### 2.2.1.3 Player character (PC)
@@ -126,81 +126,85 @@ The PC starts in the **Idle** state.
 | **ID: EPC2**| **PC state: Moving** |
 | --- | --- |
 | Description | If the player uses the `WASD` keys, the PC moves as long as the keys are pressed. The specific walking animation for each direction from the sprite sheet is shown. |
-| Acceptance Criterion | PC walks correctly if WASD is given as input. |
+| Acceptance Criterion | PC walks correctly if `WASD` is given as input. |
 | Notes | In order to get the direction of movement, the key `W` is mapped to the vector $(0, -1)$ (note that Godot uses inverted y-Axis), `A` to $(-1, 0)$, `S` to $(0, 1)$, `D` to $(1, 0)$. Then all vectors for which the buttons are pressed are added up and the result is then normalized to give the direction vector. <br> The speed of movement has to be greater than 0 and less than the speed of light. |
 
 | **ID: EPC3**| **PC state: Dashing** |
 | --- | --- |
-| Description | If the player presses the space bar while inside **Idle** or **Moving** state, the PC moves with increased speed in the direction of the current movement for a predefined length. While dashing, the player cannot be hit. |
-| Acceptance Criterion | PC dashes in the correct direction when the space bar is pressed. |
+| Description | If the player presses the `spacebar` while inside **Idle** or **Moving** state, the PC moves with increased speed in the direction of the current movement for a predefined length. While dashing, the player cannot be hit. |
+| Acceptance Criterion | PC dashes in the correct direction when `spacebar` is pressed. |
 | Notes | The dashing speed has to be at least 20% greater then movement speed, but less than light speed. |
 
 | **ID: EPC4**| **PC state: SpellCasting** |
 | --- | --- |
-| Description | If the player presses one of the spellcasting keys 1, 2 or 3 while inside **Idle** or **Moving** state, the PC casts a spell/uses a [PC skill](#221321-pc-skills) and the spell casting animation from the sprite sheet is shown. All PC skills get the current position of the PC and the position of the mouse as values to be used.  |
-| Acceptance Criterion | PC is in SpellCasting state if input 1, 2 and 3 is given. |
-| Notes | Only one spell can be cast at a time. <br> All skills use the same spell cast animation. Cast times should generally be short (less than 1 second). Slower cast times are achieved by playing the spell cast animation slower. |
+| Description | If the player presses one of the spellcasting keys `1`, `2` or `3` while inside **Idle** or **Moving** state, the PC casts a spell/uses a [PC skill](#221321-pc-skills) and the spell casting animation from the sprite sheet is shown. All PC skills get the current position of the PC and the position of the mouse as values to be used.  |
+| Acceptance Criterion | PC is in SpellCasting state if input `1`, `2` or `3` is given. |
+| Notes | Only one spell can be cast at a time. <br> All skills use the same spell cast animation. Cast times should generally be short (less than 1 second). Slower cast times are achieved by playing the spell cast animation slower. <br> Spells cannot be cast if they are on cooldown. |
 
 | **ID: EPC5**| **PC state: Death** |
 | --- | --- |
-| Description | When the PC's health reaches 0, they transition to a death state. The player is informed about the PC's death before returning to the main hub. |
+| Description | When the PC's health reaches 0 or less, they transition to a death state. The player is informed about the PC's death and can then choose to either retry the current dungeon where the PC died, or exit the dungeon and return to the main hub. |
 | Acceptance Criterion | The PC must correctly transition to the death state when its health is depleted and the player can no longer control the PC's actions. |
 | Notes | After the death animation of the PC, a death screen should be shown. |
 
 
 ##### 2.2.1.3.2 PC progression
 
-While playing the game, the player can unlock new skills. The player also unlocks additional augment slots to equip up to 5 augments for additional effects when casting PC skills or increased stats. 
+While playing the game, the player can unlock new skills and is rewarded with augments. The player also unlocks additional augment slots to equip up to 5 augments. 
 
 ###### 2.2.1.3.2.1 PC skills
 
 Every PC skill belongs to one magic type and does damage of that magic type. 
 Each magic type has three different skills: a basic skill, a supportive skill and an offensive skill.
-All nine skills have upgraded versions, which are automatically unlocked when the player fulfills a predefined criteria. 
+Supportive skills deal either no damage or very little, providing instead buffs to to PC or debuffs to the enemies.
+Offensive skills on the other hand deal more damage and have little to no supportive effects.
+
+[//]: # (All nine skills have upgraded versions, which are automatically unlocked when the player fulfills a predefined criteria. )
+
 The PC can have up to three different skills equipped.  
 
-Each skill has a damage, magic type, a duration for how long it lasts and a cooldown.
+Each skill has a damage, magic type, a duration for how long it lasts and a cooldown, during which they cannot be used.
 
 | **ID: EPS1**| **Skill: Basic Skills** |
 | --- | --- |
 | Description | Each magic type has a basic skill that consist of a colored circular projectile shot from PC in the direction of the mouse. If the projectile hits an enemy, the enemy is dealt the damage of the skill and the projectile despawns, spawning some collision particles. <br> If the projectile hits a wall or structure it also despawns. |
-| Acceptance Criterion | Has to be implemented |
+| Acceptance Criterion | Works as described |
 | Notes | The color of the projectile is the color of the magic type it belongs to. |
 
 | **ID: EPS2**| **Skill: Sun Beam** |
 | --- | --- |
 | Description | The supportive skill of the sun magic type. The PC emits a ray of yellow ligth from the PC in the direction of the mouse. <br> Enemies hit deal reduced damage and have reduced armor until they are killed. |
-| Acceptance Criterion | Has to be implemented |
+| Acceptance Criterion | Works as described |
 | Notes | None |
 
 | **ID: EPS3**| **Skill: Summon Sun** |
 | --- | --- |
 | Description | PC spawns a yellow circular object that looks like a sun at the mouse location that lasts for a few seconds. Enemies close to it take damage depending on how close they are to the center. The closer they are, the more damage they take. Enemies take damage at predefined intervals as long as they are inside the AOE.|
-| Acceptance Criterion | Has to be implemented |
+| Acceptance Criterion | Works as described |
 | Notes | None |
 
 | **ID: EPS4**| **Skill: Moon Light** |
 | --- | --- |
 | Description | A visualization of a light silver ray of moonlight is shown around the PC. The PC now has increased attack damage for all their equipped skills and increased armor values for all magic types for a few seconds. |
-| Acceptance Criterion | Has to be implemented |
+| Acceptance Criterion | Works as described |
 | Notes | None |
 
 | **ID: EPS5**| **Skill: Star Rain** |
 | --- | --- |
 | Description | Multiple blue circular projectiles spawn randomly around the PC and start moving towards the mouse position. <br> On collision with enemy they apply their damage and despawn. On collision with a wall or structure they despawn. |
-| Acceptance Criterion | Has to be implemented |
-| Notes | None |
+| Acceptance Criterion | Works as described |
+| Notes | The amount of projectiles has to be between 2 and 1000. |
 
 | **ID: EPS6**| **Skill: Dark Energy Wave** |
 | --- | --- |
-| Description | PC creates a black wave centered around the PC, moving away from them with predefined speed, that pushes all enemies away from the PC by a predefined distance. The wave pushes away all enemies in the same room as the PC, independently of the distance to the PC. |
-| Acceptance Criterion | Has to be implemented |
+| Description | PC creates a black circular wave centered around the PC, moving away from them / increasing with predefined speed, that pushes all enemies away from the PC by a predefined distance. The wave pushes away all enemies in the same direction that the wave is moving at the collision point, i.e. along the normal of the circle, independently of the distance to the PC. |
+| Acceptance Criterion | Works as described |
 | Notes | None |
 
 | **ID: EPS7**| **Skill: Black Hole** |
 | --- | --- |
-| Description | PC creates a round black circular shape at mouse position that pulls all enemies towards it using gravity, if they hit the black circle the enemies take damage. |
-| Acceptance Criterion | Has to be implemented |
+| Description | PC creates a round black circular shape at mouse position that pulls all enemies inside the AOE towards it using gravity, if the eneimies hit the black circle they take damage. |
+| Acceptance Criterion | Works as described |
 | Notes | None |
 
 
@@ -210,26 +214,26 @@ Instead of a traditional armor and weapon system, the game uses augments to enha
 A maximum of 5 augment slots can be unlocked, with each augment being equipable to any unlocked slot.
 This feature will facilitate the player's ability to craft their own unique builds.  <br>
 
-| **ID: EPA1**| **Augments: Equipping augments** |
+| **ID: EPA1**| **Augments: Equipping and Unequipping augments** |
 | --- | --- |
-| Description | The player can equip augments to their unlocked augment slots. Every augment can only be equipped to one slot at a time. The augment effects are then applied to the PC. |
-| Acceptance Criterion | Augments can be equipped and the effects are applied to the PC correctly. |
+| Description | The player can equip augments to their unlocked augment slots. Every augment can only be equipped to one slot at a time. The augment effects are then applied to the PC. The player can also unequip augments, causing the effects to no longer apply to the PC. |
+| Acceptance Criterion | Augments can be equipped and unequiped and the effects are applied to the PC correctly. |
 | Notes | None |
 
 | **ID: EPA2**| **Augments: Unlocking augment slots** |
 | --- | --- |
-| Description | When the player completes the intro dungeon, the first augment slot is unlocked. <br> When the player clears each further story dungeon, one additional augment slot is unlocked. There are a total of 5 augment slots maximally. |
+| Description | When the player completes the intro dungeon, the first augment slot is unlocked. <br> When the player clears each further story dungeon, one additional augment slot is unlocked. There are a total of 5 augment slots. |
 | Acceptance Criterion | Augment slots are unlocked correctly. |
 | Notes | None |
 
 | **ID: EPA3**| **Augments: Obtaining augments** |
 | --- | --- |
-| Description | When the PC kills an enemy there is a chance to obtain an augment. Slimes have a low chance of dropping augments and are more likely to drop low quality augments. Bosses are guaranteed to drop one augments and have a chance to drop a second augment in not-cursed dungeons. Augments dropped by bosses also have a higher chance to be high quality augments. If an enemy drops an augment, the PC obtains the augment automatically. |
-| Acceptance Criterion | Enemies drop augments with the correct chances and the PC obtains the augments when they are dropped. |
-| Notes | Every enemy has a chance bigger than zero to drop every possible existing augment. |
+| Description | Upon clearing a dungeon, the player is rewarded with a random amount of random augments. |
+| Acceptance Criterion | PC optains augemnts uppon clearing a dungepn |
+| Notes | The player can optain between 1 and 3 augments. Depending on the difficulty of the dungeon, the chances for more augments are increased. |
 
 
-Each augment will have 1, 2 or 3 effects. Augments can the same effect several times in which case the effect will stack. The amount of effects determines the quality of the augment. The effects are decided randomly from the list of possible effects by the game when the augment is dropped. The effects will have percentage values. This means that effects of the same type will stack multiplicative.   
+Each augment will have 1, 2 or 3 effects. Augments can the same effect several times in which case the effect will stack. The amount of effects determines the quality of the augment. The effects are decided randomly from the list of possible effects by the game when the augment is given to the PC. Some effects will have percentage values in which case effects of the same type will stack multiplicative.   
 
 To allow build crafting for the player, it is possible to destroy one augment and to move one of its effects onto another augment, overwriting one of its previous effects. This is described in more detail in chapter 2.2.2.1.3 Fusing augments.
 
@@ -243,11 +247,9 @@ The effects of the augments are the following:
 - 10% more hp
 - 10% extra damage for one skill (one for each damaging ability)
 - 5% extra damage for one magic type
-- 1% life steal
 - 10% bigger radius for one skill (exists for “summon sun”, “black hole”)
 - 10% more stars for “star rain”
 - Upon casting spell x also cast spell y (specific spells will be determined during balancing)
-- Spell x explodes on impact with enemy (for directional skills only, means damage is applied to all enemies in an AOE)
 - Plus 10 attack for all spells of one magic type (this way supportive spells can also deal damage)
 - 50% longer duration for skills that remain on field (“summon sun” and/or “black hole”) 
 - Plus 20 attack for skill in slot 1/2/3 
