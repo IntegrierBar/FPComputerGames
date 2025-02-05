@@ -1,4 +1,4 @@
-# The Magic Apprentice
+# The Magic Apprentice Requirements Analysis from 22.5.24
 
 # 1. Introduction
 
@@ -867,74 +867,45 @@ New class diagram with less details
 
 ```mermaid
 classDiagram
-    direction TB
-
     Node2D <|-- CharacterBody2D
-
     class MagicType {
-        <<enumeration>>
         SUN
         DARK
         COSMIC
     }
-
     class Attack {
         magicType
         damageValue
         referenceToAttacker
     }
     %%note for Attack "used to send damage data to HealthComponent"
-
-    class StateMachine {
-
-    }
+    class StateMachine
     Node2D <|-- StateMachine
     StateMachine *-- State : currentState
-
-
     class State {
         process()
         physicsProcess()
     }
     Node2D <|-- State
     State o-- State : transitions
-
     class MovingPlayer {
         speed
     }
     State <|-- MovingPlayer
-
-    class Idle {
-    }
     State <|-- Idle
-
     class Dashing {
         dashSpeed
     }
     State <|-- Dashing
-
-    class Death {
-    }
     State <|-- Death
-
-    class SpellcastingPlayer {
-    }
     State <|-- SpellcastingPlayer
     %%SpellcastingPlayer o-- "3" Skill
-
     class MovingSlime {
         speed
     }
     State <|-- MovingSlime
-
-    class AttackingSlime {
-    }
     State <|-- AttackingSlime
-
-    class AttackingUnicorn {
-    }
     State <|-- AttackingUnicorn
-
     class HealthComponent {
         armor
         float maxHP
@@ -945,16 +916,12 @@ classDiagram
         heal(amount)
     }
     Node2D <|-- HealthComponent
-
-    class Player {
-    }
     CharacterBody2D <|-- Player
     Player "1" -- "1..3" Skill : active
     Player "1" o-- "0..5" Augment : active
     Player *-- StateMachine
     Player *-- HealthComponent
     Player *-- Inventory
-    
     class Skill {
         String name
         MagicType magicType
@@ -964,44 +931,31 @@ classDiagram
         const float castDuration
         cast(targetPosition)
     }
-
     class Augment {
         String name
         fuse(AugmentEffect effect, int index)
     }
-
     class AugmentEffect {
         name
         onEquip()
         onUnequip()
     }
     Augment "1" o-- "1..3" AugmentEffect
-
     class CurseEffect {
         name
-    }
-
-    class Slime {
-
     }
     CharacterBody2D <|-- Slime
     Slime *-- StateMachine
     Slime *-- HealthComponent
-
-    class Unicorn {
-
-    }
     CharacterBody2D <|-- Unicorn
     Unicorn *-- StateMachine
     Unicorn *-- HealthComponent
-
     class DungeonRoom {
         bool cleared
     }
     Node2D <|-- DungeonRoom
     DungeonRoom "1" *-- "0..*" Slime : inside
     DungeonRoom "1" *-- "0..*" Unicorn : inside
-    
     class DungeonHandler {
         Layout
         switchRoom()
@@ -1009,10 +963,6 @@ classDiagram
     Node2D <|-- DungeonHandler
     DungeonHandler o-- DungeonRoom : currentRoom
     DungeonHandler o-- "0..*" CurseEffect : active curses
-
-    class Inventory {
-
-    }
     Node2D <|-- Inventory
     Inventory o-- "0..*" Augment : inactive
     Inventory o-- "0..*" Skill : unlocked
