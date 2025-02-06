@@ -966,25 +966,21 @@ New class diagram with less details
 
 ```mermaid
 classDiagram
-    direction TB
 
     Node2D <|-- CharacterBody2D
 
     class MagicType {
-        <<enumeration>>
         SUN
         DARK
         COSMIC
     }
 
     class RoomType {
-        <<enumeration>>
         NORMAL
         BOSS
     }
 
     class Direction {
-        <<enumeration>>
         UP
         DOWN
         LEFT
@@ -998,9 +994,8 @@ classDiagram
     }
     %%note for Attack "used to send damage data to HealthComponent"
 
-    class StateMachine {
-
-    }
+    class StateMachine
+    
     Node2D <|-- StateMachine
     StateMachine *-- State : currentState
 
@@ -1017,8 +1012,8 @@ classDiagram
     }
     State <|-- MovingPlayer
 
-    class Idle {
-    }
+    class Idle 
+
     State <|-- Idle
 
     class Dashing {
@@ -1026,12 +1021,12 @@ classDiagram
     }
     State <|-- Dashing
 
-    class Death {
-    }
+    class Death 
+    
     State <|-- Death
 
-    class SpellcastingPlayer {
-    }
+    class SpellcastingPlayer 
+    
     State <|-- SpellcastingPlayer
     %%SpellcastingPlayer o-- "3" Skill
 
@@ -1040,12 +1035,12 @@ classDiagram
     }
     State <|-- MovingSlime
 
-    class AttackingSlime {
-    }
+    class AttackingSlime 
+    
     State <|-- AttackingSlime
 
-    class AttackingUnicorn {
-    }
+    class AttackingUnicorn 
+    
     State <|-- AttackingUnicorn
 
     class HealthComponent {
@@ -1059,8 +1054,8 @@ classDiagram
     }
     Node2D <|-- HealthComponent
 
-    class Player {
-    }
+    class Player 
+    
     CharacterBody2D <|-- Player
     Player "1" -- "1..3" Skill : active
     Player "1" o-- "0..5" Augment : active
@@ -1094,16 +1089,14 @@ classDiagram
         name
     }
 
-    class Slime {
-
-    }
+    class Slime 
+    
     CharacterBody2D <|-- Slime
     Slime *-- StateMachine
     Slime *-- HealthComponent
 
-    class Unicorn {
-
-    }
+    class Unicorn 
+    
     CharacterBody2D <|-- Unicorn
     Unicorn *-- StateMachine
     Unicorn *-- HealthComponent
@@ -1115,7 +1108,7 @@ classDiagram
     }
 
     class Dungeon {
-        Dictionary<Vector2I, Room> Layout
+        Dictionary(Vector2I, Room) Layout
         Vector2I CurrentRoomPosition
         Vector2I EntrancePosition
         Vector2I BossPosition
@@ -1131,7 +1124,7 @@ classDiagram
         LoadRoom(Vector2I position, Direction enterDirection)
         Vector2I GetCurrentRoomPosition()
         Vector2 GetGridSize()
-        Dictionary<Vector2I, Room> GetDungeonLayout()
+        Dictionary(Vector2I, Room) GetDungeonLayout()
     }
     Node <|-- DungeonHandler
     DungeonHandler *-- Dungeon
@@ -1161,9 +1154,8 @@ classDiagram
     Camera2D <|-- CameraController
     CameraController --> RoomHandler : uses
 
-    class Inventory {
-
-    }
+    class Inventory 
+    
     Node2D <|-- Inventory
     Inventory o-- "0..*" Augment : inactive
     Inventory o-- "0..*" Skill : unlocked
