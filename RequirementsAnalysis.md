@@ -259,15 +259,16 @@ Values and effects might have to be changed, added or removed for good balancing
 
 #### 2.2.1.4 Enemies
 
-Each Enemy only deals damage of one magic type. It will have a high armor against the damage type that it is strong against and a low armor against the type that it should be weak against. Its armor value against its own magic type is in between. 
-Use color coding to signal the magic type of the enemy to the player.
+Each Enemy only deals damage of one magic type. It will have a high armor against the magic type that its magic type is strong against and a low armor against the type that it is weak against. Its armor value against its own magic type is in between. 
+The enemies are coloured with the colours associated with their magic type so that the player can visually determine their magic type.
 
 There are two types of enemies:
 1. Slimes (small and big, melee and ranged)
 2. Unicorn bosses
 
 Enemies are controlled via their state machine.
-Most will deal only melee damage. Hence they will track the PC and once they are close attack them.
+Every attack, be it ranged or melee, has a maximum distance to the PC at which it can be used.
+If the distance to the PC is greater than this maximum distance enemies will move towards the PC.
 Slimes will come in large groups. Group behavior is used to simulate better movement so not all of them stand on top of each other, but instead keep distance from one another.
 
 
@@ -275,13 +276,14 @@ Slimes will come in large groups. Group behavior is used to simulate better move
 
 Each slime is associated with a specific magic type. They are visually represented by the color corresponding to their magic type. Slimes only inflict damage aligned with their magic type, and their armor is strong against the magic type that their magic type is strong against and weak against the magic type that their magic type is weak against. The armor against their own magic type is inbetween. 
 Example: A Sun slime could have the following armor values: Sun armor: 30, Cosmic armor: 50, Dark armor: 10 (values might change).
+Every slime has a view range and a attack range. If the PC is outside the view range the slime will idle as it has not seen the PC. Once the PC is inside the view range the slime moves towards them until they are in the attack range, which then allows the slime to attack the player.
 
 Slimes can have four possible states.
 The slime always starts in the **Idle** state.
 
 | **ID: ES1**| **Slime states: Idle** |
 | --- | --- |
-| Description | If the PC is outside of the detection range of the slime, the slime is idle. It changes between two behaviours, first it remains in one position for a random time period of up to 5 seconds and afterwards it moves on a straight line into a random direction for a random time period of up to 5 seconds. This behaviour loops until the slime either dies (enters **Death** state) or gets close enough to the player that it changes to **Moving** or **Attacking** state. The idle animation and the moving animation used in this state are in the slimes sprite sheet and depend on the slimes magic type, attack range and size. |
+| Description | If the PC is outside of the view range of the slime, the slime is idle. It changes between two behaviours, first it remains in one position for a random time period of up to 5 seconds and afterwards it moves on a straight line into a random direction for a random time period of up to 5 seconds. This behaviour loops until the slime either dies (enters **Death** state) or gets close enough to the player that it changes to **Moving** or **Attacking** state. The idle animation and the moving animation used in this state are in the slimes sprite sheet and depend on the slimes magic type, attack range and size. |
 | Acceptance Criterion | If the PC is outside of the view range of the slime, the slime behaves like described. |
 | Notes | None |
 
@@ -293,13 +295,13 @@ The slime always starts in the **Idle** state.
 
 | **ID: ES3**| **Slime states: Attacking** |
 | --- | --- |
-| Description | If the PC is inside of the attack range of the slime, the slime attacks the PC. After the attack is completed, the slime returns to the **Moving** state. If the slimes health points reach zero, the slime enters the **Death** state. While in the Attacking state, an attacking animation is played. The attack animation used in this state is in the slimes sprite sheet and depends on the slimes magic type, attack range and size. |
+| Description | If the PC is inside of the attack range of the slime, the slime attacks the PC. After the attack is completed, the slime returns to the **Moving** state. While in the Attacking state, an attacking animation is played. The attack animation used in this state is in the slimes sprite sheet and depends on the slimes magic type, attack range and size. |
 | Acceptance Criterion | IF the PC is inside the attack range of the slime, the slime attacks the PC. |
 | Notes | None |
 
 | **ID: ES4**| **Slime states: Death** |
 | --- | --- |
-| Description | When the slime's health reaches 0, it transitions to the death state. In this state, the slime stops all actions and does no longer interact with other game objects, and after a short delay in which the death animation is played, it disappears from the game world. The death animation used in this state is in the slimes sprite sheet and depend on the slimes magic type, attack range and size. |
+| Description | When the slime's health reaches 0, it transitions to the death state. In this state, the slime stops all actions and does no longer interact with other game objects, and after a short delay during which the death animation is played, it disappears from the game world. The death animation used in this state is in the slimes sprite sheet and depend on the slimes magic type, attack range and size. |
 | Acceptance Criterion | The slime must correctly transition to the death state when its health is depleted, and it should no longer be able to perform any actions or affect the game. |
 | Notes | Ensure that the transition to the death state is smooth and that the slime's disappearance is visually clear to the player. |
 
@@ -311,13 +313,13 @@ The armor values of all slimes of one magic type are the same.
 
 | **ID: ES5**| **Slime types: Melee Slime** |
 | --- | --- |
-| Description | Melee slimes move towards the PC and once they are very close to the PC, they jump to the position of the PC for their attack. They deal damage to the PC if they collide with the PC during their attack. <br> Melee slimes can be large or small. <br> Melee slimes can be differentiated from ranged slimes by a difference in color brightness. Melee slimes have a brighter colour than ranged slimes. |
+| Description | Melee slimes move towards the PC and once they are very close to the PC, they jump to the position of the PC for their attack. They deal damage to the PC if they collide with the PC during their attack. <br> Melee slimes can be large or small. <br> Melee slimes have a brighter colour than ranged slimes. |
 | Acceptance Criterion | Slimes exist that can attack and damage the player as described and are visually distinct from ranged slimes. |
 | Notes | None |
 
 | **ID: ES6**| **Slime types: Ranged Slime** |
 | --- | --- |
-| Description | Ranged slimes have a larger attack radius. When attacking, they shoot a small projectile from their position in the direction the PC is currently located. The projectile flies on a straight line until it hits either the PC or an object that has at least medium height (e.g. a wall, a stack of boxes, etc., objects that would not qualify are small things that lie on the ground) <br> Ranged slimes can be large or small. <br> Ranged slimes can be differentiated from melee slimes by a difference in color brightness. Ranged slimes have a darker colour than melee slimes. |
+| Description | Ranged slimes have a larger attack radius. When attacking, they shoot a small projectile from their position in the direction the PC is currently located. The projectile flies on a straight line until it hits either the PC or an object that has at least medium height (e.g. a wall, a stack of boxes, etc., objects that would not qualify are small things that lie on the ground) <br> Ranged slimes can be large or small. <br> Ranged slimes have a darker colour than melee slimes. |
 | Acceptance Criterion | Slimes exist that can attack and damage the player as described and are visually distinct from melee slimes. |
 | Notes | None |
 
@@ -341,39 +343,38 @@ The armor values of all slimes of one magic type are the same.
 
 ##### 2.2.1.4.2 Bosses
 
-The unicorn is the boss monster of the dungeons. It looks like a unicorn but is coloured according to its magic type. <br>
-Unicorns have no attack and detection range since they can detect and attack the player from every position in the room. Unicorns have three different attacks. Unicorns have a melee attack radius. If the PC is inside of the melee attack radius, the unicorn uses the melee attack, otherwise it uses one of the ranged attacks at random.  <br>
+The unicorn is the boss monster of the dungeons, once it is killed the dungeon is cleared. It looks like a unicorn but is coloured according to its magic type. <br>
+Unicorns have no attack and view range since they can detect and attack the player from every position in the room. Unicorns have three different attacks. Unicorns have a melee attack radius. If the PC is inside of the melee attack radius, the unicorn uses the melee attack, otherwise it uses one of the ranged attacks at random.  <br>
 In between two attacks the unicorn remains idle for a short while to allow the player to attack the unicorn with their skills. <br>
 The unicorns are controlled by a state machine. The initial state of the state machine is the **Wait** state. 
 
 | **ID: EB1**| **Unicorn** |
 | --- | --- |
-| Description | Unicorns are the boss monsters of the dungeons and are in the last room of the dungeon. There are three different types of unicorns, one for each of the three magic types. Unicorns have no detection range or attack range. They can detect and attack the PC from any position when they are in the same room. |
+| Description | Unicorns are the boss monsters of the dungeons and are in the last room of the dungeon. There are three different types of unicorns, one for each of the three magic types. Unicorns have no view range or attack range. They can detect and attack the PC from any position when they are in the same room. |
 | Acceptance Criterion | Has to be implemented |
 | Notes | None |
 
 | **ID: EB2**| **Unicorn states: Wait** |
 | --- | --- |
-| Description | The Wait state is the initial state of the unicorn. The unicorn remains in the wait state for a short while, for something between 1 and 5 seconds (has to be tested out to see what works well). While in the wait state, the unicorn moves towards the position of the player slowly (speed is greatly reduced). <br> At the end of the wait state, the unicorn transitions to one of its attacks, depending on how far the PC is away from the unicorn. If the PC is inisde of the melee attack range of the unicorn, the unicorn does a **Stomping attack**. If the PC is outside of the melee attack range of the unicorn, the unicorn either does a **Charge attack** or a **Shooting attack**. A random number is generated to determine which of the two ranged attacks is choosen. <br> If the unicorns health points reach zero, the unicorn enters the **Death** state. <br> The walking animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The walking animation shown depends on the direction from the unicorn position to the PC position. There are eight walking animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn walks to the right, the animation right has to be played etc. |
+| Description | The Wait state is the initial state of the unicorn. The unicorn remains in the wait state for a short while, for something between 1 and 5 seconds (has to be tested out to see what works well). While in the wait state, the unicorn moves towards the position of the player slowly (speed is greatly reduced). <br> At the end of the wait state, the unicorn transitions to one of its attacks, depending on how far the PC is away from the unicorn. If the PC is inisde of the melee attack range of the unicorn, the unicorn does a **Stomping attack**. If the PC is outside of the melee attack range of the unicorn, the unicorn either does a **Charge attack** or a **Shooting attack**. A random number is generated to determine which of the two ranged attacks is choosen. <br> The walking animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The walking animation shown depends on the direction from the unicorn position to the PC position. There are eight walking animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn walks to the right, the animation right has to be played etc. |
 | Acceptance Criterion | Unicorn correctly transitions to the wait state after every attack and remains in the wait state for the designed time duration. The correct walking animation is shown depending on the direction from the unicorn position to the PC position. |
 | Notes | None |
 
-
 | **ID: EB3**| **Unicorn states: Charge attack** |
 | --- | --- |
-| Description | The unicorn can perform a charged attack, if the PC is outside of the melee attack radius of the unicorn. The unicorn charges with a high speed from its original position in the direction of the PC. The charge ends a distance behind the player. The unicorn has a minimum charge distance that is only shortened if the unicorn charges against a wall. The charge distance of the unicorn can be prolonged if the player would otherwise not be reached by the unicorn. If the unicorn hits the PC, it deals a large amount of damage to the player. <br> After the attack is completed, the unicorn returns to the **Wait** state. <br> If the unicorns health points reach zero, the unicorn enters the **Death** state. <br> The charging animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The charging animation shown depends on the direction from the unicorn position to the PC position. There are eight charging animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn charges to the right, the animation right has to be played etc. |
+| Description | The unicorn can perform a charged attack, if the PC is outside of the melee attack radius of the unicorn. The unicorn charges with a high speed from its original position in the direction of the PC. The charge ends a distance behind the player. The unicorn has a minimum charge distance that is only shortened if the unicorn charges against a wall. If the unicorn hits the PC, it deals a large amount of damage to the player. <br> After the attack is completed, the unicorn returns to the **Wait** state. <br> The charging animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The charging animation shown depends on the direction from the unicorn position to the PC position. There are eight charging animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn charges to the right, the animation right has to be played etc. |
 | Acceptance Criterion | The unicorn charges correctly at the PC. The charging distance is always at least as long as the distance between the unicorn and the PC at the beginning of the charge. The correct charging animation is shown depending on the direction from the unicorn position to the PC position. |
 | Notes | None |
 
 | **ID: EB4**| **Unicorn states: Shooting attack** |
 | --- | --- |
-| Description | The unicorn can shoot a set of projectiles at the PC, if the PC is outside of the melee radius of the unicorn. The projectiles fly away from the unicorn in a random direction in the half plane directed towards the player for a short distance. Afterwards they are accelerated in the direction of the PC position, that the PC has at the begin of the acceleration. The projectiles disappear if they either hit the PC or a wall or a tall object. The unicorn transitions to the **Wait** state, once its shooting animation is finished. This can before the projectiles shoot by the unicorn disappear. <br> If the unicorns health points reach zero, the unicorn enters the **Death** state. <br> The shooting animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The shooting animation shown depends on the direction from the unicorn position to the PC position. There are eight shooting animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn shoots to the right, the animation right has to be played etc.  |
+| Description | The unicorn can shoot a set of projectiles at the PC, if the PC is outside of the melee radius of the unicorn. The projectiles fly away from the unicorn in a random direction in the half plane directed towards the player for a short distance. Afterwards they are accelerated in the direction of the PC position, that the PC has at the begin of the acceleration. The projectiles disappear if they either hit the PC or a wall or a tall object. The unicorn transitions to the **Wait** state, once its shooting animation is finished. This can before the projectiles shoot by the unicorn disappear. <br> The shooting animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The shooting animation shown depends on the direction from the unicorn position to the PC position. There are eight shooting animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn shoots to the right, the animation right has to be played etc.  |
 | Acceptance Criterion | The projectiles show the described behaviour. The correct charging animation is shown depending on the direction from the unicorn position to the PC position. |
 | Notes | None |
 
 | **ID: EB5**| **Unicorn states: Stomping attack** |
 | --- | --- |
-| Description | If the PC is inside of the melee attack range of the unicorn, the unicorn uses a stomping attack. The unicorn stomps on the ground in front of it, creating an AOE that deals damage to the PC if they are within it. The AOE has two zones, so that the the player receives more damage in a small radius around the unicorn and less damage if they are outside of the area. The unicorn transitions to the **Wait** state, once its stomping animation is finished. <br> If the unicorns health points reach zero, the unicorn enters the **Death** state. <br> The stomping animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The stomping animation shown depends on the direction from the unicorn position to the PC position. There are eight stomping animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn shoots to the right, the animation right has to be played etc. |
+| Description | If the PC is inside of the melee attack range of the unicorn, the unicorn uses a stomping attack. The unicorn stomps on the ground in front of it, creating an AOE that deals damage to the PC if they are within it. The AOE has two zones, so that the the player receives more damage in a small radius around the unicorn and less damage if they are outside of the area. The unicorn transitions to the **Wait** state, once its stomping animation is finished. <br> The stomping animation used in this state is in the unicorn sprite sheet and depends on the unicorns magic type. The stomping animation shown depends on the direction from the unicorn position to the PC position. There are eight stomping animations: up, down, left, right and the four diagonal directions upleft, upright, downleft and downright. If the unicorn shoots to the right, the animation right has to be played etc. |
 | Acceptance Criterion | The stomping attack applies damage as described. The correct stomping animation is shown depending on the direction from the unicorn position to the PC position. |
 | Notes | None |
 
@@ -399,7 +400,7 @@ The first area type is the main hub which is a menu that allows the player to mo
 
 The skill tree is a menu where the player can unlock new skills and read the effects of the different skills. 
 Each magic type has its own small skill tree. The base skill is the first skill of each skill tree. The supportive and offensive skills are the second layer of the skill trees. After the base skill is unlocked, the player can decide whether they want to unlock the supportive or offensive skill first. <br>
-For description of the skill see section 2.2.1.3.2.1 PC skills.
+For description of the skill see section [2.2.1.3.2.1 PC skills](#221321-pc-skills).
 
 | **ID: AST1**| **Skill tree: Unlocking the first skill** |
 | --- | --- |
@@ -501,6 +502,7 @@ The entering a dungeon menu allows the player to select which dungeon to enter n
 #### 2.2.2.2 Dungeons 
 
 Dungeons are the areas of the game where the player can control the PC and combat enemies to gain rewards. Dungeons are composed of a number of rooms with slimes and a boss room at the end of the dungeon that contains at least one unicorn. The rooms are connected through doors which only open after all enemies in the room are killed.  
+Every dungeon has a magic type that determines the magic type of the majority of slimes and the magic type of the unicorn boss at the end.
 Dungeons are not linear. Instead the player is forced to find the boss room. However, only the boss has to be killed in order to clear a dungeon, not every single room.  
 In the dungeons a camera is used to track the PC and enemy actions. The camera behaviour is different for different parts of the dungeon.
 
@@ -549,7 +551,7 @@ In the dungeons a camera is used to track the PC and enemy actions. The camera b
 
 | **ID: D8**| **Dying in the dungeon** |
 | --- | --- |
-| Description | If the player dies in a dungeon, all rewards the player already earned remain in their inventory an the player is returned to the main hub. |
+| Description | If the player dies in a dungeon, all rewards the player already earned remain in their inventory and the player is returned to the main hub. |
 | Acceptance Criterion |  |
 | Notes | Except for story dungeons, players cannot retry the same dungeon again. If the player enters a generated dungeon again, a new one is generated.  |
 
@@ -574,7 +576,7 @@ In the dungeons a camera is used to track the PC and enemy actions. The camera b
 
 | **ID: D12**| **First Time Room Entry** |
 | --- | --- |
-| Description | The first time the player enters a room, three slimes are spawned. The type of slime is randomly selected from the available types. The player can only exit the room after killing all enemies within it. |
+| Description | The first time the player enters a room, a set number of slimes are spawned. The type of slime is randomly selected from the available types, with slimes of the same magic type as the dungeon having increased probability. The player can only exit the room after killing all enemies within it. |
 | Acceptance Criterion | Slimes spawn correctly on first entry and the player can only exit after killing all enemies. |
 | Notes | None |
 
@@ -656,7 +658,7 @@ Clearing dungeons gives rewards to the players.
 
 | **ID: DGR2**| **Augment Reward** |
 | --- | --- |
-| Description | Killing the boss of a generated dungeon, and thus clearing the dungeon, the player is rewarded with one random augment guaranteed. There is a chance for a second augments. <br> The quality of the augment is influenced by the difficulty of the dungeon. <br> If the dungeon was cursed the player is rewarded with two augments guaranteed, with a chance for an additional third augment. |
+| Description | Killing the boss of a generated dungeon, and thus clearing the dungeon, the player is rewarded with one random augment guaranteed. There is a chance for a second augment. <br> The quality of the augment is influenced by the difficulty of the dungeon. <br> If the dungeon was cursed the player is rewarded with two augments guaranteed, with a chance for an additional third augment. |
 | Acceptance Criterion |  |
 | Notes | Drop rates might have to be adjusted later. |
 
@@ -729,9 +731,6 @@ The game utilizes a tile-based system for both the macro-scale dungeon layouts c
 
 ##### 2.2.2.2.4.1 Macro-scale dungeon layouts
 
-
-##### 2.2.2.2.4.1 Macro-scale dungeon layouts
-
 | **ID: DGL1**| **Dungeon Layout** |
 | --- | --- |
 | Description | Dungeons are composed of 5 to 10 rooms (with the exception of the intro dungeon, which is shorter). They have one entry room, one boss room, and normal rooms. The entry room has to be on one side of the macro-scale layout of the dungeon and there have to be at least 2 rooms between the entry room and the boss room. The rooms in the dungeon correspond to tiles in a grid, wherein all neighboring tiles have doors to connect the rooms. The only exception to this is the boss room. Even if the boss room has several neighboring tiles, the door to the boss room is only in one normal room. All rooms are similar enough in size that the tiles that represent rooms can be quadratic, with four possible neighboring tiles. |
@@ -744,7 +743,7 @@ The game utilizes a tile-based system for both the macro-scale dungeon layouts c
 | --- | --- |
 | Description | The in-room environment consists of a set of predefined rooms, including tiles, enemy spawn points, entry point (one per dungeon), and exit points. The tilemap consists of three layers: Background (non-interactable background tiles), Middleground (walls, doors, and other obstacles), and Foreground (decorational or special interactable tiles). Entities such as the player, enemies, and augments are visually placed between the middleground and the foreground layer, however, they are not treated as tiles. |
 | Acceptance Criterion | Rooms have the correct environment layers and entity placements. |
-| Notes | Clarify if exit points refer to doors between rooms or points from where the dungeon is left. |
+| Notes | None |
 
 ##### 2.2.2.2.4.3 Collision Detection
 
@@ -758,8 +757,8 @@ The game utilizes a tile-based system for both the macro-scale dungeon layouts c
 
 | **ID: CDC2**| **Player-Enemy Collisions** |
 | --- | --- |
-| Description | The player and enemies can pass through each other, with damage applied to the overlapping entities as necessary. |
-| Acceptance Criterion | Player-enemy collisions result in correct damage application. |
+| Description | The player and enemies normaly cannot pass through each other. Their collision is handled by the game engine. <br> If the player dashes, they are able to go through enemies. |
+| Acceptance Criterion | Player-enemy collisions are processed by the engine if the player is not dashing. If the player is dashing, no collisions happen. |
 | Notes | None |
 
 ##### 2.2.2.2.4.3.2 Player-Wall and Enemy-Wall Collisions
@@ -774,9 +773,9 @@ The game utilizes a tile-based system for both the macro-scale dungeon layouts c
 
 | **ID: CDC4**| **Enemy-Enemy Collisions** |
 | --- | --- |
-| Description | Enemies should not pass through each other. A repelling force is applied when enemies overlap, pushing them away from each other. |
-| Acceptance Criterion | Enemies repel each other correctly when they overlap. |
-| Notes | Interaction can be defined loosely. |
+| Description | Enemies cannot pass through each other. Their collision is handled by the game engine. |
+| Acceptance Criterion | Enemies cannot overlap. |
+| Notes | None |
 
 ### 2.2.3 Main menu and Tutorials
 
@@ -788,7 +787,7 @@ several options for interacting with the main menu.
 | **ID: MM1**| **Main menu: New Game** |
 | --- | --- | 
 | Description | The player can start a new game from the main menu. When a new game is started, the player first has to decide with which magic type they want to start playing the game. |
-| Acceptance Criterion |  |
+| Acceptance Criterion | Starts a new game with the correct magic type. |
 | Notes | None |
 
 | **ID: MM2**| **Main menu: Continue** |
@@ -800,7 +799,7 @@ several options for interacting with the main menu.
 | **ID: MM3**| **Main menu: Settings** |
 | --- | --- | 
 | Description | The player can change settings such as music and sound volume, setting the resolution or toggling a fullscreen mode. The settings menu can be accessed through a sub-menu that appears when the player presses the esc-key from the main hub and from inside dungeons as well. |
-| Acceptance Criterion |  |
+| Acceptance Criterion | Works as described. |
 | Notes | None |
 
 | **ID: MM4**| **Main menu: Exit** |
@@ -823,20 +822,20 @@ Tutorials are a set of explanatory texts that describe the features of the game.
 
 ## 2.3. Nonfunctional requirements
 
-Coding Style: Adhere to the [GDScript style guide](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) and use a component-based architecture for improved maintainability, code reuse, and easier future expansion.
+Coding Style: Adhere to the [Godot C# style guide](https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_style_guide.html) and use a component-based architecture for improved maintainability, code reuse, and easier future expansion.
 
 ### 2.3.1. User interface and human factors
 
 Outside the dungeons, the user interface will be fully controllable via mouse and keyboard for menu navigation, spell/augment selection, skill point allocation, and dungeon selection.
 
 Furthermore every menu has to be selectable with not more then 3 clicks.  
-And each action, like selecting a dungeon or merging two augments, has to be doable with less then 10.
+Each action, like selecting a dungeon or merging two augments, has to be doable with less then 10 clicks.
 
 ### 2.3.2. Documentation
 
 Every non-trivial function within the codebase will have clear comments explaining its purpose, parameters, and return values.
 
-We will use the [Godot internal documentation feature](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_documentation_comments.html) in order to automatically generate the documentation.
+We will use the [Doxygen](https://www.doxygen.nl/index.html) in order to automatically generate the documentation.
 
 A comprehensive user manual will be developed alongside the game to aid players.
 
@@ -847,7 +846,7 @@ The game is intended for personal computers that meet the recommended system req
  - **CPU**: x86_64 CPU with SSE4.2 instructions, with 4 physical cores or more
  - **GPU**: Dedicated graphics with full OpenGL 4.6 support or full Vulkan 1.2 support
  - **RAM**: 8GB
- - **OS**: Latest version of Firefox, Chrome, Edge, Safari, Opera or Windows 10 for native export
+ - **OS**: Windows 10 or later
 
 ### 2.3.4. Performance characteristics
 
@@ -865,13 +864,11 @@ The development process will involve thorough quality checks, including function
 
 ### 2.3.7. System modifications
 
-A modern browser has to be installed in order to play the web version of the game. 
-
 For the standalone version no additional software installations will be required beyond the game itself. 
 
 ### 2.3.8. Physical environment
 
-The game will run inside a modern browser supporting html5, javascript and webGL.
+The game will run on a personal computer with minimum system requirements described above.
 
 ### 2.3.9. Security issues
 
