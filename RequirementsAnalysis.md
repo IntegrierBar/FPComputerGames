@@ -1007,42 +1007,7 @@ classDiagram
     Node2D <|-- State
     State o-- State : transitions
 
-    class MovingPlayer {
-        speed
-    }
-    State <|-- MovingPlayer
-
-    class Idle 
-
-    State <|-- Idle
-
-    class Dashing {
-        dashSpeed
-    }
-    State <|-- Dashing
-
-    class Death 
     
-    State <|-- Death
-
-    class SpellcastingPlayer 
-    
-    State <|-- SpellcastingPlayer
-    %%SpellcastingPlayer o-- "3" Skill
-
-    class MovingSlime {
-        speed
-    }
-    State <|-- MovingSlime
-
-    class AttackingSlime 
-    
-    State <|-- AttackingSlime
-
-    class AttackingUnicorn 
-    
-    State <|-- AttackingUnicorn
-
     class HealthComponent {
         armor
         float maxHP
