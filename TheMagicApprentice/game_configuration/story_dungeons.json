@@ -1,6 +1,8 @@
 [
   {
 	"Name": "Intro",
+	"IsStoryDungeon": false,
+	"StoryIndex": -1,
 	"SerializableLayout": [
 	  {
 		"X": 0,
@@ -47,6 +49,8 @@
   },
   {
 	"Name": "Story Dungeon 1",
+	"IsStoryDungeon": true,
+	"StoryIndex": 0,
 	"SerializableLayout": [
 	  {
 		"X": 1,
@@ -117,6 +121,8 @@
   },
   {
 	"Name": "Story Dungeon 2",
+	"IsStoryDungeon": true,
+	"StoryIndex": 1,
 	"SerializableLayout": [
 	  {
 		"X": 1,
@@ -187,6 +193,8 @@
   },
   {
 	"Name": "Story Dungeon 3",
+	"IsStoryDungeon": true,
+	"StoryIndex": 2,
 	"SerializableLayout": [
 	  {
 		"X": 1,
@@ -257,6 +265,8 @@
   },
   {
 	"Name": "Story Dungeon 4",
+	"IsStoryDungeon": true,
+	"StoryIndex": 3,
 	"SerializableLayout": [
 	  {
 		"X": 1,
@@ -327,6 +337,8 @@
   },
   {
 	"Name": "Story Dungeon 5",
+	"IsStoryDungeon": true,
+	"StoryIndex": 4,
 	"SerializableLayout": [
 	  {
 		"X": 1,

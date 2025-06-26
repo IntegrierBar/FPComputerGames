@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using System.Linq;
 
 [GlobalClass]
 public partial class SkillTree : CanvasLayer
@@ -27,13 +28,13 @@ public partial class SkillTree : CanvasLayer
 	/**
 	If Esc is pressed the SkillTree becomes invisible again and stops processing
 	*/
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        if (@event.IsAction("esc"))
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (@event.IsAction("esc"))
 		{
 			SetVisibility(false);
 		}
-    }
+	}
 
 	/**
 	Set the visibility and the ProcessMode of the SkillTree. I.e. enable and disable it.
@@ -380,11 +381,45 @@ public partial class SkillTree : CanvasLayer
 	*/
 	private void UnlockSkillInSelectionMenu(SpellName spellName)
 	{
-        List<string> namesOfOptionButtons = new List<string>{"%OptionsSkillSlot1", "%OptionsSkillSlot2", "%OptionsSkillSlot3"}; // list of the names of the OptionButtons
+		List<string> namesOfOptionButtons = new List<string>{"%OptionsSkillSlot1", "%OptionsSkillSlot2", "%OptionsSkillSlot3"}; // list of the names of the OptionButtons
 		foreach (var namesOfOptionButton in namesOfOptionButtons)
 		{
 			GetNode<OptionButton>(namesOfOptionButton).SetItemDisabled(GetIndexFromSpell(spellName), false); // enable the item
 		}
+	}
+
+	/**
+	Returns whether the spell is unlocked by checking if it is disabled in the first skill slot
+	*/
+	public bool IsUnlocked(SpellName spellName)
+	{
+		return !GetNode<OptionButton>("%OptionsSkillSlot1").IsItemDisabled(GetIndexFromSpell(spellName));
+	}
+
+	/**
+	Returns whether any basic spell is unlocked
+	*/
+	public bool IsAnyBasicSpellUnlocked()
+	{
+		var basicSpells = new List<SpellName> { SpellName.SunBasic, SpellName.CosmicBasic, SpellName.DarkBasic };
+		return basicSpells.Any(spell => IsUnlocked(spell));
+	}
+
+	/**
+	Returns a random unlocked basic spell. Returns SunBasic if no basic spell is unlocked.
+	*/
+	public SpellName GetRandomUnlockedBasicSpell()
+	{
+		var basicSpells = new List<SpellName> { SpellName.SunBasic, SpellName.CosmicBasic, SpellName.DarkBasic };
+		var unlockedBasicSpells = basicSpells.Where(spell => IsUnlocked(spell)).ToList();
+
+		if (unlockedBasicSpells.Count == 0)
+		{
+			return SpellName.SunBasic;
+		}
+
+		var random = new Random();
+		return unlockedBasicSpells[random.Next(unlockedBasicSpells.Count)];
 	}
 
 	/**

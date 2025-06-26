@@ -8,6 +8,6 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <ItemGroup>
-     <PackageReference Include="gdUnit4.api" Version="4.2.*" />
-   </ItemGroup>
+    <PackageReference Include="gdUnit4.api" Version="4.2.*" />
+  </ItemGroup>
 </Project>

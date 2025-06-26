@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 /**
  * \class DungeonHandler
@@ -20,6 +21,7 @@ public partial class DungeonHandler : Node
 	private Dungeon Dungeon; ///< The current dungeon instance.
 	private RoomHandler RoomHandler; ///< Reference to the RoomHandler node.
 	private Node2D Player; ///< Reference to the player node.
+	private bool _debugQuickClear = false; // Set to true to instantly clear rooms for testing
 
 	/**
 	 * Called when the node is added to the scene tree, adds this node to the dungeon_handler group.
@@ -110,10 +112,16 @@ public partial class DungeonHandler : Node
 
 		ConnectRoomExitSignals();
 		
-		// if the room is the boss room. Also connect the dungeon clear signal, so that the dungeon clear menu is pushed
+		// Auto-clear room if in debug mode
+		if (_debugQuickClear)
+		{
+			CallDeferred(nameof(QuickClearCurrentRoom));
+		}
+		
+		// if the room is the boss room. Also connect the dungeon clear signal
 		if (position == Dungeon.BossPosition)
 		{
-			RoomHandler.RoomCleared += () => CallDeferred(nameof(OpenDungeonClearMenu)); // use call deferred, since we need to first do the rest of the physics process before we do anything.
+			RoomHandler.RoomCleared += () => CallDeferred(nameof(OnDungeonCompleted));
 		}
 	}
 
@@ -239,13 +247,66 @@ public partial class DungeonHandler : Node
 	}
 
 	/**
-	Opens the dungeon clear menu.
-	Is called after all enemies of the boss room are killed
-	*/
+	 * Opens the dungeon clear menu.
+	 */
 	private void OpenDungeonClearMenu()
 	{
 		MenuManager menuManager = GetTree().GetFirstNodeInGroup("menu_manager") as MenuManager;
 		menuManager.PushMenu(MenuManager.MenuType.DungeonClearMenu);
+	}
+
+	/**
+	 * Is called after all enemies of the boss room are killed
+	 */
+	public void OnDungeonCompleted()
+	{
+		OpenDungeonClearMenu();
+
+		var progressManager = GetTree().GetFirstNodeInGroup("progress_manager") as ProgressManager;
+		
+		if (Dungeon.Name == "Intro")
+		{
+			progressManager.CompleteIntroDungeon();
+		}
+		else if (Dungeon.IsStoryDungeon)
+		{
+			progressManager.CompleteStoryDungeon(Dungeon.StoryIndex);
+		}
+	}
+
+	/**
+	 * Quickly toggles debug mode.
+	 *
+	 * @param enabled True to enable debug mode, false to disable it.
+	 */
+	public void ToggleQuickClear(bool enabled)
+	{
+		_debugQuickClear = enabled;
+		GD.Print($"Quick clear mode: {_debugQuickClear}");
+	}
+
+	/**
+	 * Instantly clears the current room.
+	 */
+	private void QuickClearCurrentRoom()
+	{
+		// Wait a frame to ensure room is fully loaded
+		GetTree().CreateTimer(0.1f).Timeout += () =>
+		{
+			// Force room to be cleared
+			Room currentRoom = Dungeon.Layout[Dungeon.CurrentRoomPosition];
+			currentRoom.IsCleared = true;
+			Dungeon.Layout[Dungeon.CurrentRoomPosition] = currentRoom;
+			
+			// Enable exits
+			RoomHandler.EnableRoomExits();
+			
+			// If this is the boss room, complete the dungeon
+			if (Dungeon.CurrentRoomPosition == Dungeon.BossPosition)
+			{
+				OnDungeonCompleted();
+			}
+		};
 	}
 
 }
