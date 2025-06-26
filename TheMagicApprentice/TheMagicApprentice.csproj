@@ -8,8 +8,6 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="GodotSharp" Version="4.2.2" />
-    <PackageReference Include="Godot.SourceGenerators" Version="4.2.2" />
-    <PackageReference Include="gdUnit4.api" Version="4.2.5" />
+    <PackageReference Include="gdUnit4.api" Version="4.2.*" />
   </ItemGroup>
 </Project>
