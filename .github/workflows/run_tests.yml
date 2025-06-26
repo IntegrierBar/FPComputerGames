@@ -23,4 +23,3 @@ jobs:
           project_dir: './TheMagicApprentice/'
           publish-report: true
           report-name: 'test_report'
-          install-test-adapter: false

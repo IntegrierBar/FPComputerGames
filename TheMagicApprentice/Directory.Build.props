@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="GodotSharp" Version="4.2.2" />
+    <PackageVersion Include="Godot.SourceGenerators" Version="4.2.2" />
+    <PackageVersion Include="gdUnit4.api" Version="4.2.5" />
+    <PackageVersion Include="gdUnit4.test.adapter" Version="1.0.1" />
+    <PackageVersion Include="Microsoft.TestPlatform.AdapterUtilities" Version="17.11.1" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.2" />
+  </ItemGroup>
+</Project>
