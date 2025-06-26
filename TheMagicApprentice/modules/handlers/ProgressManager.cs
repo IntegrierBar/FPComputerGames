@@ -38,11 +38,15 @@ public partial class ProgressManager : Node
     {
         _introDungeonCompleted = true;
         // Add skill point of the intro dungeon's magic type (which is the type the player is strong against)
-        var skillTree = GetTree().GetFirstNodeInGroup(Globals.PlayerGroup).GetNode<SkillTree>("SkillTree");
-        skillTree.AddSkillPointOfType(EntityTypeHelper.GetWeakerMagicType(_playerStartMagicType));
-        
-        // Unlock the basic skill of that magic type
-        skillTree.SetStartBasic(EntityTypeHelper.GetWeakerMagicType(_playerStartMagicType));
+        var playerNode = GetTree()?.GetFirstNodeInGroup(Globals.PlayerGroup);
+        if (playerNode != null)
+        {
+            var skillTree = playerNode.GetNode<SkillTree>("SkillTree");
+            skillTree.AddSkillPointOfType(EntityTypeHelper.GetWeakerMagicType(_playerStartMagicType));
+            
+            // Unlock the basic skill of that magic type
+            skillTree.SetStartBasic(EntityTypeHelper.GetWeakerMagicType(_playerStartMagicType));
+        }
     }
 
     public MagicType GetNextStoryDungeonType()
@@ -86,8 +90,12 @@ public partial class ProgressManager : Node
             _currentStoryDungeonIndex = index + 1;
 
             // Add skill point of the completed dungeon's type
-            var skillTree = GetTree().GetFirstNodeInGroup(Globals.PlayerGroup).GetNode<SkillTree>("SkillTree");
-            skillTree.AddSkillPointOfType(GetStoryDungeonType(index));
+            var playerNode = GetTree()?.GetFirstNodeInGroup(Globals.PlayerGroup);
+            if (playerNode != null)
+            {
+                var skillTree = playerNode.GetNode<SkillTree>("SkillTree");
+                skillTree.AddSkillPointOfType(GetStoryDungeonType(index));
+            }
         }
     }
 

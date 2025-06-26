@@ -113,15 +113,17 @@ public class TestProgressManager
     {
         _progressManager.SetPlayerStartMagicType(MagicType.SUN);
         
-        // Initially should get Cosmic (type player is strong against)
+        // Initially should get Cosmic (type player is strong against) - same as intro dungeon
         AssertThat(_progressManager.GetNextStoryDungeonType()).IsEqual(MagicType.COSMIC);
         
         // Complete first dungeon and check next type
         _progressManager.CompleteStoryDungeon(0);
-        AssertThat(_progressManager.GetNextStoryDungeonType()).IsEqual(MagicType.DARK);
+        // After completing first story dungeon (which is SUN type), next should be COSMIC
+        AssertThat(_progressManager.GetNextStoryDungeonType()).IsEqual(MagicType.COSMIC);
         
         // Complete second dungeon and check next type
         _progressManager.CompleteStoryDungeon(1);
-        AssertThat(_progressManager.GetNextStoryDungeonType()).IsEqual(MagicType.SUN);
+        // After completing second story dungeon (which is COSMIC type), next should be DARK
+        AssertThat(_progressManager.GetNextStoryDungeonType()).IsEqual(MagicType.DARK);
     }
 } 
