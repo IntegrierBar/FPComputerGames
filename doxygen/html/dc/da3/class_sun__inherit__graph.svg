@@ -46,7 +46,7 @@
   </g>
 </defs>
 <script type="application/ecmascript">
-var viewWidth = 177;
+var viewWidth = 162;
 var viewHeight = 500;
 var sectionId = 'dynsection-0';
 </script>
@@ -58,26 +58,26 @@ var sectionId = 'dynsection-0';
 <g id="Node000001" class="node">
 <title>Node1</title>
 <g id="a_Node000001"><a xlink:title=" ">
-<polygon fill="#999999" stroke="none" points="169,-172 0,-172 0,0 169,0 169,-172"/>
-<text text-anchor="start" x="75.88" y="-158.5" font-family="Helvetica,sans-Serif" font-size="10.00">Sun</text>
-<text text-anchor="start" x="83" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="4" y="-126.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="14" y="-126.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void Init</text>
-<text text-anchor="start" x="14" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">(Attack attack, Vector2</text>
-<text text-anchor="start" x="14" y="-102.5" font-family="Helvetica,sans-Serif" font-size="10.00"> playerPosition, Vector2</text>
-<text text-anchor="start" x="14" y="-90.5" font-family="Helvetica,sans-Serif" font-size="10.00"> targetPosition)</text>
-<text text-anchor="start" x="4" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="14" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void _PhysicsProcess</text>
-<text text-anchor="start" x="14" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double delta)</text>
-<text text-anchor="start" x="4" y="-46.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="14" y="-46.5" font-family="Helvetica,sans-Serif" font-size="10.00">Attack CalculateAttack</text>
-<text text-anchor="start" x="14" y="-34.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double distanceToEnemySquared)</text>
-<text text-anchor="start" x="4" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="14" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void OnAreaEntered</text>
-<text text-anchor="start" x="14" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">(Area2D area)</text>
-<polygon fill="#666666" stroke="#666666" points="0,-154 0,-154 169,-154 169,-154 0,-154"/>
-<polygon fill="#666666" stroke="#666666" points="0,-138 0,-138 169,-138 169,-138 0,-138"/>
-<polygon fill="none" stroke="#666666" points="0,0 0,-172 169,-172 169,0 0,0"/>
+<polygon fill="#999999" stroke="none" points="153.5,-172 0.5,-172 0.5,0 153.5,0 153.5,-172"/>
+<text text-anchor="start" x="68.38" y="-158.5" font-family="Helvetica,sans-Serif" font-size="10.00">Sun</text>
+<text text-anchor="start" x="75.5" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="4.5" y="-126.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="14.5" y="-126.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void Init</text>
+<text text-anchor="start" x="14.5" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">(Attack attack, Vector2</text>
+<text text-anchor="start" x="14.5" y="-102.5" font-family="Helvetica,sans-Serif" font-size="10.00"> playerPosition, Vector2</text>
+<text text-anchor="start" x="14.5" y="-90.5" font-family="Helvetica,sans-Serif" font-size="10.00"> targetPosition)</text>
+<text text-anchor="start" x="4.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="14.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void _PhysicsProcess</text>
+<text text-anchor="start" x="14.5" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double delta)</text>
+<text text-anchor="start" x="4.5" y="-46.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="14.5" y="-46.5" font-family="Helvetica,sans-Serif" font-size="10.00">Attack CalculateAttack</text>
+<text text-anchor="start" x="14.5" y="-34.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double distanceToEnemy)</text>
+<text text-anchor="start" x="4.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="14.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void OnAreaEntered</text>
+<text text-anchor="start" x="14.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">(Area2D area)</text>
+<polygon fill="#666666" stroke="#666666" points="0.5,-154 0.5,-154 153.5,-154 153.5,-154 0.5,-154"/>
+<polygon fill="#666666" stroke="#666666" points="0.5,-138 0.5,-138 153.5,-138 153.5,-138 0.5,-138"/>
+<polygon fill="none" stroke="#666666" points="0.5,0 0.5,-172 153.5,-172 153.5,0 0.5,0"/>
 </a>
 </g>
 </g>
@@ -85,32 +85,32 @@ var sectionId = 'dynsection-0';
 <g id="Node000002" class="node">
 <title>Node2</title>
 <g id="a_Node000002"><a xlink:href="../../d8/d0d/class_spell.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="none" points="161.5,-404 7.5,-404 7.5,-208 161.5,-208 161.5,-404"/>
-<text text-anchor="start" x="73.62" y="-390.5" font-family="Helvetica,sans-Serif" font-size="10.00">Spell</text>
-<text text-anchor="start" x="11.5" y="-374.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="21.5" y="-374.5" font-family="Helvetica,sans-Serif" font-size="10.00">double MaxLifeTimeInSeconds</text>
-<text text-anchor="start" x="11.5" y="-358.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="21.5" y="-358.5" font-family="Helvetica,sans-Serif" font-size="10.00">double _timeLeftUntilDeletion</text>
-<text text-anchor="start" x="11.88" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="21.5" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">Attack _attack</text>
-<text text-anchor="start" x="11.5" y="-326.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="21.5" y="-326.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void _Ready()</text>
-<text text-anchor="start" x="11.5" y="-310.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="21.5" y="-310.5" font-family="Helvetica,sans-Serif" font-size="10.00">virtual void Init(Attack</text>
-<text text-anchor="start" x="21.5" y="-298.5" font-family="Helvetica,sans-Serif" font-size="10.00"> attack, Vector2 playerPosition,</text>
-<text text-anchor="start" x="21.5" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00"> Vector2 targetPosition)</text>
-<text text-anchor="start" x="11.5" y="-270.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="21.5" y="-270.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void _PhysicsProcess</text>
-<text text-anchor="start" x="21.5" y="-258.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double delta)</text>
-<text text-anchor="start" x="11.5" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="21.5" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">virtual void OnAreaEntered</text>
-<text text-anchor="start" x="21.5" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">(Area2D area)</text>
-<text text-anchor="start" x="11.5" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="21.5" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">double GetTimeUntilDeleteion()</text>
-<polygon fill="#666666" stroke="#666666" points="7.5,-386 7.5,-386 161.5,-386 161.5,-386 7.5,-386"/>
-<polygon fill="#666666" stroke="#666666" points="7.5,-338 7.5,-338 19.5,-338 19.5,-338 7.5,-338"/>
-<polygon fill="#666666" stroke="#666666" points="19.5,-338 19.5,-338 161.5,-338 161.5,-338 19.5,-338"/>
-<polygon fill="none" stroke="#666666" points="7.5,-208 7.5,-404 161.5,-404 161.5,-208 7.5,-208"/>
+<polygon fill="white" stroke="none" points="154,-404 0,-404 0,-208 154,-208 154,-404"/>
+<text text-anchor="start" x="66.12" y="-390.5" font-family="Helvetica,sans-Serif" font-size="10.00">Spell</text>
+<text text-anchor="start" x="4" y="-374.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="14" y="-374.5" font-family="Helvetica,sans-Serif" font-size="10.00">double MaxLifeTimeInSeconds</text>
+<text text-anchor="start" x="4" y="-358.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="14" y="-358.5" font-family="Helvetica,sans-Serif" font-size="10.00">double _timeLeftUntilDeletion</text>
+<text text-anchor="start" x="4.38" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="14" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">Attack _attack</text>
+<text text-anchor="start" x="4" y="-326.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="14" y="-326.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void _Ready()</text>
+<text text-anchor="start" x="4" y="-310.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="14" y="-310.5" font-family="Helvetica,sans-Serif" font-size="10.00">virtual void Init(Attack</text>
+<text text-anchor="start" x="14" y="-298.5" font-family="Helvetica,sans-Serif" font-size="10.00"> attack, Vector2 playerPosition,</text>
+<text text-anchor="start" x="14" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00"> Vector2 targetPosition)</text>
+<text text-anchor="start" x="4" y="-270.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="14" y="-270.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void _PhysicsProcess</text>
+<text text-anchor="start" x="14" y="-258.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double delta)</text>
+<text text-anchor="start" x="4" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="14" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">virtual void OnAreaEntered</text>
+<text text-anchor="start" x="14" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">(Area2D area)</text>
+<text text-anchor="start" x="4" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="14" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">double GetTimeUntilDeleteion()</text>
+<polygon fill="#666666" stroke="#666666" points="0,-386 0,-386 154,-386 154,-386 0,-386"/>
+<polygon fill="#666666" stroke="#666666" points="0,-338 0,-338 12,-338 12,-338 0,-338"/>
+<polygon fill="#666666" stroke="#666666" points="12,-338 12,-338 154,-338 154,-338 12,-338"/>
+<polygon fill="none" stroke="#666666" points="0,-208 0,-404 154,-404 154,-208 0,-208"/>
 </a>
 </g>
 </g>
@@ -118,8 +118,8 @@ var sectionId = 'dynsection-0';
 <g id="edge1_Node000001_Node000002" class="edge">
 <title>Node2&#45;&gt;Node1</title>
 <g id="a_edge1_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M84.5,-196.77C84.5,-188.44 84.5,-180.1 84.5,-171.95"/>
-<polygon fill="none" stroke="#63b8ff" points="81,-196.6 84.5,-206.6 88,-196.6 81,-196.6"/>
+<path fill="none" stroke="#63b8ff" d="M77,-196.77C77,-188.44 77,-180.1 77,-171.95"/>
+<polygon fill="none" stroke="#63b8ff" points="73.5,-196.6 77,-206.6 80.5,-196.6 73.5,-196.6"/>
 </a>
 </g>
 </g>
@@ -127,13 +127,13 @@ var sectionId = 'dynsection-0';
 <g id="Node000003" class="node">
 <title>Node3</title>
 <g id="a_Node000003"><a xlink:href="../../dc/df8/class_area2_d.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="none" points="106,-492 63,-492 63,-440 106,-440 106,-492"/>
-<text text-anchor="start" x="68" y="-478.5" font-family="Helvetica,sans-Serif" font-size="10.00">Area2D</text>
-<text text-anchor="start" x="83" y="-462.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="83" y="-446.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#666666" stroke="#666666" points="63,-474 63,-474 106,-474 106,-474 63,-474"/>
-<polygon fill="#666666" stroke="#666666" points="63,-458 63,-458 106,-458 106,-458 63,-458"/>
-<polygon fill="none" stroke="#666666" points="63,-440 63,-492 106,-492 106,-440 63,-440"/>
+<polygon fill="white" stroke="none" points="98.5,-492 55.5,-492 55.5,-440 98.5,-440 98.5,-492"/>
+<text text-anchor="start" x="60.5" y="-478.5" font-family="Helvetica,sans-Serif" font-size="10.00">Area2D</text>
+<text text-anchor="start" x="75.5" y="-462.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="75.5" y="-446.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="#666666" stroke="#666666" points="55.5,-474 55.5,-474 98.5,-474 98.5,-474 55.5,-474"/>
+<polygon fill="#666666" stroke="#666666" points="55.5,-458 55.5,-458 98.5,-458 98.5,-458 55.5,-458"/>
+<polygon fill="none" stroke="#666666" points="55.5,-440 55.5,-492 98.5,-492 98.5,-440 55.5,-440"/>
 </a>
 </g>
 </g>
@@ -141,8 +141,8 @@ var sectionId = 'dynsection-0';
 <g id="edge2_Node000002_Node000003" class="edge">
 <title>Node3&#45;&gt;Node2</title>
 <g id="a_edge2_Node000002_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M84.5,-428.88C84.5,-421.15 84.5,-412.63 84.5,-403.8"/>
-<polygon fill="none" stroke="#63b8ff" points="81,-428.8 84.5,-438.8 88,-428.8 81,-428.8"/>
+<path fill="none" stroke="#63b8ff" d="M77,-428.88C77,-421.15 77,-412.63 77,-403.8"/>
+<polygon fill="none" stroke="#63b8ff" points="73.5,-428.8 77,-438.8 80.5,-428.8 73.5,-428.8"/>
 </a>
 </g>
 </g>

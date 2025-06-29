@@ -1,12 +1,4 @@
 var searchData=
 [
-  ['pausemenu_2ecs_0',['PauseMenu.cs',['../d5/d63/_pause_menu_8cs.html',1,'']]],
-  ['percentdamageforonespell_2ecs_1',['PercentDamageForOneSpell.cs',['../d5/da3/_percent_damage_for_one_spell_8cs.html',1,'']]],
-  ['percentdamageforonetype_2ecs_2',['PercentDamageForOneType.cs',['../d9/d55/_percent_damage_for_one_type_8cs.html',1,'']]],
-  ['player_2ecs_3',['Player.cs',['../d5/dbb/_player_8cs.html',1,'']]],
-  ['playerdashing_2ecs_4',['PlayerDashing.cs',['../d8/da4/_player_dashing_8cs.html',1,'']]],
-  ['playerdeath_2ecs_5',['PlayerDeath.cs',['../d4/d98/_player_death_8cs.html',1,'']]],
-  ['playeridle_2ecs_6',['PlayerIdle.cs',['../d5/d34/_player_idle_8cs.html',1,'']]],
-  ['playermoving_2ecs_7',['PlayerMoving.cs',['../dc/d36/_player_moving_8cs.html',1,'']]],
-  ['playerspellcasting_2ecs_8',['PlayerSpellCasting.cs',['../d9/d3a/_player_spell_casting_8cs.html',1,'']]]
+  ['oncastaugmenteffect_2ecs_0',['OnCastAugmentEffect.cs',['../d6/daf/_on_cast_augment_effect_8cs.html',1,'']]]
 ];

@@ -1,5 +1,5 @@
 <map id="RoomHandler" name="RoomHandler">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,219,331"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,219,389"/>
 <area shape="rect" id="Node000002" href="$dc/d8f/class_node.html" title=" " alt="" coords="90,5,134,75"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,90,115,123,109,123,109,90"/>
 </map>

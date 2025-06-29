@@ -1,17 +1,7 @@
 <map id="CanvasLayer" name="CanvasLayer">
-<area shape="rect" id="Node000001" title=" " alt="" coords="267,5,357,75"/>
-<area shape="rect" id="Node000002" href="$df/d7a/class_augment_inventory.html" title=" " alt="" coords="63,123,305,448"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,89,271,124,267,121,285,87"/>
-<area shape="rect" id="Node000003" href="$d9/dc5/class_base_menu.html" title=" " alt="" coords="329,173,551,397"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="339,87,384,173,380,175,334,89"/>
-<area shape="rect" id="Node000004" href="$df/d8a/class_main_game.html" title=" " alt="" coords="5,496,160,603"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="363,410,319,450,281,471,248,479,214,485,173,498,161,504,158,499,171,494,212,480,247,474,279,466,316,446,359,406"/>
-<area shape="rect" id="Node000005" href="$d0/d9f/class_main_hub.html" title=" " alt="" coords="184,515,339,584"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="358,411,286,517,282,514,354,408"/>
-<area shape="rect" id="Node000006" href="$d4/d04/class_main_menu.html" title=" " alt="" coords="363,515,517,584"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="443,412,443,515,437,515,437,412"/>
-<area shape="rect" id="Node000007" href="$d4/de5/class_pause_menu.html" title=" " alt="" coords="541,496,696,603"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="526,408,585,495,581,498,522,411"/>
-<area shape="rect" id="Node000008" href="$d4/d94/class_settings_menu.html" title=" " alt="" coords="720,515,875,584"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="564,374,754,513,750,517,561,379"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="208,5,297,75"/>
+<area shape="rect" id="Node000002" href="$df/d7a/class_augment_inventory.html" title=" " alt="" coords="5,219,247,587"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,90,193,220,188,218,234,88"/>
+<area shape="rect" id="Node000003" href="$d9/dc8/class_skill_tree.html" title=" " alt="" coords="271,123,487,683"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="272,88,284,122,279,124,267,90"/>
 </map>

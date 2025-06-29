@@ -95,12 +95,12 @@ $(function(){ initResizable(false); });
 <div class="dynheader">
 Inheritance diagram for MenuManager:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/d33/class_menu_manager__inherit__graph.svg" width="242" height="347"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/d33/class_menu_manager__inherit__graph.svg" width="242" height="422"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Collaboration diagram for MenuManager:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/ddf/class_menu_manager__coll__graph.svg" width="242" height="347"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/ddf/class_menu_manager__coll__graph.svg" width="242" height="422"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -112,6 +112,11 @@ Public Types</h2></td></tr>
 , <a class="el" href="#a442a2cbb529fa44b6e6c837f1e2be267aa6ea893fdc6e0771ff6d14028a6d7f3e">PauseMenu</a>
 , <br />
 &#160;&#160;<a class="el" href="#a442a2cbb529fa44b6e6c837f1e2be267a469b377b8db56b40005a0b32358fa9f8">SettingsMenu</a>
+, <a class="el" href="#a442a2cbb529fa44b6e6c837f1e2be267a9a0ecc4ee62b7b108ceffd51c4d5dc43">DungeonSelection</a>
+, <a class="el" href="#a442a2cbb529fa44b6e6c837f1e2be267aa77501098fa7759fc2f5dde43dc6c99b">DungeonClearMenu</a>
+, <a class="el" href="#a442a2cbb529fa44b6e6c837f1e2be267afe8c93525f062ed8d4a2e2c446ac9e14">NewGameMenu</a>
+, <br />
+&#160;&#160;<a class="el" href="#a442a2cbb529fa44b6e6c837f1e2be267ab4831906a98aa22f43f6ffd0c2ffa399">PlayerDeathMenu</a>
 <br />
  }</td></tr>
 <tr class="separator:a442a2cbb529fa44b6e6c837f1e2be267"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,14 +125,18 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a27195ed3cd893cd90c9431bc29fced15" id="r_a27195ed3cd893cd90c9431bc29fced15"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27195ed3cd893cd90c9431bc29fced15">MenuChangedEventHandler</a> (<a class="el" href="#a442a2cbb529fa44b6e6c837f1e2be267">MenuType</a> newMenu, bool isPush)</td></tr>
 <tr class="separator:a27195ed3cd893cd90c9431bc29fced15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af07461828a35a48e7a60e3dbd7fc57f5" id="r_af07461828a35a48e7a60e3dbd7fc57f5"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af07461828a35a48e7a60e3dbd7fc57f5">_Ready</a> ()</td></tr>
-<tr class="separator:af07461828a35a48e7a60e3dbd7fc57f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ef149e3547729532f3fbe8b5bf918dc" id="r_a1ef149e3547729532f3fbe8b5bf918dc"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ef149e3547729532f3fbe8b5bf918dc">MenuLeftEventHandler</a> (<a class="el" href="#a442a2cbb529fa44b6e6c837f1e2be267">MenuType</a> leftMenu)</td></tr>
+<tr class="separator:a1ef149e3547729532f3fbe8b5bf918dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e06894475d31cbe9e546efb3d2450ae" id="r_a7e06894475d31cbe9e546efb3d2450ae"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e06894475d31cbe9e546efb3d2450ae">_EnterTree</a> ()</td></tr>
+<tr class="separator:a7e06894475d31cbe9e546efb3d2450ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30484dbd8a364acd9c791f66f4878e78" id="r_a30484dbd8a364acd9c791f66f4878e78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30484dbd8a364acd9c791f66f4878e78">PushMenu</a> (<a class="el" href="#a442a2cbb529fa44b6e6c837f1e2be267">MenuType</a> newMenu)</td></tr>
 <tr class="separator:a30484dbd8a364acd9c791f66f4878e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d7dd0f252a04b33bc1803732154f24e" id="r_a7d7dd0f252a04b33bc1803732154f24e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d7dd0f252a04b33bc1803732154f24e">PopMenu</a> ()</td></tr>
 <tr class="separator:a7d7dd0f252a04b33bc1803732154f24e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2cb79b844c6d25a9c0cd4549d622f83" id="r_ab2cb79b844c6d25a9c0cd4549d622f83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2cb79b844c6d25a9c0cd4549d622f83">SetRootMenu</a> (<a class="el" href="#a442a2cbb529fa44b6e6c837f1e2be267">MenuType</a> newMenu)</td></tr>
 <tr class="separator:ab2cb79b844c6d25a9c0cd4549d622f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e124a7b8ab18b273a77b5b42490ffc5" id="r_a7e124a7b8ab18b273a77b5b42490ffc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e124a7b8ab18b273a77b5b42490ffc5">RequestRootMenu</a> (<a class="el" href="../../d9/dc5/class_base_menu.html">BaseMenu</a> menu)</td></tr>
+<tr class="separator:a7e124a7b8ab18b273a77b5b42490ffc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -155,13 +164,17 @@ Properties</h2></td></tr>
 <tr><td class="fieldname"><a id="a442a2cbb529fa44b6e6c837f1e2be267a3e8b4af600f149343223471ba6c26491" name="a442a2cbb529fa44b6e6c837f1e2be267a3e8b4af600f149343223471ba6c26491"></a>MainHub&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a442a2cbb529fa44b6e6c837f1e2be267aa6ea893fdc6e0771ff6d14028a6d7f3e" name="a442a2cbb529fa44b6e6c837f1e2be267aa6ea893fdc6e0771ff6d14028a6d7f3e"></a>PauseMenu&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a442a2cbb529fa44b6e6c837f1e2be267a469b377b8db56b40005a0b32358fa9f8" name="a442a2cbb529fa44b6e6c837f1e2be267a469b377b8db56b40005a0b32358fa9f8"></a>SettingsMenu&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a442a2cbb529fa44b6e6c837f1e2be267a9a0ecc4ee62b7b108ceffd51c4d5dc43" name="a442a2cbb529fa44b6e6c837f1e2be267a9a0ecc4ee62b7b108ceffd51c4d5dc43"></a>DungeonSelection&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a442a2cbb529fa44b6e6c837f1e2be267aa77501098fa7759fc2f5dde43dc6c99b" name="a442a2cbb529fa44b6e6c837f1e2be267aa77501098fa7759fc2f5dde43dc6c99b"></a>DungeonClearMenu&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a442a2cbb529fa44b6e6c837f1e2be267afe8c93525f062ed8d4a2e2c446ac9e14" name="a442a2cbb529fa44b6e6c837f1e2be267afe8c93525f062ed8d4a2e2c446ac9e14"></a>NewGameMenu&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a442a2cbb529fa44b6e6c837f1e2be267ab4831906a98aa22f43f6ffd0c2ffa399" name="a442a2cbb529fa44b6e6c837f1e2be267ab4831906a98aa22f43f6ffd0c2ffa399"></a>PlayerDeathMenu&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af07461828a35a48e7a60e3dbd7fc57f5" name="af07461828a35a48e7a60e3dbd7fc57f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af07461828a35a48e7a60e3dbd7fc57f5">&#9670;&#160;</a></span>_Ready()</h2>
+<a id="a7e06894475d31cbe9e546efb3d2450ae" name="a7e06894475d31cbe9e546efb3d2450ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e06894475d31cbe9e546efb3d2450ae">&#9670;&#160;</a></span>_EnterTree()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +183,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">override void MenuManager._Ready </td>
+          <td class="memname">override void MenuManager._EnterTree </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -182,7 +195,7 @@ Properties</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Initializes the menu system by pushing the main menu. </p>
+<p>Called when the node is added to the scene tree, adds this node to the menu_manager group. </p>
 
 </div>
 </div>
@@ -201,6 +214,23 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isPush</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ef149e3547729532f3fbe8b5bf918dc" name="a1ef149e3547729532f3fbe8b5bf918dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ef149e3547729532f3fbe8b5bf918dc">&#9670;&#160;</a></span>MenuLeftEventHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void MenuManager.MenuLeftEventHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a442a2cbb529fa44b6e6c837f1e2be267">MenuType</a></td>          <td class="paramname"><span class="paramname"><em>leftMenu</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -262,6 +292,31 @@ Properties</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a7e124a7b8ab18b273a77b5b42490ffc5" name="a7e124a7b8ab18b273a77b5b42490ffc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e124a7b8ab18b273a77b5b42490ffc5">&#9670;&#160;</a></span>RequestRootMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MenuManager.RequestRootMenu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dc5/class_base_menu.html">BaseMenu</a></td>          <td class="paramname"><span class="paramname"><em>menu</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

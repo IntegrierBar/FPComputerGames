@@ -6,8 +6,8 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="955,87,1002,186,997,188,951,90"/>
 <area shape="rect" id="Node000004" href="$d3/df6/class_additional_stars.html" title=" " alt="" coords="5,443,189,587"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="992,344,967,374,936,397,905,410,869,420,782,431,680,433,572,431,361,426,272,431,234,437,202,445,190,450,188,445,201,440,233,432,271,426,361,421,572,426,680,428,781,425,868,414,904,405,933,392,963,370,988,341"/>
-<area shape="rect" id="Node000005" href="$d2/d5b/class_cast_additional_spell.html" title=" " alt="" coords="213,461,397,568"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="991,345,966,374,936,397,899,416,863,429,798,442,737,442,678,435,618,426,556,421,487,425,450,433,410,445,372,464,370,459,408,440,449,428,487,420,556,415,619,421,679,430,737,437,797,437,862,424,896,411,933,392,963,370,987,341"/>
+<area shape="rect" id="Node000005" href="$d2/d5b/class_cast_additional_spell.html" title=" " alt="" coords="213,443,397,587"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="991,345,966,374,936,397,899,416,863,429,798,442,737,442,678,435,618,426,556,421,487,425,450,433,410,445,398,450,396,445,408,440,449,428,487,420,556,415,619,421,679,430,737,437,797,437,862,424,896,411,933,392,963,370,987,341"/>
 <area shape="rect" id="Node000006" href="$d8/d35/class_extra_armor_of_all_types.html" title=" " alt="" coords="421,443,605,587"/>
 <area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="990,345,966,373,936,397,892,418,853,429,816,431,780,430,706,426,665,431,618,445,606,450,604,446,616,440,664,426,706,421,780,424,816,426,852,423,891,413,933,392,962,370,986,341"/>
 <area shape="rect" id="Node000007" href="$df/deb/class_extra_armor_of_type.html" title=" " alt="" coords="629,443,813,587"/>
@@ -18,14 +18,14 @@
 <area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="1071,344,1119,461,1114,463,1066,346"/>
 <area shape="rect" id="Node000010" href="$d1/d2e/class_h_p_increase_augment_effect.html" title=" " alt="" coords="1253,443,1437,587"/>
 <area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="1132,337,1260,441,1257,445,1129,341"/>
-<area shape="rect" id="Node000011" href="$d8/d16/class_on_cast_augment_effect.html" title=" " alt="" coords="1461,472,1605,557"/>
-<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="1134,292,1287,355,1370,395,1451,440,1491,470,1488,474,1448,445,1368,400,1284,359,1132,297"/>
-<area shape="rect" id="Node000014" href="$d1/d07/class_percent_damage_for_one_spell.html" title=" " alt="" coords="1629,461,1813,568"/>
-<area shape="poly" id="edge13_Node000003_Node000014" title=" " alt="" coords="1134,279,1238,305,1360,341,1491,386,1619,440,1652,459,1650,464,1616,445,1489,391,1359,346,1236,310,1133,284"/>
-<area shape="rect" id="Node000015" href="$d1/dd0/class_percent_damage_for_one_type.html" title=" " alt="" coords="1837,461,2021,568"/>
-<area shape="poly" id="edge14_Node000003_Node000015" title=" " alt="" coords="1135,269,1275,289,1450,323,1544,346,1640,373,1735,404,1826,440,1862,459,1859,464,1824,445,1733,409,1639,378,1543,351,1449,328,1274,294,1134,274"/>
-<area shape="rect" id="Node000012" href="$d0/d68/class_increase_duration_of_spell.html" title=" " alt="" coords="1337,635,1521,779"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1506,572,1470,636,1466,634,1501,569"/>
-<area shape="rect" id="Node000013" href="$d5/d92/class_increased_radius_of_spell.html" title=" " alt="" coords="1545,635,1729,779"/>
-<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="1566,569,1601,634,1596,636,1561,572"/>
+<area shape="rect" id="Node000011" href="$d8/d16/class_on_cast_augment_effect.html" title=" " alt="" coords="1462,456,1623,573"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="1134,294,1286,357,1370,397,1451,440,1472,454,1469,458,1448,445,1367,401,1284,362,1132,299"/>
+<area shape="rect" id="Node000014" href="$d1/d07/class_percent_damage_for_one_spell.html" title=" " alt="" coords="1648,461,1832,568"/>
+<area shape="poly" id="edge13_Node000003_Node000014" title=" " alt="" coords="1135,278,1241,304,1369,339,1505,385,1637,440,1671,459,1668,464,1635,445,1503,390,1367,344,1240,309,1133,283"/>
+<area shape="rect" id="Node000015" href="$d1/dd0/class_percent_damage_for_one_type.html" title=" " alt="" coords="1856,461,2040,568"/>
+<area shape="poly" id="edge14_Node000003_Node000015" title=" " alt="" coords="1134,268,1278,288,1458,322,1555,344,1654,372,1751,403,1845,440,1881,459,1878,464,1843,445,1749,408,1652,377,1554,350,1456,327,1277,293,1134,273"/>
+<area shape="rect" id="Node000012" href="$d0/d68/class_increase_duration_of_spell.html" title=" " alt="" coords="1347,635,1531,811"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1509,588,1485,636,1480,634,1505,585"/>
+<area shape="rect" id="Node000013" href="$d5/d92/class_increased_radius_of_spell.html" title=" " alt="" coords="1555,635,1739,811"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="1581,585,1605,634,1600,636,1576,588"/>
 </map>

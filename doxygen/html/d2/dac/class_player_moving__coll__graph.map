@@ -1,8 +1,8 @@
 <map id="PlayerMoving" name="PlayerMoving">
-<area shape="rect" id="Node000001" title=" " alt="" coords="66,480,282,624"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="122,480,338,667"/>
 <area shape="rect" id="Node000002" href="$d0/d8b/class_state.html" title=" " alt="" coords="30,139,235,384"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,398,151,456,156,480,151,481,146,456,138,399"/>
-<area shape="poly" id="edge6_Node000001_Node000002" title=" " alt="" coords="153,384,164,462,159,463,147,384"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,398,151,455,162,479,157,481,146,457,132,399"/>
+<area shape="poly" id="edge7_Node000001_Node000002" title=" " alt="" coords="154,383,173,455,176,464,171,466,168,457,148,384"/>
 <area shape="rect" id="Node000003" href="$dc/d8f/class_node.html" title=" " alt="" coords="5,5,49,75"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="52,87,77,138,72,140,48,89"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="74,5,191,75"/>
@@ -10,5 +10,7 @@
 <area shape="rect" id="Node000005" title=" " alt="" coords="216,5,324,75"/>
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="251,76,220,126,215,123,247,73"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="262,227,313,296"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="288,296,277,372,265,415,250,457,245,467,240,465,245,455,260,414,271,371,282,296"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="286,296,261,456,259,464,254,463,255,456,281,295"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="337,227,478,296"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="400,297,374,372,355,416,332,457,326,467,322,464,328,455,350,413,369,370,395,295"/>
 </map>

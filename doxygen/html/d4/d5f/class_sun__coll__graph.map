@@ -1,21 +1,23 @@
 <map id="Sun" name="Sun">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,1261,231,1491"/>
-<area shape="rect" id="Node000002" href="$d8/d0d/class_spell.html" title=" " alt="" coords="15,993,221,1212"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,1227,121,1262,115,1262,115,1227"/>
-<area shape="rect" id="Node000003" href="$dc/df8/class_area2_d.html" title=" " alt="" coords="159,191,216,260"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="161,274,134,329,113,391,98,471,89,554,85,637,84,718,91,869,104,994,99,994,86,870,79,718,79,636,84,553,93,471,107,390,129,327,156,272"/>
-<area shape="rect" id="Node000007" href="$d1/da7/class_health_component.html" title=" " alt="" coords="306,391,549,743"/>
-<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="222,271,308,393,304,396,217,274"/>
-<area shape="rect" id="Node000004" href="$d9/db7/class_attack.html" title=" " alt="" coords="291,807,523,929"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="334,931,235,1011,232,1006,331,927"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="122,532,173,601"/>
-<area shape="poly" id="edge10_Node000002_Node000005" title=" " alt="" coords="147,601,133,807,125,977,120,976,128,807,142,601"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="152,601,164,669,176,707,195,741,227,769,278,801,275,805,223,774,191,744,172,709,159,671,147,602"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="205,532,281,601"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="251,601,267,668,279,706,296,741,333,792,329,795,292,744,275,708,261,669,246,602"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="418,743,415,790,410,789,413,742"/>
-<area shape="rect" id="Node000008" href="$d7/dca/class_healthbar.html" title=" " alt="" coords="349,124,505,327"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="430,326,430,374,425,374,425,326"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="363,5,491,75"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="430,89,430,124,425,124,425,89"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="6,1261,210,1491"/>
+<area shape="rect" id="Node000002" href="$d8/d0d/class_spell.html" title=" " alt="" coords="5,993,211,1212"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,1227,111,1262,105,1262,105,1227"/>
+<area shape="rect" id="Node000003" href="$dc/df8/class_area2_d.html" title=" " alt="" coords="135,191,193,260"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="143,274,120,329,103,391,90,472,83,554,79,719,85,870,96,993,91,994,80,870,74,719,77,554,85,471,97,390,115,328,138,272"/>
+<area shape="rect" id="Node000007" href="$d1/da7/class_health_component.html" title=" " alt="" coords="296,391,539,743"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="200,270,298,402,294,405,196,273"/>
+<area shape="rect" id="Node000004" href="$d9/db7/class_attack.html" title=" " alt="" coords="281,807,513,929"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="324,931,225,1011,222,1006,321,927"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="112,532,163,601"/>
+<area shape="poly" id="edge11_Node000002_Node000005" title=" " alt="" coords="137,601,123,807,115,977,110,976,118,807,132,601"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="142,601,154,669,166,707,185,741,217,769,268,801,265,805,213,774,181,744,162,709,149,671,137,602"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="195,532,271,601"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="241,601,257,668,269,706,286,741,323,792,319,795,282,744,265,708,251,669,236,602"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="408,743,405,790,400,789,403,742"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="281,191,423,260"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="361,259,383,373,378,374,356,260"/>
+<area shape="rect" id="Node000009" href="$d7/dca/class_healthbar.html" title=" " alt="" coords="447,124,603,327"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="496,327,481,375,476,373,491,326"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="461,5,589,75"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="528,89,528,124,523,124,523,89"/>
 </map>

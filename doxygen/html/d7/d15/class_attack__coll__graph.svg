@@ -46,7 +46,7 @@
   </g>
 </defs>
 <script type="application/ecmascript">
-var viewWidth = 357;
+var viewWidth = 422;
 var viewHeight = 701;
 var sectionId = 'dynsection-0';
 </script>
@@ -173,13 +173,13 @@ var sectionId = 'dynsection-0';
 <g id="Node000005" class="node">
 <title>Node5</title>
 <g id="a_Node000005"><a xlink:href="../../dc/df8/class_area2_d.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="none" points="213.5,-554 170.5,-554 170.5,-502 213.5,-502 213.5,-554"/>
-<text text-anchor="start" x="175.5" y="-540.5" font-family="Helvetica,sans-Serif" font-size="10.00">Area2D</text>
-<text text-anchor="start" x="190.5" y="-524.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="190.5" y="-508.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#666666" stroke="#666666" points="170.5,-536 170.5,-536 213.5,-536 213.5,-536 170.5,-536"/>
-<polygon fill="#666666" stroke="#666666" points="170.5,-520 170.5,-520 213.5,-520 213.5,-520 170.5,-520"/>
-<polygon fill="none" stroke="#666666" points="170.5,-502 170.5,-554 213.5,-554 213.5,-502 170.5,-502"/>
+<polygon fill="white" stroke="none" points="153.5,-554 110.5,-554 110.5,-502 153.5,-502 153.5,-554"/>
+<text text-anchor="start" x="115.5" y="-540.5" font-family="Helvetica,sans-Serif" font-size="10.00">Area2D</text>
+<text text-anchor="start" x="130.5" y="-524.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="130.5" y="-508.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="#666666" stroke="#666666" points="110.5,-536 110.5,-536 153.5,-536 153.5,-536 110.5,-536"/>
+<polygon fill="#666666" stroke="#666666" points="110.5,-520 110.5,-520 153.5,-520 153.5,-520 110.5,-520"/>
+<polygon fill="none" stroke="#666666" points="110.5,-502 110.5,-554 153.5,-554 153.5,-502 110.5,-502"/>
 </a>
 </g>
 </g>
@@ -187,34 +187,22 @@ var sectionId = 'dynsection-0';
 <g id="edge4_Node000004_Node000005" class="edge">
 <title>Node5&#45;&gt;Node4</title>
 <g id="a_edge4_Node000004_Node000005"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M196.69,-490.87C199.71,-467.68 203.82,-436 207.98,-403.98"/>
-<polygon fill="none" stroke="#63b8ff" points="193.24,-490.31 195.42,-500.68 200.18,-491.22 193.24,-490.31"/>
+<path fill="none" stroke="#63b8ff" d="M144.99,-491.51C153.51,-468.26 165.21,-436.29 177.04,-403.98"/>
+<polygon fill="none" stroke="#63b8ff" points="141.76,-490.17 141.61,-500.76 148.33,-492.57 141.76,-490.17"/>
 </a>
 </g>
 </g>
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="../../d7/dca/class_healthbar.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="none" points="348.5,-604 231.5,-604 231.5,-452 348.5,-452 348.5,-604"/>
-<text text-anchor="start" x="269" y="-590.5" font-family="Helvetica,sans-Serif" font-size="10.00">Healthbar</text>
-<text text-anchor="start" x="288.5" y="-574.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="235.5" y="-558.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="245.5" y="-558.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void _Ready()</text>
-<text text-anchor="start" x="235.5" y="-542.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="245.5" y="-542.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void _Process</text>
-<text text-anchor="start" x="245.5" y="-530.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double delta)</text>
-<text text-anchor="start" x="235.5" y="-514.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="245.5" y="-514.5" font-family="Helvetica,sans-Serif" font-size="10.00">void InitHealthbar</text>
-<text text-anchor="start" x="245.5" y="-502.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double health)</text>
-<text text-anchor="start" x="235.5" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="245.5" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">void SetHealthPoints</text>
-<text text-anchor="start" x="245.5" y="-474.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double newHealth)</text>
-<text text-anchor="start" x="235.5" y="-458.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="245.5" y="-458.5" font-family="Helvetica,sans-Serif" font-size="10.00">void OnTimerTimeout()</text>
-<polygon fill="#666666" stroke="#666666" points="231.5,-586 231.5,-586 348.5,-586 348.5,-586 231.5,-586"/>
-<polygon fill="#666666" stroke="#666666" points="231.5,-570 231.5,-570 348.5,-570 348.5,-570 231.5,-570"/>
-<polygon fill="none" stroke="#666666" points="231.5,-452 231.5,-604 348.5,-604 348.5,-452 231.5,-452"/>
+<g id="a_Node000006"><a xlink:title=" ">
+<polygon fill="white" stroke="none" points="278,-554 172,-554 172,-502 278,-502 278,-554"/>
+<text text-anchor="start" x="176.62" y="-540.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioStreamPlayer2D</text>
+<text text-anchor="start" x="223.5" y="-524.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="223.5" y="-508.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="#666666" stroke="#666666" points="172,-536 172,-536 278,-536 278,-536 172,-536"/>
+<polygon fill="#666666" stroke="#666666" points="172,-520 172,-520 278,-520 278,-520 172,-520"/>
+<polygon fill="none" stroke="#666666" points="172,-502 172,-554 278,-554 278,-502 172,-502"/>
 </a>
 </g>
 </g>
@@ -222,32 +210,68 @@ var sectionId = 'dynsection-0';
 <g id="edge5_Node000004_Node000006" class="edge">
 <title>Node6&#45;&gt;Node4</title>
 <g id="a_edge5_Node000004_Node000006"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M270.85,-452.17C267.93,-440.75 264.83,-428.66 261.69,-416.35"/>
-<polygon fill="none" stroke="#63b8ff" points="261.72,-416.5 256.36,-411.68 258.75,-404.87 264.11,-409.69 261.72,-416.5"/>
+<path fill="none" stroke="#63b8ff" d="M225,-502.18C225,-481.37 225,-449.82 225,-416.72"/>
+<polygon fill="none" stroke="#63b8ff" points="225,-416.88 221,-410.88 225,-404.88 229,-410.88 225,-416.88"/>
 </a>
 </g>
-<text text-anchor="middle" x="289.61" y="-424.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +healthbar</text>
+<text text-anchor="middle" x="249.75" y="-424.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +HitSound</text>
 </g>
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:title=" ">
-<polygon fill="white" stroke="none" points="338,-693 242,-693 242,-641 338,-641 338,-693"/>
-<text text-anchor="start" x="246.88" y="-679.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextureProgressBar</text>
-<text text-anchor="start" x="288.5" y="-663.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="288.5" y="-647.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#666666" stroke="#666666" points="242,-675 242,-675 338,-675 338,-675 242,-675"/>
-<polygon fill="#666666" stroke="#666666" points="242,-659 242,-659 338,-659 338,-659 242,-659"/>
-<polygon fill="none" stroke="#666666" points="242,-641 242,-693 338,-693 338,-641 242,-641"/>
+<g id="a_Node000007"><a xlink:href="../../d7/dca/class_healthbar.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="none" points="413.5,-604 296.5,-604 296.5,-452 413.5,-452 413.5,-604"/>
+<text text-anchor="start" x="334" y="-590.5" font-family="Helvetica,sans-Serif" font-size="10.00">Healthbar</text>
+<text text-anchor="start" x="353.5" y="-574.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="300.5" y="-558.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="310.5" y="-558.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void _Ready()</text>
+<text text-anchor="start" x="300.5" y="-542.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="310.5" y="-542.5" font-family="Helvetica,sans-Serif" font-size="10.00">override void _Process</text>
+<text text-anchor="start" x="310.5" y="-530.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double delta)</text>
+<text text-anchor="start" x="300.5" y="-514.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="310.5" y="-514.5" font-family="Helvetica,sans-Serif" font-size="10.00">void InitHealthbar</text>
+<text text-anchor="start" x="310.5" y="-502.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double health)</text>
+<text text-anchor="start" x="300.5" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="310.5" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">void SetHealthPoints</text>
+<text text-anchor="start" x="310.5" y="-474.5" font-family="Helvetica,sans-Serif" font-size="10.00">(double newHealth)</text>
+<text text-anchor="start" x="300.5" y="-458.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="310.5" y="-458.5" font-family="Helvetica,sans-Serif" font-size="10.00">void OnTimerTimeout()</text>
+<polygon fill="#666666" stroke="#666666" points="296.5,-586 296.5,-586 413.5,-586 413.5,-586 296.5,-586"/>
+<polygon fill="#666666" stroke="#666666" points="296.5,-570 296.5,-570 413.5,-570 413.5,-570 296.5,-570"/>
+<polygon fill="none" stroke="#666666" points="296.5,-452 296.5,-604 413.5,-604 413.5,-452 296.5,-452"/>
 </a>
 </g>
 </g>
-<!-- Node7&#45;&gt;Node6 -->
-<g id="edge6_Node000006_Node000007" class="edge">
-<title>Node7&#45;&gt;Node6</title>
-<g id="a_edge6_Node000006_Node000007"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M290,-629.92C290,-621.8 290,-612.88 290,-603.81"/>
-<polygon fill="none" stroke="#63b8ff" points="286.5,-629.68 290,-639.68 293.5,-629.68 286.5,-629.68"/>
+<!-- Node7&#45;&gt;Node4 -->
+<g id="edge6_Node000004_Node000007" class="edge">
+<title>Node7&#45;&gt;Node4</title>
+<g id="a_edge6_Node000004_Node000007"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M316.7,-452.17C310.74,-440.51 304.41,-428.15 297.98,-415.58"/>
+<polygon fill="none" stroke="#63b8ff" points="297.92,-415.48 291.63,-411.97 292.46,-404.8 298.75,-408.32 297.92,-415.48"/>
+</a>
+</g>
+<text text-anchor="middle" x="329.84" y="-424.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +healthbar</text>
+</g>
+<!-- Node8 -->
+<g id="Node000008" class="node">
+<title>Node8</title>
+<g id="a_Node000008"><a xlink:title=" ">
+<polygon fill="white" stroke="none" points="403,-693 307,-693 307,-641 403,-641 403,-693"/>
+<text text-anchor="start" x="311.88" y="-679.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextureProgressBar</text>
+<text text-anchor="start" x="353.5" y="-663.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="353.5" y="-647.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="#666666" stroke="#666666" points="307,-675 307,-675 403,-675 403,-675 307,-675"/>
+<polygon fill="#666666" stroke="#666666" points="307,-659 307,-659 403,-659 403,-659 307,-659"/>
+<polygon fill="none" stroke="#666666" points="307,-641 307,-693 403,-693 403,-641 307,-641"/>
+</a>
+</g>
+</g>
+<!-- Node8&#45;&gt;Node7 -->
+<g id="edge7_Node000007_Node000008" class="edge">
+<title>Node8&#45;&gt;Node7</title>
+<g id="a_edge7_Node000007_Node000008"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M355,-629.92C355,-621.8 355,-612.88 355,-603.81"/>
+<polygon fill="none" stroke="#63b8ff" points="351.5,-629.68 355,-639.68 358.5,-629.68 351.5,-629.68"/>
 </a>
 </g>
 </g>

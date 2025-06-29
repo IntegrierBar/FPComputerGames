@@ -1,9 +1,11 @@
 <map id="HealthComponent" name="HealthComponent">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,391,248,743"/>
-<area shape="rect" id="Node000002" href="$dc/df8/class_area2_d.html" title=" " alt="" coords="55,191,113,260"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,275,107,390,102,391,87,275"/>
-<area shape="rect" id="Node000003" href="$d7/dca/class_healthbar.html" title=" " alt="" coords="137,124,293,327"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="191,327,179,375,174,374,186,326"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="151,5,279,75"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="217,89,217,124,212,124,212,89"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="37,391,279,743"/>
+<area shape="rect" id="Node000002" href="$dc/df8/class_area2_d.html" title=" " alt="" coords="5,191,63,260"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,273,97,390,92,392,49,275"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="87,191,229,260"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,260,161,374,155,374,155,260"/>
+<area shape="rect" id="Node000004" href="$d7/dca/class_healthbar.html" title=" " alt="" coords="253,124,409,327"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="283,328,258,376,253,374,278,325"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="267,5,395,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="334,89,334,124,329,124,329,89"/>
 </map>

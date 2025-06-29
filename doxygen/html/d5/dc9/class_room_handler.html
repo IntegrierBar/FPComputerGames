@@ -94,12 +94,12 @@ $(function(){ initResizable(false); });
 <div class="dynheader">
 Inheritance diagram for RoomHandler:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d95/class_room_handler__inherit__graph.svg" width="224" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d95/class_room_handler__inherit__graph.svg" width="224" height="395"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Collaboration diagram for RoomHandler:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d4d/class_room_handler__coll__graph.svg" width="224" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d4d/class_room_handler__coll__graph.svg" width="224" height="395"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -107,10 +107,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a625e58928169ec45bbed20493c5b65d6" id="r_a625e58928169ec45bbed20493c5b65d6"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a625e58928169ec45bbed20493c5b65d6">RoomInitializedEventHandler</a> ()</td></tr>
 <tr class="memdesc:a625e58928169ec45bbed20493c5b65d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal emitted after a new room is loaded.  <br /></td></tr>
 <tr class="separator:a625e58928169ec45bbed20493c5b65d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ef994669a8c0e938256a2869b89211" id="r_ac0ef994669a8c0e938256a2869b89211"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0ef994669a8c0e938256a2869b89211">RoomClearedEventHandler</a> ()</td></tr>
+<tr class="memdesc:ac0ef994669a8c0e938256a2869b89211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal emitted once all enemies in the room have been killed.  <br /></td></tr>
+<tr class="separator:ac0ef994669a8c0e938256a2869b89211"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad032a8250abb62922c05c87162687e3d" id="r_ad032a8250abb62922c05c87162687e3d"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad032a8250abb62922c05c87162687e3d">_Ready</a> ()</td></tr>
 <tr class="separator:ad032a8250abb62922c05c87162687e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8f26d5ec93ef8056b0669a5932afc8a" id="r_ab8f26d5ec93ef8056b0669a5932afc8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8f26d5ec93ef8056b0669a5932afc8a">LoadRoom</a> (<a class="el" href="../../df/d3f/class_room.html">Room</a> room, <a class="el" href="../../d8/dc1/enums_8cs.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> enterDirection)</td></tr>
 <tr class="separator:ab8f26d5ec93ef8056b0669a5932afc8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a560aeed35cd72c5ace6036915c9247df" id="r_a560aeed35cd72c5ace6036915c9247df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a560aeed35cd72c5ace6036915c9247df">EnableRoomExits</a> ()</td></tr>
+<tr class="separator:a560aeed35cd72c5ace6036915c9247df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a966dc77b20fc246b36f96859b23a09e3" id="r_a966dc77b20fc246b36f96859b23a09e3"><td class="memItemLeft" align="right" valign="top">Rect2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a966dc77b20fc246b36f96859b23a09e3">GetCurrentRoomBounds</a> ()</td></tr>
 <tr class="separator:a966dc77b20fc246b36f96859b23a09e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -150,6 +155,32 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Called when the node is added to the scene. Initializes the player and room handler, and loads the initial room. </p>
+
+</div>
+</div>
+<a id="a560aeed35cd72c5ace6036915c9247df" name="a560aeed35cd72c5ace6036915c9247df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a560aeed35cd72c5ace6036915c9247df">&#9670;&#160;</a></span>EnableRoomExits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RoomHandler.EnableRoomExits </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Enables the Rooms Exits. </p>
 
 </div>
 </div>
@@ -214,6 +245,25 @@ Properties</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ac0ef994669a8c0e938256a2869b89211" name="ac0ef994669a8c0e938256a2869b89211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ef994669a8c0e938256a2869b89211">&#9670;&#160;</a></span>RoomClearedEventHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void RoomHandler.RoomClearedEventHandler </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Signal emitted once all enemies in the room have been killed. </p>
 
 </div>
 </div>

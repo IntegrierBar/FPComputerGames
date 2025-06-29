@@ -93,26 +93,26 @@ $(function(){ initResizable(false); });
 <div class="dynheader">
 Inheritance diagram for CastAdditionalSpell:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d70/class_cast_additional_spell__inherit__graph.svg" width="195" height="427"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d70/class_cast_additional_spell__inherit__graph.svg" width="195" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Collaboration diagram for CastAdditionalSpell:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d5b/class_cast_additional_spell__coll__graph.svg" width="195" height="427"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d5b/class_cast_additional_spell__coll__graph.svg" width="195" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a93aaf8f7da61945a96694f0a630e5059" id="r_a93aaf8f7da61945a96694f0a630e5059"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93aaf8f7da61945a96694f0a630e5059">Equip</a> (SceneTree sceneTree)</td></tr>
 <tr class="separator:a93aaf8f7da61945a96694f0a630e5059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c850769d97ec4f1ae5e6853d3607830" id="r_a5c850769d97ec4f1ae5e6853d3607830"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c850769d97ec4f1ae5e6853d3607830">UnEquip</a> (SceneTree sceneTree)</td></tr>
+<tr class="separator:a5c850769d97ec4f1ae5e6853d3607830"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad92c64133e256926e023a77b19695acd" id="r_ad92c64133e256926e023a77b19695acd"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad92c64133e256926e023a77b19695acd">Description</a> ()</td></tr>
 <tr class="separator:ad92c64133e256926e023a77b19695acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_augment_effect"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_augment_effect')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d5/d2b/class_augment_effect.html">AugmentEffect</a></td></tr>
-<tr class="memitem:a65bf699f2aeeabc200f01db0fd51cfb3 inherit pub_methods_class_augment_effect" id="r_a65bf699f2aeeabc200f01db0fd51cfb3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d2b/class_augment_effect.html#a65bf699f2aeeabc200f01db0fd51cfb3">UnEquip</a> (SceneTree sceneTree)</td></tr>
-<tr class="separator:a65bf699f2aeeabc200f01db0fd51cfb3 inherit pub_methods_class_augment_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="../../d5/d2b/class_augment_effect.html">AugmentEffect</a> to cast one spell, when casting another. The UnEquiping is handled in the player class </p>
+<div class="textblock"><p><a class="el" href="../../d5/d2b/class_augment_effect.html">AugmentEffect</a> to cast one spell, when casting another. The UnEquiping is handled in the player class.</p>
+<p>The basic spells are never the _castedSpell. Combinations only exist in one direction. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad92c64133e256926e023a77b19695acd" name="ad92c64133e256926e023a77b19695acd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad92c64133e256926e023a77b19695acd">&#9670;&#160;</a></span>Description()</h2>
@@ -167,6 +167,34 @@ Public Member Functions</h2></td></tr>
 <p>If _castedSpell is in a <a class="el" href="../../d8/d0d/class_spell.html">Spell</a> Group, we also add _additionalSpell </p>
 
 <p>Reimplemented from <a class="el" href="../../d5/d2b/class_augment_effect.html#abeeaabe848b3e8686b7966bcd983a1a7">AugmentEffect</a>.</p>
+
+</div>
+</div>
+<a id="a5c850769d97ec4f1ae5e6853d3607830" name="a5c850769d97ec4f1ae5e6853d3607830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c850769d97ec4f1ae5e6853d3607830">&#9670;&#160;</a></span>UnEquip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void CastAdditionalSpell.UnEquip </td>
+          <td>(</td>
+          <td class="paramtype">SceneTree</td>          <td class="paramname"><span class="paramname"><em>sceneTree</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>We need to manually unequip _additionalSpell from the group if _castedSpell is in the group. This is ugly and should be changed once skill tree exists. But it works for how, since cyclic dependancies do not exist TODO this should not be neccessary anymore </p>
+
+<p>Reimplemented from <a class="el" href="../../d5/d2b/class_augment_effect.html#a65bf699f2aeeabc200f01db0fd51cfb3">AugmentEffect</a>.</p>
 
 </div>
 </div>

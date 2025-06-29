@@ -1,5 +1,7 @@
 <map id="EnemySpawn" name="EnemySpawn">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,129,192"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="37,5,98,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,90,70,123,65,123,65,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="22,139,146,208"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,67,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,88,74,138,69,140,51,90"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="91,5,173,75"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,76,105,124,100,122,117,74"/>
 </map>

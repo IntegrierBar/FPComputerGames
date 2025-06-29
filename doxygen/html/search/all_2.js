@@ -5,10 +5,16 @@ var searchData=
   ['basemenu_2ecs_2',['BaseMenu.cs',['../dc/d39/_base_menu_8cs.html',1,'']]],
   ['basicspell_3',['BasicSpell',['../d6/df9/class_basic_spell.html',1,'']]],
   ['basicspell_2ecs_4',['BasicSpell.cs',['../d5/d24/_basic_spell_8cs.html',1,'']]],
-  ['blackhole_5',['BlackHole',['../db/d1b/class_black_hole.html',1,'BlackHole'],['../d8/dc1/enums_8cs.html#ab2eb8cc157eddd28d23f10712d8a3860a304b1ab59a7025e65af5f994a3e1cde0',1,'BlackHole:&#160;enums.cs']]],
-  ['blackhole_2ecs_6',['BlackHole.cs',['../d0/dce/_black_hole_8cs.html',1,'']]],
-  ['boost_7',['boost',['../df/d1e/class_moon_light.html#ad11935d224e2d22084a9e73775a04cf1',1,'MoonLight']]],
-  ['boss_8',['Boss',['../d7/d50/class_entity_type_component.html#a4057a0771e18e66d156338a17a815daaa5859831e2b3db23528c710b1451e13fc',1,'EntityTypeComponent.Boss'],['../d5/d98/_room_8cs.html#ab540f7414f306325d92272bcef1e34e1a5859831e2b3db23528c710b1451e13fc',1,'Boss:&#160;Room.cs']]],
-  ['bossposition_9',['BossPosition',['../d6/d2d/class_dungeon.html#a9c0c2c27294c9fc0151090c3048e86c9',1,'Dungeon']]],
-  ['builddescription_10',['BuildDescription',['../de/d8a/class_augment.html#a9baae7c576edc827fa6841d36237e19a',1,'Augment']]]
+  ['beamangle_5',['BeamAngle',['../dd/ddb/class_flash_light_texture_generator.html#a7afcb55c178328d4a77000266482f523',1,'FlashLightTextureGenerator.BeamAngle'],['../d5/d00/class_sun_beam.html#a0e1712c2cb6d86f7d4eb9acbcdb3f1cf',1,'SunBeam.BeamAngle']]],
+  ['beamcolor_6',['BeamColor',['../dd/ddb/class_flash_light_texture_generator.html#a7cae8ffc859c7aa52ec705e10e8ec789',1,'FlashLightTextureGenerator.BeamColor'],['../d5/d00/class_sun_beam.html#aa3d9118451daedd7854ee71caa24d75c',1,'SunBeam.BeamColor']]],
+  ['beamsegments_7',['BeamSegments',['../d5/d00/class_sun_beam.html#afc2f0d7119866aa95e4f36165c7987d5',1,'SunBeam']]],
+  ['big_5fslime_8',['BIG_SLIME',['../d3/de9/_enemy_spawn_8cs.html#a2955cca9df1e3f8faa105a79669676dcae8e2ba5472f97ad13da9f26b0ed16c95',1,'EnemySpawn.cs']]],
+  ['blackhole_9',['BlackHole',['../db/d1b/class_black_hole.html',1,'BlackHole'],['../d8/dc1/enums_8cs.html#ab2eb8cc157eddd28d23f10712d8a3860a304b1ab59a7025e65af5f994a3e1cde0',1,'BlackHole:&#160;enums.cs']]],
+  ['blackhole_2ecs_10',['BlackHole.cs',['../d0/dce/_black_hole_8cs.html',1,'']]],
+  ['boost_11',['boost',['../df/d1e/class_moon_light.html#ad11935d224e2d22084a9e73775a04cf1',1,'MoonLight']]],
+  ['boss_12',['Boss',['../d7/d50/class_entity_type_component.html#a4057a0771e18e66d156338a17a815daaa5859831e2b3db23528c710b1451e13fc',1,'EntityTypeComponent.Boss'],['../d5/d98/_room_8cs.html#ab540f7414f306325d92272bcef1e34e1a5859831e2b3db23528c710b1451e13fc',1,'Boss:&#160;Room.cs']]],
+  ['bossposition_13',['BossPosition',['../d6/d2d/class_dungeon.html#a9c0c2c27294c9fc0151090c3048e86c9',1,'Dungeon']]],
+  ['bossroom_14',['BossRoom',['../d8/d1e/class_boss_room.html',1,'']]],
+  ['bossroom_2ecs_15',['BossRoom.cs',['../dd/d76/_boss_room_8cs.html',1,'']]],
+  ['builddescription_16',['BuildDescription',['../de/d8a/class_augment.html#a9baae7c576edc827fa6841d36237e19a',1,'Augment']]]
 ];

@@ -93,20 +93,20 @@ $(function(){ initResizable(false); });
 <div class="dynheader">
 Inheritance diagram for IncreaseDurationOfSpell:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/ddc/class_increase_duration_of_spell__inherit__graph.svg" width="195" height="598"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/ddc/class_increase_duration_of_spell__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Collaboration diagram for IncreaseDurationOfSpell:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/da8/class_increase_duration_of_spell__coll__graph.svg" width="195" height="598"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d9/da8/class_increase_duration_of_spell__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a34aa6b28c70e1ccb3af74f3785c24da9" id="r_a34aa6b28c70e1ccb3af74f3785c24da9"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34aa6b28c70e1ccb3af74f3785c24da9">Equip</a> (SceneTree sceneTree)</td></tr>
 <tr class="separator:a34aa6b28c70e1ccb3af74f3785c24da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa1a338a45fe325a3c97190c1e31fe6c" id="r_afa1a338a45fe325a3c97190c1e31fe6c"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa1a338a45fe325a3c97190c1e31fe6c">OnCast</a> (<a class="el" href="../../d8/d0d/class_spell.html">Spell</a> spell)</td></tr>
-<tr class="separator:afa1a338a45fe325a3c97190c1e31fe6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa892aa196d8610ddf7955cf9cc75b0a9" id="r_aa892aa196d8610ddf7955cf9cc75b0a9"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa892aa196d8610ddf7955cf9cc75b0a9">OnCast</a> (<a class="el" href="../../d8/d0d/class_spell.html">Spell</a> spell, Vector2 playerPosition, Vector2 targetPosition)</td></tr>
+<tr class="separator:aa892aa196d8610ddf7955cf9cc75b0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a268324d3af0774f464e7df89c5218d11" id="r_a268324d3af0774f464e7df89c5218d11"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a268324d3af0774f464e7df89c5218d11">Description</a> ()</td></tr>
 <tr class="separator:a268324d3af0774f464e7df89c5218d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_augment_effect"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_augment_effect')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d5/d2b/class_augment_effect.html">AugmentEffect</a></td></tr>
@@ -172,8 +172,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afa1a338a45fe325a3c97190c1e31fe6c" name="afa1a338a45fe325a3c97190c1e31fe6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa1a338a45fe325a3c97190c1e31fe6c">&#9670;&#160;</a></span>OnCast()</h2>
+<a id="aa892aa196d8610ddf7955cf9cc75b0a9" name="aa892aa196d8610ddf7955cf9cc75b0a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa892aa196d8610ddf7955cf9cc75b0a9">&#9670;&#160;</a></span>OnCast()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,8 +184,17 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">override void IncreaseDurationOfSpell.OnCast </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d0d/class_spell.html">Spell</a></td>          <td class="paramname"><span class="paramname"><em>spell</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d8/d0d/class_spell.html">Spell</a></td>          <td class="paramname"><span class="paramname"><em>spell</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">Vector2</td>          <td class="paramname"><span class="paramname"><em>playerPosition</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector2</td>          <td class="paramname"><span class="paramname"><em>targetPosition</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -196,7 +205,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Increases the duration of the spell </p>
 
-<p>Reimplemented from <a class="el" href="../../d8/d16/class_on_cast_augment_effect.html#a00ce6a265d9f9d647cddd415c57048a6">OnCastAugmentEffect</a>.</p>
+<p>Reimplemented from <a class="el" href="../../d8/d16/class_on_cast_augment_effect.html#a956d0117a6cb9325e2cdd6545cdc1ded">OnCastAugmentEffect</a>.</p>
 
 </div>
 </div>

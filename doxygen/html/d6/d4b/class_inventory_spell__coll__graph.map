@@ -1,19 +1,23 @@
 <map id="InventorySpell" name="InventorySpell">
-<area shape="rect" id="Node000001" title=" " alt="" coords="93,855,349,1111"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="145,855,401,1111"/>
 <area shape="rect" id="Node000002" href="$dc/d8f/class_node.html" title=" " alt="" coords="5,532,49,601"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,616,42,663,54,718,72,775,98,829,113,853,108,856,93,832,67,777,49,719,37,664,29,617"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="31,616,36,664,46,719,64,776,91,829,117,862,147,892,143,896,113,866,86,832,59,778,41,721,31,665,26,617"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="74,532,125,601"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="99,601,96,647,97,705,104,768,119,830,122,838,117,840,114,831,98,769,92,706,91,647,93,601"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="165,532,241,601"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="207,601,217,838,212,838,202,601"/>
-<area shape="rect" id="Node000005" href="$d1/da7/class_health_component.html" title=" " alt="" coords="266,391,509,743"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="331,743,296,832,293,840,288,838,292,830,326,742"/>
-<area shape="rect" id="Node000006" href="$dc/df8/class_area2_d.html" title=" " alt="" coords="315,191,372,260"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="352,274,367,390,362,391,347,275"/>
-<area shape="rect" id="Node000007" href="$d7/dca/class_healthbar.html" title=" " alt="" coords="396,124,552,327"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="451,327,439,375,434,374,446,326"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="410,5,538,75"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="477,89,477,124,471,124,471,89"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="533,532,626,601"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="578,602,568,651,551,712,524,775,506,805,485,832,459,859,429,883,365,923,362,919,426,879,455,855,481,829,502,802,519,773,546,710,563,650,573,601"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="96,601,91,648,90,707,97,769,105,800,116,830,137,864,132,867,111,832,100,802,92,770,85,707,86,648,91,601"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="183,532,259,601"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="219,601,211,704,212,767,219,830,220,838,215,839,214,831,207,768,206,704,213,601"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="285,532,362,601"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="323,602,299,831,298,838,293,837,294,830,318,601"/>
+<area shape="rect" id="Node000006" href="$d1/da7/class_health_component.html" title=" " alt="" coords="386,391,629,743"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="439,744,392,832,386,842,382,839,388,829,434,741"/>
+<area shape="rect" id="Node000007" href="$dc/df8/class_area2_d.html" title=" " alt="" coords="355,191,412,260"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="403,273,446,390,441,392,398,275"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="437,191,578,260"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="510,260,510,374,505,374,505,260"/>
+<area shape="rect" id="Node000009" href="$d7/dca/class_healthbar.html" title=" " alt="" coords="603,124,759,327"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="632,328,607,376,602,374,627,325"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="617,5,745,75"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="683,89,683,124,678,124,678,89"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="653,532,746,601"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="697,602,686,652,665,714,634,778,613,807,589,833,550,864,506,892,418,936,415,931,504,887,547,860,586,829,609,803,629,775,660,712,680,651,692,600"/>
 </map>

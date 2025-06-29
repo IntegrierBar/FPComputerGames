@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['oncastaugmenteffect_0',['OnCastAugmentEffect',['../d8/d16/class_on_cast_augment_effect.html',1,'']]],
-  ['optionbutton_1',['OptionButton',['../df/d33/class_option_button.html',1,'']]]
+  ['newgamemenu_0',['NewGameMenu',['../dd/d8a/class_new_game_menu.html',1,'']]],
+  ['node_1',['Node',['../dc/d8f/class_node.html',1,'']]]
 ];

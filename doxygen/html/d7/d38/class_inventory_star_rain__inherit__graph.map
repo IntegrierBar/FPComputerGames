@@ -1,7 +1,7 @@
 <map id="InventoryStarRain" name="InventoryStarRain">
-<area shape="rect" id="Node000001" title=" " alt="" coords="31,571,235,731"/>
-<area shape="rect" id="Node000002" href="$d0/d1e/class_inventory_spell.html" title=" " alt="" coords="5,123,261,523"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,538,136,571,131,571,131,538"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="31,592,235,752"/>
+<area shape="rect" id="Node000002" href="$d0/d1e/class_inventory_spell.html" title=" " alt="" coords="5,123,261,544"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,559,136,592,131,592,131,559"/>
 <area shape="rect" id="Node000003" href="$dc/d8f/class_node.html" title=" " alt="" coords="111,5,155,75"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="136,90,136,123,131,123,131,90"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="136,89,136,123,131,123,131,89"/>
 </map>

@@ -65,14 +65,14 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="../../d4/dc3/class_canvas_layer.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="none" points="116.5,-344 49.5,-344 49.5,-292 116.5,-292 116.5,-344"/>
-<text text-anchor="start" x="54.12" y="-330.5" font-family="Helvetica,sans-Serif" font-size="10.00">CanvasLayer</text>
+<g id="a_Node000003"><a xlink:href="../../dc/d8f/class_node.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="none" points="99.5,-344 66.5,-344 66.5,-292 99.5,-292 99.5,-344"/>
+<text text-anchor="start" x="71.38" y="-330.5" font-family="Helvetica,sans-Serif" font-size="10.00">Node</text>
 <text text-anchor="start" x="81.5" y="-314.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <text text-anchor="start" x="81.5" y="-298.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#666666" stroke="#666666" points="49.5,-326 49.5,-326 116.5,-326 116.5,-326 49.5,-326"/>
-<polygon fill="#666666" stroke="#666666" points="49.5,-310 49.5,-310 116.5,-310 116.5,-310 49.5,-310"/>
-<polygon fill="none" stroke="#666666" points="49.5,-292 49.5,-344 116.5,-344 116.5,-292 49.5,-292"/>
+<polygon fill="#666666" stroke="#666666" points="66.5,-326 66.5,-326 99.5,-326 99.5,-326 66.5,-326"/>
+<polygon fill="#666666" stroke="#666666" points="66.5,-310 66.5,-310 99.5,-310 99.5,-310 66.5,-310"/>
+<polygon fill="none" stroke="#666666" points="66.5,-292 66.5,-344 99.5,-344 99.5,-292 66.5,-292"/>
 </a>
 </g>
 </g>

@@ -1,7 +1,9 @@
 <map id="PanelContainer" name="PanelContainer">
-<area shape="rect" id="Node000001" title=" " alt="" coords="179,5,281,75"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="271,5,373,75"/>
 <area shape="rect" id="Node000002" href="$d0/d7a/class_inventory_slot.html" title=" " alt="" coords="5,123,220,373"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,89,186,124,181,122,201,86"/>
-<area shape="rect" id="Node000003" href="$d5/de4/class_u_i_spell_slot.html" title="Class for the Spell Box that shows the currently active spell." alt="" coords="245,136,453,360"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="259,86,287,135,283,138,254,89"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,86,233,125,222,136,218,132,229,121,271,82"/>
+<area shape="rect" id="Node000003" href="$dd/d2a/class_skill_slot.html" title=" " alt="" coords="244,195,400,301"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="325,89,325,195,319,195,319,89"/>
+<area shape="rect" id="Node000004" href="$d5/de4/class_u_i_spell_slot.html" title="Class for the Spell Box that shows the currently active spell." alt="" coords="425,136,633,360"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="374,83,415,121,429,135,425,139,411,125,370,86"/>
 </map>

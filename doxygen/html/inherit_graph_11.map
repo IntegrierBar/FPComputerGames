@@ -1,7 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$d3/dd2/class_panel_container.html" title=" " alt="" coords="5,31,116,57"/>
-<area shape="rect" id="Node000001" href="$d0/d7a/class_inventory_slot.html" title=" " alt="" coords="164,5,262,32"/>
-<area shape="poly" id="edge65_Node000000_Node000001" title=" " alt="" coords="131,30,163,24,164,29,132,35"/>
-<area shape="rect" id="Node000002" href="$d5/de4/class_u_i_spell_slot.html" title="Class for the Spell Box that shows the currently active spell." alt="" coords="169,56,256,83"/>
-<area shape="poly" id="edge66_Node000000_Node000002" title=" " alt="" coords="132,53,169,59,168,65,131,58"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,81,75,108"/>
+<area shape="rect" id="Node000001" href="$d8/d1e/class_boss_room.html" title=" " alt="" coords="134,5,220,32"/>
+<area shape="poly" id="edge62_Node000000_Node000001" title=" " alt="" coords="74,70,121,42,144,30,146,35,124,46,77,75"/>
+<area shape="rect" id="Node000002" href="$d3/d03/class_enemy_spawn.html" title=" " alt="" coords="126,56,228,83"/>
+<area shape="poly" id="edge63_Node000000_Node000002" title=" " alt="" coords="90,83,125,76,126,81,91,88"/>
+<area shape="rect" id="Node000003" href="$d2/df4/class_room1.html" title=" " alt="" coords="145,107,208,133"/>
+<area shape="poly" id="edge64_Node000000_Node000003" title=" " alt="" coords="90,101,145,112,144,117,89,106"/>
+<area shape="rect" id="Node000004" href="$d9/dd3/class_room_entrance.html" title=" " alt="" coords="123,157,231,184"/>
+<area shape="poly" id="edge65_Node000000_Node000004" title=" " alt="" coords="77,115,124,143,146,154,144,159,121,148,74,119"/>
 </map>

@@ -107,8 +107,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac1c06d1885bb528d73be4e40647cc854"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3ed9bde71e691945355eb1767d8c731" id="r_ac3ed9bde71e691945355eb1767d8c731"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3ed9bde71e691945355eb1767d8c731">_PhysicsProcess</a> (double delta)</td></tr>
 <tr class="separator:ac3ed9bde71e691945355eb1767d8c731"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5da0e2c70879767a0e6472c088b902f" id="r_ae5da0e2c70879767a0e6472c088b902f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/db7/class_attack.html">Attack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5da0e2c70879767a0e6472c088b902f">CalculateAttack</a> (double distanceToEnemySquared)</td></tr>
-<tr class="separator:ae5da0e2c70879767a0e6472c088b902f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe38f72d73f7eca71f47c1e221d076e2" id="r_abe38f72d73f7eca71f47c1e221d076e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/db7/class_attack.html">Attack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe38f72d73f7eca71f47c1e221d076e2">CalculateAttack</a> (double distanceToEnemy)</td></tr>
+<tr class="separator:abe38f72d73f7eca71f47c1e221d076e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0fd364d9fa66e4bf489ed321c241b15" id="r_ac0fd364d9fa66e4bf489ed321c241b15"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0fd364d9fa66e4bf489ed321c241b15">OnAreaEntered</a> (<a class="el" href="../../dc/df8/class_area2_d.html">Area2D</a> area)</td></tr>
 <tr class="separator:ac0fd364d9fa66e4bf489ed321c241b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_spell"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_spell')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d8/d0d/class_spell.html">Spell</a></td></tr>
@@ -162,8 +162,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ae5da0e2c70879767a0e6472c088b902f" name="ae5da0e2c70879767a0e6472c088b902f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5da0e2c70879767a0e6472c088b902f">&#9670;&#160;</a></span>CalculateAttack()</h2>
+<a id="abe38f72d73f7eca71f47c1e221d076e2" name="abe38f72d73f7eca71f47c1e221d076e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe38f72d73f7eca71f47c1e221d076e2">&#9670;&#160;</a></span>CalculateAttack()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,7 +174,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="../../d9/db7/class_attack.html">Attack</a> Sun.CalculateAttack </td>
           <td>(</td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>distanceToEnemySquared</em></span></td><td>)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>distanceToEnemy</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -184,7 +184,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Calculate the damage depending on the squared distance to the enemy TODO we might want to change this in the future for a better calculation. It probalby needs a scaling factor depending on the size of the sun </p>
+<p>Calculate the damage depending on the distance to the enemy. Use linear scaling since otherwise not fun. </p>
 
 </div>
 </div>
@@ -219,7 +219,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Positions the <a class="el" href="../../d6/d93/class_sun.html">Sun</a> at the mouse position </p>
+<p>Positions the <a class="el" href="../../d6/d93/class_sun.html">Sun</a> at the mouse position. Create the <a class="el" href="../../d9/db7/class_attack.html">Attack</a> is the dmg per second. Since damage is applied 60 times per second, we need to divide by 60 </p>
 
 <p>Reimplemented from <a class="el" href="../../d8/d0d/class_spell.html#a4b3330b53bc8349e53b4e759ee18bd9a">Spell</a>.</p>
 

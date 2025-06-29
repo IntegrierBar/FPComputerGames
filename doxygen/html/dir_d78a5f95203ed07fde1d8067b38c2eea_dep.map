@@ -1,8 +1,12 @@
 <map id="TheMagicApprentice/modules/ui" name="TheMagicApprentice/modules/ui">
-<area shape="rect" id="node2" href="dir_64d36a440f359ce47de67d9a3b19dbdf.html" title="main_hub" alt="" coords="99,64,176,91"/>
-<area shape="rect" id="node3" href="dir_224c46c823ed12776acca442898b2af7.html" title="main_menu" alt="" coords="200,64,288,91"/>
-<area shape="rect" id="node4" href="dir_8f5ed07e4ddeafaaf8a5bb9bb68234d9.html" title="pause_menu" alt="" coords="312,64,408,91"/>
-<area shape="rect" id="node5" href="dir_ed38a89b33108fadab1ee4ea55ed80cd.html" title="settings_menu" alt="" coords="432,64,538,91"/>
-<area shape="rect" id="clust2" href="dir_d78a5f95203ed07fde1d8067b38c2eea.html" alt="" coords="27,53,549,101"/>
-<area shape="rect" id="clust1" href="dir_281a3971acf26abaafec632a279212ee.html" title="modules" alt="" coords="16,16,560,112"/>
+<area shape="rect" id="node2" href="dir_61b3eeccd522ba35b91b22523e49be57.html" title="dungeon_clear_menu" alt="" coords="100,64,244,91"/>
+<area shape="rect" id="node3" href="dir_0f2a1187c5bd052814d63e3cb13a5574.html" title="dungeon_selection" alt="" coords="269,64,398,91"/>
+<area shape="rect" id="node4" href="dir_64d36a440f359ce47de67d9a3b19dbdf.html" title="main_hub" alt="" coords="423,64,500,91"/>
+<area shape="rect" id="node5" href="dir_224c46c823ed12776acca442898b2af7.html" title="main_menu" alt="" coords="524,64,612,91"/>
+<area shape="rect" id="node6" href="dir_8942a8270a746728fc5a118e13209620.html" title="new_game_menu" alt="" coords="636,64,759,91"/>
+<area shape="rect" id="node7" href="dir_8f5ed07e4ddeafaaf8a5bb9bb68234d9.html" title="pause_menu" alt="" coords="783,64,878,91"/>
+<area shape="rect" id="node8" href="dir_ca06c7c85d5855f5c574937b6e122329.html" title="player_death_menu" alt="" coords="902,64,1036,91"/>
+<area shape="rect" id="node9" href="dir_ed38a89b33108fadab1ee4ea55ed80cd.html" title="settings_menu" alt="" coords="1060,64,1166,91"/>
+<area shape="rect" id="clust2" href="dir_d78a5f95203ed07fde1d8067b38c2eea.html" alt="" coords="27,53,1177,101"/>
+<area shape="rect" id="clust1" href="dir_281a3971acf26abaafec632a279212ee.html" title="modules" alt="" coords="16,16,1188,112"/>
 </map>

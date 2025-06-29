@@ -8,11 +8,12 @@ var searchData=
   ['healthlarge_5',['HealthLarge',['../d3/db0/class_slime.html#ab3dcb0ed95a2fded2bd7be5a9c6a3afc',1,'Slime']]],
   ['healthsmall_6',['HealthSmall',['../d3/db0/class_slime.html#a2b7183672dbd3ad52334d0fe4cc2bf7e',1,'Slime']]],
   ['hitbox_7',['HitBox',['../d2/df1/class_player_dashing.html#a9afe377d00fe92c495760633a9450734',1,'PlayerDashing']]],
-  ['homingtimer_8',['HomingTimer',['../de/dbf/class_shooting_attack_projectile.html#a358d17142b3ec427011645904c52cef4',1,'ShootingAttackProjectile']]],
-  ['hpincreaseaugmenteffect_9',['HPIncreaseAugmentEffect',['../d1/d2e/class_h_p_increase_augment_effect.html',1,'']]],
-  ['hpincreaseaugmenteffect_2ecs_10',['HPIncreaseAugmentEffect.cs',['../d3/df3/_h_p_increase_augment_effect_8cs.html',1,'']]],
-  ['hurtboxchargeattack_11',['HurtBoxChargeAttack',['../d8/d3e/class_hurt_box_charge_attack.html',1,'']]],
-  ['hurtboxchargeattack_2ecs_12',['HurtBoxChargeAttack.cs',['../d3/d11/_hurt_box_charge_attack_8cs.html',1,'']]],
-  ['hurtboxstompingattack_13',['HurtBoxStompingAttack',['../dd/daa/class_hurt_box_stomping_attack.html',1,'']]],
-  ['hurtboxstompingattack_2ecs_14',['HurtBoxStompingAttack.cs',['../d2/dec/_hurt_box_stomping_attack_8cs.html',1,'']]]
+  ['hitsound_8',['HitSound',['../d1/da7/class_health_component.html#a0f4ca5ca1ec6bac63bc32d910869ca92',1,'HealthComponent']]],
+  ['homingtimer_9',['HomingTimer',['../de/dbf/class_shooting_attack_projectile.html#a358d17142b3ec427011645904c52cef4',1,'ShootingAttackProjectile']]],
+  ['hpincreaseaugmenteffect_10',['HPIncreaseAugmentEffect',['../d1/d2e/class_h_p_increase_augment_effect.html',1,'']]],
+  ['hpincreaseaugmenteffect_2ecs_11',['HPIncreaseAugmentEffect.cs',['../d3/df3/_h_p_increase_augment_effect_8cs.html',1,'']]],
+  ['hurtboxchargeattack_12',['HurtBoxChargeAttack',['../d8/d3e/class_hurt_box_charge_attack.html',1,'']]],
+  ['hurtboxchargeattack_2ecs_13',['HurtBoxChargeAttack.cs',['../d3/d11/_hurt_box_charge_attack_8cs.html',1,'']]],
+  ['hurtboxstompingattack_14',['HurtBoxStompingAttack',['../dd/daa/class_hurt_box_stomping_attack.html',1,'']]],
+  ['hurtboxstompingattack_2ecs_15',['HurtBoxStompingAttack.cs',['../d2/dec/_hurt_box_stomping_attack_8cs.html',1,'']]]
 ];

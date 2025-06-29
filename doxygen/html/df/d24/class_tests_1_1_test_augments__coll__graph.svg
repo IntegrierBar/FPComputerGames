@@ -32,7 +32,7 @@
 <text text-anchor="start" x="4" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="14" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">void TestGetSetAugmentEffect()</text>
 <text text-anchor="start" x="4" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="14" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">void TestAugmentEquiping()</text>
+<text text-anchor="start" x="14" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">void TestAugmentEquipping()</text>
 <text text-anchor="start" x="4" y="-222.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="14" y="-222.5" font-family="Helvetica,sans-Serif" font-size="10.00">void TestAdditionalStars()</text>
 <text text-anchor="start" x="4" y="-206.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
