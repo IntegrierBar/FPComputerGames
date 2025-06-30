@@ -911,60 +911,13 @@ The game should also not contain large empty spaces devoid of any form of player
 
 #### 2.5.3.2. Class diagrams
 
-```mermaid
-classDiagram
-    class MagicType {
-        Cosmic
-        Dark
-        Sun
-    }
-    class Player {
-        -int maxHP
-        -int currentHP
-        -int armorValues[3]
-        -int speed
-        -const float invincibilityDuration
-        -float invincibilityTimer
-        -bool invincible
-        -Skill[] skills
-        -Augment[] augments
-        +_ready()
-        +_process(dt)
-        +_process_input(event)
-        +move(direction)
-        +dash(direction)
-        +castSpell(spellIndex, targetPosition)
-        +takeDamage(amount, type)
-        +checkInvincibility()
-    }
-    class Skill {
-        -String name
-        -MagicType magicType
-        -int baseDamage
-        -bool isUpgraded
-        -const float castDuration
-        -float castTimer
-        -bool isCasting
-        +_process(dt)
-        +cast(targetPosition)
-    }
-    class Augment {
-        -String name
-        -String description
-    }
-    Node2D <|-- KinematicBody2D
-    KinematicBody2D <|-- Player
-    Player "1" -- "*" Skill : has >
-    Player "1" -- "*" Augment : has >
-```
 
 
-New class diagram with less details
+Class diagram without all details
 
 ```mermaid
 classDiagram
 
-    Node2D <|-- CharacterBody2D
 
     class MagicType {
         SUN
@@ -991,40 +944,29 @@ classDiagram
     }
     %%note for Attack "used to send damage data to HealthComponent"
 
-    class StateMachine
+    class StateMachine {
+        changeState()
+        processPhysics()
+        processFrame()
+        processInput()
+    }
     
-    Node2D <|-- StateMachine
     StateMachine *-- State : currentState
 
 
     class State {
-        process()
-        physicsProcess()
+        bool canEnter()
+        enter()
+        exit()  
+        processPhysics()
+        processFrame()
+        processInput()
     }
-    Node2D <|-- State
-    State o-- State : transitions
-
-    class MovingPlayer {
-        speed
-    }
-    State <|-- MovingPlayer
-
-    class Idle 
-
-    State <|-- Idle
-
-    class Dashing {
-        dashSpeed
-    }
-    State <|-- Dashing
-
-    class Death 
     
-    State <|-- Death
+    CharacterBody2D *-- State : parent
 
-    class SpellcastingPlayer 
     
-    State <|-- SpellcastingPlayeron
+    State <|-- SpellcastingPlayer
     %%SpellcastingPlayer o-- "3" Skill
 
     class MovingSlime {
@@ -1044,21 +986,23 @@ classDiagram
         armor
         float maxHP
         float currentHP
-        float invincibilityDuration
-        bool invincible
         takeDamage(Attack damage)
         heal(amount)
     }
-    Node2D <|-- HealthComponent
 
     class Player 
     
     CharacterBody2D <|-- Player
     Player "1" -- "1..3" Skill : active
-    Player "1" o-- "0..5" Augment : active
     Player *-- StateMachine
     Player *-- HealthComponent
     Player *-- Inventory
+
+    class Inventory 
+    
+    Inventory o-- "0..*" Augment : inactive
+    Inventory "1" o-- "0..5" Augment : active
+    Inventory o-- "0..*" Skill : unlocked
     
     class Skill {
         String name
@@ -1071,20 +1015,28 @@ classDiagram
     }
 
     class Augment {
-        String name
-        fuse(AugmentEffect effect, int index)
+        String description
+        equip()
+        unequip()
+
     }
 
     class AugmentEffect {
-        name
+        String description
         onEquip()
         onUnequip()
     }
     Augment "1" o-- "1..3" AugmentEffect
 
-    class CurseEffect {
-        name
+    class AugmentManager {
+        AugmentManager instance
+        Augment createRandomAugment()
+        fuseAugments()
     }
+    AugmentManager o-- "0.." Augment
+
+
+
 
     class Slime 
     
@@ -1123,7 +1075,6 @@ classDiagram
         Vector2 GetGridSize()
         Dictionary(Vector2I, Room) GetDungeonLayout()
     }
-    Node <|-- DungeonHandler
     DungeonHandler *-- Dungeon
     DungeonHandler o-- RoomHandler
 
@@ -1135,7 +1086,6 @@ classDiagram
         LoadRoom(Room room, Direction enterDirection)
         Rect2 GetCurrentRoomBounds()
     }
-    Node <|-- RoomHandler
     RoomHandler --> Room : manages
 
     class CameraController {
@@ -1151,11 +1101,32 @@ classDiagram
     Camera2D <|-- CameraController
     CameraController --> RoomHandler : uses
 
-    class Inventory 
-    
-    Node2D <|-- Inventory
-    Inventory o-- "0..*" Augment : inactive
-    Inventory o-- "0..*" Skill : unlocked
+    class CurseEffect {
+        name
+    }
+
+    class CurseHandler {
+        CurseHandler instance
+        activateCurse()
+        deactivateCurse()
+    }
+
+    class BaseMenu {
+        menuType
+        setupMenu()
+        pushMenu(menuType)
+        popMenu()
+        setRootMenu()
+    }
+
+    class MenuManager {
+        pushMenu(menuType)
+        popMenu()
+        setRootMenu()
+        freezeCurrentMenu()
+        unreezeCurrentMenu()
+    }
+
 ```
 
 
